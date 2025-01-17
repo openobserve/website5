@@ -1,44 +1,11 @@
 ---
-import Heading from "../components/HeaderComponents/Heading.vue";
+import Heading from "./core/Heading.vue";
 ---
 
-<div class="bg-zinc-800 min-h-screen flex items-center justify-center">
-  <Heading variant="SectionTitle"> How OpenObserve works? </Heading>
-
-  <Heading variant="SectionDescription">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  </Heading>
-
-  <Heading variant="SemiTitle1"> Install and integrate </Heading>
-
-  <Heading variant="SemiTitle2"> Quick deployment </Heading>
-
-  <Heading variant="SemiTitle2Descrition">
-    Get started in minutes with Docker, Kubernetes, or a single binary. installation.
-  </Heading>
+<div>
+  <Heading
+    title="Full stack observability platform"
+    description="Explore the transformative functionalities of OpenObserve and experience a new level of data observation."
+    align="CENTER"
+  />
 </div>
-
-<script>
-  import FormInput from "../components/formComponents/FormInput.vue";
-
-  export default {
-    name: "Form",
-    components: {
-      FormInput,
-    },
-    data() {
-      return {
-        form: {
-          name: "",
-          email: "",
-          password: "",
-        },
-      };
-    },
-    methods: {
-      handleSubmit() {
-        console.log("Form Submitted:");
-      },
-    },
-  };
-</script>
