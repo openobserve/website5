@@ -1,0 +1,13 @@
+:root {
+    background-color: 1, 1, 1;
+  --text-theme-primary-color: 89, 93, 98;
+  --text-theme-primary-color-100: 244, 244, 245;
+  --text-theme-primary-color-200: 226, 227, 229;
+  --text-theme-primary-color-300: 190, 192, 194;
+  --text-theme-primary-color-400: 146, 154, 158;
+  --text-theme-primary-color-500: 89, 93, 98;
+  --text-theme-primary-color-600: 67, 72, 76;
+  --text-theme-primary-color-700: 53, 59, 64;
+  --text-theme-primary-color-800: 35, 40, 44;
+  --text-theme-primary-color-900: 20, 24, 27;
+}
