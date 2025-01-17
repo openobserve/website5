@@ -10,6 +10,6 @@ const props = defineProps({
   class: String,
 });
 const defualtClasses = computed(() => {
-  return ["container mx-auto px-10 md:py-10 md:mx-10", props.class].join("");
+  return ["container mx-auto px-10 md:py-10 md:py-10", props.class].join("");
 });
 </script>
