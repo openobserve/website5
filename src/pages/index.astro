@@ -1,28 +1,174 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import CustomButton from "../components/core/CustomButton.vue";
+import CustomRoundShape from "../components/core/CustomRoundShape.vue";
+import CustomSection from "../components/core/CustomSection.vue";
+import CustomSeprater from "../components/core/CustomSeprater.vue";
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/core/Header.vue";
+import CustomCard from "../components/cards/CustomCard.vue";
+import CustomInterChange from "../components/core/CustomInterChange.vue";
+import CustomFeatureCard from "../components/cards/CustomFeatureCard.vue";
+import CustomBanner from "../components/core/CustomBanner.vue";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Define the static data for features
+const cardData = [
+  {
+    icon: "/public/Performance.svg",
+    title: "Developers",
+    description:
+      "Debug applications faster with distributed tracing and detailed logs. Track requests across...",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Performance",
+    description:
+      "Monitor your application performance in real-time with actionable insights.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Security",
+    description:
+      "Keep your applications secure with advanced security tools and best practices.",
+  },
+];
+const featureData = [
+  {
+    Title: "Install and integrate",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+  {
+    Title: "Install and integrate",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+];
 ---
 
 <Layout>
-  <!-- <Welcome /> -->
-  <button class="border-4 border-gradient-blue text-black px-4 py-2 rounded-lg">
-    Hello
-  </button>
-  <button
-    class="hover:border-gradient-light-blue bg-gray-dark text-black px-4 py-2 rounded-lg"
-  >
-    Get Demo
-  </button> 
-  <!-- <button class="border-4 border-gradient-blue text-black px-4 py-2 rounded-lg">
-    Hello
-  </button>
-  <button
-    class="hover:border-gradient-light-blue bg-gray-dark text-white px-4 py-2 rounded-lg"
-  >
-    Get Demo
-  </button> -->
-	<h1 class="text-black">Hello wordl</h1>
+  <!-- <CustomButton variant="primary" class='my-1'>
+		Get Demo primary
+	</CustomButton>
+	<CustomButton variant="secondary" class='my-1'>
+		Get Demo secondary
+	</CustomButton>
+	<CustomButton variant="tertiary" class='my-1'>
+		Get Demo tertiary
+	</CustomButton>
+	<CustomSeprater/> -->
+
+  <Header />
+
+  <CustomSection>
+    <CustomCard cards={cardData} />
+  </CustomSection>
+  <!-- Dynamically map through the featureData to pass to CustomInterChange -->
+  {
+    featureData.map((feature, index) => (
+      <CustomInterChange
+        key={index}
+        items={feature.Items}
+        title={feature.Title}
+        image={feature.Image}
+        direction={index % 2 === 0 ? "left" : "right"}
+      />
+    ))
+  }
+  <CustomSection />
+
+  <CustomSection>
+    <CustomFeatureCard cards={cardData} />
+  </CustomSection>
+
+  <CustomBanner
+    title="Fair and transparent pricing"
+    subtitle="Only pay for what you use."
+    buttons={[
+      { text: "View Pricing Plans", variant: "primary" },
+      { text: "Get Started for Free", variant: "secondary" },
+    ]}
+  />
+
+  <!-- <CustomSection>
+    <button class="border-4 border-gradient-blue text-black rounded-lg">
+      Hello
+    </button>
+  </CustomSection> -->
+  <!-- <CustomSection>
+    <CustomRoundShape
+      imgSrc="/src/assets/background.svg"
+      size="small"
+      borderColor="skyblue"
+    />
+  </CustomSection> -->
+  <!-- <CustomSeprater /> -->
+  <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">
+    <CustomButton
+      variant="secondary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="primary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-gray-200">
+    <CustomButton
+      variant="tertiary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-black">
+    <CustomButton
+      variant="ghost"
+      size="small"
+      @click="handleClick"
+      buttonText="Click Me"
+    >
+      <img src="/public/youtube.svg" class="w-5 h-5" />
+    </CustomButton>
+  </div> -->
 </Layout>
