@@ -1,13 +1,84 @@
 ---
-import CustomButton from '../components/core/CustomButton.vue';
-import CustomRoundShape from '../components/core/CustomRoundShape.vue';
-import CustomSection from '../components/core/CustomSection.vue';
-import CustomSeprater from '../components/core/CustomSeprater.vue';
-import Layout from '../layouts/Layout.astro';
+import CustomButton from "../components/core/CustomButton.vue";
+import CustomRoundShape from "../components/core/CustomRoundShape.vue";
+import CustomSection from "../components/core/CustomSection.vue";
+import CustomSeprater from "../components/core/CustomSeprater.vue";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/core/Header.vue";
+import CustomCard from "../components/cards/CustomCard.vue";
+import CustomInterChange from "../components/core/CustomInterChange.vue";
+import CustomFeatureCard from "../components/cards/CustomFeatureCard.vue";
+import CustomBanner from "../components/core/CustomBanner.vue";
+
+// Define the static data for features
+const cardData = [
+  {
+    icon: "/public/Performance.svg",
+    title: "Developers",
+    description:
+      "Debug applications faster with distributed tracing and detailed logs. Track requests across...",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Performance",
+    description:
+      "Monitor your application performance in real-time with actionable insights.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Security",
+    description:
+      "Keep your applications secure with advanced security tools and best practices.",
+  },
+];
+const featureData = [
+  {
+    Title: "Install and integrate",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+  {
+    Title: "Install and integrate",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+];
 ---
 
 <Layout>
-	<!-- <CustomButton variant="primary" class='my-1'>
+  <!-- <CustomButton variant="primary" class='my-1'>
 		Get Demo primary
 	</CustomButton>
 	<CustomButton variant="secondary" class='my-1'>
@@ -17,13 +88,50 @@ import Layout from '../layouts/Layout.astro';
 		Get Demo tertiary
 	</CustomButton>
 	<CustomSeprater/> -->
-	<CustomSection>
-		<button class="border-4 border-gradient-blue text-black rounded-lg">
-			Hello
-		</button>		
-	</CustomSection>
-	<CustomSection>
-		<CustomRoundShape imgSrc='/src/assets/background.svg' containerSize='100px' iconSize="200px" borderColor='skyblue'></CustomRoundShape>
-	</CustomSection>
-	<CustomSeprater/>
+
+  <Header />
+
+  <CustomSection>
+    <CustomCard cards={cardData} />
+  </CustomSection>
+  <!-- Dynamically map through the featureData to pass to CustomInterChange -->
+  {
+    featureData.map((feature, index) => (
+      <CustomInterChange
+        key={index}
+        items={feature.Items}
+        title={feature.Title}
+        image={feature.Image}
+        direction={index % 2 === 0 ? "left" : "right"}
+      />
+    ))
+  }
+  <CustomSection />
+
+  <CustomSection>
+    <CustomFeatureCard cards={cardData} />
+  </CustomSection>
+
+  <CustomBanner
+    title="Fair and transparent pricing"
+    subtitle="Only pay for what you use."
+    buttons={[
+      { text: "View Pricing Plans", styleClass: "primary-btn" },
+      { text: "Get Started for Free", styleClass: "secondary-btn" },
+    ]}
+  />
+
+  <!-- <CustomSection>
+    <button class="border-4 border-gradient-blue text-black rounded-lg">
+      Hello
+    </button>
+  </CustomSection> -->
+  <!-- <CustomSection>
+    <CustomRoundShape
+      imgSrc="/src/assets/background.svg"
+      size="small"
+      borderColor="skyblue"
+    />
+  </CustomSection> -->
+  <!-- <CustomSeprater /> -->
 </Layout>
