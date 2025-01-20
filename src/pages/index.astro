@@ -7,23 +7,41 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<!-- <CustomButton variant="primary" class='my-1'>
-		Get Demo primary
-	</CustomButton>
-	<CustomButton variant="secondary" class='my-1'>
-		Get Demo secondary
-	</CustomButton>
-	<CustomButton variant="tertiary" class='my-1'>
-		Get Demo tertiary
-	</CustomButton>
-	<CustomSeprater/> -->
-	<CustomSection>
-		<button class="border-4 border-gradient-blue text-black rounded-lg">
-			Hello
-		</button>		
-	</CustomSection>
-	<CustomSection>
-		<CustomRoundShape imgSrc='/src/assets/background.svg' containerSize='100px' iconSize="200px" borderColor='skyblue'></CustomRoundShape>
-	</CustomSection>
-	<CustomSeprater/>
+  <div class="mt-5 mx-5 bg-gray-200 py-2">
+    <CustomButton
+      variant="secondary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="primary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-gray-200">
+    <CustomButton
+      variant="tertiary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-black">
+    <CustomButton
+      variant="ghost"
+      size="small"
+      @click="handleClick"
+      buttonText="Click Me"
+    >
+      <img src="/public/youtube.svg" class="w-5 h-5" />
+    </CustomButton>
+  </div>
 </Layout>
