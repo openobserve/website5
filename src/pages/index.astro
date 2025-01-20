@@ -134,4 +134,41 @@ const featureData = [
     />
   </CustomSection> -->
   <!-- <CustomSeprater /> -->
+  <div class="mt-5 mx-5 bg-gray-200 py-2">
+    <CustomButton
+      variant="secondary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="primary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-gray-200">
+    <CustomButton
+      variant="tertiary"
+      size="small"
+      :icon="MyIconComponent"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-black">
+    <CustomButton
+      variant="ghost"
+      size="small"
+      @click="handleClick"
+      buttonText="Click Me"
+    >
+      <img src="/public/youtube.svg" class="w-5 h-5" />
+    </CustomButton>
+  </div>
 </Layout>
