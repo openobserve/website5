@@ -16,19 +16,25 @@ function truncate(text, maxLength = 100) {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-4 p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div
-      class="card rounded-lg p-4 w-72 shadow-md flex flex-col items-start text-start transition-all duration-300 hover:shadow-lg"
+      class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-start transition-all duration-300 hover:shadow-2xl cardShadow"
       v-for="(item, index) in cards"
       :key="index"
     >
-      <div class="mb-4">
-        <img :src="item.icon" alt="Icon" class="w-10 h-10" />
-      </div>
-      <div>
-        <h3 class="text-[#BEC0C2] text-lg font-bold mb-2">{{ item.title }}</h3>
-        <p class="text-[#DCDCDF] text-sm card-description">
-          {{ truncate(item.description) }}
+      <!-- Content Layer -->
+      <div
+        class="flex flex-col space-y-4 w-full h-full rounded-lg bg-[#23282c] p-8"
+      >
+        <img :src="item.icon" alt="Icon" class="w-16 h-16 object-cover" />
+        <h3
+          class="text-[#BEC0C2] text-2xl font-bold truncate"
+          :title="item.title"
+        >
+          {{ item.title }}
+        </h3>
+        <p class="text-[#DCDCDF] text-base line-clamp-3">
+          {{ truncate(item.description, 120) }}
         </p>
       </div>
     </div>
@@ -36,27 +42,8 @@ function truncate(text, maxLength = 100) {
 </template>
 
 <style scoped>
-.card {
-  background: #23282c;
-  border-radius: 20px;
-  border-image: linear-gradient(rgb(208, 251, 255), rgb(119, 139, 255)) 1;
-}
-.card:hover {
-  background-image: linear-gradient(
-    to right,
-    rgba(49, 53, 57),
-    rgba(31, 34, 38)
-  );
-  box-shadow: 0 0 100px 0 rgba(39, 127, 176); /* Shadow effect */
-}
-.card-description {
-  line-height: 1.4;
-  display: -webkit-box;
-  display: box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
-  -webkit-box-orient: vertical;
-  line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.cardShadow:hover {
+  box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  border-radius: 0.5rem;
 }
 </style>

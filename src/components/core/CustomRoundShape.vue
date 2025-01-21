@@ -7,7 +7,7 @@
       // background: getGradientBackground
     }"
   >
-    <div class="absolute inset-[2px] rounded-full bg-black flex items-center justify-center">
+    <div class="absolute inset-[2px] rounded-full bg-gradient-gray flex items-center justify-center">
       <img
         :src="imgSrc"
         alt="Image"

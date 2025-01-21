@@ -86,7 +86,7 @@ export default defineComponent({
         container:
           "btnShadow flex justify-center items-center rounded-full hover:bg-gradient-to-b hover:opacity-100 hover:from-[#d1fbff] hover:from-0% hover:to-[#004883] hover:to-100%",
         background:
-          "bg-trasparent text-white  rounded-full border-2 hover:border-none border-white font-semibold focus:ring focus:ring-sky-300 hover:opacity-80 hover:bg-gradient-to-l hover:from-[#008bff] hover:from-0% hover:via-[#35a0fc] hover:via-38% hover:to-[#99cae9] hover:to-100%",
+          "text-white  rounded-full border-2 hover:border-transparent border-white font-semibold focus:ring focus:ring-sky-300 hover:opacity-80 hover:bg-gradient-to-l hover:from-[#008bff] hover:from-0% hover:via-[#35a0fc] hover:via-38% hover:to-[#99cae9] hover:to-100%",
       },
       tertiary: {
         container:
@@ -98,7 +98,7 @@ export default defineComponent({
         container:
           "flex justify-center items-center rounded-full btnShadowwithIcon hover:bg-gradient-to-b hover:opacity-100 hover:from-[#d1fbff] hover:from-0% hover:via-[#3e4143] hover:via-90% hover:to-[#004883] hover:to-100%",
         background:
-          "bg-transparent text-white font-semibold border-2 hover:border-none hover:bg-gray-100 focus:ring focus:ring-gray-300 rounded-full hover:opacity-50 hover:bg-gradient-to-b hover:from-[#9ca4a9] hover:from-0% hover:to-[#3e4143] hover:to-100%",
+          "text-white font-semibold border-2 hover:border-transparent hover:bg-gray-100 focus:ring focus:ring-gray-300 rounded-full hover:opacity-50 hover:bg-gradient-to-b hover:from-[#9ca4a9] hover:from-0% hover:to-[#3e4143] hover:to-100%",
       },
     };
 
@@ -113,7 +113,7 @@ export default defineComponent({
       return [
         variants[props.variant].container,
         props.btnClass,
-        "inline-block w-[130px] h-[50px] bg-none hover:shadow-lg",
+        "inline-flex hover:shadow-lg p-1",
       ]
         .filter(Boolean)
         .join(" ");
@@ -122,7 +122,7 @@ export default defineComponent({
     // Compute dynamic button classes
     const buttonClasses = computed(() => {
       return [
-        "text-white flex justify-center items-center inset-1 w-32 h-12 text-center transition duration-300", // Base styles
+        "text-white flex justify-center items-center w-full h-full text-center transition duration-300", // Base styles
         sizes[props.size], // Size based on props
         variants[props.variant].background, // Variant based on props
         props.btnClass, // Custom class
