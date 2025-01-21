@@ -7,11 +7,9 @@
         :key="index"
         class="text-[#BEC0C2] text-16"
       >
-        <a
-          href="{{item.link}}"
-          :class="item.link ? 'hover:text-blue-500' : ''"
-          >{{ item.title }}</a
-        >
+        <a href="{{item.link}}" :class="item.link ? 'gradient-hover' : ''">{{
+          item.title
+        }}</a>
       </li>
     </ul>
   </div>
@@ -33,4 +31,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.gradient-hover {
+  display: inline-block;
+}
+.gradient-hover:hover {
+  background: linear-gradient(
+    to left,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
