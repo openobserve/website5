@@ -9,11 +9,11 @@ import CustomCard from "../components/cards/CustomCard.vue";
 import CustomInterChange from "../components/core/CustomInterChange.vue";
 import CustomFeatureCard from "../components/cards/CustomFeatureCard.vue";
 import CustomBanner from "../components/core/CustomBanner.vue";
-import CustomSwipper from "../components/core/CustomSwipper.vue";
 import CustomHoverHeader from "../components/header/CustomHoverHeader.vue";
 import SectionHeader from "../components/header/SectionHeader.vue";
 import CustomHeaderButton from "../components/header/CustomHeaderButton.vue";
 import CustomSectionBackground from "../components/core/CustomSectionBackground.vue";
+import CompanySwiper from "../components/core/CompanySwiper.vue";
 // Define the static data for features
 const cardData = [
   {
@@ -313,7 +313,14 @@ const platformData = {
   />
 
   <CustomSection>
-    <CustomSwipper />
+    <CompanySwiper
+      data={[
+        { path: "/public/Logo place holder (2).svg" },
+        { path: "/public/Logo place holder (3).svg" },
+        { path: "/public/Logo place holder (4).svg" },
+        { path: "/public/Logo place holder (5).svg" },
+      ]}
+    />
     <CustomHoverHeader v-if="isPlatformHovered">
       <div>
         <h3 class="text-2xl font-bold pb-5 text-[#FFFFFF]">
