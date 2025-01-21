@@ -95,17 +95,19 @@ const featureData = [
     <CustomCard cards={cardData} />
   </CustomSection>
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
-  {
-    featureData.map((feature, index) => (
-      <CustomInterChange
-        key={index}
-        items={feature.Items}
-        title={feature.Title}
-        image={feature.Image}
-        direction={index % 2 === 0 ? "left" : "right"}
-      />
-    ))
-  }
+  <div class="container mx-auto px-4 md:px-10">
+    {
+      featureData.map((feature, index) => (
+        <CustomInterChange
+          key={index}
+          items={feature.Items}
+          title={feature.Title}
+          image={feature.Image}
+          direction={index % 2 === 0 ? "left" : "right"}
+        />
+      ))
+    }
+  </div>
   <CustomSection />
 
   <CustomSection>
@@ -126,13 +128,12 @@ const featureData = [
       Hello
     </button>
   </CustomSection> -->
-  <!-- <CustomSection>
-    <CustomRoundShape
-      imgSrc="/src/assets/background.svg"
-      size="small"
-      borderColor="skyblue"
-    />
-  </CustomSection> -->
+  <CustomRoundShape
+    imgSrc="/public/Performance.svg"
+    iconSize="small"
+    borderColor="bg-gradient-blue"
+    size="small"
+  />
   <!-- <CustomSeprater /> -->
   <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">
     <CustomButton
