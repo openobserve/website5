@@ -4,7 +4,7 @@
     style="background-image: url('/public/BG.svg')"
   >
     <div
-      class="flex justify-between align-middle mx-auto w-full max-w-[1200px]"
+      class="flex justify-between align-middle mx-auto w-full max-w-[1200px] p-40"
     >
       <div>
         <h1 class="text-2xl font-bold text-white drop-shadow-md">
