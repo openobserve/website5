@@ -193,7 +193,7 @@ const currentPlatform = ref(null);
 
 <template>
   <header
-    class="bg-black text-white flex items-center justify-between px-4 py-3 sm:px-6 md:py-4"
+    class="bg-black text-white flex items-center justify-between px-4 py-3 sm:px-6 md:py-4 fixed top-0 left-0 w-full z-50 shadow-md"
   >
     <!-- Logo -->
     <div class="flex items-center space-x-2">
