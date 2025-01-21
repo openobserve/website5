@@ -6,10 +6,6 @@ export default {
       type: String,
       required: true,
     },
-    modelValue: {
-      type: [String, Number],
-      default: "",
-    },
     label: {
       type: String,
       required: true,
