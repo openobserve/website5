@@ -33,8 +33,4 @@ const props = defineProps({
     required: true,
   },
 });
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> 2a5e8b9015507e54e91c7281bda50337051aea6b
