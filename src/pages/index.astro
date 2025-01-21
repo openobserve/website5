@@ -14,6 +14,7 @@ import SectionHeader from "../components/header/SectionHeader.vue";
 import CustomHeaderButton from "../components/header/CustomHeaderButton.vue";
 import CustomSectionBackground from "../components/core/CustomSectionBackground.vue";
 import CompanySwiper from "../components/core/CompanySwiper.vue";
+import HomeHeroSection from "../components/heroSections/HomeHeroSection.vue";
 // Define the static data for features
 const cardData = [
   {
@@ -279,6 +280,16 @@ const platformData = {
 	<CustomSeprater/> -->
 
   <Header />
+
+  <HomeHeroSection
+    title="Open Source Observability"
+    subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
+    buttons={[
+      { label: "Get Started", variant: "primary" },
+      { label: "Watch Video", variant: "white" },
+    ]}
+    background="/public/Coding BG.svg"
+  />
 
   <CustomSection>
     <CustomCard cards={cardData} />
