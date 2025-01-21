@@ -307,7 +307,7 @@ const platformData = {
     title="Fair and transparent pricing"
     subtitle="Only pay for what you use."
     buttons={[
-      { text: "View Pricing Plans", variant: "primary" },
+      { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
   />
@@ -338,7 +338,7 @@ const platformData = {
 
         <div class="w-full flex flex-col md:flex-row gap-4">
           <div
-            class="w-full  grid grid-cols-1 md:grid-cols-2 lg:w-2/3 lg:grid-cols-3 gap-6"
+            class="w-full grid grid-cols-1 md:grid-cols-2 lg:w-2/3 lg:grid-cols-3 gap-6"
           >
             {
               platformData.platform.items.map((section, index) => (
@@ -362,7 +362,7 @@ const platformData = {
             title="Full Stack Observability Platform"
             linkTitle="View Platform"
           />
-          <button class="btn">Pricing</button>
+          <CustomButton variant="pricing">Pricing</CustomButton>
         </div>
       </div>
     </CustomHoverHeader>

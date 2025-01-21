@@ -30,12 +30,9 @@ export default defineComponent({
       type: String,
       default: "primary", // Default variant
       validator: (value) =>
-        [
-          "primary",
-          "secondary",
-          "tertiary",
-          "ghost",
-        ].includes(value),
+        ["primary", "secondary", "tertiary", "pricing", "white"].includes(
+          value
+        ),
     },
     size: {
       type: String,
@@ -94,11 +91,14 @@ export default defineComponent({
         background:
           "text-white rounded-full hover:border-none font-semibold focus:ring focus:ring-sky-300 hover:opacity-80 hover:bg-gradient-to-l hover:from-[#008bff] hover:from-0% hover:via-[#35a0fc] hover:via-38% hover:to-[#99cae9] hover:to-100%",
       },
-      ghost: {
+      pricing: {
         container:
-          "flex justify-center items-center rounded-full btnShadowwithIcon hover:bg-gradient-to-b hover:opacity-100 hover:from-[#d1fbff] hover:from-0% hover:via-[#3e4143] hover:via-90% hover:to-[#004883] hover:to-100%",
+          "flex justify-center items-center rounded-md hover:bg-gradient-to-r hover:opacity-100 hover:from-[#76DBFF] hover:from-100% hover:via-[#37A1E2] hover:via-100% hover:to-[#0E7BCF] hover:to-100%",
         background:
-          "text-white font-semibold border-2 hover:border-transparent hover:bg-gray-100 focus:ring focus:ring-gray-300 rounded-full hover:opacity-50 hover:bg-gradient-to-b hover:from-[#9ca4a9] hover:from-0% hover:to-[#3e4143] hover:to-100%",
+          "bg-black bg-opacity-40 hover:bg-opacity-40 hover:bg-black text-white font-semibold  hover:border-transparent  rounded-md hover:opacity-50 ",
+      },
+      white: {
+        background: "bg-white text-[#1C99FF] font-semibold rounded-full",
       },
     };
 
