@@ -1,5 +1,5 @@
 <template>
-  <div :class="[defualtClasses, props.class || '']">
+  <div :class="[defualtClasses, props.sectionClass || '']">
     <slot></slot>
   </div>
 </template>
@@ -7,9 +7,9 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  class: String,
+  sectionClass: String,
 });
 const defualtClasses = computed(() => {
-  return ["container mx-auto px-10 md:py-10 md:py-10", props.class].join("");
+  return ["container mx-auto px-10 md:py-10 md:py-10", props.sectionClass].join("");
 });
 </script>

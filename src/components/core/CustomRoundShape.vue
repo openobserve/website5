@@ -1,18 +1,23 @@
 <template>
   <div
-    :class="defaultClasses"
+    :class="containerClasses"
     :style="{
-      borderColor: borderColor,
-      width: computedSize,
-      height: computedSize,
+      width: containerSize + 'px',
+      height: containerSize + 'px',
+      // background: getGradientBackground
     }"
   >
-    <img
-      :src="imgSrc"
-      alt="Image"
-      :style="{ width: computedIconSize, height: computedIconSize }"
-    />
-    <slot></slot>
+    <div class="absolute inset-[2px] rounded-full bg-gradient-gray flex items-center justify-center">
+      <img
+        :src="imgSrc"
+        alt="Image"
+        class="object-cover"
+        :style="{
+          width: `${Number(iconSize)}px`,
+          height: `${Number(iconSize)}px`
+        }"
+      />
+    </div>
   </div>
 </template>
 
@@ -20,59 +25,39 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  class: String, // User-defined class for additional styling
   imgSrc: {
-    // Image source prop
     type: String,
     required: true,
   },
   size: {
-    // Size of the container/icon (e.g., "small", "medium", "large", or a custom pixel value)
     type: String,
-    default: "medium", // Default size if not specified
+    default: 'medium'
+  },
+  iconSize: {
+    type: [String, Number],
+    required: true
   },
   borderColor: {
-    // Border color prop
     type: String,
-    default: "", // Default border color
-  },
+    default: "bg-gradient-blue"
+  }
 });
 
-const defaultClasses = computed(() => {
-  return [  
-    "rounded-full", // Round shape for the container
-    "border-2", // Border thickness
-    "flex items-center justify-center", // Flexbox to center content
-    "overflow-hidden", // Prevents image overflow
-  ].join(" ");
-});
-
-// Define size presets
 const sizePresets = {
-  small: 65, // Small size (in pixels)
-  medium: 100, // Medium size (in pixels)
-  large: 150, // Large size (in pixels)
+  small: 65,
+  medium: 100,
+  large: 150,
 };
 
-// Compute container and icon sizes
-const computedSize = computed(() => {
-  // If the size prop is a valid number, use it directly; otherwise, fallback to presets
-  return isNaN(Number(props.size))
-    ? `${sizePresets[props.size] || sizePresets.medium}px`
-    : `${props.size}px`;
+const containerSize = computed(() => {
+  return typeof props.size === 'number' 
+    ? props.size 
+    : sizePresets[props.size] || sizePresets.medium;
 });
 
-const computedIconSize = computed(() => {
-  // Icon size will be slightly smaller than the container size for padding
-  const size = parseInt(computedSize.value);
-  return `${size * 0.8}px`; // Icon size as 80% of the container size
-});
+const containerClasses = computed(() => [
+  'relative rounded-full',
+  props.borderColor
+].join(' '));
+
 </script>
-
-<style scoped>
-/* Ensures the image fits properly inside the round container */
-img {
-  object-fit: cover; /* The image will cover the container without distortion */
-  border-radius: 50%; /* Ensures the image itself is round */
-}
-</style>

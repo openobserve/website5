@@ -2,6 +2,12 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
+    },
     extend: {
       backgroundImage: {
         "gradient-blue": "var(--gradient-blue)",
@@ -39,19 +45,19 @@ export default {
     function ({ addUtilities }) {
       addUtilities({
         ".border-gradient-blue": {
-          border: "5px solid transparent",
+          border: "2px solid transparent",
           "border-image": "var(--gradient-blue) 1",
         },
         ".border-gradient-light-blue": {
-          border: "5px solid transparent",
+          border: "2px solid transparent",
           "border-image": "var(--gradient-light-blue) 1",
         },
         ".border-gradient-gray": {
-          border: "5px solid transparent",
+          border: "2px solid transparent",
           "border-image": "var(--gradient-gray) 1",
         },
         ".border-gradient-text": {
-          border: "5px solid transparent",
+          border: "2px solid transparent",
           "border-image": "var(--gradient-text) 1",
         },
       });
