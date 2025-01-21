@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex items-center justify-center w-full h-[250px] bg-cover bg-center"
-    style="background-image: url('/public/BG.svg')"
+    style="background-image: url('/public/Texture.svg'), url('/public/BG.svg')"
   >
     <div
       class="flex justify-between align-middle mx-auto w-full max-w-[1200px] p-40"
