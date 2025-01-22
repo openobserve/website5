@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import CustomSection from "../core/CustomSection.vue";
+import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
 // Define props for dynamic data
 defineProps({
   title: {
@@ -36,23 +37,29 @@ defineProps({
         {{ title }}
       </h1>
       <!-- Subtitle -->
-      <p class="text-lg sm:text-xl font-medium mb-4">
+      <p>
         {{ subtitle }}
       </p>
     </div>
+
     <div
       class="flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-16 px-4 sm:px-8 lg:px-16"
       :style="{ backgroundImage: `url(${backgroundImage})` }"
     >
-      <div class="flex justify-center gap-4 mb-12">
-        <button class="gtbtn">Get Started for Free</button>
-        <button class="dmbtn">Request Enterprise Demo</button>
+      <!-- Buttons Section: full-width on mobile and centered -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 w-full">
+        <button class="gtbtn w-full sm:w-auto">Get Started for Free</button>
+        <button class="dmbtn w-full sm:w-auto">Request Enterprise Demo</button>
       </div>
 
       <!-- Cards Section -->
-      <CustomSection>
-        <CustomFeatureCard :cards="cards" />
-      </CustomSection>
+      <div class="text-start w-full">
+        <CustomFeatureSliderCard
+          :cards="cards"
+          titleTextColor="text-[#14181B]"
+          descriptionTextColor="text-[#23282C]"
+        />
+      </div>
 
       <!-- Footer Image -->
       <div class="relative z-10 max-w-4xl w-full">
@@ -79,6 +86,7 @@ defineProps({
   border-radius: 24px;
   background: var(--Dark-Black, #010101);
 }
+
 .dmbtn {
   display: flex;
   height: 48px;

@@ -10,7 +10,7 @@ defineProps({
 });
 
 // Define methods
-function truncate(text, maxLength = 100) {
+function truncate(text, maxLength = 200) {
   return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
 }
 </script>
@@ -33,8 +33,8 @@ function truncate(text, maxLength = 100) {
         >
           {{ item.title }}
         </h3>
-        <p class="text-[#DCDCDF] text-base line-clamp-3">
-          {{ truncate(item.description, 120) }}
+        <p class="text-[#DCDCDF] text-base">
+          {{ truncate(item.description, 200) }}
         </p>
       </div>
     </div>

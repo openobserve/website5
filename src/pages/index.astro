@@ -16,25 +16,26 @@ import CustomSectionBackground from "../components/core/CustomSectionBackground.
 import CompanySwiper from "../components/core/CompanySwiper.vue";
 import HomeHeroSection from "../components/heroSections/HomeHeroSection.vue";
 import PlatformHeroSection from "../components/heroSections/PlatofromHeroSection.vue";
+import PlatformLogsHeroSection from "../components/heroSections/PlatformLogsHeroSection.vue";
 // Define the static data for features
 const cardData = [
   {
     icon: "/public/Performance.svg",
     title: "Developers",
     description:
-      "Debug applications faster with distributed tracing and detailed logs. Track requests across...",
+      "Equip DevOps teams with comprehensive tools for deployment, monitoring, and incident response. Enhance system reliability and accelerate development cycles through automation and real-time insights.",
   },
   {
     icon: "/public/Performance.svg",
     title: "Performance",
     description:
-      "Monitor your application performance in real-time with actionable insights.",
+      "Support platform engineers in building scalable, resilient systems. Provide data-driven insights that drive efficiency, enabling innovation in infrastructure management and seamless scaling capabilities.",
   },
   {
     icon: "/public/Performance.svg",
     title: "Security",
     description:
-      "Keep your applications secure with advanced security tools and best practices.",
+      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
   },
 ];
 const featureData = [
@@ -280,7 +281,7 @@ const platformData = {
 	</CustomButton>
 	<CustomSeprater/> -->
 
-  <Header />
+  <!-- <Header /> -->
 
   <!-- <HomeHeroSection
     title="Open Source Observability"
@@ -300,6 +301,17 @@ const platformData = {
     footerImage="/public/Frame 2121314680.svg"
   />
 
+  <!-- <PlatformLogsHeroSection
+    title="The Open Observe platform"
+    subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    buttons={[
+      { label: "Get Started", variant: "primary" },
+      { label: "Watch Video", variant: "primary" },
+    ]}
+    backgroundImage="/public/Eclipse.svg"
+    rightImage="/public/Data sources Kubernetes.svg"
+  /> -->
+
   <CustomSection>
     <CustomCard cards={cardData} />
   </CustomSection>
@@ -317,7 +329,6 @@ const platformData = {
       ))
     }
   </div>
-  <CustomSection />
 
   <CustomSection>
     <CustomFeatureCard cards={cardData} />

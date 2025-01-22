@@ -25,23 +25,22 @@ defineProps({
 
 <template>
   <section
-    class="relative flex items-center h-screen text-center bg-cover bg-center bg-black ml-4"
+    class="relative flex items-center justify-center lg:justify-start h-screen text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
     :style="{ backgroundImage: `url(${background})` }"
   >
-    <!-- Overlay for better text contrast -->
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
     <!-- Content Section -->
-    <div class="relative z-10 px-4 sm:px-8 text-white">
+    <div class="relative z-10 text-white max-w-4xl">
+      <!-- Title -->
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
         {{ title }}
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl font-medium mb-6">
+      <!-- Subtitle -->
+      <p class="sm:text-xl mb-6">
         {{ subtitle }}
       </p>
 
       <!-- Buttons -->
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap justify-center lg:justify-start gap-4">
         <CustomButton
           :variant="button.variant"
           v-for="(button, index) in buttons"

@@ -24,7 +24,7 @@ const props = defineProps({
         <CustomRoundShape
           :imgSrc="item.icon"
           iconSize="small"
-          borderColor="bg-gradient-blue"
+          borderColor="bg-gradient-gray"
           size="small"
         />
       </div>
