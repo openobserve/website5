@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-// import GithubButton from "vue-github-button";
+import GithubButton from "vue-github-button";
 import TextGradient from "../HeaderComponents/TextWithGradient.vue";
 
 const props = defineProps({
@@ -26,7 +26,7 @@ const props = defineProps({
 </style>
 
 <template>
-  <div class="relative bg-[#14181B] w-full bg-[url('/footerBG.svg')] ">
+  <div class="relative bg-[#14181B] w-full">
     <!-- SVG Background -->
     <svg
       class="absolute inset-0 w-full h-full"
@@ -69,15 +69,15 @@ const props = defineProps({
         </radialGradient>
       </defs>
     </svg>
-    <div class="relative container mx-auto p-4">
+    <div class="relative container mx-auto p-3">
       <!-- Main Footer Content -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <div v-for="section in footerData?.sections" :key="section.title" class="min-w-0">
-          <h3 class="text-[#929A9E] font-medium text-base mb-4">{{ section.title }}</h3>
+          <h3 class="text-[#929A9E] font-medium text-2xl mb-4">{{ section.title }}</h3>
 
           <ul class="space-y-2">
             <li v-for="item in section.items" :key="item.name">
-              <a :href="item.link" class="gradient-hover text-[#BEC0C2] text-sm">
+              <a :href="item.link" class="gradient-hover text-[#BEC0C2] text-lg">
                 <TextGradient textGradientColor="" />
                 {{ item.name }}
               </a>
@@ -89,10 +89,10 @@ const props = defineProps({
       <div class="flex flex-col md:flex-row justify-between mb-5">
         <!-- Pricing Section -->
         <div class="rounded-lg w-full mb-4 md:mb-0">
-          <h3 class="text-[#929A9E] font-medium text-base mb-4">Pricing</h3>
+          <h3 class="text-[#929A9E] font-medium text-2xl mb-4">Pricing</h3>
           <ul>
             <li>
-              <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-sm">
+              <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-lg">
                 <TextGradient textGradientColor="" /> View Plans
               </a>
             </li>
@@ -101,7 +101,7 @@ const props = defineProps({
 
         <!-- GitHub Stats Section -->
         <div class="flex items-center space-x-2 w-full md:w-auto">
-          <!-- <GithubButton
+           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme=""
             data-size="large"
@@ -117,7 +117,7 @@ const props = defineProps({
             data-show-count="true"
             aria-label="Fork openobserve/openobserve on GitHub"
             >Fork</GithubButton
-          > -->
+          >
         </div>
       </div>
 
@@ -128,20 +128,20 @@ const props = defineProps({
         <!-- Copyright -->
         <div class="flex items-center">
           <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
-            <p class="text-sm">
+            <p class="text-lg">
               <TextGradient textGradientColor="" />{{ footerData?.copyright?.text }}
             </p>
           </div>
         </div>
         <div class="flex items-center gap-6">
-          <p class="text-sm gradient-hover">
+          <p class="text-lg gradient-hover">
             <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
           </p>
-          <p class="text-sm gradient-hover">
+          <p class="text-lg gradient-hover">
             <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
           </p>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-4">
           <!-- Social Links -->
           <div class="social-links flex space-x-4">
             <div class="flex items-center space-x-4">
@@ -150,27 +150,27 @@ const props = defineProps({
               </a> -->
               <a
                 href="/"
-                class="w-8 h-8 rounded-md bg-[url('/Slack.svg')] bg-cover bg-center group transition-all hover:bg-[url('/SlackHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]"
               >
               </a>
               <a
                 href="/"
-                class="w-8 h-8 rounded-md bg-[url('/Twitter.svg')] bg-cover bg-center group transition-all hover:bg-[url('/TwitterHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/TwitterHover.svg')]"
               >
               </a>
               <a
                 href="/"
-                class="w-8 h-8 rounded-md bg-[url('/Linkedin.svg')] bg-cover bg-center group transition-all hover:bg-[url('/LinkedinHover.svg')]"
+                class="w-12 h-12 rounded-md  bg-[url('/Linkedin.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/LinkedinHover.svg')]"
               >
               </a>
               <a
                 href="/"
-                class="w-8 h-8 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center group transition-all hover:bg-[url('/GitHubHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/GitHubHover.svg')]"
               >
               </a>
               <a
                 href="/"
-                class="w-8 h-8 rounded-md bg-[url('/Youtube.svg')] bg-cover bg-center group transition-all hover:bg-[url('/YoutubeHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/YoutubeHover.svg')]"
               >
               </a>
             </div>
