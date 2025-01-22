@@ -1,8 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
-import CustomSection from "../core/CustomSection.vue";
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
+import CustomButton from "../core/CustomButton.vue";
 // Define props for dynamic data
 defineProps({
   title: {
@@ -15,6 +14,10 @@ defineProps({
   },
   cards: {
     type: Array,
+    required: true,
+  },
+  buttons: {
+    type: Array, // Array of button objects [{ label: "Button Title", variant: "primary" }]
     required: true,
   },
   backgroundImage: {
@@ -30,39 +33,41 @@ defineProps({
 
 <template>
   <section class="text-center">
-    <!-- Content Section -->
+    <!-- Title and Subtitle Section -->
     <div class="relative z-10 text-white max-w-4xl mx-auto">
-      <!-- Title -->
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ title }}
       </h1>
-      <!-- Subtitle -->
-      <p>
-        {{ subtitle }}
-      </p>
+      <p class="text-lg sm:text-xl md:text-2xl font-medium">{{ subtitle }}</p>
     </div>
 
+    <!-- Hero Section with Background -->
     <div
-      class="flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-16 px-4 sm:px-8 lg:px-16"
+      class="relative flex flex-col items-center text-center bg-no-repeat bg-center bg-cover py-16 px-4 sm:px-8 lg:px-16"
       :style="{ backgroundImage: `url(${backgroundImage})` }"
     >
-      <!-- Buttons Section: full-width on mobile and centered -->
+      <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 w-full">
-        <button class="gtbtn w-full sm:w-auto">Get Started for Free</button>
-        <button class="dmbtn w-full sm:w-auto">Request Enterprise Demo</button>
+        <CustomButton
+          v-for="(button, index) in buttons"
+          :key="index"
+          :variant="button.variant"
+        >
+          {{ button.label }}
+        </CustomButton>
       </div>
 
       <!-- Cards Section -->
       <div class="text-start w-full">
         <CustomFeatureSliderCard
           :cards="cards"
-          titleTextColor="text-[#14181B]"
-          descriptionTextColor="text-[#23282C]"
+          titleTextColor="text-gray-800"
+          descriptionTextColor="text-gray-600"
         />
       </div>
 
       <!-- Footer Image -->
-      <div class="relative z-10 max-w-4xl w-full">
+      <div class="relative z-10 max-w-4xl w-full mt-12">
         <img
           :src="footerImage"
           alt="Footer visual"
@@ -70,31 +75,9 @@ defineProps({
         />
       </div>
     </div>
-    <!-- Buttons -->
   </section>
 </template>
 
 <style scoped>
-.gtbtn {
-  color: #fff;
-  display: flex;
-  height: 48px;
-  padding: 0px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 24px;
-  background: var(--Dark-Black, #010101);
-}
-
-.dmbtn {
-  display: flex;
-  height: 48px;
-  padding: 0px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 24px;
-  border: 1px solid var(--Dark-900, #14181b);
-}
+/* Tailwind CSS does most of the styling; additional adjustments can be made here if needed */
 </style>

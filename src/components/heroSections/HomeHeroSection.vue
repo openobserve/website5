@@ -25,7 +25,7 @@ defineProps({
 
 <template>
   <section
-    class="relative flex items-center justify-center lg:justify-start h-screen text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
+    class="relative flex  justify-center lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
     :style="{ backgroundImage: `url(${background})` }"
   >
     <!-- Content Section -->

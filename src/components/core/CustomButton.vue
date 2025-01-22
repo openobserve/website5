@@ -98,7 +98,7 @@ export default defineComponent({
           "bg-black bg-opacity-40 hover:bg-opacity-40 hover:bg-black text-white font-semibold  hover:border-transparent  rounded-md hover:opacity-50 ",
       },
       white: {
-        background: "bg-white text-[#1C99FF] font-semibold rounded-full",
+        background: "bg-white text-black font-semibold rounded-full",
       },
     };
 
@@ -122,7 +122,7 @@ export default defineComponent({
     // Compute dynamic button classes
     const buttonClasses = computed(() => {
       return [
-        "text-white flex justify-center items-center w-full h-full text-center transition duration-300", // Base styles
+        "flex justify-center items-center w-full h-full text-center transition duration-300", // Base styles
         sizes[props.size], // Size based on props
         variants[props.variant].background, // Variant based on props
         props.btnClass, // Custom class

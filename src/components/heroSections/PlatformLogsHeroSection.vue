@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-
+import CustomButton from "../core/CustomButton.vue";
 // Define props for the component
 defineProps({
   title: {
@@ -28,10 +28,10 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col lg:flex-row items-center lg: justify-between h-screen px-6 sm:px-10 lg:px-16 py-16"
+    class="relative flex flex-col lg:flex-row items-center lg: justify-between px-6 sm:px-10 lg:px-16"
   >
     <!-- Left Content -->
-    <div class="lg:text-left items-center max-w-2xl z-10">
+    <div class="lg:text-left items-center">
       <!-- Title -->
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
         {{ title }}
@@ -40,20 +40,15 @@ defineProps({
       <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
         {{ subtitle }}
       </p>
-      <!-- Buttons -->
-      <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-        <button
+      <!-- Buttons Section -->
+      <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12 w-full">
+        <CustomButton
           v-for="(button, index) in buttons"
           :key="index"
-          :class="[
-            'px-6 py-3 rounded-full text-sm font-semibold transition-all',
-            button.variant === 'primary'
-              ? 'bg-black text-white hover:bg-gray-800'
-              : 'border border-white text-white hover:bg-white hover:text-black',
-          ]"
+          :variant="button.variant"
         >
           {{ button.label }}
-        </button>
+        </CustomButton>
       </div>
     </div>
 
