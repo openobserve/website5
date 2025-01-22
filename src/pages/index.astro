@@ -19,7 +19,7 @@ import PlatformHeroSection from "../components/heroSections/PlatofromHeroSection
 import PlatformLogsHeroSection from "../components/heroSections/PlatformLogsHeroSection.vue";
 import LeftSideCard from "../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../components/cardComponent/RightSideCard.vue";
-
+import CustomTabs from "../components/core/CustomTabs.vue";
 import FAQSection from "../components/FAQComponent/FAQSection.vue";
 import Footer from "../components/footerComponent/Footer.vue";
 
@@ -207,6 +207,32 @@ const featureData = [
     ],
   },
 ];
+
+const tabs = [
+  "Security & Access Control",
+  "Scalability And Reliability",
+  "Operational Flexibility",
+  "User Experience",
+];
+
+const tabContents = {
+  "Security & Access Control": `
+    <h2 class="text-xl font-bold mb-4">Single Sign-On (SSO)</h2>
+    <p>Simplify user authentication across multiple systems with SSO for enhanced security and convenience.</p>
+  `,
+  "Scalability And Reliability": `
+    <h2 class="text-xl font-bold mb-4">High Availability</h2>
+    <p>Ensure your systems remain operational with advanced fault-tolerance and scalability features.</p>
+  `,
+  "Operational Flexibility": `
+    <h2 class="text-xl font-bold mb-4">Customizable Workflows</h2>
+    <p>Adapt our platform to fit your unique operational requirements with flexible configurations.</p>
+  `,
+  "User Experience": `
+    <h2 class="text-xl font-bold mb-4">Intuitive Interfaces</h2>
+    <p>Provide an excellent user experience with a clean, intuitive interface that enhances productivity.</p>
+  `,
+};
 ---
 
 <Layout>
@@ -245,6 +271,13 @@ const featureData = [
     footerImage="/public/Frame 2121314680.svg"
   />
 
+  <CustomTabs
+    title="Enterprise-Grade Features"
+    subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
+    tabs={tabs}
+    tabContents={tabContents}
+  />
+
   <!-- <PlatformLogsHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
@@ -260,20 +293,22 @@ const featureData = [
     <CustomCard cards={cardData} />
   </CustomSection>
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
-  <div class="container mx-auto px-4 md:px-10">
-    {
-      featureData.map((feature, index) => (
-        <CustomInterChange
-          key={index}
-          items={feature.Items}
-          title={feature.Title}
-          image={feature.Image}
-          direction={index % 2 === 0 ? "left" : "right"}
-        />
-      ))
-    }
-  </div>
-
+  <CustomSection>
+    <div class="container mx-auto px-4 md:px-10">
+      {
+        featureData.map((feature, index) => (
+          <CustomInterChange
+            key={index}
+            items={feature.Items}
+            title={feature.Title}
+            image={feature.Image}
+            direction={index % 2 === 0 ? "left" : "right"}
+          />
+        ))
+      }
+    </div>
+  </CustomSection>
+  
   <CustomSection>
     <CustomFeatureCard cards={cardData} />
   </CustomSection>
@@ -416,6 +451,35 @@ const featureData = [
   <!-- <button class="border-4 border-gradient-blue text-black rounded-lg">
     Hello
   </button> -->
+  <CustomSection>
+    <div
+      class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+    >
+      {
+        cards.length > 0 && (
+          <div class="">
+            <LeftSideCard card={cards[0]} />
+          </div>
+        )
+      }
+
+      {
+        cards.length > 0 && (
+          <div class="">
+            <RightSideCard cards={cards.slice(1)} />
+          </div>
+        )
+      }
+    </div>
+  </CustomSection>
+  <CustomSection>
+    <div class="bg-gray-950 container mx-auto">
+      <FAQSection titleBar="OpenObserve Logs FAQ's" faqItems={faqItems} />
+
+      <!-- <FAQSection
+      title-bar="OpenObserve Logs FAQ's" faq-items={faqItems} client:load /> -->
+    </div>
+  </CustomSection>
 </Layout>
 <!-- <CustomSeprater /> -->
 <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">
@@ -455,30 +519,5 @@ const featureData = [
         <img src="/public/youtube.svg" class="w-5 h-5" />
       </CustomButton>
     </div> -->
-<div
-  class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
->
-  {
-    cards.length > 0 && (
-      <div class="">
-        <LeftSideCard card={cards[0]} />
-      </div>
-    )
-  }
 
-  {
-    cards.length > 0 && (
-      <div class="">
-        <RightSideCard cards={cards.slice(1)} />
-      </div>
-    )
-  }
-</div>
-
-<div class="bg-gray-950 container mx-auto">
-  <FAQSection titleBar="OpenObserve Logs FAQ's" faqItems={faqItems} />
-
-  <!-- <FAQSection
-    title-bar="OpenObserve Logs FAQ's" faq-items={faqItems} client:load /> -->
-</div>
 <Footer footerData={footerData} client:load />
