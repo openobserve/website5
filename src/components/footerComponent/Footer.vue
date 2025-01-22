@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-import GithubButton from "vue-github-button";
+// import GithubButton from "vue-github-button";
 import TextGradient from "../HeaderComponents/TextWithGradient.vue";
 
 const props = defineProps({
@@ -101,7 +101,7 @@ const props = defineProps({
 
         <!-- GitHub Stats Section -->
         <div class="flex items-center space-x-2 w-full md:w-auto">
-          <GithubButton
+          <!-- <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme=""
             data-size="large"
@@ -117,7 +117,7 @@ const props = defineProps({
             data-show-count="true"
             aria-label="Fork openobserve/openobserve on GitHub"
             >Fork</GithubButton
-          >
+          > -->
         </div>
       </div>
 
