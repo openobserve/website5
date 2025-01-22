@@ -308,7 +308,7 @@ const tabContents = {
       }
     </div>
   </CustomSection>
-  
+
   <CustomSection>
     <CustomFeatureCard cards={cardData} />
   </CustomSection>
@@ -480,34 +480,9 @@ const tabContents = {
       title-bar="OpenObserve Logs FAQ's" faq-items={faqItems} client:load /> -->
     </div>
   </CustomSection>
-
-  <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
-    {
-      cards.length > 0 && (
-        <div class="">
-          <LeftSideCard card={cards[0]} />
-        </div>
-      )
-    }
-  
-    {
-      cards.length > 0 && (
-        <div class="">
-          <RightSideCard cards={cards.slice(1)} />
-        </div>
-      )
-    }
-  </div>
-  
   <div>
-    <!-- <FAQSection titleBar="OpenObserve Logs FAQ's" faqItems={faqItems} /> -->
-  
-    <FAQSection
-      title-bar="OpenObserve Logs FAQ's" faq-items={faqItems} client:load />
+    <Footer footerData={footerData} client:load />
   </div>
-  <div>
-  <Footer footerData={footerData} client:load />
-</div>
 </Layout>
 <!-- <CustomSeprater /> -->
 <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">
@@ -547,5 +522,3 @@ const tabContents = {
         <img src="/public/youtube.svg" class="w-5 h-5" />
       </CustomButton>
     </div> -->
-
-<Footer footerData={footerData} client:load />
