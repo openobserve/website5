@@ -28,10 +28,7 @@ defineProps({
 </script>
 
 <template>
-  <section
-    class="relative flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-16 px-4 sm:px-8 lg:px-16"
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
-  >
+  <section class="text-center">
     <!-- Content Section -->
     <div class="relative z-10 text-white max-w-4xl mx-auto">
       <!-- Title -->
@@ -39,34 +36,40 @@ defineProps({
         {{ title }}
       </h1>
       <!-- Subtitle -->
-      <p class="text-lg sm:text-xl font-medium mb-8">
+      <p class="text-lg sm:text-xl font-medium mb-4">
         {{ subtitle }}
       </p>
-      <!-- Buttons -->
+    </div>
+    <div
+      class="flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-16 px-4 sm:px-8 lg:px-16"
+      :style="{ backgroundImage: `url(${backgroundImage})` }"
+    >
       <div class="flex justify-center gap-4 mb-12">
         <button class="gtbtn">Get Started for Free</button>
         <button class="dmbtn">Request Enterprise Demo</button>
       </div>
-    </div>
 
-    <!-- Cards Section -->
-    <CustomSection>
-      <CustomFeatureCard :cards="cards" />
-    </CustomSection>
+      <!-- Cards Section -->
+      <CustomSection>
+        <CustomFeatureCard :cards="cards" />
+      </CustomSection>
 
-    <!-- Footer Image -->
-    <div class="relative z-10 max-w-4xl w-full">
-      <img
-        :src="footerImage"
-        alt="Footer visual"
-        class="w-full object-contain rounded-lg"
-      />
+      <!-- Footer Image -->
+      <div class="relative z-10 max-w-4xl w-full">
+        <img
+          :src="footerImage"
+          alt="Footer visual"
+          class="w-full object-contain rounded-lg"
+        />
+      </div>
     </div>
+    <!-- Buttons -->
   </section>
 </template>
 
 <style scoped>
 .gtbtn {
+  color: #fff;
   display: flex;
   height: 48px;
   padding: 0px 24px;
