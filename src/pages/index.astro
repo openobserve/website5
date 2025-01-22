@@ -15,6 +15,7 @@ import CustomHeaderButton from "../components/header/CustomHeaderButton.vue";
 import CustomSectionBackground from "../components/core/CustomSectionBackground.vue";
 import CompanySwiper from "../components/core/CompanySwiper.vue";
 import HomeHeroSection from "../components/heroSections/HomeHeroSection.vue";
+import PlatformHeroSection from "../components/heroSections/PlatofromHeroSection.vue";
 // Define the static data for features
 const cardData = [
   {
@@ -281,14 +282,22 @@ const platformData = {
 
   <Header />
 
-  <HomeHeroSection
+  <!-- <HomeHeroSection
     title="Open Source Observability"
     subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
     buttons={[
       { label: "Get Started", variant: "primary" },
-      { label: "Watch Video", variant: "white" },
+      { label: "Watch Video", variant: "primary" },
     ]}
     background="/public/Coding BG.svg"
+  /> -->
+
+  <PlatformHeroSection
+    title="The Open Observe platform"
+    subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    cards={cardData}
+    backgroundImage="/public/Eclipse.svg"
+    footerImage="/public/Frame 2121314680.svg"
   />
 
   <CustomSection>

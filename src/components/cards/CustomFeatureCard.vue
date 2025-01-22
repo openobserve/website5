@@ -1,10 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
-    <div
-      class="flex gap-4 shadow-md transition-transform duration-300 ease-in-out"
-      v-for="(item, index) in cards"
-      :key="index"
-    >
+    <div class="flex gap-4" v-for="(item, index) in cards" :key="index">
       <div class="h-14">
         <CustomRoundShape
           :imgSrc="item.icon"
