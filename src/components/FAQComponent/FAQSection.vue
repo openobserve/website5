@@ -22,35 +22,28 @@ const toggleAnswer = (index) => {
 
 <template>
   <div class="w-full bg-[url('/faqBG.svg')] bg-cover bg-center p-2">
-    <div class="mx-auto container">
+    <div class="mx-auto container mt-10">
       <!-- Title Bar -->
       <div class="">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-white text-left md:text-center lg:text-center">{{ titleBar }}</h2>
       </div>
 
       <!-- FAQ Items -->
-      <div class="space-y-4 mt-10">
+      <div class="space-y-4 mt-10 mb-10">
         <div v-for="(item, index) in faqItems" :key="index">
           <div
-           
             class="flex justify-between items-center cursor-pointer"
-             @click="toggleAnswer(index)"
+            @click="toggleAnswer(index)"
           >
             <h3 class="lg:font-medium lg:text-lg md:font-semibold text-base text-white mt-4">
               {{ item.question }}
             </h3>
-            <span
-              class="text-white transition-transform duration-300 ease-in-out"
-              :class="{ 'transform rotate-180': visibleAnswers[index] }"
-            >
-            </span>
             <img 
               src="/faq+Icon.svg" 
-              alt="toggle" 
-              class="transition-transform"
+              alt="toggle"
+              class="transition-transform duration-300 ease-in-out"
               :class="{ 'rotate-45': visibleAnswers[index] }"
             />
-          
           </div>
 
           <div
@@ -60,7 +53,7 @@ const toggleAnswer = (index) => {
               'max-h-96 opacity-100 mt-4': visibleAnswers[index],
             }"
           >
-            <p class="text-white  lg:font-light text-sm md:text-base">
+            <p class="text-white lg:font-light text-sm md:text-base">
               {{ item.answer }}
             </p>
           </div>
