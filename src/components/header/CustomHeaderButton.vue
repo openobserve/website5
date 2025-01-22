@@ -1,9 +1,9 @@
 <script setup>
-const props = defineProps({ title: String, linkTitle: String });
+const props = defineProps({ title: String, linkTitle: String, link: String });
 </script>
 <template>
   <div
-    class="bg-black stroke-current bg-gradient-to-r from-neutral-700 to-neutral-800  rounded-md p-2"
+    class="bg-black stroke-current bg-gradient-to-r from-neutral-700 to-neutral-800  rounded-md p-4 w-full lg:w-[40%]"
   >
     <div class="flex justify-between gap-5">
       <h3 class="text-white">{{ title }}</h3>

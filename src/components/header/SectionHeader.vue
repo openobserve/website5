@@ -1,13 +1,13 @@
 <template>
-  <div class="space-y-3">
-    <h4 class="text-[#FFFFFF] text-20 font-semibold">{{ title }}</h4>
+  <div class="w-full space-y-3">
+    <h4 class="text-[#FFFFFF] text-lg font-semibold">{{ title }}</h4>
     <ul class="space-y-4">
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="text-[#BEC0C2] text-16"
+        class="text-[#BEC0C2] text-lg"
       >
-        <a href="{{item.link}}" :class="item.link ? 'gradient-hover' : ''">{{
+        <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
           item.title
         }}</a>
       </li>

@@ -24,3 +24,5 @@
     <div class="right-border"></div>
   </div>
 </template>
+<script setup>
+</script>
