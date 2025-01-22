@@ -26,3 +26,14 @@ const alignClass = computed(() => {
   return alignment[props.align] || "text-center"; // default to 'text-center'
 });
 </script>
+
+<template>
+  <div class="w-full text-white">
+    <h2 class="text-xl lg:text-3xl font-semibold mb-4" :class="alignClass">
+      {{ props.title }}
+    </h2>
+    <p class="text-base lg:text-lg text-gray-500" :class="alignClass">
+      {{ props.description }}
+    </p>
+  </div>
+</template>

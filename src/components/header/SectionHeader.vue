@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full space-y-3">
-    <h4 class="text-[#FFFFFF] text-lg font-semibold">{{ title }}</h4>
-    <ul class="space-y-4">
+  <div class="w-full space-y-2">
+    <h4 class="text-[#FFFFFF] text-base font-semibold">{{ title }}</h4>
+    <ul class="space-y-2">
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="text-[#BEC0C2] text-lg"
+        class="text-[#BEC0C2] text-sm"
       >
         <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
           item.title

@@ -20,8 +20,8 @@ import PlatformLogsHeroSection from "../components/heroSections/PlatformLogsHero
 import LeftSideCard from "../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../components/cardComponent/RightSideCard.vue";
 import CustomTabs from "../components/core/CustomTabs.vue";
-import FAQSection from "../components/FAQComponent/FAQSection.vue";
 import Footer from "../components/footerComponent/Footer.vue";
+import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 
 const footerData = {
   sections: [
@@ -98,23 +98,36 @@ const footerData = {
   ],
 };
 
-const faqItems = [
-  {
-    question: "Why choose OpenObserve for Log Management?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    question: "Why choose OpenObserve for Log Management?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-  },
-  {
-    question: "Why choose OpenObserve for Log Management?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-];
+const faqData = {
+  title: "OpenObserve Logs FAQ's",
+  items: [
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ],
+};
 
 const cards = [
   {
@@ -198,6 +211,11 @@ const featureData = [
         title: "Flexible hosting options",
         description:
           "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
       },
       {
         title: "Seamless integrations",
@@ -452,34 +470,34 @@ const tabContents = {
     Hello
   </button> -->
   <CustomSection>
-    <div
-      class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
-    >
-      {
-        cards.length > 0 && (
-          <div class="">
-            <LeftSideCard card={cards[0]} />
-          </div>
-        )
-      }
+    <div class="hidden md:block">
+      <div
+        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+      >
+        {
+          cards.length > 0 && (
+            <div class="">
+              <LeftSideCard card={cards[0]} />
+            </div>
+          )
+        }
 
-      {
-        cards.length > 0 && (
-          <div class="">
-            <RightSideCard cards={cards.slice(1)} />
-          </div>
-        )
-      }
+        {
+          cards.length > 0 && (
+            <div class="">
+              <RightSideCard cards={cards.slice(1)} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <div class="block md:hidden">
+      <div class="flex flex-col space-y-3">
+        {cards.map((card, index) => <LeftSideCard card={card} />)}
+      </div>
     </div>
   </CustomSection>
-  <CustomSection>
-    <div class="bg-gray-950 container mx-auto">
-      <FAQSection titleBar="OpenObserve Logs FAQ's" faqItems={faqItems} />
-
-      <!-- <FAQSection
-      title-bar="OpenObserve Logs FAQ's" faq-items={faqItems} client:load /> -->
-    </div>
-  </CustomSection>
+  <FaqWrapper items={faqData} client:load />
   <div>
     <Footer footerData={footerData} client:load />
   </div>

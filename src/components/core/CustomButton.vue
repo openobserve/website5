@@ -104,9 +104,9 @@ export default defineComponent({
 
     // Tailwind classes for button sizes
     const sizes = {
-      small: "px-2 py-1 text-sm",
-      medium: "px-4 py-2 text-md",
-      large: "px-6 py-3 text-lg",
+      small: "px-2 py-2 text-sm",
+      medium: "px-4 py-3 text-md",
+      large: "px-6 py-4 text-lg",
     };
 
     const containerClasses = computed(() => {

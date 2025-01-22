@@ -27,41 +27,7 @@ const platformData = {
           },
         ],
       },
-      {
-        title: "Traces",
-        items: [
-          {
-            title: "Distributed Tracing",
-            link: "url_to_tracing_1",
-          },
-          {
-            title: "OpenTelemetry Support",
-            link: "url_to_tracing_2",
-          },
-          {
-            title: "Service Dependencies",
-            link: "url_to_tracing_3",
-          },
-        ],
-      },
-      {
-        title: "Frontend Monitoring",
-        items: [
-          {
-            title: "Real User Monitoring (RUM)",
-            link: "url_to_rum_1",
-          },
-          {
-            title: "Session Replay",
-            link: "url_to_rum_2",
-          },
-          {
-            title: "Error Tracking",
-            link: "url_to_rum_3",
-          },
-        ],
-      },
-      {
+       {
         title: "Logs",
         items: [
           {
@@ -79,27 +45,6 @@ const platformData = {
           {
             title: "Log Compression",
             link: "url_to_logs_4",
-          },
-        ],
-      },
-      {
-        title: "Alerting",
-        items: [
-          {
-            title: "Scheduled Alerts",
-            link: "url_to_alerting_1",
-          },
-          {
-            title: "Real Time Alerts",
-            link: "url_to_alerting_2",
-          },
-          {
-            title: "Integrated Dashboards",
-            link: "url_to_alerting_3",
-          },
-          {
-            title: "Flexible Query Functions",
-            link: "url_to_alerting_4",
           },
         ],
       },
@@ -128,6 +73,62 @@ const platformData = {
           },
         ],
       },
+      {
+        title: "Traces",
+        items: [
+          {
+            title: "Distributed Tracing",
+            link: "url_to_tracing_1",
+          },
+          {
+            title: "OpenTelemetry Support",
+            link: "url_to_tracing_2",
+          },
+          {
+            title: "Service Dependencies",
+            link: "url_to_tracing_3",
+          },
+        ],
+      },
+      {
+        title: "Alerting",
+        items: [
+          {
+            title: "Scheduled Alerts",
+            link: "url_to_alerting_1",
+          },
+          {
+            title: "Real Time Alerts",
+            link: "url_to_alerting_2",
+          },
+          {
+            title: "Integrated Dashboards",
+            link: "url_to_alerting_3",
+          },
+          {
+            title: "Flexible Query Functions",
+            link: "url_to_alerting_4",
+          },
+        ],
+      },
+      {
+        title: "Frontend Monitoring",
+        items: [
+          {
+            title: "Real User Monitoring (RUM)",
+            link: "url_to_rum_1",
+          },
+          {
+            title: "Session Replay",
+            link: "url_to_rum_2",
+          },
+          {
+            title: "Error Tracking",
+            link: "url_to_rum_3",
+          },
+        ],
+      },
+      
       {
         title: "Visualisation & Dashboards",
         items: [
@@ -188,7 +189,7 @@ const platformData = {
         },
       ],
     },
-  },
+  }
 };
 
 // const props=defineProps({

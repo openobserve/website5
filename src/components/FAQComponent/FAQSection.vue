@@ -2,10 +2,6 @@
 import { defineProps, ref } from "vue";
 
 const props = defineProps({
-  titleBar: {
-    type: String,
-    required: true,
-  },
   faqItems: {
     type: Array,
     required: true,
@@ -21,13 +17,7 @@ const toggleAnswer = (index) => {
 </script>
 
 <template>
-  <div class="w-full bg-[url('/faqBG.svg')] bg-cover bg-center p-2">
-    <div class="mx-auto container mt-10">
-      <!-- Title Bar -->
-      <div class="">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-white text-left md:text-center lg:text-center">{{ titleBar }}</h2>
-      </div>
-
+  <div class="w-full bg-[url('/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full">
       <!-- FAQ Items -->
       <div class="space-y-4 mt-10 mb-10">
         <div v-for="(item, index) in faqItems" :key="index">
@@ -59,6 +49,5 @@ const toggleAnswer = (index) => {
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
