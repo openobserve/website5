@@ -1,31 +1,31 @@
-<script>
-export default {
-  name: "TextGradient",
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    textGradientColor: {
-      type: String,
-      required: true,
-    },
-    textSize: {
-      type: String,
-      required: true,
-    },
-    align: {
-      type: String,
-      default: "left",
-      validator: (value) => ["left", "center", "right"].includes(value),
-    },
+<script setup>
+import { computed } from "vue";
+
+// Define props using defineProps
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
   },
-  computed: {
-    computedClass() {
-      return `font-semibold text-${this.textSize} text-${this.align} ${this.textGradientColor} text-gradient`;
-    }
+  textGradientColor: {
+    type: String,
+    required: true,
   },
-};
+  textSize: {
+    type: String,
+    required: true,
+  },
+  align: {
+    type: String,
+    default: "left",
+    validator: (value) => ["left", "center", "right"].includes(value),
+  },
+});
+
+// Computed property for the class
+const computedClass = computed(() => {
+  return `font-semibold text-[${props.textSize}px] text-${props.align} ${props.textGradientColor} text-gradient`;
+});
 </script>
 
 <template>

@@ -1,46 +1,42 @@
-<template>
-  <div class="card h-full rounded-2xl">
-    <div class="flex flex-col h-full">
-      <div class="h-[50%] p-6">
-        <img
-          :src="card.image"
-          :alt="card.title"
-          class="w-full h-full object-cover rounded-lg"
-        />
-      </div>
-      <div class="h-[50%] p-6 flex flex-col">
-        <div>
-          <h3 class="text-[#BEC0C2] text-2xl font-bold mb-3">{{ card.title }}</h3>
-          <p class="text-white text-base card-description">{{ card.description }}</p>
-        </div>
-        <a
-          :href="card.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-[#80B9FF] font-bold text-xs mt-4"
-        >
-          {{ card.btnTitle }}
-        </a>
-      </div>
-    </div>
-  </div>
-</template>
+<script setup>
+import { defineProps } from 'vue';
 
-<script>
-export default {
-  name: "LeftCard",
-  props: {
+
+const props = defineProps({
   card: {
-    type: Object, // The `card` prop is expected to be a single object
-    required: true, // This prop is mandatory
+    type: Object,
+    required: true,
     default: () => ({
-      image: "",
-      title: "",
-      description: "",
-      btnTitle: "",
-      link: "#",
+      image: '',
+      title: '',
+      description: '',
+      btnTitle: '',
+      link: '#',
     }),
   },
-},
-};
+});
 </script>
+
+<template>
+  <div class="flex flex-col h-full bg-gradient-to-r rounded-lg hover:bg-[url('/hoverCard.svg')] bg-cover bg-center" style="background-image:linear-gradient(#313539, #1F2226, #313539);">
+  <div class="p-6">
+    <img
+      :src="card.image"
+      :alt="card.title"
+      class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0"
+    />
+  </div>
+  <div class="p-6 flex flex-col h-full space-y-4">
+    <h3 class="text-[#BEC0C2] text-2xl font-bold mb-3">{{ card?.title }}</h3>
+    <p class="text-white text-base flex-1">{{ card?.description }}</p>
+    <a
+      :href="card.link"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-[#80B9FF] font-bold text-base mt-auto"
+    >
+      {{card?.btnTitle}}
+    </a>
+  </div>
+</div>
+</template>

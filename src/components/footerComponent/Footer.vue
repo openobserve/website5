@@ -1,19 +1,17 @@
-<script>
+<script setup>
+import { defineProps } from "vue";
+import GithubButton from "vue-github-button";
 import TextGradient from "../HeaderComponents/TextWithGradient.vue";
-export default {
-  name: "Footer",
-  props: {
-    footerData: {
-      type: Object,
-      required: true,
-      validator(value) {
-        return (
-          value.sections && value.copyright && value.githubStats && value.socialLinks
-        );
-      },
+
+const props = defineProps({
+  footerData: {
+    type: Object,
+    required: true,
+    validator(value) {
+      return value.sections && value.copyright && value.githubStats && value.socialLinks;
     },
   },
-};
+});
 </script>
 
 <style scoped>
@@ -28,23 +26,58 @@ export default {
 </style>
 
 <template>
-  <div class="bg-[#14181B] w-full">
-    <div class="container mx-auto p-4">
+  <div class="relative bg-[#14181B] w-full bg-[url('/footerBG.svg')] ">
+    <!-- SVG Background -->
+    <svg
+      class="absolute inset-0 w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1221 684"
+      fill="none"
+    >
+      <g filter="url(#filter0_f_1434_1855)">
+        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_1434_1855"
+          x="0"
+          y="0"
+          width="1221"
+          height="1221"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
+        </filter>
+        <radialGradient
+          id="paint0_radial_1434_1855"
+          cx="0"
+          cy="0"
+          r="1"
+          gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(610.5 610.5) rotate(90) scale(410.5)"
+        >
+          <stop offset="0.01" stop-color="#23282C" />
+          <stop offset="0.885" stop-color="#23282C" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+    </svg>
+    <div class="relative container mx-auto p-4">
       <!-- Main Footer Content -->
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
-        <div
-          v-for="section in footerData.sections"
-          :key="section.title"
-          class="min-w-0"
-        >
+        <div v-for="section in footerData?.sections" :key="section.title" class="min-w-0">
           <h3 class="text-[#929A9E] font-medium text-base mb-4">{{ section.title }}</h3>
 
           <ul class="space-y-2">
             <li v-for="item in section.items" :key="item.name">
-              <a
-                :href="item.link"
-                class="gradient-hover text-[#BEC0C2] text-sm"
-              >
+              <a :href="item.link" class="gradient-hover text-[#BEC0C2] text-sm">
                 <TextGradient textGradientColor="" />
                 {{ item.name }}
               </a>
@@ -52,41 +85,41 @@ export default {
           </ul>
         </div>
       </div>
-     
-      <div class="flex flex-col md:flex-row justify-between mb-5">
-          <!-- Pricing Section -->
-          <div class="rounded-lg w-full mb-4 md:mb-0">
-            <h3 class="text-[#929A9E] font-medium text-base mb-4">Pricing</h3>
-            <ul>
-              <li>
-                <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-sm">
-                  <TextGradient textGradientColor="" /> View Plans
-                </a>
-              </li>
-            </ul>
-          </div>
 
-          <!-- GitHub Stats Section -->
-          <div class="flex items-center space-x-4 w-full md:w-auto">
-            <a
-              v-for="stat in footerData.githubStats"
-              :key="stat.label"
-              :href="stat.link"
-              class="flex items-center space-x-2 bg-[#353B40] rounded border border-[#595D62]"
-            >
-              <div class="flex flex-row items-center p-2 gap-2">
-                <img :src="stat.icon" :alt="stat.label" class="w-4 h-4 text-white" />
-                <span class="text-sm text-[#FFFFFF] mr-1">{{ stat.label }}</span>
-              </div>
-              <span
-                class="text-sm text-[#FFFFFF] bg-[#14181B] w-1/2 h-full p-2 rounded-r"
-              >
-                {{ stat.count }}
-              </span>
-            </a>
-          </div>
+      <div class="flex flex-col md:flex-row justify-between mb-5">
+        <!-- Pricing Section -->
+        <div class="rounded-lg w-full mb-4 md:mb-0">
+          <h3 class="text-[#929A9E] font-medium text-base mb-4">Pricing</h3>
+          <ul>
+            <li>
+              <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-sm">
+                <TextGradient textGradientColor="" /> View Plans
+              </a>
+            </li>
+          </ul>
         </div>
 
+        <!-- GitHub Stats Section -->
+        <div class="flex items-center space-x-2 w-full md:w-auto">
+          <GithubButton
+            href="https://github.com/openobserve/openobserve"
+            data-color-scheme=""
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star openobserve/openobserve on GitHub"
+            >Star</GithubButton
+          >
+
+          <GithubButton
+            href="https://github.com/openobserve/openobserve/fork"
+            data-color-scheme=""
+            data-size="large"
+            data-show-count="true"
+            aria-label="Fork openobserve/openobserve on GitHub"
+            >Fork</GithubButton
+          >
+        </div>
+      </div>
 
       <!-- Bottom Section -->
       <div
@@ -96,40 +129,50 @@ export default {
         <div class="flex items-center">
           <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
             <p class="text-sm">
-              <TextGradient textGradientColor="" />{{ footerData.copyright.text }}
+              <TextGradient textGradientColor="" />{{ footerData?.copyright?.text }}
             </p>
           </div>
         </div>
-        <div class='flex items-center gap-6'>
+        <div class="flex items-center gap-6">
           <p class="text-sm gradient-hover">
-              <TextGradient textGradientColor="" />{{ footerData.tos.text }}
-            </p>
-            <p class="text-sm gradient-hover">
-              <TextGradient textGradientColor="" />{{ footerData.pp.text }}
-            </p>
+            <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
+          </p>
+          <p class="text-sm gradient-hover">
+            <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
+          </p>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
           <!-- Social Links -->
           <div class="social-links flex space-x-4">
-            <div
-              class="flex items-center space-x-4"
-            >
-              <a href="/" class="flex items-center shadow-[inset_0_0_15px_2px_rgba(255,223,0,0.3)] hover:shadow-[inset_0_0_5px_2px_rgba(255,223,0,0.3)] rounded-md p-2">
-                <img src="/slack.svg" class="w-6 h-6" />
-                
+            <div class="flex items-center space-x-4">
+              <!-- <a href="/" class="flex items-center rounded-md p-2 hover:">
+                <img src="/Slack.svg" class="w-8 h-8" />
+              </a> -->
+              <a
+                href="/"
+                class="w-8 h-8 rounded-md bg-[url('/Slack.svg')] bg-cover bg-center group transition-all hover:bg-[url('/SlackHover.svg')]"
+              >
               </a>
-              <a href="/" class="flex items-center shadow-[inset_0_0_20px_3px_rgba(255,223,0,0.3)] hover:shadow-[inset_0_0_30px_10px_rgba(255,223,0,0.6)] p-2 rounded-md">
-                <img src="/twitter.svg" class="w-6 h-6" />
-              </a>  
-              <a href="/" class="flex items-center shadow-[inset_0_0_20px_3px_rgba(255,223,0,0.3)] hover:shadow-[inset_0_0_30px_10px_rgba(255,223,0,0.6)] p-2 rounded-md ">
-                <img src="/linked-in.svg" class="w-6 h-6" />
-              </a>  
-              <a href="/" class="flex items-center shadow-[inset_0_0_20px_3px_rgba(255,223,0,0.3)] hover:shadow-[inset_0_0_30px_10px_rgba(255,223,0,0.6)] p-2 rounded-md ">
-                <img src="/git.svg" class="w-6 h-6" />
-              </a> 
-              <a href="/" class="flex items-center shadow-[inset_0_0_20px_3px_rgba(255,223,0,0.3)] hover:shadow-[inset_0_0_30px_10px_rgba(255,223,0,0.6)] p-2 rounded-md ">
-                <img src="/youtube.svg" class="w-6 h-6" />
-              </a>                
+              <a
+                href="/"
+                class="w-8 h-8 rounded-md bg-[url('/Twitter.svg')] bg-cover bg-center group transition-all hover:bg-[url('/TwitterHover.svg')]"
+              >
+              </a>
+              <a
+                href="/"
+                class="w-8 h-8 rounded-md bg-[url('/Linkedin.svg')] bg-cover bg-center group transition-all hover:bg-[url('/LinkedinHover.svg')]"
+              >
+              </a>
+              <a
+                href="/"
+                class="w-8 h-8 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center group transition-all hover:bg-[url('/GitHubHover.svg')]"
+              >
+              </a>
+              <a
+                href="/"
+                class="w-8 h-8 rounded-md bg-[url('/Youtube.svg')] bg-cover bg-center group transition-all hover:bg-[url('/YoutubeHover.svg')]"
+              >
+              </a>
             </div>
           </div>
         </div>
