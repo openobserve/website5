@@ -14,7 +14,7 @@ const props = defineProps({
   <div class="flex flex-col gap-3 justify-center items-center h-full">
     <div v-for="(item, index) in cards" :key="index" class="rounded-2xl h-full">
       <div
-        class="flex bg-gradient-to-r rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4"
+        class="group flex bg-gradient-to-r rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4"
         style="
           background-image: linear-gradient(
             90deg,
@@ -24,11 +24,12 @@ const props = defineProps({
           );
         "
       >
-        <div class="w-full lg:w-1/3">
-          <img
+        <div class="w-full lg:w-1/3 group-hover:grayscale-0 group-hover:filter">
+          <img 
             :src="item.image"
             :alt="item.title"
-            class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0"
+            class="w-full h-full object-cover rounded-lg grayscale  group-hover:grayscale-0 transition-all duration-300
+"
           />
         </div>
         <div class="flex flex-col h-full space-y-4 w-full lg:w-2/3">

@@ -19,14 +19,14 @@ const props = defineProps({
 
 <template>
   <div
-    class="flex flex-col h-full bg-gradient-to-r rounded-lg hover:bg-[url('/hoverCard.svg')] bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4"
+    class="group flex flex-col h-full bg-gradient-to-r rounded-lg  bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4"
     style="background-image: linear-gradient(#313539, #1F2226, #313539);"
   >
-    <div class="">
+    <div class="group-hover:grayscale-0 group-hover:filter transition-all duration-300">
       <img
         :src="card.image"
         :alt="card.title"
-        class="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale hover:grayscale-0"
+        class="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
       />
     </div>
     <div class=" flex flex-col h-full space-y-4">

@@ -2,13 +2,18 @@
 import { defineProps } from "vue";
 import GithubButton from "vue-github-button";
 import TextGradient from "../HeaderComponents/TextWithGradient.vue";
-
+import CustomSection from "../core/CustomSection.vue";
 const props = defineProps({
   footerData: {
     type: Object,
     required: true,
     validator(value) {
-      return value.sections && value.copyright && value.githubStats && value.socialLinks;
+      return (
+        value.sections &&
+        value.copyright &&
+        value.githubStats &&
+        value.socialLinks
+      );
     },
   },
 });
@@ -19,7 +24,11 @@ const props = defineProps({
   display: inline-block;
 }
 .gradient-hover:hover {
-  background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
+  background: linear-gradient(
+    to left,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -35,7 +44,12 @@ const props = defineProps({
       fill="none"
     >
       <g filter="url(#filter0_f_1434_1855)">
-        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
+        <circle
+          cx="610.5"
+          cy="610.5"
+          r="410.5"
+          fill="url(#paint0_radial_1434_1855)"
+        />
       </g>
       <defs>
         <filter
@@ -54,7 +68,10 @@ const props = defineProps({
             in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
+          <feGaussianBlur
+            stdDeviation="100"
+            result="effect1_foregroundBlur_1434_1855"
+          />
         </filter>
         <radialGradient
           id="paint0_radial_1434_1855"
@@ -69,114 +86,132 @@ const props = defineProps({
         </radialGradient>
       </defs>
     </svg>
-    <div class="relative container mx-auto p-3">
-      <!-- Main Footer Content -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
-        <div v-for="section in footerData?.sections" :key="section.title" class="min-w-0">
-          <h3 class="text-[#929A9E] font-medium text-2xl mb-4">{{ section.title }}</h3>
-
-          <ul class="space-y-2">
-            <li v-for="item in section.items" :key="item.name">
-              <a :href="item.link" class="gradient-hover text-[#BEC0C2] text-lg">
-                <TextGradient textGradientColor="" />
-                {{ item.name }}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="flex flex-col md:flex-row justify-between mb-5">
-        <!-- Pricing Section -->
-        <div class="rounded-lg w-full mb-4 md:mb-0">
-          <h3 class="text-[#929A9E] font-medium text-2xl mb-4">Pricing</h3>
-          <ul>
-            <li>
-              <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-lg">
-                <TextGradient textGradientColor="" /> View Plans
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- GitHub Stats Section -->
-        <div class="flex items-center space-x-2 w-full md:w-auto">
-           <GithubButton
-            href="https://github.com/openobserve/openobserve"
-            data-color-scheme=""
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star openobserve/openobserve on GitHub"
-            >Star</GithubButton
+    <!-- <CustomSection> -->
+      <div class="relative container mx-auto px-4 py-6 lg:px-8 xl:px-12">
+        <!-- Main Footer Content -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
+          <div
+            v-for="section in footerData?.sections"
+            :key="section.title"
+            class="min-w-0"
           >
+            <h3 class="text-[#929A9E] font-medium text-xl mb-4">
+              {{ section.title }}
+            </h3>
 
-          <GithubButton
-            href="https://github.com/openobserve/openobserve/fork"
-            data-color-scheme=""
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork openobserve/openobserve on GitHub"
-            >Fork</GithubButton
-          >
-        </div>
-      </div>
-
-      <!-- Bottom Section -->
-      <div
-        class="border-t border-gray-700 pt-5 flex flex-col-reverse gap-4 md:flex-row justify-between items-center text-[#FFFFFF]"
-      >
-        <!-- Copyright -->
-        <div class="flex items-center">
-          <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
-            <p class="text-lg">
-              <TextGradient textGradientColor="" />{{ footerData?.copyright?.text }}
-            </p>
+            <ul class="space-y-2">
+              <li v-for="item in section.items" :key="item.name">
+                <a
+                  :href="item.link"
+                  class="gradient-hover text-[#BEC0C2] text-base"
+                >
+                  <TextGradient textGradientColor="" />
+                  {{ item.name }}
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="flex items-center gap-6">
-          <p class="text-lg gradient-hover">
-            <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
-          </p>
-          <p class="text-lg gradient-hover">
-            <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
-          </p>
+
+        <div class="flex flex-col md:flex-row justify-between mb-5">
+          <!-- Pricing Section -->
+          <div class="rounded-lg w-full mb-4 md:mb-0">
+            <h3 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h3>
+            <ul>
+              <li>
+                <a
+                  href="/"
+                  class="gradient-hover text-[#BEC0C2] font-normal text-base"
+                >
+                  <TextGradient textGradientColor="" /> View Plans
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- GitHub Stats Section -->
+          <div class="flex items-center space-x-2 w-full md:w-auto">
+            <GithubButton
+              href="https://github.com/openobserve/openobserve"
+              data-color-scheme=""
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star openobserve/openobserve on GitHub"
+              >Star</GithubButton
+            >
+
+            <GithubButton
+              href="https://github.com/openobserve/openobserve/fork"
+              data-color-scheme=""
+              data-size="large"
+              data-show-count="true"
+              aria-label="Fork openobserve/openobserve on GitHub"
+              >Fork</GithubButton
+            >
+          </div>
         </div>
-        <div class="flex items-center space-x-4">
-          <!-- Social Links -->
-          <div class="social-links flex space-x-4">
-            <div class="flex items-center space-x-4">
-              <!-- <a href="/" class="flex items-center rounded-md p-2 hover:">
+
+        <!-- Bottom Section -->
+        <div
+          class="border-t border-gray-700 pt-5 flex flex-col gap-4 md:flex-row justify-between items-center text-[#FFFFFF]"
+        >
+          <!-- Copyright -->
+          <div class="flex items-center">
+            <div
+              class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm"
+            >
+              <p class="text-base">
+                <TextGradient textGradientColor="" />{{
+                  footerData?.copyright?.text
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <p class="text-base gradient-hover">
+              <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
+            </p>
+            <p class="text-base gradient-hover">
+              <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
+            </p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Social Links -->
+            <div class="social-links flex space-x-4">
+              <div class="flex items-center space-x-4">
+                <!-- <a href="/" class="flex items-center rounded-md p-2 hover:">
                 <img src="/Slack.svg" class="w-8 h-8" />
               </a> -->
-              <a
-                href="/"
-                class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]"
-              >
-              </a>
-              <a
-                href="/"
-                class="w-12 h-12 rounded-md bg-[url('/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/TwitterHover.svg')]"
-              >
-              </a>
-              <a
-                href="/"
-                class="w-12 h-12 rounded-md  bg-[url('/Linkedin.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/LinkedinHover.svg')]"
-              >
-              </a>
-              <a
-                href="/"
-                class="w-12 h-12 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center  group transition-all duration-300 hover:bg-[url('/GitHubHover.svg')]"
-              >
-              </a>
-              <a
-                href="/"
-                class="w-12 h-12 rounded-md bg-[url('/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/YoutubeHover.svg')]"
-              >
-              </a>
+                <a
+                  href="/"
+                  class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]"
+                >
+                </a>
+                <a
+                  href="/"
+                  class="w-12 h-12 rounded-md bg-[url('/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/TwitterHover.svg')]"
+                >
+                </a>
+                <a
+                  href="/"
+                  class="w-12 h-12 rounded-md bg-[url('/Linkedin.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/LinkedinHover.svg')]"
+                >
+                </a>
+                <a
+                  href="/"
+                  class="w-12 h-12 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/GitHubHover.svg')]"
+                >
+                </a>
+                <a
+                  href="/"
+                  class="w-12 h-12 rounded-md bg-[url('/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/YoutubeHover.svg')]"
+                >
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <!-- </CustomSection> -->
   </div>
 </template>
