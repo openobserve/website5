@@ -15,7 +15,7 @@ import CustomHeaderButton from "../components/header/CustomHeaderButton.vue";
 import CustomSectionBackground from "../components/core/CustomSectionBackground.vue";
 import CompanySwiper from "../components/core/CompanySwiper.vue";
 import HomeHeroSection from "../components/heroSections/HomeHeroSection.vue";
-import PlatformHeroSection from "../components/heroSections/PlatofromHeroSection.vue";
+import FeatureHeroSection from "../components/heroSections/FeatureHeroSection.vue";
 import PlatformLogsHeroSection from "../components/heroSections/PlatformLogsHeroSection.vue";
 import LeftSideCard from "../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../components/cardComponent/RightSideCard.vue";
@@ -24,6 +24,7 @@ import Footer from "../components/footerComponent/Footer.vue";
 import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 import Heading from "../components/core/Heading.vue";
 import { h } from "vue";
+import SolutionSubPageHeroSection from "../components/heroSections/SolutionSubPageHeroSection.vue";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 
 const footerData = {
@@ -323,7 +324,7 @@ const pageData = [
     background="/public/Coding BG.svg"
   /> -->
 
-  <!-- <PlatformHeroSection
+  <!-- <FeatureHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     cards={cardData}
@@ -343,7 +344,7 @@ const pageData = [
     tabContents={tabContents}
   /> -->
 
-  <!-- <PlatformLogsHeroSection
+  <PlatformLogsHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     buttons={[
@@ -352,6 +353,24 @@ const pageData = [
     ]}
     backgroundImage="/public/Eclipse.svg"
     rightImage="/public/Data sources Kubernetes.svg"
+  />
+  <!-- <SolutionSubPageHeroSection
+    title="The Open Observe platform"
+    subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    buttons={[
+      { label: "Get Started", variant: "white" },
+      { label: "Watch Video", variant: "secondary" },
+    ]}
+    backgroundImage="/public/SolutionHeroSectionSVG.svg"
+    rightImage="/public/SolutionHeroSectionSVG.svg"
+  /> -->
+
+  <!-- <CustomTabs
+    client:load
+    title="Enterprise-Grade Features"
+    subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
+    tabs={tabs}
+    tabContents={featureData}
   /> -->
 
   <!-- <CustomSection>

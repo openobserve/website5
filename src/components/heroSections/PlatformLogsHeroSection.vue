@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
+
 // Define props for the component
 defineProps({
   title: {
@@ -28,7 +29,8 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col lg:flex-row items-center lg: justify-between px-6 sm:px-10 lg:px-16"
+    class="relative flex flex-col h-screen lg:flex-row items-center lg:justify-between px-6 sm:px-10 lg:px-16"
+    :style="{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
   >
     <!-- Left Content -->
     <div class="lg:text-left items-center">
