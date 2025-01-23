@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full space-y-2">
-    <h4 class="text-[#FFFFFF] text-base font-semibold">{{ title }}</h4>
-    <ul class="space-y-2">
+  <div class="w-full space-y-1 xl:space-y-2">
+    <h4 class="text-[#FFFFFF] text-sm md:text-base lg:text-sm xl:text-base font-semibold">{{ title }}</h4>
+    <ul class="space-y-1 xl:space-y-2">
       <li
         v-for="(item, index) in items"
         :key="index"
