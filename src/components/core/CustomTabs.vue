@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
-
+import { ref, computed } from "vue";
+import CustomSection from "./CustomSection.vue";
+import CustomInterChange from "./CustomInterChange.vue";
 // Props to receive dynamic data from the parent
 const props = defineProps({
   title: {
@@ -13,21 +14,24 @@ const props = defineProps({
   },
   tabs: {
     type: Array,
-    required: true,
+    required: true, // Tabs header
   },
   tabContents: {
     type: Object,
-    required: true, // Should be an object with keys matching tab names
+    required: true, // Content for each tab. Should be an object with keys matching tab names.
   },
 });
 
-// State to manage the active tab
-const activeTab = ref(props.tabs[0]); // Set the first tab as the default active tab
+const activeTab = ref(props.tabs[0]); // Default active tab
 
-// Method to handle tab changes
+// Method to set the active tab
 const setActiveTab = (tab) => {
   activeTab.value = tab;
 };
+
+// Computed property to get the current tab content
+const activeContent = computed(() => props.tabContents[activeTab.value]);
+console.log(setActiveTab, activeContent);
 </script>
 
 <template>
@@ -43,7 +47,7 @@ const setActiveTab = (tab) => {
     <!-- Tabs Section -->
     <div class="relative max-w-6xl mx-auto">
       <div class="flex justify-center gap-6 sm:gap-8 border-b border-gray-600">
-        <!-- Loop through tabs -->
+        <!-- Render Tabs -->
         <div
           v-for="tab in tabs"
           :key="tab"
@@ -64,9 +68,20 @@ const setActiveTab = (tab) => {
       </div>
     </div>
 
-    <!-- Tab Content Section -->
+    <!-- Dynamic Content Section -->
     <div class="mt-12">
-      <slot :activeTab="activeTab" />
+      <CustomSection>
+        <div class="container mx-auto px-4 md:px-10">
+          <CustomInterChange
+            v-for="(feature, index) in activeContent"
+            :key="index"
+            :items="feature.Items"
+            :title="feature.Title"
+            :image="feature.Image"
+            :direction="index % 2 === 0 ? 'left' : 'right'"
+          />
+        </div>
+      </CustomSection>
     </div>
   </section>
 </template>
