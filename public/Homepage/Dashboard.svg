@@ -1,0 +1,11 @@
+<svg width="60" height="53" viewBox="0 0 60 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Dashboard">
+<path id="Vector" d="M32.62 18.14V40.7M38.68 29.03V40.7M50.81 32.92V40.7M15.81 12.69V19.69L22.81 19.3M9.58 35.25H21.25M9.58 40.69H21.25M44.74 23.58V40.69M54 51H6C3.79 51 2 49.21 2 47V6C2 3.79 3.79 2 6 2H54C56.21 2 58 3.79 58 6V47C58 49.21 56.21 51 54 51ZM16.19 12.69C12.54 12.69 9.58 15.65 9.58 19.3C9.58 22.95 12.54 25.91 16.19 25.91C19.84 25.91 22.8 22.95 22.8 19.3C22.8 15.65 19.84 12.69 16.19 12.69Z" stroke="url(#paint0_linear_4276_100)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_4276_100" x1="30" y1="2" x2="30" y2="51" gradientUnits="userSpaceOnUse">
+<stop stop-color="#75CDD6"/>
+<stop offset="1" stop-color="#3059AC"/>
+</linearGradient>
+</defs>
+</svg>

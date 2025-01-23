@@ -1,0 +1,11 @@
+<svg width="57" height="60" viewBox="0 0 57 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Session Replay">
+<path id="Vector" d="M42.13 14.74L53.49 15.63L52.6 4.27M52.72 14.34C47.69 6.9 39.16 2 29.5 2C14.04 2 1.5 14.54 1.5 30C1.5 45.46 14.04 58 29.5 58C41.17 58 51.17 50.86 55.38 40.72M37.37 31.83L25.49 38.69C23.93 39.59 21.98 38.47 21.98 36.67V22.96C21.98 21.16 23.93 20.04 25.49 20.94L37.37 27.8C38.93 28.7 38.93 30.95 37.37 31.85V31.83Z" stroke="url(#paint0_linear_4276_452)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_4276_452" x1="28.44" y1="2" x2="28.44" y2="58" gradientUnits="userSpaceOnUse">
+<stop stop-color="#75CDD6"/>
+<stop offset="1" stop-color="#3059AC"/>
+</linearGradient>
+</defs>
+</svg>

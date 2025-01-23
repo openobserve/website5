@@ -27,6 +27,7 @@ import { h } from "vue";
 import SolutionSubPageHeroSection from "../components/heroSections/SolutionSubPageHeroSection.vue";
 import CompanyHeroSection from "../components/heroSections/CompanyHeroSection.vue";import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 
+import CustomTiles from "../components/cards/CustomTiles.vue";
 const footerData = {
   sections: [
     {
@@ -257,6 +258,49 @@ const headingData = {
     "OpenObserve simplifies observability with a streamlined, three-step process that ensures fast setup, seamless integration, and actionable insights.",
 };
 
+const IconCardData = [
+  {
+    title: "Logs",
+    icon: "/public/Homepage/64px Component.svg",
+  },
+  {
+    title: "Alerts",
+    icon: "/public/Homepage/Alerts.svg",
+  },
+  {
+    title: "Dashboard",
+    icon: "/public/Homepage/Dashboard.svg",
+  },
+  {
+    title: "Error Tracking",
+    icon: "/public/Homepage/Error Tracking.svg",
+  },
+  {
+    title: "Homepage",
+    icon: "/public/Homepage/Logs.svg",
+  },
+  {
+    title: "Metrices",
+    icon: "/public/Homepage/Metrices.svg",
+  },
+  {
+    title: "Pipelines",
+    icon: "/public/Homepage/Pipelines.svg",
+  },
+  {
+    title: "Real User Monitoring",
+    icon: "/public/Homepage/Real User Monitoring (RUM).svg",
+  },
+  {
+    title: "Session Replay",
+    icon: "/public/Homepage/Session Replay.svg",
+  },
+  {
+    title: "Traces",
+    icon: "/public/Homepage/Traces.svg",
+  },
+];
+
 const pageData = [
   {
     __component: "section.herosection",
@@ -378,7 +422,11 @@ const pageData = [
     tabContents={featureData}
   /> -->
 
-  <!-- <CustomSection>
+  <CustomSection>
+    <CustomTiles cards={IconCardData} />
+  </CustomSection>
+
+  <CustomSection>
     <CustomCard cards={cardData} />
   </CustomSection> -->
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
