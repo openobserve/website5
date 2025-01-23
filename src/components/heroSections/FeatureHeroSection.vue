@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
+import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 // Define props for dynamic data
 defineProps({
@@ -32,7 +33,10 @@ defineProps({
 </script>
 
 <template>
-  <section class="text-center">
+  <section
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_-50%] bg-cover py-16 px-4 sm:px-8 lg:px-16"
+    :style="{ backgroundImage: `url(${backgroundImage})` }"
+  >
     <!-- Title and Subtitle Section -->
     <div class="relative z-10 text-white max-w-4xl mx-auto">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
@@ -42,10 +46,7 @@ defineProps({
     </div>
 
     <!-- Hero Section with Background -->
-    <div
-      class="relative flex flex-col items-center text-center bg-no-repeat bg-center bg-cover py-16 px-4 sm:px-8 lg:px-16"
-      :style="{ backgroundImage: `url(${backgroundImage})` }"
-    >
+    <div class="">
       <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 w-full">
         <CustomButton
@@ -58,16 +59,28 @@ defineProps({
       </div>
 
       <!-- Cards Section -->
-      <div class="text-start w-full">
-        <CustomFeatureSliderCard
-          :cards="cards"
-          titleTextColor="text-gray-800"
-          descriptionTextColor="text-gray-600"
-        />
+      <div class="container text-start w-full">
+        <!-- Show CustomFeatureSliderCard only on mobile screens -->
+        <div class="block md:hidden">
+          <CustomFeatureSliderCard
+            :cards="cards"
+            titleTextColor="text-gray-800"
+            descriptionTextColor="text-gray-600"
+          />
+        </div>
+
+        <!-- Show CustomFeatureCard only on medium screens and larger -->
+        <div class="hidden md:block">
+          <CustomFeatureCard
+            :cards="cards"
+            titleTextColor="text-gray-800"
+            descriptionTextColor="text-gray-600"
+          />
+        </div>
       </div>
 
       <!-- Footer Image -->
-      <div class="relative z-10 max-w-4xl w-full mt-12">
+      <div class="md:w-full mt-12">
         <img
           :src="footerImage"
           alt="Footer visual"
