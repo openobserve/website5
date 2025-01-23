@@ -517,32 +517,20 @@ const pageData = [
     rightImage="/public/SolutionHeroSectionSVG.svg"
   /> -->
 
-  <!-- <CompanyHeroSection
+  <CompanyHeroSection
     title="About Us"
     subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
-  /> -->
+  />
 
-  <CustomSection>
-    <CustomTabsWithImage tabs={tabsData} client:load />
-  </CustomSection>
-
-  <CustomTabs
+  <!-- <CustomTabs
     client:load
     title="Enterprise-Grade Features"
     subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
     tabs={tabs}
-    tabContents={[featureData, featureData11, featureData, featureData]}
-  />
+    tabContents={featureData}
+  /> -->
 
-  <CustomSection>
-    <CustomTiles cards={IconCardData} />
-  </CustomSection>
-
-  <CustomSection>
-    <CustomTestimonial testimonials={testimonialsData} client:load />
-  </CustomSection>
-
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomCard cards={cardData} />
   </CustomSection> -->
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
