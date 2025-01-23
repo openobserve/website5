@@ -1,4 +1,6 @@
 <script setup>
+import Cards from "./Cards.vue";
+
 const props = defineProps({
   cards: {
     type: Array,
@@ -7,28 +9,21 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto p-4">
     <!-- Responsive Grid Container -->
     <div
-      class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center"
+      class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center w-3/4 mx-auto"
     >
       <!-- Loop through card data -->
-      <div
+
+      <Cards
         v-for="(card, index) in cards"
         :key="index"
-        class="w-full max-w-[214px] h-auto p-6 flex flex-col items-center rounded-lg border-[#3f454a] gap-4 bg-[rgba(255,255,255,0.1)]"
-      >
-        <!-- Icon -->
-        <div class="rounded-full flex justify-center items-center mb-4">
-          <img :src="card.icon" alt="icon" class="w-14 h-14" />
-        </div>
-        <!-- Title -->
-        <h3 class="text-lg font-semibold text-[#BEC0C2] text-center">
-          {{ card.title }}
-        </h3>
-      </div>
+        :index="index"
+        :image="card.icon"
+        :title="card.title"
+        :description="card.description"
+      />
     </div>
   </div>
 </template>
-
-<style scoped></style>
