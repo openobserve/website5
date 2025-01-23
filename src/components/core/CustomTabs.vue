@@ -7,7 +7,7 @@ import CustomInterChange from "./CustomInterChange.vue";
 const props = defineProps({
   items: {
     type: Array,
-    required: true,
+    required: true, // Tabs header
   },
 });
 
