@@ -84,23 +84,26 @@
               </div>
             </div>
 
-            <div
-              class="w-full md:w-1/3 bg-gray-700 bg-opacity-50 p-4 rounded-lg"
-            >
-              <SectionHeader
-                :title="items.platform.keyFeature.title"
-                :items="items.platform.keyFeature.items"
-              />
+            <div class="flex flex-col space-y-1 w-full md:w-1/3">
+              <h4 class="text-[#FFFFFF] text-base font-semibold">
+                {{ items.platform.keyFeature.title }}
+              </h4>
+              <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+                <SectionHeader :items="items.platform.keyFeature.items" />
+              </div>
             </div>
           </div>
-          <div
-            class="hidden md:flex flex-col md:flex-row justify-between mt-6 gap-4 w-[60%] xl:w-1/2"
-          >
-            <CustomHeaderButton
-              title="Full Stack Observability Platform"
-              linkTitle="View Platform"
-            />
-            <button class="btn">Pricing</button>
+          <div class="flex flex-row gap-2 mt-6 w-4/5">
+            <div class="w-[55%]">
+              <CustomHeaderButton
+                title="Full Stack Observability Platform"
+                linkTitle="View Platform"
+              />
+            </div>
+            <a
+              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer"
+              >Pricing</a
+            >
           </div>
         </div>
       </CustomHoverHeader>
@@ -114,7 +117,7 @@
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4 p-4">
             <!-- Use Case Column -->
-            <div class="flex flex-col space-y-3  w-2/3">
+            <div class="flex flex-col space-y-3 w-2/3">
               <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4">
@@ -133,8 +136,8 @@
               </div>
             </div>
             <!-- By Team Column -->
-            <div class="flex flex-col space-y-3  w-1/3">
-              <div class="flex flex-col space-y-2 ">
+            <div class="flex flex-col space-y-3 w-1/3">
+              <div class="flex flex-col space-y-2">
                 <h4 class="text-[#FFFFFF] text-base font-semibold">By Team</h4>
                 <div>
                   <ul class="flex flex-col space-y-4">
@@ -164,11 +167,11 @@
           </div>
           <div class="flex justify-center">
             <div class="w-4/5 xl:w-[60%]">
-             <CustomHeaderButton
-              title="Full Stack Observability Platform"
-              linkTitle="View Platform"
-              link="#"
-            />
+              <CustomHeaderButton
+                title="Full Stack Observability Platform"
+                linkTitle="View Platform"
+                link="#"
+              />
             </div>
           </div>
         </div>
@@ -299,5 +302,9 @@ onUnmounted(() => {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.card-border {
+  border: 1px solid #313539;
+  border-radius: 0.5rem;
 }
 </style>

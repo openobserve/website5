@@ -27,7 +27,7 @@ const platformData = {
           },
         ],
       },
-       {
+      {
         title: "Logs",
         items: [
           {
@@ -128,7 +128,7 @@ const platformData = {
           },
         ],
       },
-      
+
       {
         title: "Visualisation & Dashboards",
         items: [
@@ -189,7 +189,39 @@ const platformData = {
         },
       ],
     },
-  }
+  },
+  solutions: {
+    useCases: [
+      { title: "AWS Monitoring", link: "#" },
+      { title: "Azure Monitoring", link: "#" },
+      { title: "GCP Monitoring", link: "#" },
+      { title: "Kubernetes Observability", link: "#" },
+      { title: "Database Monitoring", link: "#" },
+      { title: "Infrastructure Monitoring", link: "#" },
+      { title: "Security & Audit Logs", link: "#" },
+      { title: "Cost Optimization", link: "#" },
+    ],
+    byTeam: [
+      { title: "DevOps & SRE", link: "#" },
+      { title: "Platform Engineering", link: "#" },
+      { title: "Development Teams", link: "#" },
+    ],
+    sandbox: { title: "Sandbox", link: "#" },
+    cta: {
+      text: "Full Stack Observability Platform",
+      link: "#",
+    },
+    secondaryCTA: {
+      text: "View all Solutions",
+      link: "#",
+    },
+  },
+  company: [
+    { title: "About Us", link: "#" },
+    { title: "Careers", link: "#" },
+    { title: "Why OpenObserve?", link: "#" },
+    { title: "Contact Us", link: "#" },
+  ],
 };
 
 // const props=defineProps({
@@ -222,7 +254,7 @@ const onMouseLeave = () => {
     </div>
 
     <nav
-      class="hidden md:flex items-center space-x-6 text-[#BEC0C2] font-inter font-semibold text-lg"
+      class="hidden md:flex items-center space-x-6 text-theme-secondaryFont font-inter font-semibold text-lg"
     >
       <div class="relative w-full">
         <a

@@ -1,24 +1,60 @@
 <template>
-  <header class="bg-black flex flex-col sticky top-0 z-50">
-    <div class="">
-      <div class="flex justify-between items-center p-4">
+  <header class="bg-black flex flex-col z-50 relative">
+    <div class="relative">
+      <div class="flex justify-between items-center p-2">
         <Logo />
         <div class="flex items-center space-x-1">
-          <CustomButton variant="tertiary">LOGIN IN</CustomButton>
-          <div class="cursor-pointer" @click="onMenuClick">
+          <div
+            class="relative rounded-xl"
+            @click="onSearchClick"
+            ref="searchWrapper"
+          >
+            <img
+              src="/search.svg"
+              alt="Search Icon"
+              class="cursor-pointer w-full h-full object-cover p-2.5"
+            />
+          </div>
+          <CustomButton variant="tertiary" size="small">LOGIN IN</CustomButton>
+          <div
+            class="cursor-pointer h-8 w-8 flex items-center"
+            @click="onMenuClick"
+          >
             <img
               :src="isMenuOpen ? '/close.svg' : '/navmenu.svg'"
               alt="Mobile View Menu Icon"
-              class="w-full h-full"
+              class=""
             />
           </div>
         </div>
       </div>
-      <div v-if="isMenuOpen" class="w-full h-full ">
+      <div
+        class="absolute top-full left-0 right-0 bg-[#23282C] rounded-lg p-3 w-full"
+        v-if="isOpenSearch"
+        @click.stop
+      >
+        <div
+          class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
+        >
+          <img src="/search.svg" alt="Search Icon" class="" />
+          <input
+            type="text"
+            class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-white"
+            placeholder="Search here"
+          />
+          <button @click="isOpenSearch = false" class="text-white">
+            <img src="/close.svg" alt="Search Icon" class="" />
+          </button>
+        </div>
+      </div>
+      <div v-if="isMenuOpen" class="w-full h-screen bg-black relative">
+        <div
+          class="absolute inset-0 z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[200px] before:bg-[url('/mobilenavBg1.svg')] before:bg-no-repeat before:bg-cover after:absolute after:bottom-0 after:left-0 after:w-full after:h-[200px] after:bg-[url('/mobilenavBg2.svg')] after:bg-no-repeat after:bg-cover"
+        ></div>
         <!-- Main Menu -->
         <div
           v-if="!activeSubMenu"
-          class="w-full flex flex-col items-center space-y-4"
+          class="relative w-full h-full flex flex-col items-center space-y-4 bg-black overflow-y-auto"
         >
           <ul class="w-full flex flex-col space-y-4 p-4">
             <li
@@ -30,7 +66,7 @@
                 class="flex flex-row items-center justify-between w-full cursor-pointer"
                 @click="onSubMenuClick(item)"
               >
-                <h4 class="text-gray-300 text-2xl font-semibold">
+                <h4 class="text-gray-300 text-lg md:text-xl font-semibold">
                   {{ item }}
                 </h4>
                 <img src="/subMenuIcon.svg" alt="Arrow Icon" class="w-4 h-4" />
@@ -58,44 +94,123 @@
         </div>
 
         <!-- Submenu Content -->
-        <div v-if="activeSubMenu" class="h-screen w-full bg-black text-white">
+        <div
+          v-if="activeSubMenu"
+          class="h-[calc(100svh-60px)] w-full bg-black text-white overflow-y-auto"
+        >
           <div class="flex items-center px-4 py-2">
             <button class="text-gray-300" @click="closeSubMenu">
               <img src="/NavBack.svg" alt="Back Icon" class="w-5 h-5" />
             </button>
-            <h4 class="text-white text-2xl font-semibold ml-2">
+            <h4 class="text-[#BEC0C2] text-2xl font-semibold ml-2">
               {{ activeSubMenu }}
             </h4>
           </div>
-          <div class="p-4">
-            <div v-show="activeSubMenu === 'Platform'" class="flex flex-col space-y-4">
-              <div>
+          <div class="p-4 h-full">
+            <div
+              v-show="activeSubMenu === 'Platform'"
+              class="flex flex-col space-y-4"
+            >
+              <div class="flex flex-col items-center justify-between space-y-4">
                 <CustomHeaderButton
                   title="Full Stack Observability Platform"
                   linkTitle="View Platform"
+                  link="#"
                 />
+                <a
+                  class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
+                  >Pricing</a
+                >
               </div>
-              <div class="w-full grid grid-cols-1 gap-6 ">
+              <div class="flex justify-center">
+                <h3 class="text-xl font-bold pb-2 text-[#FFFFFF]">
+                  {{ items.platform.title }}
+                </h3>
+              </div>
+              <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div v-for="(item, index) in items.platform.items" :key="index">
                   <SectionHeader :title="item.title" :items="item.items" />
                 </div>
               </div>
-              <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                <SectionHeader
-                  :title="items.platform.keyFeature.title"
-                  :items="items.platform.keyFeature.items"
-                />
+              <div class="flex flex-col justify-center items-center space-y-1">
+                <h4 class="text-[#FFFFFF] text-base font-semibold">
+                  {{ items.platform.keyFeature.title }}
+                </h4>
+                <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+                  <SectionHeader :items="items.platform.keyFeature.items" />
+                </div>
               </div>
             </div>
-            <div v-show="activeSubMenu === 'Solution'">
-              dfmdmdfmdkfmdswkddmkdfknf.fkng.kfn.gbm/gmb/gh
-              <div v-show="activeSubMenu === 'Resources'">
-                dfmdmdfmdkfmdswedkcfvlb,hln,jl,mlmgfkwndwjksbnjl
-                bjldbfjkfbjkchbhsjcbkd bdabfcehjf
+            <div
+              v-show="activeSubMenu === 'Solution'"
+              class="flex flex-col space-y-4"
+            >
+              <CustomHeaderButton
+                title="Full Stack Observability Platform"
+                linkTitle="View Platform"
+                link="#"
+              />
+              <div class="flex flex-col space-y-3">
+                <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
+                <div class="mt-3">
+                  <ul class="grid grid-cols-1 gap-2">
+                    <li
+                      v-for="(item, index) in items.solutions.useCases"
+                      :key="index"
+                      class="text-theme-secondaryFont text-base"
+                    >
+                      <a
+                        :href="item.link"
+                        :class="item.link ? 'gradient-hover' : ''"
+                        >{{ item.title }}</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="flex flex-col space-y-2">
+                  <h4 class="text-[#FFFFFF] text-base font-semibold">
+                    By Team
+                  </h4>
+                  <div>
+                    <ul class="flex flex-col space-y-2">
+                      <li
+                        v-for="(item, index) in items.solutions.byTeam"
+                        :key="index"
+                        class="text-theme-secondaryFont text-base"
+                      >
+                        <a
+                          :href="item.link"
+                          :class="item.link ? 'gradient-hover' : ''"
+                          >{{ item.title }}</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a :href="items?.solutions?.sandbox?.link">{{
+                      items?.solutions?.sandbox?.title
+                    }}</a>
+                  </div>
+                </div>
               </div>
-              <div v-show="activeSubMenu === 'Company'">
-                dfmdmdfmdkfmdsdfrkgmglkmfknkndwkj.dnwkdkjwdkwdhwkhdnw,kd,wkdh,kdhj
-              </div>
+            </div>
+            <div
+              v-show="activeSubMenu === 'Company'"
+              class="flex flex-col space-y-4"
+            >
+              <ul class="flex flex-col space-y-3">
+                <li
+                  v-for="(item, index) in items?.company"
+                  :key="index"
+                  class="text-theme-secondaryFont text-base"
+                >
+                  <a
+                    :href="item.link"
+                    :class="item.link ? 'gradient-hover' : ''"
+                    >{{ item.title }}</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -105,7 +220,7 @@
 </template>
 
 <script setup>
-import { ref,defineProps } from "vue";
+import { ref, defineProps, onMounted, onUnmounted } from "vue";
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
 import SectionHeader from "./SectionHeader.vue";
@@ -121,7 +236,8 @@ const navHeading = ["Platform", "Solution", "Resources", "Company"];
 // Reactive states
 const isMenuOpen = ref(false);
 const activeSubMenu = ref(null); // Tracks the currently active submenu
-
+const isOpenSearch = ref(false);
+const searchWrapper = ref(null); // Reference to the search bar wrapper
 // Toggle main menu
 const onMenuClick = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -141,4 +257,29 @@ const onSubMenuClick = (item) => {
 const closeSubMenu = () => {
   activeSubMenu.value = null;
 };
+
+const onSearchClick = () => {
+  isOpenSearch.value = !isOpenSearch.value;
+};
+
+const handleClickOutside = (event) => {
+  // Close search bar if clicked outside
+  if (searchWrapper.value && !searchWrapper.value.contains(event.target)) {
+    isOpenSearch.value = false;
+  }
+};
+// Attach and detach the event listener
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
+<style scoped>
+.card-border {
+  border: 1px solid #313539;
+  border-radius: 0.5rem;
+}
+</style>

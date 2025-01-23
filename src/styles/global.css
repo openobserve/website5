@@ -1,6 +1,5 @@
-
 :root {
-    background-color: 1, 1, 1;
+  background-color: 1, 1, 1;
   --text-theme-primary-color: 89, 93, 98;
   --text-theme-primary-color-100: 244, 244, 245;
   --text-theme-primary-color-200: 226, 227, 229;
@@ -11,20 +10,36 @@
   --text-theme-primary-color-700: 53, 59, 64;
   --text-theme-primary-color-800: 35, 40, 44;
   --text-theme-primary-color-900: 20, 24, 27;
+  --text-secondary: 190, 192, 194;
+  /* Base colors */
+  --blue-light: 75, 205, 214; /* #75CDD6 */
+  --blue-dark: 48, 89, 172; /* #3059AC */
+  --sky-light: 208, 251, 255; /* #D0FBFF */
+  --sky-dark: 119, 139, 255; /* #778BFF */
+  --text-light: 117, 205, 214; /* #75CDD6 */
+  --text-dark: 0, 140, 255; /* #008CFF */
+  --gray-light: 49, 53, 57; /* #313539 */
+  --gray-dark: 31, 34, 38; /* #1F2226 */
 
-   /* Base colors */
-    --blue-light: 75, 205, 214;  /* #75CDD6 */
-    --blue-dark: 48, 89, 172;    /* #3059AC */
-    --sky-light: 208, 251, 255;  /* #D0FBFF */
-    --sky-dark: 119, 139, 255;   /* #778BFF */
-    --text-light: 117, 205, 214; /* #75CDD6 */
-    --text-dark: 0, 140, 255;    /* #008CFF */
-    --gray-light: 49, 53, 57;    /* #313539 */
-    --gray-dark: 31, 34, 38;     /* #1F2226 */
-
-    /* Gradient backgrounds */
-    --gradient-blue: linear-gradient(to bottom, rgb(var(--blue-light)), rgb(var(--blue-dark)));
-    --gradient-light-blue: linear-gradient(to bottom, rgb(var(--sky-light)), rgb(var(--sky-dark)));
-    --gradient-text: linear-gradient(to right, rgb(var(--text-light)), rgb(var(--text-dark)));
-    --gradient-gray: linear-gradient(to bottom, rgb(var(--gray-light)), rgb(var(--gray-dark)));
+  /* Gradient backgrounds */
+  --gradient-blue: linear-gradient(
+    to bottom,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
+  --gradient-light-blue: linear-gradient(
+    to bottom,
+    rgb(var(--sky-light)),
+    rgb(var(--sky-dark))
+  );
+  --gradient-text: linear-gradient(
+    to right,
+    rgb(var(--text-light)),
+    rgb(var(--text-dark))
+  );
+  --gradient-gray: linear-gradient(
+    to bottom,
+    rgb(var(--gray-light)),
+    rgb(var(--gray-dark))
+  );
 }

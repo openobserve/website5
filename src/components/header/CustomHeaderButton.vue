@@ -3,13 +3,13 @@ const props = defineProps({ title: String, linkTitle: String, link: String });
 </script>
 <template>
   <div
-    class="bg-black stroke-current bg-gradient-to-r from-neutral-700 to-neutral-800  rounded-md p-4 w-full lg:w-[40%]"
+    class="bg-black bg-opacity-40 card-border p-4 w-full"
   >
-    <div class="flex justify-between gap-5">
-      <h3 class="text-white">{{ title }}</h3>
-      <h3 class="gradient-hover cursor-pointer">
+    <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+      <h3 class="text-white text-base">{{ title }}</h3>
+      <a class="gradient-hover cursor-pointer text-base" :href="link">
         {{ linkTitle }}
-      </h3>
+      </a>
     </div>
   </div>
 </template>
@@ -23,4 +23,9 @@ const props = defineProps({ title: String, linkTitle: String, link: String });
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.card-border {
+  border: 1px solid #313539;
+  border-radius: 0.5rem;
+}
+
 </style>
