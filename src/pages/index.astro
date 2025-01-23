@@ -23,6 +23,8 @@ import CustomTabs from "../components/core/CustomTabs.vue";
 import Footer from "../components/footerComponent/Footer.vue";
 import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 import Heading from "../components/core/Heading.vue";
+import CardWithIcon1 from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
+import CardWithIcon2 from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
 import { h } from "vue";
 import SolutionSubPageHeroSection from "../components/heroSections/SolutionSubPageHeroSection.vue";
 import CompanyHeroSection from "../components/heroSections/CompanyHeroSection.vue";import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
@@ -478,7 +480,59 @@ const testimonialsData = [
       { label: "Watch Video", variant: "secondary" },
     ]}
     background="/public/Coding BG.svg"
-  /> -->
+  />
+  <CardWithIcon1 
+      client:load
+      cards={[
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'CardSeeALLicon.svg', 
+              title: 'Explore all features' 
+          },
+         
+      ]} 
+    />
+
+    <CardWithIcon2 
+      client:load
+      cards={[
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Dev Ops' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Developers' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Site Reliability Engineers' 
+          },
+          { 
+              icon: 'CardSeeALLicon.svg', 
+              title: 'View all use cases' 
+          },
+      ]} 
+    />
 
   <FeatureHeroSection
     client:load

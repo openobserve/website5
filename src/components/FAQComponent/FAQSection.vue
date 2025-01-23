@@ -22,10 +22,11 @@ const toggleAnswer = (index) => {
       <div class="space-y-4 mt-10 mb-10">
         <div v-for="(item, index) in faqItems" :key="index">
           <div
-            class="flex justify-between items-center cursor-pointer"
+            class="flex justify-between items-center cursor-pointer p-4 group relative border-0 border-transparent rounded-2xl hover:border-gradient-gray duration-300 transition-all"
             @click="toggleAnswer(index)"
           >
-            <h3 class="lg:font-medium lg:text-lg md:font-semibold text-base text-white mt-4">
+          <div class="absolute inset-0 rounded-md bg-gradient-to-b from-[#296EA7] via-transparent to-[#000000] opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></div>
+            <h3 class="lg:font-medium lg:text-lg md:font-semibold text-base text-white mt-4 z-10">
               {{ item.question }}
             </h3>
             <img 
@@ -51,3 +52,12 @@ const toggleAnswer = (index) => {
       </div>
   </div>
 </template>
+
+
+<style scoped>
+.border-gradient {
+  border-image: linear-gradient(to bottom, #296EA7, transparent, #000000) 1;
+  border-image-slice: 1;
+  border-radius:1rem;
+}
+</style>
