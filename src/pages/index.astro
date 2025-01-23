@@ -22,6 +22,8 @@ import RightSideCard from "../components/cardComponent/RightSideCard.vue";
 import CustomTabs from "../components/core/CustomTabs.vue";
 import Footer from "../components/footerComponent/Footer.vue";
 import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
+import Heading from "../components/core/Heading.vue";
+import { h } from "vue";
 
 const footerData = {
   sections: [
@@ -217,11 +219,6 @@ const featureData = [
         description:
           "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
       },
-      {
-        title: "Seamless integrations",
-        description:
-          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-      },
     ],
   },
 ];
@@ -251,6 +248,12 @@ const tabContents = {
     <p>Provide an excellent user experience with a clean, intuitive interface that enhances productivity.</p>
   `,
 };
+
+const headingData = {
+  title: "Why OpenObserve?",
+  subtitle:
+    "OpenObserve simplifies observability with a streamlined, three-step process that ensures fast setup, seamless integration, and actionable insights.",
+};
 ---
 
 <Layout>
@@ -267,7 +270,7 @@ const tabContents = {
 
   <!-- <Header platformData={platformData}/> -->
 
-  <!-- <HomeHeroSection
+  <HomeHeroSection
     title="Open Source Observability"
     subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
     buttons={[
@@ -275,9 +278,9 @@ const tabContents = {
       { label: "Watch Video", variant: "secondary" },
     ]}
     background="/public/Coding BG.svg"
-  /> -->
+  />
 
-  <PlatformHeroSection
+  <!-- <PlatformHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     cards={cardData}
@@ -287,9 +290,10 @@ const tabContents = {
     ]}
     backgroundImage="/public/Eclipse.svg"
     footerImage="/public/Frame 2121314680.svg"
-  />
+  /> -->
 
   <CustomTabs
+    client:load
     title="Enterprise-Grade Features"
     subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
     tabs={tabs}
@@ -328,6 +332,14 @@ const tabContents = {
   </CustomSection>
 
   <CustomSection>
+    <div class="py-10">
+      <Heading
+        title={headingData.title}
+        description={headingData.subtitle}
+        align="CENTER"
+      />
+    </div>
+
     <CustomFeatureCard cards={cardData} />
   </CustomSection>
 
