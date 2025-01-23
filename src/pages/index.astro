@@ -25,7 +25,7 @@ import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 import Heading from "../components/core/Heading.vue";
 import { h } from "vue";
 import SolutionSubPageHeroSection from "../components/heroSections/SolutionSubPageHeroSection.vue";
-import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
+import CompanyHeroSection from "../components/heroSections/CompanyHeroSection.vue";import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 
 const footerData = {
   sections: [
@@ -344,7 +344,7 @@ const pageData = [
     tabContents={tabContents}
   /> -->
 
-  <PlatformLogsHeroSection
+  <!-- <PlatformLogsHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     buttons={[
@@ -353,7 +353,7 @@ const pageData = [
     ]}
     backgroundImage="/public/Eclipse.svg"
     rightImage="/public/Data sources Kubernetes.svg"
-  />
+  /> -->
   <!-- <SolutionSubPageHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
@@ -364,6 +364,11 @@ const pageData = [
     backgroundImage="/public/SolutionHeroSectionSVG.svg"
     rightImage="/public/SolutionHeroSectionSVG.svg"
   /> -->
+
+  <CompanyHeroSection
+    title="About Us"
+    subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
+  />
 
   <!-- <CustomTabs
     client:load
