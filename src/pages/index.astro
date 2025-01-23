@@ -30,6 +30,9 @@ import CompanyHeroSection from "../components/heroSections/CompanyHeroSection.vu
 import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
 import CustomTestimonial from "../components/core/CustomTestimonial.vue";
+import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
+
+import CustomTiles from "../components/cards/CustomTiles.vue";
 const footerData = {
   sections: [
     {
@@ -305,107 +308,6 @@ const headingData = {
     "OpenObserve simplifies observability with a streamlined, three-step process that ensures fast setup, seamless integration, and actionable insights.",
 };
 
-const IconCardData = [
-  {
-    icon: "/public/Homepage/increase 1.svg",
-    title: "2700+",
-    description: "Users who use and love OpenObserve",
-  },
-  {
-    icon: "/public/Homepage/money-bag 1.svg",
-    title: "140x",
-    description: "Lower storage cost compared to Elasticsearch",
-  },
-  {
-    icon: "/public/Homepage/clock 1.svg",
-    title: "2 min",
-    description:
-      "Time to get OpenObserve up and running for single-node deployment",
-  },
-];
-
-const tabsData = [
-  {
-    id: 1,
-    title: "Logs",
-    subtitle:
-      "Utilize real-time log analytics to streamline monitoring and troubleshooting processes. Full-text search and filtering allow for quick identification of issues, providing actionable insights at scale.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 2,
-    title: "Metrics",
-    subtitle:
-      "Gain deep insights into your system's performance with metrics monitoring, enabling you to track KPIs effectively.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 3,
-    title: "Traces",
-    subtitle:
-      "Visualize and analyze traces to pinpoint performance bottlenecks in distributed systems.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 4,
-    title: "Front-end Monitoring",
-    subtitle:
-      "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 5,
-    title: "Pipeline",
-    subtitle:
-      "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 6,
-    title: "Alerting",
-    subtitle:
-      "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-  {
-    id: 7,
-    title: "Visualisation and Dashboard",
-    subtitle:
-      "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
-    buttonText: "Learn More",
-    image: "/public/Homepage/UI-1 4.svg",
-  },
-];
-
-const testimonialsData = [
-  {
-    id: 1,
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    quote: "OpenObserve is an amazing place with great people!",
-    name: "John Doe",
-    position: "Software Engineer",
-  },
-  {
-    id: 2,
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
-    quote: "The team here is extremely talented and supportive.",
-    name: "Sarah Smith",
-    position: "Designer",
-  },
-  {
-    id: 3,
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-    quote: "The team here is extremely talented and supportive.",
-    name: "John Smith",
-    position: "Manager",
-  },
-];
 
 const pageData = [
   {
@@ -530,9 +432,13 @@ const pageData = [
     tabContents={featureData}
   /> -->
 
-  <!-- <CustomSection>
+  <CustomSection>
+    <CustomTiles cards={IconCardData} />
+  </CustomSection>
+
+  <CustomSection>
     <CustomCard cards={cardData} />
-  </CustomSection> -->
+  </CustomSection> 
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
   <!-- <CustomSection>
     <div class="container mx-auto px-4 md:px-10">
