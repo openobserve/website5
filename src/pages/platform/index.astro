@@ -1,0 +1,39 @@
+---
+import FeatureHeroSection from "../../components/heroSections/FeatureHeroSection.vue";
+import Layout from "../../layouts/Layout.astro";
+
+const cardData = [
+  {
+    icon: "/public/Performance.svg",
+    title: "Developers",
+    description:
+      "Equip DevOps teams with comprehensive tools for deployment, monitoring, and incident response. Enhance system reliability and accelerate development cycles through automation and real-time insights.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Performance",
+    description:
+      "Support platform engineers in building scalable, resilient systems. Provide data-driven insights that drive efficiency, enabling innovation in infrastructure management and seamless scaling capabilities.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Security",
+    description:
+      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
+  },
+];
+---
+
+<Layout>
+ <FeatureHeroSection
+    title="The Open Observe platform"
+    subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    cards={cardData}
+    buttons={[
+      { label: "Get Started", variant: "white" },
+      { label: "Watch Video", variant: "secondary" },
+    ]}
+    backgroundImage="/public/Eclipse.svg"
+    footerImage="/public/Frame 2121314680.svg"
+  />
+</Layout>

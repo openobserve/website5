@@ -1,5 +1,9 @@
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import CustomButton from "./CustomButton.vue";
 
 // Define props for reusability
@@ -12,64 +16,127 @@ const props = defineProps({
 
 // Active tab state
 const activeTab = ref(props.tabs[0]); // Default to the first tab
+const isMobile = ref(false);
 
 // Function to handle tab switching
 const selectTab = (tab) => {
   activeTab.value = tab;
 };
+
+const checkIfMobile = () => {
+  isMobile.value = window.innerWidth < 768;
+};
+
+onMounted(() => {
+  checkIfMobile();
+  window.addEventListener("resize", checkIfMobile);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", checkIfMobile);
+});
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row bg-black text-white py-8">
-    <!-- Left Tabs Column -->
-    <div
-      class="flex flex-col items-start md:w-1/3 lg:w-1/4 border-r border-gray-700 px-2"
-    >
-      <div class="space-y-4">
-        <template v-for="tab in tabs" :key="tab.id">
-          <button
-            class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
-            :class="{
-              'text-white border-blue-500': activeTab.id === tab.id,
-              'text-gray-400 border-transparent hover:text-white hover:border-gray-600':
-                activeTab.id !== tab.id,
-            }"
-            @click="selectTab(tab)"
+  <div class="bg-black text-white py-8">
+    <!-- Mobile View with Swiper -->
+    <div v-if="isMobile" class="px-4">
+      <swiper
+        :modules="[Pagination]"
+        :space-between="20"
+        :slides-per-view="1"
+        :pagination="{ clickable: true }"
+        class="mobile-swiper"
+      >
+        <swiper-slide v-for="tab in tabs" :key="tab.id">
+          <div
+            class="flex flex-col items-center space-y-6 p-4 rounded-lg"
+            style="background-color: rgba(53, 59, 64, 1)"
           >
-            {{ tab.title }}
-          </button>
-        </template>
-      </div>
+            <!-- Image at the top for mobile -->
+
+            <!-- Text Content -->
+            <div class="space-y-4 text-center">
+              <h1 class="text-3xl font-bold">{{ tab.title }}</h1>
+              <p class="text-[#F4F4F5] leading-relaxed">{{ tab.subtitle }}</p>
+              <CustomButton variant="secondary">
+                {{ tab.buttonText }}
+              </CustomButton>
+            </div>
+            <div class="w-full flex justify-center ">
+              <img
+                :src="tab.image2"
+                :alt="tab.title"
+                class="rounded-lg max-w-[80%] shadow-lg"
+              />
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
 
-    <!-- Right Content Area -->
-    <div
-      class="flex flex-col md:flex-row md:w-2/3 lg:w-3/4 items-center justify-between rounded-lg md:mx-10 max-md:mx-0 py-6 space-y-6 md:space-y-0 md:space-x-6"
-      style="background-color: rgba(53, 59, 64, 1)"
-    >
-      <!-- Text Content -->
-      <div class="max-w-md space-y-4">
-        <h1 class="text-3xl font-bold md:text-5xl">{{ activeTab.title }}</h1>
-        <p class="text-gray-400 leading-relaxed">{{ activeTab.subtitle }}</p>
-
-        <CustomButton variant="secondary" class="max-md:mx-auto">
-          {{ activeTab.buttonText }}
-        </CustomButton>
+    <!-- Desktop View with Tabs -->
+    <div v-else class="flex flex-row">
+      <!-- Left Tabs Column -->
+      <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
+        <div class="space-y-4">
+          <template v-for="tab in tabs" :key="tab.id">
+            <button
+              class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
+              :class="{
+                'text-white border-blue-500': activeTab.id === tab.id,
+                'text-gray-400 border-transparent hover:text-white hover:border-gray-600':
+                  activeTab.id !== tab.id,
+              }"
+              @click="selectTab(tab)"
+            >
+              {{ tab.title }}
+            </button>
+          </template>
+        </div>
       </div>
 
-      <!-- Image -->
-      <div class="w-full max-w-md">
-        <img
-          :src="activeTab.image"
-          :alt="activeTab.title"
-          class="rounded-lg shadow-lg"
-        />
+      <!-- Right Content Area -->
+      <div
+        class="flex flex-row w-2/3 lg:w-3/4 items-center justify-between rounded-lg mx-10 py-6 space-x-6"
+        style="background-color: rgba(53, 59, 64, 1)"
+      >
+        <!-- Text Content -->
+        <div class="max-w-md space-y-4 px-3">
+          <h1 class="text-3xl font-bold md:text-5xl">{{ activeTab.title }}</h1>
+          <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.subtitle }}</p>
+          <CustomButton variant="secondary">
+            {{ activeTab.buttonText }}
+          </CustomButton>
+        </div>
+
+        <!-- Image -->
+        <div class="lg:translate-y-[7%]">
+          <img
+            :src="activeTab.image1"
+            :alt="activeTab.title"
+            class="rounded-lg shadow-sm"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
+.mobile-swiper {
+  padding-bottom: 40px !important;
+}
+
+.swiper-pagination-bullet {
+  background: #4b5563 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3b82f6 !important;
+}
+
 .button-color {
   background-color: linear-gradient(
     rgba(208, 251, 255, 1),
