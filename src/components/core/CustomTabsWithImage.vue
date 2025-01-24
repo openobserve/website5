@@ -63,9 +63,9 @@ onUnmounted(() => {
                 {{ tab.buttonText }}
               </CustomButton>
             </div>
-            <div class="w-full flex justify-center ">
+            <div class="w-full flex justify-center">
               <img
-                :src="tab.image2"
+                :src="tab.image"
                 :alt="tab.title"
                 class="rounded-lg max-w-[80%] shadow-lg"
               />
@@ -113,7 +113,7 @@ onUnmounted(() => {
         <!-- Image -->
         <div class="lg:translate-y-[7%]">
           <img
-            :src="activeTab.image1"
+            :src="activeTab.image"
             :alt="activeTab.title"
             class="rounded-lg shadow-sm"
           />
