@@ -228,6 +228,51 @@ const featureData = [
   },
 ];
 
+const featureData11 = [
+  {
+    Title: "Install and integrate11",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+  {
+    Title: "Install and integrate11",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Quick deployment",
+        description:
+          "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+      },
+      {
+        title: "Flexible hosting options",
+        description:
+          "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+];
+
 const tabs = [
   "Security & Access Control",
   "Scalability And Reliability",
@@ -485,7 +530,7 @@ const pageData = [
     title="Enterprise-Grade Features"
     subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
     tabs={tabs}
-    tabContents={featureData}
+    tabContents={[featureData, featureData11, featureData, featureData]}
   />
 
   <CustomSection>

@@ -1,7 +1,7 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomInterChange from "../core/CustomInterChange.vue";
+import CustomTabs from "../core/CustomTabs.vue";
 const props = defineProps({
   items: {
     type: Object,
@@ -16,15 +16,13 @@ const props = defineProps({
       :description="props.items.subtitle"
       align="CENTER"
     />
-    <div v-for="(item, index) in props.items.items" :key="index">
-      <CustomInterChange
-        :key="index"
-        :items="item.Items"
-        :title="item.Title"
-        :image="item.Image"
-        :direction="`${index % 2 === 0 ? 'left' : 'right'}`"
-      />
-    </div>
+    <CustomTabs
+      client:load
+      :title="props.items.items.title"
+      :subtitle="props.items.items.subtitle"
+      :tabs="{ tabs }"
+      :tabContents="[featureData, featureData11, featureData, featureData]"
+    />
   </CustomSection>
 </template>
 <style scoped></style>

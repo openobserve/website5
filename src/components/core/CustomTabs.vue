@@ -23,7 +23,7 @@ const props = defineProps({
   },
 });
 
-const activeTab = ref(props.tabs[0]); // Default active tab
+const activeTab = ref(0); // Default active tab
 
 // Method to set the active tab
 const setActiveTab = (tab) => {
@@ -49,9 +49,9 @@ const activeContent = computed(() => props.tabContents[activeTab.value]);
       <div class="flex overflow-x-auto pb-2 gap-6 sm:gap-8 scroll-smooth">
         <!-- Render Tabs -->
         <div
-          v-for="tab in tabs"
+          v-for="(tab, index) in tabs"
           :key="tab"
-          @click="setActiveTab(tab)"
+          @click="setActiveTab(index)"
           class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
           :class="{
             'text-blue-500': activeTab === tab,
