@@ -23,15 +23,12 @@ const toggleAnswer = (index) => {
       <div v-for="(item, index) in faqItems" :key="index">
         <div
           class="flex justify-between items-center cursor-pointer p-4 group relative rounded-xl border border-[rgba(0,0,0,0)]  hover:border-[rgba(255,255,255,0.2)] duration-300 transition-all"
-          class="flex justify-between items-center cursor-pointer p-4 group relative rounded-xl border border-[rgba(0,0,0,0)]  hover:border-[rgba(255,255,255,0.2)] duration-300 transition-all"
           @click="toggleAnswer(index)"
         >
           <div
             class="absolute inset-0 rounded-md bg-gradient-to-t from-[#296EA7] via-transparent to-[#000000] opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
-            class="absolute inset-0 rounded-md bg-gradient-to-t from-[#296EA7] via-transparent to-[#000000] opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
           ></div>
           <h3
-            class="lg:font-medium lg:text-lg md:font-semibold text-base text-white z-10"
             class="lg:font-medium lg:text-lg md:font-semibold text-base text-white z-10"
           >
             {{ item.question }}
@@ -63,13 +60,6 @@ const toggleAnswer = (index) => {
 <style scoped>
 
 </style>
-
-<style scoped>
-.border-gradient {
-  border-radius: 20px
-}
-</style>
-
 
 <style scoped>
 
