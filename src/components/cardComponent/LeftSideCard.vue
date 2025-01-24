@@ -1,17 +1,16 @@
 <script setup>
-import { defineProps } from 'vue';
-
+import { defineProps } from "vue";
 
 const props = defineProps({
   card: {
     type: Object,
     required: true,
     default: () => ({
-      image: '',
-      title: '',
-      description: '',
-      btnTitle: '',
-      link: '#',
+      image: "",
+      title: "",
+      description: "",
+      btnTitle: "",
+      link: "#",
     }),
   },
 });
@@ -19,16 +18,16 @@ const props = defineProps({
 
 <template>
   <div
-    class="group flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4  bg-gradient-gray grayscale group-hover:grayscale-0 group-hover:filter transition-all duration-300 border  border-transparent hover:border-gradient-blue"
+    class="group border flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300"
   >
-    <div>
+    <div class="">
       <img
         :src="card.image"
         :alt="card.title"
         class="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
       />
     </div>
-    <div class=" flex flex-col h-full space-y-4">
+    <div class="flex flex-col h-full space-y-4">
       <h3 class="text-[#BEC0C2] text-lg lg:text-2xl font-bold mb-2 md:mb-3">
         {{ card?.title }}
       </h3>
@@ -46,3 +45,17 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<style scoped>
+
+.group {
+  background-color: transparent; /* Default background */
+  transition: background 0.3s ease-in-out;
+}
+
+.group:hover {
+  background-image: url("/CaseStudyEclipse.svg");
+  background-size: cover;
+  background-position: center;
+}
+</style>
