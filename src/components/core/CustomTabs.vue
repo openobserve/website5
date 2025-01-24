@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import CustomSection from "./CustomSection.vue";
 import CustomInterChange from "./CustomInterChange.vue";
+
 // Props to receive dynamic data from the parent
 const props = defineProps({
   title: {
@@ -31,7 +32,6 @@ const setActiveTab = (tab) => {
 
 // Computed property to get the current tab content
 const activeContent = computed(() => props.tabContents[activeTab.value]);
-console.log(setActiveTab, activeContent);
 </script>
 
 <template>
@@ -45,14 +45,14 @@ console.log(setActiveTab, activeContent);
     </div>
 
     <!-- Tabs Section -->
-    <div class="relative max-w-6xl mx-auto">
-      <div class="flex justify-center gap-6 sm:gap-8 border-b border-gray-600">
+    <div class="relative max-w-6xl mx-auto px-4">
+      <div class="flex overflow-x-auto pb-2 gap-6 sm:gap-8 scroll-smooth">
         <!-- Render Tabs -->
         <div
           v-for="tab in tabs"
           :key="tab"
           @click="setActiveTab(tab)"
-          class="relative pb-2 cursor-pointer text-base sm:text-lg md:text-xl font-medium"
+          class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
           :class="{
             'text-blue-500': activeTab === tab,
             'text-gray-400 hover:text-gray-300': activeTab !== tab,
@@ -87,10 +87,15 @@ console.log(setActiveTab, activeContent);
 </template>
 
 <style scoped>
-/* Responsive Design for Tabs */
-@media (min-width: 768px) {
+/* Ensures smooth scrolling for tabs on mobile */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Responsiveness adjustments for tabs on mobile */
+@media (max-width: 768px) {
   .tabs {
-    font-size: 1.125rem; /* Text-lg for medium screens */
+    font-size: 1rem; /* Adjust text size for smaller screens */
   }
 }
 </style>

@@ -40,7 +40,7 @@ onUnmounted(() => {
 <template>
   <div class="bg-black text-white py-8">
     <!-- Mobile View with Swiper -->
-    <div v-if="isMobile" class="px-4">
+    <div v-if="isMobile">
       <swiper
         :modules="[Pagination]"
         :space-between="20"
@@ -67,7 +67,7 @@ onUnmounted(() => {
               <img
                 :src="tab.image"
                 :alt="tab.title"
-                class="rounded-lg max-w-[80%] shadow-lg"
+                class="rounded-lg shadow-lg"
               />
             </div>
           </div>
