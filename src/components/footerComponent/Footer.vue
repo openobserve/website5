@@ -103,7 +103,7 @@ const props = defineProps({
               <li v-for="item in section.items" :key="item.name">
                 <a
                   :href="item.link"
-                  class="gradient-hover text-[#BEC0C2] text-base"
+                  class="gradient-hover text-[#BEC0C2] text-base transition duration-300 "
                 >
                   <TextGradient textGradientColor="" />
                   {{ item.name }}

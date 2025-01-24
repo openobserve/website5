@@ -33,6 +33,8 @@ import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
 import CustomTestimonial from "../components/core/CustomTestimonial.vue";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
+import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
+import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
 
 import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
@@ -484,38 +486,57 @@ const testimonialsData = [
   <CardWithIcon1 
       client:load
       cards={[
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'CardSeeALLicon.svg', 
-              title: 'Explore all features' 
-          },
-         
-      ]} 
-    />
 
-    <CardWithIcon2 
-      client:load
-      cards={[
+const cardDataforsection2 = {
+  title: "Full stack observability platform",
+  description:
+    "Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
+  items:[
           { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },
+          { 
+              icon: 'cardIcon.svg', 
+              title: 'Home' 
+          },  
+      ]
+};
+
+const cardDataforsection3 = {
+  title: "Designed for every team",
+  description:
+    "Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
+    items:[
+    { 
               icon: 'cardIcon.svg', 
               title: 'Dev Ops' 
           },
@@ -527,12 +548,33 @@ const testimonialsData = [
               icon: 'cardIcon.svg', 
               title: 'Site Reliability Engineers' 
           },
-          { 
-              icon: 'CardSeeALLicon.svg', 
-              title: 'View all use cases' 
-          },
-      ]} 
-    />
+      ]
+};
+---
+
+<Layout>
+  <!-- <CustomButton variant="primary" class='my-1'>
+		Get Demo primary
+	</CustomButton>
+	<CustomButton variant="secondary" class='my-1'>
+		Get Demo secondary
+	</CustomButton>
+	<CustomButton variant="tertiary" class='my-1'>
+		Get Demo tertiary
+	</CustomButton>
+	<CustomSeprater/> -->
+
+  <!-- <Header platformData={platformData}/> -->
+
+  <HomeHeroSection
+    title="Open Source Observability"
+    subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
+    buttons={[
+      { label: "Get Started", variant: "white" },
+      { label: "Watch Video", variant: "secondary" },
+    ]}
+    background="/public/Coding BG.svg"
+  />
 
   <FeatureHeroSection
     client:load
@@ -546,6 +588,13 @@ const testimonialsData = [
     backgroundImage="/public/Eclipse.svg"
     footerImage="/public/Frame 2121314680.svg"
   />
+
+
+  <FeatureCardWithIconWrapper cardData={cardDataforsection2}/>
+  
+  <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
+
+
 
   <!-- <CustomTabs
   <!-- <CustomTabs
