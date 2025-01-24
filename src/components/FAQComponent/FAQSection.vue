@@ -57,19 +57,6 @@ const toggleAnswer = (index) => {
         </div>
       </div>
     </div>
-        <div
-          class="transition-all duration-300 ease-in-out overflow-hidden"
-          :class="{
-            'max-h-0 opacity-0': !visibleAnswers[index],
-            'max-h-96 opacity-100 mt-4': visibleAnswers[index],
-          }"
-        >
-          <p class="text-white lg:font-light text-sm md:text-base">
-            {{ item.answer }}
-          </p>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
