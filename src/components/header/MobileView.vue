@@ -47,14 +47,11 @@
           </button>
         </div>
       </div>
-      <div v-if="isMenuOpen" class="w-full h-screen bg-black relative">
-        <div
-          class="absolute inset-0 z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[200px] before:bg-[url('/mobilenavBg1.svg')] before:bg-no-repeat before:bg-cover after:absolute after:bottom-0 after:left-0 after:w-full after:h-[200px] after:bg-[url('/mobilenavBg2.svg')] after:bg-no-repeat after:bg-cover"
-        ></div>
+      <div v-if="isMenuOpen" class="w-full h-screen bg-black">
         <!-- Main Menu -->
         <div
           v-if="!activeSubMenu"
-          class="relative w-full h-full flex flex-col items-center space-y-4 bg-black overflow-y-auto"
+          class="w-full h-full flex flex-col items-center space-y-4 bg-black overflow-y-auto"
         >
           <ul class="w-full flex flex-col space-y-4 p-4">
             <li
@@ -94,9 +91,16 @@
         </div>
 
         <!-- Submenu Content -->
+        <!-- <div style="background-image: url('/mobilenavBg1.svg')" class="bg-cover bg-no-repeat top-1/2" ></div> -->
         <div
           v-if="activeSubMenu"
-          class="h-[calc(100svh-60px)] w-full bg-black text-white overflow-y-auto"
+          style="
+            background-image: url('/mobilenavBg1.svg'), url('/mobilenavBg2.svg');
+            background-position: top, bottom;
+            background-repeat: no-repeat, no-repeat;
+            background-size: cover, cover;
+          "
+          class="h-[calc(100svh-60px)] w-full text-white overflow-y-auto"
         >
           <div class="flex items-center px-4 py-2">
             <button class="text-gray-300" @click="closeSubMenu">
@@ -214,6 +218,7 @@
             </div>
           </div>
         </div>
+        <!-- <div style="background-image: url('/mobilenavBg1.svg')"></div> -->
       </div>
     </div>
   </header>
