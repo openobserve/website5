@@ -83,8 +83,6 @@ const toggleAnswer = (index) => {
 
 <style scoped>
 .border-gradient {
-  border-image: linear-gradient(to bottom, #296EA7, transparent, #000000) 1;
-  border-image-slice: 1;
-  border-radius:1rem;
+  border-radius: 20px
 }
 </style>
