@@ -34,11 +34,13 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_-50%] bg-cover py-16 px-4 sm:px-8 lg:px-16"
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover py-16 px-4 min-h-screen"
+    :style="{
+      backgroundImage: `url(${backgroundImage})`,
+    }"
   >
     <!-- Title and Subtitle Section -->
-    <div class="relative z-10 text-white max-w-4xl mx-auto">
+    <div class="relative z-10 text-white max-w-4xl mx-auto mb-8">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ title }}
       </h1>
@@ -46,21 +48,22 @@ defineProps({
     </div>
 
     <!-- Hero Section with Background -->
-    <div class="">
+    <div class="w-full max-w-7xl px-4">
       <!-- Buttons Section -->
-      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 w-full">
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-3 w-full">
         <CustomButton
           v-for="(button, index) in buttons"
           :key="index"
           :variant="button.variant"
+          class="w-full sm:w-auto"
         >
           {{ button.label }}
         </CustomButton>
       </div>
 
       <!-- Cards Section -->
-      <div class="container text-start w-full">
-        <!-- Show CustomFeatureSliderCard only on mobile screens -->
+      <div class="w-full">
+        <!-- Show CustomFeatureSliderCard on mobile and tablet screens -->
         <div class="block md:hidden">
           <CustomFeatureSliderCard
             :cards="cards"
@@ -69,7 +72,7 @@ defineProps({
           />
         </div>
 
-        <!-- Show CustomFeatureCard only on medium screens and larger -->
+        <!-- Show CustomFeatureCard on desktop screens -->
         <div class="hidden md:block">
           <CustomFeatureCard
             :cards="cards"
@@ -80,7 +83,7 @@ defineProps({
       </div>
 
       <!-- Footer Image -->
-      <div class="md:w-full mt-12">
+      <div class="w-full mt-12">
         <img
           :src="footerImage"
           alt="Footer visual"

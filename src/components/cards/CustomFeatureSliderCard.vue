@@ -1,7 +1,8 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
-import "swiper/swiper-bundle.css"; // Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 import CustomRoundShape from "../core/CustomRoundShape.vue";
 
 // Props to receive card data and optional styling
@@ -21,63 +22,60 @@ const props = defineProps({
     required: false,
   },
 });
+const swiperModules = [Pagination];
+const swiperOptions = {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  pagination: {
+    clickable: true,
+  },
+};
 </script>
 
 <template>
-  <div class="w-full">
-    <Swiper
-      :spaceBetween="20"
-      :slidesPerView="1"
-      :breakpoints="{
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }"
-      pagination="{ clickable: true }"
-      navigation="true"
-      class="mySwiper"
-      modules="[Pagination]"
+  <div>
+    <swiper
+      class="testimonial-swiper w-full"
+      :modules="swiperModules"
+      v-bind="swiperOptions"
     >
-      <!-- Loop through cards and render each one in a SwiperSlide -->
-      <SwiperSlide v-for="(item, index) in cards" :key="index">
-        <div class="flex gap-4">
-          <div class="h-14">
-            <CustomRoundShape
-              :imgSrc="item.icon"
-              iconSize="small"
-              borderColor="bg-gradient-gray"
-              size="small"
-            />
-          </div>
-          <div class="flex flex-col gap-2">
-            <h2
-              :class="`font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 ${titleTextColor}`"
-            >
-              {{ item.title }}
-            </h2>
-            <p
-              :class="`text-[12px] sm:text-[14px] md:text-[16px] m-0 ${descriptionTextColor}`"
-            >
-              {{ item.description }}
-            </p>
-          </div>
+      <swiper-slide
+        v-for="(item, index) in cards"
+        :key="index"
+        class="!w-full px-2"
+      >
+        <div
+          class="rounded-lg p-4 flex flex-col justify-center items-center text-center"
+        >
+          <CustomRoundShape
+            :imgSrc="item.icon"
+            iconSize="small"
+            borderColor="bg-gradient-gray"
+            size="small"
+          />
+          <h2 class="font-semibold text-base mb-2" :class="titleTextColor">
+            {{ item.title }}
+          </h2>
+          <p class="text-sm" :class="descriptionTextColor">
+            {{ item.description }}
+          </p>
         </div>
-      </SwiperSlide>
-    </Swiper>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <style scoped>
-/* Swiper styles for custom appearance */
-.mySwiper {
-  width: 100%;
+.testimonial-swiper {
+  padding-bottom: 40px !important;
 }
 
-.swiper-pagination-bullet {
-  background: #ccc; /* Default dot color */
+.testimonial-swiper .swiper-pagination-bullet {
+  background: #4b5563;
+  opacity: 1;
 }
 
-.swiper-pagination-bullet-active {
-  background: #007bff; /* Active dot color */
+.testimonial-swiper .swiper-pagination-bullet-active {
+  background: #3b82f6;
 }
 </style>
