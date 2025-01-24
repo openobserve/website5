@@ -34,6 +34,7 @@ import ComponentCollectionMapper from "../components/ComponentCollectionMapper.v
 
 import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
+import CustomTestimonial from "../components/core/CustomTestimonial.vue";
 const footerData = {
   sections: [
     {
@@ -428,6 +429,30 @@ const pageData = [
     ],
   },
 ];
+
+const testimonialsData = [
+  {
+    id: 1,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    quote: "OpenObserve is an amazing place with great people!",
+    name: "John Doe",
+    position: "Software Engineer",
+  },
+  {
+    id: 2,
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    quote: "The team here is extremely talented and supportive.",
+    name: "Sarah Smith",
+    position: "Designer",
+  },
+  {
+    id: 3,
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    quote: "The team here is extremely talented and supportive.",
+    name: "John Smith",
+    position: "Manager",
+  },
+];
 ---
 
 <Layout>
@@ -517,6 +542,10 @@ const pageData = [
 
   <CustomSection>
     <CustomTiles cards={IconCardData} />
+  </CustomSection>
+
+  <CustomSection>
+    <CustomTestimonial testimonials={testimonialsData} client:load />
   </CustomSection>
 
   <CustomSection>
