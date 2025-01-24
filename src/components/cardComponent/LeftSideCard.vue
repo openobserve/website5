@@ -19,9 +19,9 @@ const props = defineProps({
 <template>
   <!-- <div class="border-gradient w-full h-full"> -->
   <div
-    class="group flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300 "
+    class="group flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4  bg-gradient-gray grayscale group-hover:grayscale-0 group-hover:filter transition-all duration-300 border  border-transparent hover:border-gradient-blue"
   >
-    <div class="">
+    <div>
       <img
         :src="card.image"
         :alt="card.title"
