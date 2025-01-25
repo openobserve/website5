@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CustomComparisonTable from "../../components/core/CustomComparisonTable.vue";
 import CustomCloudForm from "../../components/core/CustomCloudForm.vue";
-
+import PricingTiers from "../../components/core/PricingTeir.vue";
 const comparisonData = {
   title: "Why Choose OpenObserve?",
   features: [
@@ -53,6 +53,56 @@ const formData = {
       "Unlimited metrics, logs, and users, long-term retention, and premium team collaboration features.",
   },
 };
+const pricingTiers = [
+  {
+    name: "Free Tier",
+    title: "Start Monitoring Today with Zero Costs",
+    description:
+      "Perfect for small teams or personal projects to explore OpenObserve's core capabilities.",
+    features: [
+      { text: "50 GB Logs", included: true },
+      { text: "50 GB Traces", included: true },
+      { text: "50 GB Pipeline Processing", included: true },
+      { text: "Max 10 Users", included: true },
+      { text: "15-Day Retention", included: true },
+    ],
+    buttonText: "SIGN USING FREE CLOUD",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Standard",
+    title: "Powerful Observability Tools for all Teams",
+    description:
+      "Scale effortlessly with premium features that ensure your team stays ahead of issues.",
+    features: [
+      { text: "Unlimited Users", included: true },
+      { text: "15-Day Retention", included: true },
+      { text: "24/7 Email Support", included: true },
+      { text: "Custom Dashboards", included: true },
+      { text: "API Access", included: true },
+    ],
+    buttonText: "START 15-DAY FREE TRIAL",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands.",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Enterprise tier selected"),
+  },
+];
 ---
 
 <Layout>
@@ -63,4 +113,5 @@ const formData = {
     selfHostedTitle="Self-Hosted"
   />
   <CustomCloudForm cloudSection={formData} selfHostedSection={formData} />
+  <PricingTiers tiers={pricingTiers} />
 </Layout>
