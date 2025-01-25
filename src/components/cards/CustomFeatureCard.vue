@@ -31,7 +31,13 @@ const props = defineProps({
 
 <template>
   <div
-    :class="`grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${columns} gap-10 w-full`"
+    :class="[
+      `grid grid-cols-2 md:grid-cols-2  gap-10 w-full`,
+      columns === 2 && 'lg:grid-cols-2',
+      columns === 3 && 'lg:grid-cols-3',
+      columns === 4 && 'lg:grid-cols-4',
+      columns === 5 && 'lg:grid-cols-5',
+    ]"
   >
     <div
       class="flex gap-4"

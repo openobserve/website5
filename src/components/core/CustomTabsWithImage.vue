@@ -103,7 +103,7 @@ onUnmounted(() => {
       >
         <!-- Text Content -->
         <div class="max-w-md space-y-4 px-3">
-          <h1 class="text-3xl font-bold md:text-5xl">{{ activeTab.title }}</h1>
+          <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
           <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.subtitle }}</p>
           <CustomButton variant="secondary">
             {{ activeTab.buttonText }}
