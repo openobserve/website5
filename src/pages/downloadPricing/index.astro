@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CustomComparisonTable from "../../components/core/CustomComparisonTable.vue";
+import CustomCloudForm from "../../components/core/CustomCloudForm.vue";
+
+const comparisonData = {
+  title: "Why Choose OpenObserve?",
+  features: [
+    {
+      name: "Setup Time",
+      cloud: "Minutes—fully managed",
+      selfHosted: "Flexible—depends on your infrastructure",
+    },
+    {
+      name: "Maintenance",
+      cloud: "None—handled by OpenObserve",
+      selfHosted: "Fully managed by your team",
+    },
+    {
+      name: "Free Tier",
+      cloud: "50 GB/day",
+      selfHosted: "200 GB/day",
+    },
+    {
+      name: "Best For",
+      cloud: "Startups, growing teams",
+      selfHosted: "Enterprises, privacy-focused",
+    },
+  ],
+};
+const formData = {
+  cloudSection: {
+    title: "Create a free account",
+    buttonText: "CREATE AN ACCOUNT",
+    termsText: "I confirm I have read and agree to OpenObserve's",
+    termsLink: "Terms and Conditions.",
+    loginText: "Login with",
+  },
+  selfHostedSection: {
+    title: "Free forever access",
+    features: [
+      "10K metrics",
+      "50GB logs",
+      "50GB traces",
+      "50GB profiles",
+      "500k/h k6 testing",
+      "50k frontend sessions",
+      "3 active users",
+      "14 day retention",
+    ],
+    trialTitle: "15-day unlimited usage trial",
+    trialDescription:
+      "Unlimited metrics, logs, and users, long-term retention, and premium team collaboration features.",
+  },
+};
+---
+
+<Layout>
+  <CustomComparisonTable
+    title={comparisonData.title}
+    features={comparisonData.features}
+    cloudTitle="Cloud"
+    selfHostedTitle="Self-Hosted"
+  />
+  <CustomCloudForm cloudSection={formData} selfHostedSection={formData} />
+</Layout>
