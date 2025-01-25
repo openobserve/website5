@@ -32,7 +32,7 @@ const platformData = {
         items: [
           {
             title: "Real-time Log Analytics",
-            link: "url_to_logs_1",
+            link: "platform/logs",
           },
           {
             title: "Full-text Search",
