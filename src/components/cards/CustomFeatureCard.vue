@@ -1,5 +1,6 @@
 <script setup>
 import CustomRoundShape from "../core/CustomRoundShape.vue";
+
 const props = defineProps({
   cards: {
     type: Array,
@@ -15,11 +16,29 @@ const props = defineProps({
     default: "text-[#BEC0C2]",
     required: false,
   },
+  // New prop to select layout (flex or column)
+  layout: {
+    type: String,
+    default: "flex", // Default is 'flex'
+    validator: (value) => ["flex", "column"].includes(value), // Only allow 'flex' or 'column'
+  },
+  columns: {
+    type: Number,
+    default: 3,
+  },
 });
 </script>
+
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
-    <div class="flex gap-4" v-for="(item, index) in cards" :key="index">
+  <div
+    :class="`grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${columns} gap-10 w-full`"
+  >
+    <div
+      class="flex gap-4"
+      v-for="(item, index) in cards"
+      :key="index"
+      :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
+    >
       <div class="h-14">
         <CustomRoundShape
           :imgSrc="item.icon"

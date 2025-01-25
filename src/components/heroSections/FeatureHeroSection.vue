@@ -62,7 +62,7 @@ defineProps({
       </div>
 
       <!-- Cards Section -->
-      <div class="w-full">
+      <div class="w-full py-10">
         <!-- Show CustomFeatureSliderCard on mobile and tablet screens -->
         <div class="block md:hidden text-start">
           <CustomFeatureSliderCard

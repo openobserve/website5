@@ -18,7 +18,7 @@ const props = defineProps({
       align="CENTER"
     />
     <!-- Desktop View -->
-    <div class="hidden md:block">
+    <div class="hidden md:block py-10">
       <div
         class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
       >

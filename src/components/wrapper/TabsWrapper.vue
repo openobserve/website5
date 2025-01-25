@@ -16,13 +16,8 @@ const props = defineProps({
       :description="props.items.subtitle"
       align="CENTER"
     />
-    <CustomTabs
-      client:load
-      :title="props.items.items.title"
-      :subtitle="props.items.items.subtitle"
-      :tabs="{ tabs }"
-      :tabContents="[featureData, featureData11, featureData, featureData]"
-    />
+
+    <CustomTabs class="py-10" :items="props.items.items" client:load />
   </CustomSection>
 </template>
 <style scoped></style>

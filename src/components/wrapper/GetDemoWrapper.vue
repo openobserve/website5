@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
   <CustomSection>
     <Heading :title="props.items.title" align="CENTER" />
-    <div>
+    <div class="py-10 text-center">
       <CustomButton variant="secondary">
         {{ props.items.btnTitle }}
       </CustomButton>
