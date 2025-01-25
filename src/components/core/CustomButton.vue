@@ -1,22 +1,29 @@
 <template>
-  <div
-    :class="[containerClasses]"
+  <component
+    :is="buttonLink ? 'a' : 'button'"
+    :class="[
+      'relative px-6 py-2 font-semibold overflow-hidden group rounded-full inline-flex',
+      parentBackground,
+      variant === 'pricing' ? '' : 'btnShadow',
+    ]"
     @click="!disabled && !loading ? onClick : null"
+    :disabled="disabled || loading"
+    :href="buttonLink"
+    :type="!buttonLink ? type : null"
+    v-bind="buttonProps"
   >
-    <component
-      :is="buttonLink ? 'a' : 'button'"
-      :class="[buttonClasses]"
-      :disabled="disabled || loading"
-      :href="buttonLink"
-      :type="!buttonLink ? type : null"
-      v-bind="buttonProps"
-    >
-      <span class="flex flex-row items-center gap-2">
+    <span :class="borderClasses"></span>
+    <span :class="backgroundClasses"></span>
+    <span class="relative z-10 flex items-center">
+      <template v-if="$slots.default">
         <slot></slot>
-        {{ buttonText }}
-      </span>
-    </component>
-  </div>
+        <span class="ml-2">{{ buttonText }}</span>
+      </template>
+      <template v-else>
+        <span>{{ buttonText }}</span>
+      </template>
+    </span>
+  </component>
 </template>
 
 <script>
@@ -28,24 +35,24 @@ export default defineComponent({
   props: {
     variant: {
       type: String,
-      default: "primary", // Default variant
+      default: "primary",
       validator: (value) =>
-        ["primary", "secondary", "tertiary", "pricing", "white"].includes(
+        ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(
           value
         ),
     },
     size: {
       type: String,
-      default: "medium", // Default size
+      default: "medium",
       validator: (value) => ["small", "medium", "large"].includes(value),
     },
     buttonText: {
       type: String,
-      default: "", // Default to empty, supports slot content as fallback
+      default: "",
     },
     buttonLink: {
       type: String,
-      default: null, // If provided, renders button as a link
+      default: null,
     },
     btnClass: {
       type: String,
@@ -61,44 +68,45 @@ export default defineComponent({
     },
     type: {
       type: String,
-      default: "button", // Default button type
+      default: "button",
       validator: (value) => ["button", "submit", "reset"].includes(value),
     },
     buttonProps: {
       type: Object,
-      default: () => ({}), // Spread other props like form attributes
+      default: () => ({}),
     },
-    onClick: Function, // Event handler for click
+    onClick: Function,
   },
   setup(props) {
     // Tailwind classes for button variants
     const variants = {
       primary: {
-        container:
-          "btnShadow flex justify-center items-center rounded-full hover:bg-gradient-to-b hover:opacity-100 hover:from-[#d1fbff] hover:from-0% hover:to-[#004883] hover:to-100%",
+        border:
+          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark from-0% via-button-primary-bg-blue-light via-50% to-button-primary-bg-sky-blue to-100% transition-opacity opacity-0 group-hover:opacity-100",
         background:
-          "bg-sky-500 text-white font-semibold hover:bg-gradient-to-r hover:opacity-100 hover:from-[#0079DD] hover:from-0% hover:via-[#3BB3FF] hover:via-81% hover:to-[#76DBFF] hover:to-95% focus:ring focus:ring-sky-300 rounded-full",
+          "absolute inset-1 rounded-full bg-background hover:bg-gradient-to-r hover:from-button-primary-bg-blue-dark hover:from-0% hover:via-button-primary-bg-blue-light hover:via-50% hover:to-button-primary-bg-sky-blue hover:to-100%",
       },
       secondary: {
-        container:
-          "btnShadow flex justify-center items-center rounded-full hover:bg-gradient-to-b hover:opacity-100 hover:from-[#d1fbff] hover:from-0% hover:to-[#004883] hover:to-100%",
+        border:
+          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark from-0% via-button-primary-bg-blue-light via-50% to-button-primary-bg-sky-blue to-100% transition-opacity opacity-0 group-hover:opacity-100",
         background:
-          "text-white  rounded-full border-2 hover:border-transparent border-white font-semibold focus:ring focus:ring-sky-300 hover:opacity-80 hover:bg-gradient-to-l hover:from-[#008bff] hover:from-0% hover:via-[#35a0fc] hover:via-38% hover:to-[#99cae9] hover:to-100%",
+          "absolute inset-1 rounded-full hover:bg-gradient-to-l hover:from-button-secondary-bg-dark-sky-blue hover:from-0% hover:via-button-secondary-bg-light-blue hover:via-50% hover:to-button-secondary-bg-light-sky-blue hover:to-100%",
       },
-      tertiary: {
-        container:
-          "btnShadow flex justify-center items-center rounded-full hover:opacity-80 hover:bg-gradient-to-t hover:from-[#008bff] hover:from-0% hover:to-[#99cae9] hover:to-100%",
+      tartiary: {
+        border:
+          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark from-0% via-button-primary-bg-blue-light via-50% to-button-primary-bg-sky-blue to-100% transition-opacity opacity-0 group-hover:opacity-100",
         background:
-          "text-white rounded-full hover:border-none font-semibold focus:ring focus:ring-sky-300 hover:opacity-80 hover:bg-gradient-to-l hover:from-[#008bff] hover:from-0% hover:via-[#35a0fc] hover:via-38% hover:to-[#99cae9] hover:to-100%",
+          "absolute inset-1 rounded-full hover:bg-gradient-to-t hover:from-button-secondary-bg-dark-sky-blue hover:from-0% hover:via-button-secondary-bg-light-blue hover:via-50% hover:to-button-secondary-bg-light-sky-blue hover:to-100%",
+      },
+      ghost: {
+        border:
+          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark from-0% via-button-primary-bg-blue-light via-50% to-button-primary-bg-sky-blue to-100% transition-opacity opacity-0 group-hover:opacity-100",
+        background:
+          "absolute inset-1 rounded-full hover:bg-gradient-to-t hover:from-button-bg-gray-dark hover:from-0%  hover:to-button-bg-gray-light hover:to-100%",
       },
       pricing: {
-        container:
-          "flex justify-center items-center rounded-md hover:bg-gradient-to-r hover:opacity-100 hover:from-[#76DBFF] hover:from-100% hover:via-[#37A1E2] hover:via-100% hover:to-[#0E7BCF] hover:to-100%",
-        background:
-          "bg-black bg-opacity-40 hover:bg-opacity-40 hover:bg-black text-white font-semibold  hover:border-transparent  rounded-md hover:opacity-50 ",
-      },
-      white: {
-        background: "bg-white text-black font-semibold rounded-full",
+        border: "",
+        background: "bg-white text-blue-500",
       },
     };
 
@@ -109,31 +117,43 @@ export default defineComponent({
       large: "px-6 py-4 text-lg",
     };
 
-    const containerClasses = computed(() => {
+    const buttonClasses = computed(() => {
       return [
-        variants[props.variant].container,
+        "flex justify-center items-center w-full h-full text-center transition duration-300",
+        sizes[props.size],
         props.btnClass,
-        "inline-flex hover:shadow-lg p-1",
       ]
         .filter(Boolean)
         .join(" ");
     });
 
-    // Compute dynamic button classes
-    const buttonClasses = computed(() => {
-      return [
-        "flex justify-center items-center w-full h-full text-center transition duration-300", // Base styles
-        sizes[props.size], // Size based on props
-        variants[props.variant].background, // Variant based on props
-        props.btnClass, // Custom class
-      ]
+    const backgroundClasses = computed(() => {
+      return ["", variants[props?.variant]?.background]
         .filter(Boolean)
         .join(" ");
+    });
+
+    const borderClasses = computed(() => {
+      return ["", variants[props?.variant]?.border].filter(Boolean).join(" ");
+    });
+
+    const parentBackground = computed(() => {
+      if (props?.variant === "primary") {
+        return "bg-background text-white";
+      } else if (props?.variant === "tartiary") {
+        return "text-white";
+      } else if (props?.variant === "pricing") {
+        return "bg-white text-blue-500";
+      } else {
+        return "border border-white text-white hover:border-button-primary-bg-blue-dark";
+      }
     });
 
     return {
       buttonClasses,
-      containerClasses,
+      backgroundClasses,
+      borderClasses,
+      parentBackground,
     };
   },
 });
@@ -141,11 +161,11 @@ export default defineComponent({
 
 <style scoped>
 .btnShadow:hover {
-  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8);
 }
 
 .btnShadowwithIcon:hover {
-  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8);
   background-filter: blur(60px);
 }
 </style>

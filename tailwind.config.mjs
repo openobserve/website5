@@ -30,37 +30,29 @@ export default {
             900: "rgba(var(--text-theme-primary-color-900), 1)",
           },
         },
-      },
-      // Custom border utilities
-      borderImage: {
-        "gradient-blue": "var(--gradient-blue)",
-        "gradient-light-blue": "var(--gradient-light-blue)",
-        "gradient-gray": "var(--gradient-gray)",
-        "gradient-text": "var(--gradient-text)",
+        background: "rgba(var(--button-primary-color),1)",
+        button: {
+          primary: {
+            "bg-blue-dark": "rgba(var(--bg-blue-dark), 1)",
+            "bg-blue-light": "rgba(var(--bg-blue-light), 1)",
+            "bg-sky-blue": "rgba(var(--bg-sky-blue), 1)",
+          },
+          secondary: {
+            "bg-light-blue": "rgba(var(--bg-light-blue), 0.8)",
+            "bg-light-sky-blue": "rgba(var(--bg-light-sky-blue), 0.8)",
+            "bg-dark-sky-blue": "rgba(var(--bg-dark-sky-blue), 0.8)",
+          },
+          tertiary: {
+            "--bg-tertiary-blue": "rgba(var(--bg-tertiary-blue), 0.8)",
+            "--bg-tertiary-light-blue":
+              "rgba(var(--bg-tertiary-light-blue), 0.8)",
+            "--bg-tertiary-sky": "rgba(var(--bg-tertiary-sky), 0.8)",
+          },
+          "bg-gray-dark": "rgba(var(--bg-gray-dark), 0.2)",
+          "bg-gray-light": "rgba(var(--bg-gray-light), 0.2)",
+        },
       },
     },
   },
-  plugins: [
-    // Add plugin for arbitrary values like border-image
-    function ({ addUtilities }) {
-      addUtilities({
-        ".border-gradient-blue": {
-          border: "2px solid transparent",
-          "border-image": "var(--gradient-blue) 1",
-        },
-        ".border-gradient-light-blue": {
-          border: "2px solid transparent",
-          "border-image": "var(--gradient-light-blue) 1",
-        },
-        ".border-gradient-gray": {
-          border: "2px solid transparent",
-          "border-image": "var(--gradient-gray) 1",
-        },
-        ".border-gradient-text": {
-          border: "2px solid transparent",
-          "border-image": "var(--gradient-text) 1",
-        },
-      });
-    },
-  ],
+  plugins: [],
 };

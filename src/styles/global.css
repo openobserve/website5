@@ -20,6 +20,7 @@
   --text-dark: 0, 140, 255; /* #008CFF */
   --gray-light: 49, 53, 57; /* #313539 */
   --gray-dark: 31, 34, 38; /* #1F2226 */
+  --button-primary-color: 28, 153, 255;
 
   /* Gradient backgrounds */
   --gradient-blue: linear-gradient(
@@ -42,4 +43,18 @@
     rgb(var(--gray-light)),
     rgb(var(--gray-dark))
   );
+
+
+  /* Button component variable for background and border gradient  */
+  --bg-blue-dark: 0, 121, 221;
+  --bg-blue-light: 59, 179, 255;
+  --bg-sky-blue: 118, 219, 255;
+  --bg-light-blue:0, 139, 255;
+  --bg-light-sky-blue:153, 202, 233;
+  --bg-dark-sky-blue:53, 160, 252;
+  --bg-tertiary-blue:0, 118, 216 ;
+  --bg-tertiary-light-blue:33, 149, 252;
+  --bg-tertiary-sky:202, 241, 255;
+  --bg-gray-dark: 156, 164, 169;
+  --bg-gray-light:62, 65, 67;
 }
