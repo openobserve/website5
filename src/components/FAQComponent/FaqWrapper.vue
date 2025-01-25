@@ -8,14 +8,18 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  title:{
+    type: String,
+    required:true
+  }
 });
 </script>
 
 <template>
   <CustomSection>
     <!-- <div class="w-full bg-[url('/faqBg2.svg')] bg-cover bg-center bg-no-repeat"> -->
-      <Heading :title="props.items.title" align="CENTER" />
-      <FAQSection :faqItems="props.items.items" />
+      <Heading :title="props.title" align="CENTER" />
+      <FAQSection :faqItems="props.items" />
     <!-- </div> -->
   </CustomSection>
 </template>

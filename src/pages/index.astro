@@ -24,6 +24,7 @@ import Footer from "../components/footerComponent/Footer.vue";
 import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 import Heading from "../components/core/Heading.vue";
 import { h } from "vue";
+import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 
 const footerData = {
   sections: [
@@ -254,9 +255,51 @@ const headingData = {
   subtitle:
     "OpenObserve simplifies observability with a streamlined, three-step process that ensures fast setup, seamless integration, and actionable insights.",
 };
+
+const pageData = [
+  {
+    __component: "section.herosection",
+    title: "Open Source Observability",
+    subtitle:
+      "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
+    background: "/public/Coding BG.svg",
+  },
+  {
+    __component: "section.faq",
+    title: "OpenObserve Logs FAQ's",
+    items: [
+      {
+        question: "Why choose OpenObserve for Log Management?",
+        answer:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      },
+      {
+        question: "Why choose OpenObserve for Log Management?",
+        answer:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+      },
+      {
+        question: "Why choose OpenObserve for Log Management?",
+        answer:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      },
+      {
+        question: "Why choose OpenObserve for Log Management?",
+        answer:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+      },
+      {
+        question: "Why choose OpenObserve for Log Management?",
+        answer:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      },
+    ],
+  },
+];
 ---
 
 <Layout>
+  <ComponentCollectionMapper data={pageData} client:load />
   <!-- <CustomButton variant="primary" class='my-1'>
 		Get Demo primary
 	</CustomButton>
@@ -270,7 +313,7 @@ const headingData = {
 
   <!-- <Header platformData={platformData}/> -->
 
-  <HomeHeroSection
+  <!-- <HomeHeroSection
     title="Open Source Observability"
     subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
     buttons={[
@@ -278,7 +321,7 @@ const headingData = {
       { label: "Watch Video", variant: "secondary" },
     ]}
     background="/public/Coding BG.svg"
-  />
+  /> -->
 
   <!-- <PlatformHeroSection
     title="The Open Observe platform"
@@ -292,13 +335,13 @@ const headingData = {
     footerImage="/public/Frame 2121314680.svg"
   /> -->
 
-  <CustomTabs
+  <!-- <CustomTabs
     client:load
     title="Enterprise-Grade Features"
     subtitle="OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities..."
     tabs={tabs}
     tabContents={tabContents}
-  />
+  /> -->
 
   <!-- <PlatformLogsHeroSection
     title="The Open Observe platform"
@@ -311,11 +354,11 @@ const headingData = {
     rightImage="/public/Data sources Kubernetes.svg"
   /> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomCard cards={cardData} />
-  </CustomSection>
+  </CustomSection> -->
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
-  <CustomSection>
+  <!-- <CustomSection>
     <div class="container mx-auto px-4 md:px-10">
       {
         featureData.map((feature, index) => (
@@ -329,9 +372,9 @@ const headingData = {
         ))
       }
     </div>
-  </CustomSection>
+  </CustomSection> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <div class="py-10">
       <Heading
         title={headingData.title}
@@ -341,18 +384,18 @@ const headingData = {
     </div>
 
     <CustomFeatureCard cards={cardData} />
-  </CustomSection>
+  </CustomSection> -->
 
-  <CustomBanner
+  <!-- <CustomBanner
     title="Fair and transparent pricing"
     subtitle="Only pay for what you use."
     buttons={[
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CompanySwiper
       data={[
         { path: "/public/Logo place holder (2).svg" },
@@ -405,8 +448,8 @@ const headingData = {
         </div>
       </div>
     </CustomHoverHeader> -->
-  </CustomSection>
-  <!-- <CustomSection>
+</Layout> -->
+<!-- <CustomSection>
     <button class="border-4 border-gradient-blue text-black rounded-lg">
       Hello
     </button>
@@ -466,22 +509,22 @@ const headingData = {
       <img src="/public/youtube.svg" class="w-5 h-5" />
     </CustomButton>
   </div> -->
-  <!-- <CustomSection>
+<!-- <CustomSection>
       <button class="border-4 border-gradient-blue text-black rounded-lg">
         Hello
       </button>
     </CustomSection> -->
-  <!-- <CustomSection>
+<!-- <CustomSection>
       <CustomRoundShape
         imgSrc="/src/assets/background.svg"
         size="small"
         borderColor="skyblue"
       />
     </CustomSection> -->
-  <!-- <button class="border-4 border-gradient-blue text-black rounded-lg">
+<!-- <button class="border-4 border-gradient-blue text-black rounded-lg">
     Hello
   </button> -->
-  <CustomSection>
+<!-- <CustomSection>
     <div class="hidden md:block">
       <div
         class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
@@ -512,8 +555,8 @@ const headingData = {
   <FaqWrapper items={faqData} client:load />
   <div>
     <Footer footerData={footerData} client:load />
-  </div>
-</Layout>
+  </div> -->
+<!-- </Layout> -->
 <!-- <CustomSeprater /> -->
 <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">
       <CustomButton
