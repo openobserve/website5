@@ -2,7 +2,7 @@
   <component
     :is="buttonLink ? 'a' : 'button'"
     :class="[
-      'relative font-semibold overflow-hidden group rounded-full inline-flex',
+      'relative px-6 py-2 font-semibold overflow-hidden group rounded-full inline-flex',
       parentBackground,
       variant === 'pricing' ? '' : 'btnShadow',
     ]"
@@ -14,7 +14,7 @@
   >
     <span :class="borderClasses"></span>
     <span :class="backgroundClasses"></span>
-    <span :class='["relative z-10 flex items-center", sizes[size]]'>
+    <span class="relative z-10 flex items-center">
       <template v-if="$slots.default">
         <slot></slot>
         <span class="ml-2">{{ buttonText }}</span>
@@ -37,6 +37,7 @@ export default defineComponent({
       type: String,
       default: "primary",
       validator: (value) =>
+        ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(
         ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(
           value
         ),
