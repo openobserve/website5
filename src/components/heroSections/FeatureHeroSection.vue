@@ -64,7 +64,7 @@ defineProps({
       <!-- Cards Section -->
       <div class="w-full">
         <!-- Show CustomFeatureSliderCard on mobile and tablet screens -->
-        <div class="block md:hidden">
+        <div class="block md:hidden text-start">
           <CustomFeatureSliderCard
             :cards="cards"
             titleTextColor="text-gray-800"
@@ -73,7 +73,7 @@ defineProps({
         </div>
 
         <!-- Show CustomFeatureCard on desktop screens -->
-        <div class="hidden md:block">
+        <div class="hidden md:block text-start">
           <CustomFeatureCard
             :cards="cards"
             titleTextColor="text-gray-800"

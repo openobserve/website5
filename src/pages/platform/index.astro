@@ -7,24 +7,26 @@ import TabsWithImageWrapper from "../../components/wrapper/TabsWithImageWrapper.
 import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
 import GetDemoWrapper from "../../components/wrapper/GetDemoWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import Footer from "../../components/footerComponent/Footer.vue";
 const cardData = [
   {
     icon: "/public/Performance.svg",
     title: "Developers",
     description:
-      "Equip DevOps teams with comprehensive tools for deployment, monitoring, and incident response. Enhance system reliability and accelerate development cycles through automation and real-time insights.",
+      "Built on open standards ensuring flexibility and transparency for diverse observability needs.",
   },
   {
     icon: "/public/Performance.svg",
     title: "Performance",
     description:
-      "Support platform engineers in building scalable, resilient systems. Provide data-driven insights that drive efficiency, enabling innovation in infrastructure management and seamless scaling capabilities.",
+      "Offering logs, metrics, traces, pipelines, alerting, and visualization in one platform.",
   },
   {
     icon: "/public/Performance.svg",
     title: "Security",
     description:
-      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
+      " Integrates effortlessly with Prometheus, OpenTelemetry, and other leading tools.",
   },
 ];
 const featureCardData = {
@@ -197,6 +199,95 @@ const caseStudyData = {
     },
   ],
 };
+const bannerData = {
+  title: "Ready to get started ?",
+  subtitle:
+    "Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability.",
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+const footerData = {
+  sections: [
+    {
+      title: "Platform",
+      items: [
+        { name: "Logs", link: "/logs" },
+        { name: "Metrics", link: "/metrics" },
+        { name: "Traces", link: "/traces" },
+        { name: "Frontend Monitoring", link: "/frontend-monitoring" },
+        { name: "Pipelines", link: "/pipelines" },
+        { name: "Alerting", link: "/alerting" },
+        { name: "Visualizations & Dashboard", link: "/visualizations" },
+      ],
+    },
+    {
+      title: "Solutions",
+      items: [
+        { name: "Azure Monitoring", link: "/azure-monitoring" },
+        { name: "AWS Monitoring", link: "/aws-monitoring" },
+        { name: "GCP Monitoring", link: "/gcp-monitoring" },
+        { name: "Kubernetes Observability", link: "/kubernetes" },
+        { name: "Infrastructure Monitoring", link: "/infrastructure" },
+        { name: "Security & Audit Logs", link: "/security" },
+        { name: "Cost Optimization", link: "/cost" },
+        { name: "Sandbox", link: "/sandbox" },
+      ],
+    },
+    {
+      title: "Company",
+      items: [
+        { name: "About", link: "/about" },
+        { name: "Careers", link: "/careers" },
+        { name: "Contact Us", link: "/contact" },
+      ],
+    },
+    {
+      title: "Community",
+      items: [
+        { name: "Slack", link: "/slack" },
+        { name: "Github", link: "/github" },
+        { name: "Twitter", link: "/twitter" },
+        { name: "LinkedIn", link: "/linkedin" },
+        { name: "YouTube", link: "/youtube" },
+      ],
+    },
+    {
+      title: "Resources",
+      items: [
+        { name: "Documentation", link: "/docs" },
+        { name: "Learning", link: "/learning" },
+        { name: "Blog", link: "/blog" },
+        { name: "Case Study", link: "/case-study" },
+        { name: "Support", link: "/support" },
+      ],
+    },
+  ],
+
+  copyright: {
+    text: "OpenObserve Inc. © 2024",
+    link: "#",
+  },
+  tos: {
+    text: "Terms Of Service",
+    link: "#",
+  },
+  pp: {
+    text: "Privacy Policy",
+    link: "#",
+  },
+  githubStats: [
+    { icon: "/git.svg", label: "Star", count: "13,483", link: "#" },
+    { icon: "/git.svg", label: "Fork", count: "492", link: "#" },
+  ],
+};
 ---
 
 <Layout>
@@ -217,4 +308,6 @@ const caseStudyData = {
   <TabsWrapper items={interchangeData} client:load />
   <GetDemoWrapper items={getDemo} />
   <CaseStudyWrapper items={caseStudyData} client:load />
+  <BannerWrapper items={bannerData} client:load />
+  <Footer footerData={footerData} client:load />
 </Layout>
