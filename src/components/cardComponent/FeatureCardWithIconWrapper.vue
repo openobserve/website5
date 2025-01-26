@@ -4,14 +4,7 @@ import IconTitleCard from "./FeatureCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
-import { defineProps } from "vue";
-import IconTitleCard from "./FeatureCardWithIcon.vue";
-import CustomSection from "../core/CustomSection.vue";
-import Heading from "../core/Heading.vue";
-import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 const props = defineProps({
-  cardData: {
-    type: Object,
   cardData: {
     type: Object,
     required: true,
@@ -21,7 +14,7 @@ const props = defineProps({
 
 <template>
   <CustomSection>
-    <div class="relative flex flex-col">
+    <div class="relative flex flex-col container mx-auto overflow-hidden">
       <div 
         class="absolute -inset-x-48 -inset-y-24 -z-10"
         style="
@@ -42,15 +35,16 @@ const props = defineProps({
   alt="Background SVG"
 /> -->
 
-      <Heading :title="props.cardData.title" :description="props.cardData.description" />
+      <Heading :title="props.cardData?.title" :description="props.cardData?.description" />
       <div class="grid grid-col mt-10">
         <div>
           <div class="flex flex-col space-y-4 w-full h-full items-center justify-center">
             <!-- Pass the single card object to the child component -->
-            <IconTitleCard :cards="props.cardData.items" />
+            <IconTitleCard :cards="props.cardData?.items" />
           </div>
         </div>
       </div>
     </div>
   </CustomSection>
 </template>
+

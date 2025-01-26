@@ -25,6 +25,8 @@ import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
 import Heading from "../components/core/Heading.vue";
 import CardWithIcon1 from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
 import CardWithIcon2 from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
+import CustomFeatureSliderCard from "../components/cards/CustomFeatureSliderCard.vue";
+
 import { h } from "vue";
 import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
 import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
@@ -35,8 +37,7 @@ import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
 import CustomTestimonial from "../components/core/CustomTestimonial.vue";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
-import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
-import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
+import CustomAnnouncement from "../components/core/CustomAnnouncement.vue";
 
 import CustomTiles from "../components/cards/CustomTiles.vue";
 import CustomTabsWithImage from "../components/core/CustomTabsWithImage.vue";
@@ -173,7 +174,6 @@ const cards = [
     link: "#",
   },
 ];
-// Define the static data for features
 const cardData = [
   {
     icon: "/public/Performance.svg",
@@ -194,6 +194,40 @@ const cardData = [
       "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
   },
 ];
+
+const cardData2 = [
+  {
+    icon: "/public/Performance.svg",
+    title: "Performance",
+    description:
+      "Achieve lightning-fast data processing and real-time visualization, even at scale.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Cost efficiency",
+    description:
+      "Save up to 10x on overall costs compared to traditional observability tools.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Feature set",
+    description:
+      "Reduce storage expenses by up to 140x with advanced compression techniques.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Cost efficiency",
+    description:
+      "Save up to 10x on overall costs compared to traditional observability tools.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Feature set",
+    description:
+      "Reduce storage expenses by up to 140x with advanced compression techniques.",
+  },
+];
+// Define the static data for features
 const featureData = [
   {
     Title: "Install and integrate",
@@ -217,7 +251,28 @@ const featureData = [
     ],
   },
   {
-    Title: "Install and integrate",
+    Title: "Ingest Logs, Metrics and Traces",
+    Image: "/public/Image view details.svg",
+    Items: [
+      {
+        title: "Unified data collection",
+        description:
+          "Bring together logs, metrics, and traces from diverse sources into one platform for comprehensive observability.",
+      },
+      {
+        title: "Advanced Data Transformation",
+        description:
+          "Use VRL (Vector Remap Language) to parse, enrich, redact, and normalize data during ingestion for deeper insights.",
+      },
+      {
+        title: "Seamless integrations",
+        description:
+          "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+      },
+    ],
+  },
+  {
+    Title: "Monitor and analysis",
     Image: "/public/Image view details.svg",
     Items: [
       {
@@ -315,6 +370,17 @@ const headingData = {
   subtitle:
     "OpenObserve simplifies observability with a streamlined, three-step process that ensures fast setup, seamless integration, and actionable insights.",
 };
+const blogHeadingData = {
+  title: "Discover Open Observe in action",
+  subtitle:
+    "From agile startups to global enterprises, open observe empowers businesses with advanced observability solutions. Explore real-world case studies to see how companies are driving, efficiency and innovation.",
+};
+
+const HowO2worksHeader = {
+  title: "How OpenObserve works?",
+  subtitle:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
+};
 
 const cardDataforsection2 = {
   title: "Full stack observability platform",
@@ -359,6 +425,10 @@ const cardDataforsection2 = {
           },  
       ]
 };
+const announcementBanner={
+  description:"Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next."
+};
+
 
 const cardDataforsection3 = {
   title: "Designed for every team",
@@ -379,9 +449,168 @@ const cardDataforsection3 = {
           },
       ]
 };
+
+const pageData = [
+  {
+    __component: "section.announcementbanner",
+    description: "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next."
+  },
+  {
+    __component: "section.herosection",
+    title: "Open Source Observability",
+    subtitle:
+      "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
+    background: "/public/Coding BG.svg",
+  },
+  // {
+  //   __component: "section.featurecard",
+  //   title: "Full stack observability platform",
+  //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
+  //   items:[
+  //           { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Home' 
+  //         },  
+  //     ]
+  // },
+  // {
+  //   __component: "section.usecasecard",
+  //   title: "Designed for every team",
+  //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
+  //   items:[
+  //   { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Dev Ops' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Developers' 
+  //         },
+  //         { 
+  //             icon: 'cardIcon.svg', 
+  //             title: 'Site Reliability Engineers' 
+  //         },
+  //     ]
+  // },
+  // {
+  //   __component: "section.companyswiper",
+  //   items: [
+  //     { path: "/public/Logo place holder (2).svg" },
+  //     { path: "/public/Logo place holder (3).svg" },
+  //     { path: "/public/Logo place holder (4).svg" },
+  //     { path: "/public/Logo place holder (5).svg" },
+  //   ]
+  // },
+  // {
+  //   __component: "section.faq",
+  //   title: "OpenObserve Logs FAQ's",
+  //   items: [
+  //     {
+  //       question: "Why choose OpenObserve for Log Management?",
+  //       answer:
+  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  //     },
+  //     {
+  //       question: "Why choose OpenObserve for Log Management?",
+  //       answer:
+  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+  //     },
+  //     {
+  //       question: "Why choose OpenObserve for Log Management?",
+  //       answer:
+  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  //     },
+  //     {
+  //       question: "Why choose OpenObserve for Log Management?",
+  //       answer:
+  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+  //     },
+  //     {
+  //       question: "Why choose OpenObserve for Log Management?",
+  //       answer:
+  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  //     },
+  //   ],
+  // },
+ 
+];
 ---
 
 <Layout>
+  <ComponentCollectionMapper data={pageData} client:load />
+  <CustomAnnouncement AnnouncementBanner={announcementBanner} />
+  <FeatureCardWithIconWrapper cardData={cardDataforsection2}/>
+  
+  
+  <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
+  <CustomSection>
+    <div class="py-10">
+      <Heading
+        title={blogHeadingData.title}
+        description={blogHeadingData.subtitle}
+        align="CENTER"
+      />
+    </div>
+    <div class="hidden md:block">
+      <div
+        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+      >
+        {
+          cards.length > 0 && (
+            <div class="">
+              <LeftSideCard card={cards[0]} />
+            </div>
+          )
+        }
+
+        {
+          cards.length > 0 && (
+            <div class="">
+              <RightSideCard cards={cards.slice(1)} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <div class="block md:hidden">
+      <div class="flex flex-col space-y-3">
+        {cards.map((card, index) => <LeftSideCard card={card} />)}
+      </div>
+    </div>
+  </CustomSection>
+
   <!-- <CustomButton variant="primary" class='my-1'>
 		Get Demo primary
 	</CustomButton>
@@ -395,7 +624,7 @@ const cardDataforsection3 = {
 
   <!-- <Header platformData={platformData}/> -->
 
-  <HomeHeroSection
+  <!-- <HomeHeroSection
     title="Open Source Observability"
     subtitle="Fast, Scalable, and Cost-effective Monitoring for Modern Applications"
     buttons={[
@@ -403,10 +632,9 @@ const cardDataforsection3 = {
       { label: "Watch Video", variant: "secondary" },
     ]}
     background="/public/Coding BG.svg"
-  />
+  /> -->
 
-  <FeatureHeroSection
-    client:load
+  <!-- <PlatformHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     cards={cardData}
@@ -425,12 +653,6 @@ const cardDataforsection3 = {
 
 
 
-  <FeatureCardWithIconWrapper cardData={cardDataforsection2}/>
-  
-  <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
-
-
-
 
   <FeatureCardWithIconWrapper cardData={cardDataforsection2}/>
   
@@ -445,7 +667,6 @@ const cardDataforsection3 = {
 
 
 
-  <!-- <CustomTabs
   <!-- <CustomTabs
     client:load
     title="Enterprise-Grade Features"
@@ -504,7 +725,14 @@ const cardDataforsection3 = {
     <CustomCard cards={cardData} />
   </CustomSection> 
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
-  <!-- <CustomSection>
+  <CustomSection>
+    <div class="py-10">
+      <Heading
+        title={HowO2worksHeader.title}
+        description={HowO2worksHeader.subtitle}
+        align="CENTER"
+      />
+    </div>
     <div class="container mx-auto px-4 md:px-10">
       {
         featureData.map((feature, index) => (
@@ -518,9 +746,9 @@ const cardDataforsection3 = {
         ))
       }
     </div>
-  </CustomSection> -->
+  </CustomSection>
 
-  <!-- <CustomSection>
+  <CustomSection>
     <div class="py-10">
       <Heading
         title={headingData.title}
@@ -529,17 +757,17 @@ const cardDataforsection3 = {
       />
     </div>
 
-    <CustomFeatureCard cards={cardData} />
-  </CustomSection> -->
+    <CustomFeatureCard cards={cardData2} />
+  </CustomSection>
 
-  <!-- <CustomBanner
+  <CustomBanner
     title="Fair and transparent pricing"
     subtitle="Only pay for what you use."
     buttons={[
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  /> -->
+  />
 
   <!-- <CustomSection>
     <CompanySwiper
@@ -594,7 +822,10 @@ const cardDataforsection3 = {
         </div>
       </div>
     </CustomHoverHeader> -->
-</Layout>
+    <div>
+      <Footer footerData={footerData} client:load />
+    </div> 
+</Layout> -->
 <!-- <CustomSection>
     <button class="border-4 border-gradient-blue text-black rounded-lg">
       Hello
@@ -699,9 +930,8 @@ const cardDataforsection3 = {
     </div>
   </CustomSection>
   <FaqWrapper items={faqData} client:load />
-  <div>
-    <Footer footerData={footerData} client:load />
-  </div> -->
+ 
+  -->
 <!-- </Layout> -->
 <!-- <CustomSeprater /> -->
 <!-- <div class="mt-5 mx-5 bg-gray-200 py-2">

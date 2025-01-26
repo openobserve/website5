@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10 py-10',
+      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 py-16 gap-6',
       sectionClasses,
     ]"
   >

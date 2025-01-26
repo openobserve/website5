@@ -17,8 +17,9 @@ const props = defineProps({
 </script>
 
 <template>
+  <!-- <div class="border-gradient w-full h-full"> -->
   <div
-    class="group border flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300"
+    class="group flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300 "
   >
     <div class="">
       <img
@@ -43,7 +44,8 @@ const props = defineProps({
         {{ card?.btnTitle }}
       </a>
     </div>
-  </div>
+    </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -58,4 +60,20 @@ const props = defineProps({
   background-size: cover;
   background-position: center;
 }
+
+/* .border-gradient {
+  position: relative;
+  padding: 1px; 
+  border-radius: 12px;
+
+
+  background: linear-gradient(to right, #80B9FF, #FF6B6B);
+}
+
+.border-gradient > .content {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 10px; 
+  padding: 16px;
+} */
 </style>

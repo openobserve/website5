@@ -27,9 +27,11 @@ const toggleAnswer = (index) => {
         >
           <div
             class="absolute inset-0 rounded-md bg-gradient-to-t from-[#296EA7] via-transparent to-[#000000] opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
+          
           ></div>
           <h3
             class="lg:font-medium lg:text-lg md:font-semibold text-base text-white z-10"
+           
           >
             {{ item.question }}
           </h3>
@@ -54,7 +56,7 @@ const toggleAnswer = (index) => {
         </div>
       </div>
     </div>
-  </div>
+      </div>
 </template>
 
 <style scoped>
