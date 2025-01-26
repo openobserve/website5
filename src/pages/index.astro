@@ -31,7 +31,6 @@ import { h } from "vue";
 import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
 import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
 import CustomAnnouncement from "../components/core/CustomAnnouncement.vue";
-
 const footerData = {
   sections: [
     {
@@ -669,14 +668,14 @@ const pageData = [
     rightImage="/public/SolutionHeroSectionSVG.svg"
   /> -->
 
-  <CompanyHeroSection
+  <!-- <CompanyHeroSection
     title="About Us"
     subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
-  />
+  /> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomTabsWithImage tabs={tabsData} client:load />
-  </CustomSection>
+  </CustomSection> -->
 
   <!-- <CustomTabs
     client:load
@@ -686,18 +685,27 @@ const pageData = [
     tabContents={featureData}
   /> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomTiles cards={IconCardData} />
-  </CustomSection>
+  </CustomSection> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomTestimonial testimonials={testimonialsData} client:load />
-  </CustomSection>
+  </CustomSection> -->
 
-  <CustomSection>
+  <!-- <CustomSection>
     <CustomCard cards={cardData} />
-  </CustomSection> 
+  </CustomSection>  -->
   <!-- Dynamically map through the featureData to pass to CustomInterChange -->
+  <!-- <CustomSection>
+    <div class="py-10">
+      <Heading
+        title={HowO2worksHeader.title}
+        description={HowO2worksHeader.subtitle}
+        align="CENTER"
+      />
+    </div>
+  </CustomSection> -->
   <CustomSection>
     <div class="py-10">
       <Heading
@@ -721,6 +729,7 @@ const pageData = [
     </div>
   </CustomSection>
 
+
   <CustomSection>
     <div class="py-10">
       <Heading
@@ -729,7 +738,6 @@ const pageData = [
         align="CENTER"
       />
     </div>
-
     <CustomFeatureCard cards={cardData2} />
   </CustomSection>
 
