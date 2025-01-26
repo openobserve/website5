@@ -54,12 +54,8 @@ const toggleAnswer = (index) => {
         </div>
       </div>
     </div>
-  </div>
+      </div>
 </template>
-
-<style scoped>
-
-</style>
 
 <style scoped>
 

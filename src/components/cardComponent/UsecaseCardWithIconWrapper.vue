@@ -18,11 +18,11 @@ const props = defineProps({
 <template>
 
   <CustomSection>
-    <div class="flex flex-col max-w-full">
-      <Heading :title="props.cardData.title" :description="props.cardData.description" />
+    <div class="flex flex-col max-w-full container mx-auto">
+      <Heading :title="props.cardData?.title" :description="props.cardData?.description" />
       <div class="mt-10">
         <div class="flex flex-col justify-center">
-          <IconTitleCard :cards="props.cardData.items" />
+          <IconTitleCard :cards="props.cardData?.items" />
         </div>
       </div>
     </div>

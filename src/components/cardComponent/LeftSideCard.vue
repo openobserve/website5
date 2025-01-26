@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
   <!-- <div class="border-gradient w-full h-full"> -->
   <div
-    class="group border flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300"
+    class="group flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300 "
   >
     <div class="">
       <img
