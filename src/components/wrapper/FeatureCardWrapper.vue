@@ -2,6 +2,7 @@
 import CustomSection from "../core/CustomSection.vue";
 import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import Heading from "../core/Heading.vue";
+import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
   items: {
@@ -12,34 +13,37 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
-    <!-- Background Images -->
-    <img
-      src="/Platform/FeatureCard-Ellipse 136.svg"
-      alt="Image"
-      class="absolute bottom-[-30vh] right-[110vh] opcacity-30 object-contain"
-    />
-    <img
-      src="/Platform/FeatureCard-Ellipse 140.svg"
-      alt="Image"
-      class="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
-    />
-    <img
-      src="/Platform/Feature Card Ellipse 40.svg"
-      alt="Image"
-      class="absolute top-0 right-0 object-contain"
-    />
-
-    <!-- Main Content -->
-    <CustomSection>
-      <Heading :title="props.items.title" align="CENTER" />
-      <CustomFeatureCard
-        class="py-10"
-        :cards="props.items.items"
-        layout="column"
-        :columns="4"
+  <div class="">
+    <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
+      <!-- Background Images -->
+      <img
+        src="/Platform/FeatureCard-Ellipse 136.svg"
+        alt="Image"
+        class="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
       />
-    </CustomSection>
+      <img
+        src="/Platform/FeatureCard-Ellipse 140.svg"
+        alt="Image"
+        class="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
+      />
+      <img
+        src="/Platform/Feature Card Ellipse 40.svg"
+        alt="Image"
+        class="absolute top-0 right-0 object-contain"
+      />
+
+      <!-- Main Content -->
+      <CustomSection>
+        <Heading :title="props.items.title" align="CENTER" />
+        <CustomFeatureCard
+          class="py-10"
+          :cards="props.items.items"
+          layout="column"
+          :columns="4"
+        />
+      </CustomSection>
+    </div>
+    <CustomSeprater />
   </div>
 </template>
 

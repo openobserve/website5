@@ -18,7 +18,12 @@ const props = defineProps({
       align="CENTER"
     />
     <!-- Desktop View -->
-    <div class="hidden md:block py-10">
+    <div class="hidden md:block py-10 relative">
+      <img
+        src="/Platform/Ellipse 141.svg"
+        alt="Image"
+        class="absolute opcacity-30 object-contain"
+      />
       <div
         class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
       >

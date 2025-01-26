@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 py-4',
+      'w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10 py-10',
       sectionClasses,
     ]"
   >
@@ -13,12 +13,12 @@
       />
     </div>
     <div class="w-full md:w-1/2">
-      <h2 class="text-[#f4f4f5] mb-4 font-inter font-semibold text-4xl">
+      <h2 class="text-[#f4f4f5] mb-4 font-inter font-semibold text-xl md:text-2xl lg:text-4xl">
         {{ title }}
       </h2>
       <div v-if="items.length">
         <div v-for="(item, index) in items" :key="index" class="mb-4">
-          <h3 class="font-inter font-semibold text-lg text-white mb-2">
+          <h3 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-white mb-2">
             {{ item.title }}
           </h3>
           <p class="font-inter text-sm text-gray-300 mb-2">

@@ -25,7 +25,7 @@ const activeContent = computed(
 </script>
 
 <template>
-  <section class="text-white bg-black">
+  <section class="text-white">
     <!-- Tabs Section -->
     <div class="relative max-w-6xl mx-auto px-4">
       <div class="flex overflow-x-auto  gap-6 sm:gap-8 scroll-smooth">
@@ -51,9 +51,9 @@ const activeContent = computed(
     </div>
 
     <!-- Dynamic Content Section -->
-    <div class="mt-12">
+    <div class="">
       <CustomSection>
-        <div class="container mx-auto px-4 md:px-10">
+        <!-- <div class="container mx-auto px-4 md:px-10"> -->
           <CustomInterChange
             v-for="(feature, index) in activeContent"
             :key="index"
@@ -62,7 +62,7 @@ const activeContent = computed(
             :image="feature.Image"
             :direction="index % 2 === 0 ? 'left' : 'right'"
           />
-        </div>
+        <!-- </div> -->
       </CustomSection>
     </div>
   </section>

@@ -10,7 +10,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="py-6 lg:py-8 xl:py-16">
     <Heading
       :title="props.items.title"
       :description="props.items.subtitle"

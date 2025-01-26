@@ -11,7 +11,7 @@
       <img
         :src="imgSrc"
         alt="Image"
-        class="object-cover"
+        class="object-cover p-2"
         :style="{
           width: `${Number(iconSize)}px`,
           height: `${Number(iconSize)}px`

@@ -1,5 +1,6 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
+import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomTabsWithImage from "../core/CustomTabsWithImage.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
@@ -10,15 +11,20 @@ const props = defineProps({
 });
 </script>
 <template>
-  <CustomSection>
-    <div class="py-10">
-      <Heading
-        :title="props.items.title"
-        :description="props.items.subtitle"
-        align="CENTER"
-      />
+  <div>
+    <CustomSection>
+      <div class="py-10">
+        <Heading
+          :title="props.items.title"
+          :description="props.items.subtitle"
+          align="CENTER"
+        />
+      </div>
+      <CustomTabsWithImage :tabs="props.items.items" client:load />
+    </CustomSection>
+    <div class="mt-24">
+    <CustomSeprater/>
     </div>
-    <CustomTabsWithImage :tabs="props.items.items" client:load />
-  </CustomSection>
+  </div>
 </template>
 <style scoped></style>
