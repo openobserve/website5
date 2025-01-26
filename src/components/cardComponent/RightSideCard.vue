@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <div class="flex flex-col gap-3 justify-center items-center h-full">
-    <div v-for="(item, index) in cards" :key="index" class="rounded-lg border border-light-gray-50 h-full">
+    <div v-for="(item, index) in cards" :key="index" class="rounded-lg h-full">
       <div
         class="group flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300"
       >
