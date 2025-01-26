@@ -1,0 +1,52 @@
+---
+import CustomButton from "../../components/core/CustomButton.vue";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="mt-40">
+    <!-- <Button /> -->
+  </div>
+  <div class="mt-20 mx-5 py-2">
+    <CustomButton
+      variant="secondary"
+      size="medium"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="primary"
+      size="large"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="tartiary"
+      size="small"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+  <div class="mt-5 mx-5 py-2 bg-black">
+    <CustomButton
+      variant="ghost"
+      size="small"
+      @click="handleClick"
+      buttonText="Click Me"
+    >
+      <img src="/public/youtube.svg" class="w-5 h-5" />
+    </CustomButton>
+  </div>
+  <div class="mt-5 mx-5 py-2">
+    <CustomButton
+      variant="pricing"
+      size="small"
+      buttonText="Click Me"
+      @click="handleClick"
+    />
+  </div>
+</Layout>
