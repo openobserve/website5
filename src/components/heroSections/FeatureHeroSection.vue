@@ -34,13 +34,13 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4"
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4 py-24"
     :style="{
       backgroundImage: `url(${backgroundImage})`,
     }"
   >
     <!-- Title and Subtitle Section -->
-    <div class="relative z-10 text-white max-w-4xl mx-auto mb-8">
+    <div class="text-white max-w-4xl mx-auto mb-8">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ title }}
       </h1>
