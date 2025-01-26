@@ -40,7 +40,7 @@ onUnmounted(() => {
 <template>
   <div class="text-white py-8">
     <!-- Mobile View with Swiper -->
-    <div v-if="isMobile">
+    <div v-if="isMobile" class="h-full">
       <swiper
         :modules="[Pagination]"
         :space-between="20"
@@ -53,12 +53,12 @@ onUnmounted(() => {
             class="flex flex-col items-center space-y-6 p-4 rounded-lg h-full"
             style="background-color: rgba(53, 59, 64, 1)"
           >
-            <!-- Image at the top for mobile -->
-
             <!-- Text Content -->
             <div class="space-y-4 text-center h-full">
               <h1 class="text-3xl font-bold">{{ tab.title }}</h1>
-              <p class="text-[#F4F4F5] leading-relaxed">{{ tab.subtitle }}</p>
+              <p class="text-[#F4F4F5] leading-relaxed">
+                {{ tab.subtitle }}
+              </p>
               <CustomButton variant="secondary">
                 {{ tab.buttonText }}
               </CustomButton>
@@ -76,7 +76,12 @@ onUnmounted(() => {
     </div>
 
     <!-- Desktop View with Tabs -->
-    <div v-else class="flex flex-row">
+    <div v-else class="flex flex-row relative">
+      <img
+        src="/Platform/Ellipse 39.svg"
+        alt="Image"
+        class="absolute bottom-[-60vh] right-[100vh] opcacity-30 object-contain"
+      />
       <!-- Left Tabs Column -->
       <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
         <div class="space-y-4">
