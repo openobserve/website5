@@ -20,7 +20,7 @@ const setActiveTab = (index) => {
 
 // Computed property to get the current tab content
 const activeContent = computed(
-  () => props.items[activeTabIndex.value]?.content?.Items || []
+  () => props.items?.[activeTabIndex.value]?.content?.Items || []
 );
 </script>
 

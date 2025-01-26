@@ -29,20 +29,19 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col h-screen lg:flex-row items-center lg:justify-between px-6 sm:px-10 lg:px-16"
-    :style="{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+    class="relative flex flex-col h-screen lg:flex-row items-center lg:justify-between px-6 sm:px-10 lg:px-16 bg-[center_bottom_-20rem]"
+    :style="{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+    }"
   >
-    <!-- Left Content -->
-    <div class="lg:text-left items-center">
-      <!-- Title -->
+    <div class="flex flex-col  w-1/2">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
         {{ title }}
       </h1>
-      <!-- Subtitle -->
       <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
         {{ subtitle }}
       </p>
-      <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12 w-full">
         <CustomButton
           v-for="(button, index) in buttons"
@@ -54,7 +53,14 @@ defineProps({
       </div>
     </div>
 
-    <!-- Right Image -->
+    <div class="absolute w-3/4">
+      <img
+        src="/Platform/PlatformSubHero.svg"
+        alt="Image"
+        class="translate-y-full translate-x-24"
+      />
+    </div>
+
     <div
       class="relative w-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center"
     >

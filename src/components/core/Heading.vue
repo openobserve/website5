@@ -19,7 +19,7 @@ const props = defineProps({
 
 // Computed property to insert a <br> after the period
 const formattedTitle = computed(() => {
-  return props.title.replace(/\.(?=\s)/, ".<br/>"); // Adds <br/> after the first period followed by a space
+  return props?.title?.replace(/\.(?=\s)/, ".<br/>"); // Adds <br/> after the first period followed by a space
 });
 
 const alignClass = computed(() => {
