@@ -3,6 +3,7 @@ import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
+import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 const props = defineProps({
   items: {
     type: Array,

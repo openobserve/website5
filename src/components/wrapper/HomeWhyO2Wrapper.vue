@@ -23,12 +23,10 @@ const props = defineProps({
 </script>
 <template>
   <CustomSection>
-    <div class="py-10">
       <Heading :title="title" :description="description" align="CENTER" />
-    </div>
     <div
       :class="[
-        `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+        `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full mt-10`,
       ]"
     >
       <div

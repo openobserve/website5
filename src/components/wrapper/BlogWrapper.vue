@@ -19,12 +19,11 @@ const props = defineProps({
 </script>
 <template>
   <CustomSectionBackground direction="top">
-    <div class="pt-40">
+   
       <CaseStudyWrapper
         :items="items"
         :title="title"
         :description="description"
       />
-    </div>
   </CustomSectionBackground>
 </template>

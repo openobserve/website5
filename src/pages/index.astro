@@ -282,10 +282,10 @@ const cardDataforsection2 = {
     },
   ],
 };
-const announcementBanner = {
-  description:
-    "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
-};
+// const announcementBanner = {
+//   description:
+//     "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
+// };
 
 const cardDataforsection3 = {
   title: "Designed for every team",
@@ -383,11 +383,11 @@ const tabsData = [
   },
 ];
 const pageData = [
-  {
-    __component: "section.announcementbanner",
-    description:
-      "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
-  },
+  // {
+  //   __component: "section.announcementbanner",
+  //   description:
+  //     "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
+  // },
   {
     __component: "section.herosection",
     title: "Open Source Observability",
@@ -522,7 +522,7 @@ const trustedCompanies = {
 ---
 
 <Layout>
-  <CustomAnnouncement AnnouncementBanner={announcementBanner} />
+  <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
   <ComponentCollectionMapper data={pageData} client:load />
   <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />

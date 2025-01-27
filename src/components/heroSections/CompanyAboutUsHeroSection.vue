@@ -41,9 +41,9 @@ const props = defineProps({
   display: inline-block;
   background: linear-gradient(
     to right,
-    rgba(226, 219, 212, 1),
-    rgba(30, 74, 170, 1),
-    rgba(171, 163, 163, 1)
+    rgba(60, 60, 60, 1),    /* Dark gray for the left side */
+    rgba(75, 90, 125, 1),   /* Bluish-gray for the center */
+    rgba(30, 50, 80, 1)   
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
