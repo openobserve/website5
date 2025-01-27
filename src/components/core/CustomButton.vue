@@ -1,20 +1,79 @@
+<script setup>
+import { computed, defineProps } from "vue";
+const props = defineProps({
+  variant: {
+    type: String,
+    default: "primary",
+    validator: (value) =>
+      ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(value),
+  },
+  size: {
+    type: String,
+    default: "medium",
+    validator: (value) => ["small", "medium", "large"].includes(value),
+  },
+  buttonText: {
+    type: String,
+    default: "",
+  },
+  buttonLink: {
+    type: String,
+    default: null,
+  },
+  btnClass: {
+    type: String,
+    default: "",
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+  type: {
+    type: String,
+    default: "button",
+    validator: (value) => ["button", "submit", "reset"].includes(value),
+  },
+  buttonProps: {
+    type: Object,
+    default: () => ({}),
+  },
+  onClick: Function,
+});
+
+// Tailwind classes for button sizes
+const sizes = {
+  small: "px-5 py-2 text-sm",
+  medium: "px-6 py-2.5 text-base",
+  large: "px-10 py-4 text-lg",
+};
+
+const buttonSize = sizes[props.size];
+const variants = {
+  primary: "primary-button",
+  secondary: "secondary-button",
+  tertiary: "tertiary-button",
+  ghost: "button-with-icon",
+  pricing: "bg-white text-blue-500 rounded-full",
+};
+
+const buttonVariant = variants[props.variant];
+</script>
+
 <template>
   <component
     :is="buttonLink ? 'a' : 'button'"
-    :class="[
-      'relative px-6 py-2 font-semibold overflow-hidden group rounded-full inline-flex',
-      parentBackground,
-      variant === 'pricing' ? '' : 'btnShadow',
-    ]"
+    :class="[containerClass, buttonSize, buttonVariant]"
     @click="!disabled && !loading ? onClick : null"
     :disabled="disabled || loading"
     :href="buttonLink"
     :type="!buttonLink ? type : null"
     v-bind="buttonProps"
   >
-    <span :class="borderClasses"></span>
-    <span :class="backgroundClasses"></span>
-    <span class="relative z-10 flex items-center">
+    <span class="flex items-center">
       <template v-if="$slots.default">
         <slot></slot>
         <span v-if="buttonText" class="ml-2">{{ buttonText }}</span>
@@ -26,135 +85,293 @@
   </component>
 </template>
 
-<script>
-import { computed } from "vue";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "ButtonComponent",
-  props: {
-    variant: {
-      type: String,
-      default: "primary",
-      validator: (value) =>
-        ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(value),
-    },
-    size: {
-      type: String,
-      default: "medium",
-      validator: (value) => ["small", "medium", "large"].includes(value),
-    },
-    buttonText: {
-      type: String,
-      default: "",
-    },
-    buttonLink: {
-      type: String,
-      default: null,
-    },
-    btnClass: {
-      type: String,
-      default: "",
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    type: {
-      type: String,
-      default: "button",
-      validator: (value) => ["button", "submit", "reset"].includes(value),
-    },
-    buttonProps: {
-      type: Object,
-      default: () => ({}),
-    },
-    onClick: Function,
-  },
-  setup(props) {
-    // Tailwind classes for button variants
-    const variants = {
-      primary: {
-        border:
-          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark via-button-primary-bg-blue-light to-button-primary-bg-sky-blue opacity-0 transition-opacity group-hover:opacity-100",
-        background:
-          "absolute inset-[0.5px] rounded-full bg-background hover:bg-gradient-to-r hover:from-button-primary-bg-blue-dark hover:via-button-primary-bg-blue-light hover:to-button-primary-bg-sky-blue",
-      },
-      secondary: {
-        border:
-          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark via-button-primary-bg-blue-light to-button-primary-bg-sky-blue opacity-0 transition-opacity group-hover:opacity-100",
-        background:
-          "absolute inset-[0.7px] rounded-full hover:bg-gradient-to-l hover:from-button-secondary-bg-dark-sky-blue hover:via-button-secondary-bg-light-blue hover:to-button-secondary-bg-light-sky-blue",
-      },
-      tertiary: {
-        border:
-          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark via-button-primary-bg-blue-light to-button-primary-bg-sky-blue opacity-0 transition-opacity group-hover:opacity-100",
-        background:
-          "absolute inset-[0.7px] rounded-full hover:bg-gradient-to-t hover:from-button-secondary-bg-dark-sky-blue hover:via-button-secondary-bg-light-blue hover:to-button-secondary-bg-light-sky-blue",
-      },
-      ghost: {
-        border:
-          "absolute inset-0 bg-gradient-to-t from-button-primary-bg-blue-dark via-button-primary-bg-blue-light to-button-primary-bg-sky-blue opacity-0 transition-opacity group-hover:opacity-100",
-        background:
-          "absolute inset-[0.7px] rounded-full hover:bg-gradient-to-t hover:from-button-bg-gray-dark hover:to-button-bg-gray-light",
-      },
-      pricing: {
-        border: "",
-        background: "bg-white text-blue-500",
-      },
-    };
-
-    // Tailwind classes for button sizes
-    const sizes = {
-      small: "px-2 py-0.5 text-xs",
-      medium: "px-4 py-1 text-md",
-      large: "px-6 py-2.5 text-lg",
-    };
-
-    const buttonClasses = computed(() => [
-      "flex justify-center items-center w-full h-full text-center transition duration-300",
-      props.btnClass,
-    ]);
-
-    const backgroundClasses = computed(() => variants[props.variant]?.background || "");
-
-    const borderClasses = computed(() => variants[props.variant]?.border || "");
-
-    const parentBackground = computed(() => {
-      switch (props.variant) {
-        case "primary":
-          return "bg-background text-white";
-        case "tertiary":
-          return "text-white";
-        case "pricing":
-          return "bg-white text-blue-500";
-        default:
-          return "border border-white text-white hover:border-button-secondary-bg-dark-sky-blue";
-      }
-    });
-
-    return {
-      buttonClasses,
-      backgroundClasses,
-      borderClasses,
-      parentBackground,
-      sizes,
-    };
-  },
-});
-</script>
-
 <style scoped>
-.btnShadow:hover {
-  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8);
+.primary-button {
+  position: relative;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 100px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.3s ease;
+
+  /* Base gradient for button fill with matching border in normal state */
+  background-image: linear-gradient(180deg, #0095ff 0%, #0088ff 100%);
+  /* linear-gradient(180deg, #0095ff 0%, #0088ff 100%); */
+
+  /* Creates a 2px border that matches the button color initially */
+  border: 2px solid transparent;
 }
 
-.btnShadowwithIcon:hover {
-  box-shadow: 0 0 8px 0 rgba(66, 174, 255, 0.8);
-  background-filter: blur(60px);
+.primary-button:hover {
+  /* Only change the border gradient on hover */
+  background-image: linear-gradient(
+      90deg,
+      #0079dd -10.28%,
+      #3bb3ff 92.55%,
+      #76dbff 109.08%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(128, 200, 255, 0.9) 20%,
+      rgba(64, 169, 255, 0.85) 40%,
+      rgba(0, 136, 255, 0.8) 60%,
+      rgba(0, 106, 255, 0.75) 80%,
+      rgba(0, 68, 255, 0.7) 100%
+    );
+
+  /* More uniform shadow spread */
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+}
+
+/* Active state */
+.primary-button:active {
+  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(64, 169, 255, 0.7) 40%,
+      rgba(0, 106, 255, 0.6) 100%
+    );
+  /* Slightly reduced shadow when pressed */
+  box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
+}
+
+/* Focus state for accessibility */
+.primary-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+}
+
+/* Disabled state */
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  box-shadow: none;
+}
+
+.tertiary-button {
+  position: relative;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 100px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background: black;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tertiary-button:hover {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 118, 216, 0.8) -30.04%,
+      rgba(33, 62, 252, 0.8) 35.96%,
+      rgba(202, 241, 255, 0.8) 124.9%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(128, 200, 255, 0.9) 20%,
+      rgba(64, 169, 255, 0.85) 40%,
+      rgba(0, 136, 255, 0.8) 60%,
+      rgba(0, 106, 255, 0.75) 80%,
+      rgba(0, 68, 255, 0.7) 100%
+    );
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+}
+
+.tertiary-button:active {
+  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(64, 169, 255, 0.7) 40%,
+      rgba(0, 106, 255, 0.6) 100%
+    );
+  box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
+}
+
+/* .tertiary-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+} */
+
+.tertiary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  box-shadow: none;
+}
+
+.secondary-button {
+  position: relative;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 100px;
+  background: black; /* Transparent background */
+  border: 2px solid white; /* White border */
+  transition: all 0.3s ease;
+}
+
+/* Hover state */
+.secondary-button:hover {
+  border: 2px solid transparent; /* Transparent border to show gradient */
+  background-image: linear-gradient(
+      272deg,
+      rgba(0, 139, 255, 0.8) 4.81%,
+      rgba(53, 160, 252, 0.8) 39.26%,
+      rgba(153, 202, 233, 0.8) 94.28%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(128, 200, 255, 0.9) 20%,
+      rgba(64, 169, 255, 0.85) 40%,
+      rgba(0, 136, 255, 0.8) 60%,
+      rgba(0, 106, 255, 0.75) 80%,
+      rgba(0, 68, 255, 0.7) 100%
+    ); /* Gradient background */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2); /* Glow effect */
+}
+
+/* Active state */
+.secondary-button:active {
+  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(64, 169, 255, 0.7) 40%,
+      rgba(0, 106, 255, 0.6) 100%
+    );
+  box-shadow: 0 0 10px rgba(0, 136, 255, 0.3); /* Subtle shadow */
+}
+
+/* Focus state for accessibility */
+/* .secondary-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+} */
+
+/* Disabled state */
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: #cccccc; /* Light gray border for disabled state */
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Icon and text */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 1.2em;
+}
+
+.text {
+  display: inline-block;
+}
+.button-with-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  color: white;
+  isolation: isolate;
+  background: black;
+  z-index: 1;
+}
+
+/* .button-with-icon:hover {
+  border: 2px solid transparent; 
+  background-image: linear-gradient(
+      to bottom,
+      rgba(175, 114, 16, 0.2) 0%,
+      rgba(202, 25, 134, 0.2) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(128, 200, 255, 0.9) 20%,
+      rgba(64, 169, 255, 0.85) 40%,
+      rgba(0, 136, 255, 0.8) 60%,
+      rgba(0, 106, 255, 0.75) 80%,
+      rgba(0, 68, 255, 0.7) 100%
+    ); 
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2); 
+} */
+
+.button-with-icon::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 2px solid white;
+  border-radius: 100px;
+  z-index: -1;
+  opacity: 0.8;
+  transition: background 0.3s ease;
+}
+
+.button-with-icon:hover::before {
+  background: linear-gradient(
+    180deg,
+    rgba(156, 164, 169, 0.2) 0%,
+    rgba(62, 65, 67, 0.2) 100%
+  );
+}
+
+.button-with-icon:hover::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  padding: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(173, 216, 230, 0.95) 0%,
+    rgba(100, 149, 237, 0.9) 25%,
+    rgba(65, 105, 225, 0.85) 50%,
+    rgba(0, 0, 205, 0.8) 75%,
+    rgba(0, 0, 139, 0.75) 100%
+  );
+
+  border-radius: 100px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0.9;
+}
+/* .button-with-icon:hover {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+} */
+.button-with-icon:hover {
+  box-shadow:
+    0 0 20px rgba(0, 136, 255, 0.3),
+    0 5px 20px rgba(0, 106, 255, 0.3),
+    0 5px 10px rgba(0, 68, 255, 0.3);
 }
 </style>
