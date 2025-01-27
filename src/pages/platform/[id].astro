@@ -318,5 +318,5 @@ const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
   </div>
   <BannerWrapper items={bannerData} client:load />
   <FaqWrapper items={faqData.items} title={faqData.title} client:load />
-  <CaseStudyWrapper items={caseStudyData} client:load />
+  <CaseStudyWrapper items={caseStudyData.items} title={caseStudyData.title} description={caseStudyData.description} client:load />
 </Layout>
