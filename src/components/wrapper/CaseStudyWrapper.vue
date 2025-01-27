@@ -4,18 +4,18 @@ import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 const props = defineProps({
-  items : {
+  items: {
     type: Array,
-    required: true
+    required: true,
   },
   title: {
-    type : String,
-    required: true
+    type: String,
+    required: true,
   },
   description: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
 <template>
