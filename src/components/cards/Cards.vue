@@ -20,9 +20,9 @@ const props = defineProps({
 });
 
 const bg = {
-  0: "/public/Homepage/Tiles-F1-eclipse.svg",
-  1: "/public/Homepage/Home-F2-Eclipse.svg",
-  2: "/public/Homepage/Home-F3-Eclipse.svg",
+  0: "/Homepage/Tiles-F1-eclipse.svg",
+  1: "/Homepage/Home-F2-Eclipse.svg",
+  2: "/Homepage/Home-F3-Eclipse.svg",
 };
 </script>
 
