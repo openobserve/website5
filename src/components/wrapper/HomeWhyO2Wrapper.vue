@@ -15,10 +15,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  noOfGridColumn:{
+  noOfGridColumn: {
     type: Number,
     required: true,
-  }
+  },
 });
 </script>
 <template>
@@ -31,7 +31,14 @@ const props = defineProps({
         `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
       ]"
     >
-      <CustomFeatureCard :cards="items" />
+      <div
+        class="flex gap-4"
+        v-for="(item, index) in items"
+        :key="index"
+        :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
+      >
+        <CustomFeatureCard :card="item" />
+      </div>
     </div>
   </CustomSection>
 </template>
