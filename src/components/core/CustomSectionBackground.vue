@@ -1,5 +1,5 @@
 <template>
-  <div :class="`${directionClass} w-full h-auto bg-no-repeat bg-cover md:bg-contain md:bg-center`">
+  <div :class="`${directionClass} w-full container mx-auto  h-auto bg-no-repeat bg-cover md:bg-contain md:bg-center`">
     <slot></slot>
   </div>
 </template>
@@ -13,8 +13,8 @@ const props=defineProps({
 })
 
 const directions={
-  top: "bg-[url('/BackgroundTopMobile.svg')] md:bg-[url('/BackgroundShadowTop.svg')]",
-  bottom: "bg-[url('/BackgeoundBottomMobile.svg')] md:bg-[url('/usecasebg.svg')]"
+  top: "bg-[url('/BackgroundTopMobile.svg')] md:bg-[url('/homesectionbgtop.svg')]",
+  bottom: "bg-[url('/BackgeoundBottomMobile.svg')] md:bg-[url('/homesectionbgbottom.svg')]"
 }
 
 const directionClass = directions[props.direction]

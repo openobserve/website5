@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSectionBackground direction="bottom">
+  <CustomSectionBackground direction="bottom">  
     <CustomSection>
       <div class="flex flex-col max-w-full container mx-auto">
         <Heading
