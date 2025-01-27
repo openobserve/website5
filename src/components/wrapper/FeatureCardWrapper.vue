@@ -5,8 +5,16 @@ import Heading from "../core/Heading.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
   items: {
-    type: Object,
+    type: Array,
+    required: true,
+  },
+  noOfGridColumn: {
+    type: Number,
     required: true,
   },
 });
@@ -34,13 +42,23 @@ const props = defineProps({
 
       <!-- Main Content -->
       <CustomSection>
-        <Heading :title="props.items.title" align="CENTER" />
-        <CustomFeatureCard
-          class="py-10"
-          :cards="props.items.items"
-          layout="column"
-          :columns="4"
-        />
+        <div class="py-10">
+          <Heading :title="title" align="CENTER" />
+        </div>
+        <div
+          :class="[
+            `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+          ]"
+        >
+          <div
+            class="flex gap-4"
+            v-for="(item, index) in items"
+            :key="index"
+            :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
+          >
+            <CustomFeatureCard :card="item" />
+          </div>
+        </div>
       </CustomSection>
     </div>
     <CustomSeprater />

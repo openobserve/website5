@@ -27,35 +27,35 @@ const cardData = [
       " Integrates effortlessly with Prometheus, OpenTelemetry, and other leading tools.",
   },
 ];
-const featureCardData = {
+const featureCardTitle = {
   title: "Full Stack Observability. Built for Efficiency.",
-  items: [
-    {
-      icon: "/Platform/Vector.svg",
-      title: "140x lower storage costs",
-      description:
-        "Advanced log compression minimizes storage requirements without sacrificing performance.",
-    },
-    {
-      icon: "/Platform/Vector (1).svg",
-      title: "Complete visibility across the stack",
-      description:
-        "Monitor logs, metrics, traces, and frontend performance in one integrated platform.",
-    },
-    {
-      icon: "/Platform/Vector (2).svg",
-      title: "10x lower operational costs",
-      description:
-        "Optimized architecture reduces computational overhead and operational expenses.",
-    },
-    {
-      icon: "/Platform/Vector (3).svg",
-      title: "Unlimited Scalability",
-      description:
-        "Seamlessly scale to meet enterprise demands with high availability and robust reliability.",
-    },
-  ],
 };
+const featureCardData = [
+  {
+    icon: "/Platform/Vector.svg",
+    title: "140x lower storage costs",
+    description:
+      "Advanced log compression minimizes storage requirements without sacrificing performance.",
+  },
+  {
+    icon: "/Platform/Vector (1).svg",
+    title: "Complete visibility across the stack",
+    description:
+      "Monitor logs, metrics, traces, and frontend performance in one integrated platform.",
+  },
+  {
+    icon: "/Platform/Vector (2).svg",
+    title: "10x lower operational costs",
+    description:
+      "Optimized architecture reduces computational overhead and operational expenses.",
+  },
+  {
+    icon: "/Platform/Vector (3).svg",
+    title: "Unlimited Scalability",
+    description:
+      "Seamlessly scale to meet enterprise demands with high availability and robust reliability.",
+  },
+];
 const tabsData = {
   title: "Observability Suite",
   subtitle:
@@ -383,6 +383,7 @@ const bannerData = {
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     cards={cardData}
+    noOfGridColumn={3}
     buttons={[
       { label: "Get Started", variant: "white" },
       { label: "Watch Video", variant: "secondary" },
@@ -390,7 +391,12 @@ const bannerData = {
     backgroundImage="/Eclipse.svg"
     footerImage="/Frame 2121314680.svg"
   />
-  <FeatureCardWrapper items={featureCardData} client:load />
+  <FeatureCardWrapper
+    title={featureCardTitle.title}
+    items={featureCardData}
+    noOfGridColumn={4}
+    client:load
+  />
   <TabsWithImageWrapper items={tabsData} client:load />
   <TabsWrapper items={interchangeData} client:load />
   <CaseStudyWrapper items={caseStudyData} client:load />

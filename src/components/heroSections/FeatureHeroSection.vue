@@ -17,6 +17,10 @@ defineProps({
     type: Array,
     required: true,
   },
+  noOfGridColumn: {
+    type: Number,
+    required: true,
+  },
   buttons: {
     type: Array, // Array of button objects [{ label: "Button Title", variant: "primary" }]
     required: true,
@@ -74,11 +78,26 @@ defineProps({
 
         <!-- Show CustomFeatureCard on desktop screens -->
         <div class="hidden md:block text-start">
-          <CustomFeatureCard
-            :cards="cards"
-            titleTextColor="text-gray-800"
-            descriptionTextColor="text-gray-600"
-          />
+          <div
+            :class="[
+              `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+            ]"
+          >
+            <div
+              class="flex gap-4"
+              v-for="(item, index) in cards"
+              :key="index"
+              :class="
+                layout === 'column' ? 'flex-col justify-start' : 'flex-row'
+              "
+            >
+              <CustomFeatureCard
+                :card="item"
+                titleTextColor="text-gray-800"
+                descriptionTextColor="text-gray-600"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
