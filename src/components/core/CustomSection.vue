@@ -1,5 +1,5 @@
 <template>
-  <div :class="[defaultClasses, props.sectionClass || '']">
+  <div :class="defaultClasses">
     <slot></slot>
   </div>
 </template>

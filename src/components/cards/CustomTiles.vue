@@ -9,10 +9,10 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="container mx-auto p-4">
+  <div class="">
     <!-- Responsive Grid Container -->
     <div
-      class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center w-3/4 mx-auto"
+      class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center"
     >
       <!-- Loop through card data -->
 

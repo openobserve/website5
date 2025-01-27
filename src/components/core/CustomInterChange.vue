@@ -16,7 +16,7 @@
       <h2 class="text-[#f4f4f5] mb-4 font-inter font-semibold text-xl md:text-2xl lg:text-4xl">
         {{ title }}
       </h2>
-      <div v-if="items.length">
+      <div v-if="items?.length">
         <div v-for="(item, index) in items" :key="index" class="mb-4">
           <h3 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-white mb-2">
             {{ item.title }}

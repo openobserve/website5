@@ -1,4 +1,6 @@
 <template>
+  <div class="pb-10">
+  <CustomSection section-class="py-0 xl:py-0">
   <div class="carousel-container">
     <div class="slide">
       <div
@@ -15,10 +17,13 @@
       </div>
     </div>
   </div>
+  </CustomSection>
+  </div>
 </template>
 
 <script setup>
 import { computed,defineProps } from 'vue';
+import CustomSection from './CustomSection.vue';
 
 // Props definition
 const props = defineProps({

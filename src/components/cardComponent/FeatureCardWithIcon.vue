@@ -11,9 +11,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="grid grid-cols-2  md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6">
+  <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6">
     <div
-      class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow container mx-auto "
+      class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow container mx-auto"
       v-for="(item, index) in cards"
       :key="index"
     >
@@ -21,31 +21,32 @@ const props = defineProps({
       <div
         class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
       >
-       <a href="/" >
-         <img :src="item.icon" alt="Icon" class="w-16 h-16 object-cover" />
-        </a>
-        <h3
-          class="text-[#BEC0C2] text-base font-semibold"
-          :title="item.title"
-        >
+        <img :src="item.icon" alt="Icon" class="w-16 h-16 object-cover" />
+        <h3 class="text-[#BEC0C2] text-base font-semibold" :title="item.title">
           {{ item.title }}
         </h3>
       </div>
     </div>
-      <!-- static card -->
-      <div
+    <!-- static card -->
+    <div
       class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow"
     >
-      <div
-        class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8 "
-      >
-      <a href="/" >
-        <div class="w-16 h-16 overflow-hidden">
-          <img src="CardSeeALLicon.svg" alt="View all use cases" class="w-full h-full object-cover" />
+      <a href="/">
+        <div
+          class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
+        >
+          <div class="w-16 h-16 overflow-hidden">
+            <img
+              src="CardSeeALLicon.svg"
+              alt="View all use cases"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-[#BEC0C2] text-base font-semibold">
+            Explore all features
+          </h3>
         </div>
       </a>
-        <h3 class="text-[#BEC0C2] text-base font-semibold">Explore all features</h3>
-      </div>
     </div>
     <!-- static card -->
   </div>
@@ -55,9 +56,9 @@ const props = defineProps({
 .cardShadow:hover {
   box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
   border-radius: 1rem;
-  transition:all;
+  transition: all;
 }
 .cardShadow:hover h3 {
-  color: #80B9FF;
+  color: #80b9ff;
 }
 </style>

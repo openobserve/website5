@@ -13,38 +13,30 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection>
-    <div class="relative flex flex-col container mx-auto overflow-hidden">
-      <div 
-        class="absolute -inset-x-48 -inset-y-24 -z-10"
-        style="
-          background-image: url('/bg-ellipse2-section.svg'), url('/bg-ellipse-section.svg');
-          background-position: left -25rem top, right -12rem top;
-          background-repeat: no-repeat, no-repeat;
-          background-size: 150%, 150%;
-        "
-      ></div>
-      <!-- <img 
-  src="/bg-ellipse2-section.svg" 
-  class="absolute -left-48 top-44 w-1/2 h-full" 
-  alt="Background SVG"
-/>
-      <img 
-  src="/bg-ellipse-section.svg" 
-  class="absolute right-0 top-56 w-1/2 h-full" 
-  alt="Background SVG"
-/> -->
-
-      <Heading :title="props.cardData?.title" :description="props.cardData?.description" />
-      <div class="grid grid-col mt-10">
-        <div>
-          <div class="flex flex-col space-y-4 w-full h-full items-center justify-center">
-            <!-- Pass the single card object to the child component -->
-            <IconTitleCard :cards="props.cardData?.items" />
-          </div>
-        </div>
+  <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
+    <img
+      src="/cardBg1.svg"
+      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
+      alt="Background SVG"
+    />
+    <img
+      src="/cardBg2.svg"
+      alt="Image"
+      class="absolute bottom-[-6ovh] -z-10 object-contain"
+    />
+    <!-- <img
+      src="/cardBg2.svg"
+      class="absolute bottom-[-60vh] -z-10"
+      alt="Background SVG"
+    /> -->
+    <CustomSection>
+      <Heading
+        :title="props.cardData?.title"
+        :description="props.cardData?.description"
+      />
+      <div class="grid grid-col mt-10 w-full">
+        <IconTitleCard :cards="props.cardData?.items" />
       </div>
-    </div>
-  </CustomSection>
+    </CustomSection>
+  </div>
 </template>
-

@@ -26,118 +26,15 @@ import Heading from "../components/core/Heading.vue";
 import CardWithIcon1 from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
 import CardWithIcon2 from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
 import CustomFeatureSliderCard from "../components/cards/CustomFeatureSliderCard.vue";
-
+import TopCompaniesWrapper from "../components/wrapper/TopCompaniesWrapper.vue";
 import { h } from "vue";
 import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
 import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
 import CustomAnnouncement from "../components/core/CustomAnnouncement.vue";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
-const footerData = {
-  sections: [
-    {
-      title: "Platform",
-      items: [
-        { name: "Logs", link: "/logs" },
-        { name: "Metrics", link: "/metrics" },
-        { name: "Traces", link: "/traces" },
-        { name: "Frontend Monitoring", link: "/frontend-monitoring" },
-        { name: "Pipelines", link: "/pipelines" },
-        { name: "Alerting", link: "/alerting" },
-        { name: "Visualizations & Dashboard", link: "/visualizations" },
-      ],
-    },
-    {
-      title: "Solutions",
-      items: [
-        { name: "Azure Monitoring", link: "/azure-monitoring" },
-        { name: "AWS Monitoring", link: "/aws-monitoring" },
-        { name: "GCP Monitoring", link: "/gcp-monitoring" },
-        { name: "Kubernetes Observability", link: "/kubernetes" },
-        { name: "Infrastructure Monitoring", link: "/infrastructure" },
-        { name: "Security & Audit Logs", link: "/security" },
-        { name: "Cost Optimization", link: "/cost" },
-        { name: "Sandbox", link: "/sandbox" },
-      ],
-    },
-    {
-      title: "Company",
-      items: [
-        { name: "About", link: "/about" },
-        { name: "Careers", link: "/careers" },
-        { name: "Contact Us", link: "/contact" },
-      ],
-    },
-    {
-      title: "Community",
-      items: [
-        { name: "Slack", link: "/slack" },
-        { name: "Github", link: "/github" },
-        { name: "Twitter", link: "/twitter" },
-        { name: "LinkedIn", link: "/linkedin" },
-        { name: "YouTube", link: "/youtube" },
-      ],
-    },
-    {
-      title: "Resources",
-      items: [
-        { name: "Documentation", link: "/docs" },
-        { name: "Learning", link: "/learning" },
-        { name: "Blog", link: "/blog" },
-        { name: "Case Study", link: "/case-study" },
-        { name: "Support", link: "/support" },
-      ],
-    },
-  ],
-
-  copyright: {
-    text: "OpenObserve Inc. © 2024",
-    link: "#",
-  },
-  tos: {
-    text: "Terms Of Service",
-    link: "#",
-  },
-  pp: {
-    text: "Privacy Policy",
-    link: "#",
-  },
-  githubStats: [
-    { icon: "/git.svg", label: "Star", count: "13,483", link: "#" },
-    { icon: "/git.svg", label: "Fork", count: "492", link: "#" },
-  ],
-};
-
-const faqData = {
-  title: "OpenObserve Logs FAQ's",
-  items: [
-    {
-      question: "Why choose OpenObserve for Log Management?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      question: "Why choose OpenObserve for Log Management?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-    },
-    {
-      question: "Why choose OpenObserve for Log Management?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      question: "Why choose OpenObserve for Log Management?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-    },
-    {
-      question: "Why choose OpenObserve for Log Management?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-  ],
-};
-
+import BlogWrapper from "../components/wrapper/BlogWrapper.vue";
+import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
+import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -220,9 +117,9 @@ const cardData2 = [
 // Define the static data for features
 const featureData = [
   {
-    Title: "Install and integrate",
-    Image: "/public/Image view details.svg",
-    Items: [
+    title: "Install and integrate",
+    image: "/public/Image view details.svg",
+    items: [
       {
         title: "Quick deployment",
         description:
@@ -241,9 +138,9 @@ const featureData = [
     ],
   },
   {
-    Title: "Ingest Logs, Metrics and Traces",
-    Image: "/public/Image view details.svg",
-    Items: [
+    title: "Ingest Logs, Metrics and Traces",
+    image: "/public/Image view details.svg",
+    items: [
       {
         title: "Unified data collection",
         description:
@@ -262,9 +159,9 @@ const featureData = [
     ],
   },
   {
-    Title: "Monitor and analysis",
-    Image: "/public/Image view details.svg",
-    Items: [
+    title: "Monitor and analysis",
+    image: "/public/Image view details.svg",
+    items: [
       {
         title: "Quick deployment",
         description:
@@ -329,32 +226,6 @@ const featureData11 = [
   },
 ];
 
-const tabs = [
-  "Security & Access Control",
-  "Scalability And Reliability",
-  "Operational Flexibility",
-  "User Experience",
-];
-
-const tabContents = {
-  "Security & Access Control": `
-    <h2 class="text-xl font-bold mb-4">Single Sign-On (SSO)</h2>
-    <p>Simplify user authentication across multiple systems with SSO for enhanced security and convenience.</p>
-  `,
-  "Scalability And Reliability": `
-    <h2 class="text-xl font-bold mb-4">High Availability</h2>
-    <p>Ensure your systems remain operational with advanced fault-tolerance and scalability features.</p>
-  `,
-  "Operational Flexibility": `
-    <h2 class="text-xl font-bold mb-4">Customizable Workflows</h2>
-    <p>Adapt our platform to fit your unique operational requirements with flexible configurations.</p>
-  `,
-  "User Experience": `
-    <h2 class="text-xl font-bold mb-4">Intuitive Interfaces</h2>
-    <p>Provide an excellent user experience with a clean, intuitive interface that enhances productivity.</p>
-  `,
-};
-
 const headingData = {
   title: "Why OpenObserve?",
   subtitle:
@@ -376,74 +247,75 @@ const cardDataforsection2 = {
   title: "Full stack observability platform",
   description:
     "Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
-  items:[
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Home' 
-          },  
-      ]
+  items: [
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Home",
+    },
+  ],
 };
-const announcementBanner={
-  description:"Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next."
+const announcementBanner = {
+  description:
+    "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
 };
-
 
 const cardDataforsection3 = {
   title: "Designed for every team",
   description:
     "Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
-    items:[
-    { 
-              icon: 'cardIcon.svg', 
-              title: 'Dev Ops' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Developers' 
-          },
-          { 
-              icon: 'cardIcon.svg', 
-              title: 'Site Reliability Engineers' 
-          },
-      ]
+  items: [
+    {
+      icon: "cardIcon.svg",
+      title: "Dev Ops",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Developers",
+    },
+    {
+      icon: "cardIcon.svg",
+      title: "Site Reliability Engineers",
+    },
+  ],
 };
 
 const pageData = [
   {
     __component: "section.announcementbanner",
-    description: "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next."
+    description:
+      "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
   },
   {
     __component: "section.herosection",
@@ -457,42 +329,42 @@ const pageData = [
   //   title: "Full stack observability platform",
   //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
   //   items:[
-  //           { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //           {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Home' 
-  //         },  
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Home'
+  //         },
   //     ]
   // },
   // {
@@ -500,17 +372,17 @@ const pageData = [
   //   title: "Designed for every team",
   //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
   //   items:[
-  //   { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Dev Ops' 
+  //   {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Dev Ops'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Developers' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Developers'
   //         },
-  //         { 
-  //             icon: 'cardIcon.svg', 
-  //             title: 'Site Reliability Engineers' 
+  //         {
+  //             icon: 'cardIcon.svg',
+  //             title: 'Site Reliability Engineers'
   //         },
   //     ]
   // },
@@ -554,85 +426,69 @@ const pageData = [
   //     },
   //   ],
   // },
- 
 ];
+
+const trustedCompanies = {
+  title: "Trusted by leading companies",
+  items: [
+    {
+      icon: "/Homepage/money-bag 1.svg",
+      title: "2700+",
+      description: "Users who use and love OpenObserve",
+    },
+    {
+      icon: "/Homepage/money-bag 1.svg",
+      title: "140x",
+      description: "Users who use and love OpenObserve",
+    },
+    {
+      icon: "/Homepage/money-bag 1.svg",
+      title: "2 min",
+      description: "Users who use and love OpenObserve",
+    },
+  ],
+};
 ---
 
 <Layout>
   <CustomAnnouncement AnnouncementBanner={announcementBanner} />
   <ComponentCollectionMapper data={pageData} client:load />
-  <FeatureCardWithIconWrapper cardData={cardDataforsection2}/>
-  
-  
+  <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
-  <CustomSection>
-    <div class="py-10">
-      <Heading
-        title={blogHeadingData.title}
-        description={blogHeadingData.subtitle}
-        align="CENTER"
-      />
-    </div>
-    <div class="hidden md:block">
-      <div
-        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
-      >
-        {
-          cards.length > 0 && (
-            <div class="">
-              <LeftSideCard card={cards[0]} />
-            </div>
-          )
-        }
-
-        {
-          cards.length > 0 && (
-            <div class="">
-              <RightSideCard cards={cards.slice(1)} />
-            </div>
-          )
-        }
-      </div>
-    </div>
-    <div class="block md:hidden">
-      <div class="flex flex-col space-y-3">
-        {cards.map((card, index) => <LeftSideCard card={card} />)}
-      </div>
-    </div>
-  </CustomSection>
-  <CustomSection>
-    <div class="py-10">
-      <Heading
-        title={HowO2worksHeader.title}
-        description={HowO2worksHeader.subtitle}
-        align="CENTER"
-      />
-    </div>
-    <div class="container mx-auto px-4 md:px-10">
-      {
-        featureData.map((feature, index) => (
-          <CustomInterChange
-            key={index}
-            items={feature.Items}
-            title={feature.Title}
-            image={feature.Image}
-            direction={index % 2 === 0 ? "left" : "right"}
-          />
-        ))
-      }
-    </div>
-  </CustomSection>
-  <CustomSection>
-    <div class="py-10">
-      <Heading
-        title={headingData.title}
-        description={headingData.subtitle}
-        align="CENTER"
-      />
-    </div>
-    <CustomFeatureCard cards={cardData2} />
-  </CustomSection>
-
+  <TopCompaniesWrapper
+    title={trustedCompanies.title}
+    items={trustedCompanies.items}
+    client:load
+  />
+  <CompanySwiper
+    data={[
+      { path: "/public/Logo place holder (2).svg" },
+      { path: "/public/Logo place holder (3).svg" },
+      { path: "/public/Logo place holder (4).svg" },
+      { path: "/public/Logo place holder (5).svg" },
+    ]}
+    client:load
+  />
+  <BlogWrapper
+    items={cards}
+    title="Discover Open Observe in action"
+    description="From agile startups to global enterprises, open observe empowers businesses with advanced observability solutions. Explore real-world case studies to see how companies are driving, efficiency and innovation."
+    client:load
+  />
+  <CustomSeprater />
+  <HomeFeatureWrapper
+    title={HowO2worksHeader.title}
+    description={HowO2worksHeader.subtitle}
+    items={featureData}
+    client:load
+  />
+  <HomeWhyO2Wrapper
+    title={headingData.title}
+    description={headingData.subtitle}
+    items={cardData2}
+    noOfGridColumn={3}
+    client:load
+  />
   <CustomBanner
     title="Fair and transparent pricing"
     subtitle="Only pay for what you use."
@@ -641,5 +497,4 @@ const pageData = [
       { text: "Get Started for Free", variant: "secondary" },
     ]}
   />
-
-</Layout> 
+</Layout>
