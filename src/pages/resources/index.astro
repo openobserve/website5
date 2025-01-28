@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import ResourceCardsWrapper from "../../components/wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
+import SupportCardWrapper from "../../components/wrapper/SupportCardWrapper.vue";
 const resourceCardHeader = {
   title: "Documentation",
   subtitle:
@@ -60,6 +61,75 @@ const blogData = {
     },
   ],
 };
+const supportHeader = {
+  title: "Support",
+  subtitle:
+    "Access assistance tailored to your needs, and get in touch if you have any questions!",
+};
+const supportCards = [
+  {
+    icon: "/resources/FAQ’S.svg",
+    title: "FAQ's",
+    description: "Find answers to common questions about OpenObserve.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [{ text: "View FAQ's", type: "default", variant: "ghost" }],
+  },
+  {
+    icon: "/resources/Community Support.svg",
+    title: "Community Support",
+    description:
+      "Engage with our community for shared knowledge and assistance.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [
+      {
+        icon: "/resources/Slack (54pxX54px).svg",
+        text: "",
+        type: "default",
+        variant: "ghost",
+      },
+      {
+        icon: "/resources/GitHub (54pxX54px).svg",
+        text: "",
+        type: "discord",
+        variant: "ghost",
+      },
+    ],
+  },
+  {
+    icon: "/resources/Enterprise Support.svg",
+    title: "Enterprise Support",
+    description: "Access dedicated support services for enterprise clients.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [{ text: "Requests", type: "default", variant: "ghost" }],
+  },
+];
 ---
 
 <Layout>
@@ -80,6 +150,12 @@ const blogData = {
     title={blogHeader.sectionTitle}
     description={blogHeader.sectionDescription}
     items={blogData}
+    client:load
+  />
+  <SupportCardWrapper
+    title={supportHeader.title}
+    description={supportHeader.subtitle}
+    items={supportCards}
     client:load
   />
 </Layout>
