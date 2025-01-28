@@ -5,7 +5,14 @@ const props = defineProps({
     type: String,
     default: "primary",
     validator: (value) =>
-      ["primary", "secondary", "tertiary", "pricing", "ghost"].includes(value),
+      [
+        "primary",
+        "secondary",
+        "tertiary",
+        "pricing",
+        "ghost",
+        "heroButton",
+      ].includes(value),
   },
   size: {
     type: String,
@@ -58,6 +65,7 @@ const variants = {
   tertiary: "tertiary-button",
   ghost: "button-with-icon",
   pricing: "bg-white text-blue-500 rounded-full",
+  heroButton: "hero-button",
 };
 
 const buttonVariant = variants[props.variant];
@@ -164,17 +172,30 @@ const buttonVariant = variants[props.variant];
   border-radius: 100px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  background: black;
+  background: transparent;
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
+.hero-button {
+  position: relative;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 100px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background: black;
+  border: 2px solid transparent;
+}
 
-.tertiary-button:hover {
+.tertiary-button:hover,
+.hero-button:hover {
+  border: 2px solid transparent; /* Transparent border to show gradient */
   background-image: linear-gradient(
-      0deg,
-      rgba(0, 118, 216, 0.8) -30.04%,
-      rgba(33, 62, 252, 0.8) 35.96%,
-      rgba(202, 241, 255, 0.8) 124.9%
+      272deg,
+      rgba(0, 139, 255, 0.8) 4.81%,
+      rgba(53, 160, 252, 0.8) 39.26%,
+      rgba(153, 202, 233, 0.8) 94.28%
     ),
     linear-gradient(
       180deg,
@@ -184,11 +205,14 @@ const buttonVariant = variants[props.variant];
       rgba(0, 136, 255, 0.8) 60%,
       rgba(0, 106, 255, 0.75) 80%,
       rgba(0, 68, 255, 0.7) 100%
-    );
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+    ); /* Gradient background */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2); /* Glow effect */
 }
 
-.tertiary-button:active {
+.tertiary-button:active,
+.hero-button:active {
   background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
     linear-gradient(
       180deg,
@@ -204,7 +228,8 @@ const buttonVariant = variants[props.variant];
   box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
 } */
 
-.tertiary-button:disabled {
+.tertiary-button:disabled,
+.hero-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
@@ -215,10 +240,9 @@ const buttonVariant = variants[props.variant];
 .secondary-button {
   position: relative;
   color: white;
-  font-weight: 600;
   cursor: pointer;
   border-radius: 100px;
-  background: black; /* Transparent background */
+  background: transparent; /* Transparent background */
   border: 2px solid white; /* White border */
   transition: all 0.3s ease;
 }
@@ -299,7 +323,7 @@ const buttonVariant = variants[props.variant];
   border: 2px solid white;
   color: white;
   isolation: isolate;
-  background: black;
+  background: transparent;
   z-index: 1;
 }
 
@@ -369,9 +393,7 @@ const buttonVariant = variants[props.variant];
   box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
 } */
 .button-with-icon:hover {
-  box-shadow:
-    0 0 20px rgba(0, 136, 255, 0.3),
-    0 5px 20px rgba(0, 106, 255, 0.3),
+  box-shadow: 0 0 20px rgba(0, 136, 255, 0.3), 0 5px 20px rgba(0, 106, 255, 0.3),
     0 5px 10px rgba(0, 68, 255, 0.3);
 }
 </style>
