@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
+import ResourceCardsWrapper from "../../components/wrapper/ResourceCardsWrapper.vue";
+
+const resourceCardHeader = {
+  title: "Documentation",
+  subtitle:
+    "Access detailed guides and references to effectively utilize OpenObserve’s features.",
+};
+const resourceCardData = {
+  items: [
+    {
+      icon: "/resources/User Guide.svg",
+      title: "User Guide",
+      description:
+        "Step-by-step instructions for setting up and managing OpenObserve",
+    },
+    {
+      icon: "/resources/API Reference.svg",
+      title: "API Reference",
+      description: "In-depth information on available APIs for integration.",
+    },
+    {
+      icon: "/resources/Function Reference.svg",
+      title: "Function Reference",
+      description: "Detailed descriptions of functions and their usage.",
+    },
+  ],
+};
+const resourceCardFooter = {
+  btnTitle: "VIEW DOCUMENTATION",
+  btnLink: "#",
+};
+---
+
+<Layout>
+  <ResourceHeroSection
+    title="Resources"
+    subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
+  />
+  <ResourceCardsWrapper
+    title={resourceCardHeader.title}
+    subtitle={resourceCardHeader.subtitle}
+    items={resourceCardData.items}
+    noOfGridColumn={3}
+    layout="row"
+    btnTitle={resourceCardFooter.btnTitle}
+    client:load
+  />
+</Layout>
