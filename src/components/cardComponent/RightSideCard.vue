@@ -58,7 +58,6 @@ const props = defineProps({
   inset: -2px;
   z-index: -1;
   opacity: 0.8;
-  transition: background 0.3s ease;
 }
 
 .custom-hover:hover::after {
@@ -80,7 +79,6 @@ const props = defineProps({
   mask-composite: exclude;
   z-index: -1;
   opacity: 0.9;
-  transition: background 0.5s ease-in-out, opacity 0.3s ease;
 }
 .group {
   background-color: transparent; /* Default background */
