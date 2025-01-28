@@ -44,14 +44,26 @@ const props = defineProps({
       </div>
       <div
         :class="[
-          `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+          `
+      grid 
+      grid-cols-1 
+      sm:grid-cols-2 
+      md:grid-cols-2 
+      lg:grid-cols-${noOfGridColumn} 
+      gap-6 
+      w-full 
+      place-items-center
+    `,
         ]"
       >
         <div
-          class="flex gap-4"
           v-for="(item, index) in items"
           :key="index"
-          :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
+          :class="[
+            'flex gap-4 p-4 rounded-lg shadow-lg',
+            layout === 'column' ? 'flex-col justify-start' : 'flex-row',
+            '',
+          ]"
         >
           <CustomFeatureCard :card="item" borderColor="bg-white" />
         </div>

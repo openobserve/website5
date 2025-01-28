@@ -4,6 +4,9 @@ import ResourceHeroSection from "../../components/heroSections/ResourceHeroSecti
 import ResourceCardsWrapper from "../../components/wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import SupportCardWrapper from "../../components/wrapper/SupportCardWrapper.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+
 const resourceCardHeader = {
   title: "Documentation",
   subtitle:
@@ -81,7 +84,7 @@ const supportCards = [
         description: "Detailed answers to technical questions.",
       },
     ],
-    buttons: [{ text: "View FAQ's", type: "default", variant: "ghost" }],
+    buttons: [{ text: "View FAQ's", type: "default", variant: "secondary" }],
   },
   {
     icon: "/resources/Community Support.svg",
@@ -127,9 +130,55 @@ const supportCards = [
         description: "Detailed answers to technical questions.",
       },
     ],
-    buttons: [{ text: "Requests", type: "default", variant: "ghost" }],
+    buttons: [{ text: "Requests", type: "default", variant: "secondary" }],
   },
 ];
+const caseStudyTitle = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
+const caseStudyData = [
+  {
+    image: "public/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+const bannerData = {
+  title: "Ready to get started ?",
+  subtitle:
+    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
 ---
 
 <Layout>
@@ -152,10 +201,17 @@ const supportCards = [
     items={blogData}
     client:load
   />
+  <CaseStudyWrapper
+    title={caseStudyTitle.title}
+    description={caseStudyTitle.subtitle}
+    items={caseStudyData}
+    client:load
+  />
   <SupportCardWrapper
     title={supportHeader.title}
     description={supportHeader.subtitle}
     items={supportCards}
     client:load
   />
+  <BannerWrapper items={bannerData} client:load />
 </Layout>
