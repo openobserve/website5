@@ -16,6 +16,11 @@ const props = defineProps({
     default: "text-[#BEC0C2]",
     required: false,
   },
+  borderColor: {
+    type: String,
+    default: "bg-gradient-blue",
+    required: false,
+  },
 });
 </script>
 
@@ -24,7 +29,7 @@ const props = defineProps({
     <CustomRoundShape
       :imgSrc="card.icon"
       iconSize="small"
-      borderColor="bg-gradient-blue"
+      :borderColor="borderColor"
       size="small"
     />
   </div>
