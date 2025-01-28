@@ -12,7 +12,6 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div>
   <CustomSection>
     <Heading
       :title="props.items.title"
@@ -22,12 +21,14 @@ const props = defineProps({
 
     <CustomTabs class="py-10" :items="props.items.items" client:load />
     <div v-if="items.getDemoButton && items.getDemoTitle">
-      <GetDemoWrapper :title="props.items.getDemoTitle" :btnData="props.items.getDemoButton"/>
+      <GetDemoWrapper
+        :title="props.items.getDemoTitle"
+        :btnData="props.items.getDemoButton"
+      />
     </div>
   </CustomSection>
   <div>
     <CustomSeprater />
-  </div>
   </div>
 </template>
 <style scoped></style>

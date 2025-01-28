@@ -1,7 +1,5 @@
 <script setup>
-import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomInterChange from "../core/CustomInterChange.vue";
 import CustomButton from "../core/CustomButton.vue";
 const props = defineProps({
   title: {
