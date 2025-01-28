@@ -25,6 +25,8 @@ defineProps({
     required: true, // URL of the right-side image
   },
 });
+
+
 </script>
 
 <template>
@@ -53,13 +55,7 @@ defineProps({
       </div>
     </div>
 
-    <div class="absolute w-3/4">
-      <img
-        src="/Platform/PlatformSubHero.svg"
-        alt="Image"
-        class="translate-y-full translate-x-24"
-      />
-    </div>
+   
 
     <div
       class="relative w-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center"
@@ -70,6 +66,12 @@ defineProps({
         class="w-full rounded-md md:w-3/4 lg:w-full lg:translate-x-16 object-contain opacity-60 lg:opacity-100"
       />
     </div>
+    <div class="absolute w-3/4">
+  <img
+    src="/Glass Card bg.svg"
+    alt="Image"
+    class="absolute top-[100px] left-24"  />
+</div>
   </section>
 </template>
 

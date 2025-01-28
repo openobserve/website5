@@ -28,26 +28,30 @@ const activeContent = computed(
   <section class="text-white">
     <!-- Tabs Section -->
     <div class="relative max-w-6xl mx-auto px-4">
-      <div class="flex overflow-x-auto  gap-6 sm:gap-8 scroll-smooth">
-        <!-- Render Tabs -->
-        <div
-          v-for="(tab, index) in items"
-          :key="tab.tabTitle"
-          @click="setActiveTab(index)"
-          class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
-          :class="{
-            'text-blue-500': activeTabIndex === index,
-            'text-gray-400 hover:text-gray-300': activeTabIndex !== index,
-          }"
-        >
-          {{ tab.tabTitle }}
-          <!-- Bottom Border Indicator -->
-          <span
-            v-if="activeTabIndex === index"
-            class="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 transition-all"
-          ></span>
-        </div>
-      </div>
+      <div class="relative max-w-6xl mx-auto px-4">
+  <div class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar">
+    <!-- Render Tabs -->
+    <div
+      v-for="(tab, index) in items"
+      :key="tab.tabTitle"
+      @click="setActiveTab(index)"
+      class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
+      :class="{
+        'text-blue-500': activeTabIndex === index,
+        'text-gray-400 hover:text-gray-300': activeTabIndex !== index,
+      }"
+    >
+      {{ tab.tabTitle }}
+      <!-- Bottom Border Indicator -->
+      <span
+        v-if="activeTabIndex === index"
+        class="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 transition-all"
+      ></span>
+    </div>
+  </div>
+</div>
+
+
     </div>
 
     <!-- Dynamic Content Section -->
@@ -72,6 +76,18 @@ const activeContent = computed(
 /* Ensures smooth scrolling for tabs on mobile */
 .scroll-smooth {
   scroll-behavior: smooth;
+  /* overflow-x: hidden;
+  scrollbar-width: none; */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* Responsiveness adjustments for tabs on mobile */

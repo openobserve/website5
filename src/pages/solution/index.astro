@@ -1,0 +1,220 @@
+---
+import FeatureHeroSection from "../../components/heroSections/FeatureHeroSection.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
+import TabsWithImageWrapper from "../../components/wrapper/TabsWithImageWrapper.vue";
+import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
+import VisitSandbox from "../../components/core/VisitSandbox.vue";
+import Layout from "../../layouts/Layout.astro";
+import CustomCard from "../../components/cards/CustomCard.vue";
+import CustomCardWrapper from "../../components/cards/CustomCardWrapper.vue";
+
+const cardData = [
+  {
+    icon: "/Performance.svg",
+    title: "Open Source",
+    description:
+      "Built on open standards ensuring flexibility and transparency for diverse observability needs.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Comprehensive capabilities",
+    description:
+      "Offering logs, metrics, traces, pipelines, alerting, and visualization in one platform.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Seamless integrations",
+    description:
+      "Integrates effortlessly with Prometheus, OpenTelemetry, and other leading tools.",
+  },
+];
+
+const tabsData = {
+  title: "Innovative Monitoring Solutions for Every Environment",
+  subtitle:
+    "Explore how OpenObserve provides comprehensive monitoring solutions across diverse platforms, ensuring optimal performance and security.",
+  items: [
+    {
+      id: 1,
+      title: "AWS Monitoring",
+      subtitle:
+        "Gain comprehensive insights into your AWS infrastructure with real-time analytics, ensuring optimal performance and reliability.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 2,
+      title: "Azure Monitoring",
+      subtitle:
+        "Gain deep insights into your system's performance with metrics monitoring, enabling you to track KPIs effectively.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 3,
+      title: "GCP Monitoring",
+      subtitle:
+        "Visualize and analyze traces to pinpoint performance bottlenecks in distributed systems.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 4,
+      title: "Kubernetes Observability",
+      subtitle:
+        "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 5,
+      title: "Database Monitoring",
+      subtitle:
+        "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 6,
+      title: "Infrastructure Monitoring",
+      subtitle:
+        "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 7,
+      title: "Security and Audit Logs",
+      subtitle:
+        "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+    {
+      id: 8,
+      title: "Cost Optimization",
+      subtitle:
+        "Monitor the health of your front-end applications with tools tailored to client-side tracking.",
+      buttonText: "Learn More",
+      image: "/UI-1 4.svg",
+    },
+  ],
+};
+
+const caseStudyTitle = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
+const caseStudyData = [
+  {
+    image: "public/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+const cardData1 = [
+  {
+    icon: "/public/Performance.svg",
+    title: "Developers",
+    description:
+      "Equip DevOps teams with comprehensive tools for deployment, monitoring, and incident response. Enhance system reliability and accelerate development cycles through automation and real-time insights.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Performance",
+    description:
+      "Support platform engineers in building scalable, resilient systems. Provide data-driven insights that drive efficiency, enabling innovation in infrastructure management and seamless scaling capabilities.",
+  },
+  {
+    icon: "/public/Performance.svg",
+    title: "Security",
+    description:
+      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
+  },
+];
+const bannerData = {
+  title: "Tailored Observability Solutions for Any Team",
+  subtitle:
+    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+const visitSandboxData = {
+  title: "Visit the Sandbox",
+  description:
+    "Experience OpenObserve's capabilities firsthand in a sandbox environment. Test features, explore integrations, and see how our solutions can benefit your organization.",
+ 
+};
+---
+
+<Layout>
+  <FeatureHeroSection
+    client:load
+    title="OpenObserve Solutions"
+    subtitle="Discover tailored solutions that empower your organization with comprehensive monitoring and observability across various platforms and teams."
+    cards={cardData}
+    noOfGridColumn={3}
+    buttons={[
+      { label: "GET STARTED FOR FREE", variant: "heroButton" },
+      { label: "REQUEST ENTERPRISE DEMO", variant: "secondary" },
+    ]}
+    backgroundImage="/EclipseSolution.svg"
+    footerImage="/SolutionPageSS.svg"
+  />
+  <TabsWithImageWrapper items={tabsData} client:load />
+
+  <VisitSandbox
+  title={visitSandboxData.title}
+  description={visitSandboxData.description}
+  buttons={[{ label: "LAUNCH SANDBOX", variant: "secondary" }]}
+  backgroundImage="/sandboxBG.svg"
+  client:load
+/>
+
+  <CustomCardWrapper
+    title="The Open Observe platform"
+    description="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    featureCards={cardData1}
+    buttons={[{ label: "SEE AL USE CASES", variant: "secondary" }]}
+    client:load
+  />
+
+  <CaseStudyWrapper
+    title={caseStudyTitle.title}
+    description={caseStudyTitle.subtitle}
+    items={caseStudyData}
+    client:load
+  />
+ 
+  <BannerWrapper items={bannerData} client:load />
+</Layout>
