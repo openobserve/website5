@@ -407,3 +407,15 @@ const bannerData = {
   />
   <BannerWrapper items={bannerData} client:load />
 </Layout>
+<script>
+  import {getAllProjects} from "../../api/platform/api";
+  async function callApi() {
+    try {
+      const response = await getAllProjects({path: "api/posts"});
+    } catch (error) {
+      console.error('Error calling API:', error);
+    }
+  }
+  callApi();
+
+</script>
