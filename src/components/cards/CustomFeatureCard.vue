@@ -16,12 +16,6 @@ const props = defineProps({
     default: "text-[#BEC0C2]",
     required: false,
   },
-  // New prop to select layout (flex or column)
-  layout: {
-    type: String,
-    default: "flex", // Default is 'flex'
-    validator: (value) => ["flex", "column"].includes(value), // Only allow 'flex' or 'column'
-  },
 });
 </script>
 

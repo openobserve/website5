@@ -17,6 +17,12 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  // New prop to select layout (flex or column)
+  layout: {
+    type: String,
+    default: "row", // Default is 'row'
+    validator: (value) => ["row", "column"].includes(value), // Only allow 'flex' or 'column'
+  },
 });
 </script>
 
