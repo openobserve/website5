@@ -16,7 +16,7 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-cover px-4 py-24"
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-cover px-4 py-24 overflow-visible"
     style="
       background-image: url('/resources/Hero Section Eclipse.svg'),
         url('/resources/Hero Section Eclipse (1).svg');

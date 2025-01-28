@@ -37,9 +37,7 @@ const props = defineProps({
 
 <template>
   <CustomSection>
-    <div
-      class="glass-card relative py-10 bg-cover bg-no-repeat overflow-visible"
-    >
+    <div class="glass-card relative py-10">
       <!-- Main Content -->
       <div class="py-10">
         <Heading :title="title" :description="subtitle" align="CENTER" />
@@ -73,7 +71,7 @@ const props = defineProps({
 img {
   z-index: -1; /* Ensure the images appear behind the content */
 }
-.glass-card {
+/* .glass-card {
   border-radius: 16px;
   border-top: 1px solid var(--Glass-stroke, #fff);
   background: linear-gradient(
@@ -81,5 +79,5 @@ img {
     rgba(1, 1, 1, 0.48) 29.9%,
     rgba(1, 1, 1, 0.8) 100%
   );
-}
+} */
 </style>

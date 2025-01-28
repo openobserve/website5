@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import ResourceCardsWrapper from "../../components/wrapper/ResourceCardsWrapper.vue";
-
+import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 const resourceCardHeader = {
   title: "Documentation",
   subtitle:
@@ -32,6 +32,34 @@ const resourceCardFooter = {
   btnTitle: "VIEW DOCUMENTATION",
   btnLink: "#",
 };
+const blogHeader = {
+  sectionTitle: "Blogs",
+  sectionDescription:
+    "Stay updated with articles on observability, OpenObserve updates, and industry news.",
+};
+const blogData = {
+  recentPostsText: "Explore Latest Insights And Updates",
+  blogs: [
+    {
+      title: "Blog 1",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=1",
+    },
+    {
+      title: "Blog 2",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=2",
+    },
+    {
+      title: "Blog 3",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=3",
+    },
+  ],
+};
 ---
 
 <Layout>
@@ -46,6 +74,12 @@ const resourceCardFooter = {
     noOfGridColumn={3}
     layout="row"
     btnTitle={resourceCardFooter.btnTitle}
+    client:load
+  />
+  <BlogsWrapper
+    title={blogHeader.sectionTitle}
+    description={blogHeader.sectionDescription}
+    items={blogData}
     client:load
   />
 </Layout>
