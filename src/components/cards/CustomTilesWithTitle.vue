@@ -7,6 +7,14 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
+  parentBgColor: {
+    type: String,
+    default: "bg-gradient-gray", // Default background for the parent div
+  },
+  childBgColor: {
+    type: String,
+    default: "bg-[#23282c]", // Default background for the child div
+  },
 });
 </script>
 
@@ -15,13 +23,19 @@ const props = defineProps({
     class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-2 md:gap-6"
   >
     <div
-      class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow container mx-auto"
+      :class="[
+        parentBgColor,
+        'rounded-2xl w-full p-[0.0625rem] shadow-md hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow container mx-auto',
+      ]"
       v-for="(item, index) in cards"
       :key="index"
     >
       <!-- Content Layer -->
       <div
-        class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
+        :class="[
+          childBgColor,
+          'flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl p-8',
+        ]"
       >
         <img :src="item.icon" alt="Icon" class="w-16 h-16 object-cover" />
         <h3 class="text-[#BEC0C2] text-base font-semibold" :title="item.title">
