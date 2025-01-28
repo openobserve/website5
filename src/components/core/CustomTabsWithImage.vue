@@ -77,11 +77,6 @@ onUnmounted(() => {
 
     <!-- Desktop View with Tabs -->
     <div v-else class="flex flex-row relative">
-      <img
-        src="/Platform/Ellipse 39.svg"
-        alt="Image"
-        class="absolute bottom-[-60vh] right-[100vh] opcacity-30 object-contain"
-      />
       <!-- Left Tabs Column -->
       <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
         <div class="space-y-4">
