@@ -19,11 +19,11 @@ defineProps({
 
 <template>
   <div
-    class="relative flex items-center justify-center w-full min-h-[180px] sm:min-h-[200px] md:min-h-[250px] bg-cover bg-center px-4 sm:px-6 md:px-8"
+    class="relative flex items-center justify-center w-full min-h-[180px] sm:min-h-[200px] md:min-h-[250px] bg-cover bg-center"
     style="background-image: url('/Texture.svg'), url('/BG.svg')"
   >
     <div
-      class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1200px] py-8 md:py-12 lg:py-16 gap-6 md:gap-8"
+      class="container flex flex-col md:flex-row justify-between items-center w-full py-8 md:py-12 lg:py-16 gap-6 md:gap-8"
     >
       <!-- Text Content -->
       <div class="text-center md:text-left w-full md:w-auto">
