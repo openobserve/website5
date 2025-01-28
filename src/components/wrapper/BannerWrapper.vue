@@ -2,6 +2,7 @@
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomBanner from "../core/CustomBanner.vue";
+
 const props = defineProps({
   items: {
     type: Object,
@@ -9,15 +10,20 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
-  <CustomSection sectionClass="py-6 lg:py-8 xl:py-16">
+  <CustomSection
+    sectionClass="py-6 lg:py-8 xl:py-16"
+    v-if="items.title || items.subtitle"
+  >
     <Heading
-      :title="props.items.title"
-      :description="props.items.subtitle"
+      v-if="items.title || items.subtitle"
+      :title="items.title"
+      :description="items.subtitle"
       align="CENTER"
     />
   </CustomSection>
-  <div v-for="(item, index) in props.items.items" :key="index">
+  <div v-for="(item, index) in items.items" :key="index">
     <CustomBanner
       :title="item.title"
       :subtitle="item.subtitle"

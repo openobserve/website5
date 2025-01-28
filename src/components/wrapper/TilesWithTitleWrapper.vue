@@ -38,7 +38,7 @@ const props = defineProps({
     /> -->
     <CustomSection>
       <Heading :title="title" :description="description" />
-      <div class="grid grid-col mt-10 w-full">
+      <div class="grid grid-col w-full">
         <CustomTilesWithTitle :cards="items" />
       </div>
     </CustomSection>
