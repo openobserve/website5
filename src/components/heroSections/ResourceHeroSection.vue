@@ -18,8 +18,8 @@ const props = defineProps({
   <section
     class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[70vh] bg-cover bg-no-repeat bg-[50%_20vh] overflow-visible"
     style="
-      background-image: url('/resources/Hero Section Eclipse.svg'),
-        url('/resources/Hero Section Eclipse (1).svg');
+      background-image: url('/resources/Hero Section Eclipse (1).svg'),
+        url('/resources/Hero Section Eclipse.svg');
     "
   >
     <div
