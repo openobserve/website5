@@ -26,11 +26,7 @@ defineProps({
           :key="index"
           class="flex items-start gap-4"
         >
-          <img
-            src="/public/resources/Frame 11216.svg"
-            alt="icon"
-            class="w-6 h-6"
-          />
+          <img src="/resources/Frame 11216.svg" alt="icon" class="w-6 h-6" />
           <span class="text-white">{{ feature }}</span>
         </li>
       </ul>
