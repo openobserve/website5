@@ -47,8 +47,8 @@ const props = defineProps({
 
 const swiperModules = [Pagination, Navigation];
 const swiperOptions = {
-  slidesPerView: 1,
-  spaceBetween: 20,
+  slidesPerView: 1.2, // Ensures cards are wider on mobile
+  spaceBetween: 16,
   pagination: {
     clickable: true,
   },
@@ -58,12 +58,12 @@ const swiperOptions = {
   },
   breakpoints: {
     640: {
-      slidesPerView: 1,
+      slidesPerView: 1.5, // Slightly larger cards on small tablets
       spaceBetween: 20,
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 24,
     },
     1024: {
       slidesPerView: 3,
@@ -86,10 +86,10 @@ const swiperOptions = {
       <div class="relative">
         <!-- Left and Right Gradients -->
         <div
-          class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black pointer-events-none z-10"
+          class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black pointer-events-none z-10 hidden md:block"
         ></div>
         <div
-          class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black pointer-events-none z-10"
+          class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black pointer-events-none z-10 hidden md:block"
         ></div>
 
         <!-- Swiper -->
@@ -102,7 +102,7 @@ const swiperOptions = {
             <div
               :class="[
                 cardBgColor,
-                'max-w-sm rounded-xl overflow-hidden transition-transform hover:scale-105',
+                'rounded-xl overflow-hidden transition-transform hover:scale-105',
               ]"
             >
               <div class="h-48 overflow-hidden">
@@ -129,13 +129,15 @@ const swiperOptions = {
           </swiper-slide>
         </swiper>
 
-        <!-- Navigation Arrows -->
-        <div
-          class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
-        ></div>
-        <div
-          class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
-        ></div>
+        <!-- Navigation Arrows (Hidden on Mobile) -->
+        <div class="hidden md:block">
+          <div
+            class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
+          ></div>
+          <div
+            class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
@@ -144,8 +146,6 @@ const swiperOptions = {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
 }
 
 .blog-swiper .swiper-pagination-bullet {
@@ -161,11 +161,10 @@ const swiperOptions = {
   height: auto;
 }
 
-/* Navigation Arrows Styles */
+/* Navigation Arrows Styles (Hidden on Mobile) */
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
   color: #ffffff;
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
