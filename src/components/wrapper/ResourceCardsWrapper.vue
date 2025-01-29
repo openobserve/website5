@@ -36,15 +36,17 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection class="relative text-center bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg p-2 glass-card">
-    <div class="relative py-2">
+  <CustomSection
+    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card -mt-28"
+  >
+    <div>
       <!-- Main Content -->
-      <div class="py-4">
+      <div>
         <Heading :title="title" :description="subtitle" align="CENTER" />
       </div>
       <div
         :class="[
-          `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
+          `py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
         ]"
       >
         <div
@@ -62,14 +64,12 @@ const props = defineProps({
       </div>
     </div>
   </CustomSection>
-  <CustomSeprater />
 </template>
 
 <style scoped>
-
 .glass-card {
   border-radius: 16px;
-  border-top: 1px solid var(--Glass-stroke, #fff);  
+  border-top: 1px solid var(--Glass-stroke, #fff);
   background: linear-gradient(
     180deg,
     rgba(1, 1, 1, 0.48) 29.9%,

@@ -16,17 +16,18 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center px-4 py-48 w-full min-h-screen bg-hero bg-cover bg-center bg-no-repeat"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-screen bg-cover bg-no-repeat"
     style="
       background-image: url('/resources/Hero Section Eclipse.svg'),
         url('/resources/Hero Section Eclipse (1).svg');
+      background-position: center bottom;
     "
   >
     <div
-      class="container mx-auto max-w-4xl flex flex-col justify-center items-center text-center"
+      class="relative z-10 container mx-auto max-w-4xl flex flex-col justify-center items-center text-center"
     >
       <TextWithGradient
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center"
+        class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
         :title="props.title"
         textGradientColor="gradient-color"
       />
@@ -40,24 +41,8 @@ const props = defineProps({
 </template>
 
 <style scoped>
-/* Gradient Text Styling */
+/* Tailwind doesn't support gradient text directly, so we use @apply for the gradient */
 .gradient-color {
-  display: inline-block;
-  background: linear-gradient(
-    90deg,
-    #f6ffe8 18.6%,
-    #fff 57.25%,
-    #eceee0 99.98%
-  );  
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Ensure a smooth scaling of text gradients on smaller screens */
-@media (max-width: 640px) {
-  .gradient-color {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
+  @apply bg-gradient-to-r from-[#f6ffe8] via-white to-[#eceee0] bg-clip-text text-transparent;
 }
 </style>
