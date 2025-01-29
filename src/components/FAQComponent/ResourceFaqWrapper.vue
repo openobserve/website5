@@ -17,7 +17,7 @@ const props = defineProps({
 
 <template>
   <CustomSection
-    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card -mt-32"
+    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
   >
     <Heading :title="props.title" align="CENTER" />
     <FAQSection :faqItems="props.items" />

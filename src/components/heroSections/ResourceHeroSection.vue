@@ -16,14 +16,14 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-screen bg-cover bg-no-repeat bg-[50%_20vh]"
+    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[70vh] bg-cover bg-no-repeat bg-[50%_20vh] overflow-visible"
     style="
       background-image: url('/resources/Hero Section Eclipse.svg'),
         url('/resources/Hero Section Eclipse (1).svg');
     "
   >
     <div
-      class="relative z-10 container mx-auto max-w-4xl flex flex-col justify-center items-center text-center"
+      class="z-10 container mx-auto max-w-4xl flex flex-col justify-center items-center text-center"
     >
       <TextWithGradient
         class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
