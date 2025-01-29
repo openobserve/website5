@@ -1,0 +1,193 @@
+---
+import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
+import Layout from "../../layouts/Layout.astro";
+import BlogsSliderWrapper from "../../components/wrapper/BlogsSliderWrapper.vue";
+import TilesWithTitleColorWrapper from "../../components/wrapper/TileWithTitleColorWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import TailoredSolutions from "../../components/forms/EnterpriceSupportForm.vue";
+
+const blogHeader = {
+  sectionTitle: "Want to know more? Check out these Blogs.",
+  sectionDescription:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
+const blogData = {
+  recentPostsText: "Explore Latest Insights And Updates",
+  blogs: [
+    {
+      title: "Blog 1",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=1",
+    },
+    {
+      title: "Blog 2",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=2",
+    },
+    {
+      title: "Blog 3",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=3",
+    },
+    {
+      title: "Blog 4",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=4",
+    },
+    {
+      title: "Blog 5",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=5",
+    },
+    {
+      title: "Blog 6",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=6",
+    },
+    {
+      title: "Blog 7",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=7",
+    },
+    {
+      title: "Blog 8",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=8",
+    },
+    {
+      title: "Blog 9",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=9",
+    },
+  ],
+};
+const btnTitle = {
+  title: "Explore All Blogs Posts",
+  btnLink: "#",
+};
+const cardHeader = {
+  sectionTitle: "For additional support, explore the following resources",
+};
+const cardData = [
+  {
+    icon: "/public/resources/64px Component.svg",
+    title: "Case Studies",
+  },
+  {
+    icon: "/public/resources/64px Component (1).svg",
+    title: "Tech Talks",
+  },
+  {
+    icon: "/public/resources/64px Component (2).svg",
+    title: "Video Guides",
+  },
+  {
+    icon: "/public/resources/64px Component (3).svg",
+    title: "Webinars",
+  },
+  {
+    icon: "/public/resources/64px Component (4).svg",
+    title: "Community Forums",
+  },
+];
+const bannerData = {
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+const tailoredSolutionsData = {
+  title: "Tailored Solutions for Your Business",
+  description:
+    "Enterprise Support provides personalized assistance, faster response times, and expert guidance to optimize your observability solutions. Whether you need help scaling, troubleshooting, or training your team, we’ve got you covered.",
+  keyFeatures: [
+    "Dedicated account manager for priority support.",
+    "24/7 technical assistance.",
+    "Custom onboarding and training.",
+    "Priority issue resolution.",
+    "Tailored guidance for scaling and integrations.",
+  ],
+  footerdescription:
+    "Contact us to find the perfect support solution for your business.",
+  formFields: [
+    { name: "name", label: "Name", type: "text", placeholder: "Enter here" },
+    {
+      name: "company",
+      label: "Company Name",
+      type: "text",
+      placeholder: "Enter here",
+    },
+    {
+      name: "email",
+      label: "Email Address",
+      type: "text",
+      placeholder: "Enter here",
+    },
+    {
+      name: "phone",
+      label: "Phone Number",
+      type: "text",
+      placeholder: "Enter here",
+    },
+    {
+      name: "support",
+      label: "Support Needed",
+      type: "select",
+      options: ["Technical", "Billing", "Other"],
+    },
+    {
+      name: "message",
+      label: "Message",
+      type: "textarea",
+      placeholder: "Enter here",
+    },
+  ],
+  buttonText: "Get In Touch",
+  buttonVariant: "secondary",
+};
+---
+
+<Layout>
+  <ResourceHeroSection
+    title="Community Support"
+    subtitle="Whether you're troubleshooting an issue, exploring best practices, or looking for collaboration opportunities, we’re here to help!"
+  />
+  <TailoredSolutions
+    title={tailoredSolutionsData.title}
+    description={tailoredSolutionsData.description}
+    keyFeatures={tailoredSolutionsData.keyFeatures}
+    footerdescription={tailoredSolutionsData.footerdescription}
+    formFields={tailoredSolutionsData.formFields}
+    buttonText={tailoredSolutionsData.buttonText}
+    buttonVariant={tailoredSolutionsData.buttonVariant}
+  />
+  <BlogsSliderWrapper
+    title={blogHeader.sectionTitle}
+    description={blogHeader.sectionDescription}
+    items={blogData}
+    btnTitle={btnTitle.title}
+    client:load
+  />
+  <TilesWithTitleColorWrapper
+    title={cardHeader.sectionTitle}
+    subtitle=""
+    items={cardData}
+  />
+
+  <BannerWrapper items={bannerData} client:load />
+</Layout>
