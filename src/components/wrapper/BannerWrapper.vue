@@ -30,7 +30,7 @@ const props = defineProps({
       :buttons="
         item.buttons.map((button, buttonIndex) => ({
           text: button.text, // Dynamically set from API
-          variant: buttonIndex === 0 ? 'white' : 'secondary', // First button is white, others secondary
+          variant: buttonIndex === 0 ? 'pricing' : 'secondary', // First button is white, others secondary
         }))
       "
     />
