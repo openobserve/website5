@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
-import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
+import ResourceFaqWrapper from "../../components/FAQComponent/ResourceFaqWrapper.vue";
 
 const bannerData = {
   title: "Ready to get started ?",
@@ -106,6 +106,6 @@ const faqData = {
     title="FAQs"
     subtitle="Everything you need to know about OpenObserve. Can't find the answer to a question you have? No worries, just click on I've got a question !"
   />
-  <FaqWrapper items={faqData.items} title="" client:load />
+  <ResourceFaqWrapper items={faqData.items} title="" client:load />
   <BannerWrapper items={bannerData} client:load />
 </Layout>

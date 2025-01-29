@@ -16,11 +16,10 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-screen bg-cover bg-no-repeat"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-screen bg-cover bg-no-repeat bg-[50%_20vh]"
     style="
       background-image: url('/resources/Hero Section Eclipse.svg'),
         url('/resources/Hero Section Eclipse (1).svg');
-      background-position: center bottom;
     "
   >
     <div
