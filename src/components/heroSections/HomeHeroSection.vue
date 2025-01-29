@@ -27,7 +27,8 @@ defineProps({
 <template>
   <section
     class="relative flex justify-center items-center lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
-    :style="{ backgroundImage: `url('${background}')` }"
+    :style="{ backgroundImage: `url(${background})` }"
+    
   >
     <!-- Content Section -->
     <div class="relative z-10 text-white max-w-4xl">

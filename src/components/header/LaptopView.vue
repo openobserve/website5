@@ -1,5 +1,6 @@
 <template>
-  <header class="bg-black">
+  <!-- Sticky Header -->
+  <header class="bg-black sticky top-0 z-50">
     <div class="w-full mx-auto px-4 flex justify-between items-center">
       <Logo />
       <nav>
@@ -64,6 +65,7 @@
         <CustomButton variant="primary" size="small"> GET DEMO </CustomButton>
       </div>
     </div>
+    <!-- Dropdown Menus -->
     <div
       class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
       @mouseenter="onPlatformMenuHover"
@@ -74,7 +76,6 @@
           <h3 class="text-xl font-bold pb-2 text-[#FFFFFF]">
             {{ items.platform.title }}
           </h3>
-
           <div class="w-full flex justify-between flex-col md:flex-row gap-2">
             <div
               class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
@@ -83,7 +84,6 @@
                 <SectionHeader :title="item.title" :items="item.items" />
               </div>
             </div>
-
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
               <h4 class="text-[#FFFFFF] text-base font-semibold">
                 {{ items.platform.keyFeature.title }}
@@ -155,13 +155,11 @@
                   </ul>
                 </div>
               </div>
-
               <!-- Sandbox Column -->
               <div>
                 <a :href="items?.solutions?.sandbox?.link">{{
                   items?.solutions?.sandbox?.title
                 }}</a>
-                <!-- class="hover:text-blue-500" -->
               </div>
             </div>
           </div>
@@ -217,6 +215,8 @@
     </div>
   </header>
 </template>
+
+
 <script setup>
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
@@ -294,6 +294,7 @@ onUnmounted(() => {
 .gradient-hover {
   display: inline-block;
 }
+
 .gradient-hover:hover {
   background: linear-gradient(
     to left,
@@ -306,5 +307,10 @@ onUnmounted(() => {
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;
+}
+</style>
+<style>
+body {
+  margin-top: 20vh; /* Adjust this value based on your header height */
 }
 </style>

@@ -35,6 +35,13 @@ import ComponentCollectionMapper from "../components/ComponentCollectionMapper.v
 import BlogWrapper from "../components/wrapper/BlogWrapper.vue";
 import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
+import fetchApi from '../utils/strapi';
+
+const PageData = await fetchApi({
+  endpoint: "pages",
+  query: { path: "/", pLevel: "10" },
+});
+console.log(PageData.data[0].body,"datatatata");
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -382,122 +389,16 @@ const tabsData = [
     image: "/Homepage/UI-14.svg",
   },
 ];
-const pageData = [
-  // {
-  //   __component: "section.announcementbanner",
-  //   description:
-  //     "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
-  // },
-  {
-    __component: "section.herosection",
-    title: "Open Source Observability",
-    subtitle:
-      "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
-    background: "/Coding BG.svg",
-  },
-  // {
-  //   __component: "section.featurecard",
-  //   title: "Full stack observability platform",
-  //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
-  //   items:[
-  //           {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Home'
-  //         },
-  //     ]
-  // },
-  // {
-  //   __component: "section.usecasecard",
-  //   title: "Designed for every team",
-  //   description:"Explore the transformative functionalities of OpenObserve and experience a new level of data observation.",
-  //   items:[
-  //   {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Dev Ops'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Developers'
-  //         },
-  //         {
-  //             icon: 'cardIcon.svg',
-  //             title: 'Site Reliability Engineers'
-  //         },
-  //     ]
-  // },
-  // {
-  //   __component: "section.companyswiper",
-  //   items: [
-  //     { path: "/Logo place holder (2).svg" },
-  //     { path: "/Logo place holder (3).svg" },
-  //     { path: "/Logo place holder (4).svg" },
-  //     { path: "/Logo place holder (5).svg" },
-  //   ]
-  // },
-  // {
-  //   __component: "section.faq",
-  //   title: "OpenObserve Logs FAQ's",
-  //   items: [
-  //     {
-  //       question: "Why choose OpenObserve for Log Management?",
-  //       answer:
-  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  //     },
-  //     {
-  //       question: "Why choose OpenObserve for Log Management?",
-  //       answer:
-  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-  //     },
-  //     {
-  //       question: "Why choose OpenObserve for Log Management?",
-  //       answer:
-  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  //     },
-  //     {
-  //       question: "Why choose OpenObserve for Log Management?",
-  //       answer:
-  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-  //     },
-  //     {
-  //       question: "Why choose OpenObserve for Log Management?",
-  //       answer:
-  //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  //     },
-  //   ],
-  // },
-];
+// const pageData = [
+//   {
+//     __component: "section.herosection",
+//     title: "Open Source Observability",
+//     subtitle:
+//       "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
+//     background: "/Coding BG.svg",
+//   },
+
+// ];
 
 const trustedCompanies = {
   title: "Trusted by leading companies",
@@ -523,7 +424,7 @@ const trustedCompanies = {
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
-  <ComponentCollectionMapper data={pageData} client:load />
+  <ComponentCollectionMapper data={PageData.data[0].body} client:load />
   <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
@@ -569,3 +470,4 @@ const trustedCompanies = {
     ]}
   />
 </Layout>
+
