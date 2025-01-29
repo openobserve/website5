@@ -54,8 +54,8 @@ const swiperOptions = {
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-4xl font-bold text-center text-white mb-12">
+  <div class="w-full max-w-7xl mx-auto px-4 py-16 overflow-visible">
+    <h2 class="text-4xl font-bold text-center text-white pb-32">
       Employee Testimonials
     </h2>
 
@@ -89,12 +89,12 @@ const swiperOptions = {
 
     <!-- Desktop Grid View -->
     <div v-else class="hidden md:block relative">
-      <div class="flex overflow-hidden">
+      <div class="flex">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
             v-for="(testimonial, index) in testimonials"
             :key="testimonial.id"
-            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center transform transition-all duration-300"
+            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center relative pt-16"
             :class="{
               'opacity-100 scale-100': index === currentSlide,
               'opacity-50 scale-95': index !== currentSlide,
@@ -103,7 +103,7 @@ const swiperOptions = {
             <img
               :src="testimonial.image"
               :alt="testimonial.name"
-              class="w-20 h-20 rounded-full mb-6 object-cover"
+              class="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a] "
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">
               "{{ testimonial.quote }}"

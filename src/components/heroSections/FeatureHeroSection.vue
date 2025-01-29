@@ -48,7 +48,7 @@ defineProps({
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ title }}
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl font-medium">{{ subtitle }}</p>
+      <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#E2E3E5]">{{ subtitle }}</p>
     </div>
 
     <!-- Hero Section with Background -->

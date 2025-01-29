@@ -33,7 +33,7 @@ const alignClass = computed(() => {
 </script>
 
 <template>
-  <div class="w-full text-white px-4 sm:px-6 md:px-8">
+  <div class="w-full text-white">
     <h2
       class="text-xl sm:text-2xl md:text-3xl font-semibold"
       :class="alignClass"
