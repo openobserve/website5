@@ -176,18 +176,18 @@ const tailoredSolutionsData = {
     buttonText={tailoredSolutionsData.buttonText}
     buttonVariant={tailoredSolutionsData.buttonVariant}
   />
+  <TilesWithTitleColorWrapper
+    title={cardHeader.sectionTitle}
+    subtitle=""
+    backgroundImage="/resources/Ellipse 140.svg"
+    items={cardData}
+  />
   <BlogsSliderWrapper
     title={blogHeader.sectionTitle}
     description={blogHeader.sectionDescription}
     items={blogData}
     btnTitle={btnTitle.title}
     client:load
-  />
-  <TilesWithTitleColorWrapper
-    title={cardHeader.sectionTitle}
-    subtitle=""
-    backgroundImage="/resources/Ellipse 140.svg"
-    items={cardData}
   />
 
   <BannerWrapper items={bannerData} client:load />

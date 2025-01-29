@@ -24,7 +24,7 @@ const props = defineProps({
   >
     <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
-        class=" text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
+        class="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
         :title="props.title"
         textGradientColor="gradient-color"
       />

@@ -59,7 +59,7 @@ const props = defineProps({
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
-            'max-w-sm rounded-xl overflow-hidden transition-transform hover:scale-105 block',
+            'max-w-sm rounded-xl overflow-hidden transition-transform  block',
           ]"
         >
           <div class="h-48 overflow-hidden">

@@ -3,7 +3,7 @@ import { defineProps, computed } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomTilesWithTitle from "../cards/CustomTilesWithTitle.vue";
-
+import CustomSeprater from "../core/CustomSeprater.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -29,24 +29,26 @@ const backgroundStyle = computed(() =>
   props.backgroundImage
     ? {
         backgroundImage: `url('${props.backgroundImage}')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover", // Ensures the image covers the full div
-        backgroundRepeat: "no-repeat",
       }
     : {}
 );
 </script>
 
 <template>
-  <div
-    class="relative bg-cover bg-no-repeat w-full overflow-visible"
-    :style="backgroundStyle"
-  >
-    <CustomSection>
-      <Heading :title="title" :description="subtitle" />
-      <div class="grid grid-col w-full">
-        <CustomTilesWithTitle :cards="items" />
-      </div>
-    </CustomSection>
+  <div class="relative">
+    <CustomSeprater />
+
+    <div
+      class="bg-contain bg-center bg-no-repeat w-full overflow-visible py-10"
+      :style="backgroundStyle"
+    >
+      <CustomSection>
+        <Heading :title="title" :description="subtitle" />
+        <div class="grid grid-col w-full py-10">
+          <CustomTilesWithTitle :cards="items" />
+        </div>
+      </CustomSection>
+      <CustomSeprater />
+    </div>
   </div>
 </template>
