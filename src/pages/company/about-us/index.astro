@@ -94,7 +94,8 @@ const ourStoryData2 = {
   image: "/ourStory.svg",
   // description:
   //   "At OpenObserve, we are dedicated to building the best observability platform for developers and operators. We believe in the power of open source and thrive on fostering a vibrant community around our products. As a remote-first company with a globally distributed team, we embrace diversity and collaboration to drive innovation and deliver exceptional solutions to our users. Join us on our journey to revolutionize observability and empower organizations to harness the full potential of their data.",
-  description:"Founded in 2022 and headquartered in San Francisco, California, OpenObserve was born out of the need for an efficient, scalable, and cost-effective observability platform. Recognizing the challenges organizations face with existing tools—such as high storage costs, complex scaling, and fragmented data monitoring—we set out to create a solution that addresses these issues head-on."
+  description:
+    "Founded in 2022 and headquartered in San Francisco, California, OpenObserve was born out of the need for an efficient, scalable, and cost-effective observability platform. Recognizing the challenges organizations face with existing tools—such as high storage costs, complex scaling, and fragmented data monitoring—we set out to create a solution that addresses these issues head-on.",
 };
 ---
 
@@ -109,23 +110,22 @@ const ourStoryData2 = {
   </div>
   <CustomSeprater />
   <CustomSection>
-  <CustomStoryWrapper
-    title={ourStoryData.title}
-    image={ourStoryData.image}
-    description={ourStoryData.description}
-    direction={ourStoryData.direction}
-    directionBG={ourStoryData.directionBG}
+    <CustomStoryWrapper
+      title={ourStoryData.title}
+      image={ourStoryData.image}
+      description={ourStoryData.description}
+      direction={ourStoryData.direction}
+      directionBG={ourStoryData.directionBG}
+      client:load
+    />
+  </CustomSection>
+  <HomeWhyO2Wrapper
+    title={headingData.title}
+    description={headingData.subtitle}
+    items={cardData2}
+    noOfGridColumn={2}
     client:load
   />
-</CustomSection>
-  <HomeWhyO2Wrapper
-  title={headingData.title}
-  description={headingData.subtitle}
-  items={cardData2}
-  noOfGridColumn={2}
-  client:load
-/>
- 
 
   <CustomStoryWrapper
     title={ourStoryData2.title}
@@ -142,7 +142,7 @@ const ourStoryData2 = {
     items={cards}
     title="Want to know more? Chek out these Blogs."
     description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."
-    />
+  />
 
   <CustomBanner
     title="Fair and transparent pricing"

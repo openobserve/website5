@@ -33,8 +33,8 @@ const props = defineProps({
     />
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
-    <img
-        src="/Platform/Ellipse 141.svg"
+      <img
+        src="/Platform/Ellipse-141.svg"
         alt="Image"
         class="absolute opcacity-30 object-contain"
       />

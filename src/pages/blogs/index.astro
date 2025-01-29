@@ -1,0 +1,170 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
+import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
+
+const blogData = {
+  recentPostsText: "Explore Latest Insights And Updates",
+  blogs: [
+    {
+      title: "Blog 1",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=1",
+    },
+    {
+      title: "Blog 2",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=2",
+    },
+    {
+      title: "Blog 3",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=3",
+    },
+    {
+      title: "Blog 4",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=4",
+    },
+    {
+      title: "Blog 5",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=5",
+    },
+    {
+      title: "Blog 6",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=6",
+    },
+    {
+      title: "Blog 7",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=7",
+    },
+    {
+      title: "Blog 8",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=8",
+    },
+    {
+      title: "Blog 9",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=9",
+    },
+  ],
+};
+
+const caseStudyData = [
+  {
+    image: "public/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+const bannerData = {
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+const trustedCompanies = {
+  title: "Trusted by leading companies",
+  items: [
+    {
+      icon: "/Homepage/money-bag-1.svg",
+
+      description: "Users who use and love OpenObserve",
+    },
+    {
+      icon: "/Homepage/money-bag-1.svg",
+
+      description: "Users who use and love OpenObserve",
+    },
+    {
+      icon: "/Homepage/money-bag-1.svg",
+
+      description: "Users who use and love OpenObserve",
+    },
+  ],
+};
+const cardHeader = {
+  title: "Additional Learning Resources",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+};
+const cardData = [
+  {
+    icon: "/resources/64px-Component.svg",
+    title: "Case Studies",
+  },
+  {
+    icon: "/resources/64px-Component-(1).svg",
+    title: "Tech Talks",
+  },
+  {
+    icon: "/resources/64px-Component-(2).svg",
+    title: "Video Guides",
+  },
+  {
+    icon: "/resources/64px-Component-(3).svg",
+    title: "Webinars",
+  },
+  {
+    icon: "/resources/64px-Component-(4).svg",
+    title: "Community Forums",
+  },
+];
+---
+
+<Layout>
+  <ResourceHeroSection
+    title="Blogs"
+    subtitle="Explore latest insights and updates"
+  />
+
+  <CaseStudyWrapper title="" description="" items={caseStudyData} client:load />
+  <BlogsWrapper title="" description="" items={blogData} client:load />
+  <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  />
+  <BannerWrapper items={bannerData} client:load />
+</Layout>

@@ -23,7 +23,7 @@ const props = defineProps({
       <CustomTabsWithImage :tabs="props.items.items" client:load />
     </CustomSection>
     <div class="mt-24">
-    <CustomSeprater/>
+      <CustomSeprater />
     </div>
   </div>
 </template>

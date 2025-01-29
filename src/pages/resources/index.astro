@@ -1,0 +1,220 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
+import ResourceCardsWrapper from "../../components/wrapper/ResourceCardsWrapper.vue";
+import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
+import SupportCardWrapper from "../../components/wrapper/SupportCardWrapper.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+const resourceCardHeader = {
+  title: "Documentation",
+  subtitle:
+    "Access detailed guides and references to effectively utilize OpenObserve’s features.",
+};
+const resourceCardData = {
+  items: [
+    {
+      icon: "/resources/User-Guide.svg",
+      title: "User Guide",
+      description:
+        "Step-by-step instructions for setting up and managing OpenObserve",
+    },
+    {
+      icon: "/resources/API-Reference.svg",
+      title: "API Reference",
+      description: "In-depth information on available APIs for integration.",
+    },
+    {
+      icon: "/resources/Function-Reference.svg",
+      title: "Function Reference",
+      description: "Detailed descriptions of functions and their usage.",
+    },
+  ],
+};
+const resourceCardFooter = {
+  btnTitle: "VIEW DOCUMENTATION",
+  btnLink: "#",
+};
+const blogHeader = {
+  sectionTitle: "Blogs",
+  sectionDescription:
+    "Stay updated with articles on observability, OpenObserve updates, and industry news.",
+};
+const blogData = {
+  recentPostsText: "Explore Latest Insights And Updates",
+  blogs: [
+    {
+      title: "Blog 1",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=1",
+      link: "https://www.youtube.com/@openobserve",
+    },
+    {
+      title: "Blog 2",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=2",
+      link: "https://www.youtube.com/@openobserve",
+    },
+    {
+      title: "Blog 3",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      imageUrl: "https://picsum.photos/400/300?random=3",
+      link: "https://www.youtube.com/@openobserve",
+    },
+  ],
+};
+const supportHeader = {
+  title: "Support",
+  subtitle:
+    "Access assistance tailored to your needs, and get in touch if you have any questions!",
+};
+const supportCards = [
+  {
+    icon: "/resources/FAQ’S.svg",
+    title: "FAQ's",
+    description: "Find answers to common questions about OpenObserve.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [{ text: "View FAQ's", type: "default", variant: "secondary" }],
+  },
+  {
+    icon: "/resources/Community-Support.svg",
+    title: "Community Support",
+    description:
+      "Engage with our community for shared knowledge and assistance.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [
+      {
+        icon: "/resources/Slack-(54pxX54px).svg",
+        text: "",
+        type: "default",
+        variant: "ghost",
+      },
+      {
+        icon: "/resources/GitHub-(54pxX54px).svg",
+        text: "",
+        type: "discord",
+        variant: "ghost",
+      },
+    ],
+  },
+  {
+    icon: "/resources/Enterprise-Support.svg",
+    title: "Enterprise Support",
+    description: "Access dedicated support services for enterprise clients.",
+    sections: [
+      {
+        title: "General Inquiries",
+        description: "Basic information and troubleshooting.",
+      },
+      {
+        title: "Technical Support",
+        description: "Detailed answers to technical questions.",
+      },
+    ],
+    buttons: [{ text: "Requests", type: "default", variant: "secondary" }],
+  },
+];
+const caseStudyTitle = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
+const caseStudyData = [
+  {
+    image: "public/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+const bannerData = {
+  title: "Ready to get started ?",
+  subtitle:
+    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+---
+
+<Layout>
+  <ResourceHeroSection
+    title="Resources"
+    subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
+  />
+  <ResourceCardsWrapper
+    title={resourceCardHeader.title}
+    subtitle={resourceCardHeader.subtitle}
+    items={resourceCardData.items}
+    noOfGridColumn={3}
+    layout="row"
+    btnTitle={resourceCardFooter.btnTitle}
+    client:load
+  />
+  {/* Blogs & Support Section */}
+  <BlogsWrapper
+    title={blogHeader.sectionTitle}
+    description={blogHeader.sectionDescription}
+    items={blogData}
+    client:load
+  />
+  <CaseStudyWrapper
+    title={caseStudyTitle.title}
+    description={caseStudyTitle.subtitle}
+    items={caseStudyData}
+    client:load
+  />
+  <SupportCardWrapper
+    title={supportHeader.title}
+    description={supportHeader.subtitle}
+    items={supportCards}
+    client:load
+  />
+  <BannerWrapper items={bannerData} client:load />
+</Layout>
