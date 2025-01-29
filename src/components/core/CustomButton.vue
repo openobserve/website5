@@ -64,7 +64,7 @@ const variants = {
   secondary: "secondary-button",
   tertiary: "tertiary-button",
   ghost: "button-with-icon",
-  pricing: "bg-white text-blue-500 rounded-full",
+  pricing: "button-white",
   heroButton: "hero-button",
 };
 
@@ -246,9 +246,18 @@ const buttonVariant = variants[props.variant];
   border: 2px solid white; /* White border */
   transition: all 0.3s ease;
 }
+.button-white {
+  position: relative;
+  cursor: pointer;
+  border-radius: 100px;
+  background: white; /* Transparent background */
+  border: 2px solid transparent; /* White border */
+  transition: all 0.3s ease;
+}
 
 /* Hover state */
-.secondary-button:hover {
+.secondary-button:hover,
+.button-white:hover {
   border: 2px solid transparent; /* Transparent border to show gradient */
   background-image: linear-gradient(
       272deg,
@@ -271,7 +280,8 @@ const buttonVariant = variants[props.variant];
 }
 
 /* Active state */
-.secondary-button:active {
+.secondary-button:active,
+.button-white:active {
   background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
     linear-gradient(
       180deg,
@@ -289,7 +299,8 @@ const buttonVariant = variants[props.variant];
 } */
 
 /* Disabled state */
-.secondary-button:disabled {
+.secondary-button:disabled,
+.button-white:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   border-color: #cccccc; /* Light gray border for disabled state */
@@ -297,6 +308,18 @@ const buttonVariant = variants[props.variant];
   box-shadow: none;
 }
 
+/* Icon and text */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 1.2em;
+}
+
+.text {
+  display: inline-block;
+}
 /* Icon and text */
 .icon {
   display: inline-flex;
@@ -320,39 +343,18 @@ const buttonVariant = variants[props.variant];
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid white;
+  border: none;
   color: white;
   isolation: isolate;
   background: transparent;
   z-index: 1;
 }
 
-/* .button-with-icon:hover {
-  border: 2px solid transparent; 
-  background-image: linear-gradient(
-      to bottom,
-      rgba(175, 114, 16, 0.2) 0%,
-      rgba(202, 25, 134, 0.2) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(128, 200, 255, 0.9) 20%,
-      rgba(64, 169, 255, 0.85) 40%,
-      rgba(0, 136, 255, 0.8) 60%,
-      rgba(0, 106, 255, 0.75) 80%,
-      rgba(0, 68, 255, 0.7) 100%
-    ); 
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2); 
-} */
-
 .button-with-icon::before {
   content: "";
   position: absolute;
   inset: -2px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 100px;
   z-index: -1;
   opacity: 0.8;
@@ -375,10 +377,11 @@ const buttonVariant = variants[props.variant];
   background: linear-gradient(
     180deg,
     rgba(173, 216, 230, 0.95) 0%,
-    rgba(100, 149, 237, 0.9) 25%,
-    rgba(65, 105, 225, 0.85) 50%,
-    rgba(0, 0, 205, 0.8) 75%,
-    rgba(0, 0, 139, 0.75) 100%
+    /* Light blue at the top */ rgba(100, 149, 237, 0.9) 25%,
+    /* Cornflower blue */ rgba(65, 105, 225, 0.85) 50%,
+    /* Royal blue in the middle */ rgba(0, 0, 205, 0.8) 75%,
+    /* Medium blue towards the bottom */ rgba(0, 0, 139, 0.75) 100%
+      /* Navy blue at the bottom */
   );
 
   border-radius: 100px;
@@ -388,12 +391,14 @@ const buttonVariant = variants[props.variant];
   z-index: -1;
   opacity: 0.9;
 }
-/* .button-with-icon:hover {
+.button-with-icon:hover {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
-} */
+}
 .button-with-icon:hover {
-  box-shadow: 0 0 20px rgba(0, 136, 255, 0.3), 0 5px 20px rgba(0, 106, 255, 0.3),
-    0 5px 10px rgba(0, 68, 255, 0.3);
+  box-shadow:
+    /* Inner glow */ 0 0 20px rgba(0, 136, 255, 0.3),
+    /* Middle layer */ 0 5px 20px rgba(0, 106, 255, 0.3),
+    /* Outer glow */ 0 5px 10px rgba(0, 68, 255, 0.3);
 }
 </style>
