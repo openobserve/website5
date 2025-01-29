@@ -36,22 +36,21 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection>
-    <div class="glass-card relative py-10">
+  <CustomSection class="relative text-center bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg p-6 glass-card">
+    <div class="relative py-4">
       <!-- Main Content -->
-      <div class="py-10">
+      <div class="py-4">
         <Heading :title="title" :description="subtitle" align="CENTER" />
       </div>
       <div
         :class="[
-          `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+          `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
         ]"
       >
         <div
-          class="flex gap-4"
+          class="flex gap-4 md:flex-row flex-col justify-start"
           v-for="(item, index) in items"
           :key="index"
-          :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
         >
           <CustomFeatureCard :card="item" borderColor="bg-white" />
         </div>
@@ -67,17 +66,14 @@ const props = defineProps({
 </template>
 
 <style scoped>
-/* Customize the image sizes and positions if needed */
-img {
-  z-index: -1; /* Ensure the images appear behind the content */
-}
-/* .glass-card {
+
+.glass-card {
   border-radius: 16px;
-  border-top: 1px solid var(--Glass-stroke, #fff);
+  border-top: 1px solid var(--Glass-stroke, #fff);  
   background: linear-gradient(
     180deg,
     rgba(1, 1, 1, 0.48) 29.9%,
     rgba(1, 1, 1, 0.8) 100%
   );
-} */
+}
 </style>

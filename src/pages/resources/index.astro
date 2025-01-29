@@ -133,19 +133,31 @@ const supportCards = [
 ---
 
 <Layout>
-  <ResourceHeroSection
-    title="Resources"
-    subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
-  />
-  <ResourceCardsWrapper
-    title={resourceCardHeader.title}
-    subtitle={resourceCardHeader.subtitle}
-    items={resourceCardData.items}
-    noOfGridColumn={3}
-    layout="row"
-    btnTitle={resourceCardFooter.btnTitle}
-    client:load
-  />
+  <div class="relative w-full flex flex-col items-center">
+    {/* Hero Section */}
+    <div class="relative w-full flex flex-col items-center justify-center text-center">
+      <ResourceHeroSection
+        title="Resources"
+        subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
+      />
+
+      {/* Resource Cards Wrapper Positioned Overlapping */}
+      <div class="absolute lg:top-[50%] top-[40%] w-full max-w-5xl px-4">
+        <ResourceCardsWrapper
+          title={resourceCardHeader.title}
+          subtitle={resourceCardHeader.subtitle}
+          items={resourceCardData.items}
+          noOfGridColumn={3}
+          layout="row"
+          btnTitle={resourceCardFooter.btnTitle}
+          client:load
+        />
+      </div>
+    </div>
+   
+  </div>
+
+  {/* Blogs & Support Section */}
   <BlogsWrapper
     title={blogHeader.sectionTitle}
     description={blogHeader.sectionDescription}
@@ -159,3 +171,4 @@ const supportCards = [
     client:load
   />
 </Layout>
+
