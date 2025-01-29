@@ -36,8 +36,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection class="relative text-center bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg p-6 glass-card">
-    <div class="relative py-4">
+  <CustomSection class="relative text-center bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg p-2 glass-card">
+    <div class="relative py-2">
       <!-- Main Content -->
       <div class="py-4">
         <Heading :title="title" :description="subtitle" align="CENTER" />

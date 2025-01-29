@@ -187,14 +187,14 @@ const bannerData = {
 <Layout>
   <div class="relative w-full flex flex-col items-center">
     {/* Hero Section */}
-    <div class="relative w-full flex flex-col items-center justify-center text-center">
+    <div class="relative w-full flex flex-col items-center justify-center text-center pb-40">
       <ResourceHeroSection
         title="Resources"
         subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
       />
 
-      {/* Resource Cards Wrapper Positioned Overlapping */}
-      <div class="absolute lg:top-[50%] top-[40%] w-full max-w-5xl px-4">
+      {/* Resource Cards Wrapper - Overlapping Effect Maintained */}
+      <div class="absolute top-[60%] md:top-[60%] lg:top-[50%] w-full max-w-5xl px-4">
         <ResourceCardsWrapper
           title={resourceCardHeader.title}
           subtitle={resourceCardHeader.subtitle}
@@ -206,7 +206,9 @@ const bannerData = {
         />
       </div>
     </div>
-   
+
+    {/* Spacer to Prevent Cutting */}
+    <div class="h-[100vh] md:h-[80vh] lg:h-[30vh]"></div>
   </div>
 
   {/* Blogs & Support Section */}
@@ -230,4 +232,5 @@ const bannerData = {
   />
   <BannerWrapper items={bannerData} client:load />
 </Layout>
+
 
