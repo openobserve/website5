@@ -240,7 +240,6 @@ const onHover = (event) => {
 };
 
 const onMouseLeave = () => {
-  console.log("Hovered");
   isPlatformHovered.value = false;
 };
 </script>

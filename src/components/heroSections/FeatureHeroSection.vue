@@ -38,7 +38,7 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4 py-24"
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4"
     :style="{
       backgroundImage: `url(${backgroundImage})`,
     }"
