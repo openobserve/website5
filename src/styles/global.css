@@ -21,6 +21,14 @@
   --gray-light: 49, 53, 57; /* #313539 */
   --gray-dark: 31, 34, 38; /* #1F2226 */
   --button-primary-color: 28, 153, 255;
+  --text-darkgray:60, 60, 60;   /*#3c3c3c*/
+  --text-blueishgray:75, 90, 125; /*#4b5a7d*/
+  --text-darkblue:30, 50, 80; /*#1e3250*/
+  --text-white:254,254,254; /*#FEFEFE*/
+  --text-neutral:212,222,210; /*D4DED2*/
+  --text-orange:225,196,152; /*#E1C498*/
+  --text-emerald:214,240,238;/*#D6F0EE*/
+  --text-cyan:130,240,255; /*#82F0FF*/
 
   /* Gradient backgrounds */
   --gradient-blue: linear-gradient(
@@ -43,6 +51,9 @@
     rgb(var(--gray-light)),
     rgb(var(--gray-dark))
   );
+  --gradient-title-au: linear-gradient(to right, rgb(var(--text-darkgray)), rgb(var(--text-blueishgray)), rgb(var(--text-darkblue)));
+  --gradient-title-cu: linear-gradient(to right, rgb(var(--text-neutral)), rgb(var(--text-orange)), rgb(var(--text-emerald)));
+  --gradient-title-ju: linear-gradient(to right, rgb(var(--text-white)), rgb(var(--text-cyan)), rgb(var(--text-emerald)));
 
 
   /* Button component variable for background and border gradient  */

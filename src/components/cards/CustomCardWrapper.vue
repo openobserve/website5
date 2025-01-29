@@ -34,7 +34,7 @@ console.log(props.featureCards, "Dattataa");
       <!-- Main Content -->
       <CustomSection>
         <Heading :title="title" :description="description" align="LEFT" />
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10 pb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
           <div
             class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-start transition-all duration-300 hover:shadow-2xl cardShadow"
             v-for="(item, index) in featureCards"
@@ -43,15 +43,16 @@ console.log(props.featureCards, "Dattataa");
             <CustomCard :cards="item" />
           </div>
         </div>
-
+       <div class="flex justify-center items-center pt-12">
         <CustomButton
           v-for="(button, index) in buttons"
           :key="index"
           :variant="button.variant"
-          class="w-52 "
+          class=""
         >
           {{ button.label }}
         </CustomButton>
+      </div>
       </CustomSection>
     </div>
     <CustomSeprater />

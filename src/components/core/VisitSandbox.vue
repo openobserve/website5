@@ -1,5 +1,5 @@
 <script setup>
-
+import CustomButton from './CustomButton.vue';
 defineProps({
   title: {
     type: String,
@@ -19,43 +19,38 @@ defineProps({
   },
 });
 </script>
+
 <style scoped>
 .gradient-text {
-background: linear-gradient(to right,#FFFFFF, #F6DDDD, #FDC8C8);
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, #FFFFFF, #f1cbcb,#FFFFFF, #F6DDDD);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
 
 <template>
-    <div class="relative flex items-center justify-center overflow-hidden max-w-screen ">
-      <!-- Background Image -->
-      <div 
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        :style="{
-      backgroundImage: `url(${backgroundImage})`,
-    }"
-      >
-      </div>
-      <div class="relative z-10 text-center px-4 container mx-auto mb-10 mt-10">
-        <h1 class="text-white text-5xl font-bold gradient-text"
-        style="font-size: 3rem;"
-         >
-            {{ title }}
-        </h1>
-        <p class="text-white text-lg mb-4">
-          {{ description  }}
-        </p>
+  <div 
+    class="flex items-center justify-center overflow-hidden max-w-screen bg-cover bg-center bg-no-repeat px-4 py-10 "
+    :style="{ backgroundImage: `url(${backgroundImage})` }"
+  >
+    <div class="text-center text-wrap container mx-auto">
+      <h1 class="text-white text-5xl font-bold gradient-text" style="font-size: 3rem;">
+        {{ title }}
+      </h1>
+      <p class="text-white text-lg mt-5">
+        {{ description }}
+      </p>
+      <div class="flex flex-wrap justify-center mt-7">
         <CustomButton
           v-for="(button, index) in buttons"
           :key="index"
           :variant="button.variant"
-          class="w-full"
+          class="px-3 py-1 cursor-pointer"
         >
           {{ button.label }}
         </CustomButton>
       </div>
     </div>
-  </template>
-  
+  </div>
+</template>

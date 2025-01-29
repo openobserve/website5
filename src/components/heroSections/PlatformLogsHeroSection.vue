@@ -24,6 +24,9 @@ defineProps({
     type: String,
     required: true, // URL of the right-side image
   },
+  bottomImage:{
+    type:String,
+  }
 });
 
 
@@ -37,28 +40,29 @@ defineProps({
       backgroundSize: 'cover',
     }"
   >
-    <div class="flex flex-col  w-1/2">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-        {{ title }}
-      </h1>
-      <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
-        {{ subtitle }}
-      </p>
-      <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12 w-full">
-        <CustomButton
-          v-for="(button, index) in buttons"
-          :key="index"
-          :variant="button.variant"
-        >
-          {{ button.label }}
-        </CustomButton>
+    <!-- Content Container -->
+    <div class="relative z-30"> <!-- Added higher z-index to keep content above bottom image -->
+      <div class="flex flex-col w-1/2">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          {{ title }}
+        </h1>
+        <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
+          {{ subtitle }}
+        </p>
+        <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12 w-full">
+          <CustomButton
+            v-for="(button, index) in buttons"
+            :key="index"
+            :variant="button.variant"
+          >
+            {{ button.label }}
+          </CustomButton>
+        </div>
       </div>
     </div>
 
-   
-
     <div
-      class="relative w-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center"
+      class="relative w-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center z-20"
     >
       <img
         :src="rightImage"
@@ -66,13 +70,14 @@ defineProps({
         class="w-full rounded-md md:w-3/4 lg:w-full lg:translate-x-16 object-contain opacity-60 lg:opacity-100"
       />
     </div>
-    <div class="absolute w-3/4">
-  <img
-    src="/Glass Card bg.svg"
-    alt="Image"
-    class="absolute top-[100px] left-24"  />
-</div>
+
+    <!-- Bottom Image Container -->
+    <div class="absolute bottom-0 left-0 w-full z-10" style="bottom: -10%"> <!-- Changed positioning to bottom -->
+      <img
+        :src="bottomImage"
+        alt="Image"
+        class="absolute bottom-0 left-52 w-2/3 object-contain"
+      />
+    </div>
   </section>
 </template>
-
-<style scoped></style>

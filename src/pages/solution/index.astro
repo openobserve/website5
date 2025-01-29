@@ -2,13 +2,11 @@
 import FeatureHeroSection from "../../components/heroSections/FeatureHeroSection.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "../../components/wrapper/TabsWithImageWrapper.vue";
-import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
 import VisitSandbox from "../../components/core/VisitSandbox.vue";
 import Layout from "../../layouts/Layout.astro";
-import CustomCard from "../../components/cards/CustomCard.vue";
 import CustomCardWrapper from "../../components/cards/CustomCardWrapper.vue";
+import CustomSeprater from "../../components/core/CustomSeprater.vue";
 
 const cardData = [
   {
@@ -137,21 +135,21 @@ const caseStudyData = [
 const cardData1 = [
   {
     icon: "/public/Performance.svg",
-    title: "Developers",
+    title: "DevOps and SRE's",
     description:
       "Equip DevOps teams with comprehensive tools for deployment, monitoring, and incident response. Enhance system reliability and accelerate development cycles through automation and real-time insights.",
   },
   {
     icon: "/public/Performance.svg",
-    title: "Performance",
+    title: "Platform Engineering",
     description:
       "Support platform engineers in building scalable, resilient systems. Provide data-driven insights that drive efficiency, enabling innovation in infrastructure management and seamless scaling capabilities.",
   },
   {
     icon: "/public/Performance.svg",
-    title: "Security",
+    title: "Development Teams",
     description:
-      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensuring high-quality software delivery.",
+      "Provide development teams with observability tools to improve application performance and user experience. Foster collaboration through shared dashboards and rapid iteration capabilities, ensurfing high-quality software delivery..",
   },
 ];
 const bannerData = {
@@ -202,10 +200,10 @@ const visitSandboxData = {
 />
 
   <CustomCardWrapper
-    title="The Open Observe platform"
-    description="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
+    title="Empowering Teams with Tailored Solutions"
+    description="Discover how OpenObserve enhances productivity and collaboration with tailored solutions for various teams."
     featureCards={cardData1}
-    buttons={[{ label: "SEE AL USE CASES", variant: "secondary" }]}
+    buttons={[{ label: "SEE ALL USE CASES", variant: "secondary" }]}
     client:load
   />
 
@@ -215,6 +213,8 @@ const visitSandboxData = {
     items={caseStudyData}
     client:load
   />
+
+  <CustomSeprater />
  
   <BannerWrapper items={bannerData} client:load />
 </Layout>
