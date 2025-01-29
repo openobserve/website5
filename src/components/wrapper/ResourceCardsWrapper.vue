@@ -56,7 +56,7 @@ const props = defineProps({
         </div>
       </div>
       <div class="text-center">
-        <CustomButton variant="secondary" class="mt-10">
+        <CustomButton variant="pricing" class="mt-10">
           {{ btnTitle }}
         </CustomButton>
       </div>

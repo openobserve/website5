@@ -3,6 +3,7 @@ interface Blog {
   title: string;
   description: string;
   imageUrl: string;
+  link: string;
 }
 
 interface BlogSectionData {
@@ -50,12 +51,15 @@ const props = defineProps({
         >
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
+        <a
           v-for="blog in sectionData.blogs"
           :key="blog.title"
+          :href="blog.link"
+          target="_blank"
+          rel="noopener noreferrer"
           :class="[
             cardBgColor,
-            'max-w-sm rounded-xl overflow-hidden transition-transform hover:scale-105',
+            'max-w-sm rounded-xl overflow-hidden transition-transform hover:scale-105 block',
           ]"
         >
           <div class="h-48 overflow-hidden">
@@ -72,20 +76,11 @@ const props = defineProps({
             <p :class="[descriptionTextColor, 'mb-4 text-sm']">
               {{ blog.description }}
             </p>
-            <a
-              href="#"
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-              >LEARN MORE</a
+            <span :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
+              >LEARN MORE</span
             >
           </div>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <button
-          class="px-6 py-2 border border-white text-white rounded-full hover:bg-white hover:text-black transition-colors"
-        >
-          VIEW RECENT POSTS
-        </button>
+        </a>
       </div>
     </div>
   </div>
