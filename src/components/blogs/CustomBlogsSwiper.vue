@@ -75,7 +75,7 @@ const swiperOptions = {
 
 <template>
   <div class="bg-black py-16 relative">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto">
       <div class="text-white mb-8">
         <span class="font-semibold">Recent posts</span>
         <span :class="[descriptionTextColor, 'ml-2']"
