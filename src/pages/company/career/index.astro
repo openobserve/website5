@@ -1,0 +1,205 @@
+---
+import VisitSandbox from "../../../components/core/VisitSandbox.vue";
+import Layout from "../../../layouts/Layout.astro";
+import CustomSeprater from "../../../components/core/CustomSeprater.vue";
+import CompanyJoinOOHeroSection from "../../../components/heroSections/CompanyJoinOOHeroSection.vue";
+import HomeWhyO2Wrapper from "../../../components/wrapper/HomeWhyO2Wrapper.vue";
+import CustomPositionCardWrapper from "../../../components/cards/CustomPositionCardWrapper.vue";
+import CustomTestimonial from "../../../components/core/CustomTestimonial.vue";
+import CustomStory from "../../../components/core/CustomStory.vue";
+
+
+const visitSandboxData = {
+  title: "Apply Today",
+  description:
+    "If you're ready to make a significant impact and grow with a forward-thinking company, we invite you to explore our current openings and apply. Join us in shaping the future of observability.",
+ 
+};
+const headingData = {
+  title: "Why should you join us?",
+};
+
+const cardData2 = [
+  {
+    icon: "/Performance.svg",
+    title: "Performance",
+    description:
+      "Consolidate all observability data types in one place for seamless monitoring and analysis.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Cost efficiency",
+    description:
+      "Save up to 10x on overall costs compared to traditional observability tools.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Feature set",
+    description:
+      "Reduce storage expenses by up to 140x with advanced compression techniques.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Cost efficiency",
+    description:
+      "Save up to 10x on overall costs compared to traditional observability tools.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Feature set",
+    description:
+      "Reduce storage expenses by up to 140x with advanced compression techniques.",
+  },
+  {
+    icon: "/Performance.svg",
+    title: "Feature set",
+    description:
+      "Reduce storage expenses by up to 140x with advanced compression techniques.",
+  },
+];
+const ourStoryData = {
+  title: "Why Enter the Observability Space?",
+  direction: "left",
+  description:
+    "At OpenObserve, we are dedicated to building the best observability platform for developers and operators. We believe in the power of open source and thrive on fostering a vibrant community around our products. As a remote-first company with a globally distributed team, we embrace diversity and collaboration to drive innovation and deliver exceptional solutions to our users.Join us on our journey to revolutionize observability and empower organizations to harness the full potential of their data.",
+};
+const testimonialsData = [
+  {
+    id: 1,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    quote: "OpenObserve is an amazing place with great people!",
+    name: "John Doe",
+    position: "Software Engineer",
+  },
+  {
+    id: 2,
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    quote: "The team here is extremely talented and supportive.",
+    name: "Sarah Smith",
+    position: "Designer",
+  },
+  {
+    id: 3,
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    quote: "The team here is extremely talented and supportive.",
+    name: "John Smith",
+    position: "Manager",
+  },
+];
+const cardData1 = [
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+  {
+    title: "Product Manager",
+    position:"Product Management",
+    location:"Remote",
+    experience:"3-4 years",
+    description:"We are looking for an experienced Product Marketing Manager to lead the go-to-market strategy for OpenObserve's products and features. You will be res...",
+  },
+];
+---
+
+<Layout>
+    <div class="mt-10">
+        <CompanyJoinOOHeroSection
+          client:load
+          title="Join OpenObserve"
+          titleGradientColor="bg-gradient-title-ju"
+          subtitle="At OpenObserve, we're redefining how organizations monitor and optimize their systems by unifying logs, metrics, and traces into a seamless observability platform. Our mission is to empower businesses to make data-driven decisions, enhance performance, and deliver exceptional user experiences. As we continue to grow, we're seeking passionate professionals to join our dynamic team and contribute to the future of observability."
+          topBgImage="/CareerHeroSectionTopBg.svg"
+          bottomBgImage="/CareerHeroBottomBg.svg"
+          buttons={[
+            { label: "VIEW ALL POSITIONS", variant: "secondary" },
+          ]}
+        />
+      </div>
+      <CustomSeprater />
+      <HomeWhyO2Wrapper
+      title={headingData.title}
+      items={cardData2}
+      noOfGridColumn={3}
+      client:load
+    />
+
+    <CustomSeprater />
+
+    <CustomPositionCardWrapper
+    title="Current Open Positions"
+    positionCards={cardData1}
+    buttons={[{ label: "VIEW ALL POSITIONS", variant: "secondary" }]}
+    client:load
+  />
+
+  <CustomTestimonial testimonials={testimonialsData} client:load />
+
+  <CustomSeprater />
+  <CustomStory
+  title={ourStoryData.title}
+  description={ourStoryData.description}
+  direction={ourStoryData.direction}
+  client:load
+/>
+<CustomSeprater />
+
+    <VisitSandbox
+    title={visitSandboxData.title}
+    description={visitSandboxData.description}
+    buttons={[{ label: "VIEW ALL POSITIONS", variant: "secondary" }]}
+    backgroundImage="/sandboxBG.svg"
+    client:load
+  />
+</Layout>

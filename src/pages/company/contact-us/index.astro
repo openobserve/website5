@@ -1,0 +1,88 @@
+---
+import CustomBanner from "../../../components/core/CustomBanner.vue";
+import LeftSideCard from "../../../components/cardComponent/LeftSideCard.vue";
+import RightSideCard from "../../../components/cardComponent/RightSideCard.vue";
+import Layout from "../../../layouts/Layout.astro";
+import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import CustomSeprater from "../../../components/core/CustomSeprater.vue";
+import CommunitySupportCardWrapper from "../../../components/cardComponent/CommunitySupportCardWrapper.vue";
+import ContactUsHeroSection from "../../../components/heroSections/ContactUsHeroSection.vue";
+
+
+const cards = [
+  {
+    image: "/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+const cardDataforsection3 = {
+  title: "Community Support",
+  description:
+    "Connect with our community for support and collaboration",
+  items: [
+    {
+      icon: "/slackIcon.svg",
+      title: "Join our Slack Community",
+    },
+    {
+      icon: "/gitHubIcon.svg",
+      title: "Github Discussions",
+    },
+  ],
+  subtitle:"We look forward to connecting with you and addressing your inquiries."
+};
+---
+
+
+<Layout>
+    <div class="mt-10">
+        <ContactUsHeroSection
+          client:load
+          title="Contact Us"
+          titleGradientColor="bg-gradient-title-cu"
+          subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
+          topBgImage="/ContactUsTopbg.svg"
+          bottomBgImage="/ContactUsBottombg.svg"
+          />
+        </div>
+      <CustomSeprater />
+     
+      <CommunitySupportCardWrapper cardData={cardDataforsection3} />
+ 
+      <CustomSeprater />
+
+      <CaseStudyWrapper
+        items={cards}
+        title="Want to know more? Chek out these Blogs."
+        description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."
+        />
+    
+      <CustomBanner
+       title="Fair and transparent pricing"
+    subtitle="Only pay for what you use."
+        buttons={[
+          { text: "View Pricing Plans", variant: "white" },
+          { text: "Get Started for Free", variant: "secondary" },
+        ]}
+      />
+</Layout>
