@@ -16,13 +16,11 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[70vh] bg-cover bg-no-repeat bg-[50%_20vh] overflow-visible"
-    style="
-      background-image: url('/resources/Hero-Section-Eclipse (1).svg'),
-        url('/resources/Hero-Section-Eclipse.svg');
-    "
+    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[60vh] 
+    before:content-[''] before:absolute before:w-full before:min-h-[200vh] before:top-0 before:bg-no-repeat before:bg-[50%_0vh]
+    before:bg-[url('/resources/Hero-Section-Eclipse.svg'),_url('/resources/Hero-Section-Eclipse_(1).svg')]"
   >
-    <div class="z-10 container mx-auto max-w-4xl">
+    <div class="z-10 container mx-auto max-w-4xl pb-20">
       <TextWithGradient
         class="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
         :title="props.title"
