@@ -31,17 +31,17 @@ const props = defineProps({
     <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
       <!-- Background Images -->
       <img
-        src="/Platform/FeatureCard-Ellipse 136.svg"
+        src="/Platform/FeatureCard-Ellipse-136.svg"
         alt="Image"
         class="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
       />
       <img
-        src="/Platform/FeatureCard-Ellipse 140.svg"
+        src="/Platform/FeatureCard-Ellipse-140.svg"
         alt="Image"
         class="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
       />
       <img
-        src="/Platform/Feature Card Ellipse 40.svg"
+        src="/Platform/Feature-Card-Ellipse-40.svg"
         alt="Image"
         class="absolute top-0 right-0 object-contain"
       />
