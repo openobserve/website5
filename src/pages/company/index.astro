@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import CompanyHeroSection from "../../components/heroSections/CommonHeroSection.vue";
+import CompanyAboutUsHeroSection from "../../components/heroSections/CompanyAboutUsHeroSection.vue";
 import Heading from "../../components/core/Heading.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
@@ -166,10 +166,11 @@ const footerData = {
 ---
 
 <Layout>
-  <!-- <CompanyHeroSection
+  <CompanyAboutUsHeroSection
     title="About Us"
     subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
-  /> -->
+    titleGradientColor="bg-gradient-blue"
+  />
 
   <Heading
     title="Our Story"

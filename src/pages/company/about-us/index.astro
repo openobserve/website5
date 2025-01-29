@@ -1,7 +1,7 @@
 ---
 import CustomBanner from "../../../components/core/CustomBanner.vue";
 import CustomSection from "../../../components/core/CustomSection.vue";
-import CompanyHeroSection from "../../../components/heroSections/CommonHeroSection.vue";
+import CompanyAboutUsHeroSection from "../../../components/heroSections/CompanyAboutUsHeroSection.vue";
 import LeftSideCard from "../../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../../components/cardComponent/RightSideCard.vue";
 import Heading from "../../../components/core/Heading.vue";
@@ -101,10 +101,11 @@ const ourStoryData2 = {
 
 <Layout>
   <div class="mt-10">
-    <CompanyHeroSection
+    <CompanyAboutUsHeroSection
       client:load
       title="About Us"
       subtitle="OpenObserve is an innovative open-source observability platform that unifies the monitoring of logs, metrics, and traces into a single, cohesive system. Our mission is to empower organizations to optimize their systems, streamline operations, and make data-driven decisions by providing a comprehensive and user-friendly observability solution."
+      titleGradientColor="bg-gradient-title-au"
     />
   </div>
   <CustomSeprater />
@@ -135,12 +136,8 @@ const ourStoryData2 = {
     client:load
   />
 
-  <!-- <BlogWrapper
-  items={cards}
-  title="Discover Open Observe in action"
-  description="From agile startups to global enterprises, open observe empowers businesses with advanced observability solutions. Explore real-world case studies to see how companies are driving, efficiency and innovation."
-  client:load
-/> -->
+  <CustomSeprater />
+
   <CaseStudyWrapper
     items={cards}
     title="Want to know more? Chek out these Blogs."

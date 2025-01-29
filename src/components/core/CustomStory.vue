@@ -8,7 +8,6 @@ const props = defineProps({
   },
   image: {
     type: String,
-    required: true,
   },
   description: {
     type: String,
@@ -44,6 +43,7 @@ const props = defineProps({
         ]"
       >
         <img 
+           v-if="image"
           :src="image" 
           :alt="image" 
           class="w-20 h-20 rounded-md shadow-md" 

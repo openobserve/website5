@@ -14,6 +14,10 @@ export default {
         "gradient-light-blue": "var(--gradient-light-blue)",
         "gradient-gray": "var(--gradient-gray)",
         "gradient-text": "var(--gradient-text)",
+        "gradient-title-au": "var(--gradient-title-au)",
+        "gradient-title-cu": "var(--gradient-title-cu)",
+        "gradient-title-ju": "var(--gradient-title-ju)",
+
       },
       colors: {
         theme: {

@@ -41,3 +41,12 @@ const computedClass = computed(() => {
   background-clip: text;
 }
 </style>
+
+
+
+<!-- <TextGradient
+  title="Open Source Observability"
+  textSize="[48px]" 
+  textGradientColor="bg-gradient-blue"
+  align="center"
+/> -->

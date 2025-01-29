@@ -3,6 +3,7 @@ import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
+import CustomButton from "../core/CustomButton.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 const props = defineProps({
   items: {
@@ -16,6 +17,10 @@ const props = defineProps({
   description: {
     type: String,
     required: true,
+  },
+  buttonText: {
+    type: String,
+    default: "",
   },
 });
 </script>
@@ -45,7 +50,13 @@ const props = defineProps({
         </div>
       </div>
     </div>
-
+    <div class="flex justify-center">
+      <CustomButton
+        variant="secondary"
+        size="medium"
+        buttonText="SEE ALL BLOGS"
+          />
+    </div>
     <!-- Mobile View -->
     <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
