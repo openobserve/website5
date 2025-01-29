@@ -17,6 +17,11 @@ const bannerData = {
     },
   ],
 };
+const blogHeader = {
+  sectionTitle: "Want to know more? Check out these Blogs.",
+  sectionDescription:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
 const blogData = {
   recentPostsText: "Explore Latest Insights And Updates",
   blogs: [
@@ -111,8 +116,8 @@ const cardData = [
   />
   <TilesWithTitleColorWrapper title="" subtitle="" items={cardData} />
   <BlogsSliderWrapper
-    title=""
-    description=""
+    title={blogHeader.sectionTitle}
+    description={blogHeader.sectionDescription}
     items={blogData}
     btnTitle={btnTitle.title}
     client:load

@@ -25,7 +25,7 @@ const props = defineProps({
 <template>
   <CustomSection>
     <div class="py-10">
-      <Heading :title="title" :description="description" align="CENTER" />
+      <Heading :title="title" :description="description" align="LEFT" />
     </div>
     <CustomBlogsSwiper
       :sectionData="items"

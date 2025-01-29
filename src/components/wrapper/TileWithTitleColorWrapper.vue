@@ -21,21 +21,6 @@ const props = defineProps({
 
 <template>
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
-    <img
-      src="/cardBg1.svg"
-      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
-      alt="Background SVG"
-    />
-    <img
-      src="/cardBg2.svg"
-      alt="Image"
-      class="absolute bottom-[-6ovh] -z-10 object-contain"
-    />
-    <!-- <img
-      src="/cardBg2.svg"
-      class="absolute bottom-[-60vh] -z-10"
-      alt="Background SVG"
-    /> -->
     <CustomSection>
       <Heading :title="title" :description="description" />
       <div class="grid grid-col w-full">

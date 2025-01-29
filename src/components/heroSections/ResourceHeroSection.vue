@@ -22,11 +22,9 @@ const props = defineProps({
         url('/resources/Hero Section Eclipse.svg');
     "
   >
-    <div
-      class="z-10 container mx-auto max-w-4xl flex flex-col justify-center items-center text-center"
-    >
+    <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
-        class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
+        class=" text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
         :title="props.title"
         textGradientColor="gradient-color"
       />
@@ -40,8 +38,15 @@ const props = defineProps({
 </template>
 
 <style scoped>
-/* Tailwind doesn't support gradient text directly, so we use @apply for the gradient */
+/* Gradient Text Styling */
 .gradient-color {
-  @apply bg-gradient-to-r from-[#f6ffe8] via-white to-[#eceee0] bg-clip-text text-transparent;
+  background: linear-gradient(
+    90deg,
+    #f6ffe8 18.6%,
+    #fff 57.25%,
+    #eceee0 99.98%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
