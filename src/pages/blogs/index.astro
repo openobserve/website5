@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 
@@ -159,7 +159,12 @@ const cardData = [
     subtitle="Explore latest insights and updates"
   />
 
-  <CaseStudyWrapper title="" description="" items={caseStudyData} client:load />
+  <CaseStudyGlassCardWrapper
+    title=""
+    description=""
+    items={caseStudyData}
+    client:load
+  />
   <BlogsWrapper title="" description="" items={blogData} client:load />
   <TilesWithTitleWrapper
     title={cardHeader.title}
