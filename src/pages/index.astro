@@ -37,11 +37,11 @@ import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
 import fetchApi from "../utils/strapi";
 
-const PageData = await fetchApi({
-  endpoint: "api/homepage",
-  query: { pLevel: "10" , status:"draft"},
-});
-console.log(PageData.data.body,"datatatata");
+// const PageData = await fetchApi({
+//   endpoint: "pages",
+//   query: { path: "/", pLevel: "10" },
+// });
+// console.log(PageData.data[0].body,"datatatata");
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -392,6 +392,10 @@ const pageData = [
       "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
     background: "/Coding BG.svg",
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2863056 (feat(blog): blog listing page changes and blog details page added)
 ];
 
 const trustedCompanies = {
