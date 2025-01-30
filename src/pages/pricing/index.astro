@@ -1,59 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PricingTiers from "../../components/core/PricingTeir.vue";
 import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
 import TestimonialSliderWrapper from "../../components/wrapper/TestimonialSliderWrapper.vue";
 import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
-const pricingTiers = [
-  {
-    name: "Free Tier",
-    title: "Start Monitoring Today with Zero Costs",
-    description:
-      "Perfect for small teams or personal projects to explore OpenObserve's core capabilities.",
-    features: [
-      { text: "50 GB Logs", included: true },
-      { text: "50 GB Traces", included: true },
-      { text: "50 GB Pipeline Processing", included: true },
-      { text: "Max 10 Users", included: true },
-      { text: "15-Day Retention", included: true },
-    ],
-    buttonText: "SIGN USING FREE CLOUD",
-    buttonAction: () => console.log("Free tier selected"),
-  },
-  {
-    name: "Standard",
-    title: "Powerful Observability Tools for all Teams",
-    description:
-      "Scale effortlessly with premium features that ensure your team stays ahead of issues.",
-    features: [
-      { text: "Unlimited Users", included: true },
-      { text: "15-Day Retention", included: true },
-      { text: "24/7 Email Support", included: true },
-      { text: "Custom Dashboards", included: true },
-      { text: "API Access", included: true },
-    ],
-    buttonText: "START 15-DAY FREE TRIAL",
-    buttonAction: () => console.log("Standard tier selected"),
-  },
-  {
-    name: "Enterprise",
-    title: "Enterprise-Grade Features for Complex Environments",
-    description:
-      "Tailored solutions designed for organizations with advanced needs and higher demands.",
-    features: [
-      { text: "Extended Data Retention", included: true },
-      { text: "Priority Support", included: true },
-      { text: "Dedicated Account Manager", included: true },
-      { text: "Custom Deployment", included: true },
-      { text: "Custom Integrations", included: true },
-      { text: "Training & Onboarding", included: true },
-      { text: "SLA Guarantees", included: true },
-      { text: "Advanced Security Features", included: true },
-    ],
-    buttonText: "CONTACT FOR PRICING",
-    buttonAction: () => console.log("Enterprise tier selected"),
-  },
-];
+import TierSwitcher from "../../components/cloursTeir/TierSwitcher.vue";
+
 const featureCardTitle = {
   title: "Full Stack Observability. Built for Efficiency.",
 };
@@ -143,10 +94,99 @@ const testimonialsHeader = {
   sectionDescription:
     "What our users say about OpenObserve's observability platform.",
 };
+const cloudTiers = [
+  {
+    name: "Free Tier",
+    title: "Start Monitoring Today with Zero Costs",
+    description:
+      "Perfect for small teams or personal projects to explore OpenObserve's core capabilities.",
+    features: [
+      { text: "50 GB Logs", included: true },
+      { text: "50 GB Traces", included: true },
+      { text: "50 GB Pipeline Processing", included: true },
+      { text: "Max 10 Users", included: true },
+      { text: "15-Day Retention", included: true },
+    ],
+    buttonText: "SIGN USING FREE CLOUD",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Standard",
+    title: "Powerful Observability Tools for all Teams",
+    description:
+      "Scale effortlessly with premium features that ensure your team stays ahead of issues.",
+    features: [
+      { text: "Unlimited Users", included: true },
+      { text: "15-Day Retention", included: true },
+      { text: "24/7 Email Support", included: true },
+      { text: "Custom Dashboards", included: true },
+      { text: "API Access", included: true },
+    ],
+    buttonText: "START 15-DAY FREE TRIAL",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands.",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Enterprise tier selected"),
+  },
+];
+const selfHostedTiers = [
+  {
+    name: "Open-Source",
+    title: "Control and Flexibility in Your Hands",
+    description:
+      "Deploy and manage OpenObserve yourself, with unlimited scalability and the freedom of open source.",
+    features: [
+      { text: "Basic Observability", included: true },
+      { text: "Community Support", included: true },
+      { text: "Self-Managed", included: true },
+      { text: "Unlimited Scalability", included: true },
+      { text: "Open-Source Flexibility", included: true },
+    ],
+    buttonText: "DOWNLOAD FOR FREE",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Environments Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands. Includes all Standard features plus:",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+];
 ---
 
 <Layout>
- 
+  <TierSwitcher
+    cloud-tiers={cloudTiers}
+    self-hosted-tiers={selfHostedTiers}
+    client:load
+  />
   <FeatureCardWrapper
     title={featureCardTitle.title}
     items={featureCardData}
@@ -160,6 +200,5 @@ const testimonialsHeader = {
     description={testimonialsHeader.sectionDescription}
     client:load
   /> -->
-
   <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
 </Layout>
