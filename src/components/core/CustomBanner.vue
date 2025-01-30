@@ -20,7 +20,7 @@ defineProps({
 
 <template>
   <div
-    class="relative mx-auto flex items-center justify-center w-full min-h-[80vh] sm:min-h-[80vh] md:min-h-[50vh] bg-cover bg-center"
+    class="relative mx-auto flex items-center justify-center w-full min-h-[80vh] sm:min-h-[80vh] md:min-h-[40vh] bg-cover bg-center"
     style="background-image: url('/Texture.svg'), url('/BG.svg')"
   >
     <CustomSection>
