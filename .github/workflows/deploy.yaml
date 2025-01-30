@@ -46,7 +46,6 @@ jobs:
         run: |
           aws s3 sync ./dist s3://openobserve-prod-website/ --exclude=".git/*"  --exclude="assets/*"
 
-      - name: Invalidate CloudFront Cache
-        run: |
-          # aws cloudfront create-invalidation --distribution-id E2B7ZRE5H9284Z --paths "/*"
-          aws cloudfront create-invalidation --distribution-id E2GZJM0TJIDFRM --paths "/*"
+#      - name: Invalidate CloudFront Cache
+#        run: |
+#          aws cloudfront create-invalidation --distribution-id E2B7ZRE5H9284Z --paths "/*"
