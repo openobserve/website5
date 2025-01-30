@@ -41,7 +41,6 @@ export default async function fetchApi<T>({
   if (authToken) {
     headers["Authorization"] = `Bearer ${authToken}`;
   }
-
   try {
     const res = await fetch(url.toString(), {
       method: "GET",
@@ -53,6 +52,7 @@ export default async function fetchApi<T>({
     }
 
     let data = await res.json();
+
 
     if (wrappedByKey) {
       data = data[wrappedByKey];

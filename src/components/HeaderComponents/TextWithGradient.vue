@@ -13,7 +13,7 @@ const props = defineProps({
   },
   textSize: {
     type: String,
-    required: true,
+    required: false,
   },
   align: {
     type: String,
