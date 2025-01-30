@@ -21,8 +21,14 @@ defineProps({
 <template>
   <div
     class="relative mx-auto flex items-center justify-center w-full min-h-[80vh] sm:min-h-[80vh] md:min-h-[40vh] bg-cover bg-center"
-    style="background-image: url('/Texture.svg'), url('/BG.svg')"
+    style="background-image: url('/BG.svg')"
   >
+    <!-- Apply the blur effect to the background image -->
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/Texture.svg'); filter: blur(4px)"
+    ></div>
+
     <CustomSection>
       <div
         class="flex flex-col md:flex-row justify-between items-center w-full py-8 md:py-12 lg:py-16 gap-6 md:gap-8"
