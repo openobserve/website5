@@ -48,15 +48,14 @@ const sectionStyles = computed(() => ({
       <div
         class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
       >
-      <div
-        class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
-      >
         <!-- Content Container -->
         <div class="relative z-30 w-full lg:w-[40%] mb-8 sm:mb-12 lg:mb-0">
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             {{ heading?.title }}
+            {{ heading?.title }}
           </h1>
           <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
+            {{ heading?.subtitle }}
             {{ heading?.subtitle }}
           </p>
           <div class="flex flex-col sm:flex-row justify-start gap-4 w-full">
@@ -65,19 +64,22 @@ const sectionStyles = computed(() => ({
               class="w-full sm:w-auto"
               :buttonLink="primaryButton.link"
             >
-              {{ primaryButton.text }}
+              {{ primaryButton.title }}
             </CustomButton>
             <CustomButton
               variant="secondary"
               class="w-full sm:w-auto"
               :buttonLink="secondaryButton.link"
             >
-              {{ secondaryButton.text }}
+              {{ secondaryButton.title }}
             </CustomButton>
           </div>
         </div>
 
         <!-- Right Image Container -->
+        <div
+          class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0"
+        >
         <div
           class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0"
         >
@@ -91,6 +93,9 @@ const sectionStyles = computed(() => ({
     </div>
 
     <!-- Bottom Image Container -->
+    <div
+      class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
+    >
     <div
       class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
     >
@@ -112,6 +117,19 @@ const sectionStyles = computed(() => ({
       </div>
       </div>
 
+      <div>
+      <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
+      <div
+        class="flex gap-4"
+        v-for="(item, index) in items"
+        :key="index"
+        :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
+      >
+        <CustomFeatureCard :card="item" />
+      </div>
+      </div>
+
     </div>
   </section>
 </template>
+
