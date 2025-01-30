@@ -57,7 +57,7 @@ const props = defineProps({
             ]"
           >
             <!-- Left Side - Image -->
-            <div class="w-1/2  h-48 md:h-auto relative">
+            <div class="w-full  h-48 md:h-auto relative">
               <img
                 :src="blog.imageUrl"
                 :alt="blog.title"

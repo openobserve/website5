@@ -25,7 +25,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.featureCards, "Dattataa");
 </script>
 
 <template>
