@@ -8,23 +8,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  titleGradientColor: {
+  description: {
     type: String,
     required: true,
   },
-  subtitle: {
-    type: String,
+  primaryButton: {
+    type: Object,
     required: true,
-  },
-  buttons: {
-    type: Array,
-    default: () => [],
-  },
-  topBgImage: {
-    type: String,
-  },
-  bottomBgImage: {
-    type: String,
   },
 });
 
@@ -49,27 +39,19 @@ const formatSubtitle = (text) => {
     <div
       class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
     >
-      <div class="text-5xl">
-        <TextWithGradient
-          :title="props.title"
-          :textGradientColor="props.titleGradientColor"
-        />
+      <div>
+       <h1 class="text-5xl text-white font-bold text-center"> {{ title }} </h1>
       </div>
       <div>
         <Heading
-          :description="props.subtitle"
+          :description="description"
           align="CENTER"
-          v-html="formatSubtitle(subtitle)"
+          v-html="formatSubtitle(description)"
         />
       </div>
-      <div class="">
-        <CustomButton
-          :variant="button.variant"
-          v-for="(button, index) in buttons"
-          :key="index"
-          class="w-full px-2 py-1"
-        >
-          {{ button.label }}
+      <div>
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
+          {{ primaryButton.title }}
         </CustomButton>
       </div>
     </div>

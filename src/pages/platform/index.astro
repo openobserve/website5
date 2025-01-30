@@ -7,6 +7,13 @@ import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
 import GetDemoWrapper from "../../components/wrapper/GetDemoWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+const PageData = await fetchApi({
+  endpoint: "api/platform",
+  query: { pLevel: "10" , status: "draft"},
+});
 const cardData = [
   {
     icon: "/Performance.svg",
@@ -375,10 +382,13 @@ const bannerData = {
     },
   ],
 };
+
+console.log(PageData,"dataaaaa");
 ---
 
 <Layout>
-  <FeatureHeroSection
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <FeatureHeroSection
     client:load
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
@@ -406,5 +416,5 @@ const bannerData = {
     items={caseStudyData}
     client:load
   />
-  <BannerWrapper items={bannerData} client:load />
+  <BannerWrapper items={bannerData} client:load /> -->
 </Layout>

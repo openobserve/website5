@@ -18,6 +18,7 @@ const props = defineProps({
   noOfGridColumn: {
     type: Number,
     required: true,
+    default:4
   },
   // New prop to select layout (flex or column)
   layout: {
