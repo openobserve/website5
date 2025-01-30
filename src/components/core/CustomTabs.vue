@@ -40,7 +40,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
           <!-- Render Tabs -->
           <div
             v-for="(tab, index) in items"
-            :key="tab.tabTitle"
+            :key="tab.title"
             @click="setActiveTab(index)"
             class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
             :class="{
@@ -48,7 +48,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
               'text-gray-400 hover:text-gray-300': activeTabIndex !== index,
             }"
           >
-            {{ tab.tabTitle }}
+            {{ tab.title }}
             <!-- Bottom Border Indicator -->
             <span
               v-if="activeTabIndex === index"
@@ -63,17 +63,12 @@ contentRefs.value = new Array(props.items.length).fill(null);
     <div class="">
       <CustomSection>
         <!-- Render all content from all tabs -->
-        <div
-          v-for="(tab, tabIndex) in items"
-          :key="tab.tabTitle"
-          :ref="(el) => (contentRefs[tabIndex] = el)"
-        >
+        <div v-for="(tab, tabIndex) in items" :key="tab.title" :ref="el => contentRefs[tabIndex] = el">
           <CustomInterChange
-            v-for="(feature, index) in tab.content.Items"
             :key="index"
-            :items="feature.Items"
-            :title="feature.Title"
-            :image="feature.Image"
+            :items="tab.items"
+            :title="tab.title"
+            :image="tab.image"
             :direction="index % 2 === 0 ? 'left' : 'right'"
           />
         </div>

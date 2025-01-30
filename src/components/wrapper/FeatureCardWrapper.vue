@@ -3,11 +3,13 @@ import CustomSection from "../core/CustomSection.vue";
 import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import Heading from "../core/Heading.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+  heading: {
+    type: Object,
+    default: () => ({}),
+    required: true
   },
   items: {
     type: Array,
@@ -30,26 +32,26 @@ const props = defineProps({
   <div class="">
     <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
       <!-- Background Images -->
-      <img
+      <CustomImage
         src="/Platform/FeatureCard-Ellipse-136.svg"
         alt="Image"
-        class="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
+        cssClass="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
       />
-      <img
+      <CustomImage
         src="/Platform/FeatureCard-Ellipse-140.svg"
         alt="Image"
-        class="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
+        cssClass="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
       />
-      <img
+      <CustomImage
         src="/Platform/Feature-Card-Ellipse-40.svg"
         alt="Image"
-        class="absolute top-0 right-0 object-contain"
+        cssClass="absolute top-0 right-0 object-contain"
       />
 
       <!-- Main Content -->
       <CustomSection>
         <div class="py-10">
-          <Heading :title="title" align="CENTER" />
+          <Heading :title="heading.title" align="CENTER" />
         </div>
         <div
           :class="[

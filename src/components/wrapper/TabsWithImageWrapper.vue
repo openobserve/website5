@@ -5,8 +5,12 @@ import CustomTabsWithImage from "../core/CustomTabsWithImage.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
   items: {
-    type: Object,
+    type: Array,
     required: true,
+  },
+  heading:{
+    type:Object,
+    required:true,
   },
 });
 </script>
@@ -15,12 +19,12 @@ const props = defineProps({
     <CustomSection>
       <div class="py-10">
         <Heading
-          :title="props.items.title"
-          :description="props.items.subtitle"
+          :title="heading.title"
+          :description="heading.subtitle"
           align="CENTER"
         />
       </div>
-      <CustomTabsWithImage :tabs="props.items.items" client:load />
+      <CustomTabsWithImage :tabs="items" client:load />
     </CustomSection>
     <div class="mt-24">
       <CustomSeprater />

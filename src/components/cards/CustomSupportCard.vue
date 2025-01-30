@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CustomButton from "../core/CustomButton.vue";
+import CustomImage from "../core/CustomImage.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 interface SupportSection {
   title: string;
@@ -49,7 +50,7 @@ const props = defineProps({
       <div
         class="w-12 h-12 mb-6 flex items-center justify-center bg-[#2A2B2E] rounded-full"
       >
-        <img :src="card.icon" :alt="card.title" class="w-6 h-6" />
+        <CustomImage :src="card.icon" :alt="card.title" cssClass="w-6 h-6" />
       </div>
 
       <!-- Main Title and Description -->
@@ -85,7 +86,7 @@ const props = defineProps({
           class="flex items-center justify-center gap-2"
         >
           <!-- Render icon if provided -->
-          <img class="px-4" v-if="button.icon" :src="button.icon" alt="button icon " />
+          <CustomImage cssClass="px-4" v-if="button.icon" :src="button.icon" alt="button icon " />
           <!-- Render text if no icon is provided -->
           <span v-else>
             {{ button.text }}

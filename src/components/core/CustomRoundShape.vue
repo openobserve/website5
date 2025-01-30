@@ -8,10 +8,10 @@
     }"
   >
     <div class="absolute inset-[2px] rounded-full bg-gradient-gray flex items-center justify-center">
-      <img
+      <CustomImage
         :src="imgSrc"
         alt="Image"
-        class="object-cover p-2"
+        cssClass="object-cover p-2"
         :style="{
           width: `${Number(iconSize)}px`,
           height: `${Number(iconSize)}px`
@@ -23,6 +23,7 @@
 
 <script setup>
 import { computed } from "vue";
+import CustomImage from "./CustomImage.vue";
 
 const props = defineProps({
   imgSrc: {
