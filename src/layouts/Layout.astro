@@ -89,16 +89,16 @@ const footerData = {
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>OpenObserve</title>
   </head>
-  <body>
-    <Header client:only />
-    <main class="navbarheight">
-      <div>
+  <body class="relative">
+    <main>
+      <Header class="sticky top-0 z-50" client:only />
+      <div class="navbarheight">
         <slot />
       </div>
+      <Footer footerData={footerData} client:load />
     </main>
-    <Footer footerData={footerData} client:load />
   </body>
 </html>
 
@@ -112,7 +112,7 @@ const footerData = {
     font-family: "Inter", sans-serif;
   }
 
-  /* .navbarheight {
-    height: calc(100vh - 100px);
-  } */
+  .navbarheight {
+    padding-top: 1vh;
+  }
 </style>
