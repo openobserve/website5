@@ -28,7 +28,7 @@ defineProps({
     default: () => ({}),
   },
   backgroundImage: {
-    type: String,
+    type: Object,
     required: true, // URL of the background image
   },
   image: {
@@ -42,7 +42,7 @@ defineProps({
   <section
     class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4"
     :style="{
-      backgroundImage: `url(${backgroundImage})`,
+      backgroundImage: `url(${backgroundImage?.url})`,
     }"
   >
     <!-- Title and Subtitle Section -->
@@ -58,10 +58,10 @@ defineProps({
       <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-3 w-full">
         <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.title }}
+          {{ primaryButton.text }}
         </CustomButton>
         <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">
-          {{ secondaryButton.title }}
+          {{ secondaryButton.text }}
         </CustomButton>
       </div>
 
@@ -104,7 +104,7 @@ defineProps({
       <!-- Footer Image -->
       <div class="w-full mt-12">
         <CustomImage
-          :src="image"
+          :src="image?.url"
           alt="Footer visual"
           cssClass="w-full object-contain rounded-lg"
         />

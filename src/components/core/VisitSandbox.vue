@@ -1,20 +1,16 @@
 <script setup>
 import CustomButton from './CustomButton.vue';
 defineProps({
-  title: {
+  ctaTitle: {
     type: String,
     required: true,
   },
-  description: {
+  ctaDescription: {
     type: String,
     required: true,
   },
-  backgroundImage: {
-    type: String,
-    required: true, // URL of the background image
-  },
-  buttons: {
-    type: Array, // Array of button objects [{ label: "Button Title", variant: "primary" }]
+  ctaButton: {
+    type: Object,
     required: true,
   },
 });
@@ -31,24 +27,18 @@ defineProps({
 
 <template>
   <div 
-    class="flex items-center justify-center overflow-hidden max-w-screen bg-cover bg-center bg-no-repeat px-4 py-10 "
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
+    class="flex items-center justify-center overflow-hidden max-w-screen bg-[url('/sandboxBG.svg')] bg-cover bg-center bg-no-repeat px-4 py-10"
   >
     <div class="text-center text-wrap container mx-auto">
       <h1 class="text-white text-5xl font-bold gradient-text" style="font-size: 3rem;">
-        {{ title }}
+        {{ ctaTitle }}
       </h1>
       <p class="text-white text-lg mt-5">
-        {{ description }}
+        {{ ctaDescription }}
       </p>
       <div class="flex flex-wrap justify-center mt-7">
-        <CustomButton
-          v-for="(button, index) in buttons"
-          :key="index"
-          :variant="button.variant"
-          class="px-3 py-1 cursor-pointer"
-        >
-          {{ button.label }}
+        <CustomButton variant="primary" class="w-full sm:w-auto cursor-pointer" :buttonLink="ctaButton.link">
+          {{ ctaButton.title }}
         </CustomButton>
       </div>
     </div>

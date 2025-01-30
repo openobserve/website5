@@ -8,23 +8,21 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  heading:{
-    type:Object,
-    required:true,
+  heading: {
+    type: Object,
+    required: true,
   },
 });
+
+console.log("Items:", props?.items);
 </script>
 <template>
   <div>
     <CustomSection>
       <div class="py-10">
-        <Heading
-          :title="heading.title"
-          :description="heading.subtitle"
-          align="CENTER"
-        />
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
-      <CustomTabsWithImage :tabs="items" client:load />
+      <CustomTabsWithImage :items="items" client:load />
     </CustomSection>
     <div class="mt-24">
       <CustomSeprater />

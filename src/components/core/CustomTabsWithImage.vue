@@ -36,6 +36,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);
 });
+
+console.log(props?.items,"Items===============================");
 </script>
 
 <template>
@@ -66,7 +68,7 @@ onUnmounted(() => {
             </div>
             <div class="w-full flex justify-center">
               <CustomImage
-                :src="tab.image"
+                :src="tab.image?.url"
                 :alt="tab.title"
                 cssClass="rounded-lg shadow-lg"
               />
@@ -81,7 +83,7 @@ onUnmounted(() => {
       <!-- Left Tabs Column -->
       <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
         <div class="space-y-4">
-          <template v-for="tab in items" :key="tab.id">
+          <template v-for="(tab,index) in items" :key="index">
             <button
               class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
               :class="{

@@ -7,7 +7,13 @@ import VisitSandbox from "../../components/core/VisitSandbox.vue";
 import Layout from "../../layouts/Layout.astro";
 import CustomCardWrapper from "../../components/cards/CustomCardWrapper.vue";
 import CustomSeprater from "../../components/core/CustomSeprater.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
+const PageData = await fetchApi({
+  endpoint: "api/solution",
+  query: { pLevel: "10" , status: "draft"},
+});
 const cardData = [
   {
     icon: "/Performance.svg",
@@ -176,7 +182,8 @@ const visitSandboxData = {
 ---
 
 <Layout>
-  <FeatureHeroSection
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <FeatureHeroSection
     client:load
     title="OpenObserve Solutions"
     subtitle="Discover tailored solutions that empower your organization with comprehensive monitoring and observability across various platforms and teams."
@@ -216,5 +223,5 @@ const visitSandboxData = {
 
   <CustomSeprater />
  
-  <BannerWrapper items={bannerData} client:load />
+  <BannerWrapper items={bannerData} client:load /> -->
 </Layout>

@@ -5,306 +5,312 @@ import TabsGlassCardWrapper from "../../components/wrapper/TabsGlassCardWrapper.
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
 export async function getStaticPaths() {
   return [{ params: { id: "logs" } }];
 }
 const { id } = Astro.params;
 
-const dynamicPageData = {
-  logs: {
-    interchangeData: {
-      title: "Why use OpenObserve for Log Management ?",
-      subtitle:
-        "Discover how OpenObserve's log management capabilities can transform your data handling with real-time analytics, robust search, and efficient storage solutions.",
-      items: [
-        {
-          tabTitle: "Security & Access Control",
-          content: {
-            Items: [
-              {
-                Title: "Install and integrate",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-              {
-                Title: "Install and integrate",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          tabTitle: "Scalability And Reliability",
-          content: {
-            Items: [
-              {
-                Title: "Install and integrate22",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-              {
-                Title: "Install and integrate",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          tabTitle: "Operational Flexibility",
-          content: {
-            Items: [
-              {
-                Title: "Install and integrate33",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-              {
-                Title: "Install and integrate",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          tabTitle: "User Experience",
-          content: {
-            Items: [
-              {
-                Title: "Install and integrate55",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-              {
-                Title: "Install and integrate",
-                Image: "/Image-view-details.svg",
-                Items: [
-                  {
-                    title: "Quick deployment",
-                    description:
-                      "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
-                  },
-                  {
-                    title: "Flexible hosting options",
-                    description:
-                      "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
-                  },
-                  {
-                    title: "Seamless integrations",
-                    description:
-                      "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
-                  },
-                ],
-              },
-            ],
-          },
-        },
-      ],
-    },
-    caseStudyData: {
-      title: "Want to know more? Check out these Blogs.",
-      subtitle:
-        "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
-      items: [
-        {
-          image: "/blogColor-1.png",
-          title: "Case Study 1",
-          description:
-            "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
-          btnTitle: "LEARN MORE",
-          link: "#",
-        },
-        {
-          image: "/blogColor-2.png",
-          title: "Scaling Observability for Growth",
-          description:
-            "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
-          btnTitle: "LEARN MORE",
-          link: "#",
-        },
-        {
-          image: "/blogColor-3.png",
-          title: "Enhancing Security Monitoring",
-          description:
-            "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
-          btnTitle: "LEARN MORE",
-          link: "#",
-        },
-      ],
-    },
-    bannerData: {
-      title: "Ready to get started ?",
-      subtitle:
-        "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
-      items: [
-        {
-          title: "Fair and transparent pricing",
-          subtitle: "Only pay for what you use.",
-          buttons: [
-            { text: "View Pricing Plans" },
-            { text: "Get Started for Free" },
-          ],
-        },
-      ],
-    },
-    faqData: {
-      title: "OpenObserve Logs FAQ's",
-      items: [
-        {
-          question: "Why choose OpenObserve for Log Management?",
-          answer:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-        {
-          question: "Why choose OpenObserve for Log Management?",
-          answer:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-        },
-        {
-          question: "Why choose OpenObserve for Log Management?",
-          answer:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-        {
-          question: "Why choose OpenObserve for Log Management?",
-          answer:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-        },
-        {
-          question: "Why choose OpenObserve for Log Management?",
-          answer:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-      ],
-    },
-  },
-  // Add other IDs as needed...
-};
+const PageData = await fetchApi({
+  endpoint: "api/platforms",
+  query: { pLevel: "10" , status: "draft" , slug: id},
+});
+// const dynamicPageData = {
+//   logs: {
+//     interchangeData: {
+//       title: "Enterprise-Grade Features",
+//       subtitle:
+//         "OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities...",
+//       items: [
+//         {
+//           tabTitle: "Security & Access Control",
+//           content: {
+//             Items: [
+//               {
+//                 Title: "Install and integrate",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//               {
+//                 Title: "Install and integrate",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//             ],
+//           },
+//         },
+//         {
+//           tabTitle: "Scalability And Reliability",
+//           content: {
+//             Items: [
+//               {
+//                 Title: "Install and integrate22",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//               {
+//                 Title: "Install and integrate",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//             ],
+//           },
+//         },
+//         {
+//           tabTitle: "Operational Flexibility",
+//           content: {
+//             Items: [
+//               {
+//                 Title: "Install and integrate33",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//               {
+//                 Title: "Install and integrate",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//             ],
+//           },
+//         },
+//         {
+//           tabTitle: "User Experience",
+//           content: {
+//             Items: [
+//               {
+//                 Title: "Install and integrate55",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//               {
+//                 Title: "Install and integrate",
+//                 Image: "/Image view details.svg",
+//                 Items: [
+//                   {
+//                     title: "Quick deployment",
+//                     description:
+//                       "Get started in minutes with Docker, Kubernetes, or a single binary installation.",
+//                   },
+//                   {
+//                     title: "Flexible hosting options",
+//                     description:
+//                       "Choose between cloud hosting for convenience or self-hosting for complete control over your infrastructure.",
+//                   },
+//                   {
+//                     title: "Seamless integrations",
+//                     description:
+//                       "Ingest data from popular tools like Fluentd, Fluentbit, Vector, Logstash, Prometheus, and OpenTelemetry to fit into your existing workflows effortlessly.",
+//                   },
+//                 ],
+//               },
+//             ],
+//           },
+//         },
+//       ],
+//     },
+//     caseStudyData: {
+//       title: "Want to know more? Check out these Blogs.",
+//       subtitle:
+//         "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+//       items: [
+//         {
+//           image: "/blogColor-1.png",
+//           title: "Case Study 1",
+//           description:
+//             "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+//           btnTitle: "LEARN MORE",
+//           link: "#",
+//         },
+//         {
+//           image: "/blogColor-2.png",
+//           title: "Scaling Observability for Growth",
+//           description:
+//             "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+//           btnTitle: "LEARN MORE",
+//           link: "#",
+//         },
+//         {
+//           image: "/blogColor-3.png",
+//           title: "Enhancing Security Monitoring",
+//           description:
+//             "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+//           btnTitle: "LEARN MORE",
+//           link: "#",
+//         },
+//       ],
+//     },
+//     bannerData: {
+//       title: "Ready to get started ?",
+//       subtitle:
+//         "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
+//       items: [
+//         {
+//           title: "Fair and transparent pricing",
+//           subtitle: "Only pay for what you use.",
+//           buttons: [
+//             { text: "View Pricing Plans" },
+//             { text: "Get Started for Free" },
+//           ],
+//         },
+//       ],
+//     },
+//     faqData: {
+//       title: "OpenObserve Logs FAQ's",
+//       items: [
+//         {
+//           question: "Why choose OpenObserve for Log Management?",
+//           answer:
+//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//         },
+//         {
+//           question: "Why choose OpenObserve for Log Management?",
+//           answer:
+//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+//         },
+//         {
+//           question: "Why choose OpenObserve for Log Management?",
+//           answer:
+//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//         },
+//         {
+//           question: "Why choose OpenObserve for Log Management?",
+//           answer:
+//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+//         },
+//         {
+//           question: "Why choose OpenObserve for Log Management?",
+//           answer:
+//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//         },
+//       ],
+//     },
+//   },
+//   // Add other IDs as needed...
+// };
 
 // Fetch the data for the current ID
-const pageData = dynamicPageData[id];
-
-const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
+// const pageData = dynamicPageData[id];
 ---
 
 <Layout>
-  <PlatformLogsHeroSection
-    title="The Open Observe Logs"
+
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <PlatformLogsHeroSection
+    title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     buttons={[
       { label: "Get Started", variant: "heroButton" },
@@ -316,10 +322,5 @@ const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
   <TabsGlassCardWrapper items={interchangeData} client:load />
   <BannerWrapper items={bannerData} client:load />
   <FaqWrapper items={faqData.items} title={faqData.title} client:load />
-  <CaseStudyWrapper
-    items={caseStudyData.items}
-    title={caseStudyData.title}
-    description={caseStudyData.description}
-    client:load
-  />
+  <CaseStudyWrapper items={caseStudyData.items} title={caseStudyData.title} description={caseStudyData.description} client:load /> -->
 </Layout>

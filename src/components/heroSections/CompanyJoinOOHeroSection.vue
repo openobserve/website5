@@ -8,10 +8,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  titleGradientColor: {
-    type: String,
-    required: true,
-  },
   subtitle: {
     type: String,
     required: true,
@@ -19,12 +15,6 @@ const props = defineProps({
   buttons: {
     type: Array,
     default: () => [],
-  },
-  topBgImage: {
-    type: String,
-  },
-  bottomBgImage: {
-    type: String,
   },
 });
 
@@ -41,7 +31,7 @@ const formatSubtitle = (text) => {
   <div
     class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
     :style="{
-      backgroundImage: `url(${topBgImage}), url(${bottomBgImage})`,
+      backgroundImage: 'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
       backgroundSize: 'contain, contain',
       backgroundPosition: 'top center, bottom -200px center',
     }"
