@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
+  <div class="relative bg-cover bg-no-repeat w-full overflow-visible py-10">
     <img
       src="/cardBg1.svg"
       class="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"

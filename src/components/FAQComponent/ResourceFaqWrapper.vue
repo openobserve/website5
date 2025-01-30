@@ -16,12 +16,14 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection
-    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
-  >
-    <Heading :title="props.title" align="CENTER" />
-    <FAQSection :faqItems="props.items" />
-  </CustomSection>
+  <div class="py-20">
+    <CustomSection
+      class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
+    >
+      <Heading :title="props.title" align="CENTER" />
+      <FAQSection :faqItems="props.items" />
+    </CustomSection>
+  </div>
 </template>
 <style scoped>
 .glass-card {
