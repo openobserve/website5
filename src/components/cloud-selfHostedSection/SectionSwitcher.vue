@@ -1,21 +1,21 @@
 <script>
 import CustomSection from "../core/CustomSection.vue";
-import CloudTier from "./CloudTier.vue";
-import SelfHostedTier from "./SelfHostedTier.vue";
+import cloudSection from "./cloudSection.vue";
+import selfHostedSection from "./selfHostedSection.vue";
 
 export default {
   components: {
-    CloudTier,
-    SelfHostedTier,
+    cloudSection,
+    selfHostedSection,
     CustomSection,
   },
   props: {
-    cloudTiers: {
-      type: Array,
+    cloudSectionData: {
+      type: Object,
       required: true,
     },
-    selfHostedTiers: {
-      type: Array,
+    selfHostedSectionData: {
+      type: Object,
       required: true,
     },
   },
@@ -37,7 +37,7 @@ export default {
           :class="
             selectedTab === 'cloud'
               ? 'text-white'
-              : 'border-transparent be-effect'
+              : 'border-transparent cld-be-effect'
           "
           @click="selectedTab = 'cloud'"
         >
@@ -48,7 +48,7 @@ export default {
           :class="
             selectedTab === 'selfHosted'
               ? 'text-white'
-              : 'border-transparent be-effect'
+              : 'border-transparent slf-be-effect'
           "
           @click="selectedTab = 'selfHosted'"
         >
@@ -59,12 +59,16 @@ export default {
       <!-- Tab Content -->
       <div class="mt-6 justify-center">
         <transition name="fade" mode="out-in">
-          <CloudTier
+          <cloudSection
             v-if="selectedTab === 'cloud'"
-            :tiers="cloudTiers"
+            :cloudSection="{ cloudSectionData }"
             key="cloud"
           />
-          <SelfHostedTier v-else :tiers="selfHostedTiers" key="selfHosted" />
+          <selfHostedSection
+            v-else
+            :selfHostedSection="{ selfHostedSectionData }"
+            key="selfHosted"
+          />
         </transition>
       </div>
     </div>
@@ -94,6 +98,32 @@ export default {
       rgba(255, 255, 255, 0) 100%
     );
 }
+.cld-be-effect {
+  border-radius: 4px;
+  background: linear-gradient(
+      88deg,
+      rgba(0, 0, 0, 0) 51.76%,
+      rgba(1, 1, 1, 0.8) 92%
+    ),
+    linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0) -3.08%,
+      rgba(223, 127, 106, 0.6) 100%
+    );
+}
+.slf-be-effect {
+  border-radius: 4px;
+  background: linear-gradient(
+      88deg,
+      rgba(0, 0, 0, 0) 51.76%,
+      rgba(1, 1, 1, 0.8) 92%
+    ),
+    linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0) -3.08%,
+      rgba(223, 127, 106, 0.6) 100%
+    );
+}
 .slf-btn {
   border-radius: 4px;
   background: linear-gradient(
@@ -119,20 +149,6 @@ export default {
       #ffb16d 98.5%
     );
 }
-.be-effect {
-  border-radius: 4px;
-  background: linear-gradient(
-      88deg,
-      rgba(0, 0, 0, 0) 51.76%,
-      rgba(1, 1, 1, 0.8) 92%
-    ),
-    linear-gradient(
-      92deg,
-      rgba(255, 255, 255, 0) -3.08%,
-      rgba(223, 127, 106, 0.6) 100%
-    );
-}
-
 /* Smooth fade transition for tab switching */
 .fade-enter-active,
 .fade-leave-active {
