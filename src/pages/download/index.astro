@@ -1,0 +1,205 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CustomComparisonTable from "../../components/core/CustomComparisonTable.vue";
+import CustomCloudForm from "../../components/core/CustomCloudForm.vue";
+import PricingTiers from "../../components/core/PricingTeir.vue";
+import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
+import CaseStudyCloudWrapper from "../../components/wrapper/CaseStudyCloudWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+
+const comparisonData = {
+  title: "Why Choose OpenObserve?",
+  features: [
+    {
+      name: "Setup Time",
+      cloud: "Minutes—fully managed",
+      selfHosted: "Flexible—depends on your infrastructure",
+    },
+    {
+      name: "Maintenance",
+      cloud: "None—handled by OpenObserve",
+      selfHosted: "Fully managed by your team",
+    },
+    {
+      name: "Free Tier",
+      cloud: "50 GB/day",
+      selfHosted: "200 GB/day",
+    },
+    {
+      name: "Best For",
+      cloud: "Startups, growing teams",
+      selfHosted: "Enterprises, privacy-focused",
+    },
+  ],
+};
+const formData = {
+  cloudSection: {
+    title: "Create a free account",
+    buttonText: "CREATE AN ACCOUNT",
+    termsText: "I confirm I have read and agree to OpenObserve's",
+    termsLink: "Terms and Conditions.",
+    loginText: "Login with",
+  },
+  selfHostedSection: {
+    title: "Free forever access",
+    features: [
+      "10K metrics",
+      "50GB logs",
+      "50GB traces",
+      "50GB profiles",
+      "500k/h k6 testing",
+      "50k frontend sessions",
+      "3 active users",
+      "14 day retention",
+    ],
+    trialTitle: "15-day unlimited usage trial",
+    trialDescription:
+      "Unlimited metrics, logs, and users, long-term retention, and premium team collaboration features.",
+  },
+};
+const pricingTiers = [
+  {
+    name: "Free Tier",
+    title: "Start Monitoring Today with Zero Costs",
+    description:
+      "Perfect for small teams or personal projects to explore OpenObserve's core capabilities.",
+    features: [
+      { text: "50 GB Logs", included: true },
+      { text: "50 GB Traces", included: true },
+      { text: "50 GB Pipeline Processing", included: true },
+      { text: "Max 10 Users", included: true },
+      { text: "15-Day Retention", included: true },
+    ],
+    buttonText: "SIGN USING FREE CLOUD",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Standard",
+    title: "Powerful Observability Tools for all Teams",
+    description:
+      "Scale effortlessly with premium features that ensure your team stays ahead of issues.",
+    features: [
+      { text: "Unlimited Users", included: true },
+      { text: "15-Day Retention", included: true },
+      { text: "24/7 Email Support", included: true },
+      { text: "Custom Dashboards", included: true },
+      { text: "API Access", included: true },
+    ],
+    buttonText: "START 15-DAY FREE TRIAL",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands.",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Enterprise tier selected"),
+  },
+];
+const caseStudyData = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+  items: [
+    {
+      image: "/blogColor-1.png",
+      title: "Case Study 1",
+      description:
+        "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+      btnTitle: "LEARN MORE",
+      link: "#",
+    },
+    {
+      image: "/blogColor-2.png",
+      title: "Scaling Observability for Growth",
+      description:
+        "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+      btnTitle: "LEARN MORE",
+      link: "#",
+    },
+    {
+      image: "/blogColor-3.png",
+      title: "Enhancing Security Monitoring",
+      description:
+        "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+      btnTitle: "LEARN MORE",
+      link: "#",
+    },
+  ],
+};
+const bannerData = {
+  title: "Ready to get started ?",
+  subtitle:
+    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
+  items: [
+    {
+      title: "Fair and transparent pricing",
+      subtitle: "Only pay for what you use.",
+      buttons: [
+        { text: "View Pricing Plans" },
+        { text: "Get Started for Free" },
+      ],
+    },
+  ],
+};
+const FaqData = {
+  title: "OpenObserve Logs FAQ's",
+  items: [
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ],
+};
+---
+
+<Layout>
+  <CustomComparisonTable
+    title={comparisonData.title}
+    features={comparisonData.features}
+    cloudTitle="Cloud"
+    selfHostedTitle="Self-Hosted"
+  />
+  <CustomCloudForm cloudSection={formData} selfHostedSection={formData} />
+  <PricingTiers tiers={pricingTiers} />
+  <CaseStudyCloudWrapper
+    items={caseStudyData.items}
+    title={caseStudyData.title}
+    description={caseStudyData.subtitle}
+    client:load
+  />
+  <BannerWrapper items={bannerData} client:load />
+  <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
+</Layout>
