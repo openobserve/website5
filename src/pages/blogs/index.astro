@@ -5,6 +5,7 @@ import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
+import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 
 const blogData = {
   recentPostsText: "Explore Latest Insights And Updates",
@@ -159,13 +160,8 @@ const cardData = [
     subtitle="Explore latest insights and updates"
   />
 
-  <CaseStudyGlassCardWrapper
-    title=""
-    description=""
-    items={caseStudyData}
-    client:load
-  />
-  <BlogsWrapper title="" description="" items={blogData} client:load />
+  <CaseStudyWrapper title="" description="" items={caseStudyData} client:load />
+  <BlogsListingWrapper title="" description="" items={blogData} client:load />
   <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
