@@ -4,9 +4,29 @@ import Heading from "../core/Heading.vue";
 import CustomBanner from "../core/CustomBanner.vue";
 
 const props = defineProps({
-  items: {
+  // items: {
+  //   type: Object,
+  //   required: true,
+  // },
+  bannerTitle: {
+    type: String,
+    required: true,
+  },
+  bannerDescription: {
+    type: String,
+    required: true,
+  },
+  heading:{
+    type:Object,
+    required:false,
+  },
+  primaryButton: {
     type: Object,
     required: true,
+  },
+  secondaryButton: {
+    type: Object,
+    default: () => ({}),
   },
 });
 </script>
@@ -14,25 +34,20 @@ const props = defineProps({
 <template>
   <CustomSection
     sectionClass="py-6 lg:py-8 xl:py-16"
-    v-if="items.title || items.subtitle"
+    v-if="heading.title || heading.subtitle"
   >
     <Heading
-      v-if="items.title || items.subtitle"
-      :title="items.title"
-      :description="items.subtitle"
+      v-if="heading.title || heading.subtitle"
+      :title="heading.title"
+      :description="heading.subtitle"
       align="CENTER"
     />
   </CustomSection>
-  <div v-for="(item, index) in items.items" :key="index">
+ 
     <CustomBanner
-      :title="item.title"
-      :subtitle="item.subtitle"
-      :buttons="
-        item.buttons.map((button, buttonIndex) => ({
-          text: button.text, // Dynamically set from API
-          variant: buttonIndex === 0 ? 'pricing' : 'secondary', // First button is white, others secondary
-        }))
-      "
+      :bannerTitle="bannerTitle"
+      :bannerDescription="bannerDescription"
+      :primaryButton="primaryButton"
+      :secondaryButton="secondaryButton"
     />
-  </div>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
   cards: {
@@ -37,7 +38,7 @@ const props = defineProps({
           'flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl p-8',
         ]"
       >
-        <img :src="item.icon" alt="Icon" class="w-16 h-16 object-cover" />
+        <CustomImage :src="item.icon" alt="Icon" cssClass="w-16 h-16 object-cover" />
         <h3 class="text-[#BEC0C2] text-base font-semibold" :title="item.title">
           {{ item.title }}
         </h3>

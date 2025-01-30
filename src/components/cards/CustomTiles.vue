@@ -1,29 +1,46 @@
 <script setup>
-import Cards from "./Cards.vue";
+import CustomImage from '../core/CustomImage.vue';
 
 const props = defineProps({
-  cards: {
-    type: Array,
+  card: {
+    type: Object,
+    required: true,
+  },
+  index: {
+    type: Number,
     required: true,
   },
 });
-</script>
-<template>
-  <div class="">
-    <!-- Responsive Grid Container -->
-    <div
-      class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center"
-    >
-      <!-- Loop through card data -->
 
-      <Cards
-        v-for="(card, index) in cards"
-        :key="index"
-        :index="index"
-        :image="card.icon"
-        :title="card.title"
-        :description="card.description"
-      />
+const bg = {
+  0: "/Homepage/Tiles-F1-eclipse.svg",
+  1: "/Homepage/Home-F2-Eclipse.svg",
+  2: "/Homepage/Home-F3-Eclipse.svg",
+};
+</script>
+
+<template>
+  <div
+    class="w-full border border-[#313539] h-auto p-6 flex flex-col items-center rounded-lg gap-4 bg-no-repeat"
+    :style="{ backgroundImage: `url(${bg[index] || ''})` }"
+  >
+    <div class="rounded-full flex justify-center items-center mb-4">
+      <CustomImage :src="card.icon" alt="Card Image" cssClass="w-full h-auto" />
     </div>
+    <h3 class="title-color text-3xl font-semibold text-[#BEC0C2] text-center">
+      {{ card.title }}
+    </h3>
+    <p class="text-sm text-[#DCDCDF] text-center">
+      {{ card.description }}
+    </p>
   </div>
 </template>
+
+<style scoped>
+.title-color {
+  background: linear-gradient(270deg, #75cdd6 0%, #008cff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>

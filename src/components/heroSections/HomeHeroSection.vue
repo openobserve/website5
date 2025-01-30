@@ -9,17 +9,21 @@ defineProps({
     type: String,
     required: true,
   },
-  subtitle: {
+  description: {
     type: String,
     required: true,
   },
-  buttons: {
-    type: Array,
-    default: () => [],
+  primaryButton: {
+    type: Object,
+    required: true,
   },
-  background: {
+  secondaryButton: {
+    type: Object,
+    default: () => ({}),
+  },
+  backgroundVideo: {
     type: String,
-    required: true, // URL of the GIF or image
+    required: false // URL rue,of the GIF or image
   },
 });
 </script>
@@ -53,18 +57,16 @@ defineProps({
 
       <!-- Subtitle -->
       <p class="sm:text-xl mb-6">
-        {{ subtitle }}
+        {{ description }}
       </p>
 
       <!-- Buttons -->
       <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-        <CustomButton
-          :variant="button.variant"
-          v-for="(button, index) in buttons"
-          :key="index"
-          class="w-full sm:w-auto"
-        >
-          {{ button.label }}
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
+          {{ primaryButton.title }}
+        </CustomButton>
+        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">
+          {{ secondaryButton.title }}
         </CustomButton>
       </div>
     </div>
@@ -74,12 +76,10 @@ defineProps({
 <style scoped>
 .gradient-color {
   display: inline-block;
-  background: linear-gradient(
-    to right,
-    rgba(246, 221, 221, 0.8),
-    rgba(255, 255, 255, 0.8),
-    rgba(227, 220, 255, 0.8)
-  );
+  background: linear-gradient(to right,
+      rgba(246, 221, 221, 0.8),
+      rgba(255, 255, 255, 0.8),
+      rgba(227, 220, 255, 0.8));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -422,8 +422,8 @@ const trustedCompanies = {
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
-  <ComponentCollectionMapper data={pageData} client:load />
-  <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
+  <ComponentCollectionMapper data={PageData.data[0].body} client:load />
+  <!-- <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
     title={trustedCompanies.title}
@@ -466,5 +466,5 @@ const trustedCompanies = {
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 </Layout>
