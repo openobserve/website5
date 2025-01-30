@@ -32,7 +32,7 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <div class="md:w-1/2 p-6 rounded-lg shadow-md">
+  <div class="md:w-1/2 p-6">
     <form @submit.prevent="onSubmit" class="space-y-6">
       <div
         v-for="(field, index) in formFields"
