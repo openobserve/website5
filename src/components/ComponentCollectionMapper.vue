@@ -5,6 +5,7 @@
       :key="index"
       :is="componentsMap[it.__component]"
       v-bind="it"
+      v-bind="it"
     />
   </div>
 </template>
