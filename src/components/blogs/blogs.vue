@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CustomImage from '../core/CustomImage.vue';
+
 defineProps<{
   title: string;
   description: string;
@@ -11,10 +13,10 @@ defineProps<{
     class="max-w-sm rounded-xl overflow-hidden bg-[#2A2A2A] transition-transform hover:scale-105"
   >
     <div class="h-48 overflow-hidden">
-      <img
+      <CustomImage
         :src="imageUrl"
         alt="Blog image"
-        class="w-full h-full object-cover"
+        cssClass="w-full h-full object-cover"
       />
     </div>
     <div class="p-6">

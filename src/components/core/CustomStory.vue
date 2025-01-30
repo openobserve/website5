@@ -1,4 +1,5 @@
 <script setup>
+import CustomImage from './CustomImage.vue';
 import CustomSection from './CustomSection.vue';
 
 const props = defineProps({
@@ -42,11 +43,11 @@ const props = defineProps({
           direction === 'left' ? 'flex-col-reverse' : 'flex-col',
         ]"
       >
-        <img 
+        <CustomImage 
            v-if="image"
           :src="image" 
           :alt="image" 
-          class="w-20 h-20 rounded-md shadow-md" 
+          cssClass="w-20 h-20 rounded-md shadow-md" 
         />
         <h2 
           class="text-white font-inter font-bold text-xl md:text-2xl lg:text-4xl"

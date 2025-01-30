@@ -1,3 +1,21 @@
+<script setup>
+import { computed,defineProps } from 'vue';
+import CustomSection from './CustomSection.vue';
+import CustomImage from './CustomImage.vue';
+
+// Props definition
+const props = defineProps({
+  items: {
+    type: Array,
+    required: true,
+  },
+});
+
+// Create a computed property to duplicate the data array
+const repeatedData = computed(() => [...props.items, ...props.items]);
+</script>
+
+
 <template>
   <div class="pb-10">
   <CustomSection section-class="py-0 xl:py-0">
@@ -9,9 +27,9 @@
         class="flex-none w-28 lg:w-40 h-full grayscale transition duration-200 hover:grayscale-0 mx-4"
         :title="item.altText"
       >
-        <img
-          :src="item.path"
-          class="w-full h-full object-cover"
+        <CustomImage
+          :src="item.url"
+          cssClass="w-full h-full object-cover"
           />
           <!-- :alt="item.altText" -->
       </div>
@@ -21,21 +39,6 @@
   </div>
 </template>
 
-<script setup>
-import { computed,defineProps } from 'vue';
-import CustomSection from './CustomSection.vue';
-
-// Props definition
-const props = defineProps({
-  data: {
-    type: Array,
-    required: true,
-  },
-});
-
-// Create a computed property to duplicate the data array
-const repeatedData = computed(() => [...props.data, ...props.data]);
-</script>
 
 <style scoped>
 /* Add your styles if needed or import them */

@@ -5,17 +5,18 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import CustomButton from "./CustomButton.vue";
+import CustomImage from "./CustomImage.vue";
 
 // Define props for reusability
 const props = defineProps({
-  tabs: {
+  items: {
     type: Array,
     required: true,
   },
 });
 
 // Active tab state
-const activeTab = ref(props.tabs[0]); // Default to the first tab
+const activeTab = ref(props.items[0]); // Default to the first tab
 const isMobile = ref(false);
 
 // Function to handle tab switching
@@ -48,7 +49,7 @@ onUnmounted(() => {
         :pagination="{ clickable: true }"
         class="mobile-swiper h-full"
       >
-        <swiper-slide v-for="tab in tabs" :key="tab.id" class="!h-auto">
+        <swiper-slide v-for="tab in items" :key="tab.id" class="!h-auto">
           <div
             class="flex flex-col items-center space-y-6 p-4 rounded-lg h-full"
             style="background-color: rgba(53, 59, 64, 1)"
@@ -57,17 +58,17 @@ onUnmounted(() => {
             <div class="space-y-4 text-center h-full">
               <h1 class="text-3xl font-bold">{{ tab.title }}</h1>
               <p class="text-[#F4F4F5] leading-relaxed">
-                {{ tab.subtitle }}
+                {{ tab.description }}
               </p>
-              <CustomButton variant="secondary">
+              <CustomButton variant="secondary" :buttonLink="tab.buttonLink">
                 {{ tab.buttonText }}
               </CustomButton>
             </div>
             <div class="w-full flex justify-center">
-              <img
+              <CustomImage
                 :src="tab.image"
                 :alt="tab.title"
-                class="rounded-lg shadow-lg"
+                cssClass="rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -80,7 +81,7 @@ onUnmounted(() => {
       <!-- Left Tabs Column -->
       <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
         <div class="space-y-4">
-          <template v-for="tab in tabs" :key="tab.id">
+          <template v-for="tab in items" :key="tab.id">
             <button
               class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
               :class="{
@@ -112,10 +113,10 @@ onUnmounted(() => {
 
         <!-- Image -->
         <div class="lg:translate-y-[7%]">
-          <img
+          <CustomImage
             :src="activeTab.image"
             :alt="activeTab.title"
-            class="rounded-lg shadow-sm"
+            cssClass="rounded-lg shadow-sm"
           />
         </div>
       </div>

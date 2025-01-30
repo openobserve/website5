@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CustomImage from '../core/CustomImage.vue';
+
 interface Blog {
   title: string;
   description: string;
@@ -63,10 +65,10 @@ const props = defineProps({
           ]"
         >
           <div class="h-48 overflow-hidden">
-            <img
+            <CustomImage
               :src="blog.imageUrl"
               :alt="blog.title"
-              class="w-full h-full object-cover"
+              cssClass="w-full h-full object-cover"
             />
           </div>
           <div class="p-6">

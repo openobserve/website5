@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
+import CustomImage from "../core/CustomImage.vue";
 
 // Define props for the component
 defineProps({
@@ -61,10 +62,10 @@ defineProps({
 
         <!-- Right Image Container -->
         <div class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0">
-          <img
+          <CustomImage
             :src="rightImage"
             alt="Right visual"
-            class="w-full max-w-[85%] sm:max-w-[75%] md:max-w-[70%] lg:max-w-full rounded-md object-contain opacity-90 lg:opacity-100"
+            cssClass="w-full max-w-[85%] sm:max-w-[75%] md:max-w-[70%] lg:max-w-full rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>
       </div>
@@ -72,11 +73,11 @@ defineProps({
 
     <!-- Bottom Image Container -->
     <div class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50">
-      <img
+      <CustomImage
         v-if="bottomImage"
         :src="bottomImage"
         alt="Bottom decoration"
-        class="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
+        cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
       />
     </div>
   </section>

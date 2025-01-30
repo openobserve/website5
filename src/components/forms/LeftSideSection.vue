@@ -1,4 +1,6 @@
 <script setup>
+import CustomImage from '../core/CustomImage.vue';
+
 defineProps({
   description: {
     type: String,
@@ -26,7 +28,7 @@ defineProps({
           :key="index"
           class="flex items-start gap-4"
         >
-          <img src="/resources/Frame 11216.svg" alt="icon" class="w-6 h-6" />
+          <CustomImage src="/resources/Frame 11216.svg" alt="icon" cssClass="w-6 h-6" />
           <span class="text-white">{{ feature }}</span>
         </li>
       </ul>

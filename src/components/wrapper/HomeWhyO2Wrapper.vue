@@ -3,14 +3,10 @@ import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
+ heading:{
+  type:Object,
+  required:true,
+ },
   items: {
     type: Array,
     required: true,
@@ -23,7 +19,7 @@ const props = defineProps({
 </script>
 <template>
   <CustomSection>
-      <Heading :title="title" :description="description" align="CENTER" />
+      <Heading :title="title" :description="subtitle" align="CENTER" />
     <div
       :class="[
         `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full mt-10`,
