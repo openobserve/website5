@@ -50,7 +50,7 @@ const props = defineProps({
         </div>
       </div>
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center hidden">
       <CustomButton
         variant="secondary"
         size="medium"
