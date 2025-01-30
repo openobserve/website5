@@ -37,7 +37,7 @@ const props = defineProps({
 
 <template>
   <CustomSection
-    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
+    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
   >
     <div>
       <!-- Main Content -->

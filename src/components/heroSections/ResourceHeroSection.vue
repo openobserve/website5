@@ -16,9 +16,9 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[70vh] before:content-[''] before:absolute before:w-full before:min-h-[200vh] before:top-0 before:bg-no-repeat before:bg-[50%_0vh] before:bg-[url('/resources/Hero-Section-Eclipse.svg'),_url('/resources/Hero-Section-Eclipse_(1).svg')]"
+    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[70vh] before:content-[''] before:absolute before:w-full before:min-h-[200vh] before:top-20 before:bg-no-repeat before:bg-[50%_-40vh] before:bg-[url('/resources/BG.svg')]"
   >
-    <div class="z-10 container mx-auto">
+    <div class="z-10 container mx-auto max-w-4xl ">
       <TextWithGradient
         class="text-center text-5xl py-5 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold"
         :title="props.title"
@@ -27,7 +27,7 @@ const props = defineProps({
       <Heading
         :description="props.subtitle"
         align="CENTER"
-        class="text-base sm:text-lg md:text-xl lg:text-2xl mt-4"
+        class="text-base sm:text-lg md:text-xl lg:text-2xl"
       />
     </div>
   </section>
