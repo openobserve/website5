@@ -7,7 +7,7 @@ const props = defineProps({
   title: {
     type: String,
     required: true,
-  },
+  }, 
   description: {
     type: String,
     required: true,
@@ -28,14 +28,20 @@ const props = defineProps({
 </script>
 
 <template>
+    <!-- :style="{ backgroundImage: 'url(/Metrices.svg)' }" -->
   <section
     class="relative flex justify-center items-center lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
-    :style="{ backgroundImage: 'url(/Metrices.svg)' }">
-    <!-- <video width="640" height="360" controls>
-      <source src="video.mp4" type="video/mp4">
-      <source src="video.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-    </video> -->
+    >
+    <video
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="/HomeHerobgVideo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
     <!-- Content Section -->
     <div class="relative z-10 text-white max-w-4xl">
       <!-- Title -->

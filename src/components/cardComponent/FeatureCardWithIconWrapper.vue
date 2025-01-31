@@ -22,13 +22,13 @@ const props = defineProps({
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
     <CustomImage
       image="/cardBg1.svg"
-      cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
+      cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-cover"
       altText="Background SVG"
     />
     <CustomImage
       image="/cardBg2.svg"
       altText="Image"
-      cssClass="absolute bottom-[-60vh] -z-10 object-contain"
+      cssClass="absolute bottom-[-60vh] -z-10 object-cover"
     />
 
     <CustomSection>

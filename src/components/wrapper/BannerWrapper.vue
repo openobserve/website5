@@ -10,7 +10,7 @@ const props = defineProps({
   // },
   bannerTitle: {
     type: String,
-    required: true,
+    required: false,
   },
   bannerDescription: {
     type: String,
@@ -34,12 +34,12 @@ const props = defineProps({
 <template>
   <CustomSection
     sectionClass="py-6 lg:py-8 xl:py-16"
-    v-if="heading.title || heading.subtitle"
+    v-if="heading?.title || heading?.subtitle"
   >
     <Heading
-      v-if="heading.title || heading.subtitle"
-      :title="heading.title"
-      :description="heading.subtitle"
+      v-if="heading?.title || heading?.subtitle"
+      :title="heading?.title"
+      :description="heading?.subtitle"
       align="CENTER"
     />
   </CustomSection>

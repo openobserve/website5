@@ -104,7 +104,7 @@ defineProps({
       <!-- Footer Image -->
       <div class="w-full mt-12">
         <CustomImage
-          :image="image?.url"
+          :image="image"
           altText="Footer visual"
           cssClass="w-full object-contain rounded-lg"
         />
