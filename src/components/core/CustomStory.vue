@@ -45,8 +45,8 @@ const props = defineProps({
       >
         <CustomImage 
            v-if="image"
-          :src="image" 
-          :alt="image" 
+          :image="image" 
+          :altText="image" 
           cssClass="w-20 h-20 rounded-md shadow-md" 
         />
         <h2 

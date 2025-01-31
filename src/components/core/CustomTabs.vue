@@ -65,11 +65,11 @@ contentRefs.value = new Array(props.items.length).fill(null);
         <!-- Render all content from all tabs -->
         <div v-for="(tab, tabIndex) in items" :key="tab.title" :ref="el => contentRefs[tabIndex] = el">
           <CustomInterChange
-            :key="index"
+            :key="tabIndex"
             :items="tab.items"
             :title="tab.title"
             :image="tab.image"
-            :direction="index % 2 === 0 ? 'left' : 'right'"
+            :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
           />
         </div>
       </CustomSection>

@@ -28,7 +28,7 @@ const props = defineProps({
     <div
       class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
     >
-      <CustomImage :src="card.icon" alt="Icon" cssClass="w-16 h-16 object-cover" />
+      <CustomImage :image="card.icon" altText="Icon" cssClass="w-16 h-16 object-cover" />
       <h3 class="text-[#BEC0C2] text-base font-semibold" :title="card.title">
         {{ card.title }}
       </h3>

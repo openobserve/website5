@@ -1,10 +1,9 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 
 // Define props for the component
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -48,17 +47,11 @@ defineProps({
     <!-- Content Section -->
     <div class="relative pt-10 md:pt10 md:pl-10 lg:pt-20 lg:pl-20 text-white max-w-4xl">
       <!-- Title -->
-      <TextWithGradient
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:text-left"
-        :title="title"
-        textGradientColor="gradient-color"
-        align="left"
-      />
-
-      <!-- Subtitle -->
-      <p class="sm:text-xl mb-6">
-        {{ description }}
-      </p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center sm:text-left">{{ title }}</h1>
+        <!-- Subtitle -->
+        <p class="sm:text-xl mb-6">
+          {{ description }}
+        </p>
 
       <!-- Buttons -->
       <div class="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -72,15 +65,3 @@ defineProps({
     </div>
   </section>
 </template>
-
-<style scoped>
-.gradient-color {
-  display: inline-block;
-  background: linear-gradient(to right,
-      rgba(246, 221, 221, 0.8),
-      rgba(255, 255, 255, 0.8),
-      rgba(227, 220, 255, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-</style>

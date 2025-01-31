@@ -41,9 +41,7 @@ console.log(props.featureCards, "Dattataa");
           </div>
         </div>
        <div class="flex justify-center items-center pt-12">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.text }}
-        </CustomButton>
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
       </div>
       </CustomSection>
     </div>

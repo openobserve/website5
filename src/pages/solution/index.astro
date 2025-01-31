@@ -11,7 +11,7 @@ import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
 const PageData = await fetchApi({
-  endpoint: "api/solution",
+  endpoint: "api/solution-landing-page",
   query: { pLevel: "10" , status: "draft"},
 });
 const cardData = [

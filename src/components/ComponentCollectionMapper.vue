@@ -30,6 +30,8 @@ import BannerWrapper from './wrapper/BannerWrapper.vue';
 import PlatformLogsHeroSection from './heroSections/PlatformLogsHeroSection.vue';
 import CustomCardWrapper from './cards/CustomCardWrapper.vue';
 import VisitSandbox from './core/VisitSandbox.vue';
+import CustomSeprater from './core/CustomSeprater.vue';
+import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
 
 const props = defineProps({
   data: {
@@ -38,28 +40,32 @@ const props = defineProps({
   },
 });
 
-console.log(props.data, "Helllooo");
 
 const componentsMap = computed(() => ({
+  
+  'section-hero.homepage-hero': HomeHeroSection,
+  'section-cards.features1': FeatureCardWithIconWrapper,
+  'section-cards.features2': UsecaseCardWithIconWrapper,
+  'section-cards.stats': TopCompaniesWrapper,
+  'section-cards.clients': CompanySwiper,
+  // 'section-cards.case-studies': BlogWrapper,
+  'section-features.feature-list': HomeFeatureWrapper,
+  'section-cards.features3': HomeWhyO2Wrapper,
+  'section-cta.banner': CustomBanner,
+  'section-separator.separator':CustomSeprater,
+
   'section-hero.feature-hero-section': FeatureHeroSection,
-  // 'section.herosection': HomeHeroSection,
-  // 'section.faq': FaqWrapper,
-  // 'section.featureCardWithIconWrapper': FeatureCardWithIconWrapper,
-  // 'section.usecaseCardWithIconWrapper': UsecaseCardWithIconWrapper,
-  // 'section.topCompanyWrapper': TopCompaniesWrapper,
-  // 'section.companySwiper': CompanySwiper,
-  // 'section.blogWrapper': BlogWrapper,
-  // 'section.homeFeatureWrapper': HomeFeatureWrapper,
-  // 'section.homeWhyO2Wrapper': HomeWhyO2Wrapper,
-  // 'section.customBanner': CustomBanner,
-  // 'section.featureCardWrapper': FeatureCardWrapper,
-  // 'section-features.platform-tabs-wrapper': TabsWithImageWrapper,
   'section-cards.feature4': FeatureCardWrapper,
-  // 'section.tabsWrapper': TabsWrapper,
+  'section-features.platform-tabs-wrapper': TabsWithImageWrapper,
+  'section-features.tabs-features': TabsWrapper,
   // 'section.caseStudyWrapper': CaseStudyWrapper,
   'section-cta.banner': BannerWrapper,
-  // 'section.featureSubPageHeroSection': PlatformLogsHeroSection,
-  // 'section.customCardWrapper': CustomCardWrapper,
-  // 'section.visitSandbox': VisitSandbox,
+  'section-cta.plain-cta':GetDemoWrapper,
+
+  'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
+    'section-faqs.frequently-asked-question': FaqWrapper,
+
+    'section-cta.call-to-action': VisitSandbox,
+  'section-cards.features5': CustomCardWrapper,
 }));
 </script>

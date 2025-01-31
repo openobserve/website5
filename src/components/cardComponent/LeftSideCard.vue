@@ -24,8 +24,8 @@ const props = defineProps({
   >
     <div class="">
       <CustomImage
-        :src="card.image"
-        :alt="card.title"
+        :image="card.image"
+        :altText="card.title"
         cssClass="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
       />
     </div>

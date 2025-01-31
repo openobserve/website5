@@ -66,8 +66,8 @@ const props = defineProps({
         >
           <div class="h-48 overflow-hidden">
             <CustomImage
-              :src="blog.imageUrl"
-              :alt="blog.title"
+              :image="blog.imageUrl"
+              :altText="blog.title"
               cssClass="w-full h-full object-cover"
             />
           </div>

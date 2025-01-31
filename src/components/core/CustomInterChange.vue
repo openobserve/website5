@@ -47,8 +47,8 @@ export default {
   >
     <div class="w-full md:w-1/2">
       <CustomImage
-        :src="image"
-        :alt="title"
+        :image="image"
+        :altText="title"
         cssClass="w-full h-auto rounded-lg shadow-md"
       />
     </div>

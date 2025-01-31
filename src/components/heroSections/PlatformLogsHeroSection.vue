@@ -82,8 +82,8 @@ const sectionStyles = computed(() => ({
           class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0"
         >
           <CustomImage
-            :src="rightImage"
-            alt="Right visual"
+            :image="image"
+            altText="Right visual"
             cssClass="w-full max-w-[85%] sm:max-w-[75%] md:max-w-[70%] lg:max-w-full rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>
@@ -96,8 +96,8 @@ const sectionStyles = computed(() => ({
     >
       <CustomImage
         v-if="bottomImage"
-        :src="bottomImage"
-        alt="Bottom decoration"
+        :image="bottomImage"
+        altText="Bottom decoration"
         cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
       />
       <div>

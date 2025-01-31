@@ -23,19 +23,19 @@ const props = defineProps({
 <template>
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
     <CustomImage
-      src="/cardBg1.svg"
+      image="/cardBg1.svg"
       cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
-      alt="Background SVG"
+      altText="Background SVG"
     />
     <CustomImage
-      src="/cardBg2.svg"
-      alt="Image"
+      image="/cardBg2.svg"
+      altText="Image"
       cssClass="absolute bottom-[-6ovh] -z-10 object-contain"
     />
     <!-- <CustomImage
-      src="/cardBg2.svg"
+      image="/cardBg2.svg"
       cssClass="absolute bottom-[-60vh] -z-10"
-      alt="Background SVG"
+      altText="Background SVG"
     /> -->
     <CustomSection>
       <Heading :title="title" :description="description" />

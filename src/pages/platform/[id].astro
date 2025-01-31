@@ -9,13 +9,22 @@ import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
 export async function getStaticPaths() {
-  return [{ params: { id: "logs" } }];
+  const PageData: string[] = await fetchApi({
+    endpoint: "api/platform-pages",
+    query: { pLevel: "10", status: "draft" },
+  });
+  const slugs = PageData?.data
+  return slugs.map((it:any) => ({
+    params: { id: it.slug },
+  }))
 }
-const { id } = Astro.params;
+const { id }: any = Astro.params;
+
+console.log("Static path", id);
 
 const PageData = await fetchApi({
-  endpoint: "api/platforms",
-  query: { pLevel: "10" , status: "draft" , slug: id},
+  endpoint: "api/platform-pages",
+  query: { pLevel: "10", status: "draft", "filters[slug][$eq]": id },
 });
 // const dynamicPageData = {
 //   logs: {
@@ -307,8 +316,7 @@ const PageData = await fetchApi({
 ---
 
 <Layout>
-
-  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <ComponentCollectionMapper data={PageData?.data[0]?.body} client:visible />
   <!-- <PlatformLogsHeroSection
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."

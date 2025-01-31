@@ -5,8 +5,8 @@ import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
 const props = defineProps({
-  title: {
-    type: String,
+  heading: {
+    type: Object,
     required: true,
   },
   items: {
@@ -18,7 +18,7 @@ const props = defineProps({
 
 <template>
   <CustomSection>
-    <Heading :title="title" align="CENTER" />
+    <Heading :title="heading?.title" align="CENTER" />
     <div class="pt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
       <CustomTile
         v-for="(card, index) in items"
