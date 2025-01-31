@@ -35,13 +35,13 @@ import ComponentCollectionMapper from "../components/ComponentCollectionMapper.v
 import BlogWrapper from "../components/wrapper/BlogWrapper.vue";
 import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
-import fetchApi from '../utils/strapi';
+import fetchApi from "../utils/strapi";
 
 const PageData = await fetchApi({
-  endpoint: "pages",
-  query: { path: "/", pLevel: "10" },
+  endpoint: "api/homepage",
+  query: { pLevel: "10", status: "draft" },
 });
-console.log(PageData.data[0].body,"datatatata");
+console.log(PageData.data, "datatatata");
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -389,16 +389,15 @@ const tabsData = [
     image: "/Homepage/UI-14.svg",
   },
 ];
-// const pageData = [
-//   {
-//     __component: "section.herosection",
-//     title: "Open Source Observability",
-//     subtitle:
-//       "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
-//     background: "/Coding BG.svg",
-//   },
-
-// ];
+const pageData = [
+  {
+    __component: "section.herosection",
+    title: "Open Source Observability",
+    subtitle:
+      "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
+    background: "/Coding BG.svg",
+  },
+];
 
 const trustedCompanies = {
   title: "Trusted by leading companies",
@@ -424,7 +423,7 @@ const trustedCompanies = {
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
-  <ComponentCollectionMapper data={PageData.data[0].body} client:load />
+  <ComponentCollectionMapper data={pageData} client:load />
   <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
@@ -470,4 +469,3 @@ const trustedCompanies = {
     ]}
   />
 </Layout>
-
