@@ -78,7 +78,7 @@ const getSlideClass = (index) => {
 </script>
 
 <template>
-  <div class="w-full max-w-md mx-auto px-4">
+  <div class="w-full min-h-screen max-w-md mx-auto px-4 items-center">
     <div class="relative perspective">
       <!-- <div
         v-for="(testimonial, index) in testimonials"

@@ -21,7 +21,7 @@ const props = defineProps({
 
 <template>
   <CustomSection class="py-12 md:py-16 lg:py-24">
-    <div class="flex justify-between max-w-5xl gap-20">
+    <div class="flex justify-between items-center max-w-5xl gap-20">
       <Heading :title="title" :description="description" align="LEFT" />
       <CustomTestimonialSlider :testimonials="items" client:load />
     </div>
