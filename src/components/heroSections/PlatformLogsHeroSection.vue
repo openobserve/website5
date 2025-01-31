@@ -36,7 +36,7 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh]"
+    class="relative flex flex-col items-center justify-end px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
     :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
@@ -44,9 +44,9 @@ const sectionStyles = computed(() => ({
         class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
       >
         <!-- Content Container -->
-        <div class="relative z-30 w-full lg:w-[40%] mb-8 sm:mb-12 lg:mb-0">
+        <div class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-12 lg:mb-0">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+            class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white mb-4"
           >
             {{ title }}
           </h1>
@@ -66,12 +66,12 @@ const sectionStyles = computed(() => ({
 
         <!-- Right Image Container -->
         <div
-          class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0"
+          class="relative py-4 lg:absolute lg:right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-[50%] flex justify-center lg:justify-end items-center z-20 mt-8 sm:mt-12 lg:mt-0"
         >
           <img
             :src="rightImage"
             alt="Right visual"
-            class="w-full max-w-[85%] sm:max-w-[75%] md:max-w-[70%] lg:max-w-full rounded-md object-contain opacity-90 lg:opacity-100"
+            class="w-[90%] lg:w-auto max-w-full lg:max-w-none h-auto rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>
       </div>
