@@ -1,5 +1,6 @@
 <script setup>
 import CustomTestimonialSlider from "../../components/core/CustomTestimonialSlider.vue";
+import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
 const props = defineProps({
@@ -17,14 +18,14 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
-  <div class="bg-dark-blue min-h-screen flex items-center">
-    <div
-      class="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center lg:items-start gap-6 py-16"
-    >
+  <CustomSection class="py-12 md:py-16 lg:py-24">
+    <div class="flex justify-between max-w-5xl gap-20">
       <Heading :title="title" :description="description" align="LEFT" />
       <CustomTestimonialSlider :testimonials="items" client:load />
     </div>
-  </div>
+  </CustomSection>
 </template>
+
 <style scoped></style>

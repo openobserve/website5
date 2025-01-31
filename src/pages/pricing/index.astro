@@ -71,7 +71,8 @@ const testimonials = [
       "Love how the self-hosted version gives us control over sensitive data. Especially important in an industry like ours (fintech)!",
     author: "Jane Doe",
     position: "02 self-hosted fan",
-    avatar: "https://via.placeholder.com/60",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
   },
   {
     id: 2,
@@ -79,20 +80,21 @@ const testimonials = [
       "The platform has transformed how we handle our documentation. Incredibly intuitive and powerful!",
     author: "John Smith",
     position: "Tech Lead",
-    avatar: "https://via.placeholder.com/60",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
   },
   {
     id: 3,
     content: "Best documentation solution we've ever used. The team loves it!",
     author: "Sarah Johnson",
     position: "Product Manager",
-    avatar: "https://via.placeholder.com/60",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
   },
 ];
 const testimonialsHeader = {
   sectionTitle: "Testimonials",
-  sectionDescription:
-    "What our users say about OpenObserve's observability platform.",
+  sectionDescription: "See what people are saying",
 };
 const cloudTiers = [
   {
@@ -194,11 +196,11 @@ const selfHostedTiers = [
     client:load
     layout="column"
   />
-  <!-- <TestimonialSliderWrapper
+  <TestimonialSliderWrapper
     items={testimonials}
     title={testimonialsHeader.sectionTitle}
     description={testimonialsHeader.sectionDescription}
     client:load
-  /> -->
+  />
   <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
 </Layout>

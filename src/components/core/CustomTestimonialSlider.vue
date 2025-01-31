@@ -78,12 +78,12 @@ const getSlideClass = (index) => {
 </script>
 
 <template>
-  <div class="w-full max-w-2xl mx-auto px-4">
+  <div class="w-full max-w-md mx-auto px-4">
     <div class="relative perspective">
-      <div
+      <!-- <div
         v-for="(testimonial, index) in testimonials"
         :key="testimonial.id"
-        :class="['testimonial-card', getSlideClass(index)]"
+        :class="['testimonial-card ', getSlideClass(index)]"
       >
         <div class="bg-gray-900 rounded-2xl p-6 md:p-10 relative shadow-lg">
           <div class="text-5xl text-blue-500 absolute top-3 left-4 opacity-20">
@@ -110,21 +110,54 @@ const getSlideClass = (index) => {
             </div>
           </div>
         </div>
+      </div> -->
+
+      <div class="hidden md:block relative">
+        <div class="flex">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              v-for="(testimonial, index) in testimonials"
+              :key="testimonial.id"
+              class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center relative"
+              :class="['testimonial-card ', getSlideClass(index)]"
+            >
+              <img
+                src="/public/download-pricing/Frame.svg"
+                :alt="testimonial.name"
+                class="w-20 h-20 rounded-full object-center"
+              />
+              <p class="text-gray-300 mb-3 text-lg leading-relaxed py-10">
+                {{ testimonial.content }}
+              </p>
+              <img
+                src="/blogColor-2.png"
+                :alt="testimonial.name"
+                class="w-20 h-20 rounded-full object-cover"
+              />
+              <h3 class="text-blue-400 font-semibold text-lg mb-1">
+                {{ testimonial.author }}
+              </h3>
+              <p class="text-gray-400">{{ testimonial.position }}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Navigation Buttons -->
-      <button
-        @click="goToPrev"
-        class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors"
-      >
-        <span class="text-white text-lg md:text-2xl">&larr;</span>
-      </button>
-      <button
-        @click="goToNext"
-        class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors"
-      >
-        <span class="text-white text-lg md:text-2xl">&rarr;</span>
-      </button>
+      <div>
+        <button
+          @click="goToPrev"
+          class="absolute top-1/2 left-2 md:left-4 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
+        >
+          <span class="text-white text-lg md:text-2xl">&larr;</span>
+        </button>
+        <button
+          @click="goToNext"
+          class="absolute top-1/2 right-2 md:right-4 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
+        >
+          <span class="text-white text-lg md:text-2xl">&rarr;</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -151,13 +184,15 @@ const getSlideClass = (index) => {
 }
 
 .testimonial-card.next {
-  opacity: 0.7;
+  opacity: 1;
+  filter: blur(5px);
   transform: translateX(50%) translateZ(-100px) rotateY(-10deg);
   z-index: 5;
 }
 
 .testimonial-card.prev {
-  opacity: 0.7;
+  opacity: 1;
+  filter: blur(5px);
   transform: translateX(-50%) translateZ(-100px) rotateY(10deg);
   z-index: 5;
 }
