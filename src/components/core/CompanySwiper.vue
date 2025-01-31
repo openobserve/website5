@@ -25,10 +25,9 @@ const repeatedData = computed(() => [...props.items, ...props.items]);
         v-for="(item, index) in repeatedData"
         :key="index"
         class="flex-none w-28 lg:w-40 h-full grayscale transition duration-200 hover:grayscale-0 mx-4"
-        :title="item.altText"
       >
         <CustomImage
-          :image="item.url"
+          :image="item?.Image"
           cssClass="w-full h-full object-cover"
           />
           <!-- :alt="item.altText" -->

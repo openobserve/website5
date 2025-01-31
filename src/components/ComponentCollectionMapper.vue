@@ -41,6 +41,8 @@ const props = defineProps({
   },
 });
 
+console.log(props.data,"Ridddhi")
+
 
 const componentsMap = computed(() => ({
   
@@ -52,7 +54,6 @@ const componentsMap = computed(() => ({
   // 'section-cards.case-studies': BlogWrapper,
   'section-features.feature-list': HomeFeatureWrapper,
   'section-cards.features3': HomeWhyO2Wrapper,
-  'section-cta.banner': CustomBanner,
   'section-separator.separator':CustomSeprater,
 
   'section-hero.feature-hero-section': FeatureHeroSection,
