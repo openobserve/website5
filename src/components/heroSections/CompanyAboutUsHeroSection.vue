@@ -31,9 +31,9 @@ const formatSubtitle = (text) => {
   <div
     class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
     :style="{
-      backgroundImage: `url(${topBgImage}), url(${bottomBgImage})`,
-      backgroundSize: 'contain, contain',
-      backgroundPosition: 'top center, bottom -200px center',
+      backgroundImage: 'url(/aboutusHerosectionbg)',
+      backgroundSize: 'contain',
+      backgroundPosition: 'center',
     }"
   >
     <div
@@ -51,7 +51,7 @@ const formatSubtitle = (text) => {
       </div>
       <div>
         <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.title }}
+          {{ primaryButton.text }}
         </CustomButton>
       </div>
     </div>

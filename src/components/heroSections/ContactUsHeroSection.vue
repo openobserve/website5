@@ -7,28 +7,19 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  titleGradientColor: {
+  description: {
     type: String,
     required: true,
-  },
-  subtitle: {
-    type: String,
-    required: true,
-  },
-  topBgImage: {
-    type: String,
-  },
-  bottomBgImage: {
-    type: String,
   },
 });
 </script>
 
 <template>
+      <!-- backgroundPosition: 'top center, bottom -200px center', -->
     <div
       class="relative flex items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat bg-cover"
       :style="{
-      backgroundImage: `url(${topBgImage}), url(${bottomBgImage})`,
+      backgroundImage: 'url(/ContactUsTopbg.svg), url(/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat'
@@ -37,13 +28,9 @@ const props = defineProps({
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full container mx-auto">
         <!-- Left Column: Title & Description -->
         <div class="w-full text-left">
-          <TextWithGradient
-            :title="props.title"
-            :textGradientColor="props.titleGradientColor"
-            class="text-7xl font-bold mb-6"
-          />
+          <h1 class="text-5xl text-white font-bold">{{ title }}</h1>
           <Heading
-            :description="props.subtitle"
+            :description="description"
             align="LEFT"
             class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300"
           />

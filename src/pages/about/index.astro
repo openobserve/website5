@@ -12,6 +12,13 @@ import HomeWhyO2Wrapper from "../../../components/wrapper/HomeWhyO2Wrapper.vue";
 import BlogWrapper from "../../../components/wrapper/BlogWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import CustomSeprater from "../../../components/core/CustomSeprater.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+const PageData = await fetchApi({
+  endpoint: "api/about-us",
+  query: { pLevel: "10" , status: "draft"},
+});
 
 const cards = [
   {
@@ -100,7 +107,9 @@ const ourStoryData2 = {
 ---
 
 <Layout>
-  <div class="mt-10">
+
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <div class="mt-10">
     <CompanyAboutUsHeroSection
       client:load
       title="About Us"
@@ -151,5 +160,5 @@ const ourStoryData2 = {
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 </Layout>

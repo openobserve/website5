@@ -10,6 +10,13 @@ import CustomBanner from "../../../components/core/CustomBanner.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import CustomOpenObserveCard from "../../../components/cards/CustomOpenObserveCard.vue";
 import CompanySwiper from "../../../components/core/CompanySwiper.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+const PageData = await fetchApi({
+  endpoint: "api/why-choose-us",
+  query: { pLevel: "10" , status: "draft"},
+});
 
 const cards = [
   {
@@ -95,7 +102,8 @@ const positionCards = {
 ---
 
 <Layout>
-    <div class="mt-10">
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+    <!-- <div class="mt-10">
         <CompanyJoinOOHeroSection
           client:load
           title="Why Customers Love Us?"
@@ -137,6 +145,6 @@ client:load
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 
 </Layout>
