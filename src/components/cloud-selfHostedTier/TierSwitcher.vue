@@ -121,6 +121,7 @@ export default {
 }
 .slf-be-effect {
   border-radius: 4px;
+  color: white;
   background: linear-gradient(
       88deg,
       rgba(0, 0, 0, 0) 51.76%,
@@ -133,6 +134,7 @@ export default {
     );
 }
 .cld-be-effect {
+  color: white;
   border-radius: 4px;
   background: linear-gradient(
       270deg,
