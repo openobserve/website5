@@ -12,8 +12,8 @@ const props = defineProps({
 <template>
   <CustomSectionBackground direction="top">
       <CaseStudyWrapper
-        :title="heading.title"
-        :description="heading.subtitle"
+        :title="heading?.title"
+        :description="heading?.subtitle"
       />
   </CustomSectionBackground>
 </template>

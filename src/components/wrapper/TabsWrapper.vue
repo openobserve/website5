@@ -24,15 +24,7 @@ const props = defineProps({
     />
 
     <CustomTabs class="py-10" :items="items" client:load />
-    <div v-if="items.getDemoButton && items.getDemoTitle">
-      <GetDemoWrapper
-        :title="props.items.getDemoTitle"
-        :btnData="props.items.getDemoButton"
-      />
-    </div>
   </CustomSection>
   <div>
-    <CustomSeprater />
   </div>
 </template>
-<style scoped></style>

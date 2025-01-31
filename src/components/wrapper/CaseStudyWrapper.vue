@@ -29,7 +29,7 @@ const props = defineProps({
     
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
-      <CustomImage src="/Platform/Ellipse-141.svg" alt="Image" cssClass="absolute opacity-30 object-contain" />
+      <CustomImage image="/Platform/Ellipse-141.svg" altText="Image" cssClass="absolute opacity-30 object-contain" />
       
       <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
         <div v-if="props.items.length > 0">

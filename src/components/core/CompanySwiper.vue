@@ -28,7 +28,7 @@ const repeatedData = computed(() => [...props.items, ...props.items]);
         :title="item.altText"
       >
         <CustomImage
-          :src="item.url"
+          :image="item.url"
           cssClass="w-full h-full object-cover"
           />
           <!-- :alt="item.altText" -->

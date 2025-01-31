@@ -17,8 +17,8 @@ const props = defineProps({
     >
       <div class="w-full lg:w-1/3 group-hover:grayscale-0 group-hover:filter">
         <CustomImage
-          :src="card.image"
-          :alt="card.title"
+          image="card.image"
+          :altText="card.title"
           cssClass="w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
         />
       </div>

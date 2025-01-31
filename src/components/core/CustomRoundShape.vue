@@ -9,8 +9,8 @@
   >
     <div class="absolute inset-[2px] rounded-full bg-gradient-gray flex items-center justify-center">
       <CustomImage
-        :src="imgSrc"
-        alt="Image"
+        :image="imgSrc"
+        altText="Image"
         cssClass="object-cover p-2"
         :style="{
           width: `${Number(iconSize)}px`,

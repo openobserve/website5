@@ -93,8 +93,8 @@ const handleSubmit = () => {
                 class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
               >
                 <CustomImage
-                  :src="`/${provider}-icon.svg`"
-                  :alt="`${provider} login`"
+                  :image="`/${provider}-icon.svg`"
+                  :altText="`${provider} login`"
                   cssClass="h-6 w-6"
                 />
               </button>
