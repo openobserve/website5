@@ -313,9 +313,7 @@ const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
     backgroundImage="/Platform/platform-subpage-Eclipse.svg"
     rightImage="/Data-sources-Kubernetes.svg"
   />
-  <div class="">
-    <TabsGlassCardWrapper items={interchangeData} client:load />
-  </div>
+  <TabsGlassCardWrapper items={interchangeData} client:load />
   <BannerWrapper items={bannerData} client:load />
   <FaqWrapper items={faqData.items} title={faqData.title} client:load />
   <CaseStudyWrapper
