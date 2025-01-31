@@ -4,9 +4,9 @@ import CustomComparisonTable from "../../components/core/CustomComparisonTable.v
 import CustomCloudForm from "../../components/core/CustomCloudForm.vue";
 import PricingTiers from "../../components/core/PricingTeir.vue";
 import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
-import CaseStudyCloudWrapper from "../../components/wrapper/CaseStudyCloudWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import SectionSwitcher from "../../components/cloud-selfHostedSection/SectionSwitcher.vue";
+import DownloadCaseStudyWrapper from "../../components/wrapper/DownloadCaseStudyWrapper.vue";
 
 const comparisonData = {
   title: "Why Choose OpenObserve?",
@@ -79,37 +79,42 @@ const selfHostedData = {
   documentationButtonText: "DOCUMENTATION",
 };
 
-const caseStudyData = {
+const caseStudyTitle = {
   title: "Want to know more? Check out these Blogs.",
   subtitle:
     "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
-  items: [
-    {
-      image: "/blogColor-1.png",
-      title: "Case Study 1",
-      description:
-        "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
-      btnTitle: "LEARN MORE",
-      link: "#",
-    },
-    {
-      image: "/blogColor-2.png",
-      title: "Scaling Observability for Growth",
-      description:
-        "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
-      btnTitle: "LEARN MORE",
-      link: "#",
-    },
-    {
-      image: "/blogColor-3.png",
-      title: "Enhancing Security Monitoring",
-      description:
-        "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
-      btnTitle: "LEARN MORE",
-      link: "#",
-    },
-  ],
 };
+const caseStudyData = [
+  {
+    image: "public/blogColor-2.png",
+    title: "Quick Start Guide",
+    description: "Learn how to deploy OpenObserve in just a few steps.",
+    btnTitle: "VIEW GUIDE",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-2.png",
+    title: "Integration Docs",
+    description: "Leverage pre-configured dashboards and workflows",
+    btnTitle: "EXPLORE INTEGRATIONS ",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Community Templates",
+    description: "Leverage pre-configured dashboards and workflows.",
+    btnTitle: "BROWSE TEMPLATES",
+    link: "#",
+  },
+  {
+    image: "public/blogColor-3.png",
+    title: "Blog Posts",
+    description:
+      "Optimize your monitoring strategy with export written articles.S",
+    btnTitle: "EXPLORE BLOG POSTS",
+    link: "#",
+  },
+];
 const bannerData = {
   title: "Ready to get started ?",
   subtitle:
@@ -159,17 +164,17 @@ const FaqData = {
 
 <Layout>
   <SectionSwitcher client:load />
-  <!-- <CustomComparisonTable
+  <CustomComparisonTable
     title={comparisonData.title}
     features={comparisonData.features}
     cloudTitle="Cloud"
     selfHostedTitle="Self-Hosted"
-  /> -->
+  />
 
-  <CaseStudyCloudWrapper
-    items={caseStudyData.items}
-    title={caseStudyData.title}
-    description={caseStudyData.subtitle}
+  <DownloadCaseStudyWrapper
+    items={caseStudyData}
+    title={caseStudyTitle.title}
+    description={caseStudyTitle.subtitle}
     client:load
   />
   <BannerWrapper items={bannerData} client:load />
