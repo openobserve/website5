@@ -98,32 +98,6 @@ export default {
       rgba(255, 255, 255, 0) 100%
     );
 }
-.cld-be-effect {
-  border-radius: 4px;
-  background: linear-gradient(
-      88deg,
-      rgba(0, 0, 0, 0) 51.76%,
-      rgba(1, 1, 1, 0.8) 92%
-    ),
-    linear-gradient(
-      92deg,
-      rgba(255, 255, 255, 0) -3.08%,
-      rgba(223, 127, 106, 0.6) 100%
-    );
-}
-.slf-be-effect {
-  border-radius: 4px;
-  background: linear-gradient(
-      88deg,
-      rgba(0, 0, 0, 0) 51.76%,
-      rgba(1, 1, 1, 0.8) 92%
-    ),
-    linear-gradient(
-      92deg,
-      rgba(255, 255, 255, 0) -3.08%,
-      rgba(223, 127, 106, 0.6) 100%
-    );
-}
 .slf-btn {
   border-radius: 4px;
   background: linear-gradient(
@@ -149,6 +123,36 @@ export default {
       #ffb16d 98.5%
     );
 }
+.slf-be-effect {
+  border-radius: 4px;
+  background: linear-gradient(
+      88deg,
+      rgba(0, 0, 0, 0) 51.76%,
+      rgba(1, 1, 1, 0.8) 92%
+    ),
+    linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0) -3.08%,
+      rgba(223, 127, 106, 0.6) 100%
+    );
+}
+.cld-be-effect {
+  border-radius: 4px;
+  background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 6.6%,
+      rgba(1, 8, 55, 0.56) 71.85%
+    ),
+    linear-gradient(
+      271deg,
+      rgba(255, 183, 175, 0.24) 11.39%,
+      rgba(67, 145, 255, 0.24) 35.14%,
+      rgba(88, 212, 225, 0.3) 52.59%,
+      rgba(73, 166, 246, 0.24) 68.92%,
+      rgba(0, 136, 255, 0.48) 93.03%
+    );
+}
+
 /* Smooth fade transition for tab switching */
 .fade-enter-active,
 .fade-leave-active {
