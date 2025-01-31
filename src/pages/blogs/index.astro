@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 
@@ -131,23 +131,23 @@ const cardHeader = {
 };
 const cardData = [
   {
-    icon: "/resources/64px-Component.svg",
+    icon: "/resources/64pxComponent.svg",
     title: "Case Studies",
   },
   {
-    icon: "/resources/64px-Component-(1).svg",
+    icon: "/resources/64pxComponent(1).svg",
     title: "Tech Talks",
   },
   {
-    icon: "/resources/64px-Component-(2).svg",
+    icon: "/resources/64pxComponent(2).svg",
     title: "Video Guides",
   },
   {
-    icon: "/resources/64px-Component-(3).svg",
+    icon: "/resources/64pxComponent(3).svg",
     title: "Webinars",
   },
   {
-    icon: "/resources/64px-Component-(4).svg",
+    icon: "/resources/64pxComponent(4).svg",
     title: "Community Forums",
   },
 ];
@@ -159,7 +159,12 @@ const cardData = [
     subtitle="Explore latest insights and updates"
   />
 
-  <CaseStudyWrapper title="" description="" items={caseStudyData} client:load />
+  <CaseStudyGlassCardWrapper
+    title=""
+    description=""
+    items={caseStudyData}
+    client:load
+  />
   <BlogsWrapper title="" description="" items={blogData} client:load />
   <TilesWithTitleWrapper
     title={cardHeader.title}

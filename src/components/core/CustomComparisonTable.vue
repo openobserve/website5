@@ -7,14 +7,6 @@ const props = defineProps({
   features: {
     type: Array,
     required: true,
-    // Expected structure:
-    // [
-    //   {
-    //     name: 'Setup Time',
-    //     cloud: 'Minutes—fully managed',
-    //     selfHosted: 'Flexible—depends on your infrastructure'
-    //   }
-    // ]
   },
   cloudTitle: {
     type: String,
@@ -35,15 +27,22 @@ const props = defineProps({
     </h2>
 
     <!-- Comparison Table -->
-    <div class="bg-[#1A1A1A]/60 rounded-xl overflow-hidden backdrop-blur-sm">
+    <div
+      class="rounded-xl overflow-hidden backdrop-blur-sm bg-cover bg-center bg-no-repeat bg-[url('/download-pricing/Eclipse.svg'),url('/download-pricing/Eclipse(1).svg'),url('/download-pricing/Eclipse(2).svg')]"
+    >
       <!-- Table Header -->
       <div class="grid grid-cols-3 text-white border-b border-gray-800">
+        <!-- Feature Column -->
         <div class="p-4 md:p-6 font-medium text-gray-400">Feature</div>
+
+        <!-- Cloud Column -->
         <div
           class="p-4 md:p-6 font-medium text-blue-400 border-x border-gray-800"
         >
           {{ cloudTitle }}
         </div>
+
+        <!-- Self-Hosted Column -->
         <div class="p-4 md:p-6 font-medium text-orange-400">
           {{ selfHostedTitle }}
         </div>
@@ -56,12 +55,17 @@ const props = defineProps({
           :key="index"
           class="grid grid-cols-3 text-white"
         >
+          <!-- Feature Column -->
           <div class="p-4 md:p-6 text-sm md:text-base text-gray-400">
             {{ feature.name }}
           </div>
+
+          <!-- Cloud Column -->
           <div class="p-4 md:p-6 text-sm md:text-base border-x border-gray-800">
             {{ feature.cloud }}
           </div>
+
+          <!-- Self-Hosted Column -->
           <div class="p-4 md:p-6 text-sm md:text-base">
             {{ feature.selfHosted }}
           </div>
@@ -71,6 +75,4 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped>
-/* Add any additional custom styles here if needed */
-</style>
+<style scoped></style>

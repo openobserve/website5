@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="md:w-1/2">
+  <div class="md:w-1/2 p-6">
     <p class="text-white mb-6">{{ description }}</p>
     <div>
       <h3 class="text-lg font-semibold text-white mb-4">Key Features:</h3>
@@ -26,7 +26,7 @@ defineProps({
           :key="index"
           class="flex items-start gap-4"
         >
-          <img src="/resources/Frame 11216.svg" alt="icon" class="w-6 h-6" />
+          <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6" />
           <span class="text-white">{{ feature }}</span>
         </li>
       </ul>

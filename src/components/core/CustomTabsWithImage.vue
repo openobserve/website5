@@ -102,7 +102,7 @@ onUnmounted(() => {
         style="background-color: rgba(53, 59, 64, 1)"
       >
         <!-- Text Content -->
-        <div class="max-w-md space-y-4 px-3">
+        <div class="space-y-4 px-3">
           <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
           <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.subtitle }}</p>
           <CustomButton variant="secondary">

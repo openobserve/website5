@@ -1,0 +1,206 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
+import TestimonialSliderWrapper from "../../components/wrapper/TestimonialSliderWrapper.vue";
+import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
+import TierSwitcher from "../../components/cloud-selfHostedTier/TierSwitcher.vue";
+
+const featureCardTitle = {
+  title: "Full Stack Observability. Built for Efficiency.",
+};
+const featureCardData = [
+  {
+    icon: "/Platform/Vector.svg",
+    title: "140x lower storage costs",
+    description:
+      "Advanced log compression minimizes storage requirements without sacrificing performance.",
+  },
+  {
+    icon: "/Platform/Vector(1).svg",
+    title: "Complete visibility across the stack",
+    description:
+      "Monitor logs, metrics, traces, and frontend performance in one integrated platform.",
+  },
+  {
+    icon: "/Platform/Vector(2).svg",
+    title: "10x lower operational costs",
+    description:
+      "Optimized architecture reduces computational overhead and operational expenses.",
+  },
+  {
+    icon: "/Platform/Vector(3).svg",
+    title: "Unlimited Scalability",
+    description:
+      "Seamlessly scale to meet enterprise demands with high availability and robust reliability.",
+  },
+];
+const FaqData = {
+  title: "OpenObserve Logs FAQ's",
+  items: [
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+    },
+    {
+      question: "Why choose OpenObserve for Log Management?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ],
+};
+const testimonials = [
+  {
+    id: 1,
+    content:
+      "Love how the self-hosted version gives us control over sensitive data. Especially important in an industry like ours (fintech)!",
+    author: "Jane Doe",
+    position: "02 self-hosted fan",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
+  },
+  {
+    id: 2,
+    content:
+      "The platform has transformed how we handle our documentation. Incredibly intuitive and powerful!",
+    author: "John Smith",
+    position: "Tech Lead",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
+  },
+  {
+    id: 3,
+    content: "Best documentation solution we've ever used. The team loves it!",
+    author: "Sarah Johnson",
+    position: "Product Manager",
+    topImage: "https://via.placeholder.com/60",
+    authorImage: "https://via.placeholder.com/60",
+  },
+];
+const testimonialsHeader = {
+  sectionTitle: "Testimonials",
+  sectionDescription: "See what people are saying",
+};
+const cloudTiers = [
+  {
+    name: "Free Tier",
+    title: "Start Monitoring Today with Zero Costs",
+    description:
+      "Perfect for small teams or personal projects to explore OpenObserve's core capabilities.",
+    features: [
+      { text: "50 GB Logs", included: true },
+      { text: "50 GB Traces", included: true },
+      { text: "50 GB Pipeline Processing", included: true },
+      { text: "Max 10 Users", included: true },
+      { text: "15-Day Retention", included: true },
+    ],
+    buttonText: "SIGN USING FREE CLOUD",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Standard",
+    title: "Powerful Observability Tools for all Teams",
+    description:
+      "Scale effortlessly with premium features that ensure your team stays ahead of issues.",
+    features: [
+      { text: "Unlimited Users", included: true },
+      { text: "15-Day Retention", included: true },
+      { text: "24/7 Email Support", included: true },
+      { text: "Custom Dashboards", included: true },
+      { text: "API Access", included: true },
+    ],
+    buttonText: "START 15-DAY FREE TRIAL",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands.",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Enterprise tier selected"),
+  },
+];
+const selfHostedTiers = [
+  {
+    name: "Open-Source",
+    title: "Control and Flexibility in Your Hands",
+    description:
+      "Deploy and manage OpenObserve yourself, with unlimited scalability and the freedom of open source.",
+    features: [
+      { text: "Basic Observability", included: true },
+      { text: "Community Support", included: true },
+      { text: "Self-Managed", included: true },
+      { text: "Unlimited Scalability", included: true },
+      { text: "Open-Source Flexibility", included: true },
+    ],
+    buttonText: "DOWNLOAD FOR FREE",
+    buttonAction: () => console.log("Free tier selected"),
+  },
+  {
+    name: "Enterprise",
+    title: "Environments Enterprise-Grade Features for Complex Environments",
+    description:
+      "Tailored solutions designed for organizations with advanced needs and higher demands. Includes all Standard features plus:",
+    features: [
+      { text: "Extended Data Retention", included: true },
+      { text: "Priority Support", included: true },
+      { text: "Dedicated Account Manager", included: true },
+      { text: "Custom Deployment", included: true },
+      { text: "Custom Integrations", included: true },
+      { text: "Training & Onboarding", included: true },
+      { text: "SLA Guarantees", included: true },
+      { text: "Advanced Security Features", included: true },
+    ],
+    buttonText: "CONTACT FOR PRICING",
+    buttonAction: () => console.log("Standard tier selected"),
+  },
+];
+---
+
+<Layout>
+  <TierSwitcher
+    cloud-tiers={cloudTiers}
+    self-hosted-tiers={selfHostedTiers}
+    client:load
+  />
+  <FeatureCardWrapper
+    title={featureCardTitle.title}
+    items={featureCardData}
+    noOfGridColumn={4}
+    client:load
+    layout="column"
+  />
+  <!-- <TestimonialSliderWrapper
+    items={testimonials}
+    title={testimonialsHeader.sectionTitle}
+    description={testimonialsHeader.sectionDescription}
+    client:load
+  /> -->
+  <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
+</Layout>

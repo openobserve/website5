@@ -36,34 +36,36 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection
-    class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
-  >
-    <div>
-      <!-- Main Content -->
+  <div class="py-20">
+    <CustomSection
+      class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
+    >
       <div>
-        <Heading :title="title" :description="subtitle" align="CENTER" />
-      </div>
-      <div
-        :class="[
-          `py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
-        ]"
-      >
+        <!-- Main Content -->
+        <div>
+          <Heading :title="title" :description="subtitle" align="CENTER" />
+        </div>
         <div
-          class="flex gap-4 md:flex-row flex-col justify-start"
-          v-for="(item, index) in items"
-          :key="index"
+          :class="[
+            `py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
+          ]"
         >
-          <CustomFeatureCard :card="item" borderColor="bg-white" />
+          <div
+            class="flex gap-4 md:flex-row flex-col justify-start"
+            v-for="(item, index) in items"
+            :key="index"
+          >
+            <CustomFeatureCard :card="item" borderColor="bg-white" />
+          </div>
+        </div>
+        <div class="text-center">
+          <CustomButton variant="pricing" class="mt-10">
+            {{ btnTitle }}
+          </CustomButton>
         </div>
       </div>
-      <div class="text-center">
-        <CustomButton variant="pricing" class="mt-10">
-          {{ btnTitle }}
-        </CustomButton>
-      </div>
-    </div>
-  </CustomSection>
+    </CustomSection>
+  </div>
 </template>
 
 <style scoped>

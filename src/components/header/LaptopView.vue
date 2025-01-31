@@ -311,6 +311,6 @@ onUnmounted(() => {
 </style>
 <style>
 body {
-  margin-top: 20vh; /* Adjust this value based on your header height */
+  /* margin-top: 10vh; Adjust this value based on your header height */
 }
 </style>
