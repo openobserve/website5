@@ -1,9 +1,9 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 
 // Define props for the component
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -13,36 +13,41 @@ defineProps({
     required: true,
   },
   buttons: {
-    type: Array, // Array of button objects [{ label: "Button Title", variant: "primary" }]
+    type: Array,
     required: true,
   },
   backgroundImage: {
     type: String,
-    required: true, // URL of the SVG or background image
+    required: true,
   },
   rightImage: {
     type: String,
-    required: true, // URL of the right-side image
+    required: true,
   },
-  bottomImage:{
-    type:String,
-  }
+  bottomImage: {
+    type: String,
+  },
 });
+// Compute background style dynamically
+const sectionStyles = computed(() => ({
+  "--before-bg": `url('${props.backgroundImage}')`,
+}));
 </script>
 
 <template>
   <section
-    class="relative min-h-screen pb-24 lg:pb-32"
-    :style="{
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'cover',
-    }"
+    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh]"
+    :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20">
+      <div
+        class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
+      >
         <!-- Content Container -->
         <div class="relative z-30 w-full lg:w-[40%] mb-8 sm:mb-12 lg:mb-0">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+          >
             {{ title }}
           </h1>
           <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
@@ -60,7 +65,9 @@ defineProps({
         </div>
 
         <!-- Right Image Container -->
-        <div class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0">
+        <div
+          class="relative w-full lg:w-[50%] flex justify-center items-center z-20 mt-8 sm:mt-12 lg:mt-0"
+        >
           <img
             :src="rightImage"
             alt="Right visual"
@@ -71,7 +78,9 @@ defineProps({
     </div>
 
     <!-- Bottom Image Container -->
-    <div class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50">
+    <div
+      class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
+    >
       <img
         v-if="bottomImage"
         :src="bottomImage"
@@ -81,3 +90,8 @@ defineProps({
     </div>
   </section>
 </template>
+<style scoped>
+section::before {
+  background-image: var(--before-bg);
+}
+</style>
