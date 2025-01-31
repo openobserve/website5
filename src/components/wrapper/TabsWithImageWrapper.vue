@@ -14,7 +14,6 @@ const props = defineProps({
   },
 });
 
-console.log("Items:", props?.items);
 </script>
 <template>
   <div>
@@ -23,7 +22,7 @@ console.log("Items:", props?.items);
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
-      <CustomTabsWithImage :items="items" client:load />
+      <CustomTabsWithImage :items="items" />
     </CustomSection>
     <div class="mt-24">
     </div>
