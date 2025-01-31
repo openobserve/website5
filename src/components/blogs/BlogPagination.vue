@@ -2,7 +2,7 @@
     <div class="flex justify-center mt-8">
       <!-- Previous Button -->
       <button
-        class="px-4 py-2 mx-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
+        class="px-4 py-2 mx-2  border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50"
         :disabled="currentPage === 1"
         @click="changePage(currentPage - 1)"
       >
@@ -14,7 +14,7 @@
         <button
           v-for="page in pages"
           :key="page"
-          :class="['px-4 py-2 mx-1', { 'bg-blue-500 text-white': page === currentPage, 'text-gray-500': page !== currentPage }]"
+          :class="['px-4 py-2 mx-1', { 'text-blue-400': page === currentPage, 'text-gray-500': page !== currentPage }]"
           @click="changePage(page)"
         >
           {{ page }}
@@ -23,7 +23,7 @@
   
       <!-- Next Button -->
       <button
-        class="px-4 py-2 mx-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
+        class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50"
         :disabled="currentPage === totalPages"
         @click="changePage(currentPage + 1)"
       >

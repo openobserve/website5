@@ -23,10 +23,10 @@ defineProps({
 </script>
 
 <template>
-  <CustomSection class="min-h-screen px-4 pt-10 ">
+  <CustomSection class="min-h-screen pt-10">
     <div>
       <div
-        class="flex justify-center items-center space-x-2 text-white text-sm py-4"
+        class="flex justify-center items-center text-white text-sm py-4"
       >
         <template v-for="(item, index) in activity" :key="`item-${index}`">
           <span>{{ item }}</span>

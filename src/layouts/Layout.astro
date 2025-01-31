@@ -1,6 +1,25 @@
 ---
 import Header from "../components/header/Header.vue";
 import Footer from "../components/footerComponent/Footer.vue";
+import SEO from '../components/SEO.astro';
+
+interface Props {
+	title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const { 
+  title,
+  description,
+  image,
+  type,
+  publishedTime,
+  modifiedTime
+} = Astro.props;
 const footerData = {
   sections: [
     {
@@ -81,6 +100,7 @@ const footerData = {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="/src/styles/global.css" rel="stylesheet" />
@@ -90,6 +110,14 @@ const footerData = {
     />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
+    <SEO
+    title={title}
+    description={description}
+    image={image}
+    type={type}
+    publishedTime={publishedTime}
+    modifiedTime={modifiedTime}
+  />
   </head>
   <body>
     <Header client:only />

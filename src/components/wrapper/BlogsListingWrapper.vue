@@ -41,7 +41,7 @@
 
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
-        :sectionData="items"
+        :sectionData="paginatedItems"
         titleTextColor="text-white"
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"

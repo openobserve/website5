@@ -50,13 +50,7 @@ const props = defineProps({
         </div>
       </div>
     </div>
-    <div class="flex justify-center hidden">
-      <CustomButton
-        variant="secondary"
-        size="medium"
-        buttonText="SEE ALL BLOGS"
-          />
-    </div>
+   
     <!-- Mobile View -->
     <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
