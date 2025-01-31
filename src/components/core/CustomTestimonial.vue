@@ -73,8 +73,8 @@ const swiperOptions = {
             class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center"
           >
             <CustomImage
-              :src="testimonial.image"
-              :alt="testimonial.name"
+              :image="testimonial.image"
+              :altText="testimonial.name"
               cssClass="w-20 h-20 rounded-full mb-6 object-cover"
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">
@@ -103,8 +103,8 @@ const swiperOptions = {
             }"
           >
             <CustomImage
-              :src="testimonial.image"
-              :alt="testimonial.name"
+              :image="testimonial.image"
+              :altText="testimonial.name"
               cssClass="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a] "
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">

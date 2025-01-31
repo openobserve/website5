@@ -14,8 +14,8 @@ defineProps<{
   >
     <div class="h-48 overflow-hidden">
       <CustomImage
-        :src="imageUrl"
-        alt="Blog image"
+        :image="imageUrl"
+        altText="Blog image"
         cssClass="w-full h-full object-cover"
       />
     </div>

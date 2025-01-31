@@ -35,7 +35,7 @@ const props = defineProps({
 
       <!-- Close icon at the bottom -->
       <div class="flex justify-center items-center">
-        <CustomImage src="/CloseIcon.svg" alt="Close Icon" cssClass="w-5 h-5 cursor-pointer" />
+        <CustomImage image="/CloseIcon.svg" altText="Close Icon" cssClass="w-5 h-5 cursor-pointer" />
       </div>
     </div>
 

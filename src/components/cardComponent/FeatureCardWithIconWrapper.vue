@@ -21,13 +21,13 @@ const props = defineProps({
 <template>
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
     <CustomImage
-      src="/cardBg1.svg"
+      image="/cardBg1.svg"
       cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
-      alt="Background SVG"
+      altText="Background SVG"
     />
     <CustomImage
-      src="/cardBg2.svg"
-      alt="Image"
+      image="/cardBg2.svg"
+      altText="Image"
       cssClass="absolute bottom-[-60vh] -z-10 object-contain"
     />
 
@@ -52,8 +52,8 @@ const props = defineProps({
             >
               <div class="w-16 h-16 overflow-hidden">
                 <CustomImage
-                  src="CardSeeALLicon.svg"
-                  alt="View all use cases"
+                  image="CardSeeALLicon.svg"
+                  altText="View all use cases"
                   cssClass="w-full h-full object-cover"
                 />
               </div>

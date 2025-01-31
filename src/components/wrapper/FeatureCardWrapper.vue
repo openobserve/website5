@@ -34,18 +34,18 @@ const props = defineProps({
     <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
       <!-- Background Images -->
       <CustomImage
-        src="/Platform/FeatureCard-Ellipse-136.svg"
-        alt="Image"
+        image="/Platform/FeatureCard-Ellipse-136.svg"
+        altText="Image"
         cssClass="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
       />
       <CustomImage
-        src="/Platform/FeatureCard-Ellipse-140.svg"
-        alt="Image"
+        image="/Platform/FeatureCard-Ellipse-140.svg"
+        altText="Image"
         cssClass="absolute bottom-[-60vh] right-[80vh] object-contain opacity-70"
       />
       <CustomImage
-        src="/Platform/Feature-Card-Ellipse-40.svg"
-        alt="Image"
+        image="/Platform/Feature-Card-Ellipse-40.svg"
+        altText="Image"
         cssClass="absolute top-0 right-0 object-contain"
       />
 
@@ -70,7 +70,6 @@ const props = defineProps({
         </div>
       </CustomSection>
     </div>
-    <CustomSeprater />
   </div>
 </template>
 

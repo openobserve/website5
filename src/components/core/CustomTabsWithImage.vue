@@ -37,7 +37,6 @@ onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);
 });
 
-console.log(props?.items,"Items===============================");
 </script>
 
 <template>
@@ -68,8 +67,8 @@ console.log(props?.items,"Items===============================");
             </div>
             <div class="w-full flex justify-center">
               <CustomImage
-                :src="tab.image?.url"
-                :alt="tab.title"
+                :image="tab.image?.url"
+                :altText="tab.title"
                 cssClass="rounded-lg shadow-lg"
               />
             </div>
@@ -107,7 +106,7 @@ console.log(props?.items,"Items===============================");
         <!-- Text Content -->
         <div class="max-w-md space-y-4 px-3">
           <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
-          <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.subtitle }}</p>
+          <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.description }}</p>
           <CustomButton variant="secondary">
             {{ activeTab.buttonText }}
           </CustomButton>
@@ -116,8 +115,8 @@ console.log(props?.items,"Items===============================");
         <!-- Image -->
         <div class="lg:translate-y-[7%]">
           <CustomImage
-            :src="activeTab.image"
-            :alt="activeTab.title"
+            :image="activeTab.image"
+            :altText="activeTab.title"
             cssClass="rounded-lg shadow-sm"
           />
         </div>

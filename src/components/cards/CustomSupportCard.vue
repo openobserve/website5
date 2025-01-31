@@ -50,7 +50,7 @@ const props = defineProps({
       <div
         class="w-12 h-12 mb-6 flex items-center justify-center bg-[#2A2B2E] rounded-full"
       >
-        <CustomImage :src="card.icon" :alt="card.title" cssClass="w-6 h-6" />
+        <CustomImage :image="card.icon" :altText="card.title" cssClass="w-6 h-6" />
       </div>
 
       <!-- Main Title and Description -->
@@ -86,7 +86,7 @@ const props = defineProps({
           class="flex items-center justify-center gap-2"
         >
           <!-- Render icon if provided -->
-          <CustomImage cssClass="px-4" v-if="button.icon" :src="button.icon" alt="button icon " />
+          <CustomImage cssClass="px-4" v-if="button.icon" :image="button.icon" altText="button icon " />
           <!-- Render text if no icon is provided -->
           <span v-else>
             {{ button.text }}

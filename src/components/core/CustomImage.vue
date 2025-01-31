@@ -19,11 +19,13 @@ const props = defineProps({
   },
 });
 
+console.log(props?.image,"Props Image Classs");
+
 </script>
 
 <template>
   <img
-    :src="image || '/img/default_project_image.png'"
+    :src="image?.url || '/img/default_project_image.png'"
     :alt="altText || image?.alt || 'Default Image'"
     :class="cssClass"
   />

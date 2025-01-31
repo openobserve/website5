@@ -37,8 +37,8 @@ defineProps({
         {{ ctaDescription }}
       </p>
       <div class="flex flex-wrap justify-center mt-7">
-        <CustomButton variant="primary" class="w-full sm:w-auto cursor-pointer" :buttonLink="ctaButton.link">
-          {{ ctaButton.title }}
+        <CustomButton variant="secondary" class="w-full sm:w-auto cursor-pointer" :buttonLink="ctaButton.link">
+          {{ ctaButton.text }}
         </CustomButton>
       </div>
     </div>
