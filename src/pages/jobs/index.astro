@@ -7,7 +7,13 @@ import HomeWhyO2Wrapper from "../../../components/wrapper/HomeWhyO2Wrapper.vue";
 import CustomPositionCardWrapper from "../../../components/cards/CustomPositionCardWrapper.vue";
 import CustomTestimonial from "../../../components/core/CustomTestimonial.vue";
 import CustomStory from "../../../components/core/CustomStory.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
+const PageData = await fetchApi({
+  endpoint: "api/job",
+  query: { pLevel: "10" , status: "draft"},
+});
 
 const visitSandboxData = {
   title: "Apply Today",
@@ -154,7 +160,8 @@ const cardData1 = [
 ---
 
 <Layout>
-    <div class="mt-10">
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+    <!-- <div class="mt-10">
         <CompanyJoinOOHeroSection
           client:load
           title="Join OpenObserve"
@@ -201,5 +208,5 @@ const cardData1 = [
     buttons={[{ label: "VIEW ALL POSITIONS", variant: "secondary" }]}
     backgroundImage="/sandboxBG.svg"
     client:load
-  />
+  /> -->
 </Layout>
