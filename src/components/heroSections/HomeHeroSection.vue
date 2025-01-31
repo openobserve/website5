@@ -63,10 +63,10 @@ defineProps({
       <!-- Buttons -->
       <div class="flex flex-wrap justify-center lg:justify-start gap-4">
         <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.title }}
+          {{ primaryButton.text}}
         </CustomButton>
         <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">
-          {{ secondaryButton.title }}
+          {{ secondaryButton.text }}
         </CustomButton>
       </div>
     </div>
