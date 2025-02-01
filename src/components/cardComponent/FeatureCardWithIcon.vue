@@ -9,32 +9,19 @@ const props = defineProps({
   },
 });
 
-console.log(props.card,"Cards Data");
+const dynamicComponent = props.card.link ? "a" : "div";
 </script>
 
 <template>
-  <div
-    class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow container mx-auto"
-  >
+  <dynamicComponent :href="card.link" class="relative rounded-2xl w-full p-[0.0625rem]
+    bg-gradient-gray hover:bg-gradient-blue
+    transition-all duration-300 shadow-2xl hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)] container mx-auto group">
     <!-- Content Layer -->
-    <div
-      class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
-    >
-      <CustomImage :image="card.image" altText="Icon" cssClass="w-16 h-16 object-cover" />
-      <h3 class="text-[#BEC0C2] text-base font-semibold" :title="card.title">
+    <div class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8">
+      <CustomImage :image="card.image" altText="Icon" cssClass="h-16" />
+      <h3 class="text-[#BEC0C2] text-base font-semibold text-center group-hover:text-[#80B9FF]" :title="card.title">
         {{ card.title }}
       </h3>
     </div>
-  </div>
+  </dynamicComponent>
 </template>
-
-<style scoped>
-.cardShadow:hover {
-  box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
-  border-radius: 1rem;
-  transition: all;
-}
-.cardShadow:hover h3 {
-  color: #80b9ff;
-}
-</style>

@@ -2,8 +2,6 @@
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomTabs from "../core/CustomTabs.vue";
-import GetDemoWrapper from "./GetDemoWrapper.vue";
-import CustomSeprater from "../core/CustomSeprater.vue";
 const props = defineProps({
   items: {
     type: Array,
