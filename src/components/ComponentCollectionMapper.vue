@@ -5,7 +5,6 @@
       :key="index"
       :is="componentsMap[it.__component]"
       v-bind="it"
-      v-bind="it"
     />
   </div>
 </template>
@@ -22,12 +21,14 @@ import BlogWrapper from './wrapper/BlogWrapper.vue';
 import HomeFeatureWrapper from './wrapper/HomeFeatureWrapper.vue';
 import HomeWhyO2Wrapper from './wrapper/HomeWhyO2Wrapper.vue';
 import CustomBanner from './core/CustomBanner.vue';
+
 import FeatureHeroSection from './heroSections/FeatureHeroSection.vue';
 import FeatureCardWrapper from './wrapper/FeatureCardWrapper.vue';
 import TabsWithImageWrapper from './wrapper/TabsWithImageWrapper.vue';
 import TabsWrapper from './wrapper/TabsWrapper.vue';
 import CaseStudyWrapper from './wrapper/CaseStudyWrapper.vue';
 import BannerWrapper from './wrapper/BannerWrapper.vue';
+
 import PlatformLogsHeroSection from './heroSections/PlatformLogsHeroSection.vue';
 import CustomCardWrapper from './cards/CustomCardWrapper.vue';
 import VisitSandbox from './core/VisitSandbox.vue';

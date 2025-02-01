@@ -34,9 +34,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
     <!-- Tabs Section -->
     <div class="sticky top-16 z-50 backdrop-blur-2xl">
       <div class="relative max-w-6xl mx-auto px-4">
-        <div
-          class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar"
-        >
+        <div class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar">
           <!-- Render Tabs -->
           <div
             v-for="(tab, index) in items"
@@ -63,7 +61,11 @@ contentRefs.value = new Array(props.items.length).fill(null);
     <div class="">
       <CustomSection>
         <!-- Render all content from all tabs -->
-        <div v-for="(tab, tabIndex) in items" :key="tab.title" :ref="el => contentRefs[tabIndex] = el">
+        <div
+          v-for="(tab, tabIndex) in items"
+          :key="tab.title"
+          :ref="(el) => (contentRefs[tabIndex] = el)"
+        >
           <CustomInterChange
             :key="tabIndex"
             :items="tab.items"
