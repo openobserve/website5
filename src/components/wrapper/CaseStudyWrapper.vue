@@ -44,7 +44,7 @@ const props = defineProps({
         </div>
       </div>
     </div>
-
+   
     <!-- Mobile View -->
     <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
