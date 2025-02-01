@@ -7,64 +7,16 @@ import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 
-const blogData = {
-  recentPostsText: "Explore Latest Insights And Updates",
-  blogs: [
-    {
-      title: "Blog 1",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=1",
-    },
-    {
-      title: "Blog 2",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=2",
-    },
-    {
-      title: "Blog 3",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=3",
-    },
-    {
-      title: "Blog 4",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=4",
-    },
-    {
-      title: "Blog 5",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=5",
-    },
-    {
-      title: "Blog 6",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=6",
-    },
-    {
-      title: "Blog 7",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=7",
-    },
-    {
-      title: "Blog 8",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=8",
-    },
-    {
-      title: "Blog 9",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-      imageUrl: "https://picsum.photos/400/300?random=9",
-    },
-  ],
+// Get URL parameters for pagination and search
+const currentPage = 1
+const itemsPerPage = 10;
+
+const suggestionData = await fetchApi({
+  endpoint: "api/categories",
+  query: { path: "", status: "draft", pLevel: "10" },
+});
+const handlePageChange = (page:any) => {
+  console.log("Page changed to:", page);
 };
 
 const caseStudyData = [
@@ -94,6 +46,9 @@ const caseStudyData = [
   },
 ];
 const bannerData = {
+  title: "Ready to get started ?",
+  subtitle:
+    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
   items: [
     {
       title: "Fair and transparent pricing",
@@ -105,54 +60,23 @@ const bannerData = {
     },
   ],
 };
-const trustedCompanies = {
-  title: "Trusted by leading companies",
-  items: [
-    {
-      icon: "/Homepage/money-bag-1.svg",
-
-      description: "Users who use and love OpenObserve",
-    },
-    {
-      icon: "/Homepage/money-bag-1.svg",
-
-      description: "Users who use and love OpenObserve",
-    },
-    {
-      icon: "/Homepage/money-bag-1.svg",
-
-      description: "Users who use and love OpenObserve",
-    },
-  ],
-};
 const cardHeader = {
   title: "Additional Learning Resources",
   description:
     "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
 };
+
 const cardData = [
   {
     icon: "/resources/64pxComponent.svg",
     title: "Case Studies",
   },
-  {
-    icon: "/resources/64pxComponent(1).svg",
-    title: "Tech Talks",
-  },
-  {
-    icon: "/resources/64pxComponent(2).svg",
-    title: "Video Guides",
-  },
-  {
-    icon: "/resources/64pxComponent(3).svg",
-    title: "Webinars",
-  },
-  {
-    icon: "/resources/64pxComponent(4).svg",
-    title: "Community Forums",
-  },
 ];
----
+const caseStudyTitle = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
 
 <Layout>
   <ResourceHeroSection
@@ -167,5 +91,5 @@ const cardData = [
     subtitle={cardHeader.description}
     items={cardData}
   />
-  <BannerWrapper items={bannerData} client:load />
+  <!-- <BannerWrapper items={bannerData} client:load /> -->
 </Layout>
