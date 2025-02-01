@@ -26,7 +26,7 @@ const repeatedData = computed(() => {
 <template>
   <div class="py-2 container mx-auto">
     <div class="carousel-container">
-      <div class="slide">
+      <div class="slide flex flex-row justify-center items-center">
         <div v-for="(item, index) in repeatedData" :key="index"
           class="flex-none w-28 lg:w-40 h-full grayscale transition duration-200 hover:grayscale-0 mx-4">
           <CustomImage :image="item?.Image" cssClass="w-full h-full object-cover" />
@@ -51,7 +51,6 @@ const repeatedData = computed(() => {
 }
 
 .slide {
-  display: flex;
   flex-wrap: nowrap;
   animation: slide 25s infinite linear;
   /* Adjust time based on number of items */
