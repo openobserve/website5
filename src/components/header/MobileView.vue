@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center p-2">
         <Logo />
         <div class="flex items-center space-x-1">
-          <div
+          <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"
             ref="searchWrapper"
@@ -14,7 +14,7 @@
               alt="Search Icon"
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
-          </div>
+          </div> -->
           <CustomButton variant="tertiary" size="small">LOGIN IN</CustomButton>
           <div
             class="cursor-pointer h-8 w-8 flex items-center"
@@ -83,10 +83,15 @@
             </li>
           </ul>
           <div class="flex flex-col space-y-4 w-full pt-20 px-4">
-            <CustomButton variant="secondary" size="large"
+            <CustomButton
+              variant="secondary"
+              size="large"
+              buttonLink="/download"
               >DOWNLOAD</CustomButton
             >
-            <CustomButton variant="primary" size="large">GET DEMO</CustomButton>
+            <CustomButton variant="primary" size="large" buttonLink="/"
+              >GET DEMO</CustomButton
+            >
           </div>
         </div>
 
@@ -119,7 +124,7 @@
                 <CustomHeaderButton
                   title="Full Stack Observability Platform"
                   linkTitle="View Platform"
-                  link="#"
+                  link="platform"
                 />
                 <a
                   class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
@@ -150,9 +155,9 @@
               class="flex flex-col space-y-4"
             >
               <CustomHeaderButton
-                title="Full Stack Observability Platform"
-                linkTitle="View Platform"
-                link="#"
+                title="Full Stack Observability Solution"
+                linkTitle="View Solution"
+                link="solution"
               />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
@@ -164,8 +169,8 @@
                       class="text-theme-secondaryFont text-base"
                     >
                       <a
-                        :href="item.link"
-                        :class="item.link ? 'gradient-hover' : ''"
+                        :href="`/solution/${item.link}`"
+                        :class="item?.link ? 'gradient-hover' : ''"
                         >{{ item.title }}</a
                       >
                     </li>
@@ -183,18 +188,59 @@
                         class="text-theme-secondaryFont text-base"
                       >
                         <a
-                          :href="item.link"
+                          :href="`/solution/${item.link}`"
                           :class="item.link ? 'gradient-hover' : ''"
                           >{{ item.title }}</a
                         >
                       </li>
                     </ul>
                   </div>
-                  <div>
+                  <!-- <div>
                     <a :href="items?.solutions?.sandbox?.link">{{
                       items?.solutions?.sandbox?.title
                     }}</a>
-                  </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div
+              v-show="activeSubMenu === 'Resources'"
+              class="flex flex-col space-y-4"
+            >
+              <CustomHeaderButton
+                title="Full Stack Observability Resources"
+                linkTitle="View Resources"
+                link="resources"
+              />
+              <div class="flex flex-col space-y-3">
+                <div>
+                  <ul
+                    class=""
+                    v-for="(item, index) in items.resources.item1"
+                    :key="index"
+                  >
+                    <li class="cursor-pointer flex flex-col space-y-2">
+                      <a :href="item.link" class="text-lg font-bold">{{
+                        item.title
+                      }}</a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="flex flex-col space-y-3"
+                  v-for="(item, index) in items.resources.item2"
+                  :key="index"
+                >
+                  <h4 class="text-base font-bold">{{ item.title }}</h4>
+                  <ul class="" v-for="(it, index) in item.items" :key="index">
+                    <li class="cursor-pointer flex flex-col space-y-2">
+                      <a
+                        :href="it.link"
+                        class="gradient-hover text-sm text-[#BEC0C2]"
+                        >{{ it.title }}</a
+                      >
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -283,6 +329,23 @@ onUnmounted(() => {
 });
 </script>
 <style scoped>
+.card-border {
+  border: 1px solid #313539;
+  border-radius: 0.5rem;
+}
+.gradient-hover {
+  display: inline-block;
+}
+
+.gradient-hover:hover {
+  background: linear-gradient(
+    to left,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;

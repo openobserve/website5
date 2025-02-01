@@ -1,0 +1,253 @@
+{
+  "platform": {
+    "title": "Observability Suite",
+    "items": [
+      {
+        "title": "Logs",
+        "link": "logs",
+        "items": [
+          {
+            "title": "Real-time Analytics"
+          },
+          {
+            "title": "Search and Analysis"
+          },
+          {
+            "title": "Log Processing"
+          },
+          {
+            "title": "Storage Optimization"
+          }
+        ]
+      },
+      {
+        "title": "Metrics",
+        "link": "metrics",
+        "items": [
+          {
+            "title": "Time-Series Management"
+          },
+          {
+            "title": "Efficient Collection"
+          },
+          {
+            "title": "Real-Time Analysis"
+          }
+        ]
+      },
+      {
+        "title": "Traces",
+        "link": "traces",
+        "items": [
+          {
+            "title": "Trace Collection"
+          },
+          {
+            "title": "OpenTelemetry Integration"
+          },
+          {
+            "title": "Efficient Processing"
+          }
+        ]
+      },
+      {
+        "title": "Frontend Monitoring",
+        "link": "frontend-monitoring",
+        "items": [
+          {
+            "title": "User Experience Monitoring"
+          },
+          {
+            "title": "Error Management"
+          },
+          {
+            "title": "Performance Analysis"
+          },
+          {
+            "title": "Seamless Implementation"
+          }
+        ]
+      },
+      {
+        "title": "Pipelines",
+        "link": "pipelines",
+        "items": [
+          {
+            "title": "Pipeline Types"
+          },
+          {
+            "title": "Data Transformation"
+          },
+          {
+            "title": "Data Enrichment"
+          },
+          {
+            "title": "Pipeline Components"
+          }
+        ]
+      },
+      {
+        "title": "Alerting",
+        "link": "alerting",
+        "items": [
+          {
+            "title": "Alert Types"
+          },
+          {
+            "title": "Alert Configuration"
+          },
+          {
+            "title": "Notification Management"
+          },
+          {
+            "title": "Alert Controls"
+          }
+        ]
+      },
+      {
+        "title": "Visualisation & Dashboards",
+        "link": "visualization-and-dashboards",
+        "items": [
+          {
+            "title": "Real-Time Monitoring"
+          },
+          {
+            "title": "Customizable Views"
+          },
+          {
+            "title": "Advanced Query Capabilities"
+          },
+          {
+            "title": "Seamless Collaboration"
+          }
+        ]
+      }
+    ],
+    "keyFeature": {
+      "title": "Key Features",
+      "items": [
+        {
+          "title": "High Availability"
+        },
+        {
+          "title": "Role-Based Access Control (RBAC)"
+        },
+        {
+          "title": "Multi-Tenancy"
+        },
+        {
+          "title": "Federated Search"
+        },
+        {
+          "title": "Dynamic Schema Evolution"
+        },
+        {
+          "title": "Query Management"
+        },
+        {
+          "title": "Advanced Multilingual GUI"
+        },
+        {
+          "title": "Workload Management (QoS)"
+        },
+        {
+          "title": "Reports Generation"
+        },
+        {
+          "title": "Audit Trial"
+        },
+        {
+          "title": "Single Sign-On"
+        }
+      ]
+    }
+  },
+  "solutions": {
+    "useCases": [
+      {
+        "title": "AWS Monitoring",
+        "link": "aws-monitoring"
+      },
+      {
+        "title": "Azure Monitoring",
+        "link": "azure-monitoring"
+      },
+      {
+        "title": "GCP Monitoring",
+        "link": "gcp-monitoring"
+      },
+      {
+        "title": "Kubernetes Observability",
+        "link": "kubernetes-monitoring"
+      },
+      {
+        "title": "Database Monitoring",
+        "link": "database-monitoring"
+      },
+      {
+        "title": "Infrastructure Monitoring",
+        "link": "opentelemetry"
+      }
+      
+    ],
+    "byTeam": [
+      {
+        "title": "DevOps & SRE",
+        "link": "devops-sre"
+      },
+      {
+        "title": "Development Teams",
+        "link": "development-teams"
+      }
+    ]
+  },
+  "company": [
+    {
+      "title": "About Us",
+      "link": "about"
+    },
+    {
+      "title": "Careers",
+      "link": "jobs"
+    },
+    {
+      "title": "Why OpenObserve?",
+      "link": "why-choose-us"
+    },
+    {
+      "title": "Contact Us",
+      "link": "contact"
+    }
+  ],
+  "resources" : {
+    "item1": [
+      {
+        "title": "Documentation",
+        "link": ""
+      },
+      {
+        "title": "Blogs",
+        "link": "blogs"
+      }
+    ],
+    "item2": [
+      {
+        "title": "Support",
+        "items" : [
+          {
+            "title":"Frequently Asked Question",
+            "link":"faqs"
+          },
+          {
+            "title":"Community Support",
+            "link":"community-support"
+          },
+          {
+            "title":"Enterprise-support",
+            "link":"enterprice-support"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -6,230 +6,13 @@ import CustomHeaderButton from "./CustomHeaderButton.vue";
 import LaptopView from "./LaptopView.vue";
 import SectionHeader from "./SectionHeader.vue";
 import MobileView from "./MobileView.vue";
-const platformData = {
-  platform: {
-    title: "Observability Suite",
-    items: [
-      {
-        title: "Metrics",
-        items: [
-          {
-            title: "Time-series Data",
-            link: "url_to_metric_data_1",
-          },
-          {
-            title: "Prometheus Compatibility",
-            link: "url_to_metric_data_2",
-          },
-          {
-            title: "Custom Metrics",
-            link: "url_to_metric_data_3",
-          },
-        ],
-      },
-      {
-        title: "Logs",
-        items: [
-          {
-            title: "Real-time Log Analytics",
-            link: "platform/logs",
-          },
-          {
-            title: "Full-text Search",
-            link: "url_to_logs_2",
-          },
-          {
-            title: "Log Parsing & Filtering",
-            link: "url_to_logs_3",
-          },
-          {
-            title: "Log Compression",
-            link: "url_to_logs_4",
-          },
-        ],
-      },
-      {
-        title: "Pipelines",
-        items: [
-          {
-            title: "VRL Functions",
-            link: "url_to_pipelines_1",
-          },
-          {
-            title: "Log parsing",
-            link: "url_to_pipelines_2",
-          },
-          {
-            title: "Logs to Metrics",
-            link: "url_to_pipelines_3",
-          },
-          {
-            title: "Metrics Summary",
-            link: "url_to_pipelines_4",
-          },
-          {
-            title: "Traces to Metrics",
-            link: "url_to_pipelines_5",
-          },
-        ],
-      },
-      {
-        title: "Traces",
-        items: [
-          {
-            title: "Distributed Tracing",
-            link: "url_to_tracing_1",
-          },
-          {
-            title: "OpenTelemetry Support",
-            link: "url_to_tracing_2",
-          },
-          {
-            title: "Service Dependencies",
-            link: "url_to_tracing_3",
-          },
-        ],
-      },
-      {
-        title: "Alerting",
-        items: [
-          {
-            title: "Scheduled Alerts",
-            link: "url_to_alerting_1",
-          },
-          {
-            title: "Real Time Alerts",
-            link: "url_to_alerting_2",
-          },
-          {
-            title: "Integrated Dashboards",
-            link: "url_to_alerting_3",
-          },
-          {
-            title: "Flexible Query Functions",
-            link: "url_to_alerting_4",
-          },
-        ],
-      },
-      {
-        title: "Frontend Monitoring",
-        items: [
-          {
-            title: "Real User Monitoring (RUM)",
-            link: "url_to_rum_1",
-          },
-          {
-            title: "Session Replay",
-            link: "url_to_rum_2",
-          },
-          {
-            title: "Error Tracking",
-            link: "url_to_rum_3",
-          },
-        ],
-      },
 
-      {
-        title: "Visualisation & Dashboards",
-        items: [
-          {
-            title: "Customizable Dashboard",
-            link: "url_to_visualisation_1",
-          },
-          {
-            title: "Real Time Data Exploration",
-            link: "url_to_visualisation_2",
-          },
-          {
-            title: "Data Source Integration",
-            link: "url_to_visualisation_3",
-          },
-          {
-            title: "Comprehensive Analytics",
-            link: "url_to_visualisation_4",
-          },
-        ],
-      },
-    ],
-    keyFeature: {
-      title: "Key Features",
-      items: [
-        {
-          title: "High Availability",
-        },
-        {
-          title: "Role-Based Access Control (RBAC)",
-        },
-        {
-          title: "Multi-Tenancy",
-        },
-        {
-          title: "Federated Search",
-        },
-        {
-          title: "Dynamic Schema Evolution",
-        },
-        {
-          title: "Query Management",
-        },
-        {
-          title: "Advanced Multilingual GUI",
-        },
-        {
-          title: "Workload Management (QoS)",
-        },
-        {
-          title: "Reports Generation",
-        },
-        {
-          title: "Audit Trial",
-        },
-        {
-          title: "Single Sign-On",
-        },
-      ],
-    },
+const props=defineProps({
+  navData: {
+    type: Object,
+    required: true,
   },
-  solutions: {
-    useCases: [
-      { title: "AWS Monitoring", link: "#" },
-      { title: "Azure Monitoring", link: "#" },
-      { title: "GCP Monitoring", link: "#" },
-      { title: "Kubernetes Observability", link: "#" },
-      { title: "Database Monitoring", link: "#" },
-      { title: "Infrastructure Monitoring", link: "#" },
-      { title: "Security & Audit Logs", link: "#" },
-      { title: "Cost Optimization", link: "#" },
-    ],
-    byTeam: [
-      { title: "DevOps & SRE", link: "#" },
-      { title: "Platform Engineering", link: "#" },
-      { title: "Development Teams", link: "#" },
-    ],
-    sandbox: { title: "Sandbox", link: "#" },
-    cta: {
-      text: "Full Stack Observability Platform",
-      link: "#",
-    },
-    secondaryCTA: {
-      text: "View all Solutions",
-      link: "#",
-    },
-  },
-  company: [
-    { title: "About Us", link: "#" },
-    { title: "Careers", link: "#" },
-    { title: "Why OpenObserve?", link: "#" },
-    { title: "Contact Us", link: "#" },
-  ],
-};
-
-// const props=defineProps({
-//   platformData: {
-//     type: Object,
-//     required: false,
-//   },
-// });
+});
 // Reactive state for hover functionality
 const isPlatformHovered = ref(false);
 const currentPlatform = ref(null);
@@ -360,10 +143,10 @@ const onMouseLeave = () => {
     id="header-class"
   >
     <div class="lg:block hidden">
-      <LaptopView :items="platformData" />
+      <LaptopView :items="navData" />
     </div>
     <div class="lg:hidden block">
-      <MobileView :items="platformData" />
+      <MobileView :items="navData" />
     </div>
   </div>
 </template>

@@ -29,14 +29,18 @@
               Solution
             </a>
           </li>
-          <li class="relative py-6">
-            <a href="#" class="text-white font-semibold text-base">
+          <li
+            class="relative py-6"
+            @mouseenter="onResourcesMenuHover"
+            @mouseleave="onResourcesMenuMouseLeave"
+          >
+            <a href="#" class="text-white font-semibold text-base hover:underline">
               Resources
             </a>
           </li>
           <li
             class="relative py-6"
-            @mouseenter="onCompoanyMenuHover"
+            @mouseenter="onCompanyMenuHover"
             @mouseleave="onCompanyMenuMouseLeave"
           >
             <a
@@ -49,7 +53,7 @@
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
-        <div
+        <!-- <div
           class="relative rounded-xl hover:bg-gradient-to-r hover:from-[#3E93D9] hover:to-[#99CAE9] transition"
           @click="onSearchClick"
           ref="searchWrapper"
@@ -59,29 +63,33 @@
             alt="Search Icon"
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
-        </div>
-        <CustomButton variant="tertiary" size="small"> LOGIN IN </CustomButton>
-        <CustomButton variant="secondary" size="small"> DOWNLOAD </CustomButton>
-        <CustomButton variant="primary" size="small"> GET DEMO </CustomButton>
+        </div> -->
+        <CustomButton variant="tertiary" size="small" buttonLink="https://cloud.openobserve.ai" target="_blank"> LOGIN IN </CustomButton>
+        <CustomButton variant="secondary" size="small" buttonLink="download"> DOWNLOAD </CustomButton>
+        <CustomButton variant="primary" size="small" buttonLink="/"> GET DEMO </CustomButton>
       </div>
     </div>
     <!-- Dropdown Menus -->
     <div
       class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
-      @mouseenter="onPlatformMenuHover"
       v-if="isPlatformMenuOpen"
+      @mouseenter="onPlatformMenuHover"
     >
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
-          <h3 class="text-xl font-bold pb-2 text-[#FFFFFF]">
+          <a class="text-xl font-bold pb-2 text-[#FFFFFF]">
             {{ items.platform.title }}
-          </h3>
+          </a>
           <div class="w-full flex justify-between flex-col md:flex-row gap-2">
             <div
               class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
             >
               <div v-for="(item, index) in items.platform.items" :key="index">
-                <SectionHeader :title="item.title" :items="item.items" />
+                <SectionHeader
+                  :title="item.title"
+                  :items="item.items"
+                  :link="item.link"
+                />
               </div>
             </div>
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
@@ -98,6 +106,7 @@
               <CustomHeaderButton
                 title="Full Stack Observability Platform"
                 linkTitle="View Platform"
+                link="/platform"
               />
             </div>
             <a
@@ -127,7 +136,7 @@
                     class="text-[#BEC0C2] text-sm"
                   >
                     <a
-                      :href="item.link"
+                      :href="`/solution/${item.link}`"
                       :class="item.link ? 'gradient-hover' : ''"
                       >{{ item.title }}</a
                     >
@@ -147,7 +156,7 @@
                       class="text-[#BEC0C2] text-sm"
                     >
                       <a
-                        :href="item.link"
+                        :href="`/solution/${item.link}`"
                         :class="item.link ? 'gradient-hover' : ''"
                         >{{ item.title }}</a
                       >
@@ -176,9 +185,59 @@
       </CustomHoverHeader>
     </div>
     <div
+      class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[45%] container mx-auto"
+      v-if="isResourcesMenuOpen"
+      @mouseenter="onResourcesMenuHover"
+    >
+      <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
+        <div class="flex flex-col space-y-4">
+          <div class="flex flex-row space-x-14">
+            <div>
+              <ul
+                class=""
+                v-for="(item, index) in items.resources.item1"
+                :key="index"
+              >
+                <li class="cursor-pointer flex flex-col space-y-2">
+                  <a :href="item.link" class="text-lg font-bold">{{
+                    item.title
+                  }}</a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="flex flex-col space-y-3"
+              v-for="(item, index) in items.resources.item2"
+              :key="index"
+            >
+              <h4 class="text-base font-bold">{{ item.title }}</h4>
+              <ul
+                class=""
+                v-for="(it, index) in item.items"
+                :key="index"
+              >
+                <li class="cursor-pointer flex flex-col space-y-2">
+                  <a :href="it.link" class="gradient-hover text-sm text-[#BEC0C2]">{{ it.title }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <div class="w-full">
+              <CustomHeaderButton
+                title="Check out our resource library"
+                linkTitle="View Resources"
+                link="resources"
+              />
+            </div>
+          </div>
+        </div>
+      </CustomHoverHeader>
+    </div>
+    <div
       class="absolute top-full flex justify-center left-1/2 w-52 container mx-auto"
       v-if="isCompanyMenuOpen"
-      @mouseenter="onCompoanyMenuHover"
+      @mouseenter="onCompanyMenuHover"
     >
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
@@ -215,7 +274,6 @@
     </div>
   </header>
 </template>
-
 
 <script setup>
 import Logo from "../core/Logo.vue";
@@ -263,7 +321,7 @@ const onResourcesMenuMouseLeave = () => {
   isResourcesMenuOpen.value = false;
 };
 
-const onCompoanyMenuHover = (event) => {
+const onCompanyMenuHover = (event) => {
   isCompanyMenuOpen.value = true;
 };
 
