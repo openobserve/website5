@@ -21,6 +21,7 @@ const isMobile = ref(false);
 
 // Function to handle tab switching
 const selectTab = (tab) => {
+  console.log("tab", tab);
   activeTab.value = tab;
 };
 
@@ -30,6 +31,7 @@ const checkIfMobile = () => {
 
 onMounted(() => {
   checkIfMobile();
+  console.log('mounted')
   window.addEventListener("resize", checkIfMobile);
 });
 
@@ -37,6 +39,7 @@ onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);
 });
 
+console.log('sdgfsdgfsdgs============================================================================================')
 </script>
 
 <template>

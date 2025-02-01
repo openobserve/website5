@@ -60,6 +60,7 @@ const componentsMap = computed(() => ({
   'section-cards.feature4': FeatureCardWrapper,
   'section-features.platform-tabs-wrapper': TabsWithImageWrapper,
   'section-features.tabs-features': TabsWrapper,
+  // 'section':TabsWrapper.
   // 'section.caseStudyWrapper': CaseStudyWrapper,
   'section-cta.banner': BannerWrapper,
   'section-cta.plain-cta':GetDemoWrapper,

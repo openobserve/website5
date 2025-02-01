@@ -396,7 +396,7 @@ const handleSubmit = (data: any) => {
 };
 ---
 
-<Layout>
+<Layout client:load>
   <ComponentCollectionMapper data={PageData?.data?.body}  client:load />
   <!-- <FeatureHeroSection
     client:load
