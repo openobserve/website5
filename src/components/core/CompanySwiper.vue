@@ -12,12 +12,19 @@ const props = defineProps({
 });
 
 // Create a computed property to duplicate the data array
-const repeatedData = computed(() => [...props.items, ...props.items]);
+const repeatedData = computed(() => {
+  const result = []
+  // loop 100 times
+  Array.from({ length: 100 }, (_, index) => {
+    result.push(...props.items)
+  })
+  return result
+});
 </script>
 
 
 <template>
-  <div class="py-2">
+  <div class="py-2 container mx-auto">
     <div class="carousel-container">
       <div class="slide">
         <div v-for="(item, index) in repeatedData" :key="index"
@@ -83,8 +90,8 @@ const repeatedData = computed(() => [...props.items, ...props.items]);
 
 .carousel-container::before {
   left: 0;
-  background: linear-gradient(to right, rgba(var(--gray-dark), 1) 0%, rgba(var(--gray-dark), 0) 100%);
-  width: 6px;
+  background: linear-gradient(to right, black 0%, rgba(var(--gray-dark), 0) 100%);
+  width: 40px;
 }
 
 .carousel-container::after {

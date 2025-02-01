@@ -27,7 +27,7 @@ const props = defineProps({
 <template>
   <div class="h-14">
     <CustomRoundShape
-      :imgSrc="card.icon"
+      :imgSrc="card.image"
       iconSize="small"
       :borderColor="borderColor"
       size="small"
