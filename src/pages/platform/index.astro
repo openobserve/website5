@@ -386,7 +386,7 @@ const bannerData = {
 console.log(PageData,"dataaaaa");
 ---
 
-<Layout>
+<Layout client:load>
   <ComponentCollectionMapper data={PageData?.data?.body}  client:load />
   <!-- <FeatureHeroSection
     client:load

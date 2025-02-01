@@ -20,15 +20,15 @@ const props = defineProps({
 
 <template>
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
-    <CustomImage
-      image="/cardBg1.svg"
-      cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-cover"
-      altText="Background SVG"
+    <img
+      src="/cardBg1.svg"
+      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-cover"
+      alt="Background SVG"
     />
-    <CustomImage
-      image="/cardBg2.svg"
-      altText="Image"
-      cssClass="absolute bottom-[-60vh] -z-10 object-cover"
+    <img
+    src="/cardBg2.svg"
+    alt="Image"
+    class="absolute bottom-[-60vh] -z-10 object-cover"
     />
 
     <CustomSection>
@@ -51,10 +51,10 @@ const props = defineProps({
               class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
             >
               <div class="w-16 h-16 overflow-hidden">
-                <CustomImage
-                  image="CardSeeALLicon.svg"
-                  altText="View all use cases"
-                  cssClass="w-full h-full object-cover"
+                <img
+                  src="/CardSeeALLicon.svg"
+                  alt="View all use cases"
+                  class="w-full h-full object-cover"
                 />
               </div>
               <h3 class="text-[#BEC0C2] text-base font-semibold">
@@ -67,3 +67,13 @@ const props = defineProps({
     </CustomSection>
   </div>
 </template>
+<style scoped>
+.cardShadow:hover {
+  box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  border-radius: 1rem;
+  transition: all;
+}
+.cardShadow:hover h3 {
+  color: #80b9ff;
+}
+</style>

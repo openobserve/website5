@@ -36,11 +36,13 @@ defineProps({
     required: true, // URL of the footer image
   },
 });
+
+
 </script>
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4"
+    class="relative  min-h-[100vh] flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%] bg-cover px-4"
     :style="{
       backgroundImage: `url(${backgroundImage?.url})`,
     }"
@@ -102,7 +104,7 @@ defineProps({
       </div>
 
       <!-- Footer Image -->
-      <div class="w-full mt-12">
+      <div class="w-full mt-24">
         <CustomImage
           :image="image"
           altText="Footer visual"

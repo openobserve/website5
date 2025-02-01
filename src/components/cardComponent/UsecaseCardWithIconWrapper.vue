@@ -4,7 +4,7 @@ import IconTitleCard from "./UsecaseCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import CustomImage from "../core/CustomImage.vue";
 import Heading from "../core/Heading.vue";
-import { object } from "astro:schema";
+import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 
 const props = defineProps({
   items:{
@@ -19,6 +19,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <CustomSectionBackground direction="bottom">
   <CustomSection>
     <div class="flex flex-col max-w-full container mx-auto">
       <Heading
@@ -43,7 +44,7 @@ const props = defineProps({
               class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
             >
               <div class="w-16 h-16 overflow-hidden">
-                <CustomImage image="CardSeeALLicon.svg" altText="View all use cases" cssClass="w-full h-full object-cover" />
+                <img src="/CardSeeALLicon.svg" alt="View all use cases" class="w-full h-full object-cover" />
               </div>
               <h3 class="text-[#BEC0C2] text-base font-semibold">View all use cases</h3>
             </div>
@@ -52,4 +53,15 @@ const props = defineProps({
       </div>
     </div>
   </CustomSection>
+</CustomSectionBackground>
 </template>
+<style scoped>
+.cardShadow:hover {
+  box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  border-radius: 1rem;
+  transition: all;
+}
+.cardShadow:hover h3 {
+  color: #80b9ff;
+}
+</style>
