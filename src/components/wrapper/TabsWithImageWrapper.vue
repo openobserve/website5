@@ -5,25 +5,27 @@ import CustomTabsWithImage from "../core/CustomTabsWithImage.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
   items: {
+    type: Array,
+    required: true,
+  },
+  heading: {
     type: Object,
     required: true,
   },
 });
+const test=() => {
+  console.log("test===");
+}
 </script>
 <template>
-  <div>
+  <div @click="test">
     <CustomSection>
       <div class="py-10">
-        <Heading
-          :title="props.items.title"
-          :description="props.items.subtitle"
-          align="CENTER"
-        />
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
-      <CustomTabsWithImage :tabs="props.items.items" client:load />
+      <CustomTabsWithImage :items="items" />
     </CustomSection>
     <div class="mt-24">
-      <CustomSeprater />
     </div>
   </div>
 </template>

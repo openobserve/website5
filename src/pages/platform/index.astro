@@ -7,8 +7,13 @@ import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
 import GetDemoWrapper from "../../components/wrapper/GetDemoWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
-import BaseForm from "../../components/forms/BaseForm.vue";
-import { ref } from "vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+const PageData = await fetchApi({
+  endpoint: "api/platform",
+  query: { pLevel: "10" , status: "draft"},
+});
 const cardData = [
   {
     icon: "/Performance.svg",
@@ -379,20 +384,21 @@ const bannerData = {
 };
 
 // Define form structure
-const formFields = ref([
-  { name: "username", label: "Username", type: "text" },
-  { name: "acceptTerms", label: "Accept Terms & Conditions", type: "checkbox" },
-]);
+// const formFields = ref([
+//   { name: "username", label: "Username", type: "text" },
+//   { name: "acceptTerms", label: "Accept Terms & Conditions", type: "checkbox" },
+// ]);
 
-const formData = ref({ username: "", acceptTerms: false });
+// const formData = ref({ username: "", acceptTerms: false });
 
-const handleSubmit = (data: any) => {
-  console.log("Submitted Data:", data);
-};
+// const handleSubmit = (data: any) => {
+//   console.log("Submitted Data:", data);
+// };
 ---
 
-<Layout>
-  <FeatureHeroSection
+<Layout client:load>
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load />
+  <!-- <FeatureHeroSection
     client:load
     title="The Open Observe platform"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
@@ -403,7 +409,7 @@ const handleSubmit = (data: any) => {
       { label: "Watch Video", variant: "secondary" },
     ]}
     backgroundImage="/Eclipse.svg"
-    footerImage="/Frame-2121314680.svg"
+    image="/Frame-2121314680.svg"
   />
   <FeatureCardWrapper
     title={featureCardTitle.title}

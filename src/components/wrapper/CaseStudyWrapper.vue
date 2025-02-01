@@ -4,59 +4,47 @@ import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
-import CustomSectionBackground from "../core/CustomSectionBackground.vue";
+import CustomImage from "../core/CustomImage.vue";
+
 const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  buttonText: {
-    type: String,
+//fetch card items form api here.
+  // items: {
+  //   type: Array,
+  //   required: true,
+  // },
+ heading:{
+  type:Object,
+  required:true,
+ },
+  primaryButton: {
+    type: Object,
     default: "",
   },
 });
 </script>
+
 <template>
   <CustomSection>
-    <Heading
-      :title="props.title"
-      :description="props.description"
-      align="CENTER"
-    />
+    <Heading :title="props.title" :description="props.subtitle" align="CENTER" />
+    
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
-      <img
-        src="/Platform/Ellipse-141.svg"
-        alt="Image"
-        class="absolute opcacity-30 object-contain"
-      />
-      <div
-        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
-      >
+      <CustomImage image="/Platform/Ellipse-141.svg" altText="Image" cssClass="absolute opacity-30 object-contain" />
+      
+      <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
         <div v-if="props.items.length > 0">
           <LeftSideCard :card="props.items[0]" />
         </div>
-
-        <div v-if="props.items.length > 0">
-          <RightSideCard :cards="props.items.slice(1)" />
+        <div class="flex flex-col gap-3 justify-center items-center h-full">
+          <RightSideCard
+            v-for="(card, index) in props.items.slice(1)"
+            :key="index"
+            :card="card"
+          />
         </div>
       </div>
     </div>
-    <div class="flex justify-center">
-      <CustomButton
-        variant="secondary"
-        size="medium"
-        buttonText="SEE ALL BLOGS"
-          />
-    </div>
+
     <!-- Mobile View -->
     <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
@@ -66,6 +54,10 @@ const props = defineProps({
           :card="card"
         />
       </div>
+    </div>
+
+    <div class="flex justify-center">
+      <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
     </div>
   </CustomSection>
 </template>

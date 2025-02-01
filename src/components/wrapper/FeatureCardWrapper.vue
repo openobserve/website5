@@ -3,11 +3,13 @@ import CustomSection from "../core/CustomSection.vue";
 import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import Heading from "../core/Heading.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+  heading: {
+    type: Object,
+    default: () => ({}),
+    required: true
   },
   items: {
     type: Array,
@@ -16,6 +18,7 @@ const props = defineProps({
   noOfGridColumn: {
     type: Number,
     required: true,
+    default:4
   },
   // New prop to select layout (flex or column)
   layout: {
@@ -49,7 +52,7 @@ const props = defineProps({
       <!-- Main Content -->
       <CustomSection>
         <div class="py-10">
-          <Heading :title="title" align="CENTER" />
+          <Heading :title="heading.title" align="CENTER" />
         </div>
         <div
           :class="[
@@ -67,7 +70,6 @@ const props = defineProps({
         </div>
       </CustomSection>
     </div>
-    <CustomSeprater />
   </div>
 </template>
 

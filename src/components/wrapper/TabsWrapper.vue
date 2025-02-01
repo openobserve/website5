@@ -6,29 +6,25 @@ import GetDemoWrapper from "./GetDemoWrapper.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 const props = defineProps({
   items: {
-    type: Object,
+    type: Array,
     required: true,
+  },
+  heading:{
+    type:Object,
+    required:true,
   },
 });
 </script>
 <template>
   <CustomSection>
     <Heading
-      :title="props.items.title"
-      :description="props.items.subtitle"
+      :title="heading?.title"
+      :description="heading?.subtitle"
       align="CENTER"
     />
 
-    <CustomTabs class="py-10" :items="props.items.items" client:load />
-    <div v-if="items.getDemoButton && items.getDemoTitle">
-      <GetDemoWrapper
-        :title="props.items.getDemoTitle"
-        :btnData="props.items.getDemoButton"
-      />
-    </div>
+    <CustomTabs class="py-10" :items="items" client:load />
   </CustomSection>
   <div>
-    <CustomSeprater />
   </div>
 </template>
-<style scoped></style>

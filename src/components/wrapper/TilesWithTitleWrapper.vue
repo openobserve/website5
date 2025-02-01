@@ -3,6 +3,7 @@ import { defineProps } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomTilesWithTitle from "../cards/CustomTilesWithTitle.vue";
+import CustomImage from "../core/CustomImage.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -20,21 +21,21 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="relative bg-cover bg-no-repeat w-full overflow-visible py-10">
-    <img
-      src="/cardBg1.svg"
-      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
-      alt="Background SVG"
+  <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
+    <CustomImage
+      image="/cardBg1.svg"
+      cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
+      altText="Background SVG"
     />
-    <img
-      src="/cardBg2.svg"
-      alt="Image"
-      class="absolute bottom-[-6ovh] -z-10 object-contain"
+    <CustomImage
+      image="/cardBg2.svg"
+      altText="Image"
+      cssClass="absolute bottom-[-6ovh] -z-10 object-contain"
     />
-    <!-- <img
-      src="/cardBg2.svg"
-      class="absolute bottom-[-60vh] -z-10"
-      alt="Background SVG"
+    <!-- <CustomImage
+      image="/cardBg2.svg"
+      cssClass="absolute bottom-[-60vh] -z-10"
+      altText="Background SVG"
     /> -->
     <CustomSection>
       <Heading :title="title" :description="description" />

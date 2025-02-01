@@ -39,8 +39,9 @@ import fetchApi from "../utils/strapi";
 
 const PageData = await fetchApi({
   endpoint: "api/homepage",
-  query: { pLevel: "10", status: "draft" },
+  query: { pLevel: "10" , status:"draft"},
 });
+console.log(PageData.data.body,"datatatata");
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -288,11 +289,6 @@ const cardDataforsection2 = {
     },
   ],
 };
-// const announcementBanner = {
-//   description:
-//     "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
-// };
-
 const cardDataforsection3 = {
   title: "Designed for every team",
   description:
@@ -422,8 +418,8 @@ const trustedCompanies = {
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
-  <ComponentCollectionMapper data={pageData} client:load />
-  <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
+  <ComponentCollectionMapper data={PageData.data.body} client:load />
+  <!-- <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
     title={trustedCompanies.title}
@@ -466,5 +462,5 @@ const trustedCompanies = {
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 </Layout>

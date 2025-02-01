@@ -1,4 +1,6 @@
 <script setup>
+import CustomImage from './CustomImage.vue';
+
 const props = defineProps({
   cloudSection: {
     type: Object,
@@ -90,10 +92,10 @@ const handleSubmit = () => {
                 :key="provider"
                 class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
               >
-                <img
-                  :src="`/${provider}-icon.svg`"
-                  :alt="`${provider} login`"
-                  class="h-6 w-6"
+                <CustomImage
+                  :image="`/${provider}-icon.svg`"
+                  :altText="`${provider} login`"
+                  cssClass="h-6 w-6"
                 />
               </button>
             </div>

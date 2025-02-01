@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
+import CustomImage from "../core/CustomImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -106,10 +107,10 @@ const swiperOptions = {
               ]"
             >
               <div class="h-48 overflow-hidden">
-                <img
-                  :src="blog.imageUrl"
-                  :alt="blog.title"
-                  class="w-full h-full object-cover"
+                <CustomImage
+                  :image="blog.imageUrl"
+                  :altText="blog.title"
+                  cssClass="w-full h-full object-cover"
                 />
               </div>
               <div class="p-6">

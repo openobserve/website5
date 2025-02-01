@@ -3,10 +3,16 @@ import { defineProps } from "vue";
 import IconTitleCard from "./FeatureCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomSectionBackground from "../core/CustomSectionBackground.vue";
+import CustomImage from "../core/CustomImage.vue";
+
 const props = defineProps({
-  cardData: {
+  heading: {
     type: Object,
+    default: () => ({}),
+    required: true,
+  },
+  data: {
+    type: Array,
     required: true,
   },
 });
@@ -16,27 +22,58 @@ const props = defineProps({
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
     <img
       src="/cardBg1.svg"
-      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
+      class="absolute bottom-[-60vh] right-[105vh] -z-10 object-cover"
       alt="Background SVG"
     />
     <img
-      src="/cardBg2.svg"
-      alt="Image"
-      class="absolute bottom-[-6ovh] -z-10 object-contain"
+    src="/cardBg2.svg"
+    alt="Image"
+    class="absolute bottom-[-60vh] -z-10 object-cover"
     />
-    <!-- <img
-      src="/cardBg2.svg"
-      class="absolute bottom-[-60vh] -z-10"
-      alt="Background SVG"
-    /> -->
+
     <CustomSection>
-      <Heading
-        :title="props.cardData?.title"
-        :description="props.cardData?.description"
-      />
-      <div class="grid grid-col mt-10 w-full">
-        <IconTitleCard :cards="props.cardData?.items" />
+      <Heading :title="heading?.title" :description="heading?.subtitle" />
+
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mt-10 w-full">
+        <!-- Loop moved here -->
+        <IconTitleCard
+          v-for="(item, index) in data"
+          :key="index"
+          :card="item"
+        />
+
+        <!-- Static "Explore all features" card -->
+        <div
+          class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow"
+        >
+          <a href="/">
+            <div
+              class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
+            >
+              <div class="w-16 h-16 overflow-hidden">
+                <img
+                  src="/CardSeeALLicon.svg"
+                  alt="View all use cases"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="text-[#BEC0C2] text-base font-semibold">
+                Explore all features
+              </h3>
+            </div>
+          </a>
+        </div>
       </div>
     </CustomSection>
   </div>
 </template>
+<style scoped>
+.cardShadow:hover {
+  box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
+  border-radius: 1rem;
+  transition: all;
+}
+.cardShadow:hover h3 {
+  color: #80b9ff;
+}
+</style>

@@ -1,86 +1,65 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 
 // Define props for the component
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
-  },
-  subtitle: {
+  }, 
+  description: {
     type: String,
     required: true,
   },
-  buttons: {
-    type: Array,
-    default: () => [],
+  primaryButton: {
+    type: Object,
+    required: true,
   },
-  background: {
+  secondaryButton: {
+    type: Object,
+    default: () => ({}),
+  },
+  backgroundVideo: {
     type: String,
-    required: true, // URL of the GIF or image
+    required: false // URL rue,of the GIF or image
   },
 });
 </script>
 
 <template>
+    <!-- :style="{ backgroundImage: 'url(/Metrices.svg)' }" -->
   <section
-    class="relative flex justify-center lg:justify-start min-h-screen lg:text-left px-4 sm:px-8 lg:px-16"
-  >
-    <video
-      class="absolute top-0 left-0 w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
+    class="relative flex justify-center items-center lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
     >
-      <source
-        src="/Homepage/Screenity-video-Jan 31-2025.mp4"
-        type="video/mp4"
-      />
-      Your browser does not support the video tag.
-    </video>
+    <video
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="/HomeHerobgVideo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
     <!-- Content Section -->
     <div class="relative pt-10 md:pt10 md:pl-10 lg:pt-20 lg:pl-20 text-white max-w-4xl">
       <!-- Title -->
-      <TextWithGradient
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:text-left"
-        :title="title"
-        textGradientColor="gradient-color"
-        align="left"
-      />
-
-      <!-- Subtitle -->
-      <p class="sm:text-xl mb-6">
-        {{ subtitle }}
-      </p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center sm:text-left">{{ title }}</h1>
+        <!-- Subtitle -->
+        <p class="sm:text-xl mb-6">
+          {{ description }}
+        </p>
 
       <!-- Buttons -->
       <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-        <CustomButton
-          :variant="button.variant"
-          v-for="(button, index) in buttons"
-          :key="index"
-          class="w-full sm:w-auto"
-        >
-          {{ button.label }}
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
+          {{ primaryButton.text}}
+        </CustomButton>
+        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">
+          {{ secondaryButton.text }}
         </CustomButton>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-.gradient-color {
-  display: inline-block;
-  background: linear-gradient(
-    to right,
-    rgba(246, 221, 221, 0.8),
-    rgba(255, 255, 255, 0.8),
-    rgba(227, 220, 255, 0.8)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-</style>

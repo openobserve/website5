@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import CustomImage from "./CustomImage.vue";
+import CustomImage from "./CustomImage.vue";
 
 const props = defineProps({
   testimonials: {
@@ -70,10 +72,10 @@ const swiperOptions = {
           <div
             class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center"
           >
-            <img
-              :src="testimonial.image"
-              :alt="testimonial.name"
-              class="w-20 h-20 rounded-full mb-6 object-cover"
+            <CustomImage
+              :image="testimonial.image"
+              :altText="testimonial.name"
+              cssClass="w-20 h-20 rounded-full mb-6 object-cover"
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">
               "{{ testimonial.quote }}"
@@ -100,10 +102,10 @@ const swiperOptions = {
               'opacity-50 scale-95': index !== currentSlide,
             }"
           >
-            <img
-              :src="testimonial.image"
-              :alt="testimonial.name"
-              class="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a] "
+            <CustomImage
+              :image="testimonial.image"
+              :altText="testimonial.name"
+              cssClass="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a] "
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">
               "{{ testimonial.quote }}"
