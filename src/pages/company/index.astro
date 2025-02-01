@@ -4,8 +4,6 @@ import CompanyAboutUsHeroSection from "../../components/heroSections/CompanyAbou
 import Heading from "../../components/core/Heading.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
-import Footer from "../../components/footerComponent/Footer.vue";
-import CustomSectionBackground from "../../components/core/CustomSectionBackground.vue";
 import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
 
 const featureCardData = {
@@ -181,5 +179,4 @@ const footerData = {
 
   <BannerWrapper items={bannerData} client:load />
   <CaseStudyWrapper items={caseStudyData} client:load />
-  <Footer footerData={footerData} client:load />
 </Layout>

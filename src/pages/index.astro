@@ -1,40 +1,6 @@
 ---
-import CustomButton from "../components/core/CustomButton.vue";
-import CustomRoundShape from "../components/core/CustomRoundShape.vue";
-import CustomSection from "../components/core/CustomSection.vue";
-import CustomSeprater from "../components/core/CustomSeprater.vue";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/header/Header.vue";
-import CustomCard from "../components/cards/CustomCard.vue";
-import CustomInterChange from "../components/core/CustomInterChange.vue";
-import CustomFeatureCard from "../components/cards/CustomFeatureCard.vue";
-import CustomBanner from "../components/core/CustomBanner.vue";
-import CustomHoverHeader from "../components/header/CustomHoverHeader.vue";
-import SectionHeader from "../components/header/SectionHeader.vue";
-import CustomHeaderButton from "../components/header/CustomHeaderButton.vue";
-import CustomSectionBackground from "../components/core/CustomSectionBackground.vue";
-import CompanySwiper from "../components/core/CompanySwiper.vue";
-import HomeHeroSection from "../components/heroSections/HomeHeroSection.vue";
-import FeatureHeroSection from "../components/heroSections/FeatureHeroSection.vue";
-import PlatformLogsHeroSection from "../components/heroSections/PlatformLogsHeroSection.vue";
-import LeftSideCard from "../components/cardComponent/LeftSideCard.vue";
-import RightSideCard from "../components/cardComponent/RightSideCard.vue";
-import CustomTabs from "../components/core/CustomTabs.vue";
-import Footer from "../components/footerComponent/Footer.vue";
-import FaqWrapper from "../components/FAQComponent/FaqWrapper.vue";
-import Heading from "../components/core/Heading.vue";
-import CardWithIcon1 from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
-import CardWithIcon2 from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
-import CustomFeatureSliderCard from "../components/cards/CustomFeatureSliderCard.vue";
-import TopCompaniesWrapper from "../components/wrapper/TopCompaniesWrapper.vue";
-import { h } from "vue";
-import FeatureCardWithIconWrapper from "../components/cardComponent/FeatureCardWithIconWrapper.vue";
-import UsecaseCardWithIconWrapper from "../components/cardComponent/UsecaseCardWithIconWrapper.vue";
-import CustomAnnouncement from "../components/core/CustomAnnouncement.vue";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
-import BlogWrapper from "../components/wrapper/BlogWrapper.vue";
-import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
-import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
 import fetchApi from "../utils/strapi";
 
 const PageData = await fetchApi({

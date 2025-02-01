@@ -2,8 +2,6 @@
 import CustomSection from "../core/CustomSection.vue";
 import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import Heading from "../core/Heading.vue";
-import CustomSeprater from "../core/CustomSeprater.vue";
-import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
   heading: {

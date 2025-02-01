@@ -6,7 +6,6 @@
   ],
   "exclude": [
     "dist",
-    "src/components/core/CustomSwipper.vue"
   ],
   "compilerOptions": {
     "jsx": "preserve"
