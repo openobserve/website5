@@ -42,7 +42,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="min-h-screen">
+  <div>
     <div class="container mx-auto px-4">
       <div class="text-white mb-8">
         <span class="font-semibold">Recent posts</span>

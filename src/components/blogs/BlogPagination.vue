@@ -62,6 +62,7 @@
   
   // Change page function
   const changePage = (newPage) => {
+    console.log(newPage);
     if (newPage >= 1 && newPage <= totalPages.value) {
       currentPage.value = newPage;
       emit("page-changed", currentPage.value);

@@ -3,23 +3,7 @@ import Header from "../components/header/Header.vue";
 import Footer from "../components/footerComponent/Footer.vue";
 import SEO from '../components/SEO.astro';
 
-interface Props {
-	title: string;
-  description?: string;
-  image?: string;
-  type?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
-}
 
-const { 
-  title,
-  description,
-  image,
-  type,
-  publishedTime,
-  modifiedTime
-} = Astro.props;
 const footerData = {
   sections: [
     {
@@ -109,24 +93,16 @@ const footerData = {
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-    <SEO
-    title={title}
-    description={description}
-    image={image}
-    type={type}
-    publishedTime={publishedTime}
-    modifiedTime={modifiedTime}
-  />
+    <title>OpenObserve</title>
   </head>
-  <body>
-    <Header client:only />
-    <main class="navbarheight">
-      <div>
+  <body class="relative">
+    <main>
+      <Header class="sticky top-0 z-50" client:only />
+      <div class="navbarheight">
         <slot />
       </div>
+      <Footer footerData={footerData} client:load />
     </main>
-    <Footer footerData={footerData} client:load />
   </body>
 </html>
 
@@ -140,7 +116,7 @@ const footerData = {
     font-family: "Inter", sans-serif;
   }
 
-  /* .navbarheight {
-    height: calc(100vh - 100px);
-  } */
+  .navbarheight {
+    padding-top: 1vh;
+  }
 </style>

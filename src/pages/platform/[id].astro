@@ -14,9 +14,9 @@ const { id } = Astro.params;
 const dynamicPageData = {
   logs: {
     interchangeData: {
-      title: "Enterprise-Grade Features",
+      title: "Why use OpenObserve for Log Management ?",
       subtitle:
-        "OpenObserve is designed to meet the needs of enterprise environments with advanced capabilities...",
+        "Discover how OpenObserve's log management capabilities can transform your data handling with real-time analytics, robust search, and efficient storage solutions.",
       items: [
         {
           tabTitle: "Security & Access Control",
@@ -304,7 +304,7 @@ const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
 
 <Layout>
   <PlatformLogsHeroSection
-    title="The Open Observe platform"
+    title="The Open Observe Logs"
     subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
     buttons={[
       { label: "Get Started", variant: "heroButton" },
@@ -313,9 +313,7 @@ const { interchangeData, caseStudyData, bannerData, faqData } = pageData;
     backgroundImage="/Platform/platform-subpage-Eclipse.svg"
     rightImage="/Data-sources-Kubernetes.svg"
   />
-  <div class="">
-    <TabsGlassCardWrapper items={interchangeData} client:load />
-  </div>
+  <TabsGlassCardWrapper items={interchangeData} client:load />
   <BannerWrapper items={bannerData} client:load />
   <FaqWrapper items={faqData.items} title={faqData.title} client:load />
   <CaseStudyWrapper

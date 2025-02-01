@@ -14,11 +14,11 @@ const selectSuggestion = (suggestion) => {
   <div class="flex flex-wrap gap-4 w-full md:w-3/5 justify-center md:justify-center">
     <button
       v-for="(suggestion, index) in suggestions"
-      :key="index"
+      :key="suggestion.id || index"
       @click="selectSuggestion(suggestion)"
       class="px-6 py-1 bg-black border rounded-full hover:text-white text-sm text-neutral-400"
     >
-      {{ suggestion }}
+      {{ suggestion.name }}
     </button>
   </div>
 </template>

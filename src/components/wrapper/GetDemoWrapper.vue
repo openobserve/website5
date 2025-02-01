@@ -15,11 +15,7 @@ const props = defineProps({
 <template>
   <Heading :title="props.title" align="CENTER" />
   <div class="py-10 text-center">
-    <CustomButton
-      variant="secondary"
-      :button-text="props.btnData.text"
-      :button-link="props.btnData.link"
-    >
+    <CustomButton variant="secondary" :buttonText="props.btnData.text">
     </CustomButton>
   </div>
 </template>

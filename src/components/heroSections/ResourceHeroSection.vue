@@ -16,20 +16,18 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[60vh] 
-    before:content-[''] before:absolute before:w-full before:min-h-[200vh] before:top-0 before:bg-no-repeat before:bg-[50%_0vh]
-    before:bg-[url('/resources/Hero-Section-Eclipse.svg'),_url('/resources/Hero-Section-Eclipse_(1).svg')]"
+    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh] before:bg-[url('/resources/BG.svg')]"
   >
-    <div class="z-10 container mx-auto max-w-4xl pb-20">
+    <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
-        class="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4"
+        class="text-center text-5xl py-5 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold"
         :title="props.title"
         textGradientColor="gradient-color"
       />
       <Heading
         :description="props.subtitle"
         align="CENTER"
-        class="text-base sm:text-lg md:text-xl lg:text-2xl mt-4"
+        class="text-base sm:text-lg md:text-xl lg:text-2xl"
       />
     </div>
   </section>
@@ -40,9 +38,9 @@ const props = defineProps({
 .gradient-color {
   background: linear-gradient(
     90deg,
-    #f6ffe8 18.6%,
-    #fff 57.25%,
-    #eceee0 99.98%
+    #fff3e5 21.63%,
+    #c3d6ff 59.28%,
+    #d8d8d8 91.35%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -3,8 +3,9 @@ interface Blog {
   title: string;
   description: string;
   imageUrl: string;
-  link: string;
+  slug: string;
 }
+
 const props = defineProps({
   sectionData: {
     type: Array as () => Blog[], // Correctly typed array of Blog objects
@@ -36,9 +37,7 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="blog.link"
-          target="_blank"
-          rel="noopener noreferrer"
+          :href="`/blogs/${blog.slug}`"
           :class="[
             cardBgColor,
             'max-w-sm rounded-xl overflow-hidden transition-transform block',
@@ -46,7 +45,7 @@ const props = defineProps({
         >
           <div class="h-48 overflow-hidden">
             <img
-              :src="blog.imageUrl"
+              :src="blog.imageUrl ? blog.imageUrl : 'blog1Image.png'"
               :alt="blog.title"
               class="w-full h-full object-cover"
             />

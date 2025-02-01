@@ -36,15 +36,13 @@ const backgroundStyle = computed(() =>
 
 <template>
   <div class="relative">
-    <CustomSeprater />
-
     <div
-      class="bg-contain bg-center bg-no-repeat w-full overflow-visible py-10"
+      class="bg-contain bg-center bg-no-repeat w-full overflow-visible"
       :style="backgroundStyle"
     >
       <CustomSection>
         <Heading :title="title" :description="subtitle" />
-        <div class="grid grid-col w-full py-10">
+        <div class="grid grid-col w-full py-20">
           <CustomTilesWithTitle :cards="items" />
         </div>
       </CustomSection>
