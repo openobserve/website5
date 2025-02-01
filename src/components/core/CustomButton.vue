@@ -48,6 +48,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  target: {
+    type: String,
+    required:false
+  },
   onClick: Function,
 });
 
@@ -75,9 +79,16 @@ const buttonVariant = variants[props.variant];
 </script>
 
 <template>
-  <component :is="buttonLink ? 'a' : 'button'" :class="[containerClass, buttonSize, buttonVariant]"
-    @click="!disabled && !loading ? onClick : null" :disabled="disabled || loading" :href="buttonLink"
-    :type="!buttonLink ? type : null" v-bind="buttonProps">
+  <component
+    :is="buttonLink ? 'a' : 'button'"
+    :class="[containerClass, buttonSize, buttonVariant]"
+    @click="!disabled && !loading ? onClick : null"
+    :disabled="disabled || loading"
+    :href="buttonLink"
+    :target="target"
+    :type="!buttonLink ? type : null"
+    v-bind="buttonProps"
+  >
     <span class="items-center">
       <template v-if="$slots.default">
         <slot></slot>
