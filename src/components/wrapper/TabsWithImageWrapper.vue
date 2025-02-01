@@ -22,7 +22,6 @@ const test=() => {
     <CustomSection>
       <div class="py-10">
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
-        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
       <CustomTabsWithImage :items="items" />
     </CustomSection>

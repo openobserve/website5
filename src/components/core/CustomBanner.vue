@@ -22,7 +22,7 @@ defineProps({
   secondaryButton: {
     type: Object,
     default: () => ({}),
-  },
+  }
 });
 </script>
 
