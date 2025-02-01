@@ -78,7 +78,6 @@
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomBlogs from "../../components/blogs/CustomBlogs.vue";
 import CustomButton from "../core/CustomButton.vue";
 import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
@@ -90,16 +89,17 @@ const props = defineProps({
   description: { type: String, required: true },
   items: { type: Object, required: true },
 });
+console.log(props)
 const itemsPerPage = 5; // Set how many items to show per page
 const currentPage = ref(1);
-const paginatedItems = computed(() => {
-  const data = Array.isArray(props.items)
-    ? props.items.blogs
-    : props.items.blogs; // Adjust this line
-  const start = (currentPage.value - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  return data.slice(start, end); // Using .slice() on the array
-});
+// const paginatedItems = computed(() => {
+//   const data = Array.isArray(props.items)
+//     ? props.items.blogs
+//     : props.items.blogs; // Adjust this line
+//   const start = (currentPage.value - 1) * itemsPerPage;
+//   const end = start + itemsPerPage;
+//   return data.slice(start, end); // Using .slice() on the array
+// });
 const handlePageChange = (page) => {
   currentPage.value = page;
 };

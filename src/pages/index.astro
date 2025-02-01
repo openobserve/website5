@@ -37,14 +37,14 @@ import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
 import fetchApi from "../utils/strapi";
 
-// const PageData = await fetchApi({
-//   endpoint: "pages",
-//   query: { path: "/", pLevel: "10" },
-// });
-// console.log(PageData.data[0].body,"datatatata");
+const PageData = await fetchApi({
+  endpoint: "api/homepage",
+  query: { pLevel: "10" , status:"draft"},
+});
+console.log(PageData.data.body,"datatatata");
 const cards = [
   {
-    image: "/blogColor-1.png",
+    image: "public/blogColor-1.png",
     title: "Case Study 1",
     description:
       "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
@@ -52,7 +52,7 @@ const cards = [
     link: "#",
   },
   {
-    image: "/blogColor-2.png",
+    image: "public/blogColor-2.png",
     title: "Scaling Observability for Growth",
     description:
       "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
@@ -60,7 +60,7 @@ const cards = [
     link: "#",
   },
   {
-    image: "/blogColor-3.png",
+    image: "public/blogColor-3.png",
     title: "Enhancing Security Monitoring",
     description:
       "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
@@ -392,10 +392,6 @@ const pageData = [
       "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
     background: "/Coding BG.svg",
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> 2863056 (feat(blog): blog listing page changes and blog details page added)
 ];
 
 const trustedCompanies = {
