@@ -41,28 +41,6 @@ const props = defineProps({
           :key="index"
           :card="item"
         />
-
-        <!-- Static "Explore all features" card -->
-        <div
-          class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow"
-        >
-          <a href="/">
-            <div
-              class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
-            >
-              <div class="w-16 h-16 overflow-hidden">
-                <img
-                  src="/CardSeeALLicon.svg"
-                  alt="View all use cases"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h3 class="text-[#BEC0C2] text-base font-semibold">
-                Explore all features
-              </h3>
-            </div>
-          </a>
-        </div>
       </div>
     </CustomSection>
   </div>

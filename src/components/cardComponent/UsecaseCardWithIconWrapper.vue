@@ -35,20 +35,6 @@ const props = defineProps({
             :card="item"
             :index="index"
           />
-
-          <!-- Static "View all use cases" card -->
-          <div
-            class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-blue hover:bg-gradient-blue transition-all duration-300 hover:shadow-2xl cardShadow"
-          >
-            <div
-              class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
-            >
-              <div class="w-16 h-16 overflow-hidden">
-                <img src="/CardSeeALLicon.svg" alt="View all use cases" class="w-full h-full object-cover" />
-              </div>
-              <h3 class="text-[#BEC0C2] text-base font-semibold">View all use cases</h3>
-            </div>
-          </div>
         </div>
       </div>
     </div>
