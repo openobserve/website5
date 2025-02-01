@@ -20,12 +20,7 @@ const props = defineProps({
   <CustomSection>
     <Heading :title="heading?.title" align="CENTER" />
     <div class="pt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
-      <CustomTile
-        v-for="(card, index) in items"
-        :key="index"
-        :card="card"
-        :index="index"
-      />
+      <CustomTile v-for="(card, index) in items" :key="index" :card="card" :index="index" />
     </div>
   </CustomSection>
 </template>
