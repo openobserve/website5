@@ -1,4 +1,5 @@
 <script setup>
+import CustomImage from '../core/CustomImage.vue';
 const props = defineProps({
   image: {
     type: Array,
@@ -33,7 +34,7 @@ const bg = {
     :style="{ backgroundImage: `url(${bg[index]})` }"
   >
     <div class="rounded-full flex justify-center items-center mb-4">
-      <img :src="props.image" alt="Card Image" class="w-full h-auto" />
+      <CustomImage :image="props.image" altText="Card Image" cssClass="w-full h-auto" />
     </div>
     <h3 class="title-color text-3xl font-semibold text-[#BEC0C2] text-center">
       {{ props.title }}

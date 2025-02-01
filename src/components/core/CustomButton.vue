@@ -81,7 +81,7 @@ const buttonVariant = variants[props.variant];
     :type="!buttonLink ? type : null"
     v-bind="buttonProps"
   >
-    <span class="flex items-center">
+    <span class="items-center">
       <template v-if="$slots.default">
         <slot></slot>
         <span v-if="buttonText" class="ml-2">{{ buttonText }}</span>

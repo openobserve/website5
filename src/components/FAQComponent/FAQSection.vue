@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, ref } from "vue";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
   faqItems: {
@@ -33,11 +34,10 @@ const toggleAnswer = (index) => {
           >
             {{ item.question }}
           </h3>
-          <img
-            src="/faq+Icon.svg"
-            alt="toggle"
-            class="transition-transform duration-300 ease-in-out"
-            :class="{ 'rotate-45': visibleAnswers[index] }"
+          <CustomImage
+            image="/faq+Icon.svg"
+            altText="toggle"
+            :cssClass="{ 'transition-transform duration-300 ease-in-out rotate-45': visibleAnswers[index] }"
           />
         </div>
 

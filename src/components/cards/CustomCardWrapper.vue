@@ -7,20 +7,17 @@ import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomButton from "../core/CustomButton.vue";
 import { defineProps } from "vue";
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+  heading:{
+    type:Object,
+    required:false,
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  featureCards: {
+  items: {
     type: Array,
     required: true,
   },
-  buttons: {
-    type: Array, // Array of button objects [{ label: "Button Title", variant: "primary" }]
+ 
+  primaryButton: {
+    type: Object,
     required: true,
   },
 });
@@ -32,25 +29,18 @@ const props = defineProps({
     <div class="relative py-10 bg-cover bg-no-repeat overflow-visible container mx-auto">
       <!-- Main Content -->
       <CustomSection>
-        <Heading :title="title" :description="description" align="LEFT" />
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="LEFT" />
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
           <div
             class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-start transition-all duration-300 hover:shadow-2xl cardShadow"
-            v-for="(item, index) in featureCards"
+            v-for="(item, index) in items"
             :key="index"
           >
             <CustomCard :cards="item" />
           </div>
         </div>
        <div class="flex justify-center items-center pt-12">
-        <CustomButton
-          v-for="(button, index) in buttons"
-          :key="index"
-          :variant="button.variant"
-          class=""
-        >
-          {{ button.label }}
-        </CustomButton>
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
       </div>
       </CustomSection>
     </div>

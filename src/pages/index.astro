@@ -35,13 +35,13 @@ import ComponentCollectionMapper from "../components/ComponentCollectionMapper.v
 import BlogWrapper from "../components/wrapper/BlogWrapper.vue";
 import HomeFeatureWrapper from "../components/wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "../components/wrapper/HomeWhyO2Wrapper.vue";
-import fetchApi from '../utils/strapi';
+import fetchApi from "../utils/strapi";
 
-// const PageData = await fetchApi({
-//   endpoint: "pages",
-//   query: { path: "/", pLevel: "10" },
-// });
-// console.log(PageData.data[0].body,"datatatata");
+const PageData = await fetchApi({
+  endpoint: "api/homepage",
+  query: { pLevel: "10" , status:"draft"},
+});
+console.log(PageData.data.body,"datatatata");
 const cards = [
   {
     image: "/blogColor-1.png",
@@ -289,11 +289,6 @@ const cardDataforsection2 = {
     },
   ],
 };
-// const announcementBanner = {
-//   description:
-//     "Genericon 2023 Join us in Denver from June 7 - 9 to see what's coming next.",
-// };
-
 const cardDataforsection3 = {
   title: "Designed for every team",
   description:
@@ -397,7 +392,6 @@ const pageData = [
       "Fast, Scalable, and Cost-effective Monitoring for Modern Applications",
     background: "/Coding BG.svg",
   },
-
 ];
 
 const trustedCompanies = {
@@ -424,8 +418,8 @@ const trustedCompanies = {
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
-  <ComponentCollectionMapper data={pageData} client:load />
-  <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
+  <ComponentCollectionMapper data={PageData.data.body} client:load />
+  <!-- <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
     title={trustedCompanies.title}
@@ -468,6 +462,5 @@ const trustedCompanies = {
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 </Layout>
-

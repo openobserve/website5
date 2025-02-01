@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
   card: {
@@ -22,10 +23,10 @@ const props = defineProps({
     class="group custom-hover flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300 bg-gradient-gray"
   >
     <div class="">
-      <img
-        :src="card.image"
-        :alt="card.title"
-        class="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
+      <CustomImage
+        :image="card.image"
+        :altText="card.title"
+        cssClass="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
       />
     </div>
     <div class="flex flex-col h-full space-y-4">

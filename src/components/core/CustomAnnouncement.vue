@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import CustomImage from "./CustomImage.vue";
 
 // Props definition
 const props = defineProps({
@@ -34,7 +35,7 @@ const props = defineProps({
 
       <!-- Close icon at the bottom -->
       <div class="flex justify-center items-center">
-        <img src="/CloseIcon.svg" alt="Close Icon" class="w-5 h-5 cursor-pointer" />
+        <CustomImage image="/CloseIcon.svg" altText="Close Icon" cssClass="w-5 h-5 cursor-pointer" />
       </div>
     </div>
 

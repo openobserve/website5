@@ -7,6 +7,14 @@ import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import CustomSeprater from "../../../components/core/CustomSeprater.vue";
 import CommunitySupportCardWrapper from "../../../components/cardComponent/CommunitySupportCardWrapper.vue";
 import ContactUsHeroSection from "../../../components/heroSections/ContactUsHeroSection.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+
+const PageData = await fetchApi({
+  endpoint: "api/contact",
+  query: { pLevel: "10" , status: "draft"},
+});
 
 
 const cards = [
@@ -55,7 +63,8 @@ const cardDataforsection3 = {
 
 
 <Layout>
-    <div class="mt-10">
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+    <!-- <div class="mt-10">
         <ContactUsHeroSection
           client:load
           title="Contact Us"
@@ -84,5 +93,5 @@ const cardDataforsection3 = {
           { text: "View Pricing Plans", variant: "white" },
           { text: "Get Started for Free", variant: "secondary" },
         ]}
-      />
+      /> -->
 </Layout>

@@ -2,7 +2,7 @@
 import VisitSandbox from "../../../components/core/VisitSandbox.vue";
 import Layout from "../../../layouts/Layout.astro";
 import CustomSeprater from "../../../components/core/CustomSeprater.vue";
-import CompanyAboutUsHeroSection from "../../../components/heroSections/CompanyAboutUsHeroSection.vue";
+import CompanyJoinOOHeroSection from "../../../components/heroSections/CompanyJoinOOHeroSection.vue";
 import HomeWhyO2Wrapper from "../../../components/wrapper/HomeWhyO2Wrapper.vue";
 import CustomPositionCardWrapper from "../../../components/cards/CustomPositionCardWrapper.vue";
 import CustomTestimonial from "../../../components/core/CustomTestimonial.vue";
@@ -10,6 +10,13 @@ import CustomBanner from "../../../components/core/CustomBanner.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import CustomOpenObserveCard from "../../../components/cards/CustomOpenObserveCard.vue";
 import CompanySwiper from "../../../components/core/CompanySwiper.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+
+const PageData = await fetchApi({
+  endpoint: "api/why-choose-us",
+  query: { pLevel: "10" , status: "draft"},
+});
 
 const cards = [
   {
@@ -95,8 +102,9 @@ const positionCards = {
 ---
 
 <Layout>
-    <div class="mt-10">
-        <CompanyAboutUsHeroSection
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+    <!-- <div class="mt-10">
+        <CompanyJoinOOHeroSection
           client:load
           title="Why Customers Love Us?"
           titleGradientColor="bg-gradient-title-ju"
@@ -137,6 +145,6 @@ client:load
       { text: "View Pricing Plans", variant: "white" },
       { text: "Get Started for Free", variant: "secondary" },
     ]}
-  />
+  /> -->
 
 </Layout>

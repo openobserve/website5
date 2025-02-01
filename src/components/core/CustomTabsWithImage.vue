@@ -5,21 +5,23 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import CustomButton from "./CustomButton.vue";
+import CustomImage from "./CustomImage.vue";
 
 // Define props for reusability
 const props = defineProps({
-  tabs: {
+  items: {
     type: Array,
     required: true,
   },
 });
 
 // Active tab state
-const activeTab = ref(props.tabs[0]); // Default to the first tab
+const activeTab = ref(props.items[0]); // Default to the first tab
 const isMobile = ref(false);
 
 // Function to handle tab switching
 const selectTab = (tab) => {
+  console.log("tab", tab);
   activeTab.value = tab;
 };
 
@@ -29,12 +31,15 @@ const checkIfMobile = () => {
 
 onMounted(() => {
   checkIfMobile();
+  console.log('mounted')
   window.addEventListener("resize", checkIfMobile);
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);
 });
+
+console.log('sdgfsdgfsdgs============================================================================================')
 </script>
 
 <template>
@@ -48,7 +53,7 @@ onUnmounted(() => {
         :pagination="{ clickable: true }"
         class="mobile-swiper h-full"
       >
-        <swiper-slide v-for="tab in tabs" :key="tab.id" class="!h-auto">
+        <swiper-slide v-for="tab in items" :key="tab.id" class="!h-auto">
           <div
             class="flex flex-col items-center space-y-6 p-4 rounded-lg h-full"
             style="background-color: rgba(53, 59, 64, 1)"
@@ -57,17 +62,17 @@ onUnmounted(() => {
             <div class="space-y-4 text-center h-full">
               <h1 class="text-3xl font-bold">{{ tab.title }}</h1>
               <p class="text-[#F4F4F5] leading-relaxed">
-                {{ tab.subtitle }}
+                {{ tab.description }}
               </p>
-              <CustomButton variant="secondary">
+              <CustomButton variant="secondary" :buttonLink="tab.buttonLink">
                 {{ tab.buttonText }}
               </CustomButton>
             </div>
             <div class="w-full flex justify-center">
-              <img
-                :src="tab.image"
-                :alt="tab.title"
-                class="rounded-lg shadow-lg"
+              <CustomImage
+                :image="tab.image?.url"
+                :altText="tab.title"
+                cssClass="rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -80,7 +85,7 @@ onUnmounted(() => {
       <!-- Left Tabs Column -->
       <div class="w-1/3 lg:w-1/4 border-r border-gray-700 px-2">
         <div class="space-y-4">
-          <template v-for="tab in tabs" :key="tab.id">
+          <template v-for="(tab,index) in items" :key="index">
             <button
               class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
               :class="{
@@ -104,7 +109,7 @@ onUnmounted(() => {
         <!-- Text Content -->
         <div class="space-y-4 px-3">
           <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
-          <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.subtitle }}</p>
+          <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.description }}</p>
           <CustomButton variant="secondary">
             {{ activeTab.buttonText }}
           </CustomButton>
@@ -112,10 +117,10 @@ onUnmounted(() => {
 
         <!-- Image -->
         <div class="lg:translate-y-[7%]">
-          <img
-            :src="activeTab.image"
-            :alt="activeTab.title"
-            class="rounded-lg shadow-sm"
+          <CustomImage
+            :image="activeTab.image"
+            :altText="activeTab.title"
+            cssClass="rounded-lg shadow-sm"
           />
         </div>
       </div>

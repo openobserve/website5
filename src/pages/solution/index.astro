@@ -7,7 +7,13 @@ import VisitSandbox from "../../components/core/VisitSandbox.vue";
 import Layout from "../../layouts/Layout.astro";
 import CustomCardWrapper from "../../components/cards/CustomCardWrapper.vue";
 import CustomSeprater from "../../components/core/CustomSeprater.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
+const PageData = await fetchApi({
+  endpoint: "api/solution-landing-page",
+  query: { pLevel: "10" , status: "draft"},
+});
 const cardData = [
   {
     icon: "/Performance.svg",
@@ -171,12 +177,12 @@ const visitSandboxData = {
   title: "Visit the Sandbox",
   description:
     "Experience OpenObserve's capabilities firsthand in a sandbox environment. Test features, explore integrations, and see how our solutions can benefit your organization.",
- 
 };
 ---
 
 <Layout>
-  <FeatureHeroSection
+  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <FeatureHeroSection
     client:load
     title="OpenObserve Solutions"
     subtitle="Discover tailored solutions that empower your organization with comprehensive monitoring and observability across various platforms and teams."
@@ -187,17 +193,17 @@ const visitSandboxData = {
       { label: "REQUEST ENTERPRISE DEMO", variant: "secondary" },
     ]}
     backgroundImage="/EclipseSolution.svg"
-    footerImage="/SolutionPageSS.svg"
+    image="/SolutionPageSS.svg"
   />
   <TabsWithImageWrapper items={tabsData} client:load />
 
   <VisitSandbox
-  title={visitSandboxData.title}
-  description={visitSandboxData.description}
-  buttons={[{ label: "LAUNCH SANDBOX", variant: "secondary" }]}
-  backgroundImage="/sandboxBG.svg"
-  client:load
-/>
+    title={visitSandboxData.title}
+    description={visitSandboxData.description}
+    buttons={[{ label: "LAUNCH SANDBOX", variant: "secondary" }]}
+    backgroundImage="/sandboxBG.svg"
+    client:load
+  />
 
   <CustomCardWrapper
     title="Empowering Teams with Tailored Solutions"
@@ -215,6 +221,6 @@ const visitSandboxData = {
   />
 
   <CustomSeprater />
- 
+
   <BannerWrapper items={bannerData} client:load />
 </Layout>
