@@ -16,9 +16,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  heading:{
-    type:Object,
-    required:false,
+  heading: {
+    type: Object,
+    required: false,
   },
   primaryButton: {
     type: Object,
@@ -32,22 +32,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection
-    sectionClass="py-6 lg:py-8 xl:py-16"
-    v-if="heading?.title || heading?.subtitle"
-  >
-    <Heading
-      v-if="heading?.title || heading?.subtitle"
-      :title="heading?.title"
-      :description="heading?.subtitle"
-      align="CENTER"
-    />
+  <CustomSection sectionClass="py-6 lg:py-8 xl:py-16" v-if="heading?.title || heading?.subtitle">
+    <Heading v-if="heading?.title || heading?.subtitle" :title="heading?.title" :description="heading?.subtitle"
+      align="CENTER" />
   </CustomSection>
- 
-    <CustomBanner
-      :bannerTitle="bannerTitle"
-      :bannerDescription="bannerDescription"
-      :primaryButton="primaryButton"
-      :secondaryButton="secondaryButton"
-    />
+  <CustomBanner :bannerTitle="bannerTitle" :bannerDescription="bannerDescription" :primaryButton="primaryButton"
+    :secondaryButton="secondaryButton" />
 </template>
