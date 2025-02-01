@@ -7,6 +7,8 @@ import TabsWrapper from "../../components/wrapper/TabsWrapper.vue";
 import GetDemoWrapper from "../../components/wrapper/GetDemoWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import BaseForm from "../../components/forms/BaseForm.vue";
+import { ref } from "vue";
 const cardData = [
   {
     icon: "/Performance.svg",
@@ -375,6 +377,18 @@ const bannerData = {
     },
   ],
 };
+
+// Define form structure
+const formFields = ref([
+  { name: "username", label: "Username", type: "text" },
+  { name: "acceptTerms", label: "Accept Terms & Conditions", type: "checkbox" },
+]);
+
+const formData = ref({ username: "", acceptTerms: false });
+
+const handleSubmit = (data: any) => {
+  console.log("Submitted Data:", data);
+};
 ---
 
 <Layout>
@@ -407,4 +421,10 @@ const bannerData = {
     client:load
   />
   <BannerWrapper items={bannerData} client:load />
+  <!-- <BaseForm
+    v-model={formData}
+    :fields={formFields}
+    submitText="Register"
+    @submit={handleSubmit}
+  /> -->
 </Layout>

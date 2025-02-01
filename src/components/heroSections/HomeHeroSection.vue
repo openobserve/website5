@@ -26,15 +26,26 @@ defineProps({
 
 <template>
   <section
-    class="relative flex justify-center items-center lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
-    :style="{ backgroundImage: `url(${background})` }"
-    
+    class="relative flex justify-center lg:justify-start min-h-screen lg:text-left px-4 sm:px-8 lg:px-16"
   >
+    <video
+      class="absolute top-0 left-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source
+        src="/Homepage/Screenity-video-Jan 31-2025.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
     <!-- Content Section -->
-    <div class="relative z-10 text-white max-w-4xl">
+    <div class="relative pt-10 md:pt10 md:pl-10 lg:pt-20 lg:pl-20 text-white max-w-4xl">
       <!-- Title -->
       <TextWithGradient
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center sm:text-left"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:text-left"
         :title="title"
         textGradientColor="gradient-color"
         align="left"

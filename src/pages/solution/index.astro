@@ -171,7 +171,6 @@ const visitSandboxData = {
   title: "Visit the Sandbox",
   description:
     "Experience OpenObserve's capabilities firsthand in a sandbox environment. Test features, explore integrations, and see how our solutions can benefit your organization.",
- 
 };
 ---
 
@@ -187,17 +186,17 @@ const visitSandboxData = {
       { label: "REQUEST ENTERPRISE DEMO", variant: "secondary" },
     ]}
     backgroundImage="/EclipseSolution.svg"
-    footerImage="/SolutionPageSS.svg"
+    footerImage="/solution-hero.svg"
   />
   <TabsWithImageWrapper items={tabsData} client:load />
 
   <VisitSandbox
-  title={visitSandboxData.title}
-  description={visitSandboxData.description}
-  buttons={[{ label: "LAUNCH SANDBOX", variant: "secondary" }]}
-  backgroundImage="/sandboxBG.svg"
-  client:load
-/>
+    title={visitSandboxData.title}
+    description={visitSandboxData.description}
+    buttons={[{ label: "LAUNCH SANDBOX", variant: "secondary" }]}
+    backgroundImage="/sandboxBG.svg"
+    client:load
+  />
 
   <CustomCardWrapper
     title="Empowering Teams with Tailored Solutions"
@@ -215,6 +214,6 @@ const visitSandboxData = {
   />
 
   <CustomSeprater />
- 
+
   <BannerWrapper items={bannerData} client:load />
 </Layout>

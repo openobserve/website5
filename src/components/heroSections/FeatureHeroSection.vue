@@ -38,7 +38,7 @@ defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%_20vh] bg-cover px-4"
+    class="relative flex flex-col items-center text-center bg-no-repeat bg-[50%_20vh] md:bg-[50%_20vh] bg-cover px-4 pt-[5vh] md:pt-[20vh]"
     :style="{
       backgroundImage: `url(${backgroundImage})`,
     }"
@@ -48,7 +48,9 @@ defineProps({
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ title }}
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#E2E3E5]">{{ subtitle }}</p>
+      <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#E2E3E5]">
+        {{ subtitle }}
+      </p>
     </div>
 
     <!-- Hero Section with Background -->
