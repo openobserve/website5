@@ -1,6 +1,5 @@
 <script setup>
 import { computed, defineProps } from 'vue';
-import CustomSection from './CustomSection.vue';
 import CustomImage from './CustomImage.vue';
 
 // Props definition
