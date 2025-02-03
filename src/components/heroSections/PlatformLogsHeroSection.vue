@@ -18,7 +18,7 @@ const props= defineProps({
     default: () => ({}),
   },
   backgroundImage: {
-    type: String,
+    type: Object,
     required: true, // URL of the SVG or background image
   },
   image:{
@@ -27,6 +27,7 @@ const props= defineProps({
   },
   bottomImage: {
     type: String,
+    required:false,
   },
   items: {
     type: Array,
@@ -35,7 +36,7 @@ const props= defineProps({
 });
 
 const sectionStyles = computed(() => ({
-  "--before-bg": `url('${props.backgroundImage}')`,
+  "--before-bg": `url('${props?.backgroundImage?.url}')`,
 }));
 </script>
 
@@ -88,7 +89,7 @@ const sectionStyles = computed(() => ({
     </div>
 
     <!-- Bottom Image Container -->
-    <div
+    <!-- <div
       class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
     >
       <CustomImage
@@ -96,7 +97,7 @@ const sectionStyles = computed(() => ({
         :image="bottomImage"
         altText="Bottom decoration"
         cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
-      />
+      /> -->
     
         <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
         <!-- <div
@@ -114,7 +115,7 @@ const sectionStyles = computed(() => ({
           {{console.log(items,"itemssssssssssssssssssssssssssssssss")}}
         </div>
         </div> -->
-      </div>
+      <!-- </div> -->
   </section>
 </template>
 <style scoped>

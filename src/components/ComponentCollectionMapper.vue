@@ -34,6 +34,7 @@ import CustomCardWrapper from './cards/CustomCardWrapper.vue';
 import VisitSandbox from './core/VisitSandbox.vue';
 import CustomSeprater from './core/CustomSeprater.vue';
 import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
+import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
 
 const props = defineProps({
   data: {
@@ -61,10 +62,11 @@ const componentsMap = computed(() => ({
   'section-cards.feature4': FeatureCardWrapper,
   'section-features.platform-tabs-wrapper': TabsWithImageWrapper,
   'section-features.tabs-features': TabsWrapper,
-  // 'section':TabsWrapper.
+  'section-features.feature-list':TabsWrapper,
   // 'section.caseStudyWrapper': CaseStudyWrapper,
   'section-cta.banner': BannerWrapper,
   'section-cta.plain-cta':GetDemoWrapper,
+  'section-features.feature-list':PlatformSubTabsWrapper,
 
   'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
     'section-faqs.frequently-asked-question': FaqWrapper,
