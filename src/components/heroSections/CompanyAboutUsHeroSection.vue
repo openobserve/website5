@@ -50,8 +50,8 @@ const formatSubtitle = (text) => {
         />
       </div>
       <div>
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.text }}
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
+          {{ primaryButton?.text }}
         </CustomButton>
       </div>
     </div>
