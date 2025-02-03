@@ -50,8 +50,12 @@ const redirectToBlog = (slug) => {
 
 <template>
   <CustomSection>
-    <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
-    
+    <Heading
+      :title="heading?.title"
+      :description="heading?.subtitle"
+      align="CENTER"
+    />
+
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
       <CustomImage
