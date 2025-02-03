@@ -1,12 +1,15 @@
 <script setup>
+import { onMounted } from "vue";
+import { slugify } from "../../utils/slugify";
+
 defineProps({
   suggestions: { type: Array, required: true },
 });
 
-const emit = defineEmits(["selectSuggestion"]);
-
-const selectSuggestion = (suggestion) => {
-  emit("selectSuggestion", suggestion);
+const navigateToTag = (tagName) => {
+  if (typeof window !== "undefined") {
+    window.location.assign(`/blog/tag/${tagName}`);
+  }
 };
 </script>
 
@@ -15,10 +18,10 @@ const selectSuggestion = (suggestion) => {
     <button
       v-for="(suggestion, index) in suggestions"
       :key="index"
-      @click="selectSuggestion(suggestion)"
+      @click="navigateToTag(suggestion.name)"
       class="px-6 py-1 bg-black border rounded-full hover:text-white text-sm text-neutral-400"
     >
-      {{ suggestion }}
+      {{ suggestion.name }}
     </button>
   </div>
 </template>

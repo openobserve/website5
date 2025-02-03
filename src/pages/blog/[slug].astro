@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
+import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
+import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue"
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import fetchApi from "../../utils/strapi";
+export async function getStaticPaths() {
+  const PageData: string[] = await fetchApi({
+    endpoint: "api/blog-pages",
+    query: { pLevel: "10", status: "draft" },
+  });
+  const slugs = PageData?.data
+  return slugs.map((it:any) => ({
+    params: { slug: it.slug },
+  }))
+}
+const { slug }: any = Astro.params;
+const SlugData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: { pLevel: "10", status: "draft", "filters[slug][$eq]": slug  },
+});
+
+// Fetch the data for the current ID
+const caseStudyTitle = {
+  title: "Want to know more? Check out these Blogs.",
+  subtitle:
+    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+};
+const caseStudyData = [
+  {
+    image: "/blogColor-1.png",
+    title: "Case Study 1",
+    description:
+      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "/blogColor-2.png",
+    title: "Scaling Observability for Growth",
+    description:
+      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+  {
+    image: "/blogColor-3.png",
+    title: "Enhancing Security Monitoring",
+    description:
+      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
+    btnTitle: "LEARN MORE",
+    link: "#",
+  },
+];
+
+const AuthorData = {
+  title: "Vue.js Best Practices",
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+  imageUrl: "https://picsum.photos/400/300?random=4",
+  link: "https://example.com/vue-best-practices",
+  author: "John Doe",
+};
+---
+
+<Layout>
+  <BlogDetailsHeroSectionWrapper
+    title={SlugData?.data[0].title}
+    bottomImage={SlugData?.data[0].image?.formats?.large?.url || SlugData?.data[0].image?.url}
+    client:load
+    suggestions={["Monitoring", "AWS", "OpenTelemetry"]}
+
+  />
+  <BlogDetailContentWrapper
+    client:load
+    content={SlugData?.data[0].content}
+
+  />
+  <SingleAuthorDetails author={SlugData?.data[0].authors[0]} client:load />
+  <CaseStudyWrapper
+  title={caseStudyTitle.title}
+  description={caseStudyTitle.subtitle}
+  items={caseStudyData}
+  client:load
+/>
+</Layout>

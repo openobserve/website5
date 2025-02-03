@@ -7,6 +7,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from 'vue';
 
+// Define the props for this component
 const props = defineProps({
   data: {
     type: Array,
@@ -44,6 +45,14 @@ const transformBlogData = (blog) => ({
 const cards = computed(() => 
   props.data.map(item => transformBlogData(item))
 );
+
+// Redirect function for clicking a card
+const redirectToBlog = (slug) => {
+  if (typeof window !== "undefined") {
+    window.location.assign(`/blog/${slug}`); // Redirects to the blog's page
+  }
+};
+
 </script>
 
 <template>
@@ -61,7 +70,10 @@ const cards = computed(() =>
       <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
         <!-- Featured (first) card -->
         <div v-if="cards.length > 0">
-          <LeftSideCard :card="cards[0]"  />
+          <LeftSideCard 
+            :card="cards[0]"  
+            @click="redirectToBlog(cards[0].slug)"
+          />
         </div>
         
         <!-- Remaining cards -->
@@ -70,6 +82,7 @@ const cards = computed(() =>
             v-for="(card, index) in cards.slice(1)"
             :key="card.slug || index"
             :card="card"
+            @click="redirectToBlog(card.slug)"
           />
         </div>
       </div>
@@ -82,6 +95,7 @@ const cards = computed(() =>
           v-for="(card, index) in cards"
           :key="card.slug || index"
           :card="card"
+          @click="redirectToBlog(card.slug)"
         />
       </div>
     </div> -->
