@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
-const PageData = await fetchApi({
-  endpoint: "api/job",
-  query: { pLevel: "10" , status: "draft"},
-});
+// const PageData = await fetchApi({
+//   endpoint: "api/job",
+//   query: { pLevel: "10" , status: "draft"},
+// });
 
 const visitSandboxData = {
   title: "Apply Today",
@@ -153,7 +153,7 @@ const cardData1 = [
 ---
 
 <Layout>
-  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <!-- <ComponentCollectionMapper data={PageData?.data?.body}  client:load/> -->
     <!-- <div class="mt-10">
         <CompanyJoinOOHeroSection
           client:load

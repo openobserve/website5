@@ -56,11 +56,11 @@ defineProps({
           >
             {{ button.text }}
           </CustomButton> -->
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
-          {{ primaryButton.text }}
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
+          {{ primaryButton?.text }}
         </CustomButton>
-        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">
-          {{ secondaryButton.text }}
+        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link">
+          {{ secondaryButton?.text }}
         </CustomButton>
       </div>
     </div>
