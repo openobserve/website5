@@ -12,23 +12,23 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-    default: () => []
+    default: () => [],
   },
   title: {
     type: String,
-    default: ""
+    default: "",
   },
   subtitle: {
     type: String,
-    default: ""
+    default: "",
   },
   primaryButton: {
     type: Object,
     default: () => ({
       text: "",
-      link: ""
-    })
-  }
+      link: "",
+    }),
+  },
 });
 
 // Transform the blog data for card display
@@ -38,13 +38,11 @@ const transformBlogData = (blog) => ({
   image: blog.image?.url || "",
   date: new Date(blog.publishDate).toLocaleDateString(),
   author: blog.authors?.[0]?.name || "Anonymous",
-  slug: blog.slug
+  slug: blog.slug,
 });
 
 // Computed property for transformed cards
-const cards = computed(() => 
-  props.data.map(item => transformBlogData(item))
-);
+const cards = computed(() => props.data.map((item) => transformBlogData(item)));
 
 // Redirect function for clicking a card
 const redirectToBlog = (slug) => {
@@ -52,30 +50,35 @@ const redirectToBlog = (slug) => {
     window.location.assign(`/blog/${slug}`); // Redirects to the blog's page
   }
 };
-
 </script>
 
 <template>
   <CustomSection>
-    <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
-    
+    <Heading
+      :title="heading?.title"
+      :description="heading?.subtitle"
+      align="CENTER"
+    />
+
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
-      <CustomImage 
-        image="/Platform/Ellipse-141.svg" 
-        altText="Background decoration" 
-        cssClass="absolute opacity-30 object-contain" 
+      <CustomImage
+        image="/Platform/Ellipse-141.svg"
+        altText="Background decoration"
+        cssClass="absolute opacity-30 object-contain"
       />
-      
-      <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
+
+      <div
+        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+      >
         <!-- Featured (first) card -->
         <div v-if="cards.length > 0">
-          <LeftSideCard 
-            :card="cards[0]"  
+          <LeftSideCard
+            :card="cards[0]"
             @click="redirectToBlog(cards[0].slug)"
           />
         </div>
-        
+
         <!-- Remaining cards -->
         <div class="flex flex-col gap-3 justify-center items-center h-full">
           <RightSideCard
@@ -86,8 +89,9 @@ const redirectToBlog = (slug) => {
           />
         </div>
       </div>
-    </div> -->
-   
+    </div>
+    -->
+
     <!-- Mobile View -->
     <!-- <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
