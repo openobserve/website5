@@ -51,6 +51,7 @@ const props = defineProps({
     required: true,
   },
 });
+
 const componentsMap = computed(() => ({
   "section-hero.homepage-hero": HomeHeroSection,
   "section-cards.features1": FeatureCardWithIconWrapper,
