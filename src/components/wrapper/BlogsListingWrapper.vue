@@ -84,7 +84,6 @@ const props = defineProps({
   currentPage: { type: Number, required: true },
   suggestionData: { type: Array, required: true },
 });
-console.log("suggestionData", props.blogsData);
 const searchQuery = ref("");
 
 const selectSuggestion = (suggestion) => {
