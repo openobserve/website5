@@ -5,7 +5,6 @@ interface Blog {
   imageUrl: string;
   link: string;
   slug: string;
-  slug: string;
 }
 const props = defineProps({
   sectionData: {
