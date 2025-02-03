@@ -34,22 +34,22 @@ const props = defineProps({
       <!-- Left Side - Profile Image (Placeholder if not available) -->
       <div class="w-full md:w-1/6 h-40 md:h-auto relative flex items-center justify-center bg-gray-800">
         <img
-          v-if="author.imageUrl"
-          :src="author.imageUrl"
-          :alt="author.name"
+          v-if="author?.imageUrl"
+          :src="author?.imageUrl"
+          :alt="author?.name"
           class="w-full h-full object-cover absolute inset-0"
         />
-        <div v-else class="text-white text-2xl font-bold">{{ author.name}}</div>
+        <div v-else class="text-white text-2xl font-bold">{{ author?.name}}</div>
       </div>
 
       <!-- Right Side - Content -->
       <div class="w-full md:w-2/3 p-6 h-40 flex flex-col justify-between">
         <div>
           <h3 :class="[titleTextColor, 'text-xl font-bold mb-3 underline']">
-            {{ author.name }}
+            {{ author?.name }}
           </h3>
           <p class="mb-4 text-sm break-words line-clamp-3" :class="[descriptionTextColor]">
-            {{ author.bio }}
+            {{ author?.bio }}
           </p>
         </div>
         

@@ -43,10 +43,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-console.log(props.data,"Ridddhi")
-
-
 const componentsMap = computed(() => ({
   
   'section-hero.homepage-hero': HomeHeroSection,

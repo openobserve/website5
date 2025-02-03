@@ -8,12 +8,21 @@ import fetchApi from "../../../utils/strapi";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
 
-// Get the current page from URL parameters
+export async function getStaticPaths() {
+  const totalPages = await fetchApi({
+    endpoint: "api/blog-pages",
+    query: { pLevel: "10", status: "draft" },
+  });
+  const pages = Math.ceil(totalPages?.data?.length / 50);
+  return Array.from({ length: pages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+}
+
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
 const itemsPerPage = 50;
 
-// Fetch blogs data with the current page
 const blogsData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
