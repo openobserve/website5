@@ -15,6 +15,7 @@ const props = defineProps({
     required: true,
   },
   direction: {
+  direction: {
     type: String,
     validator(value) {
       return ["left", "right"].includes(value);

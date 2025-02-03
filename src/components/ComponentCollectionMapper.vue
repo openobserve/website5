@@ -21,12 +21,14 @@ import BlogWrapper from "./wrapper/BlogWrapper.vue";
 import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import CustomBanner from "./core/CustomBanner.vue";
+
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "./wrapper/BannerWrapper.vue";
+
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
 import CustomCardWrapper from "./cards/CustomCardWrapper.vue";
 import VisitSandbox from "./core/VisitSandbox.vue";
@@ -92,13 +94,6 @@ const componentsMap = computed(() => ({
   "section-features.info-right-feature": CustomStoryWrapper,
   "section-features.info-left-feature": AboutCommunityWrapper,
   "section-cards.community-support": CommunitySupportCardWrapper,
-  "section-hero.contact-hero-section": ContactUsHeroSection,
-  "section-hero.resource-hero-section": ResourceHeroSection,
-  "section-cards.resource-feature-highlight": ResourceCardsWrapper,
-  "section-cards.blogs": BlogsWrapper,
-  // "section-cards.blog-with-categories": 
-  "section-cards.resource-support-card": SupportCardWrapper,
-  "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
-  "section-cards.why-customer-love-us": CustomOpenObserveCard
+  "section-hero.contact-hero-section": ContactUsHeroSection
 }));
 </script>
