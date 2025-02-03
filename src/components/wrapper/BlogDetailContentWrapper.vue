@@ -1,28 +1,18 @@
 <script setup>
-import { defineProps, ref, onMounted , defineEmits} from "vue";
-import { marked } from "marked"; // Use Marked.js to convert Markdown to HTML
+import { defineProps, ref, watch, defineEmits } from "vue";
+import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
 
 // Define props
-defineProps({
-  title: {
+const props = defineProps({
+  content: {
     type: String,
     required: true,
-  },
-  bottomImage: {
-    type: String,
-  },
-  activity: {
-    type: Array || null,
-  },
-  suggestions: {
-    type: Array || null,
   },
 });
 
 // Reactive variables
-const markdownContent = ref("");
 const htmlContent = ref(""); // For rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);
@@ -33,39 +23,45 @@ const emit = defineEmits(["update-headings"]);
  * @returns {string} Content without frontmatter
  */
 function removeFrontmatter(content) {
-  // Remove frontmatter between --- or +++ delimiters
-  return content.replace(/^(---|\+\+\+)[\s\S]+?\1/, '').trim();
+  return content.replace(/^(---|\+\+\+)[\s\S]+?\1/, "").trim();
 }
 
+/**
+ * Process Markdown content: convert to HTML and extract headings.
+ * @param {string} markdownText
+ */
+function processMarkdown(markdownText) {
+  if (!markdownText) return;
 
-// Fetch the markdown file from the public folder
-onMounted(async () => {
-  try {
-    const response = await fetch("/example.md");
-    const rawContent = await response.text();
-    
-    // Remove frontmatter before processing
-    markdownContent.value = removeFrontmatter(rawContent);
+  // Remove frontmatter before processing
+  const cleanedContent = removeFrontmatter(markdownText);
 
-    // Convert Markdown to HTML
-    htmlContent.value = marked(markdownContent.value);
+  // Convert Markdown to HTML
+  htmlContent.value = marked(cleanedContent);
 
-    // Extract headings for Table of Contents
-    const headingMatches = markdownContent.value.match(/(##+)\s*(.*)/g) || [];
-    headings.value = headingMatches.map((heading, index) => {
-      const level = heading.match(/^##+/)[0].length;
-      const text = heading.replace(/^##*\s*/, "");
-      const id = `section-${index}`;
+  // Extract headings for Table of Contents
+  const headingMatches = cleanedContent.match(/(##+)\s*(.*)/g) || [];
+  headings.value = headingMatches.map((heading, index) => {
+    const level = heading.match(/^##+/)[0].length;
+    const text = heading.replace(/^##*\s*/, "").trim();
+    const id = `section-${index}`;
 
-      return { id, text, level };
-    });
+    return { id, text, level };
+  });
 
-    // Emit the headings to the parent component for ToC
-    emit("update-headings", headings.value);
-  } catch (error) {
-    console.error('Error loading or processing markdown:', error);
-  }
-});
+  // Emit the headings to the parent component for ToC
+  emit("update-headings", headings.value);
+}
+
+// Watch for content prop changes and update accordingly
+watch(() => props.content, (newContent) => {
+  processMarkdown(newContent);
+}, { immediate: true });
+
+/**
+ * Scroll to a specific section when TOC is clicked.
+ * @param {string} id - The ID of the section
+ */
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
@@ -82,13 +78,13 @@ const scrollToSection = (id) => {
 <template>
   <CustomSection>
     <div class="flex flex-col md:flex-row md:mx-auto">
-      <!-- Table of Contents (Above content on Mobile, Sidebar on Desktop) -->
-    
       <!-- Rendered Markdown Content -->
-      <div class="w-full text-left overflow-x-auto order-2 md:order-none">
+      <div class="w-full md:w-[70%] text-left overflow-x-auto order-2 md:order-none">
         <div v-html="htmlContent" class="prose prose-md prose-invert"></div>
       </div>
-      <div class="w-full md:w-[30%]  mb-8 order-1 md:order-none">
+
+      <!-- Table of Contents -->
+      <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
         <TableOfContents :headings="headings" @hover-heading="scrollToSection" />
       </div>
     </div>

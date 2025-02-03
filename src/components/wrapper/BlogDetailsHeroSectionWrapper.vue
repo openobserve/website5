@@ -3,6 +3,7 @@ import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
+import { unknown } from "astro:schema";
 
 // Define props for the component
 defineProps({
@@ -13,12 +14,12 @@ defineProps({
   bottomImage: {
     type: String,
   },
-  activity: {
-    type: Array || null,
-  },
   suggestions: {
     type: Array || null,
   },
+  content: {
+    type: String || null,
+  }
 });
 </script>
 
@@ -68,8 +69,8 @@ defineProps({
       </div>
       <div class="flex items-center justify-center">
         <img
-          src="/BlogDetails.svg"
-          alt="center image"
+          :src="bottomImage"
+          alt="Bottom Image"
           class="w-full object-contain"
         />
       </div>

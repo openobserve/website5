@@ -4,6 +4,7 @@ interface Blog {
   description: string;
   imageUrl: string;
   link: string;
+  slug: string;
 }
 const props = defineProps({
   sectionData: {
@@ -32,37 +33,35 @@ const props = defineProps({
 <template>
   <div class="min-h-screen">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="blog.link"
-          target="_blank"
+          :href="`/blog/${blog.slug}`"
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
-            'max-w-sm rounded-xl overflow-hidden transition-transform block',
+            'flex flex-col rounded-xl overflow-hidden transition-transform h-[400px]',
           ]"
         >
-          <div class="h-48 overflow-hidden">
+
+          <div class="h-48 w-full flex-shrink-0">
             <img
-              :src="blog.imageUrl"
+              :src="blog.imageUrl || blog.image.formats.thumbnail.url || ''"
               :alt="blog.title"
               class="w-full h-full object-cover"
             />
           </div>
-          <div class="p-6">
-            <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
+          <div class="flex flex-col flex-grow p-6">
+            <h3 :class="[titleTextColor, 'text-xl font-bold mb-2 line-clamp-2']">
               {{ blog.title }}
             </h3>
-            <p :class="[descriptionTextColor, 'mb-4 text-sm']">
+            <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-3 flex-grow']">
               {{ blog.description }}
             </p>
-            <span
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-            >
+            <!-- <a :class="[linkColor, 'text-sm font-semibold hover:opacity-80 mt-auto']" :href="`/blogs/${blog.slug}`">
               LEARN MORE
-            </span>
+            </a> -->
           </div>
         </a>
       </div>
