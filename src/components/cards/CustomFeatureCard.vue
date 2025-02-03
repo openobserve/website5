@@ -21,6 +21,11 @@ const props = defineProps({
     default: "bg-gradient-blue",
     required: false,
   },
+  bgColor:{
+    type:String,
+    default:"bg-gradient-gray",
+    required:false,
+  },
 });
 </script>
 
@@ -30,6 +35,7 @@ const props = defineProps({
       :imgSrc="card.image"
       iconSize="small"
       :borderColor="borderColor"
+      :bgColor="bgColor"
       size="small"
     />
   </div>
@@ -46,3 +52,4 @@ const props = defineProps({
     </p>
   </div>
 </template>
+

@@ -96,7 +96,9 @@ defineProps({
               <CustomFeatureCard
                 :card="item"
                 titleTextColor="text-gray-800"
-                descriptionTextColor="text-gray-600"
+                descriptionTextColor="text-gray-700"
+                borderColor="bg-gradient-title-cu"
+                bgColor="bg-gray-600 bg-opacity-50"
               />
             </div>
           </div>

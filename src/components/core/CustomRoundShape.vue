@@ -7,11 +7,13 @@
       // background: getGradientBackground
     }"
   >
-    <div class="absolute inset-[2px] rounded-full bg-gradient-gray flex items-center justify-center">
+    <div class="absolute inset-[1px] p-[0.0625rem] rounded-full flex items-center justify-center"
+    :class="bgColor"
+    >
       <CustomImage
         :image="imgSrc"
         altText="Image"
-        cssClass="object-cover p-2"
+        cssClass="object-cover p-1"
         :style="{
           width: `${Number(iconSize)}px`,
           height: `${Number(iconSize)}px`
@@ -41,6 +43,10 @@ const props = defineProps({
   borderColor: {
     type: String,
     default: "bg-gradient-blue"
+  },
+  bgColor:{
+    type: String,
+    default: "bg-gradient-gray"
   }
 });
 
@@ -58,6 +64,7 @@ const containerSize = computed(() => {
 
 const containerClasses = computed(() => [
   'relative rounded-full',
+  props.bgColor, 
   props.borderColor
 ].join(' '));
 
