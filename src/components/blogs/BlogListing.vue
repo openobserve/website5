@@ -37,14 +37,13 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="`/blogs/${blog.slug}`"
+          :href="`/blog/${blog.slug}`"
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
             'flex flex-col rounded-xl overflow-hidden transition-transform h-[400px]',
           ]"
         >
-        {{ console.log(blog) }}
 
           <div class="h-48 w-full flex-shrink-0">
             <img
@@ -60,9 +59,9 @@ const props = defineProps({
             <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-3 flex-grow']">
               {{ blog.description }}
             </p>
-            <span :class="[linkColor, 'text-sm font-semibold hover:opacity-80 mt-auto']">
+            <!-- <a :class="[linkColor, 'text-sm font-semibold hover:opacity-80 mt-auto']" :href="`/blogs/${blog.slug}`">
               LEARN MORE
-            </span>
+            </a> -->
           </div>
         </a>
       </div>
