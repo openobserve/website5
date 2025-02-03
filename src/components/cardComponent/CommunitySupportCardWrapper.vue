@@ -4,30 +4,38 @@ import IconTitleCard from "./CommunitySupportCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
+import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
-  cardData: {
-    type: Object,
-    required: true,
-  },
+ heading: {
+  type: Object,
+  required:false
+ },
+ items: {
+   type: Array,
+   required: true
+ },
+ description: {
+  type: String,
+  required: false
+ }
 });
 </script>
 
 <template>
     <CustomSection>
-      <div class="flex flex-col max-w-full container mx-auto space-y-14">
+      <div class="flex flex-col w-full container mx-auto space-y-14">
         <Heading
-          :title="props.cardData?.title"
-          :description="props.cardData?.description"
+          :title="props.heading?.title"
+          :description="props.heading?.subtitle"
         />
-        <div class="mt-10">
-          <div class="flex flex-col justify-center">
-            <IconTitleCard :cards="props.cardData?.items" />
-          </div>
+        <div class="mt-10 w-full">
+            <IconTitleCard :cards="props?.items" />
         </div>
         <Heading 
-         :description="props.cardData?.subtitle"
+         :description="props?.description"
         />
       </div>
+      <!-- <CustomSeprater /> -->
     </CustomSection>
 </template>

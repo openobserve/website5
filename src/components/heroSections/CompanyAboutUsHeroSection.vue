@@ -14,7 +14,7 @@ const props = defineProps({
   },
   primaryButton: {
     type: Object,
-    required: true,
+    required: false,
   },
 });
 
@@ -49,7 +49,7 @@ const formatSubtitle = (text) => {
           v-html="formatSubtitle(description)"
         />
       </div>
-      <div>
+      <div v-if="primaryButton">
         <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
           {{ primaryButton?.text }}
         </CustomButton>

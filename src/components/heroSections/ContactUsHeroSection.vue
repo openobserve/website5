@@ -1,7 +1,7 @@
 <script setup>
 import Heading from "../core/Heading.vue";
 import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
-
+import { defineProps } from "vue";
 const props = defineProps({
   title: {
     type: String,
@@ -27,8 +27,8 @@ const props = defineProps({
     >
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full container mx-auto">
         <!-- Left Column: Title & Description -->
-        <div class="w-full text-left">
-          <h1 class="text-5xl text-white font-bold">{{ title }}</h1>
+        <div class="w-full text-left flex flex-col space-y-4">
+          <h1 class="text-5xl xl:text-6xl text-white font-bold">{{ title }}</h1>
           <Heading
             :description="description"
             align="LEFT"

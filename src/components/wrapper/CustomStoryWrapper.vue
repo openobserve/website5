@@ -16,29 +16,17 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  direction:{
-    type: String,
-    validator(value) {
-      return ["left", "right"].includes(value);
-    } 
-  },
-  directionBG:{
-    type: String,
-    validator(value) {
-      return ["top", "bottom"].includes(value);
-    }},
 });
 </script>
 
 <template>
- <CustomSectionBackground :direction="directionBG"> 
+ <CustomSectionBackground direction="bottom"> 
   <CustomSection>
       <CustomStory 
       :title="title"
       :image="image" 
       :description="description" 
-      :direction="direction"
-      :directionBG="directionBG"
+      direction="right"
       />
     </CustomSection>
 </CustomSectionBackground>

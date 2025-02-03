@@ -9,7 +9,7 @@
       #595d62 25.5%,
       #595d62 70%,
       rgba(1, 1, 1, 0) 100%);
-  height: 0.5px;
+  height: 1px;
   width: 100%;
 }
 </style>
