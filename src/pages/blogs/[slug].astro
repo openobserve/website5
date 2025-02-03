@@ -17,7 +17,6 @@ export async function getStaticPaths() {
 }
 const { slug }: any = Astro.params;
 
-console.log("Static path", slug);
 
 const SlugData = await fetchApi({
   endpoint: "api/blog-pages",
@@ -257,29 +256,23 @@ const caseStudyData = [
   },
 ];
 
-const AuthorData = {
-  title: "Vue.js Best Practices",
-  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-  imageUrl: "https://picsum.photos/400/300?random=4",
-  link: "https://example.com/vue-best-practices",
-  author: "John Doe",
-};
+
 ---
 
 <Layout>
   <BlogDetailsHeroSectionWrapper
     title={SlugData?.data[0].title}
-    bottomImage={SlugData?.data[0].image.formats.large.url}
+    bottomImage={SlugData?.data[0]?.image?.formats?.large?.url}
     client:load
     suggestions={["Monitoring", "AWS", "OpenTelemetry"]}
 
   />
   <BlogDetailContentWrapper
     client:load
-    content={SlugData?.data[0].content}
+    content={SlugData?.data[0]?.content}
 
   />
-  <SingleAuthorDetails blog={AuthorData} />
+  <SingleAuthorDetails blog={SlugData?.data[0]?.authors} />
   <!-- <CaseStudyWrapper
   title={caseStudyTitle.title}
   description={caseStudyTitle.subtitle}

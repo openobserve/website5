@@ -86,7 +86,6 @@ const changePage = async (newPage) => {
     const newUrl = newPage === 1 
       ? '/blog' 
       : `/blog/page/${newPage}`;
-    console.log('newUrl', newUrl)
     window.location.assign(newUrl);
     
     // Emit event for parent component
