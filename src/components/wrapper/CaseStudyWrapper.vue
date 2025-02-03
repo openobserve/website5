@@ -38,9 +38,7 @@ const transformBlogData = (blog) => ({
 });
 
 // Computed property for transformed cards
-const cards = computed(() => 
-  props.data.map(item => transformBlogData(item))
-);
+const cards = computed(() => props.data.map((item) => transformBlogData(item)));
 
 // Redirect function for clicking a card
 const redirectToBlog = (slug) => {
@@ -48,13 +46,16 @@ const redirectToBlog = (slug) => {
     window.location.assign(`/blog/${slug}`); // Redirects to the blog's page
   }
 };
-
 </script>
 
 <template>
   <CustomSection>
-    <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
-    
+    <Heading
+      :title="heading?.title"
+      :description="heading?.subtitle"
+      align="CENTER"
+    />
+
     <!-- Desktop View -->
     <div class="hidden md:block py-10 relative">
       <CustomImage
@@ -68,8 +69,8 @@ const redirectToBlog = (slug) => {
       >
         <!-- Featured (first) card -->
         <div v-if="cards.length > 0">
-          <LeftSideCard 
-            :card="cards[0]"  
+          <LeftSideCard
+            :card="cards[0]"
             @click="redirectToBlog(cards[0].slug)"
           />
         </div>
