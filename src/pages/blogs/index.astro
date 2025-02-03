@@ -5,19 +5,19 @@ import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import fetchApi from "../../utils/strapi";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
 
 // Get URL parameters for pagination and search
-const currentPage = 1
+const currentPage = 1;
 const itemsPerPage = 10;
 
 const suggestionData = await fetchApi({
   endpoint: "api/categories",
   query: { path: "", status: "draft", pLevel: "10" },
 });
-const handlePageChange = (page:any) => {
+const handlePageChange = (page: any) => {
   console.log("Page changed to:", page);
 };
 
@@ -25,25 +25,20 @@ const blogsData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
     status: "draft",
-   'pagination[pageSize]': itemsPerPage,
-   'pagination[page]': currentPage
+    "pagination[pageSize]": itemsPerPage,
+    "pagination[page]": currentPage,
+    pLevel: "10",
   },
 });
-const bannerData = {
-  title: "Ready to get started ?",
-  subtitle:
-    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
-  items: [
-    {
-      title: "Fair and transparent pricing",
-      subtitle: "Only pay for what you use.",
-      buttons: [
-        { text: "View Pricing Plans" },
-        { text: "Get Started for Free" },
-      ],
-    },
-  ],
-};
+const loadcaseStudyData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: {
+    "filters[caseStudies][$eq]": true,
+    status: "draft",
+    pLevel: "10",
+  },
+});
+
 const cardHeader = {
   title: "Additional Learning Resources",
   description:
@@ -56,37 +51,6 @@ const cardData = [
     title: "Case Studies",
   },
 ];
-const caseStudyTitle = {
-  title: "Want to know more? Check out these Blogs.",
-  subtitle:
-    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
-};
-const caseStudyData = [
-  {
-    image: "/blogColor-1.png",
-    title: "Case Study 1",
-    description:
-      "Company A: Reducing MTTR by 40%. Learn how Company A leveraged OpenObserver's real-time alerts...",
-    btnTitle: "LEARN MORE",
-    link: "#",
-  },
-  {
-    image: "/blogColor-2.png",
-    title: "Scaling Observability for Growth",
-    description:
-      "Discover how Company B scaled its observability infrastructure while reducing costs by 30%.",
-    btnTitle: "LEARN MORE",
-    link: "#",
-  },
-  {
-    image: "/blogColor-3.png",
-    title: "Enhancing Security Monitoring",
-    description:
-      "See how Company C centralized its security logs and improved threat detection with OpenObserve.",
-    btnTitle: "LEARN MORE",
-    link: "#",
-  },
-];
 ---
 
 <Layout>
@@ -94,27 +58,27 @@ const caseStudyData = [
     title="Blogs"
     subtitle="Explore latest insights and updates"
   />
-  <!-- <CaseStudyWrapper
-    title={caseStudyTitle.title}
-    description={caseStudyTitle.subtitle}
-    items={caseStudyData}
+  <CaseStudyWrapper
+    data={loadcaseStudyData.data}
+    title="Blog Posts"
+    subtitle="Latest articles and updates"
     client:load
-  /> -->
-  <!-- <BlogsListingWrapper 
+    :primaryButton="{ text: 'View All', link: '/blog' }"
+  />
+  <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={currentPage}
     client:load
+  />
+  <!-- <BlogPagination
+    totalItems={blogsData.meta.pagination.total}
+    itemsPerPage={blogsData.meta.pagination.pageSize}
+    currentPage={currentPage}
+    @page-changed={handlePageChange}
   /> -->
-   <!-- <BlogPagination
-      totalItems={blogsData.meta.pagination.total}
-      itemsPerPage={blogsData.meta.pagination.pageSize}
-      currentPage={currentPage}
-      @page-changed={handlePageChange}
-    />
   <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
   />
-  <!-- <BannerWrapper items={bannerData} client:load /> -->
 </Layout>

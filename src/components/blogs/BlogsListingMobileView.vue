@@ -32,7 +32,6 @@ const props = defineProps({
   <div class="min-h-screen">
     <div class="container mx-auto px-1">
       <div class="grid grid-rows-1 lg:grid-rows-2 gap-8">
-
         <a
           v-for="blog in sectionData"
           :key="blog.title"
@@ -45,26 +44,29 @@ const props = defineProps({
           ]"
         >
           <!-- Left Side - Image -->
-          <div class="w-full h-48 md:h-auto relative">
+          <div class="w-full md:h-auto relative">
             <img
-              :src="blog.imageUrl"
+              :src="blog.imageUrl || blog.image.formats.thumbnail.url || ''"
               :alt="blog.title"
-              class="w-full h-full object-cover absolute inset-0"
+              class="w-full h-full object-cover"
             />
           </div>
 
           <!-- Right Side - Content -->
           <div class="w-full p-6 flex flex-col justify-between">
             <div>
-              <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
+              <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                 {{ blog.title }}
-              </h3>
-              <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-3']">
+              </h6>
+              <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
                 {{ blog.description }}
               </p>
             </div>
             <span
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80 inline-block']"
+              :class="[
+                linkColor,
+                'text-sm font-semibold hover:opacity-80 inline-block',
+              ]"
             >
               LEARN MORE
             </span>
