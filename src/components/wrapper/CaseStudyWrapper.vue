@@ -5,41 +5,70 @@ import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
+import { computed } from 'vue';
 
 const props = defineProps({
-//fetch card items form api here.
-  items: {
+  data: {
     type: Array,
-    required: false,
-    default: [],
+    required: true,
+    default: () => []
   },
- heading:{
-  type:Object,
-  required:true,
- },
+  title: {
+    type: String,
+    default: ""
+  },
+  subtitle: {
+    type: String,
+    default: ""
+  },
   primaryButton: {
     type: Object,
-    default: "",
-  },
+    default: () => ({
+      text: "",
+      link: ""
+    })
+  }
 });
+
+// Transform the blog data for card display
+const transformBlogData = (blog) => ({
+  title: blog.title,
+  description: blog.description,
+  image: blog.image?.url || "",
+  date: new Date(blog.publishDate).toLocaleDateString(),
+  author: blog.authors?.[0]?.name || "Anonymous",
+  slug: blog.slug
+});
+
+// Computed property for transformed cards
+const cards = computed(() => 
+  props.data.map(item => transformBlogData(item))
+);
 </script>
 
 <template>
   <CustomSection>
-    <Heading :title="props.title" :description="props.subtitle" align="CENTER" />
+    <Heading :title="title" :description="subtitle" align="CENTER" />
     
     <!-- Desktop View -->
-    <!-- <div class="hidden md:block py-10 relative">
-      <CustomImage image="/Platform/Ellipse-141.svg" altText="Image" cssClass="absolute opacity-30 object-contain" />
+    <div class="hidden md:block py-10 relative">
+      <CustomImage 
+        image="/Platform/Ellipse-141.svg" 
+        altText="Background decoration" 
+        cssClass="absolute opacity-30 object-contain" 
+      />
       
       <div class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full">
-        <div v-if="props?.items?.length > 0">
-          <LeftSideCard :card="props?.items[0]" />
+        <!-- Featured (first) card -->
+        <div v-if="cards.length > 0">
+          <LeftSideCard :card="cards[0]"  />
         </div>
+        
+        <!-- Remaining cards -->
         <div class="flex flex-col gap-3 justify-center items-center h-full">
           <RightSideCard
-            v-for="(card, index) in props.items.slice(1)"
-            :key="index"
+            v-for="(card, index) in cards.slice(1)"
+            :key="card.slug || index"
             :card="card"
           />
         </div>
@@ -50,15 +79,21 @@ const props = defineProps({
     <!-- <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
         <LeftSideCard
-          v-for="(card, index) in props?.items"
-          :key="index"
+          v-for="(card, index) in cards"
+          :key="card.slug || index"
           :card="card"
         />
       </div>
     </div> -->
 
-    <div class="flex justify-center">
-      <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
+    <div class="flex justify-center mt-8">
+      <CustomButton 
+        v-if="primaryButton.text"
+        variant="secondary" 
+        size="medium" 
+        :buttonText="primaryButton.text" 
+        :buttonLink="primaryButton.link" 
+      />
     </div>
   </CustomSection>
 </template>
