@@ -8,7 +8,7 @@ import fetchApi from "../../utils/strapi";
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
     endpoint: "api/blog-pages",
-    query: { pLevel: "10", status: "draft" },
+    query: { populate: "*", status: "draft" },
   });
   const slugs = PageData?.data
   return slugs.map((it:any) => ({
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { slug }: any = Astro.params;
 const SlugData = await fetchApi({
   endpoint: "api/blog-pages",
-  query: { pLevel: "10", status: "draft", "filters[slug][$eq]": slug  },
+  query: { populate: "*", status: "draft", "filters[slug][$eq]": slug  },
 });
 
 // Fetch the data for the current ID
@@ -82,5 +82,9 @@ const AuthorData = {
   description={caseStudyTitle.subtitle}
   items={caseStudyData}
   client:load
+  primaryButton={{
+    text: "See All Blogs",
+    link: "/blog",
+  }}
 />
 </Layout>

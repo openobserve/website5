@@ -1,24 +1,23 @@
 <script setup>
-import { onMounted } from "vue";
-import { slugify } from "../../utils/slugify";
-
 defineProps({
   suggestions: { type: Array, required: true },
 });
 
-const navigateToTag = (tagName) => {
-  if (typeof window !== "undefined") {
-    window.location.assign(`/blog/tag/${tagName}`);
-  }
+const emit = defineEmits(["selectSuggestion"]);
+
+const selectSuggestion = (suggestion) => {
+  emit("selectSuggestion", suggestion);
 };
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-4 w-full md:w-3/5 justify-center md:justify-center">
+   <!-- <h1 class="text-white font-semibold py-6">Tags</h1> -->
+  <div class="flex flex-wrap gap-2 w-full justify-center md:justify-center">
+   
     <button
       v-for="(suggestion, index) in suggestions"
       :key="index"
-      @click="navigateToTag(suggestion.name)"
+      @click="selectSuggestion(suggestion)"
       class="px-6 py-1 bg-black border rounded-full hover:text-white text-sm text-neutral-400"
     >
       {{ suggestion.name }}
