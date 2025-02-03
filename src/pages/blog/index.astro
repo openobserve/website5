@@ -9,27 +9,26 @@ import fetchApi from "../../utils/strapi";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
 
-// Get URL parameters for pagination and search
-const currentPage = 1;
-const itemsPerPage = 10;
+// Get the current page from URL parameters
+const { page } = Astro.params;
+const currentPage = page ? parseInt(page) : 1;
+const itemsPerPage = 50;
+
+// Fetch blogs data with the current page
+const blogsData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: {
+    "pagination[page]": currentPage,
+    "pagination[pageSize]": itemsPerPage,
+    populate: '*',
+  },
+});
 
 const suggestionData = await fetchApi({
   endpoint: "api/categories",
   query: { path: "", status: "draft", pLevel: "10" },
 });
-const handlePageChange = (page: any) => {
-  console.log("Page changed to:", page);
-};
 
-const blogsData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    status: "draft",
-    "pagination[pageSize]": itemsPerPage,
-    "pagination[page]": currentPage,
-    pLevel: "10",
-  },
-});
 const loadcaseStudyData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
@@ -63,19 +62,13 @@ const cardData = [
     title="Blog Posts"
     subtitle="Latest articles and updates"
     client:load
-    :primaryButton="{ text: 'View All', link: '/blog' }"
   />
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={currentPage}
+    suggestionData={suggestionData}
     client:load
   />
-  <!-- <BlogPagination
-    totalItems={blogsData.meta.pagination.total}
-    itemsPerPage={blogsData.meta.pagination.pageSize}
-    currentPage={currentPage}
-    @page-changed={handlePageChange}
-  /> -->
   <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}

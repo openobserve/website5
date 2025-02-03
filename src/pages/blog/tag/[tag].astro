@@ -1,0 +1,97 @@
+---
+// Imports
+import Layout from "../../../layouts/Layout.astro";
+import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
+import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
+import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
+import fetchApi from "../../../utils/strapi";
+import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogPagination from "../../../components/blogs/BlogPagination.vue";
+import { slugify } from "../../../utils/slugify";
+
+// 🚀 Step 1: Generate dynamic paths for categories
+export async function getStaticPaths() {
+  const categories = await fetchApi({
+    endpoint: "api/categories",
+    query: { pLevel: "10", status: "draft" },
+  });
+
+  return categories?.data?.map((category) => ({
+    params: { tag: category.name },
+  }));
+}
+
+// 🚀 Step 2: Get `categorySlug` from URL
+const { tag } = Astro.params;
+const categorySlug = slugify(tag);
+
+// 🚀 Step 3: Fetch blogs based on category
+const blogsData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: {
+    status: "draft",
+    "filters[categories][slug][$eq]": categorySlug,
+    "pagination[page]": 1,
+    "pagination[pageSize]": 50,
+    pLevel: "10",
+  },
+});
+
+// ✅ Fetch other required data
+const suggestionData = await fetchApi({
+  endpoint: "api/categories",
+  query: { path: "", status: "draft", pLevel: "10" },
+});
+
+const loadcaseStudyData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: {
+    "filters[caseStudies][$eq]": true,
+    status: "draft",
+    pLevel: "10",
+  },
+});
+
+// 🔹 Additional Card Data
+const cardHeader = {
+  title: "Additional Learning Resources",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+};
+
+const cardData = [
+  {
+    icon: "/resources/64pxComponent.svg",
+    title: "Case Studies",
+  },
+];
+---
+
+<!-- ✅ Render Category-Based Blogs -->
+<Layout>
+  <ResourceHeroSection
+    title="Blogs"
+    subtitle={`Showing posts for category: ${tag}`}
+  />
+
+  <CaseStudyWrapper
+    data={loadcaseStudyData.data}
+    title="Blog Posts"
+    subtitle="Latest articles and updates"
+    client:load
+  />
+
+  <BlogsListingWrapper
+    blogsData={blogsData}
+    currentPage={1}
+    suggestionData={suggestionData}
+    client:load
+  />
+
+  <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  />
+</Layout>
