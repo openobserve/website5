@@ -15,9 +15,9 @@ const props = defineProps({
     <div
       class="group custom-hover flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300"
     >
-      <div class="w-full lg:w-1/3 group-hover:grayscale-0 group-hover:filter">
+      <div class="w-full lg:w-32 group-hover:grayscale-0 group-hover:filter">
         <CustomImage
-          image="card.image"
+          :image="card.image"
           :altText="card.title"
           cssClass="w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
         />
