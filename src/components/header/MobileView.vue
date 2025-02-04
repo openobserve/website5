@@ -124,7 +124,7 @@
                 <CustomHeaderButton
                   title="Full Stack Observability Platform"
                   linkTitle="View Platform"
-                  link="platform"
+                  link="/platform"
                 />
                 <a
                   class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
@@ -157,7 +157,7 @@
               <CustomHeaderButton
                 title="Full Stack Observability Solution"
                 linkTitle="View Solution"
-                link="solution"
+                link="/solution"
               />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
@@ -210,11 +210,11 @@
               <CustomHeaderButton
                 title="Full Stack Observability Resources"
                 linkTitle="View Resources"
-                link="resources"
+                link="/resources"
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <ul
+                  <!-- <ul
                     class=""
                     v-for="(item, index) in items.resources.item1"
                     :key="index"
@@ -223,6 +223,19 @@
                       <a :href="item.link" class="text-lg font-bold">{{
                         item.title
                       }}</a>
+                    </li>
+                  </ul> -->
+                  <ul class="flex flex-col space-y-2">
+                    <li class="cursor-pointer">
+                      <a
+                        href="https://openobserve.ai/docs/"
+                        class="text-lg font-bold"
+                        target="_blank"
+                        >Documentation</a
+                      >
+                    </li>
+                    <li class="cursor-pointer">
+                      <a href="/blog" class="text-lg font-bold">Blogs</a>
                     </li>
                   </ul>
                 </div>

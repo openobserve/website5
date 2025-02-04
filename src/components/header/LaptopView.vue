@@ -34,7 +34,10 @@
             @mouseenter="onResourcesMenuHover"
             @mouseleave="onResourcesMenuMouseLeave"
           >
-            <a href="#" class="text-white font-semibold text-base hover:underline">
+            <a
+              href="#"
+              class="text-white font-semibold text-base hover:underline"
+            >
               Resources
             </a>
           </li>
@@ -64,9 +67,20 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <CustomButton variant="tertiary" size="small" buttonLink="https://cloud.openobserve.ai" target="_blank"> LOGIN IN </CustomButton>
-        <CustomButton variant="secondary" size="small" buttonLink="download"> DOWNLOAD </CustomButton>
-        <CustomButton variant="primary" size="small" buttonLink="/"> GET DEMO </CustomButton>
+        <CustomButton
+          variant="tertiary"
+          size="small"
+          buttonLink="https://cloud.openobserve.ai"
+          target="_blank"
+        >
+          LOGIN
+        </CustomButton>
+        <CustomButton variant="secondary" size="small" buttonLink="/download">
+          DOWNLOAD
+        </CustomButton>
+        <CustomButton variant="primary" size="small" buttonLink="/">
+          GET DEMO
+        </CustomButton>
       </div>
     </div>
     <!-- Dropdown Menus -->
@@ -175,9 +189,9 @@
           <div class="flex justify-center">
             <div class="w-4/5 xl:w-[60%]">
               <CustomHeaderButton
-                title="Full Stack Observability Platform"
-                linkTitle="View Platform"
-                link="#"
+                title="Full Stack Observability Solution"
+                linkTitle="View Solution"
+                link="/solution"
               />
             </div>
           </div>
@@ -193,7 +207,7 @@
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
             <div>
-              <ul
+              <!-- <ul
                 class=""
                 v-for="(item, index) in items.resources.item1"
                 :key="index"
@@ -203,6 +217,19 @@
                     item.title
                   }}</a>
                 </li>
+              </ul> -->
+              <ul class="flex flex-col space-y-2">
+                <li class="cursor-pointer">
+                  <a
+                    href="https://openobserve.ai/docs/"
+                    class="text-lg font-bold"
+                    target="_blank"
+                    >Documentation</a
+                  >
+                </li>
+                <li class="cursor-pointer">
+                  <a href="/blog" class="text-lg font-bold">Blogs</a>
+                </li>
               </ul>
             </div>
             <div
@@ -211,13 +238,13 @@
               :key="index"
             >
               <h4 class="text-base font-bold">{{ item.title }}</h4>
-              <ul
-                class=""
-                v-for="(it, index) in item.items"
-                :key="index"
-              >
+              <ul class="" v-for="(it, index) in item.items" :key="index">
                 <li class="cursor-pointer flex flex-col space-y-2">
-                  <a :href="it.link" class="gradient-hover text-sm text-[#BEC0C2]">{{ it.title }}</a>
+                  <a
+                    :href="it.link"
+                    class="gradient-hover text-sm text-[#BEC0C2]"
+                    >{{ it.title }}</a
+                  >
                 </li>
               </ul>
             </div>
@@ -227,7 +254,7 @@
               <CustomHeaderButton
                 title="Check out our resource library"
                 linkTitle="View Resources"
-                link="resources"
+                link="/resources"
               />
             </div>
           </div>
@@ -295,38 +322,73 @@ const isResourcesMenuOpen = ref(false);
 const isCompanyMenuOpen = ref(false);
 const isOpenSearch = ref(false);
 const searchWrapper = ref(null); // Reference to the search bar wrapper
+const platformMenuTimeout = ref(null);
+const solutionMenuTimeout = ref(null);
+const resourcesMenuTimeout = ref(null);
+const companyMenuTimeout = ref(null);
 
-// Handle hover event and position the dropdown dynamically
-const onPlatformMenuHover = (event) => {
+const onPlatformMenuHover = () => {
+  clearTimeout(platformMenuTimeout.value);
   isPlatformMenuOpen.value = true;
+
+  // Close other menus immediately
+  isSolutionMenuOpen.value = false;
+  isResourcesMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onPlatformMenuMouseLeave = () => {
-  isPlatformMenuOpen.value = false;
+  platformMenuTimeout.value = setTimeout(() => {
+    isPlatformMenuOpen.value = false;
+  }, 800); // 2-second delay before closing
 };
 
-const onSolutionMenuHover = (event) => {
+const onSolutionMenuHover = () => {
+  clearTimeout(solutionMenuTimeout.value);
   isSolutionMenuOpen.value = true;
+
+  // Close other menus immediately
+  isPlatformMenuOpen.value = false;
+  isResourcesMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onSolutionMenuMouseLeave = () => {
-  isSolutionMenuOpen.value = false;
+  solutionMenuTimeout.value = setTimeout(() => {
+    isSolutionMenuOpen.value = false;
+  }, 500);
 };
 
-const onResourcesMenuHover = (event) => {
+const onResourcesMenuHover = () => {
+  clearTimeout(resourcesMenuTimeout.value);
   isResourcesMenuOpen.value = true;
+
+  // Close other menus immediately
+  isPlatformMenuOpen.value = false;
+  isSolutionMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onResourcesMenuMouseLeave = () => {
+  resourcesMenuTimeout.value = setTimeout(() => {
+    isResourcesMenuOpen.value = false;
+  }, 500);
+};
+
+const onCompanyMenuHover = () => {
+  clearTimeout(companyMenuTimeout.value);
+  isCompanyMenuOpen.value = true;
+
+  // Close other menus immediately
+  isPlatformMenuOpen.value = false;
+  isSolutionMenuOpen.value = false;
   isResourcesMenuOpen.value = false;
 };
 
-const onCompanyMenuHover = (event) => {
-  isCompanyMenuOpen.value = true;
-};
-
 const onCompanyMenuMouseLeave = () => {
-  isCompanyMenuOpen.value = false;
+  companyMenuTimeout.value = setTimeout(() => {
+    isCompanyMenuOpen.value = false;
+  }, 500);
 };
 
 const onSearchClick = () => {
