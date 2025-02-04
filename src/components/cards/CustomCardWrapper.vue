@@ -40,7 +40,7 @@ const props = defineProps({
           </div>
         </div>
        <div class="flex justify-center items-center pt-12">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
+        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
       </div>
       </CustomSection>
     </div>

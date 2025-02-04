@@ -4,7 +4,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 
 // Define props for the component
-const props= defineProps({
+const props = defineProps({
   heading: {
     type: Object,
     required: true,
@@ -21,13 +21,13 @@ const props= defineProps({
     type: Object,
     required: true, // URL of the SVG or background image
   },
-  image:{
+  image: {
     type: String,
     required: true, // URL of the right-side image
   },
   bottomImage: {
     type: String,
-    required:false,
+    required: false,
   },
   items: {
     type: Array,
@@ -36,13 +36,13 @@ const props= defineProps({
 });
 
 const sectionStyles = computed(() => ({
-  "--before-bg": `url('/Platform/PlatformSubHeroBg.svg')`,
+  "--before-bg": `url('/Platform/SolutionSubHeroBg.svg')`,
 }));
 </script>
 
 <template>
   <section
-  class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
+    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:-top-10 before:bg-no-repeat before:bg-contain before:bg-right-top"
     :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
@@ -87,37 +87,9 @@ const sectionStyles = computed(() => ({
         </div>
       </div>
     </div>
-
-    <!-- Bottom Image Container -->
-    <!-- <div
-      class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
-    >
-      <CustomImage
-        v-if="bottomImage"
-        :image="bottomImage"
-        altText="Bottom decoration"
-        cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
-      /> -->
-    
-        <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
-        <!-- <div
-            :class="[
-              `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3  gap-10 w-full`,
-            ]"
-          >
-        <div
-          class="flex gap-4"
-          v-for="(item, index) in items"
-          :key="index"
-          :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
-        >
-          <CustomFeatureCard :card="item" />
-          {{console.log(items,"itemssssssssssssssssssssssssssssssss")}}
-        </div>
-        </div> -->
-      <!-- </div> -->
   </section>
 </template>
+
 <style scoped>
 section::before {
   background-image: var(--before-bg);

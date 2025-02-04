@@ -34,10 +34,13 @@ const toggleAnswer = (index) => {
           >
             {{ item.question }}
           </h3>
-          <CustomImage
-            image="/faq+Icon.svg"
-            altText="toggle"
-            :cssClass="{ 'transition-transform duration-300 ease-in-out rotate-45': visibleAnswers[index] }"
+          <img
+            src="/faq+Icon.svg"
+            alt="toggle"
+            :class="{
+              'rotate-45': visibleAnswers[index]
+            }"
+            class="transition-transform duration-300 ease-in-out"
           />
         </div>
 
@@ -54,9 +57,11 @@ const toggleAnswer = (index) => {
         </div>
       </div>
     </div>
-      </div>
+  </div>
 </template>
 
 <style scoped>
-
+.rotate-45 {
+  transform: rotate(45deg);
+}
 </style>

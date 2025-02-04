@@ -12,17 +12,16 @@ const props = defineProps({
   },
 });
 
-const bg = {
-  0: "/Homepage/Tiles-F1-eclipse.svg",
-  1: "/Homepage/Home-F2-Eclipse.svg",
-  2: "/Homepage/Home-F3-Eclipse.svg",
-};
+const bgImages = [
+  "/Homepage/Tiles-F1-eclipse.svg", // First and last card
+  "/Homepage/Home-F2-Eclipse.svg",  // Middle card
+];
 </script>
 
 <template>
   <div
     class="w-full border border-[#313539] h-auto p-6 flex flex-col items-center rounded-lg gap-4 bg-no-repeat"
-    :style="{ backgroundImage: `url(${bg[index] || ''})` }"
+    :style="{ backgroundImage: `url(${index === 0 || index > 1 ? bgImages[0] : bgImages[1]})` }"
   >
     <div class="rounded-full flex justify-center items-center mb-4">
       <CustomImage :image="card.image" altText="Card Image" cssClass="w-full h-auto" />

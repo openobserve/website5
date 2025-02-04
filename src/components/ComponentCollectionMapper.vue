@@ -34,6 +34,11 @@ import CustomCardWrapper from './cards/CustomCardWrapper.vue';
 import VisitSandbox from './core/VisitSandbox.vue';
 import CustomSeprater from './core/CustomSeprater.vue';
 import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
+import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
+import CustomFeatureCard from './cards/CustomFeatureCard.vue';
+import SolutionSubpageHeroSection from './heroSections/SolutionSubpageHeroSection.vue';
+import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubPage.vue';
+import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
 
 const props = defineProps({
   data: {
@@ -49,23 +54,30 @@ const componentsMap = computed(() => ({
   'section-cards.stats': TopCompaniesWrapper,
   'section-cards.clients': CompanySwiper,
   // 'section-cards.case-studies': BlogWrapper,
-  'section-features.feature-list': HomeFeatureWrapper,
+  'section-features.feature-list': HomeFeatureWrapper,  //home page wrapper without 
   'section-cards.features3': HomeWhyO2Wrapper,
   'section-separator.separator':CustomSeprater,
 
   'section-hero.feature-hero-section': FeatureHeroSection,
   'section-cards.feature4': FeatureCardWrapper,
   'section-features.platform-tabs-wrapper': TabsWithImageWrapper,
-  'section-features.tabs-features': TabsWrapper,
-  // 'section':TabsWrapper.
+  'section-features.tabs-features': TabsWrapper, //platform landing page 
+  // 'section-features.feature-list':TabsWrapper,
   // 'section.caseStudyWrapper': CaseStudyWrapper,
   'section-cta.banner': BannerWrapper,
   'section-cta.plain-cta':GetDemoWrapper,
+  'section-features.feature-list':PlatformSubTabsWrapper, //platform subpage (with bg image)
+  'section-features.feature-sub-page-top-tabs':TabsWrapper, //solution sub page (without bg image )
+
 
   'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
-    'section-faqs.frequently-asked-question': FaqWrapper,
+  // 'section-cards.feature-highlights':CustomFeatureCard,
+  'section-faqs.frequently-asked-question': FaqWrapper,
 
-    'section-cta.call-to-action': VisitSandbox,
+  'section-hero.solutions-hero-section':SolutionHeroSection, //SolutionPage hero section
+  'section-hero.feature-solution-hero-section':SolutionSubpageHeroSection, //solution subpage hero section
+  'section-cards.feature-highlights':CustomFeatureCardSubPage,
+  'section-cta.call-to-action': VisitSandbox,
   'section-cards.features5': CustomCardWrapper,
 }));
 </script>

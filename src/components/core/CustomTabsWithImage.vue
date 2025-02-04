@@ -105,7 +105,7 @@ onUnmounted(() => {
         style="background-color: rgba(53, 59, 64, 1)"
       >
         <!-- Text Content -->
-        <div class="space-y-4 px-3">
+        <div class="space-y-4 px-3 w-[40%]">
           <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
           <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.description }}</p>
           <CustomButton variant="secondary">
@@ -114,7 +114,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Image -->
-        <div class="lg:translate-y-[7%]">
+        <div class="lg:translate-y-[7%] w-[60%]">
           <CustomImage
             :image="activeTab.image"
             :altText="activeTab.title"

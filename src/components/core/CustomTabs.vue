@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, onUnmounted } from "vue";
 import CustomSection from "./CustomSection.vue";
 import CustomInterChange from "./CustomInterChange.vue";
 import { slugify } from "../../utils/slugify";
@@ -28,6 +28,43 @@ const setActiveTab = (index, slug) => {
   }
 };
 
+// New function to handle scroll-based tab activation
+const handleScroll = () => {
+  const scrollPosition = window.scrollY + window.innerHeight / 2;
+  
+  // Find the content section currently in view
+  let activeIndex = contentRefs.value.findIndex((ref, index) => {
+    if (!ref) return false;
+    
+    const rect = ref.getBoundingClientRect();
+    const offsetTop = rect.top + window.pageYOffset;
+    const offsetBottom = offsetTop + rect.height;
+    
+    return scrollPosition >= offsetTop && scrollPosition <= offsetBottom;
+  });
+
+  // Update active tab if a valid section is found
+  if (activeIndex !== -1 && activeIndex !== activeTabIndex.value) {
+    const newSlug = slugify(props.items[activeIndex].title);
+    activeTabIndex.value = activeIndex;
+    window.history.replaceState(null, "", `#${newSlug}`);
+  }
+};
+
+// Add throttling to prevent too frequent scroll updates
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+
+const throttledScrollHandler = throttle(handleScroll, 100);
+
 // Handle direct navigation via hash links
 onMounted(() => {
   const hash = window.location.hash.replace("#", ""); // Get the current hash
@@ -37,6 +74,14 @@ onMounted(() => {
       nextTick(() => setActiveTab(tabIndex, hash));
     }
   }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', throttledScrollHandler);
+});
+
+// Clean up scroll listener
+onUnmounted(() => {
+  window.removeEventListener('scroll', throttledScrollHandler);
 });
 
 // Watch for hash changes to support manual hash navigation
@@ -55,7 +100,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 <template>
   <section class="text-white">
     <!-- Tabs Section -->
-    <div class="sticky top-16 z-50 backdrop-blur-2xl">
+    <div class="sticky top-16 flex justify-center backdrop-blur-sm">
       <div class="relative max-w-6xl mx-auto px-4">
         <div class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar">
           <!-- Render Tabs -->

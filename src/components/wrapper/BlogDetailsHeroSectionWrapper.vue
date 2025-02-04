@@ -3,6 +3,7 @@ import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
+import { unknown } from "astro:schema";
 
 // Define props for the component
 defineProps({
