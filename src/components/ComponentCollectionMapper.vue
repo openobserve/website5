@@ -35,6 +35,7 @@ import VisitSandbox from './core/VisitSandbox.vue';
 import CustomSeprater from './core/CustomSeprater.vue';
 import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
 import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
+import CustomFeatureCard from './cards/CustomFeatureCard.vue';
 
 const props = defineProps({
   data: {
@@ -68,10 +69,12 @@ const componentsMap = computed(() => ({
   'section-cta.plain-cta':GetDemoWrapper,
   'section-features.feature-list':PlatformSubTabsWrapper,
 
-  'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
-    'section-faqs.frequently-asked-question': FaqWrapper,
 
-    'section-cta.call-to-action': VisitSandbox,
+  'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
+  // 'section-cards.feature-highlights':CustomFeatureCard,
+  'section-faqs.frequently-asked-question': FaqWrapper,
+
+  'section-cta.call-to-action': VisitSandbox,
   'section-cards.features5': CustomCardWrapper,
 }));
 </script>

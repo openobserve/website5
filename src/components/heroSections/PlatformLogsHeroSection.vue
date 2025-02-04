@@ -42,7 +42,7 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-  class="relative flex flex-col items-center justify-end px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
+  class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
     :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
@@ -82,7 +82,7 @@ const sectionStyles = computed(() => ({
           <CustomImage
             :image="image"
             altText="Right visual"
-            cssClass="w-[90%] lg:w-auto max-w-full lg:max-w-none h-auto rounded-md object-contain opacity-90 lg:opacity-100"
+            cssClass="w-[90%] lg:w-auto max-w-full h-auto rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>
       </div>
