@@ -44,6 +44,9 @@ import CustomFeatureCard from './cards/CustomFeatureCard.vue';
 import SolutionSubpageHeroSection from './heroSections/SolutionSubpageHeroSection.vue';
 import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
 import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubpage.vue';
+import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
+import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
+import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
 
 const props = defineProps({
   data: {
