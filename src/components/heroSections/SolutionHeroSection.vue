@@ -44,7 +44,7 @@ defineProps({
   <section
     class="relative  min-h-[100vh] flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%] bg-cover px-4 pt-20"
     :style="{
-      backgroundImage: `url('/Platform/platformHeroBg.svg')`,
+      backgroundImage: `url('/Platform/SolutionHeroSectionBg.svg')`,
     }"
   >
     <!-- Title and Subtitle Section -->

@@ -1,40 +1,53 @@
 <script setup>
-// import CustomRoundShape from "../core/CustomRoundShape.vue";
 import CustomRoundShapeSubPage from "../core/CustomRoundShapeSubPage.vue";
+import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
-  card: {
-    type: Object,
+  items: {
+    type: Array,
     required: true,
   },
 });
 </script>
+
 <template>
-  <div class="container mx-auto relative flex justify-center w-full">
+  <CustomSection section-class="xl:px-0 relative overflow-hidden">
+  <div class="relative w-full -mt-20">
     <!-- Background image with lower z-index -->
     <div class="absolute w-full">
       <img
         alt="Bottom decoration"
-        class="w-full h-full object-cover"
+        class="w-full h-full"
         src="/img/bg/platform/glass-bg.svg"
       />
     </div>
 
     <!-- Content with higher z-index -->
-    <div class="relative">
-      <div class="h-14">
-        <CustomRoundShapeSubPage :imgSrc="card.image" iconSize="small" size="small" />
-      </div>
-      <div class="flex flex-col gap-2">
-        <h2
-          class="font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 text-[#14181B]"
-        >
-          {{ card.title }}
-        </h2>
-        <p class="text-[12px] sm:text-[14px] md:text-[16px] m-0 text-[#23282C]">
-          {{ card.description }}
-        </p>
+    <div class="relative flex flex-row w-full justify-center mt-10 px-3 gap-4">
+      <div 
+        v-for="(item, index) in items" 
+        :key="index" 
+        class="flex flex-row gap-2"
+      >
+        <!-- Left Side: Icon -->
+        <CustomRoundShapeSubPage 
+          :imgSrc="item.image" 
+          iconSize="small" 
+          size="small" 
+          class="shrink-0"
+        />
+
+        <!-- Right Side: Text -->
+        <div class="flex flex-col items-start">
+          <h2 class="font-semibold text-2xl text-white">
+            {{ item.title }}
+          </h2>
+          <p class="text-sm md:text-base text-gray-300">
+            {{ item.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
+</CustomSection>
 </template>

@@ -43,7 +43,7 @@
         // background: getGradientBackground
       }"
     >
-      <div class="absolute rounded-full border border-white bg-stone-200 flex items-center justify-center">
+      <div class="absolute rounded-full border border-white bg-black flex items-center justify-center">
         <CustomImage
           :image="imgSrc"
           altText="Image"

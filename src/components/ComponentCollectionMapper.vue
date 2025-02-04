@@ -37,6 +37,8 @@ import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
 import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
 import CustomFeatureCard from './cards/CustomFeatureCard.vue';
 import SolutionSubpageHeroSection from './heroSections/SolutionSubpageHeroSection.vue';
+import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubPage.vue';
+import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
 
 const props = defineProps({
   data: {
@@ -64,14 +66,17 @@ const componentsMap = computed(() => ({
   // 'section.caseStudyWrapper': CaseStudyWrapper,
   'section-cta.banner': BannerWrapper,
   'section-cta.plain-cta':GetDemoWrapper,
-  'section-features.feature-list':PlatformSubTabsWrapper,
+  'section-features.feature-list':PlatformSubTabsWrapper, //platform subpage (with bg image)
+  'section-features.feature-sub-page-top-tabs':TabsWrapper, //solution sub page (without bg image )
 
 
   'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
   // 'section-cards.feature-highlights':CustomFeatureCard,
   'section-faqs.frequently-asked-question': FaqWrapper,
 
-  // 'section-hero.solution':SolutionSubpageHeroSection,
+  'section-hero.solutions-hero-section':SolutionHeroSection, //SolutionPage hero section
+  'section-hero.feature-solution-hero-section':SolutionSubpageHeroSection, //solution subpage hero section
+  'section-cards.feature-highlights':CustomFeatureCardSubPage,
   'section-cta.call-to-action': VisitSandbox,
   'section-cards.features5': CustomCardWrapper,
 }));

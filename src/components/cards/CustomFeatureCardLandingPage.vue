@@ -1,6 +1,6 @@
 <script setup>
 // import CustomRoundShape from "../core/CustomRoundShape.vue";
-import CustomRoundShapeSubPage from "../core/CustomRoundShapeSubPage.vue";
+import CustomRoundShapeLandingPage from "../core/CustomRoundShapeLandingPage.vue";
 
 const props = defineProps({
   card: {
@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <div class="h-14">
-    <CustomRoundShapeSubPage
+    <CustomRoundShapeLandingPage
       :imgSrc="card.image"
       iconSize="small"
       size="small"
