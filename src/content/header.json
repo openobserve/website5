@@ -204,30 +204,30 @@
   "company": [
     {
       "title": "About Us",
-      "link": "about"
+      "link": "/about"
     },
     {
       "title": "Careers",
-      "link": "jobs"
+      "link": "/jobs"
     },
     {
       "title": "Why OpenObserve?",
-      "link": "why-choose-us"
+      "link": "/why-chooose-us"
     },
     {
       "title": "Contact Us",
-      "link": "contact"
+      "link": "/contact"
     }
   ],
   "resources" : {
     "item1": [
       {
         "title": "Documentation",
-        "link": ""
+        "link": "https://openobserve.ai/docs/"
       },
       {
         "title": "Blogs",
-        "link": "blogs"
+        "link": "/blog"
       }
     ],
     "item2": [
@@ -236,15 +236,15 @@
         "items" : [
           {
             "title":"Frequently Asked Question",
-            "link":"faqs"
+            "link":"/faqs"
           },
           {
             "title":"Community Support",
-            "link":"community-support"
+            "link":"/community-support"
           },
           {
             "title":"Enterprise-support",
-            "link":"enterprice-support"
+            "link":"/enterprice-support"
           }
         ]
       }

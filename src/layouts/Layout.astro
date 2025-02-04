@@ -1,42 +1,66 @@
 ---
 import Header from "../components/header/Header.vue";
 import Footer from "../components/footerComponent/Footer.vue";
-import SEO from '../components/SEO.astro';
-import NavData from "../content/header.json"
-
+import SEO from "../components/SEO.astro";
+import NavData from "../content/header.json";
+import "@/styles/global.css";
 const footerData = {
   sections: [
     {
       title: "Platform",
       items: [
-        { name: "Logs", link: "/logs" },
-        { name: "Metrics", link: "/metrics" },
-        { name: "Traces", link: "/traces" },
-        { name: "Frontend Monitoring", link: "/frontend-monitoring" },
-        { name: "Pipelines", link: "/pipelines" },
-        { name: "Alerting", link: "/alerting" },
-        { name: "Visualizations & Dashboard", link: "/visualizations" },
+        { name: "Logs", link: "/platform/logs" },
+        { name: "Metrics", link: "/platform/metrics" },
+        { name: "Traces", link: "/platform/traces" },
+        { name: "Frontend Monitoring", link: "/platform/frontend-monitoring" },
+        { name: "Pipelines", link: "/platform/pipelines" },
+        { name: "Alerting", link: "/platform/alerting" },
+        {
+          name: "Visualizations & Dashboard",
+          link: "/platform/visualization-and-dashboards",
+        },
       ],
     },
     {
       title: "Solutions",
       items: [
-        { name: "Azure Monitoring", link: "/azure-monitoring" },
-        { name: "AWS Monitoring", link: "/aws-monitoring" },
-        { name: "GCP Monitoring", link: "/gcp-monitoring" },
-        { name: "Kubernetes Observability", link: "/kubernetes" },
-        { name: "Infrastructure Monitoring", link: "/infrastructure" },
-        { name: "Security & Audit Logs", link: "/security" },
-        { name: "Cost Optimization", link: "/cost" },
-        { name: "Sandbox", link: "/sandbox" },
+        { name: "Azure Monitoring", link: "/solution/azure-monitoring" },
+        { name: "AWS Monitoring", link: "/solution/aws-monitoring" },
+        { name: "GCP Monitoring", link: "/solution/gcp-monitoring" },
+        {
+          name: "Kubernetes Observability",
+          link: "/solution/kubernetes-monitoring",
+        },
+        {
+          name: "Database Monitoring",
+          link: "/solution/database-monitoring",
+        },
+        { name: "Infrastructure Monitoring", link: "/solution/opentelemetry" },
+        {
+          name: "DevOps & SRE",
+          link: "/solution/devops-sre",
+        },
+        {
+          name: "Development Teams",
+          link: "/solution/development-teams",
+        },
       ],
     },
     {
       title: "Company",
       items: [
         { name: "About", link: "/about" },
-        { name: "Careers", link: "/careers" },
+        { name: "Careers", link: "/jobs" },
         { name: "Contact Us", link: "/contact" },
+      ],
+    },
+    {
+      title: "Resources",
+      items: [
+        { name: "Documentation", link: "https://openobserve.ai/docs/" },
+        { name: "Blog", link: "/blog" },
+        { name: "Enterprise Support", link: "/enterprice-support" },
+        { name: "Community Support", link: "/community-support" },
       ],
     },
     {
@@ -47,16 +71,6 @@ const footerData = {
         { name: "Twitter", link: "/twitter" },
         { name: "LinkedIn", link: "/linkedin" },
         { name: "YouTube", link: "/youtube" },
-      ],
-    },
-    {
-      title: "Resources",
-      items: [
-        { name: "Documentation", link: "/docs" },
-        { name: "Learning", link: "/learning" },
-        { name: "Blog", link: "/blog" },
-        { name: "Case Study", link: "/case-study" },
-        { name: "Support", link: "/support" },
       ],
     },
   ],
