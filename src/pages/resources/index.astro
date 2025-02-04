@@ -6,6 +6,8 @@ import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import SupportCardWrapper from "../../components/wrapper/SupportCardWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import fetchApi from "@/utils/strapi";
 const resourceCardHeader = {
   title: "Documentation",
   subtitle:
@@ -181,10 +183,16 @@ const bannerData = {
     },
   ],
 };
+
+const PageData = await fetchApi({
+  endpoint: "api/resource",
+  query: { pLevel: "10", status: "draft" },
+});
 ---
 
 <Layout>
-  <ResourceHeroSection
+  <ComponentCollectionMapper data={PageData?.data?.body} client:load />
+  <!-- <ResourceHeroSection
     title="Resources"
     subtitle="Explore OpenObserve’s comprehensive resources to enhance your observability experience."
   />
@@ -216,5 +224,5 @@ const bannerData = {
     items={supportCards}
     client:load
   />
-  <BannerWrapper items={bannerData} client:load />
+  <BannerWrapper items={bannerData} client:load /> -->
 </Layout>

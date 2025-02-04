@@ -14,13 +14,9 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
-  title: {
-    type: String,
-    default: "",
-  },
-  subtitle: {
-    type: String,
-    default: "",
+  heading : {
+    type: Object,
+    required: false
   },
   primaryButton: {
     type: Object,

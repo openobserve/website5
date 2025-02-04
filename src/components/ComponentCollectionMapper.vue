@@ -93,6 +93,11 @@ const componentsMap = computed(() => ({
   "section-features.info-right-feature": CustomStoryWrapper,
   "section-features.info-left-feature": AboutCommunityWrapper,
   "section-cards.community-support": CommunitySupportCardWrapper,
-  "section-hero.contact-hero-section": ContactUsHeroSection
+  "section-hero.contact-hero-section": ContactUsHeroSection,
+  "section-hero.resource-hero-section": ResourceHeroSection,
+  "section-cards.resource-feature-highlight": ResourceCardsWrapper,
+  "section-cards.blogs": BlogsWrapper,
+  // "section-cards.blog-with-categories": 
+  "section-cards.resource-support-card": SupportCardWrapper
 }));
 </script>

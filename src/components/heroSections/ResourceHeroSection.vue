@@ -7,7 +7,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  subtitle: {
+  description: {
     type: String,
     required: true,
   },
@@ -25,7 +25,7 @@ const props = defineProps({
         textGradientColor="gradient-color"
       />
       <Heading
-        :description="props.subtitle"
+        :description="props.description"
         align="CENTER"
         class="text-base sm:text-lg md:text-xl lg:text-2xl"
       />
