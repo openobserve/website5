@@ -37,8 +37,8 @@ import GetDemoWrapper from './wrapper/GetDemoWrapper.vue';
 import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
 import CustomFeatureCard from './cards/CustomFeatureCard.vue';
 import SolutionSubpageHeroSection from './heroSections/SolutionSubpageHeroSection.vue';
-import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubPage.vue';
 import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
+import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubpage.vue';
 
 const props = defineProps({
   data: {
