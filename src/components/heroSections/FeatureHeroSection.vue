@@ -1,9 +1,10 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
-import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
+// import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
+import CustomFeatureCardLandingPage from "../cards/CustomFeatureCardLandingPage.vue";
 // Define props for dynamic data
 defineProps({
   heading:{
@@ -93,12 +94,8 @@ defineProps({
                 layout === 'column' ? 'flex-col justify-start' : 'flex-row'
               "
             >
-              <CustomFeatureCard
+            <CustomFeatureCardLandingPage
                 :card="item"
-                titleTextColor="text-gray-800"
-                descriptionTextColor="text-gray-700"
-                borderColor="bg-gradient-title-cu"
-                bgColor="bg-gray-600 bg-opacity-50"
               />
             </div>
           </div>

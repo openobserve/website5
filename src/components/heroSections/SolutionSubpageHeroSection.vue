@@ -88,34 +88,6 @@ const sectionStyles = computed(() => ({
       </div>
     </div>
 
-    <!-- Bottom Image Container -->
-    <!-- <div
-      class="absolute -bottom-[50px] lg:bottom-16 left-0 w-full flex justify-center z-50"
-    >
-      <CustomImage
-        v-if="bottomImage"
-        :image="bottomImage"
-        altText="Bottom decoration"
-        cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
-      /> -->
-    
-        <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
-        <!-- <div
-            :class="[
-              `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3  gap-10 w-full`,
-            ]"
-          >
-        <div
-          class="flex gap-4"
-          v-for="(item, index) in items"
-          :key="index"
-          :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
-        >
-          <CustomFeatureCard :card="item" />
-          {{console.log(items,"itemssssssssssssssssssssssssssssssss")}}
-        </div>
-        </div> -->
-      <!-- </div> -->
   </section>
 </template>
 <style scoped>
