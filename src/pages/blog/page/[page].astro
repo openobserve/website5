@@ -1,28 +1,42 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
-import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import fetchApi from "../../../utils/strapi";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
+import fetchApi from "../../../utils/strapi";
 
+const itemsPerPage = 50;
+
+// Generate static paths for pagination
 export async function getStaticPaths() {
-  const totalPages = await fetchApi({
+  const totalBlogsResponse = await fetchApi({
     endpoint: "api/blog-pages",
-    query: { pLevel: "10", status: "draft" },
+    query: {
+      status: "draft",
+      pLevel: "10",
+    },
   });
-  const pages = Math.ceil(totalPages?.data?.length / 50);
-  return Array.from({ length: pages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
+  const totalBlogs = totalBlogsResponse?.meta?.pagination?.total;
+
+  const totalPages = Math.ceil(totalBlogs / 50);
+
+  return Array.from({ length: totalPages }, (_, index) => ({
+    params: { page: (index + 1).toString() },
   }));
 }
 
+// Get the current page from Astro props
 const { page } = Astro.params;
-const currentPage = page ? parseInt(page) : 1;
-const itemsPerPage = 50;
+const currentPage = parseInt(page);
 
+// Handle invalid page numbers
+if (isNaN(currentPage) || currentPage < 1) {
+  throw Astro.redirect("/404");
+}
+
+// Fetch paginated blogs for the current page
 const blogsData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
@@ -32,13 +46,18 @@ const blogsData = await fetchApi({
     pLevel: "10",
   },
 });
-
+// Fetch categories for suggestions
 const suggestionData = await fetchApi({
   endpoint: "api/categories",
-  query: { path: "", status: "draft", pLevel: "10" },
+  query: { 
+    path: "", 
+    status: "draft", 
+    pLevel: "10" 
+  },
 });
 
-const loadcaseStudyData = await fetchApi({
+// Fetch case studies
+const caseStudyData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
     "filters[caseStudies][$eq]": true,
@@ -61,23 +80,28 @@ const cardData = [
 ];
 ---
 
-<Layout>
+<Layout title={`Blog Posts | Page ${currentPage} | Resources`}>
   <ResourceHeroSection
     title="Blogs"
     subtitle="Explore latest insights and updates"
   />
-  <CaseStudyWrapper
-    data={loadcaseStudyData.data}
-    title="Blog Posts"
-    subtitle="Latest articles and updates"
-    client:load
-  />
+  
+  {caseStudyData.data?.length > 0 && (
+    <CaseStudyWrapper
+      data={caseStudyData.data}
+      title="Case Studies"
+      subtitle="Learn from real-world implementations"
+      client:load
+    />
+  )}
+  
   <BlogsListingWrapper
     blogsData={blogsData}
-    currentPage={currentPage}
-    suggestionData={suggestionData}
+    currentPage={currentPage} 
+    suggestionData={suggestionData.data}
     client:load
   />
+  
   <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
