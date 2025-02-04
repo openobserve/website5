@@ -24,7 +24,6 @@ export async function getStaticPaths() {
 }
 const { id }: any = Astro.params;
 
-console.log("Static path", id);
 
 const PageData = await fetchApi({
   endpoint: "api/solution-pages",

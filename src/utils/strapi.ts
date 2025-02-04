@@ -42,7 +42,6 @@ export default async function fetchApi<T>({
     headers["Authorization"] = `Bearer ${authToken}`;
   }
   try {
-    console.log("Fetching data from:", url.toString());
     const res = await fetch(url.toString(), {
       method: "GET",
       headers,

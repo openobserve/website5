@@ -5,7 +5,6 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import CustomImage from "./CustomImage.vue";
-import CustomImage from "./CustomImage.vue";
 
 const props = defineProps({
   testimonials: {
