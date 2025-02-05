@@ -41,6 +41,7 @@ defineProps({
       <div
         class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6"
       >
+      {{ console.log(suggestions,"suggestionssuggestionssuggestionssuggestions") }}
         <!-- Suggestions -->
         <CustomSuggestions
           :suggestions="suggestions"
