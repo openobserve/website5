@@ -20,15 +20,12 @@ const props = defineProps({
 </script>
 
 <template>
- <CustomSectionBackground direction="bottom"> 
-  <CustomSection>
-      <CustomStory 
+  <CustomSectionBackground direction="bottom">
+    <CustomStory
       :title="title"
-      :image="image" 
-      :description="description" 
+      :image="image"
+      :description="description"
       direction="right"
-      />
-    </CustomSection>
-</CustomSectionBackground>
+    />
+  </CustomSectionBackground>
 </template>
-

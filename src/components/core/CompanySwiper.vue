@@ -23,7 +23,7 @@ const repeatedData = computed(() => {
 
 
 <template>
-  <div class="py-2 container mx-auto">
+  <div class="py-10 container mx-auto">
     <div class="carousel-container">
       <div class="slide flex flex-row justify-center items-center">
         <div v-for="(item, index) in repeatedData" :key="index"

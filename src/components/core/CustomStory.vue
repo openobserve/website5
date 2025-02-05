@@ -27,7 +27,7 @@ const props = defineProps({
   <CustomSection>
     <div
       :class="[
-        'w-full flex lg:flex-row flex-col-reverse lg:flex-col-2 space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 justify-start items-start',
+        'w-full flex lg:flex-row flex-col-reverse lg:flex-col-2 space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 justify-center items-center',
         direction === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row',
       ]"
     >
@@ -38,7 +38,7 @@ const props = defineProps({
           {{ title }}
         </h2>
         <div
-          class="font-inter font-medium text-base sm:text-md md:text-lg lg:text-xl text-white mb-2"
+          class="font-inter font-medium text-sm md:text-lg lg:text-xl text-white mb-2"
         >
           {{ description }}
         </div>
