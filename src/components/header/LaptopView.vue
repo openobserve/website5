@@ -111,7 +111,7 @@
                     :key="index"
                     class="text-[#BEC0C2] text-sm"
                   >
-                    <div :class="item ? 'gradient-hover' : ''">
+                    <div :class="item ? 'text-[#BEC0C2]' : ''">
                       {{ item.title }}
                     </div>
                   </li>
