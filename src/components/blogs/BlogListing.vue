@@ -46,10 +46,11 @@ const props = defineProps({
         >
 
           <div class="h-48 w-full flex-shrink-0">
+            {{ console.log(blog.image.formats,"blog.imageUrl") }}
             <img
-              :src="blog.imageUrl || blog.image.formats.thumbnail.url || ''"
+              :src="blog.imageUrl || blog.image.url || ''"
               :alt="blog.title"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-center object-cover" 
             />
           </div>
           <div class="flex flex-col flex-grow p-6">

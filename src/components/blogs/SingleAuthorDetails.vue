@@ -24,6 +24,13 @@ const props = defineProps({
     default: "text-[#00A3FF]",
   },
 });
+const redirectToAuthor = () => {
+  if (props.author?.slug) {
+    console.log("Author Slug:", props.author.slug);
+    window.location.assign(`author/${props.author.slug}`);
+  }
+};
+
 </script>
 
 <template>
@@ -45,7 +52,7 @@ const props = defineProps({
       <!-- Right Side - Content -->
       <div class="w-full md:w-2/3 p-6 h-40 flex flex-col justify-between">
         <div>
-          <h3 :class="[titleTextColor, 'text-xl font-bold mb-3 underline']">
+          <h3 :class="[titleTextColor, 'text-xl font-bold mb-3 underline']"  @click="redirectToAuthor">
             {{ author?.name }}
           </h3>
           <p class="mb-4 text-sm break-words line-clamp-3" :class="[descriptionTextColor]">

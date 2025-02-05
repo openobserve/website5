@@ -10,50 +10,26 @@ import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
 import { slugify } from "../../../utils/slugify";
 
+// 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
-  // Fetch the first page to determine the total number of pages
-  const firstPage = await fetchApi({
-    endpoint: "api/categories",
-    query: { "pagination[page]": 1, "pagination[pageSize]": 100 },
+  const authors = await fetchApi({
+    endpoint: "api/authors",
+    query: { populate: "*", status: "draft" },
   });
-
-  if (!firstPage || !firstPage.meta || !firstPage.meta.pagination) {
-    return [];
-  }
-
-  const totalPages = firstPage.meta.pagination.pageCount;
-  let categories = firstPage.data || [];
-
-  // Fetch all remaining pages if necessary
-  for (let page = 2; page <= totalPages; page++) {
-    const nextPage = await fetchApi({
-      endpoint: "api/categories",
-      query: { "pagination[page]": page, "pagination[pageSize]": 100 },
-    });
-
-    if (nextPage?.data) {
-      categories = [...categories, ...nextPage.data];
-    }
-  }
-  // Return an array of objects with params
-  return categories.map((category) => ({
-    params: { tag: categorySlug },
-    props: { category } // Optional: pass the category data as props
+  return authors?.data?.map((author: any) => ({
+    params: { author: author.slug },
   }));
 }
 
 // 🚀 Step 2: Get `categorySlug` from URL
-const { tag } = Astro.params;
-const categorySlug = slugify(tag);
-
+const { author } = Astro.params;
+console.log("Static path", author);
 // 🚀 Step 3: Fetch blogs based on category
 const blogsData = await fetchApi({
   endpoint: "api/blog-pages",
   query: {
-    "filters[categories][slug][$eq]": categorySlug,
-    "pagination[page]": 1,
-    "pagination[pageSize]": 50,
-    pLevel: "10",
+    "filters[authors][slug][$eq]": author,
+    populate: "*",
   },
 });
 
@@ -91,7 +67,7 @@ const cardData = [
 <Layout>
   <ResourceHeroSection
     title="Blogs"
-    subtitle={`Showing posts for category: ${tag}`}
+    subtitle={`Showing posts for category: ${author}`}
   />
 
   <CaseStudyWrapper
