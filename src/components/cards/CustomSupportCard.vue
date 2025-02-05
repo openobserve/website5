@@ -13,13 +13,17 @@ const props = defineProps({
       icon: string;
       title: string;
       description: string;
-      sections: SupportSection[];
-      buttons: {
+      items: SupportSection[];
+      primaryButton: {
         text: string;
         icon?: string;
-        type: "default" | "discord" | "slack";
-        variant?: string;
-      }[];
+        link?: string;
+      };
+      secondaryButton: {
+        text: string;
+        icon?: string;
+        link?: string;
+      };
     },
     required: true,
   },
@@ -50,47 +54,62 @@ const props = defineProps({
       <div
         class="w-12 h-12 mb-6 flex items-center justify-center bg-[#2A2B2E] rounded-full"
       >
-        <CustomImage :image="card.icon" :altText="card.title" cssClass="w-6 h-6" />
+        <CustomImage
+          :image="card.icon"
+          :altText="card.title"
+          cssClass="w-6 h-6"
+        />
       </div>
 
-      <!-- Main Title and Description -->
-      <h2 :class="[titleTextColor, 'text-xl font-semibold mb-3']">
-        {{ card.title }}
-      </h2>
-      <p :class="[descriptionTextColor, 'text-sm mb-8']">
-        {{ card.description }}
-      </p>
+      <div>
+        <!-- Main Title and Description -->
+        <h2 :class="[titleTextColor, 'text-xl font-semibold mb-3']">
+          {{ card.title }}
+        </h2>
+        <p :class="[descriptionTextColor, 'text-sm']">
+          {{ card.description }}
+        </p>
+      </div>
 
       <!-- Sections -->
-      <div class="flex-grow">
-        <div
-          v-for="(section, index) in card.sections"
-          :key="index"
-          class="py-3"
-        >
-          <CustomSeprater class="my-5" />
-          <h3 :class="[titleTextColor, 'text-base font-semibold mb-2']">
-            {{ section.title }}
-          </h3>
-          <p :class="[descriptionTextColor, 'text-sm']">
-            {{ section.description }}
-          </p>
-        </div>
+      <div v-for="(section, index) in card.items" :key="index" class="">
+        <CustomSeprater class="my-5" />
+        <h3 :class="[titleTextColor, 'text-base font-semibold mb-2']">
+          {{ section.title }}
+        </h3>
+        <p :class="[descriptionTextColor, 'text-sm']">
+          {{ section.description }}
+        </p>
       </div>
     </div>
 
-    <div class="mt-6 flex justify-center gap-5 text-center">
-      <div v-for="(button, index) in card.buttons" :key="index" class="mb-2">
+    <div class="flex flex-row justify-center mt-5 space-x-2">
+      <div v-if="card?.primaryButton">
         <CustomButton
-          :variant="button.variant || 'secondary'"
-          class="flex items-center justify-center gap-2"
+          variant="secondary"
+          :buttonText="card?.primaryButton?.text"
+          :buttonLink="card?.primaryButton?.link"
         >
-          <!-- Render icon if provided -->
-          <CustomImage cssClass="px-4" v-if="button.icon" :image="button.icon" altText="button icon " />
-          <!-- Render text if no icon is provided -->
-          <span v-else>
-            {{ button.text }}
-          </span>
+          <CustomImage
+            cssClass="w-10 h-4"
+            v-if="card.primaryButton?.icon"
+            :image="card?.primaryButton?.icon"
+            altText="button icon "
+          />
+        </CustomButton>
+      </div>
+      <div v-if="card?.secondaryButton">
+        <CustomButton
+          variant="secondary"
+          :buttonText="card?.secondaryButton?.text"
+          :buttonLink="card?.secondaryButton?.link"
+        >
+          <CustomImage
+            cssClass="w-10 h-4"
+            v-if="card?.secondaryButton?.icon"
+            :image="card?.secondaryButton?.icon"
+            altText="button icon "
+          />
         </CustomButton>
       </div>
     </div>

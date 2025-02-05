@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
-import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue"
+import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import fetchApi from "../../utils/strapi";
 export async function getStaticPaths() {
@@ -10,10 +10,10 @@ export async function getStaticPaths() {
     endpoint: "api/blog-pages",
     query: { populate: "*", status: "draft" },
   });
-  const slugs = PageData?.data
-  return slugs.map((it:any) => ({
+  const slugs = PageData?.data;
+  return slugs.map((it: any) => ({
     params: { slug: it.slug },
-  }))
+  }));
 }
 const { slug }: any = Astro.params;
 const SlugData = await fetchApi({
@@ -55,7 +55,8 @@ const caseStudyData = [
 
 const AuthorData = {
   title: "Vue.js Best Practices",
-  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+  description:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
   imageUrl: "https://picsum.photos/400/300?random=4",
   link: "https://example.com/vue-best-practices",
   author: "John Doe",
@@ -65,25 +66,22 @@ const AuthorData = {
 <Layout>
   <BlogDetailsHeroSectionWrapper
     title={SlugData?.data[0].title}
-    bottomImage={SlugData?.data[0].image?.formats?.large?.url || SlugData?.data[0].image?.url}
+    bottomImage={SlugData?.data[0].image?.formats?.large?.url ||
+      SlugData?.data[0].image?.url}
     client:load
     suggestions={SlugData?.data[0].categories}
 
   />
-  <BlogDetailContentWrapper
-    client:load
-    content={SlugData?.data[0].content}
-
-  />
+  <BlogDetailContentWrapper client:load content={SlugData?.data[0].content} />
   <SingleAuthorDetails author={SlugData?.data[0].authors[0]} client:load />
   <CaseStudyWrapper
-  title={caseStudyTitle.title}
-  description={caseStudyTitle.subtitle}
-  items={caseStudyData}
-  client:load
-  primaryButton={{
-    text: "See All Blogs",
-    link: "/blog",
-  }}
-/>
+    title={caseStudyTitle.title}
+    description={caseStudyTitle.subtitle}
+    items={caseStudyData}
+    client:load
+    primaryButton={{
+      text: "See All Blogs",
+      link: "/blog",
+    }}
+  />
 </Layout>

@@ -18,7 +18,7 @@
           'px-4 py-2 mx-1 rounded-lg',
           page === currentPage
             ? 'bg-blue-400 text-white'
-            : 'text-gray-500 hover:bg-blue-50'
+            : 'text-gray-500 hover:bg-blue-50',
         ]"
         @click="changePage(page)"
       >
@@ -58,14 +58,16 @@ const props = defineProps({
 
 const emit = defineEmits(["page-changed"]);
 const currentPageRef = ref(props.currentPage);
-const totalPages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage));
+const totalPages = computed(() =>
+  Math.ceil(props.totalItems / props.itemsPerPage)
+);
 
 // Compute the pages to display (show 5 pages at a time)
 const displayedPages = computed(() => {
   const pages = [];
   let start = Math.max(1, currentPageRef.value - 2);
   let end = Math.min(totalPages.value, start + 4);
-  
+
   // Adjust start if we're near the end
   if (end === totalPages.value) {
     start = Math.max(1, end - 4);
@@ -81,16 +83,14 @@ const displayedPages = computed(() => {
 const changePage = async (newPage) => {
   if (newPage >= 1 && newPage <= totalPages.value) {
     currentPageRef.value = newPage;
-    
+
     // Update URL
-    const newUrl = newPage === 1 
-      ? '/blog' 
-      : `/blog/page/${newPage}`;
+    const newUrl = newPage === 1 ? "/blog" : `/blog/page/${newPage}`;
     window.location.assign(newUrl);
-    
+
     // Emit event for parent component
     emit("page-changed", newPage);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 };
 

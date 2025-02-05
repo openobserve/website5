@@ -14,7 +14,7 @@ const props = defineProps({
   },
   primaryButton: {
     type: Object,
-    required: true,
+    required: false,
   },
 });
 
@@ -40,7 +40,7 @@ const formatSubtitle = (text) => {
       class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
     >
       <div>
-       <h1 class="text-5xl text-white font-bold text-center"> {{ title }} </h1>
+       <h1 class="text-5xl lg:text-7xl text-white font-bold text-center"> {{ title }} </h1>
       </div>
       <div>
         <Heading
@@ -49,7 +49,7 @@ const formatSubtitle = (text) => {
           v-html="formatSubtitle(description)"
         />
       </div>
-      <div>
+      <div v-if="primaryButton">
         <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
           {{ primaryButton?.text }}
         </CustomButton>

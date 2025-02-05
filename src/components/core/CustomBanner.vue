@@ -47,7 +47,9 @@ defineProps({
 
       <!-- Buttons -->
       <div
-        class="flex flex-col sm:flex-row items-center sm:items-start md:items-center justify-center gap-2 sm:gap-4 md:gap-6 w-full md:w-auto">
+        class="flex flex-col sm:flex-row items-center sm:items-start md:items-center justify-center gap-2 sm:gap-4 md:gap-6 w-full md:w-auto"
+        v-if="primaryButton || secondaryButton"
+      >
         <!-- <CustomButton
             v-for="(button, index) in buttons"
             :key="index"

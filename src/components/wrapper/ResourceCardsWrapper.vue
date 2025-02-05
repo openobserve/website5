@@ -6,13 +6,9 @@ import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomButton from "../core/CustomButton.vue";
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  subtitle: {
-    type: String,
-    required: true,
+  heading: {
+    type: Object,
+    required: false,
   },
   items: {
     type: Array,
@@ -21,17 +17,12 @@ const props = defineProps({
   noOfGridColumn: {
     type: Number,
     required: true,
+    default: 3
   },
-  btnTitle: {
-    type: String,
-    default: "Read More",
-  },
-  // New prop to select layout (flex or column)
-  layout: {
-    type: String,
-    default: "row", // Default is 'row'
-    validator: (value) => ["row", "column"].includes(value), // Only allow 'flex' or 'column'
-  },
+  primaryButton : {
+    type: Object,
+    required: true
+  }
 });
 </script>
 
@@ -59,8 +50,8 @@ const props = defineProps({
           </div>
         </div>
         <div class="text-center">
-          <CustomButton variant="pricing" class="mt-10">
-            {{ btnTitle }}
+          <CustomButton variant="pricing" class="mt-10" :buttonLink="primaryButton?.link">
+            {{ primaryButton?.text }}
           </CustomButton>
         </div>
       </div>

@@ -8,20 +8,16 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
+  heading: {
+    type: Object,
+    required: true
+  }
 });
 </script>
 <template>
   <CustomSection>
     <div class="py-10">
-      <Heading :title="title" :description="description" align="CENTER" />
+      <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
     </div>
     <div
       :class="[

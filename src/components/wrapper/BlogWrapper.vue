@@ -5,7 +5,7 @@ import CaseStudyWrapper from "./CaseStudyWrapper.vue";
 const props = defineProps({
   heading:{
     type:Object,
-    required:true,
+    required:false,
   },
 });
 </script>

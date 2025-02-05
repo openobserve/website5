@@ -3,16 +3,17 @@ import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomBlogs from "../../components/blogs/CustomBlogs.vue";
 import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
+import CustomButton from "../core/CustomButton.vue";
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
+  heading: {
+    type: Object,
     required: true,
   },
   items: {
+    type: Object,
+    required: true,
+  },
+  primaryButton: {
     type: Object,
     required: true,
   },
@@ -22,11 +23,15 @@ const props = defineProps({
   <div class="py-20">
     <CustomSection>
       <div class="py-10">
-        <Heading :title="title" :description="description" align="CENTER" />
+        <Heading
+          :title="heading?.title"
+          :description="heading?.subtitle"
+          align="CENTER"
+        />
       </div>
 
       <!-- Show slider component only on mobile (≤ 768px) -->
-      <div class="block md:hidden">
+      <!-- <div class="block md:hidden">
         <CustomBlogsSwiper
           :sectionData="items"
           titleTextColor="text-white"
@@ -34,16 +39,25 @@ const props = defineProps({
           cardBgColor="bg-[#2A2A2A]"
           linkColor="text-[#00A3FF]"
         />
-      </div>
+      </div> -->
 
       <!-- Show normal component on larger screens (≥ 768px) -->
-      <div class="hidden md:block">
+      <!-- <div class="hidden md:block">
         <CustomBlogs
           :sectionData="items"
           titleTextColor="text-white"
           descriptionTextColor="text-gray-400"
           cardBgColor="bg-[#2A2A2A]"
           linkColor="text-[#00A3FF]"
+        />
+      </div> -->
+
+      <div class="flex justify-center" v-if="primaryButton">
+        <CustomButton
+          variant="secondary"
+          size="medium"
+          :buttonText="primaryButton.text"
+          :buttonLink="primaryButton.link"
         />
       </div>
     </CustomSection>

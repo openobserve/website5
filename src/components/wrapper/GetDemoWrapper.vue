@@ -7,19 +7,22 @@ const props = defineProps({
     type: String,
     required: true,
   },
- primaryButton:{
-  type:Object,
-  required:true,
- }
+  primaryButton: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 <template>
-  <CustomSection>
-  <div class="container mx-auto pb-20 ">
-  <Heading :title="title" align="CENTER" />
-  <div class="text-center pt-5">
-    <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
+  <div class="container mx-auto pb-16 px-20">
+    <Heading :title="title" align="CENTER" />
+    <div class="text-center pt-5" v-if="primaryButton">
+      <CustomButton
+        variant="secondary"
+        size="medium"
+        :buttonText="primaryButton.text"
+        :buttonLink="primaryButton.link"
+      />
+    </div>
   </div>
-</div>
-</CustomSection>
 </template>

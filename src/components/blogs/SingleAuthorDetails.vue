@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import CustomSection from "../core/CustomSection.vue";
 
-
 const props = defineProps({
   author: {
     type: Array,
@@ -34,19 +33,25 @@ const redirectToAuthor = () => {
 </script>
 
 <template>
-  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
+  <section
+    class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start"
+  >
     <p class="text-white px-2 py-2">About the Author</p>
 
     <div :class="[cardBgColor, 'rounded-xl overflow-hidden flex md:flex-row']">
       <!-- Left Side - Profile Image (Placeholder if not available) -->
-      <div class="w-full md:w-1/6 h-40 md:h-auto relative flex items-center justify-center bg-gray-800">
+      <div
+        class="w-full md:w-1/6 h-40 md:h-auto relative flex items-center justify-center bg-gray-800"
+      >
         <img
           v-if="author?.imageUrl"
           :src="author?.imageUrl"
           :alt="author?.name"
           class="w-full h-full object-cover absolute inset-0"
         />
-        <div v-else class="text-white text-2xl font-bold">{{ author?.name}}</div>
+        <div v-else class="text-white text-2xl font-bold">
+          {{ author?.name }}
+        </div>
       </div>
 
       <!-- Right Side - Content -->
@@ -55,11 +60,14 @@ const redirectToAuthor = () => {
           <h3 :class="[titleTextColor, 'text-xl font-bold mb-3 underline']"  @click="redirectToAuthor">
             {{ author?.name }}
           </h3>
-          <p class="mb-4 text-sm break-words line-clamp-3" :class="[descriptionTextColor]">
+          <p
+            class="mb-4 text-sm break-words line-clamp-3"
+            :class="[descriptionTextColor]"
+          >
             {{ author?.bio }}
           </p>
         </div>
-        
+
         <!-- Social Links -->
         <!-- <div class="flex space-x-4">
           <a v-if="author.linkedInUrl" :href="author.linkedInUrl" target="_blank" :class="[linkColor, 'underline']">LinkedIn</a>

@@ -8,7 +8,7 @@ const props = defineProps({
 })
 
 const directions = {
-  top: "bg-[url('/img/bg/gradient-bg/TextureBG.svg')] bg-[50%_0%]",
+  top: "bg-[url('/img/bg/gradient-bg/TextureBG.svg')] bg-[50%_2%]",
   bottom: "bg-[url('/img/bg/gradient-bg/TextureBottomBG.svg')] bg-[50%_100%]"
 }
 
