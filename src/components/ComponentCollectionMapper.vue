@@ -44,6 +44,10 @@ import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
 import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubpage.vue';
 import CompanyJoinOOHeroSection from "./heroSections/CompanyJoinOOHeroSection.vue";
 import CustomOpenObserveCard from "./cards/CustomOpenObserveCard.vue";
+import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
+import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
+import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
+import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -83,12 +87,7 @@ const componentsMap = computed(() => ({
   'section-cards.feature-highlights':CustomFeatureCardSubPage,
   'section-cta.call-to-action': VisitSandbox,
   'section-cards.features5': CustomCardWrapper,
-  "section-cta.banner": BannerWrapper,
-  "section-cta.plain-cta": GetDemoWrapper,
-  "section-hero.feature-sub-hero-section": PlatformLogsHeroSection,
-  "section-faqs.frequently-asked-question": FaqWrapper,
   "section-cta.call-to-action": VisitSandbox,
-  "section-cards.features5": CustomCardWrapper,
   "section-hero.company-hero-section": CompanyAboutUsHeroSection,
   "section-features.info-right-feature": CustomStoryWrapper,
   "section-features.info-left-feature": AboutCommunityWrapper,

@@ -44,15 +44,11 @@ const formatSubtitle = (text) => {
         <h1 class="text-5xl text-white font-bold text-center">{{ title }}</h1>
       </div>
       <div>
-        <Heading
-          :description="description"
-          align="CENTER"
-          v-html="formatSubtitle(description)"
-        />
+       <p v-html="description" class="text-white text-base md:text-lg xl:text-xl mt-4"></p>
       </div>
-      <div class="">
+      <div class="" v-if="primaryButton">
         <CustomButton
-          variant="primary"
+          variant="secondary"
           class="w-full sm:w-auto"
           :buttonLink="primaryButton.link"
         >

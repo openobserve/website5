@@ -15,7 +15,6 @@ const props = defineProps({
     required: true,
   },
   direction: {
-  direction: {
     type: String,
     validator(value) {
       return ["left", "right"].includes(value);
@@ -55,7 +54,7 @@ const props = defineProps({
             v-if="image"
             :image="image"
             :altText="image"
-            cssClass="w-20 h-20 rounded-md shadow-md"
+            cssClass="w-20 h-20"
           />
         </div>
       </div>
