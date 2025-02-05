@@ -86,7 +86,6 @@ const redirectToBlog = (slug) => {
         </div>
       </div>
     </div>
-    -->
 
     <!-- Mobile View -->
     <!-- <div class="block md:hidden">
