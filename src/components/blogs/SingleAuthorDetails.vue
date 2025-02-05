@@ -25,7 +25,7 @@ const props = defineProps({
 });
 const redirectToAuthor = () => {
   if (props.author?.slug) {
-    console.log("Author Slug:", props.author.slug);
+    // console.log("Author Slug:", props.author.slug);
     window.location.assign(`author/${props.author.slug}`);
   }
 };

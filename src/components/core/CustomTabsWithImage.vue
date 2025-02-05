@@ -30,7 +30,7 @@ const checkIfMobile = () => {
 
 onMounted(() => {
   checkIfMobile();
-  console.log('mounted')
+  // console.log('mounted')
   window.addEventListener("resize", checkIfMobile);
 });
 

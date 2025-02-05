@@ -46,7 +46,7 @@ const props = defineProps({
         >
 
           <div class="h-48 w-full flex-shrink-0">
-            {{ console.log(blog.image.formats,"blog.imageUrl") }}
+            <!-- {{ console.log(blog.image.formats,"blog.imageUrl") }} -->
             <img
               :src="blog.imageUrl || blog.image.url || ''"
               :alt="blog.title"
