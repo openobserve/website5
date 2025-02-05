@@ -48,6 +48,7 @@ import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
 import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
 import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
+import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -99,6 +100,7 @@ const componentsMap = computed(() => ({
   // "section-cards.blog-with-categories": 
   "section-cards.resource-support-card": SupportCardWrapper,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
-  "section-cards.why-customer-love-us": CustomOpenObserveCard
+  "section-cards.why-customer-love-us": CustomOpenObserveCard,
+  "section-faqs.frequently-asked-question": ResourceFaqWrapper,
 }));
 </script>
