@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 import fetchApi from "../utils/strapi";
+import CommonFormWrapper from "@/components/wrapper/CommonFormWrapper.vue";
 
 const PageData = await fetchApi({
   endpoint: "api/homepage",
-  query: { pLevel: "10" , status:"draft"},
+  query: { pLevel: "10", status: "draft" },
 });
-console.log(PageData.data.body,"datatatata");
+console.log(PageData.data.body, "datatatata");
 const cards = [
   {
     image: "public/blogColor-1.png",
@@ -380,11 +381,40 @@ const trustedCompanies = {
     },
   ],
 };
+const tailoredSolutionsData = {
+  title: "Unified observability made simple",
+  description:
+    "Whether you're managing infrastructure, debugging applications, or optimizing user experiences, OpenObserve makes it easy to monitor, analyze, and act—all in one platform.",
+  keyFeatures: [
+    {
+      title: "Simple Onboarding",
+      description:
+        "Start monitoring in minutes with an intuitive setup process.",
+    },
+    {
+      title: "No Upfront Costs",
+      description: "Begin with our free plan and scale as your needs grow.",
+    },
+    {
+      title: "Flexible Deployment",
+      description:
+        "Choose between cloud or self-hosted options to suit your requirements.",
+    },
+  ],
+  footerdescription:
+    "Contact us to find the perfect support solution for your business.",
+};
 ---
 
 <Layout>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
   <ComponentCollectionMapper data={PageData.data.body} client:load />
+  <CommonFormWrapper
+    title={tailoredSolutionsData.title}
+    description={tailoredSolutionsData.description}
+    keyFeatures={tailoredSolutionsData.keyFeatures}
+    footerdescription={tailoredSolutionsData.footerdescription}
+  />
   <!-- <FeatureCardWithIconWrapper cardData={cardDataforsection2} />
   <UsecaseCardWithIconWrapper cardData={cardDataforsection3} />
   <TopCompaniesWrapper
