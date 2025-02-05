@@ -424,61 +424,132 @@ const buttonVariant = variants[props.variant];
 .banner-button-primary,
 .banner-button-secondary {
   position: relative;
-  padding: 12px 24px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 50px;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  transition: all;
+  animation-duration: 100ms;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  overflow: hidden;
+}
+
+/* Primary Button with Gradient Shift */
+.banner-button-primary {
+  color: white;
+  background-image: linear-gradient(45deg,
+    #000000 0%,
+    #1a1a1a 50%,
+    #000000 100%
+  );
+  background-size: 100% 100%;
   border: 2px solid transparent;
 }
 
-/* Primary Banner Button (Dark Version) */
-.banner-button-primary {
-  background: #000000;
-  color: white;
-  border: none;
-}
-
 .banner-button-primary:hover {
-  background: #000000;
+  background-position: 100% 100%;
 }
 
-.banner-button-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+/* Animated gradient border on hover */
+.banner-button-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    #4a4a4a,
+    #2a2a2a,
+    #4a4a4a
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
-/* Secondary Banner Button (Light Version) */
+.banner-button-primary:hover::before {
+  opacity: 1;
+}
+
+/* Secondary Button with Smooth Gradient Transition */
 .banner-button-secondary {
-  background: transparent;
   color: black;
+  background: transparent;
   border: 1px solid black;
+  transition: all 0.5s ease;
 }
 
 .banner-button-secondary:hover {
-  background: transparent;
-  
+  border-color: transparent;
+  color: white;
+  background-image: 
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(51, 51, 51, 0.9) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
 }
 
+/* Gradient overlay effect */
+.banner-button-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.banner-button-secondary:hover::before {
+  opacity: 1;
+}
+
+/* Shared hover glow effect */
+.banner-button-primary:hover,
+.banner-button-secondary:hover {
+  transform: translateY(0px);
+}
+
+/* Active state */
+.banner-button-primary:active,
 .banner-button-secondary:active {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  transform: translateY(0px);
 }
 
-/* Disabled States */
+/* Gradient border animation */
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Focus states */
+.banner-button-primary:focus,
+.banner-button-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled states */
 .banner-button-primary:disabled,
 .banner-button-secondary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+  background: #cccccc;
+  border-color: #999999;
   box-shadow: none;
 }
 
-/* Focus States */
-.banner-button-primary:focus,
-.banner-button-secondary:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+/* Remove hover effects for disabled state */
+.banner-button-primary:disabled::before,
+.banner-button-secondary:disabled::before {
+  display: none;
 }
 </style>

@@ -100,7 +100,7 @@
               </div>
             </div>
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
-              <h4 class="text-[#FFFFFF] text-base font-semibold">
+              <h4 class="text-[#FFFFFF] text-base font-semibold ">
                 {{ items.platform.keyFeature.title }}
               </h4>
               <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
@@ -111,7 +111,7 @@
                     :key="index"
                     class="text-[#BEC0C2] text-sm"
                   >
-                    <div :class="item ? 'gradient-hover' : ''">
+                    <div :class="item ? 'text-[#BEC0C2]' : ''">
                       {{ item.title }}
                     </div>
                   </li>
@@ -241,7 +241,7 @@
               v-for="(item, index) in items.resources.item2"
               :key="index"
             >
-              <h4 class="text-base font-bold">{{ item.title }}</h4>
+              <h4 class="text-base font-bold gradient-hover">{{ item.title }}</h4>
               <ul class="" v-for="(it, index) in item.items" :key="index">
                 <li class="cursor-pointer flex flex-col space-y-2">
                   <a :href="it.link" class="gradient-hover text-sm text-[#BEC0C2]">{{
@@ -417,10 +417,17 @@ onUnmounted(() => {
   display: inline-block;
 }
 
-.gradient-hover:hover {
+/* .gradient-hover:hover {
   background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+
+.gradient-hover:hover {
+  background: linear-gradient(to left, #09E6FF, #00FFC3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .card-border {
   border: 1px solid #313539;
