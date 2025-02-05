@@ -37,7 +37,7 @@ export async function getStaticPaths() {
   }
   // Return an array of objects with params
   return categories.map((category) => ({
-    params: { tag: categorySlug },
+    params: { tag: category.slug },
     props: { category } // Optional: pass the category data as props
   }));
 }
