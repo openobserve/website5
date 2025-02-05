@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 // 🚀 Step 2: Get `categorySlug` from URL
 const { author } = Astro.params;
-console.log("Static path", author);
+// console.log("Static path", author);
 // 🚀 Step 3: Fetch blogs based on category
 const blogsData = await fetchApi({
   endpoint: "api/blog-pages",

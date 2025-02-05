@@ -20,7 +20,7 @@ onMounted(() => {
 });
 
 const onSubmit = () => {
-  console.log("Form submitted with data:", formData.value);
+  // console.log("Form submitted with data:", formData.value);
 };
 </script>
 
