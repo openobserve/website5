@@ -54,7 +54,7 @@ const componentsMap = computed(() => ({
   'section-cards.stats': TopCompaniesWrapper,
   'section-cards.clients': CompanySwiper,
   // 'section-cards.case-studies': BlogWrapper,
-  'section-features.feature-list': HomeFeatureWrapper,  //home page wrapper without 
+  'section-features.home-features-list': HomeFeatureWrapper,  //home page wrapper without bg image
   'section-cards.features3': HomeWhyO2Wrapper,
   'section-separator.separator':CustomSeprater,
 

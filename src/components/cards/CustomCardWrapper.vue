@@ -29,10 +29,10 @@ const props = defineProps({
     <div class="relative py-10 bg-cover bg-no-repeat overflow-visible container mx-auto">
       <!-- Main Content -->
       <CustomSection>
-        <Heading :title="heading?.title" :description="heading?.subtitle" align="LEFT" />
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-20">
           <div
-            class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-start transition-all duration-300 hover:shadow-2xl cardShadow"
+            class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-center transition-all duration-300 hover:shadow-2xl cardShadow"
             v-for="(item, index) in items"
             :key="index"
           >

@@ -19,8 +19,8 @@ function truncate(text, maxLength = 200) {
 <template>
 
   <!-- Content Layer -->
-  <div class="flex flex-col space-y-4 w-full h-full rounded-lg bg-[#23282c] p-8 cardShadow">
-    <CustomImage :image="cards.image" altText="Icon" cssClass="w-16 h-16 object-cover" />
+  <div class="flex flex-col space-y-4 w-full h-full items-center rounded-lg bg-[#23282c] p-8 cardShadow">
+    <CustomImage :image="cards.image" altText="Icon" cssClass="h-16" />
     <h3 class="text-[#BEC0C2] text-2xl font-bold truncate" :title="cards.title">
       {{ cards.title }}
     </h3>

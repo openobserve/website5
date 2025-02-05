@@ -10,10 +10,7 @@
             @mouseenter="onPlatformMenuHover"
             @mouseleave="onPlatformMenuMouseLeave"
           >
-            <a
-              href="#"
-              class="text-white font-semibold text-base hover:underline"
-            >
+            <a href="#" class="text-white font-semibold text-base hover:underline">
               Platform
             </a>
           </li>
@@ -22,10 +19,7 @@
             @mouseenter="onSolutionMenuHover"
             @mouseleave="onSolutionMenuMouseLeave"
           >
-            <a
-              href="#"
-              class="text-white font-semibold text-base hover:underline"
-            >
+            <a href="#" class="text-white font-semibold text-base hover:underline">
               Solution
             </a>
           </li>
@@ -34,10 +28,7 @@
             @mouseenter="onResourcesMenuHover"
             @mouseleave="onResourcesMenuMouseLeave"
           >
-            <a
-              href="#"
-              class="text-white font-semibold text-base hover:underline"
-            >
+            <a href="#" class="text-white font-semibold text-base hover:underline">
               Resources
             </a>
           </li>
@@ -46,11 +37,16 @@
             @mouseenter="onCompanyMenuHover"
             @mouseleave="onCompanyMenuMouseLeave"
           >
+            <a href="#" class="text-white font-semibold text-base hover:underline">
+              Company
+            </a>
+          </li>
+          <li class="relative py-6">
             <a
-              href="#"
+              href="/download"
               class="text-white font-semibold text-base hover:underline"
             >
-              Company
+              Download
             </a>
           </li>
         </ul>
@@ -68,15 +64,12 @@
           />
         </div> -->
         <CustomButton
-          variant="tertiary"
+          variant="secondary"
           size="small"
           buttonLink="https://cloud.openobserve.ai"
           target="_blank"
         >
-          LOGIN
-        </CustomButton>
-        <CustomButton variant="secondary" size="small" buttonLink="/download">
-          DOWNLOAD
+          LOG IN
         </CustomButton>
         <CustomButton variant="primary" size="small" buttonLink="/">
           GET DEMO
@@ -91,12 +84,12 @@
     >
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
-          <a class="text-xl font-bold pb-2 text-[#FFFFFF]">
+          <a class="text-xl font-bold  text-[#FFFFFF]">
             {{ items.platform.title }}
           </a>
-          <div class="w-full flex justify-between flex-col md:flex-row gap-2">
+          <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
             <div
-              class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
+              class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
             >
               <div v-for="(item, index) in items.platform.items" :key="index">
                 <SectionHeader
@@ -111,7 +104,18 @@
                 {{ items.platform.keyFeature.title }}
               </h4>
               <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                <SectionHeader :items="items.platform.keyFeature.items" />
+                <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
+                <ul class="space-y-1 xl:space-y-2">
+                  <li
+                    v-for="(item, index) in  items.platform.keyFeature.items"
+                    :key="index"
+                    class="text-[#BEC0C2] text-sm"
+                  >
+                    <div :class="item ? 'gradient-hover' : ''">
+                      {{ item.title }}
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -240,11 +244,9 @@
               <h4 class="text-base font-bold">{{ item.title }}</h4>
               <ul class="" v-for="(it, index) in item.items" :key="index">
                 <li class="cursor-pointer flex flex-col space-y-2">
-                  <a
-                    :href="it.link"
-                    class="gradient-hover text-sm text-[#BEC0C2]"
-                    >{{ it.title }}</a
-                  >
+                  <a :href="it.link" class="gradient-hover text-sm text-[#BEC0C2]">{{
+                    it.title
+                  }}</a>
                 </li>
               </ul>
             </div>
@@ -416,11 +418,7 @@ onUnmounted(() => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(
-    to left,
-    rgb(var(--blue-light)),
-    rgb(var(--blue-dark))
-  );
+  background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

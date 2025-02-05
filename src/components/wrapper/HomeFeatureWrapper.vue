@@ -22,18 +22,19 @@ const props = defineProps({
 });
 </script>
 <template>
-  <CustomSection>
-    <div class="">
+ <div class="container mx-auto p-6 mt-10">
       <Heading :title="heading.title" :description="heading.subtitle" align="CENTER" />
-    </div>
-    <div class="container mx-auto px-4 md:px-10" v-for="(item, index) in items">
+  
+    <div v-for="(item, index) in items">
       <CustomInterChange
         :key="{ index }"
         :items="item.items"
         :title="item.title"
         :image="item.image"
         :direction="index % 2 === 0 ? 'left' : 'right'"
+        class=" mt-10"
+        </CustomInterChange>
       />
     </div>
-  </CustomSection>
+  </div>
 </template>

@@ -49,7 +49,7 @@ const props = defineProps({
 
       <!-- Main Content -->
       <CustomSection>
-        <div class="py-10">
+        <div>
           <Heading :title="heading.title" align="CENTER" />
         </div>
         <div

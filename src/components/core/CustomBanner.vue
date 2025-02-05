@@ -34,13 +34,13 @@ defineProps({
     </div> -->
 
     <div
-      class="container mx-auto flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-0 py-8 md:py-14 lg:py-20 gap-6 md:gap-8">
+      class="container mx-auto flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-4 py-8 md:py-14 lg:py-20 gap-6 md:gap-8">
       <!-- Text Content -->
       <div class="text-center md:text-left w-full md:w-auto">
-        <h1 class="text-5xl sm:text-4xl md:text-3xl lg:text-5xl text-white drop-shadow-md">
+        <h1 class="text-5xl sm:text-4xl md:text-3xl lg:text-5xl text-black drop-shadow-md">
           {{ bannerTitle }}
         </h1>
-        <p class="text-xl sm:text-lg md:text-xl text-white mt-3 sm:mt-4 md:mt-5 font-light drop-shadow-md max-w-2xl">
+        <p class="text-xl sm:text-lg md:text-xl text-black mt-3 sm:mt-4 md:mt-5 font-light drop-shadow-md max-w-2xl">
           {{ bannerDescription }}
         </p>
       </div>
@@ -56,10 +56,10 @@ defineProps({
           >
             {{ button.text }}
           </CustomButton> -->
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
+        <CustomButton variant="bannerPrimary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
           {{ primaryButton?.text }}
         </CustomButton>
-        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link">
+        <CustomButton variant="bannerSecondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link">
           {{ secondaryButton?.text }}
         </CustomButton>
       </div>

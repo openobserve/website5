@@ -12,6 +12,8 @@ const props = defineProps({
         "pricing",
         "ghost",
         "heroButton",
+        "bannerPrimary",
+        "bannerSecondary",
       ].includes(value),
   },
   size: {
@@ -70,6 +72,8 @@ const variants = {
   ghost: "button-with-icon",
   pricing: "button-white",
   heroButton: "hero-button",
+  bannerPrimary: "banner-button-primary",
+  bannerSecondary: "banner-button-secondary"
 };
 
 // make text all capital
@@ -414,5 +418,67 @@ const buttonVariant = variants[props.variant];
     0 5px 20px rgba(0, 106, 255, 0.3),
     /* Outer glow */
     0 5px 10px rgba(0, 68, 255, 0.3);
+}
+
+/* Banner Button Base Styles */
+.banner-button-primary,
+.banner-button-secondary {
+  position: relative;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+}
+
+/* Primary Banner Button (Dark Version) */
+.banner-button-primary {
+  background: #000000;
+  color: white;
+  border: none;
+}
+
+.banner-button-primary:hover {
+  background: #000000;
+}
+
+.banner-button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary Banner Button (Light Version) */
+.banner-button-secondary {
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.banner-button-secondary:hover {
+  background: transparent;
+  
+}
+
+.banner-button-secondary:active {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Disabled States */
+.banner-button-primary:disabled,
+.banner-button-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Focus States */
+.banner-button-primary:focus,
+.banner-button-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
 </style>
