@@ -136,11 +136,17 @@ const props = defineProps({
   display: inline-block;
 }
 
-.gradient-hover:hover {
+/* .gradient-hover:hover {
   background: linear-gradient(to left,
       rgb(var(--blue-light)),
       rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+.gradient-hover:hover {
+  background: linear-gradient(to left, #09E6FF, #00FFC3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 </style>

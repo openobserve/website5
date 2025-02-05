@@ -14,7 +14,7 @@ const props = defineProps({ title: String, linkTitle: String, link: String });
   </div>
 </template>
 <style scoped>
-.gradient-hover {
+/* .gradient-hover {
   background: linear-gradient(
     to left,
     rgb(var(--blue-light)),
@@ -22,6 +22,12 @@ const props = defineProps({ title: String, linkTitle: String, link: String });
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+.gradient-hover {
+  background: linear-gradient(to left, #09E6FF, #00FFC3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .card-border {
   border: 1px solid #313539;

@@ -15,7 +15,7 @@
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
           </div> -->
-          <CustomButton variant="tertiary" size="small">LOGIN IN</CustomButton>
+          <CustomButton variant="tertiary" size="small">LOG IN</CustomButton>
           <div
             class="cursor-pointer h-8 w-8 flex items-center"
             @click="onMenuClick"

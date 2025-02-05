@@ -1,6 +1,6 @@
 <template>
   <div class="w-full space-y-1 xl:space-y-2">
-    <a :href="`/platform/${link}`" class="text-[#FFFFFF] text-sm md:text-base lg:text-sm xl:text-base font-semibold cursor-pointer">
+    <a :href="`/platform/${link}`" class="text-[#FFFFFF] text-sm md:text-base lg:text-sm xl:text-base font-semibold cursor-pointer gradient-hover">
       {{ title }}
     </a>
     <ul class="space-y-1 xl:space-y-2">
@@ -46,7 +46,7 @@ const updatedItems = computed(() => {
 .gradient-hover {
   display: inline-block;
 }
-.gradient-hover:hover {
+/* .gradient-hover:hover {
   background: linear-gradient(
     to left,
     rgb(var(--blue-light)),
@@ -54,5 +54,11 @@ const updatedItems = computed(() => {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+.gradient-hover:hover {
+  background: linear-gradient(to left, #09E6FF, #00FFC3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 </style>
