@@ -101,7 +101,7 @@ const redirectToBlog = (slug) => {
 
     <div class="flex justify-center mt-8">
       <CustomButton 
-        v-if="primaryButton.text"
+        v-if="primaryButton"
         variant="secondary" 
         size="medium" 
         :buttonText="primaryButton.text" 
