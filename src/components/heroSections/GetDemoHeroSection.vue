@@ -1,5 +1,4 @@
 <script setup>
-import { string } from "astro:schema";
 import TextWithGradient from "../../components/HeaderComponents/TextWithGradient.vue";
 import { defineProps } from "vue";
 const props = defineProps({
