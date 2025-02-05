@@ -110,7 +110,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
             @click="setActiveTab(index,slugify(tab.title))"
             class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
             :class="{
-              'text-blue-500': activeTabIndex === index,
+              'text-white': activeTabIndex === index,
               'text-gray-400 hover:text-gray-300': activeTabIndex !== index,
             }"
           >
@@ -118,7 +118,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
             <!-- Bottom Border Indicator -->
             <span
               v-if="activeTabIndex === index"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 transition-all"
+              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
             ></span>
           </div>
         </div>
@@ -169,4 +169,18 @@ contentRefs.value = new Array(props.items.length).fill(null);
     font-size: 1rem;
   }
 }
+
+/* .gradient-text {
+  display: inline-block;
+} */
+
+.gradient-text{
+  display: inline-block;
+  background: linear-gradient(to left,
+      rgb(var(--blue-light)),
+      rgb(var(--blue-dark)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 </style>

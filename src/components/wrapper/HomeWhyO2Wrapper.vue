@@ -22,7 +22,7 @@ const props = defineProps({
     <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
     <div
       :class="[
-        `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns}  gap-10 w-full mt-10`,
+        `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns}  gap-4 w-full mt-10`,
       ]"
     >
       <div

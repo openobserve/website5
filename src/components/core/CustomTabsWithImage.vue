@@ -87,7 +87,7 @@ onUnmounted(() => {
             <button
               class="flex items-center px-2 py-2 text-left text-lg font-medium border-l-4 transition-all"
               :class="{
-                'text-white border-blue-500': activeTab.id === tab.id,
+                'text-white gradient-border': activeTab.id === tab.id,
                 'text-gray-400 border-transparent hover:text-white hover:border-gray-600':
                   activeTab.id !== tab.id,
               }"
@@ -146,4 +146,12 @@ onUnmounted(() => {
     rgba(119, 139, 255, 1)
   );
 }
+.gradient-border {
+  border-image: linear-gradient(to bottom, rgb(var(--blue-light)), rgb(var(--blue-dark))) 1;
+  
+}
+
+/* If you need to ensure the border stays solid and doesn't get broken by the gradient, 
+   you can use this alternative method: */
+
 </style>

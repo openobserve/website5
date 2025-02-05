@@ -235,7 +235,7 @@
         "title": "Support",
         "items" : [
           {
-            "title":"Frequently Asked Question",
+            "title":"Frequently Asked Questions",
             "link":"/faqs"
           },
           {
@@ -243,7 +243,7 @@
             "link":"/community-support"
           },
           {
-            "title":"Enterprise-support",
+            "title":"Enterprise Support",
             "link":"/enterprice-support"
           }
         ]

@@ -102,7 +102,7 @@ defineProps({
       </div>
 
       <!-- Footer Image -->
-      <div class="w-full mt-24">
+      <div class="w-full">
         <CustomImage
           :image="image"
           altText="Footer visual"
