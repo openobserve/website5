@@ -4,24 +4,24 @@ import FAQSection from "./FAQSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
-  items: {
-    type: Object,
+  faqs: {
+    type: Array,
     required: true,
   },
-  title: {
-    type: String,
-    required: true,
+  heading: {
+    type: Object,
+    required: false,
   },
 });
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-7">
     <CustomSection
       class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
     >
-      <Heading :title="props.title" align="CENTER" />
-      <FAQSection :faqItems="props.items" />
+      <Heading :title="props?.title" align="CENTER" />
+      <FAQSection :faqItems="props.faqs" />
     </CustomSection>
   </div>
 </template>
