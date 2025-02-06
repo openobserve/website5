@@ -3,7 +3,7 @@ import TextWithGradient from "../../components/HeaderComponents/TextWithGradient
 import { defineProps } from "vue";
 const props = defineProps({
   title: {
-    type: string,
+    type: String,
     required: true,
   },
 });

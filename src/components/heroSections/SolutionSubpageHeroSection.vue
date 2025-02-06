@@ -11,7 +11,7 @@ const props = defineProps({
   },
   primaryButton: {
     type: Object,
-    required: true,
+    required: false,
   },
   secondaryButton: {
     type: Object,
@@ -61,14 +61,16 @@ const sectionStyles = computed(() => ({
             <CustomButton
               variant="primary"
               class="w-full sm:w-auto"
-              :buttonLink="primaryButton.link"
+              :buttonLink="primaryButton?.link"
+              v-if="primaryButton"
             >
               {{ primaryButton.text }}
             </CustomButton>
             <CustomButton
               variant="secondary"
               class="w-full sm:w-auto"
-              :buttonLink="secondaryButton.link"
+              :buttonLink="secondaryButton?.link"
+              v-if="secondaryButton"
             >
               {{ secondaryButton.text }}
             </CustomButton>
