@@ -108,6 +108,5 @@ const componentsMap = computed(() => ({
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper,
-  "section-faqs.frequently-asked-question": ResourceFaqWrapper,
 }));
 </script>
