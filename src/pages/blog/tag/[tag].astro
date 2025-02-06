@@ -1,5 +1,5 @@
 ---
-import { getAllBlogsAndCategories } from "../../../utils/caching"; // Import caching utility
+import { getAllBlogsCategoriesAndAuthors } from "../../../utils/caching"; // Import caching utility
 import fetchApi from "../../../utils/strapi";
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
@@ -7,10 +7,11 @@ import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import { getBlogsFromCache } from "../../../utils/blogCache";
+import {getCaseStudies} from "../../../utils/caching";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  const { categories, blogs } = await getAllBlogsAndCategories();
+  const { categories, blogs } = await getAllBlogsCategoriesAndAuthors();
   // Map each category to its related blogs
   const categoryMap = categories.map((category) => ({
     params: { tag: category.slug }, // Correct attribute access for category
