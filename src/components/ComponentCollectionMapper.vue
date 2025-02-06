@@ -102,7 +102,7 @@ const componentsMap = computed(() => ({
   "section-cards.resource-support-card": SupportCardWrapper,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
-  "section-faqs.frequently-asked-question": ResourceFaqWrapper,
+  "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper
 }));
 </script>

@@ -27,7 +27,7 @@ const props = defineProps({
       <!-- Card 1 (Top Section) -->
       <div class="w-full rounded-lg card">
         <div class="card-content">
-          <h2 class="text-2xl font-bold text-white mb-2 text-center">
+          <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
             {{ props?.unifiedObservability?.title }}
           </h2>
           <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
@@ -89,7 +89,7 @@ const props = defineProps({
   position: relative;
   padding: 1px;
   border-radius: 12px;
-  background:  rgb(1,1,1,0.50);
+  background: rgb(1, 1, 1, 0.5);
 }
 
 /* Gradient Border Effect */
@@ -120,5 +120,8 @@ const props = defineProps({
   background: rgba(31, 34, 37, 0.95);
 }
 
-
+.heading-stroke {
+  stroke-width: 1px;
+  stroke: rgba(255, 255, 255, 0.4);
+}
 </style>

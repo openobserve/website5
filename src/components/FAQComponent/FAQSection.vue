@@ -57,7 +57,7 @@ const renderMarkdown = (markdown) => {
             'min-h-full opacity-100 mt-4': visibleAnswers[index],
           }"
         >
-          <div class="prose  prose-invert max-w-full" v-html="renderMarkdown(item.answer)">
+          <div class="prose  prose-invert max-w-none" v-html="renderMarkdown(item.answer)">
           </div>
         </div>
       </div>
