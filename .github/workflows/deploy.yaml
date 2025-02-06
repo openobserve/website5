@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - dev
+  repository_dispatch:
+    types: [strapi-cms]
 
 jobs:
   deploy:
