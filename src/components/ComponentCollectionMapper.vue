@@ -51,6 +51,7 @@ import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
 
+
 const props = defineProps({
   data: {
     type: Array,
@@ -104,5 +105,6 @@ const componentsMap = computed(() => ({
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper
+  "section-faqs.frequently-asked-question": ResourceFaqWrapper,
 }));
 </script>
