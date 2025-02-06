@@ -21,7 +21,6 @@ defineProps({
   <div class="md:w-1/2 p-6">
     <p class="text-white mb-6">{{ description }}</p>
     <div>
-      <h3 class="text-lg font-semibold text-white mb-4">Key Features:</h3>
       <ul class="space-y-6">
         <li
           v-for="(feature, index) in keyFeatures"

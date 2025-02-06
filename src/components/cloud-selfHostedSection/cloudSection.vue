@@ -1,6 +1,9 @@
 <script setup>
+import { Field } from "vee-validate";
+import * as yup from "yup";
+import BaseForm from "../forms/BaseForm.vue";
+import CustomInput from "../forms/CustomInput.vue";
 import CustomButton from "../core/CustomButton.vue";
-import { ref, onMounted } from "vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
@@ -10,98 +13,113 @@ const props = defineProps({
   },
 });
 
-const formData = ref({});
-
-// Initialize form data
-onMounted(() => {
-  props.formFields.forEach((field) => {
-    formData.value[field.name] = field.type === "checkbox" ? false : "";
-  });
+// Define the validation schema
+const schema = yup.object({
+  name: yup.string().required("Name is required"),
+  terms: yup.boolean().oneOf([true], "You must accept the terms and conditions"),
 });
-
-const onSubmit = () => {
-  // console.log("Form submitted with data:", formData.value);
+const handleSubmit = (values) => {
+  console.log("Form submitted:", values);
 };
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto relative">
-    <!-- Background Gradient Effects -->
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-orange-500/20 blur-3xl opacity-20"
-    ></div>
-
-    <!-- Content Section -->
-    <div class="grid md:grid-cols-2 gap-5">
-      <!-- Cloud Section -->
+  <div class="w-full max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-5 justify-center">
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
-        <h2 class="text-2xl font-semibold text-white mb-8">
-          Create Free Account
-        </h2>
-
-        <form @submit.prevent="onSubmit" class="space-y-6">
-          <div class="flex flex-col">
-            <label class="text-white font-medium mb-1"> Name </label>
-            <input
-              type="text"
-              placeholder="Enter Name"
-              class="bg-[#23282C] border border-[#373a3d] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
+        <BaseForm
+          :schema="schema"
+          @submit="handleSubmit"
+          :validateOnMount="false"
+          class="mb-10 space-y-4"
+        >
+          <div class="space-y-2">
+            <Field name="name" v-slot="{ field, errorMessage, meta }">
+              <CustomInput v-bind="field" label="Name" placeholder="Enter here" />
+              <span
+                v-if="errorMessage && (isSubmitted || meta.touched)"
+                class="text-xs text-red-500"
+              >
+                {{ errorMessage }}
+              </span>
+            </Field>
           </div>
 
-          <!-- Checkbox -->
-          <div class="flex items-start gap-3">
-            <input
-              type="checkbox"
-              id="terms"
-              v-model="formData.terms"
-              class="mt-1"
-            />
-            <label for="terms" class="text-gray-600">
-              I confirm I have read and agree to the
-              <a href="#" class="text-blue-500 underline"
-                >Terms and Conditions</a
-              >.
-            </label>
+          <div class="space-y-2">
+            <Field name="terms" type="checkbox" v-slot="{ field, errorMessage, meta }">
+              <div class="flex flex-col space-y-2">
+                <div class="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    v-bind="field"
+                    class="mt-1 rounded bg-gray-700 border-gray-600"
+                  />
+                  <label class="text-sm text-gray-200">
+                    I confirm I have read and agree to OpenObserve's
+                    <a href="#" class="text-blue-500">Terms and Conditions</a>.
+                  </label>
+                </div>
+                <span
+                  v-if="errorMessage && (isSubmitted || meta.touched)"
+                  class="text-xs text-red-500"
+                >
+                  please agree the terms and conditions.
+                </span>
+              </div>
+            </Field>
           </div>
+
           <CustomButton
             variant="primary"
             type="submit"
-            class="py-3 transition-all duration-300 uppercase tracking-wide"
+            class="py-3 transition-all w-full duration-300 uppercase tracking-wide mt-4"
           >
             CREATE AN ACCOUNT
           </CustomButton>
+        </BaseForm>
 
-          <CustomSeprater />
+        <CustomSeprater />
 
-          <!-- Login Options -->
-          <div class="pt-8">
-            <p class="text-center text-gray-400 text-sm mb-4">Login With</p>
-            <div class="flex justify-center gap-4">
-              <button
-                v-for="provider in [
-                  'download-pricing/search.svg',
-                  'download-pricing/Frame 2121314627.svg',
-                  'download-pricing/microsoft.svg',
-                ]"
-                :key="provider"
-                class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
-              >
-                <img
-                  :src="`/${provider}`"
-                  :alt="`${provider} login`"
-                  class="h-6 w-6"
-                />
-              </button>
-            </div>
+        <!-- Login Options -->
+        <div class="pt-8">
+          <p class="text-center text-gray-400 text-sm mb-4">Login With</p>
+          <div class="flex justify-center gap-4 w-full">
+            <button
+              class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
+            >
+              <img
+                src="/download-pricing/search.svg"
+                alt="Search login"
+                class="h-10 w-10"
+              />
+            </button>
+
+            <button
+              class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
+            >
+              <img
+                src="/download-pricing/downloadGit.svg"
+                alt="Frame login"
+                class="h-10 w-10"
+              />
+            </button>
+
+            <button
+              class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
+            >
+              <img
+                src="/download-pricing/microsoft.svg"
+                alt="Microsoft login"
+                class="h-10 w-10"
+              />
+            </button>
           </div>
-        </form>
+        </div>
       </div>
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
         <div class="mb-6">
-          <h4 class="text-white text-xl font-medium py-5">
-            Free Forever Access
-          </h4>
+          <h4 class="text-white text-xl font-medium py-5">Free Forever Access</h4>
         </div>
 
         <!-- Features List -->
@@ -138,8 +156,8 @@ const onSubmit = () => {
             15 -day unlimited usage trial
           </h4>
           <p class="text-white text-xl font-medium py-2">
-            Unlimited metrics, logs, and users, long-term retention, and premium
-            team collaboration features.
+            Unlimited metrics, logs, and users, long-term retention, and premium team
+            collaboration features.
           </p>
         </div>
       </div>

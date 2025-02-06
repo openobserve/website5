@@ -32,7 +32,6 @@ const props = defineProps({
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-20">
           <div
-            class="rounded-lg w-full p-0.5 shadow-md bg-gradient-blue text-center transition-all duration-300 hover:shadow-2xl cardShadow"
             v-for="(item, index) in items"
             :key="index"
           >

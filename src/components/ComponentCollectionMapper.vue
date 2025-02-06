@@ -49,7 +49,9 @@ import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
 import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
+import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
+
 
 
 const props = defineProps({
@@ -66,12 +68,13 @@ const componentsMap = computed(() => ({
   "section-cards.stats": TopCompaniesWrapper,
   "section-cards.clients": CompanySwiper,
   "section-cards.case-studies": CaseStudyWrapper,
-  "section-features.feature-list": HomeFeatureWrapper,
+  "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": FeatureCardWrapper,
   "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
+  "section-forms.contact":CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
   // 'section':TabsWrapper.
   // 'section.caseStudyWrapper': CaseStudyWrapper,

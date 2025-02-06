@@ -5,19 +5,23 @@ import CommonForm from "../forms/CommonForm.vue";
 import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 
 defineProps({
-  title: {
+  // title: {
+  //   type: String,
+  //   required: true,
+  // },
+  heading:{
+    type: Object,
+    required:true
+  },
+  subTitle: {
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  keyFeatures: {
+  items: {
     type: Array,
     required: true,
   },
-  footerdescription: {
+  description: {
     type: String,
     required: true,
   },
@@ -28,17 +32,18 @@ defineProps({
   <CustomSection>
     <!-- Conditionally render TextWithGradient if title is provided -->
     <TextWithGradient
-      v-if="title"
+      v-if="heading?.title"
       class="text-2xl md:text-5xl font-bold text-center mb-6 max-w-xl mx-auto"
-      :title="title"
-      textGradientColor="text-color"
+      :title="heading?.title"
+      textGradientColor="bg-white"
     />
+      <!-- textGradientColor="text-color" -->
 
     <div class="flex flex-col md:flex-row gap-8">
       <LeftSideCommonFormFeature
-        :description="description"
-        :keyFeatures="keyFeatures"
-        :footerdescription="footerdescription"
+        :description="subTitle"
+        :keyFeatures="items"
+        :footerdescription="description"
       />
       <CommonForm />
     </div>

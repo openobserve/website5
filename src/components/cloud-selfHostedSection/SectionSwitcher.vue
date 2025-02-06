@@ -31,31 +31,33 @@ export default {
   <CustomSection>
     <div class="w-full mx-auto p-6">
       <!-- Tab Buttons -->
-      <div class="flex">
+      <div class="flex relative border-b-[3px] border-gray-500">
         <button
-          class="w-1/2 cld-btn py-3 text-lg font-semibold transition-colors duration-300 border-b-2"
-          :class="
-            selectedTab === 'cloud'
-              ? 'text-white'
-              : 'border-transparent cld-be-effect'
-          "
+          class="w-1/2 py-3 cld-btn text-lg font-semibold transition-colors duration-300 relative"
+          :class="[
+            selectedTab === 'cloud' ? 'text-white ' : 'border-transparent cld-be-effect'
+          ]"
           @click="selectedTab = 'cloud'"
         >
           Cloud
         </button>
         <button
-          class="w-1/2 slf-btn py-3 text-lg font-semibold transition-colors duration-300 border-b-2"
-          :class="
-            selectedTab === 'selfHosted'
-              ? 'text-white'
-              : 'border-transparent slf-be-effect'
-          "
+          class="w-1/2 py-3 slf-btn text-lg font-semibold transition-colors duration-300 relative"
+          :class="[
+            selectedTab === 'selfHosted' ? 'text-white' : 'border-transparent slf-be-effect'
+          ]"
           @click="selectedTab = 'selfHosted'"
         >
           Self-Hosted
         </button>
+        <!-- Single Underline Indicator -->
+        <div
+          class="absolute bottom-0 h-0.5 w-1/2 transition-all duration-300"
+          :class="[
+            selectedTab === 'cloud' ? 'left-0 bg-blue-400 shadow-blue-glow' : 'left-1/2 bg-orange-400 shadow-orange-glow'
+          ]"
+        ></div>
       </div>
-
       <!-- Tab Content -->
       <div class="mt-6 justify-center">
         <transition name="fade" mode="out-in">
@@ -76,6 +78,13 @@ export default {
 </template>
 
 <style>
+.shadow-blue-glow {
+  box-shadow: 0 0 8px rgba(88, 212, 225, 0.7);
+}
+
+.shadow-orange-glow {
+  box-shadow: 0 0 8px rgba(245, 106, 64, 0.7);
+}
 .cld-btn {
   border-radius: 4px;
   background: linear-gradient(
@@ -160,6 +169,48 @@ export default {
 .fade-leave-active {
   transition: opacity 0.3s ease-in-out;
 }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.active-cloud-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(67, 145, 255, 0.3),
+    rgba(88, 212, 225, 1),
+    rgba(67, 145, 255, 0.3)
+  );
+  box-shadow: 0 0 10px rgba(88, 212, 225, 0.7);
+}
+
+.active-self-hosted-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(240, 167, 94, 0.3),
+    rgba(245, 106, 64, 1),
+    rgba(240, 167, 94, 0.3)
+  );
+  box-shadow: 0 0 10px rgba(245, 106, 64, 0.7);
+}
+
+/* Update transition styles to include the border effect */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
 .fade-enter,
 .fade-leave-to {
   opacity: 0;

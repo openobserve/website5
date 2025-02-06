@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CustomComparisonTable from "../../components/core/CustomComparisonTable.vue";
 import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
+import CustomBanner from "../../components/core/CustomBanner.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import SectionSwitcher from "../../components/cloud-selfHostedSection/SectionSwitcher.vue";
 import DownloadCaseStudyWrapper from "../../components/wrapper/DownloadCaseStudyWrapper.vue";
@@ -114,23 +115,16 @@ const caseStudyData = [
   },
 ];
 const bannerData = {
-  title: "Ready to get started ?",
-  subtitle:
-    "Explore how OpenObserve can transform your monitoring strategy with solutions designed for specific platforms, use cases, and team needs.",
-  items: [
-    {
-      title: "Fair and transparent pricing",
-      subtitle: "Only pay for what you use.",
-      buttons: [
-        { text: "View Pricing Plans" },
-        { text: "Get Started for Free" },
-      ],
-    },
-  ],
+      bannerTitle: "Fair and transparent pricing",
+      bannerDescription: "Only pay for what you use.",
+      primaryButton:{ text: "VIEW PRICING PLANS" , buttonLink:"/"},
+      secondaryButton:{ text: "GET STARTED FOR FREE" , buttonLink:"/"},
 };
 const FaqData = {
-  title: "OpenObserve Logs FAQ's",
-  items: [
+  heading:{
+    title: "OpenObserve Logs FAQ's"
+  },
+  items:[
     {
       question: "Why choose OpenObserve for Log Management?",
       answer:
@@ -157,7 +151,7 @@ const FaqData = {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ],
-};
+}
 ---
 
 <Layout>
@@ -175,6 +169,14 @@ const FaqData = {
     description={caseStudyTitle.subtitle}
     client:load
   />
-  <BannerWrapper items={bannerData} client:load />
-  <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
+  <CustomBanner 
+  bannerTitle={bannerData.bannerTitle} 
+  bannerDescription={bannerData.bannerDescription}
+  primaryButton={bannerData.primaryButton}
+  secondaryButton={bannerData.secondaryButton}
+  client:load />
+  <FaqWrapper
+   faqs={FaqData.items}
+   heading={FaqData.heading} 
+   client:load />
 </Layout>
