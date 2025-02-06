@@ -53,6 +53,8 @@ import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
 
 import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
+import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
+
 
 const props = defineProps({
   data: {
