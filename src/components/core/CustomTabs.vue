@@ -101,7 +101,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
   <section class="text-white">
     <!-- Tabs Section -->
     <div class="sticky top-16 flex justify-center backdrop-blur-sm">
-      <div class="relative max-w-6xl mx-auto px-4">
+      <div class="relative max-w-full mx-auto px-4">
         <div class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar">
           <!-- Render Tabs -->
           <div
