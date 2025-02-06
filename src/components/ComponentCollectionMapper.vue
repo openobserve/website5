@@ -49,6 +49,7 @@ import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
 import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
+import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -102,5 +103,6 @@ const componentsMap = computed(() => ({
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.frequently-asked-question": ResourceFaqWrapper,
+  "section-features.observability-space": ObservablititySuiteWrapper
 }));
 </script>
