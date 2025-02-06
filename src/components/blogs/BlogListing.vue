@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { getBlogsFromCache } from "../../utils/blogCache"; // Assuming the cache logic is in utils/blogCache
+
 interface Blog {
   title: string;
   description: string;
   imageUrl: string;
-  link: string;
-  slug: string;
+  slug: string; // added slug field for the link
 }
+
 const props = defineProps({
-  sectionData: {
-    type: Array as () => Blog[], // Correctly typed array of Blog objects
+  categorySlug: {
+    type: String,
     required: true,
   },
   titleTextColor: {
@@ -28,41 +31,51 @@ const props = defineProps({
     default: "text-[#00A3FF]",
   },
 });
+
+// A reactive reference to hold the fetched blog data
+const sectionData = ref<Blog[]>([]);
+
+onMounted(async () => {
+  // Fetch blogs based on categorySlug and populate sectionData
+  sectionData.value = await getBlogsFromCache(fetchApi, props.categorySlug);
+});
 </script>
 
 <template>
   <div class="min-h-screen">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+    <div class="container mx-auto px-1">
+      <div class="grid grid-rows-1 lg:grid-rows-2 gap-8">
         <a
           v-for="blog in sectionData"
           :key="blog.title"
           :href="`/blog/${blog.slug}`"
           rel="noopener noreferrer"
-          :class="[
-            cardBgColor,
-            'flex flex-col rounded-xl overflow-hidden transition-transform h-[400px]',
-          ]"
+          :class="[cardBgColor, 'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row']"
         >
-
-          <div class="h-48 w-full flex-shrink-0">
-            <!-- {{ console.log(blog.image.formats,"blog.imageUrl") }} -->
+          <!-- Left Side - Image -->
+          <div class="w-full md:h-auto relative">
             <img
-              :src="blog.imageUrl || blog.image.url || ''"
+              :src="blog.imageUrl || ''"
               :alt="blog.title"
-              class="w-full h-full object-center object-cover" 
+              class="w-full h-full object-cover"
             />
           </div>
-          <div class="flex flex-col flex-grow p-6">
-            <h3 :class="[titleTextColor, 'text-xl font-bold mb-2 line-clamp-2']">
-              {{ blog.title }}
-            </h3>
-            <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-3 flex-grow']">
-              {{ blog.description }}
-            </p>
-            <!-- <a :class="[linkColor, 'text-sm font-semibold hover:opacity-80 mt-auto']" :href="`/blogs/${blog.slug}`">
+
+          <!-- Right Side - Content -->
+          <div class="w-full p-6 flex flex-col justify-between">
+            <div>
+              <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
+                {{ blog.title }}
+              </h6>
+              <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
+                {{ blog.description }}
+              </p>
+            </div>
+            <span
+              :class="[linkColor, 'text-sm font-semibold hover:opacity-80 inline-block']"
+            >
               LEARN MORE
-            </a> -->
+            </span>
           </div>
         </a>
       </div>

@@ -3,11 +3,11 @@ interface Blog {
   title: string;
   description: string;
   imageUrl: string;
-  link: string;
+  slug: string; // added slug field for the link
 }
 const props = defineProps({
-  sectionData: {
-    type: Array as () => Blog[], // Correctly typed array of Blog objects
+  categorySlug: {
+    type: String,
     required: true,
   },
   titleTextColor: {
@@ -35,17 +35,14 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-         :href="`/blog/${blog.slug}`"
+          :href="`/blog/${blog.slug}`"
           rel="noopener noreferrer"
-          :class="[
-            cardBgColor,
-            'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row',
-          ]"
+          :class="[cardBgColor, 'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row']"
         >
           <!-- Left Side - Image -->
           <div class="w-full md:h-auto relative">
             <img
-              :src="blog.imageUrl || blog.image.formats.thumbnail.url || ''"
+              :src="blog.imageUrl || ''"
               :alt="blog.title"
               class="w-full h-full object-cover"
             />
@@ -62,10 +59,7 @@ const props = defineProps({
               </p>
             </div>
             <span
-              :class="[
-                linkColor,
-                'text-sm font-semibold hover:opacity-80 inline-block',
-              ]"
+              :class="[linkColor, 'text-sm font-semibold hover:opacity-80 inline-block']"
             >
               LEARN MORE
             </span>
