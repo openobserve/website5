@@ -30,11 +30,11 @@ const formatSubtitle = (text) => {
 
 <template>
   <div
-    class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
+    class="relative flex flex-col justify-center items-center py-10 lg:py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover h-[70vh] lg:h-[50vh]"
     :style="{
       backgroundImage: 'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
       backgroundSize: 'contain, contain',
-      backgroundPosition: 'top center, bottom -200px center',
+      backgroundPosition: 'top center, bottom -100px center',
     }"
   >
     <div

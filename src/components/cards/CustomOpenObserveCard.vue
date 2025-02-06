@@ -20,9 +20,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection>
+  <!-- <CustomSection> -->
     <div
-      class="flex flex-col items-center gap-2 w-full px-6 lg:px-12 container mx-auto"
+      class="flex flex-col items-center gap-2 w-full pb-10 px-6 lg:px-12 container mx-auto"
     >
       <!-- Card 1 (Top Section) -->
       <div class="w-full rounded-lg card">
@@ -80,7 +80,7 @@ const props = defineProps({
         </div>
       </div>
     </div>
-  </CustomSection>
+  <!-- </CustomSection> -->
 </template>
 
 <style scoped>
