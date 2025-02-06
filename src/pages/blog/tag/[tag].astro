@@ -1,75 +1,53 @@
 ---
-// Imports
+import { getAllBlogsAndCategories } from "../../../utils/caching"; // Import caching utility
+import fetchApi from "../../../utils/strapi";
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
-import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import fetchApi from "../../../utils/strapi";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import { slugify } from "../../../utils/slugify";
+import { getBlogsFromCache } from "../../../utils/blogCache";
 
+// 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  // Fetch the first page to determine the total number of pages
-  const firstPage = await fetchApi({
-    endpoint: "api/categories",
-    query: { "pagination[page]": 1, "pagination[pageSize]": 100 },
-  });
-
-  if (!firstPage || !firstPage.meta || !firstPage.meta.pagination) {
-    return [];
-  }
-
-  const totalPages = firstPage.meta.pagination.pageCount;
-  let categories = firstPage.data || [];
-
-  // Fetch all remaining pages if necessary
-  for (let page = 2; page <= totalPages; page++) {
-    const nextPage = await fetchApi({
-      endpoint: "api/categories",
-      query: { "pagination[page]": page, "pagination[pageSize]": 100 },
-    });
-
-    if (nextPage?.data) {
-      categories = [...categories, ...nextPage.data];
-    }
-  }
-  // Return an array of objects with params
-  return categories.map((category) => ({
-    params: { tag: category.slug },
-    props: { category } // Optional: pass the category data as props
+  const { categories, blogs } = await getAllBlogsAndCategories();
+  // Map each category to its related blogs
+  const categoryMap = categories.map((category) => ({
+    params: { tag: category.slug }, // Correct attribute access for category
+    props: {
+      category,
+      blogs: blogs.filter((blog) =>
+        blog.categories.some(
+          (cat) => cat.id === category.id // Ensure correct comparison
+        )
+      ),
+    },
   }));
+
+  return categoryMap;
 }
 
-// 🚀 Step 2: Get `categorySlug` from URL
+// 🚀 Get Category Slug from URL
 const { tag } = Astro.params;
-const categorySlug = slugify(tag);
+const { category, blogs } = Astro.props;
+let blogsData = [];
+if (category) {
+  blogsData = blogs.filter((blog) =>
+    blog.categories.some((cat) => cat.id === category.id)
+  );
+} else {
+  console.log(`Category for tag ${tag} not found.`);
+}
 
-// 🚀 Step 3: Fetch blogs based on category
-const blogsData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    "filters[categories][slug][$eq]": categorySlug,
-    "pagination[page]": 1,
-    "pagination[pageSize]": 50,
-    pLevel: "10",
-  },
-});
-
-// ✅ Fetch other required data
+// ✅ Fetch Additional Data
 const suggestionData = await fetchApi({
   endpoint: "api/categories",
-  query: { path: "", status: "draft", pLevel: "10" },
+  query: { path: "", status: "draft", pLevel: "4" },
 });
 
 const loadcaseStudyData = await fetchApi({
   endpoint: "api/blog-pages",
-  query: {
-    "filters[caseStudies][$eq]": true,
-    status: "draft",
-    pLevel: "10",
-  },
+  query: { "filters[caseStudies][$eq]": true, status: "draft", pLevel: "4" },
 });
 
 // 🔹 Additional Card Data
@@ -80,10 +58,7 @@ const cardHeader = {
 };
 
 const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
+  { icon: "/resources/64pxComponent.svg", title: "Case Studies" },
 ];
 ---
 
@@ -91,11 +66,11 @@ const cardData = [
 <Layout>
   <ResourceHeroSection
     title="Blogs"
-    subtitle={`Showing posts for category: ${tag}`}
+    subtitle={`Showing posts for category: ${category?.name ?? tag}`}
   />
 
   <CaseStudyWrapper
-    data={loadcaseStudyData.data}
+    data={loadcaseStudyData?.data || []}
     title="Blog Posts"
     subtitle="Latest articles and updates"
     client:load
@@ -104,7 +79,7 @@ const cardData = [
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData}
+    suggestionData={suggestionData?.data || []}
     client:load
   />
 
