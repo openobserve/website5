@@ -1,6 +1,6 @@
 <script setup>
 import CustomButton from "../core/CustomButton.vue";
-
+import { ref } from "vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
@@ -9,15 +9,22 @@ const props = defineProps({
     required: true,
   },
 });
+
+const copied = ref(false);
+
+const copyCode = () => {
+  const codeBlock = document.querySelector("code").innerText;
+  navigator.clipboard.writeText(codeBlock).then(() => {
+    copied.value = true;
+    setTimeout(() => {
+      copied.value = false;
+    }, 1500);
+  });
+};
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto relative">
-    <!-- Background Gradient Effects -->
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-orange-500/20 blur-3xl opacity-20"
-    ></div>
-
+  <div class="w-full max-w-7xl mx-auto">
     <!-- Content Section -->
     <div class="grid md:grid-cols-2 gap-5">
       <!-- Cloud Section -->
@@ -27,46 +34,72 @@ const props = defineProps({
           <ul class="space-y-4 mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/download-pricing/docker.svg"
-                  alt="icon"
-                  class="w-6 h-6"
+                <img src="/download-pricing/docker.svg" alt="icon" class="w-6 h-6"
               /></span>
               <span class="text-sm">Docker</span>
             </li>
           </ul>
         </div>
-        <div>
-          <img src="/download-pricing/dockerImage.png" alt="" />
+
+        <!-- Copyable Code Block -->
+        <div class="relative bg-gray-800 rounded-lg p-4 text-gray-300 font-mono text-md">
+          <button
+            @click="copyCode"
+            class="absolute top-2 right-2 text-white p-1 flex items-center focus:outline-none focus:ring-0"
+          >
+            <img
+              :src="
+                copied
+                  ? '/download-pricing/copiedIcon.svg'
+                  : '/download-pricing/copyIcon.svg'
+              "
+              alt="copy icon"
+              class="w-4 h-4"
+            />
+          </button>
+          <pre><code ref="codeBlock">
+        docker run -d \
+          --name openobserve \
+          -v $PWD/data:/data \
+          -p 5080:5080 \
+          -e ZO_ROOT_USER_EMAIL="root@example.com" \
+          -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \
+          public.ecr.aws/zinclabs/openobserve:latest
+          </code></pre>
         </div>
         <div class="flex-grow">
           <ul class="space-y-4 py-4">
-            <li class="flex gap-3 text-gray-300">
-              <span>
-                <img
-                  src="/download-pricing/downloading.svg"
-                  alt="icon"
-                  class="w-6 h-6"
-              /></span>
-              <span class="text-sm">Download</span>
+            <li class="text-gray-300">
+              <a href="" class="flex gap-3 items-center hover:text-white">
+                <span>
+                  <img
+                    src="/download-pricing/downloading.svg"
+                    alt="icon"
+                    class="w-6 h-6"
+                  />
+                </span>
+                <span class="text-sm">Download</span>
+              </a>
             </li>
           </ul>
         </div>
         <h2 class="text-lg font-semibold text-white mb-8">
-          Binaries can be downloaded from releases page for the appropriate
-          platform.
+          Binaries can be downloaded from
+          <a href="https://github.com/openobserve/openobserve/releases" class="text-[#0ea5e9] hover:underline">releases</a> page for the
+          appropriate platform.
         </h2>
 
-        <div class="flex gap-3 items-center py-10">
-          <div class="p-10 bg-[rgba(35,40,44,0.4)] rounded-lg">
+        <div class="flex gap-3 items-center py-5">
+          <a href="https://github.com/openobserve/openobserve/releases" class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg">
             <img
               src="/public/download-pricing/windows-platform-logo.svg"
               alt=""
+              class="h-10 w-10"
             />
-          </div>
-          <div class="p-10 bg-[rgba(35,40,44,0.4)] rounded-lg">
-            <img src="/public/download-pricing/apple.svg" alt="" />
-          </div>
+          </a>
+          <a href="https://github.com/openobserve/openobserve/releases" class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg">
+            <img src="/public/download-pricing/apple.svg" alt="" class="h-10 w-10" />
+          </a>
         </div>
         <CustomSeprater />
       </div>
@@ -83,32 +116,22 @@ const props = defineProps({
           <ul class="space-y-4 mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/resources/Frame-11216.svg"
-                  alt="icon"
-                  class="w-6 h-6"
+                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
               /></span>
               <span class="text-sm">Single Sign On (SSO)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/resources/Frame-11216.svg"
-                  alt="icon"
-                  class="w-6 h-6"
+                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
               /></span>
               <span class="text-sm">Role-Based Access Control (RBAC)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/resources/Frame-11216.svg"
-                  alt="icon"
-                  class="w-6 h-6"
+                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
               /></span>
               <span class="text-sm"
-                >Search concurrency control at cluster & user level Super
-                Cluster</span
+                >Search concurrency control at cluster & user level Super Cluster</span
               >
             </li>
           </ul>
@@ -127,11 +150,22 @@ const props = defineProps({
 </template>
 
 <style scoped>
+button {
+  outline: none; /* Removes default focus outline */
+  border: none; /* Ensures no border appears */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none; /* Removes any focus glow */
+}
+pre {
+  overflow-x: auto;
+}
 /* Custom focus styles */
 input:focus,
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
 }
 
 /* Smooth transitions */

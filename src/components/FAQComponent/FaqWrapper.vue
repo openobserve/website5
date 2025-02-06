@@ -9,7 +9,7 @@ const props = defineProps({
     required: true,
   },
  heading:{
-  type:Object,
+  type: Object,
   required:true,
  }
 });

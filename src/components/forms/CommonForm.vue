@@ -18,7 +18,6 @@ export default {
   setup() {
     const schema = yup.object({
       name: yup.string().required("Name is required"),
-      email: yup.string().email("Invalid email").required("Email is required"),
       help: yup.string(),
       terms: yup
         .boolean()
