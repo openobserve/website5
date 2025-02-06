@@ -33,7 +33,7 @@ const handleSubmit = (values) => {
 <template>
   <!-- backgroundPosition: 'top center, bottom -200px center', -->
   <div
-    class="relative flex items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat bg-cover"
+    class="relative flex  items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat bg-cover py-8"
     :style="{
       backgroundImage: 'url(/ContactUsTopbg.svg), url(/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
@@ -42,7 +42,7 @@ const handleSubmit = (values) => {
     }"
   >
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full container mx-auto"
+      class="flex flex-col lg:flex-row  gap-4 lg:gap-12 items-center w-full container mx-auto"
     >
       <!-- Left Column: Title & Description -->
       <div class="w-full text-left flex flex-col space-y-4">
@@ -75,6 +75,21 @@ const handleSubmit = (values) => {
               type="tel"
               placeholder="Enter here"
             />
+
+            <div class="input-group">
+              <label class="text-sm text-gray-200">Message</label>
+              <Field name="help" v-slot="{ field, errorMessage }">
+                <textarea
+                  v-bind="field"
+                  class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter Here"
+                  rows="4"
+                ></textarea>
+                <span v-if="errorMessage" class="text-xs text-red-500">{{
+                  errorMessage
+                }}</span>
+              </Field>
+            </div>
 
             <div class="flex items-center gap-2">
               <Field
