@@ -26,7 +26,7 @@ const schema = yup.object({
 });
 
 const handleSubmit = (values) => {
-  console.log("Form submitted:", values);
+  // console.log("Form submitted:", values);
 };
 </script>
 
