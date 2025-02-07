@@ -1,4 +1,5 @@
 <script setup>
+import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import LeftSideSection from "./LeftSideSection.vue";
 import RightSideSection from "./RightSideSection.vue";
@@ -36,8 +37,8 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card p-6 md:p-12 max-w-7xl mx-auto"
+  <CustomSection
+    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card max-w-7xl mx-auto"
   >
     <!-- Title Section -->
     <Heading
@@ -57,7 +58,7 @@ defineProps({
         :buttonVariant="buttonVariant"
       />
     </div>
-  </div>
+  </CustomSection>
 </template>
 <style scoped>
 .glass-card {
