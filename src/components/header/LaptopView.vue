@@ -1,50 +1,66 @@
 <template>
   <!-- Sticky Header -->
   <header class="bg-black sticky top-0 z-50">
-    <div class="w-full mx-auto px-4 flex justify-between items-center">
+    <div class="w-full mx-auto px-4 flex justify-between items-center py-2">
       <Logo />
       <nav>
-        <ul class="flex space-x-7 w-full">
+        <ul class="flex items-center space-x-0.5 w-full">
           <li
-            class="relative py-6"
+            class="relative"
             @mouseenter="onPlatformMenuHover"
             @mouseleave="onPlatformMenuMouseLeave"
           >
-            <a href="/platform" class="text-white font-semibold text-base hover:underline">
+            <a
+              href="/platform"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
+            >
               Platform
             </a>
           </li>
           <li
-            class="relative py-6"
+            class="relative"
             @mouseenter="onSolutionMenuHover"
             @mouseleave="onSolutionMenuMouseLeave"
           >
-            <a href="/solutions" class="text-white font-semibold text-base hover:underline">
+            <a
+              href="/solutions"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
+            >
               Solutions
             </a>
           </li>
           <li
-            class="relative py-6"
+            class="relative"
             @mouseenter="onResourcesMenuHover"
             @mouseleave="onResourcesMenuMouseLeave"
           >
-            <a href="/resources" class="text-white font-semibold text-base hover:underline">
+            <a
+              href="/resources"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
+            >
               Resources
             </a>
           </li>
           <li
-            class="relative py-6"
+            class="relative"
             @mouseenter="onCompanyMenuHover"
             @mouseleave="onCompanyMenuMouseLeave"
           >
-            <a href="/about" class="text-white font-semibold text-base hover:underline">
+            <a
+              href="/about"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
+            >
               Company
             </a>
           </li>
-          <li class="relative py-6">
+          <li class="relative">
             <a
               href="/downloads"
-              class="text-white font-semibold text-base hover:underline"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50 "
             >
               Downloads
             </a>
@@ -63,6 +79,24 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
+        <!-- GitHub Stats Section -->
+        <!-- <GithubButton
+          href="https://github.com/openobserve/openobserve"
+          data-color-scheme=""
+          data-size="small"
+          data-show-count="true"
+          aria-label="Star openobserve/openobserve on GitHub"
+          >Star</GithubButton
+        >
+
+        <GithubButton
+          href="https://github.com/openobserve/openobserve/fork"
+          data-color-scheme=""
+          data-size="small"
+          data-show-count="true"
+          aria-label="Fork openobserve/openobserve on GitHub"
+          >Fork</GithubButton
+        > -->
         <CustomButton
           variant="secondary"
           size="small"
@@ -84,10 +118,12 @@
     >
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
-          <a class="text-xl font-bold  text-[#FFFFFF]">
+          <a class="text-xl font-bold text-[#FFFFFF]">
             {{ items.platform.title }}
           </a>
-          <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
+          <div
+            class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4"
+          >
             <div
               class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
             >
@@ -100,14 +136,14 @@
               </div>
             </div>
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
-              <h4 class="text-[#FFFFFF] text-base font-semibold ">
+              <h4 class="text-[#FFFFFF] text-base font-semibold">
                 {{ items.platform.keyFeature.title }}
               </h4>
               <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
                 <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
                 <ul class="space-y-1 xl:space-y-2">
                   <li
-                    v-for="(item, index) in  items.platform.keyFeature.items"
+                    v-for="(item, index) in items.platform.keyFeature.items"
                     :key="index"
                     class="text-[#BEC0C2] text-sm"
                   >
@@ -128,6 +164,7 @@
               />
             </div>
             <a
+              href="/pricing"
               class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer"
               >Pricing</a
             >
@@ -241,12 +278,16 @@
               v-for="(item, index) in items.resources.item2"
               :key="index"
             >
-              <h4 class="text-base font-bold gradient-hover">{{ item.title }}</h4>
+              <h4 class="text-base font-bold gradient-hover">
+                {{ item.title }}
+              </h4>
               <ul class="" v-for="(it, index) in item.items" :key="index">
                 <li class="cursor-pointer flex flex-col space-y-2">
-                  <a :href="it.link" class="gradient-hover text-sm text-[#BEC0C2]">{{
-                    it.title
-                  }}</a>
+                  <a
+                    :href="it.link"
+                    class="gradient-hover text-sm text-[#BEC0C2]"
+                    >{{ it.title }}</a
+                  >
                 </li>
               </ul>
             </div>
@@ -311,6 +352,7 @@ import CustomHoverHeader from "./CustomHoverHeader.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
 import SectionHeader from "./SectionHeader.vue";
 import { defineProps, ref, onMounted, onUnmounted } from "vue";
+import GithubButton from "vue-github-button";
 defineProps({
   items: {
     type: Object,
@@ -424,7 +466,7 @@ onUnmounted(() => {
 } */
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #09E6FF, #00FFC3);
+  background: linear-gradient(to left, #09e6ff, #00ffc3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -433,6 +475,27 @@ onUnmounted(() => {
   border: 1px solid #313539;
   border-radius: 0.5rem;
 }
+/* 
+.glass-card {
+  position: relative;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 16px;
+}
+
+.glass-card:hover {
+  background: rgba(72, 71, 71, 1);
+   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+} */
 </style>
 <style>
 body {
