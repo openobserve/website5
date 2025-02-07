@@ -3,7 +3,7 @@
     <a :href="`/platform/${link}`" class="text-[#FFFFFF] text-sm md:text-base lg:text-sm xl:text-base font-semibold cursor-pointer gradient-hover">
       {{ title }}
     </a>
-    <ul class="space-y-1 xl:space-y-2">
+    <ul class="space-y-0.5">
       <li v-for="(item, index) in updatedItems" :key="index" class="text-[#BEC0C2] text-sm">
         <a :href="item.slug" :class="item.slug ? 'gradient-hover' : ''">
           {{ item.title }}

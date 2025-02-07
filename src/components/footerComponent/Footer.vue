@@ -63,7 +63,7 @@ const props = defineProps({
           <h3 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h3>
           <ul>
             <li>
-              <a href="/" class="gradient-hover text-[#BEC0C2] font-normal text-base">
+              <a href="/pricing" class="gradient-hover text-[#BEC0C2] font-normal text-base">
                 <TextGradient textGradientColor="" /> View Plans
               </a>
             </li>

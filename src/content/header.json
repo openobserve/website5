@@ -127,37 +127,40 @@
       "title": "Key Features",
       "items": [
         {
-          "title": "High Availability"
+          "title": "Advanced Multilingual GUI"
         },
         {
-          "title": "Role-Based Access Control (RBAC)"
-        },
-        {
-          "title": "Multi-Tenancy"
-        },
-        {
-          "title": "Federated Search"
+          "title": "Built-in Authentication"
         },
         {
           "title": "Dynamic Schema Evolution"
         },
         {
-          "title": "Query Management"
+          "title": "Federated Search"
         },
         {
-          "title": "Advanced Multilingual GUI"
+          "title": "High Availability (HA) and Clustering"
         },
         {
-          "title": "Workload Management (QoS)"
+          "title": "Multi-tenancy with Organization-level Isolation"
         },
         {
-          "title": "Reports Generation"
+          "title": "Report Generation and Scheduling"
         },
         {
-          "title": "Audit Trial"
+          "title": "SQL, PromQL, and VRL Support"
         },
         {
-          "title": "Single Sign-On"
+          "title": "Real-User Monitoring"
+        },
+        {
+          "title": "Role-Based Access Control (RBAC)"
+        },
+        {
+          "title": "Single Sign-On (SSO)"
+        },
+        {
+          "title":"Workload Management (QoS)"
         }
       ]
     }
