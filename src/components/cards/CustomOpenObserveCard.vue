@@ -21,65 +21,71 @@ const props = defineProps({
 
 <template>
   <!-- <CustomSection> -->
-    <div
-      class="flex flex-col items-center gap-2 w-full pb-10 px-6 lg:px-12 container mx-auto"
-    >
-      <!-- Card 1 (Top Section) -->
-      <div class="w-full rounded-lg card">
+  <div
+    class="flex flex-col items-center gap-6 w-full pb-10 px-6 lg:px-12 container mx-auto"
+  >
+    <!-- Card 1 (Top Section) -->
+    <div class="w-full rounded-lg card p-[0.0625rem]">
+      <div class="card-content">
+        <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
+          <span class="inline border-b border-gray-500">
+          {{ props?.unifiedObservability?.title }}
+        </span>
+        </h2>
+        <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
+          {{ props?.unifiedObservability?.description }}
+        </p>
+        <div class="text-center">
+          <a
+            :href="unifiedObservability?.buttonLink"
+            class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
+          >
+            {{ unifiedObservability?.buttonText }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Grid (Middle Section) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content">
-          <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
-            {{ props?.unifiedObservability?.title }}
-          </h2>
-          <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
-            {{ props?.unifiedObservability?.description }}
-          </p>
-          <div class="text-center">
-            <a
-              :href="unifiedObservability?.buttonLink"
-              class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
-            >
-              {{ unifiedObservability?.buttonText }}
-            </a>
+          <div class="text-white text-2xl text-center font-bold">
+            <span class="inline border-b border-gray-500">
+            {{ item?.title }}
+          </span>
           </div>
-        </div>
-      </div>
-
-      <!-- Cards Grid (Middle Section) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
-        <div v-for="(item, index) in items" :key="index" class="card">
-          <div class="card-content">
-            <div class="text-white text-2xl text-center font-bold">
-              {{ item?.title }}
-            </div>
-            <div class="text-[#BEC0C2] text-base text-center font-medium mt-3">
-              {{ item?.description }}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 (Bottom Section) -->
-      <div class="w-full">
-        <div class="card">
-          <div class="card-content">
-            <h2 class="text-2xl font-bold text-white mb-2 text-center">
-              {{ integrations?.title }}
-            </h2>
-            <p class="text-base text-[#BEC0C2] font-medium mb-4 text-center">
-              {{ integrations?.description }}
-            </p>
-            <div class="text-center">
-              <a
-                :href="integrations?.buttonLink"
-                class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
-              >
-                {{ integrations?.buttonText }}
-              </a>
-            </div>
+          <div class="text-[#BEC0C2] text-base text-center font-medium mt-3">
+            {{ item?.description }}
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Card 2 (Bottom Section) -->
+    <div class="w-full">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="text-2xl font-bold text-white mb-2 text-center">
+            <span class="inline border-b border-gray5300">
+              {{ integrations?.title }}
+            </span>
+          </h2>
+          <p class="text-base text-[#BEC0C2] font-medium mb-4 text-center">
+            {{ integrations?.description }}
+          </p>
+          <div class="text-center">
+            <a
+              :href="integrations?.buttonLink"
+              class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
+            >
+              {{ integrations?.buttonText }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- </CustomSection> -->
 </template>
 
@@ -87,9 +93,8 @@ const props = defineProps({
 /* Card Styling */
 .card {
   position: relative;
-  padding: 1px;
+  padding: 0.0625rem;
   border-radius: 12px;
-  background: rgb(1, 1, 1, 0.5);
 }
 
 /* Gradient Border Effect */
@@ -110,7 +115,7 @@ const props = defineProps({
   position: relative;
   z-index: 1;
   padding: 24px;
-  background: rgba(26, 29, 31, 0.9);
+  background: black;
   border-radius: 10px;
   transition: background 0.3s ease-in-out;
   height: 100%;

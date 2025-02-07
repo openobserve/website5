@@ -30,8 +30,9 @@ const props = defineProps({
 <template>
   <section
     class="relative flex lg:justify-start h-[calc(100vh-100px)] text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16">
-    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted playsinline>
+    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted playsinline onloadstart="this.playbackRate=1.5;">
       <source :src="backgroundVideo?.url" type="video/mp4" />
+      <!-- <source src="/Homepage/Screen Recording 2025-02-07 104522.mp4" type="video/mp4" /> -->
       Your browser does not support the video tag.
     </video>
     <!-- Content Section -->

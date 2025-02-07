@@ -111,7 +111,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
             class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
             :class="{
               'text-white': activeTabIndex === index,
-              'text-gray-400 hover:text-gray-300': activeTabIndex !== index,
+              'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
             }"
           >
             <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
