@@ -4,61 +4,47 @@ import Heading from "../core/Heading.vue";
 import LeftSideSection from "./LeftSideSection.vue";
 import RightSideSection from "./RightSideSection.vue";
 
-defineProps({
-  title: {
+const props = defineProps({
+  heading: {
+    type: Array,
+    required: true,
+  },
+  subTitle: {
     type: String,
+    required: true,
+  },
+  items: {
+    type: Array,
     required: true,
   },
   description: {
     type: String,
     required: true,
   },
-  keyFeatures: {
-    type: Array,
-    required: true,
-  },
-  footerdescription: {
-    type: String,
-    required: true,
-  },
-  formFields: {
-    type: Array,
-    required: true,
-  },
-  buttonText: {
-    type: String,
-    required: true,
-  },
-  buttonVariant: {
-    type: String,
-    default: "primary",
-  },
 });
 </script>
 
 <template>
-  <CustomSection
-    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card max-w-7xl mx-auto"
-  >
-    <!-- Title Section -->
-    <Heading
-      class="text-2xl md:text-3xl font-bold text-center mb-6 text-white"
-      :title="title"
-    />
+  <div class="pt-[4vh]">
+    <CustomSection
+      class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card max-w-7xl mx-auto"
+    >
+      <!-- Title Section -->
+      <Heading
+        class="text-2xl md:text-3xl font-bold text-center mb-6 text-white"
+        :title="heading.title"
+      />
 
-    <div class="flex flex-col md:flex-row gap-8">
-      <LeftSideSection
-        :description="description"
-        :keyFeatures="keyFeatures"
-        :footerdescription="footerdescription"
-      />
-      <RightSideSection
-        :formFields="formFields"
-        :buttonText="buttonText"
-        :buttonVariant="buttonVariant"
-      />
-    </div>
-  </CustomSection>
+      <div class="flex flex-col md:flex-row gap-8">
+        <LeftSideSection
+          :description="subTitle"
+          :keyFeatures="items"
+          :footerdescription="description"
+        />
+        <RightSideSection />
+      </div>
+    </CustomSection>
+  </div>
 </template>
 <style scoped>
 .glass-card {
