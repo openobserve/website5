@@ -1,35 +1,62 @@
 import fetchApi from "./strapi";
 
+export const itemsPerPage = 50;
+
 let cache = {
   categories: null,
   blogs: null,
-  authors: null
+  authors: null,
+  len: {
+    authorsCount: 0,
+    blogsCount: 0,
+    categoriesCount: 0
+  }
 };
 
 export function getCachedData() {
   return cache;
 }
 
-export function getAuthors() {
+export function getTotalCounts() {
+  return cache.len;
+}
+
+export function getAllAuthors() {
   return cache.authors;
 }
 
-export function getCategories() {
+export function getAllCategories() {
   return cache.categories;
 }
 
-export function getBlogs() {
+export function getAllBlogs() {
   return cache.blogs;
+}
+
+export function getBlogsByPagination(page, pageSize){
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return cache.blogs.slice(start, end);
+}
+
+export function getBlogsByCategory(category) {
+  return cache.blogs.filter(blog => blog.categories.map(cat => cat.slug).includes(category));
+}
+
+export function getBlogsByAuthor(author) {
+  return cache.blogs.filter(blog => blog.authors.map(auth => auth.slug).includes(author));
 }
 
 export function getCaseStudies() {
   const caseStudies = cache.blogs.filter(blog => blog.caseStudies == true);
-  return caseStudies;
+  return caseStudies.slice(0,3);
 }
 
-export function setCachedData(categories, blogs) {
+export function setCachedData(categories, blogs, authors, len) {
   cache.categories = categories;
   cache.blogs = blogs;
+  cache.authors = authors;
+  cache.len = len;
 }
 
 export function clearCache() {
@@ -72,6 +99,7 @@ export async function getAllBlogsCategoriesAndAuthors() {
     });
 
     blogs = blogsResponse?.data || [];
+    blogs.sort((a, b) => a.id - b.id);
   }
 
   if (!cachedData.authors) {
@@ -81,6 +109,6 @@ export async function getAllBlogsCategoriesAndAuthors() {
     });
     authors = authorsResponse?.data || [];
   }
-  setCachedData(categories, blogs, authors);
+  setCachedData(categories, blogs, authors, {authorsCount: authors.length, blogsCount: blogs.length, categoriesCount: categories.length});
   return { categories, blogs };
 }

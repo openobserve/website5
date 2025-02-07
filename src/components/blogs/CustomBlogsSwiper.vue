@@ -9,8 +9,9 @@ import "swiper/css/navigation";
 interface Blog {
   title: string;
   description: string;
-  imageUrl: string;
-}
+  image: {
+    url: string;
+  };}
 
 interface BlogSectionData {
   sectionTitle: string;
@@ -108,7 +109,7 @@ const swiperOptions = {
             >
               <div class="h-48 overflow-hidden">
                 <CustomImage
-                  :image="blog.imageUrl"
+                  :image="blog.image.url || ''"
                   :altText="blog.title"
                   cssClass="w-full h-full object-cover"
                 />

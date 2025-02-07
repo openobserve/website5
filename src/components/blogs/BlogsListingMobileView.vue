@@ -2,7 +2,9 @@
 interface Blog {
   title: string;
   description: string;
-  imageUrl: string;
+  image: {
+    url: string;
+  };
   slug: string; // added slug field for the link
 }
 const props = defineProps({
@@ -42,7 +44,7 @@ const props = defineProps({
           <!-- Left Side - Image -->
           <div class="w-full md:h-auto relative">
             <img
-              :src="blog.imageUrl || ''"
+              :src="blog.image.url || ''"
               :alt="blog.title"
               class="w-full h-full object-cover"
             />

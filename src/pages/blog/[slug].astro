@@ -8,7 +8,7 @@ import fetchApi from "../../utils/strapi";
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
     endpoint: "api/blog-pages",
-    query: { populate: "*", status: "draft" },
+    query: { populate: "*", "pagination[pageSize]": 100, },
   });
   const slugs = PageData?.data;
   return slugs.map((it: any) => ({

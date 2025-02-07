@@ -19,7 +19,7 @@
 
       <div class="py-6">
         <CustomSuggestions
-          :suggestions="suggestionData.data"
+          :suggestions="suggestionData"
           @selectSuggestion="selectSuggestion"
         />
         <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
@@ -37,7 +37,7 @@
     </div>
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
-        :sectionData="blogsData.data"
+        :sectionData="blogsData"
         titleTextColor="text-white"
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
@@ -47,7 +47,7 @@
 
     <div class="hidden md:block">
       <BlogListing
-        :sectionData="blogsData.data"
+        :sectionData="blogsData"
         titleTextColor="text-white"
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
@@ -55,8 +55,8 @@
       />
     </div>
     <BlogPagination
-      :totalItems="blogsData?.meta?.pagination?.total"
-      :itemsPerPage="blogsData?.meta?.pagination?.pageSize"
+      :totalItems="totalItems"
+      :itemsPerPage="itemsPerPage"
       :currentPage="currentPage"
       client:load
     />
@@ -76,6 +76,7 @@ import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
+import { itemsPerPage } from "@/utils/cache";
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -83,7 +84,9 @@ const props = defineProps({
   blogsData: { type: Array, required: true },
   currentPage: { type: Number, required: true },
   suggestionData: { type: Array, required: true },
+  totalItems: { type: Number, required: true },
 });
+// console.log(props, "propss")
 const searchQuery = ref("");
 
 const selectSuggestion = (suggestion) => {
