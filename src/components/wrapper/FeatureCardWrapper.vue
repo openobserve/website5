@@ -29,7 +29,7 @@ const props = defineProps({
 
 <template>
   <div class="">
-    <div class="relative py-10 bg-cover bg-no-repeat overflow-visible">
+    <div class="relative bg-cover bg-no-repeat overflow-visible">
       <!-- Background Images -->
       <img
         src="/Platform/FeatureCard-Ellipse-136.svg"

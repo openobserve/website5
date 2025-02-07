@@ -4,13 +4,13 @@
     <div class="w-full mx-auto px-4 flex justify-between items-center">
       <Logo />
       <nav>
-        <ul class="flex space-x-2 xl:space-x-6 w-full">
+        <ul class="flex space-x-7 w-full">
           <li
             class="relative py-6"
             @mouseenter="onPlatformMenuHover"
             @mouseleave="onPlatformMenuMouseLeave"
           >
-            <a href="#" class="text-white font-semibold text-base hover:underline">
+            <a href="/platform" class="text-white font-semibold text-base hover:underline">
               Platform
             </a>
           </li>
@@ -19,8 +19,8 @@
             @mouseenter="onSolutionMenuHover"
             @mouseleave="onSolutionMenuMouseLeave"
           >
-            <a href="#" class="text-white font-semibold text-base hover:underline">
-              Solution
+            <a href="/solutions" class="text-white font-semibold text-base hover:underline">
+              Solutions
             </a>
           </li>
           <li
@@ -28,7 +28,7 @@
             @mouseenter="onResourcesMenuHover"
             @mouseleave="onResourcesMenuMouseLeave"
           >
-            <a href="#" class="text-white font-semibold text-base hover:underline">
+            <a href="/resources" class="text-white font-semibold text-base hover:underline">
               Resources
             </a>
           </li>
@@ -37,16 +37,16 @@
             @mouseenter="onCompanyMenuHover"
             @mouseleave="onCompanyMenuMouseLeave"
           >
-            <a href="#" class="text-white font-semibold text-base hover:underline">
+            <a href="/about" class="text-white font-semibold text-base hover:underline">
               Company
             </a>
           </li>
           <li class="relative py-6">
             <a
-              href="/download"
+              href="/downloads"
               class="text-white font-semibold text-base hover:underline"
             >
-              Download
+              Downloads
             </a>
           </li>
         </ul>
@@ -71,7 +71,7 @@
         >
           LOG IN
         </CustomButton>
-        <CustomButton variant="primary" size="small" buttonLink="/">
+        <CustomButton variant="primary" size="small" buttonLink="/demo">
           GET DEMO
         </CustomButton>
       </div>
@@ -154,7 +154,7 @@
                     class="text-[#BEC0C2] text-sm"
                   >
                     <a
-                      :href="`/solution/${item.link}`"
+                      :href="`/solutions/${item.link}`"
                       :class="item.link ? 'gradient-hover' : ''"
                       >{{ item.title }}</a
                     >
@@ -174,7 +174,7 @@
                       class="text-[#BEC0C2] text-sm"
                     >
                       <a
-                        :href="`/solution/${item.link}`"
+                        :href="`/solutions/${item.link}`"
                         :class="item.link ? 'gradient-hover' : ''"
                         >{{ item.title }}</a
                       >
@@ -193,9 +193,9 @@
           <div class="flex justify-center">
             <div class="w-4/5 xl:w-[60%]">
               <CustomHeaderButton
-                title="Full Stack Observability Solution"
-                linkTitle="View Solution"
-                link="/solution"
+                title="Full Stack Observability Solutions"
+                linkTitle="View Solutions"
+                link="/solutions"
               />
             </div>
           </div>
