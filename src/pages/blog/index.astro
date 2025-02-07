@@ -5,9 +5,11 @@ import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import fetchApi from "../../utils/strapi";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
+import { getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/cache";
+import { getTotalCounts } from "@/utils/cache";
+import { getAllBlogsCategoriesAndAuthors } from "@/utils/cache";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;
@@ -15,28 +17,12 @@ const currentPage = page ? parseInt(page) : 1;
 const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
-const blogsData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    "pagination[page]": currentPage,
-    "pagination[pageSize]": itemsPerPage,
-    populate: '*',
-  },
-});
+await getAllBlogsCategoriesAndAuthors();
+const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
 
-const suggestionData = await fetchApi({
-  endpoint: "api/categories",
-  query: { path: "", status: "draft", pLevel: "10" },
-});
+const suggestionData = getAllCategories();
 
-const loadcaseStudyData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    "filters[caseStudies][$eq]": true,
-    status: "draft",
-    pLevel: "10",
-  },
-});
+const loadcaseStudyData = getCaseStudies();
 
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -58,7 +44,7 @@ const cardData = [
     subtitle="Explore latest insights and updates"
   />
   <CaseStudyWrapper
-    data={loadcaseStudyData.data}
+    data={loadcaseStudyData}
     title="Blog Posts"
     subtitle="Latest articles and updates"
     client:load
@@ -66,7 +52,8 @@ const cardData = [
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData}
+    suggestionData={suggestionData.slice(0,15)}
+    totalItems={getTotalCounts().blogsCount}
     client:load
   />
   <TilesWithTitleWrapper

@@ -4,8 +4,9 @@ import CustomImage from '../core/CustomImage.vue';
 interface Blog {
   title: string;
   description: string;
-  imageUrl: string;
-  link: string;
+  image: {
+    url: string;
+  };  link: string;
 }
 
 interface BlogSectionData {
@@ -66,7 +67,7 @@ const props = defineProps({
         >
           <div class="h-48 overflow-hidden">
             <CustomImage
-              :image="blog.imageUrl"
+              :image="blog.image?.url || ''"
               :altText="blog.title"
               cssClass="w-full h-full object-cover"
             />

@@ -4,21 +4,14 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import fetchApi from "../../../utils/strapi";
+import { getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByPagination, getCaseStudies, getTotalCounts } from "@/utils/cache";
 
 const itemsPerPage = 50;
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
-  const totalBlogsResponse = await fetchApi({
-    endpoint: "api/blog-pages",
-    query: {
-      status: "draft",
-      pLevel: "10",
-    },
-  });
-  const totalBlogs = totalBlogsResponse?.meta?.pagination?.total;
+  await getAllBlogsCategoriesAndAuthors();
+  const totalBlogs = getTotalCounts().blogsCount;
 
   const totalPages = Math.ceil(totalBlogs / 50);
 
@@ -37,34 +30,12 @@ if (isNaN(currentPage) || currentPage < 1) {
 }
 
 // Fetch paginated blogs for the current page
-const blogsData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    status: "draft",
-    "pagination[page]": currentPage,
-    "pagination[pageSize]": itemsPerPage,
-    pLevel: "10",
-  },
-});
+const blogsData = getBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
-const suggestionData = await fetchApi({
-  endpoint: "api/categories",
-  query: { 
-    path: "", 
-    status: "draft", 
-    pLevel: "10" 
-  },
-});
+const suggestionData = getAllCategories();
 
 // Fetch case studies
-const caseStudyData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: {
-    "filters[caseStudies][$eq]": true,
-    status: "draft",
-    pLevel: "10",
-  },
-});
+const caseStudyData = getCaseStudies();
 
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -86,9 +57,9 @@ const cardData = [
     subtitle="Explore latest insights and updates"
   />
   
-  {caseStudyData.data?.length > 0 && (
+  {caseStudyData?.length > 0 && (
     <CaseStudyWrapper
-      data={caseStudyData.data}
+      data={caseStudyData || []}
       title="Case Studies"
       subtitle="Learn from real-world implementations"
       client:load
@@ -98,7 +69,8 @@ const cardData = [
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={currentPage} 
-    suggestionData={suggestionData.data}
+    suggestionData={suggestionData}
+    totalItems={getTotalCounts().blogsCount}
     client:load
   />
   

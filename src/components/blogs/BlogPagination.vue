@@ -55,7 +55,6 @@ const props = defineProps({
     default: 1,
   },
 });
-
 const emit = defineEmits(["page-changed"]);
 const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>

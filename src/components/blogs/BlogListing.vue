@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { getBlogsFromCache } from "../../utils/blogCache"; // Assuming the cache logic is in utils/blogCache
 
 interface Blog {
   title: string;
   description: string;
-  imageUrl: string;
-  slug: string; // added slug field for the link
+  image: {
+    url: string;
+  };
+  slug: string;
 }
 
 const props = defineProps({
-  categorySlug: {
-    type: String,
+  sectionData: {
+    type: Array as () => Blog[],
     required: true,
   },
   titleTextColor: {
@@ -32,33 +32,19 @@ const props = defineProps({
   },
 });
 
-// A reactive reference to hold the fetched blog data
-const sectionData = ref<Blog[]>([]);
-
-onMounted(async () => {
-  // Fetch blogs based on categorySlug and populate sectionData
-  sectionData.value = await getBlogsFromCache(fetchApi, props.categorySlug);
-});
 </script>
 
 <template>
   <div class="min-h-screen">
-    <div class="container mx-auto px-1">
-      <div class="grid grid-rows-1 lg:grid-rows-2 gap-8">
-        <a
-          v-for="blog in sectionData"
-          :key="blog.title"
-          :href="`/blog/${blog.slug}`"
-          rel="noopener noreferrer"
-          :class="[cardBgColor, 'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row']"
-        >
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <a v-for="blog in sectionData" :key="blog.title" :href="`/blog/${blog.slug}`" rel="noopener noreferrer" :class="[
+          cardBgColor,
+          'flex flex-col rounded-xl overflow-hidden transition-transform h-[400px]',
+        ]">
           <!-- Left Side - Image -->
-          <div class="w-full md:h-auto relative">
-            <img
-              :src="blog.imageUrl || ''"
-              :alt="blog.title"
-              class="w-full h-full object-cover"
-            />
+          <div class="h-48 w-full flex-shrink-0"> <img :src="blog.image?.url || ''" :alt="blog.title"
+              class="w-full h-full object-center object-cover" />
           </div>
 
           <!-- Right Side - Content -->
@@ -71,9 +57,7 @@ onMounted(async () => {
                 {{ blog.description }}
               </p>
             </div>
-            <span
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80 inline-block']"
-            >
+            <span :class="[linkColor, 'text-sm font-semibold hover:opacity-80 inline-block']">
               LEARN MORE
             </span>
           </div>

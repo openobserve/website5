@@ -1,12 +1,10 @@
 ---
-import fetchApi from "../../../utils/strapi";
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import { getBlogsFromCache } from "../../../utils/blogCache";
-import {getAllBlogsCategoriesAndAuthors, getCaseStudies} from "../../../utils/cache";
+import {getAllBlogsCategoriesAndAuthors, getAllCategories, getCaseStudies } from "../../../utils/cache";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -40,15 +38,9 @@ if (category) {
 }
 
 // ✅ Fetch Additional Data
-const suggestionData = await fetchApi({
-  endpoint: "api/categories",
-  query: { path: "", status: "draft", pLevel: "4" },
-});
+const suggestionData = getAllCategories();
 
-const loadcaseStudyData = await fetchApi({
-  endpoint: "api/blog-pages",
-  query: { "filters[caseStudies][$eq]": true, status: "draft", pLevel: "4" },
-});
+const loadcaseStudyData = getCaseStudies();
 
 // 🔹 Additional Card Data
 const cardHeader = {
@@ -70,7 +62,7 @@ const cardData = [
   />
 
   <CaseStudyWrapper
-    data={loadcaseStudyData?.data || []}
+    data={loadcaseStudyData || []}
     title="Blog Posts"
     subtitle="Latest articles and updates"
     client:load
@@ -79,7 +71,7 @@ const cardData = [
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData?.data || []}
+    suggestionData={suggestionData || []}
     client:load
   />
 

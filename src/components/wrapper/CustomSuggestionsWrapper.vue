@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted } from "vue";
 import { slugify } from "../../utils/slugify";
 
 defineProps({
@@ -8,14 +7,14 @@ defineProps({
 
 const navigateToTag = (tagName) => {
   if (typeof window !== "undefined") {
-    window.location.assign(`/blog/tag/${tagName}`);
+    window.location.assign(`/blog/tag/${slugify(tagName)}`);
   }
 };
 </script>
 
 <template>
    <!-- <h1 class="text-white font-semibold py-6">Tags</h1> -->
-  <div class="flex flex-wrap gap-2 w-full justify-center md:justify-center">
+  <div class="flex flex-wrap gap-2 w-full justify-center md:justify-center max-h-[5rem] overflow-hidden">
    
     <button
       v-for="(suggestion, index) in suggestions"
