@@ -1,5 +1,5 @@
 <script setup>
-import CustomImage from '../core/CustomImage.vue';
+import CustomImage from "../core/CustomImage.vue";
 
 defineProps({
   description: {
@@ -7,7 +7,7 @@ defineProps({
     required: true,
   },
   keyFeatures: {
-    type: Array,
+    type: Array, // Now receiving full array of objects
     required: true,
   },
   footerdescription: {
@@ -28,8 +28,13 @@ defineProps({
           :key="index"
           class="flex items-start gap-4"
         >
-          <CustomImage image="/resources/Frame 11216.svg" altText="icon" cssClass="w-6 h-6" />
-          <span class="text-white">{{ feature }}</span>
+          <CustomImage
+            image="/resources/Frame-11216.svg"
+            altText="icon"
+            cssClass="w-6 h-6"
+          />
+          <span class="text-white">{{ feature.title }}</span>
+          <!-- Now accessing `title` inside each feature object -->
         </li>
       </ul>
       <h3 class="text-md font-semibold text-white py-6">

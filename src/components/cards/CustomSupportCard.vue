@@ -52,7 +52,7 @@ const props = defineProps({
     <div class="flex flex-col items-center text-center">
       <!-- Icon -->
       <div
-        class="w-12 h-12 mb-6 flex items-center justify-center bg-[#2A2B2E] rounded-full"
+        class="w-12 h-12 mb-[4vh]  flex items-center justify-center bg-[#2A2B2E] rounded-full"
       >
         <CustomImage
           :image="card.icon"
@@ -72,7 +72,7 @@ const props = defineProps({
       </div>
 
       <!-- Sections -->
-      <div v-for="(section, index) in card.items" :key="index" class="">
+      <div v-for="(section, index) in card.items" :key="index" class="pb-[1vh]">
         <CustomSeprater class="my-5" />
         <h3 :class="[titleTextColor, 'text-base font-semibold mb-2']">
           {{ section.title }}

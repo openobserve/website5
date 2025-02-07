@@ -37,11 +37,11 @@ import AboutCommunityWrapper from "./wrapper/AboutCommunityWrapper.vue";
 import CommunitySupportCardWrapper from "./cardComponent/CommunitySupportCardWrapper.vue";
 import ContactUsHeroSection from "./heroSections/ContactUsHeroSection.vue";
 import CustomSeprater from "./core/CustomSeprater.vue";
-import PlatformSubTabsWrapper from './core/PlatformSubTabsWrapper.vue';
-import CustomFeatureCard from './cards/CustomFeatureCard.vue';
-import SolutionSubpageHeroSection from './heroSections/SolutionSubpageHeroSection.vue';
-import SolutionHeroSection from './heroSections/SolutionHeroSection.vue';
-import CustomFeatureCardSubPage from './cards/CustomFeatureCardSubpage.vue';
+import PlatformSubTabsWrapper from "./core/PlatformSubTabsWrapper.vue";
+import CustomFeatureCard from "./cards/CustomFeatureCard.vue";
+import SolutionSubpageHeroSection from "./heroSections/SolutionSubpageHeroSection.vue";
+import SolutionHeroSection from "./heroSections/SolutionHeroSection.vue";
+import CustomFeatureCardSubPage from "./cards/CustomFeatureCardSubpage.vue";
 import CompanyJoinOOHeroSection from "./heroSections/CompanyJoinOOHeroSection.vue";
 import CustomOpenObserveCard from "./cards/CustomOpenObserveCard.vue";
 import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
@@ -51,8 +51,7 @@ import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
-
-
+import EnterpriceSupportForm from "./forms/EnterpriceSupportForm.vue";
 
 const props = defineProps({
   data: {
@@ -74,35 +73,35 @@ const componentsMap = computed(() => ({
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": FeatureCardWrapper,
   "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
-  "section-forms.contact":CommonFormWrapper,
+  "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
   // 'section':TabsWrapper.
   // 'section.caseStudyWrapper': CaseStudyWrapper,
-  'section-cta.banner': BannerWrapper,
-  'section-cta.plain-cta':GetDemoWrapper,
-  'section-features.feature-list':PlatformSubTabsWrapper, //platform subpage (with bg image)
-  'section-features.feature-sub-page-top-tabs':TabsWrapper, //solution sub page (without bg image )
+  "section-cta.banner": BannerWrapper,
+  "section-cta.plain-cta": GetDemoWrapper,
+  "section-features.feature-list": PlatformSubTabsWrapper, //platform subpage (with bg image)
+  "section-features.feature-sub-page-top-tabs": TabsWrapper, //solution sub page (without bg image )
 
-
-  'section-hero.feature-sub-hero-section': PlatformLogsHeroSection,
+  "section-hero.feature-sub-hero-section": PlatformLogsHeroSection,
   // 'section-cards.feature-highlights':CustomFeatureCard,
-  'section-faqs.frequently-asked-question': FaqWrapper,
+  "section-faqs.frequently-asked-question": FaqWrapper,
 
-  'section-hero.solutions-hero-section':SolutionHeroSection, //SolutionPage hero section
-  'section-hero.feature-solution-hero-section':SolutionSubpageHeroSection, //solution subpage hero section
-  'section-cards.feature-highlights':CustomFeatureCardSubPage,
-  'section-cta.call-to-action': VisitSandbox,
-  'section-cards.features5': CustomCardWrapper,
+  "section-hero.solutions-hero-section": SolutionHeroSection, //SolutionPage hero section
+  "section-hero.feature-solution-hero-section": SolutionSubpageHeroSection, //solution subpage hero section
+  "section-cards.feature-highlights": CustomFeatureCardSubPage,
+  "section-cta.call-to-action": VisitSandbox,
+  "section-cards.features5": CustomCardWrapper,
   "section-cta.call-to-action": VisitSandbox,
   "section-hero.company-hero-section": CompanyAboutUsHeroSection,
   "section-features.info-right-feature": CustomStoryWrapper,
   "section-features.info-left-feature": AboutCommunityWrapper,
   "section-cards.community-support": CommunitySupportCardWrapper,
+  "section-forms.enterprice-contact": EnterpriceSupportForm,
   "section-hero.contact-hero-section": ContactUsHeroSection,
   "section-hero.resource-hero-section": ResourceHeroSection,
   "section-cards.resource-feature-highlight": ResourceCardsWrapper,
   "section-cards.blogs": BlogsWrapper,
-  // "section-cards.blog-with-categories": 
+  // "section-cards.blog-with-categories":
   "section-cards.resource-support-card": SupportCardWrapper,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
