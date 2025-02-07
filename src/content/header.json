@@ -172,10 +172,6 @@
         "link": "aws-monitoring"
       },
       {
-        "title": "Azure Monitoring",
-        "link": "azure-monitoring"
-      },
-      {
         "title": "GCP Monitoring",
         "link": "gcp-monitoring"
       },
@@ -194,10 +190,6 @@
       
     ],
     "byTeam": [
-      {
-        "title": "DevOps & SRE",
-        "link": "devops-sre"
-      },
       {
         "title": "Development Teams",
         "link": "development-teams"
@@ -247,7 +239,7 @@
           },
           {
             "title":"Enterprise Support",
-            "link":"/enterprice-support"
+            "link":"/enterprise-support"
           }
         ]
       }
