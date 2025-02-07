@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full max-w-6xl mx-auto px-4 py-16">
+  <div class="w-full container mx-auto px-4 py-16">
     <!-- Title -->
     <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
       {{ title }}
@@ -28,7 +28,7 @@ const props = defineProps({
 
     <!-- Comparison Table -->
     <div
-      class="rounded-xl overflow-hidden backdrop-blur-sm bg-cover bg-center bg-no-repeat bg-[url('/download-pricing/Eclipse.svg'),url('/download-pricing/Eclipse(1).svg'),url('/download-pricing/Eclipse(2).svg')]"
+      class="rounded-xl border border-gray-500 lg:border-transparent overflow-hidden backdrop-blur-sm bg-cover bg-center bg-no-repeat bg-[url('/download-pricing/Eclipse.svg'),url('/download-pricing/Eclipse(1).svg'),url('/download-pricing/Eclipse(2).svg')]"
     >
       <!-- Table Header -->
       <div class="grid grid-cols-3 text-white border-b border-gray-800">
@@ -56,17 +56,17 @@ const props = defineProps({
           class="grid grid-cols-3 text-white"
         >
           <!-- Feature Column -->
-          <div class="p-4 md:p-6 text-sm md:text-base text-gray-400">
+          <div class="p-4 md:p-6 text-wrap text-sm md:text-base text-gray-400">
             {{ feature.name }}
           </div>
 
           <!-- Cloud Column -->
-          <div class="p-4 md:p-6 text-sm md:text-base border-x border-gray-800">
+          <div class="p-4 md:p-6 text-wrap text-sm md:text-base border-x border-gray-800">
             {{ feature.cloud }}
           </div>
 
           <!-- Self-Hosted Column -->
-          <div class="p-4 md:p-6 text-sm md:text-base">
+          <div class="p-4 md:p-6 text-wrap text-sm md:text-base">
             {{ feature.selfHosted }}
           </div>
         </div>

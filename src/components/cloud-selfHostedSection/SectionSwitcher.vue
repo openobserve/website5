@@ -29,9 +29,9 @@ export default {
 
 <template>
   <CustomSection>
-    <div class="w-full mx-auto p-6">
+    <div class="w-full mx-auto">
       <!-- Tab Buttons -->
-      <div class="flex relative border-b-[3px] border-gray-500">
+      <div class="flex w-full relative border-b-[3px] border-gray-500">
         <button
           class="w-1/2 py-3 cld-btn text-lg font-semibold transition-colors duration-300 relative"
           :class="[

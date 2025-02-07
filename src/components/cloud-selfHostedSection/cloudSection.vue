@@ -27,7 +27,7 @@ const handleSubmit = (values) => {
   <div class="w-full max-w-7xl mx-auto">
     <div class="grid md:grid-cols-2 gap-5 justify-center">
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
-        <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
+        <!-- <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
         <BaseForm
           :schema="schema"
           @submit="handleSubmit"
@@ -77,12 +77,57 @@ const handleSubmit = (values) => {
           >
             CREATE AN ACCOUNT
           </CustomButton>
-        </BaseForm>
+        </BaseForm> -->
+        <h2 class="text-2xl font-semibold text-white text-let mb-8">
+          Create a free account
+        </h2>
+        <div class="text-md font-medium text-white text-left mb-8">By using this service, you agree to OpenObserve's Terms and Conditions.</div>
+        <div class="space-y-4 mb-8 flex flex-col items-center">
+          <a href="https://auth.openobserve.ai/dex/auth/github?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-80">
+            <button
+              class="flex justify-start gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+            >
+              <img src="/download-pricing/github.svg" alt="GitHub" class="h-6 w-6 mr-3" />
+              <span class="font-medium">Log in with GitHub</span>
+            </button>
+          </a>
 
-        <CustomSeprater />
+          <a href="https://auth.openobserve.ai/dex/auth/gitlab?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-80">
+            <button
+              class="flex items-center justify-start gap-10  w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+            >
+              <img src="/download-pricing/gitlab.svg" alt="GitLab" class="h-6 w-6 mr-3" />
+              <span class="font-medium">Log in with GitLab</span>
+            </button>
+          </a>
+
+          <a href="https://auth.openobserve.ai/dex/auth/google?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-80">
+            <button
+              class="flex items-center justify-start gap-10  w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+            >
+              <img src="/download-pricing/google.svg" alt="Google" class="h-6 w-6 mr-3" />
+              <span class="font-medium">Log in with Google</span>
+            </button>
+          </a>
+
+          <a href="https://auth.openobserve.ai/dex/auth/microsoft?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-80">
+            <button
+              class="flex items-center justify-start gap-10  w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+            >
+              <img
+                src="/download-pricing/microsoft.svg"
+                alt="Microsoft"
+                class="h-6 w-6 mr-3"
+              />
+              <span class="font-medium">Log in with Microsoft</span>
+            </button>
+          </a>
+        </div>
+
+        <!-- <CustomSeprater /> -->
 
         <!-- Login Options -->
-        <div class="pt-8">
+        <!-- <div class="pt-8">
           <p class="text-center text-gray-400 text-sm mb-4">Login With</p>
           <div class="flex justify-center gap-4 w-full">
             <button
@@ -115,7 +160,7 @@ const handleSubmit = (values) => {
               />
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
         <div class="mb-6">
@@ -153,7 +198,7 @@ const handleSubmit = (values) => {
         </div>
         <div class="mb-6">
           <h4 class="text-white text-xl font-medium py-2">
-            15 -day unlimited usage trial
+            15 day unlimited usage trial
           </h4>
           <p class="text-white text-xl font-medium py-2">
             Unlimited metrics, logs, and users, long-term retention, and premium team
