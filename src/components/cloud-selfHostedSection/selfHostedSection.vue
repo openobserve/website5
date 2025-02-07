@@ -24,9 +24,9 @@ const copyCode = () => {
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto">
+  <div class="w-full container mx-auto">
     <!-- Content Section -->
-    <div class="grid md:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
       <!-- Cloud Section -->
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
         <h2 class="text-2xl font-semibold text-white mb-8">Open Source</h2>
@@ -78,34 +78,44 @@ const copyCode = () => {
                     class="w-6 h-6"
                   />
                 </span>
-                <span class="text-sm">Download</span>
+                <span class="text-sm">Downloads</span>
               </a>
             </li>
           </ul>
         </div>
         <h2 class="text-lg font-semibold text-white mb-8">
           Binaries can be downloaded from
-          <a href="https://github.com/openobserve/openobserve/releases" class="text-[#0ea5e9] hover:underline">releases</a> page for the
-          appropriate platform.
+          <a
+            href="https://github.com/openobserve/openobserve/releases"
+            class="text-[#0ea5e9] hover:underline"
+            >releases</a
+          >
+          page for the appropriate platform.
         </h2>
 
-        <div class="flex gap-3 items-center py-5">
-          <a href="https://github.com/openobserve/openobserve/releases" class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg">
+        <!-- <div class="flex gap-3 items-center py-5">
+          <a
+            href="https://github.com/openobserve/openobserve/releases"
+            class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg"
+          >
             <img
               src="/public/download-pricing/windows-platform-logo.svg"
               alt=""
               class="h-10 w-10"
             />
           </a>
-          <a href="https://github.com/openobserve/openobserve/releases" class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg">
+          <a
+            href="https://github.com/openobserve/openobserve/releases"
+            class="p-3 bg-[rgba(35,40,44,0.4)] rounded-lg"
+          >
             <img src="/public/download-pricing/apple.svg" alt="" class="h-10 w-10" />
           </a>
-        </div>
-        <CustomSeprater />
+        </div> 
+        <CustomSeprater />-->
       </div>
       <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
         <div class="mb-6">
-          <h4 class="text-white text-xl font-medium py-5">Enterprice</h4>
+          <h4 class="text-white text-xl font-medium py-5">Enterprise</h4>
           <p class="text-white text-xl font-medium py-2">
             Environments Enterprise-Grade Features for Complex Environments
           </p>
@@ -141,9 +151,9 @@ const copyCode = () => {
             Take charge of your observability with zero upfront costs.
           </h4>
         </div>
-        <div>
+        <!-- <div>
           <CustomButton variant="primary"> DOCUMENATION </CustomButton>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

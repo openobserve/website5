@@ -3,36 +3,40 @@ import Layout from "../../layouts/Layout.astro";
 import FeatureCardWrapper from "../../components/wrapper/FeatureCardWrapper.vue";
 import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
 import TierSwitcher from "../../components/cloud-selfHostedTier/TierSwitcher.vue";
+import CommonFormWrapper from "@/components/wrapper/CommonFormWrapper.vue";
+import CustomSeprater from "@/components/core/CustomSeprater.vue";
 
-const featureCardTitle = {
-  title: "Full Stack Observability. Built for Efficiency.",
+const featureCardData ={ 
+  heading:{
+    title: "Full Stack Observability. Built for Efficiency."
+  },
+  items:[
+    {
+      image: "/Platform/Vector.svg",
+      title: "140x lower storage costs",
+      description:
+        "Advanced log compression minimizes storage requirements without sacrificing performance.",
+    },
+    {
+      image: "/Platform/Vector(1).svg",
+      title: "Complete visibility across the stack",
+      description:
+        "Monitor logs, metrics, traces, and frontend performance in one integrated platform.",
+    },
+    {
+      image: "/Platform/Vector(2).svg",
+      title: "10x lower operational costs",
+      description:
+        "Optimized architecture reduces computational overhead and operational expenses.",
+    },
+    {
+      image: "/Platform/Vector(3).svg",
+      title: "Unlimited Scalability",
+      description:
+        "Seamlessly scale to meet enterprise demands with high availability and robust reliability.",
+    },
+  ],
 };
-const featureCardData = [
-  {
-    icon: "/Platform/Vector.svg",
-    title: "140x lower storage costs",
-    description:
-      "Advanced log compression minimizes storage requirements without sacrificing performance.",
-  },
-  {
-    icon: "/Platform/Vector(1).svg",
-    title: "Complete visibility across the stack",
-    description:
-      "Monitor logs, metrics, traces, and frontend performance in one integrated platform.",
-  },
-  {
-    icon: "/Platform/Vector(2).svg",
-    title: "10x lower operational costs",
-    description:
-      "Optimized architecture reduces computational overhead and operational expenses.",
-  },
-  {
-    icon: "/Platform/Vector(3).svg",
-    title: "Unlimited Scalability",
-    description:
-      "Seamlessly scale to meet enterprise demands with high availability and robust reliability.",
-  },
-];
 const FaqData = {
   title: "OpenObserve Logs FAQ's",
   items: [
@@ -180,6 +184,31 @@ const selfHostedTiers = [
     buttonAction: () => console.log("Standard tier selected"),
   },
 ];
+const tailoredSolutionsData = {
+  heading:{
+    title: "Request a demo",
+  },
+  subTitle:
+    "Whether you're managing infrastructure, debugging applications, or optimizing user experiences, OpenObserve makes it easy to monitor, analyze, and act—all in one platform.",
+  items: [
+    {
+      title: "Simple Onboarding",
+      description:
+        "Start monitoring in minutes with an intuitive setup process.",
+    },
+    {
+      title: "No Upfront Costs",
+      description: "Begin with our free plan and scale as your needs grow.",
+    },
+    {
+      title: "Flexible Deployment",
+      description:
+        "Choose between cloud or self-hosted options to suit your requirements.",
+    },
+  ],
+  description:
+    "Take control of your observability stack with OpenObserve.",
+};
 ---
 
 <Layout>
@@ -189,17 +218,24 @@ const selfHostedTiers = [
     client:load
   />
   <FeatureCardWrapper
-    title={featureCardTitle.title}
-    items={featureCardData}
+    heading={featureCardData.heading}
+    items={featureCardData.items}
     noOfGridColumn={4}
     client:load
     layout="column"
   />
+   <CommonFormWrapper
+    heading={tailoredSolutionsData.heading}
+    subTitle={tailoredSolutionsData.subTitle}
+    items={tailoredSolutionsData.items}
+    description={tailoredSolutionsData.description}
+  />
+  <CustomSeprater />
   <!-- <TestimonialSliderWrapper
     items={testimonials}
     title={testimonialsHeader.sectionTitle}
     description={testimonialsHeader.sectionDescription}
     client:load
   /> -->
-  <FaqWrapper items={FaqData.items} title={FaqData.title} client:load />
+  <!-- <FaqWrapper items={FaqData.items} title={FaqData.title} client:load /> -->
 </Layout>
