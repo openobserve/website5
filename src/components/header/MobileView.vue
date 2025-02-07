@@ -86,10 +86,10 @@
             <CustomButton
               variant="secondary"
               size="large"
-              buttonLink="/download"
-              >DOWNLOAD</CustomButton
+              buttonLink="/downloads"
+              >DOWNLOADS</CustomButton
             >
-            <CustomButton variant="primary" size="large" buttonLink="/"
+            <CustomButton variant="primary" size="large" buttonLink="/demo"
               >GET DEMO</CustomButton
             >
           </div>
@@ -151,13 +151,13 @@
               </div>
             </div>
             <div
-              v-show="activeSubMenu === 'Solution'"
+              v-show="activeSubMenu === 'Solutions'"
               class="flex flex-col space-y-4"
             >
               <CustomHeaderButton
-                title="Full Stack Observability Solution"
-                linkTitle="View Solution"
-                link="/solution"
+                title="Full Stack Observability Solutions"
+                linkTitle="View Solutions"
+                link="/solutions"
               />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
@@ -169,7 +169,7 @@
                       class="text-theme-secondaryFont text-base"
                     >
                       <a
-                        :href="`/solution/${item.link}`"
+                        :href="`/solutions/${item.link}`"
                         :class="item?.link ? 'gradient-hover' : ''"
                         >{{ item.title }}</a
                       >
@@ -188,7 +188,7 @@
                         class="text-theme-secondaryFont text-base"
                       >
                         <a
-                          :href="`/solution/${item.link}`"
+                          :href="`/solutions/${item.link}`"
                           :class="item.link ? 'gradient-hover' : ''"
                           >{{ item.title }}</a
                         >
@@ -295,7 +295,7 @@ defineProps({
   required: true,
 });
 // Menu items
-const navHeading = ["Platform", "Solution", "Resources", "Company"];
+const navHeading = ["Platform", "Solutions", "Resources", "Company"];
 
 // Reactive states
 const isMenuOpen = ref(false);
