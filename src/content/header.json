@@ -160,7 +160,7 @@
           "title": "Single Sign-On (SSO)"
         },
         {
-          "title":"Workload Management (QoS)"
+          "title": "Workload Management (QoS)"
         }
       ]
     }
@@ -170,6 +170,10 @@
       {
         "title": "AWS Monitoring",
         "link": "aws-monitoring"
+      },
+      {
+        "title": "Azure Monitoring",
+        "link": "azure-monitoring"
       },
       {
         "title": "GCP Monitoring",
@@ -187,9 +191,12 @@
         "title": "OpenTelemetry",
         "link": "opentelemetry"
       }
-      
     ],
     "byTeam": [
+      {
+        "title": "DevOps & SRE",
+        "link":"devops-sre"
+      },
       {
         "title": "Development Teams",
         "link": "development-teams"
@@ -214,7 +221,7 @@
       "link": "/contact"
     }
   ],
-  "resources" : {
+  "resources": {
     "item1": [
       {
         "title": "Documentation",
@@ -228,18 +235,18 @@
     "item2": [
       {
         "title": "Support",
-        "items" : [
+        "items": [
           {
-            "title":"Frequently Asked Questions",
-            "link":"/faqs"
+            "title": "Frequently Asked Questions",
+            "link": "/faqs"
           },
           {
-            "title":"Community Support",
-            "link":"/community-support"
+            "title": "Community Support",
+            "link": "/community-support"
           },
           {
-            "title":"Enterprise Support",
-            "link":"/enterprise-support"
+            "title": "Enterprise Support",
+            "link": "/enterprise-support"
           }
         ]
       }
