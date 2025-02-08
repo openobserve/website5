@@ -177,7 +177,7 @@
       },
       {
         "title": "Kubernetes Observability",
-        "link": "kubernetes-monitoring"
+        "link": "kubernetes-observability"
       },
       {
         "title": "Database Monitoring",
