@@ -70,7 +70,7 @@ export function getBlogsByAuthor(author) {
 }
 
 export function getCaseStudies() {
-  const caseStudies = cache.blogs.filter(blog => blog.caseStudies == true);
+  const caseStudies = cache?.blogs?.filter(blog => blog.caseStudies == true);
   return caseStudies.slice(0, 3);
 }
 
