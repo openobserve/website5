@@ -57,7 +57,7 @@ const redirectToBlog = (slug) => {
     />
 
     <!-- Desktop View -->
-    <div class="hidden md:block py-10 relative">
+    <div class="md:block py-10 relative">
       <CustomImage
         image="/Platform/Ellipse-141.svg"
         altText="Background decoration"
@@ -98,10 +98,8 @@ const redirectToBlog = (slug) => {
         />
       </div>
     </div> -->
-
-    <div class="flex justify-center mt-8">
+    <div class="flex justify-center mt-8" v-if="primaryButton && primaryButton.text && primaryButton.link">
       <CustomButton 
-        v-if="primaryButton"
         variant="secondary" 
         size="medium" 
         :buttonText="primaryButton.text" 
