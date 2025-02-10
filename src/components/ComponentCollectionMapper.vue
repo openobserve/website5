@@ -4,7 +4,7 @@
       v-for="(it, index) in data"
       :key="index"
       :is="componentsMap[it.__component]"
-      v-bind="it"
+      v-bind="getComponentProps(it)"
     />
   </div>
 </template>
@@ -58,6 +58,11 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  caseStudyData : {
+    type: Array,
+    required: true
+  }
+
 });
 
 const componentsMap = computed(() => ({
@@ -108,4 +113,14 @@ const componentsMap = computed(() => ({
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper,
 }));
+
+const getComponentProps = (it) => {
+  if (it.__component === "section-cards.case-studies") {
+    return {
+      ...it,
+      data: props.caseStudyData,
+    };
+  }
+  return it;
+}
 </script>

@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import fetchApi from "@/utils/strapi";
+import Heading from "@/components/core/Heading.vue";
+import { marked } from "marked";
+const data = await fetchApi({
+  endpoint: "api/privicy-policy-page",
+  query: { pLevel: "3", status: "draft" },
+});
+const htmlContent = marked(data?.data?.content);
+---
+
+<Layout>
+  <div  class="flex flex-col justify-center items-center">
+    <h1 class="text-xl md:text-4xl lg:text-5xl font-bold text-white">{data?.data?.title}</h1>
+    <div class="flex justify-center container mx-auto w-full px-10 pt-5">
+      <div set:html={htmlContent} class="prose prose-md prose-invert text-white max-w-none">
+      </div>
+    </div>
+  </div>
+</Layout>
