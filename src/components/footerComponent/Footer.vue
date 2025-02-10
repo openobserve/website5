@@ -108,19 +108,20 @@ const props = defineProps({
               <!-- <a href="/" class="flex items-center rounded-md p-2 hover:">
                 <img src="/Slack.svg" class="w-8 h-8" />
               </a> -->
-              <a href="/"
+              <a href="https://join.slack.com/t/zincobserve/shared_invite/zt-11r96hv2b-UwxUILuSJ1duzl_6mhJwVg"
+                target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]">
               </a>
-              <a href="/"
+              <a href="https://twitter.com/OpenObserve" target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/TwitterHover.svg')]">
               </a>
-              <a href="/"
+              <a href="https://www.linkedin.com/company/openobserve" target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/Linkedin.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/LinkedinHover.svg')]">
               </a>
-              <a href="/"
+              <a href="https://github.com/openobserve/openobserve" target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/GitHubHover.svg')]">
               </a>
-              <a href="/"
+              <a href="https://www.youtube.com/@openobserve" target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/YoutubeHover.svg')]">
               </a>
             </div>
