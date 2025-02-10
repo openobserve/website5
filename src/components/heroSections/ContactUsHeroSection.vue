@@ -33,7 +33,7 @@ const handleSubmit = (values) => {
 <template>
   <!-- backgroundPosition: 'top center, bottom -200px center', -->
   <div
-    class="relative flex  items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat bg-cover py-8"
+    class="relative flex items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
       backgroundImage: 'url(/ContactUsTopbg.svg), url(/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
@@ -42,7 +42,7 @@ const handleSubmit = (values) => {
     }"
   >
     <div
-      class="flex flex-col lg:flex-row  gap-4 lg:gap-12 items-center w-full container mx-auto"
+      class="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center w-full container mx-auto"
     >
       <!-- Left Column: Title & Description -->
       <div class="w-full text-left flex flex-col space-y-4">
