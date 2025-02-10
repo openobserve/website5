@@ -8,8 +8,8 @@ import CustomButton from "../core/CustomButton.vue";
 // Define validation schema
 const schema = yup.object({
   name: yup.string().required("Name is required"),
-  company: yup.string().required("Company name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
+  company: yup.string().required("Company name is required"),
   phone: yup
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
@@ -89,7 +89,7 @@ Message: ${values.message}
       <div class="space-y-3">
         <div>
           <label for="name" class="text-gray-200 font-medium cursor-pointer">
-            Name <span class="text-blue-500">*</span>
+            Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="name"
@@ -104,7 +104,7 @@ Message: ${values.message}
 
         <div>
           <label for="company" class="text-gray-200 font-medium cursor-pointer">
-            Company Name <span class="text-blue-500">*</span>
+            Company Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="company"
@@ -121,7 +121,7 @@ Message: ${values.message}
 
         <div>
           <label for="email" class="text-gray-200 font-medium cursor-pointer">
-            Email Address <span class="text-blue-500">*</span>
+            Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="email"
@@ -137,7 +137,7 @@ Message: ${values.message}
 
         <div>
           <label for="phone" class="text-gray-200 font-medium cursor-pointer">
-            Phone Number <span class="text-blue-500">*</span>
+            Phone Number <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="phone"
@@ -155,7 +155,7 @@ Message: ${values.message}
             for="jobTitle"
             class="text-gray-200 font-medium cursor-pointer"
           >
-            Job Title <span class="text-blue-500">*</span>
+            Job Title <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="jobTitle"
@@ -175,7 +175,7 @@ Message: ${values.message}
             for="deployment"
             class="text-gray-200 font-medium cursor-pointer"
           >
-            Deployment Interest <span class="text-blue-500">*</span>
+            Deployment Interest <span class="text-red-500">*</span>
           </label>
           <select
             id="deployment"
@@ -200,7 +200,7 @@ Message: ${values.message}
             for="dataVolume"
             class="text-gray-200 font-medium cursor-pointer"
           >
-            Expected Data Volume <span class="text-blue-500">*</span>
+            Expected Data Volume <span class="text-red-500">*</span>
           </label>
           <select
             id="dataVolume"
@@ -224,7 +224,7 @@ Message: ${values.message}
         <!-- Message -->
         <div>
           <label for="message" class="text-gray-200 font-medium cursor-pointer">
-            How can I Help You ? <span class="text-blue-500">*</span>
+            How can I Help You ? <span class="text-red-500">*</span>
           </label>
           <textarea
             id="message"
@@ -263,7 +263,7 @@ Message: ${values.message}
               @click="navigateToTerms"
             >
             </a>
-            <span class="text-blue-500">*</span>
+            <span class="text-red-500">*</span>
           </label>
           <p v-if="terms.errorMessage.value" class="text-xs text-red-500 mt-1">
             {{ terms.errorMessage.value }}
