@@ -8,8 +8,8 @@ interface Blog {
   slug: string; // added slug field for the link
 }
 const props = defineProps({
-  categorySlug: {
-    type: String,
+  sectionData: {
+    type: Array as () => Blog[],
     required: true,
   },
   titleTextColor: {

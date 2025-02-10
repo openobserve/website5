@@ -10,7 +10,6 @@
         <a
           :href="`#${heading.id}`"
           class="text-white hover:text-blue-400 font-medium text-sm block"
-          @click="scrollToSection(heading.id)"
         >
           {{ heading.text }}
         </a>
@@ -46,7 +45,6 @@
 <script setup>
 import { defineProps, computed, defineEmits } from "vue";
 
-const emit = defineEmits(["hover-heading"]);
 
 const props = defineProps({
   headings: {
@@ -73,18 +71,4 @@ const nestedHeadings = computed(() => {
 });
 
 // Scroll and highlight section on click
-const scrollToSection = (id) => {
-  emit("hover-heading", id);
-
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    element.classList.add("bg-yellow-500", "text-black", "p-2", "rounded-lg");
-
-    setTimeout(() => {
-      element.classList.remove("bg-yellow-500", "text-black", "p-2", "rounded-lg");
-    }, 2000);
-  }
-};
 </script>

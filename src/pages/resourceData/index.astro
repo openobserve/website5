@@ -40,7 +40,7 @@ const cardData = [
 
 <Layout>
   <ResourceHeroSection
-    title= Blog
+    title="Resources"
     subtitle="Explore latest insights and updates"
   />
   <CaseStudyWrapper
@@ -54,19 +54,9 @@ const cardData = [
     totalItems={getTotalCounts().blogsCount}
     client:load
   />
-  <!-- <TilesWithTitleWrapper
+  <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
-  /> -->
+  />
 </Layout>
-<style scoped>
-  .cardShadow:hover {
-    box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
-    border-radius: 1rem;
-    transition: all;
-  }
-  .cardShadow:hover h3 {
-    color: #80b9ff;
-  }
-  </style>
