@@ -196,17 +196,21 @@ export async function getAllBlogsCategoriesAndAuthors() {
     ? Promise.resolve([])
     : fetchAllPages("api/categories");
 
-  const blogsPromise = cachedData.blogs
-    ? Promise.resolve([])
-    : fetchApi({ endpoint: "api/blog-pages", query: { "pagination[pageSize]": 100, "populate": "*" } })
-        .then(response => response?.data || [])
-        .then(blogs => blogs.sort((a, b) => a.id - b.id));
+    const blogsPromise = cachedData.blogs
+      ? Promise.resolve([])
+      : fetchApi({
+          endpoint: "api/blog-pages",
+          query: { "pagination[pageSize]": 100, populate: "*" },
+        })
+          .then((response) => response?.data || [])
+          .then((blogs) => blogs.sort((a, b) => a.id - b.id));
 
   const authorsPromise = cachedData.authors
     ? Promise.resolve([])
-    : fetchApi({ endpoint: "api/authors", query: { "pagination[pageSize]": 100 } })
-        .then(response => response?.data || []);
-
+    : fetchApi({
+        endpoint: "api/authors",
+        query: { "pagination[pageSize]": 100, populate: "*" },
+      }).then((response) => response?.data || []);
   const resourcesBlogsPromise = cachedData.resourcesBlogs
     ? Promise.resolve([])
     : fetchAllPages("api/resource-pages").then(blogs => blogs.sort((a, b) => a.id - b.id));
@@ -244,7 +248,11 @@ async function fetchAllPages(endpoint) {
   while (page <= totalPages) {
     const response = await fetchApi({
       endpoint,
-      query: { "pagination[pageSize]": 100, "pagination[page]": page },
+      query: {
+        "pagination[pageSize]": 100,
+        "pagination[page]": page,
+        populate: "*",
+      },
     });
 
     if (response?.data) {
