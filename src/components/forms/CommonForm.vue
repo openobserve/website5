@@ -9,7 +9,7 @@ import CustomButton from "../core/CustomButton.vue";
 const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
-  help: yup.string(),
+  help: yup.string().required("Message is required"),
   terms: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions"),
@@ -64,67 +64,87 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <div>
+  <div class="w-1/2">
     <form @submit.prevent="onSubmit">
-      <div>
-        <label for="name" class="text-gray-200 font-medium cursor-pointer">
-          Name <span class="text-blue-500">*</span>
-        </label>
-        <CustomInput
-          v-model="name.value.value"
-          name="name"
-          placeholder="Enter here"
-        />
-        <span v-if="name.errorMessage.value" class="text-xs text-red-500">{{
-          name.errorMessage.value
-        }}</span>
-      </div>
-      <div>
-        <label for="email" class="text-gray-200 font-medium cursor-pointer">
-          Email Address <span class="text-blue-500">*</span>
-        </label>
-        <CustomInput
-          v-model="email.value.value"
-          name="email"
-          type="email"
-          placeholder="Enter here"
-        />
-        <span v-if="email.errorMessage.value" class="text-xs text-red-500">{{
-          email.errorMessage.value
-        }}</span>
-      </div>
+      <div class="space-y-3">
+        <div>
+          <label for="name" class="text-gray-200 font-medium cursor-pointer">
+            Name <span class="text-blue-500">*</span>
+          </label>
+          <CustomInput
+            v-model="name.value.value"
+            name="name"
+            placeholder="Enter here"
+          />
+          <span v-if="name.errorMessage.value" class="text-xs text-red-500">{{
+            name.errorMessage.value
+          }}</span>
+        </div>
+        <div>
+          <label for="email" class="text-gray-200 font-medium cursor-pointer">
+            Email Address <span class="text-blue-500">*</span>
+          </label>
+          <CustomInput
+            v-model="email.value.value"
+            name="email"
+            type="email"
+            placeholder="Enter here"
+          />
+          <span v-if="email.errorMessage.value" class="text-xs text-red-500">{{
+            email.errorMessage.value
+          }}</span>
+        </div>
 
-      <div class="input-group">
-        <label for="message" class="text-gray-200 font-medium cursor-pointer">
-          Message <span class="text-blue-500">*</span>
-        </label>
-        <textarea
-          v-model="help.value.value"
-          name="help"
-          class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Enter Here"
-          rows="4"
-        ></textarea>
+        <div class="input-group">
+          <label for="message" class="text-gray-200 font-medium cursor-pointer">
+            Message <span class="text-blue-500">*</span>
+          </label>
+          <textarea
+            v-model="help.value.value"
+            name="help"
+            class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter Here"
+            rows="4"
+          ></textarea>
+          <span v-if="help.errorMessage.value" class="text-xs text-red-500">{{
+            help.errorMessage.value
+          }}</span>
+        </div>
+        <!-- Terms & Conditions -->
+        <div class="flex items-start gap-2">
+          <div class="relative flex items-start">
+            <input
+              id="terms"
+              type="checkbox"
+              v-model="terms.value.value"
+              class="mt-1 h-4 w-4 cursor-pointer"
+              :class="{ 'border-red-500': terms.errorMessage.value }"
+              required
+            />
+          </div>
+          <div class="ml-2">
+            <label for="terms" class="text-white cursor-pointer select-none">
+              I confirm I have read and agree to OpenObserve's
+              <a
+                href="/terms-and-conditions"
+                class="text-blue-500 underline"
+                @click="navigateToTerms"
+              >
+              </a>
+              <span class="text-blue-500">*</span>
+            </label>
+            <p
+              v-if="terms.errorMessage.value"
+              class="text-xs text-red-500 mt-1"
+            >
+              {{ terms.errorMessage.value }}
+            </p>
+          </div>
+        </div>
+        <CustomButton variant="secondary" type="submit">
+          GET IN TOUCH
+        </CustomButton>
       </div>
-
-      <div class="flex items-center gap-2">
-        <input
-          type="checkbox"
-          v-model="terms.value.value"
-          class="rounded bg-gray-700 border-gray-600"
-        />
-        <label class="text-sm text-gray-200">
-          I confirm I have read and agree to OpenObserve's
-          <a href="#" class="text-blue-500">Terms and Conditions</a>.
-        </label>
-      </div>
-      <span v-if="terms.errorMessage.value" class="text-xs text-red-500">{{
-        terms.errorMessage.value
-      }}</span>
-
-      <CustomButton variant="secondary" type="submit">
-        GET IN TOUCH
-      </CustomButton>
     </form>
   </div>
 </template>
