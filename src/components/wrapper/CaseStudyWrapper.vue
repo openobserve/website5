@@ -27,6 +27,8 @@ const props = defineProps({
   },
 });
 
+// console.log(props.data,"Props Data")
+
 // Transform the blog data for card display
 const transformBlogData = (blog) => ({
   title: blog.title,

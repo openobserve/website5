@@ -2,12 +2,19 @@
 import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+import { getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
 const PageData = await fetchApi({
   endpoint: "api/contact",
-  query: { pLevel: "10" , status: "draft"},
+  query: { pLevel: "10", status: "draft" },
 });
+await getAllBlogsCategoriesAndAuthors();
+const loadcaseStudyData = getCaseStudies();
 ---
 
 <Layout>
-  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
+  <ComponentCollectionMapper
+    data={PageData?.data?.body}
+    caseStudyData={loadcaseStudyData}
+    client:load
+  />
 </Layout>

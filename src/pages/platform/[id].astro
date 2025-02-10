@@ -2,41 +2,28 @@
 import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
+import { getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
 
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
     endpoint: "api/platform-pages",
     query: { pLevel: "10", status: "draft" },
   });
-  const slugs = PageData?.data
-  return slugs.map((it:any) => ({
+  const slugs = PageData?.data;
+  return slugs.map((it: any) => ({
     params: { id: it.slug },
-  }))
+  }));
 }
 const { id }: any = Astro.params;
-
-// console.log("Static path", id);
 
 const PageData = await fetchApi({
   endpoint: "api/platform-pages",
   query: { pLevel: "10", status: "draft", "filters[slug][$eq]": id },
 });
+await getAllBlogsCategoriesAndAuthors();
+const loadcaseStudyData = getCaseStudies();
 ---
 
 <Layout>
-  <ComponentCollectionMapper data={PageData?.data[0]?.body} client:visible />
-  <!-- <PlatformLogsHeroSection
-    title="The Open Observe platform"
-    subtitle="Discover how OpenObserve simplifies full-stack observability with unmatched efficiency and scalability."
-    buttons={[
-      { label: "Get Started", variant: "heroButton" },
-      { label: "Watch Video", variant: "secondary" },
-    ]}
-    backgroundImage="/Platform/platform-subpage-Eclipse.svg"
-    rightImage="/Data-sources-Kubernetes.svg"
-  />
-  <TabsGlassCardWrapper items={interchangeData} client:load />
-  <BannerWrapper items={bannerData} client:load />
-  <FaqWrapper items={faqData.items} title={faqData.title} client:load />
-  <CaseStudyWrapper items={caseStudyData.items} title={caseStudyData.title} description={caseStudyData.description} client:load /> -->
+  <ComponentCollectionMapper data={PageData?.data[0]?.body} caseStudyData={loadcaseStudyData} client:visible />
 </Layout>
