@@ -263,7 +263,7 @@ const navigateToTerms = (e) => {
         </div>
         <div class="ml-2">
           <label for="terms" class="text-white cursor-pointer select-none">
-            I confirm I have read and agree to OpenObserve's
+            I confirm I have read and agree to OpenObserve's terms and condition
             <a
               href="/terms-and-conditions"
               class="text-blue-500 underline"

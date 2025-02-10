@@ -28,10 +28,13 @@
             "title": "Time-Series Management"
           },
           {
-            "title": "Efficient Collection"
+            "title": "Prometheus Integration"
           },
           {
-            "title": "Real-Time Analysis"
+            "title": "Data Processing"
+          },
+          {
+            "title":"Storage Optimization"
           }
         ]
       },
@@ -43,10 +46,13 @@
             "title": "Trace Collection"
           },
           {
-            "title": "OpenTelemetry Integration"
+            "title": "Service Analysis"
           },
           {
-            "title": "Efficient Processing"
+            "title": "Trace Analysis"
+          },
+          {
+            "title":"Storage Management"
           }
         ]
       },
