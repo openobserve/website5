@@ -1,16 +1,13 @@
-<!-- TableOfContents.vue -->
 <template>
-  <div
-    class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4"
-    style="background-image: url('/Glass.svg')"
-  >
+  <div class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4" style="background-image: url('/Glass.svg')">
     <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
     <ul class="space-y-4">
       <li v-for="(heading, index) in nestedHeadings" :key="index">
         <a
           :href="`#${heading.id}`"
-          class="text-white hover:text-blue-400 font-medium text-sm block"
-          @click.prevent="scrollToSection(heading.id)"
+          class="block text-sm font-medium text-white hover:text-blue-400"
+          :class="{ 'bg-blue-500 text-white p-2 rounded-lg': activeSectionId === heading.id }"
+          @click.prevent="setActiveSection(heading.id)"
         >
           {{ heading.text }}
         </a>
@@ -18,8 +15,9 @@
           <li v-for="(subHeading, subIndex) in heading.children" :key="subIndex">
             <a
               :href="`#${subHeading.id}`"
-              class="text-white hover:text-blue-400 text-sm font-normal block"
-              @click.prevent="scrollToSection(subHeading.id)"
+              class="block text-sm font-normal text-white hover:text-blue-400"
+              :class="{ 'bg-blue-500 text-white p-2 rounded-lg': activeSectionId === subHeading.id }"
+              @click.prevent="setActiveSection(subHeading.id)"
             >
               {{ subHeading.text }}
             </a>
@@ -31,7 +29,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { defineProps, computed, ref } from "vue";
 
 const props = defineProps({
   headings: {
@@ -40,6 +38,14 @@ const props = defineProps({
   },
 });
 
+const activeSectionId = ref(null); // Store clicked section
+
+const setActiveSection = (id) => {
+  activeSectionId.value = id; // Update clicked section
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+// Structure headings into a nested format
 const nestedHeadings = computed(() => {
   const nested = [];
   let lastParent = null;
@@ -55,16 +61,4 @@ const nestedHeadings = computed(() => {
 
   return nested;
 });
-
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-    element.classList.add("bg-yellow-300", "text-black", "p-2", "rounded-lg");
-
-    setTimeout(() => {
-      element.classList.remove("bg-yellow-300", "text-black", "p-2", "rounded-lg");
-    }, 2000);
-  }
-};
 </script>
