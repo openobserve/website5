@@ -7,8 +7,10 @@ const PageData = await fetchApi({
   endpoint: "api/community-support",
   query: { pLevel: "10", status: "draft" },
 });
+
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <ComponentCollectionMapper data={PageData?.data?.body} client:load />
 </Layout>

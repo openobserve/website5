@@ -1,9 +1,9 @@
 ---
 import Header from "../components/header/Header.vue";
 import Footer from "../components/footerComponent/Footer.vue";
-import SEO from "../components/SEO.astro";
 import NavData from "../content/header.json";
 import "@/styles/global.css";
+import { SEO } from "astro-seo";
 const footerData = {
   sections: [
     {
@@ -93,6 +93,9 @@ const footerData = {
     { icon: "/git.svg", label: "Fork", count: "492", link: "#" },
   ],
 };
+
+// Accept SEO metadata as props
+const { metaObj } = Astro.props;
 ---
 
 <!doctype html>
@@ -108,16 +111,13 @@ const footerData = {
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>OpenObserve</title>
-    <!-- <title>Astro Basics</title> -->
-    <!-- <SEO
-    title={title}
-    description={description}
-    image={image}
-    type={type}
-    publishedTime={publishedTime}
-    modifiedTime={modifiedTime}
-  /> -->
+    <SEO
+      title={metaObj?.title}
+      description={metaObj?.description}
+      />
+      <!-- type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime} -->
   </head>
   <body class="relative">
     <main>

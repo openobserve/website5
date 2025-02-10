@@ -3,16 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 import fetchApi from "../utils/strapi";
 import { getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
-
 const PageData = await fetchApi({
   endpoint: "api/homepage",
   query: { pLevel: "10", status: "draft" },
 });
 await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
+
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
   <ComponentCollectionMapper
     data={PageData.data.body}
