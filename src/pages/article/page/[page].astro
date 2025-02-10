@@ -1,0 +1,82 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
+import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
+import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import { getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByPagination, getCaseStudies, getTotalCounts } from "../../../utils/cache";
+
+const itemsPerPage = 50;
+
+// Generate static paths for pagination
+export async function getStaticPaths() {
+  await getAllBlogsCategoriesAndAuthors();
+  const totalBlogs = getTotalCounts().blogsCount;
+
+  const totalPages = Math.ceil(totalBlogs / 50);
+
+  return Array.from({ length: totalPages }, (_, index) => ({
+    params: { page: (index + 1).toString() },
+  }));
+}
+
+// Get the current page from Astro props
+const { page } = Astro.params;
+const currentPage = parseInt(page);
+
+// Handle invalid page numbers
+if (isNaN(currentPage) || currentPage < 1) {
+  throw Astro.redirect("/404");
+}
+
+// Fetch paginated blogs for the current page
+const blogsData = getBlogsByPagination(currentPage, itemsPerPage);
+// Fetch categories for suggestions
+const suggestionData = getAllCategories();
+
+// Fetch case studies
+const caseStudyData = getCaseStudies();
+
+const cardHeader = {
+  title: "Additional Learning Resources",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+};
+
+const cardData = [
+  {
+    icon: "/resources/64pxComponent.svg",
+    title: "Case Studies",
+  },
+];
+---
+
+<Layout title={`Blog Posts | Page ${currentPage} | Resources`}>
+  <ResourceHeroSection
+    title="Blogs"
+    subtitle="Explore latest insights and updates"
+  />
+  
+  {caseStudyData?.length > 0 && (
+    <CaseStudyWrapper
+      data={caseStudyData || []}
+      title="Case Studies"
+      subtitle="Learn from real-world implementations"
+      client:load
+    />
+  )}
+  
+  <BlogsListingWrapper
+    blogsData={blogsData}
+    currentPage={currentPage} 
+    suggestionData={suggestionData}
+    totalItems={getTotalCounts().blogsCount}
+    client:load
+  />
+  
+  <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  />
+</Layout>

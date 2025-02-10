@@ -224,7 +224,6 @@ export async function getAllBlogsCategoriesAndAuthors() {
     resourcesCategoriesPromise
   ]);
 
-  console.log("Resources loaded", resCategories.length, resBlogs.length);
 
   setCachedData(categories, blogs, authors, resBlogs, resCategories, {
     authorsCount: authors.length,

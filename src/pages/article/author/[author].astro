@@ -1,0 +1,72 @@
+---
+// Imports
+import Layout from "../../../layouts/Layout.astro";
+import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
+import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
+import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
+import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogPagination from "../../../components/blogs/BlogPagination.vue";
+import { slugify } from "../../../utils/slugify";
+import { getAllAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
+
+// 🚀 Step 1: Generate dynamic paths for categories
+export async function getStaticPaths() {
+  await getAllBlogsCategoriesAndAuthors()
+  return getAllAuthors()?.map((author: any) => ({
+    params: { author: author.slug },
+  }));
+}
+
+// 🚀 Step 2: Get `categorySlug` from URL
+const { author } = Astro.params;
+// console.log("Static path", author);
+// 🚀 Step 3: Fetch blogs based on category
+const blogsData = getBlogsByAuthor(author);
+
+// ✅ Fetch other required data
+const suggestionData = getAllCategories();
+const loadcaseStudyData = getCaseStudies();
+
+// 🔹 Additional Card Data
+const cardHeader = {
+  title: "Additional Learning Resources",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+};
+
+const cardData = [
+  {
+    icon: "/resources/64pxComponent.svg",
+    title: "Case Studies",
+  },
+];
+---
+
+<!-- ✅ Render Category-Based Blogs -->
+<Layout>
+  <ResourceHeroSection
+    title="Blogs"
+    subtitle={`Showing posts for category: ${author}`}
+  />
+
+  <CaseStudyWrapper
+    data={loadcaseStudyData}
+    title="Blog Posts"
+    subtitle="Latest articles and updates"
+    client:load
+  />
+
+  <BlogsListingWrapper
+    blogsData={blogsData}
+    currentPage={1}
+    suggestionData={suggestionData}
+    client:load
+  />
+
+  <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  />
+</Layout>

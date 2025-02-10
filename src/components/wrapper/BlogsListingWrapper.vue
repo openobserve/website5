@@ -35,6 +35,7 @@
     <div class="py-10">
       <Heading :title="title" :description="description" align="CENTER" />
     </div>
+    {{console.log(blogsData,"blogsData")}}
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
         :sectionData="blogsData"
