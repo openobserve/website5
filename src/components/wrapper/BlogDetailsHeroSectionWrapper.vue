@@ -51,8 +51,6 @@ defineProps({
 
         <!-- Icons Container -->
         <div class="flex items-center gap-4 mt-4 md:mt-0 justify-center md:justify-end">
-          <span class="text-white text-sm">Share:</span>
-
           <div
             v-for="(icon, index) in [
               'slack.svg',

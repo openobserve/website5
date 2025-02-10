@@ -57,14 +57,12 @@ const cardData = [
 <!-- ✅ Render Category-Based Blogs -->
 <Layout>
   <ResourceHeroSection
-    title="Blogs"
+    title="Blog"
     subtitle={`Showing posts for category: ${category?.name ?? tag}`}
   />
 
   <CaseStudyWrapper
     data={loadcaseStudyData || []}
-    title="Blog Posts"
-    subtitle="Latest articles and updates"
     client:load
   />
 
