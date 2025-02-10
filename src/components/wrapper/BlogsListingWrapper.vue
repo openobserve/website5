@@ -35,7 +35,6 @@
     <div class="py-10">
       <Heading :title="title" :description="description" align="CENTER" />
     </div>
-    {{ console.log(blogsData, "blogsData") }}
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
         :sectionData="blogsData"
@@ -45,7 +44,6 @@
         linkColor="text-[#00A3FF]"
       />
     </div>
-{{console.log(type,"Riddhi")}}
     <div class="hidden md:block">
       <BlogListing
         :sectionData="blogsData"
@@ -56,7 +54,6 @@
         :type="type"
       />
     </div>
-    {{console.log(type)}}
     <BlogPagination
       :totalItems="totalItems"
       :itemsPerPage="itemsPerPage"
