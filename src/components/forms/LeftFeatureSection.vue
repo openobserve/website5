@@ -33,7 +33,7 @@ defineProps({
           class="flex items-start gap-4"
         >
           <CustomImage
-            image="/resources/Frame 11216.svg"
+            image="/rightTick.svg"
             altText="icon"
             cssClass="w-6 h-6"
           />
@@ -54,7 +54,7 @@ defineProps({
           class="flex items-start gap-4"
         >
           <CustomImage
-            image="/resources/Frame 11216.svg"
+            image="/rightTick.svg"
             altText="icon"
             cssClass="w-6 h-6"
           />
