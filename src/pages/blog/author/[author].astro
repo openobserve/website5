@@ -46,14 +46,12 @@ const cardData = [
 <!-- ✅ Render Category-Based Blogs -->
 <Layout>
   <ResourceHeroSection
-    title="Blogs"
+    title="Author"
     subtitle={`Showing posts for category: ${author}`}
   />
 
   <CaseStudyWrapper
     data={loadcaseStudyData}
-    title="Blog Posts"
-    subtitle="Latest articles and updates"
     client:load
   />
 

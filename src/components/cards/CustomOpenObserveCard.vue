@@ -25,12 +25,10 @@ const props = defineProps({
     class="flex flex-col items-center gap-6 w-full pb-10 px-6 lg:px-12 container mx-auto"
   >
     <!-- Card 1 (Top Section) -->
-    <div class="w-full rounded-lg card p-[0.0625rem]">
+    <div class="w-full rounded-lg card">
       <div class="card-content">
         <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
-          <span class="inline border-b border-gray-500">
           {{ props?.unifiedObservability?.title }}
-        </span>
         </h2>
         <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
           {{ props?.unifiedObservability?.description }}
@@ -51,9 +49,7 @@ const props = defineProps({
       <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content">
           <div class="text-white text-2xl text-center font-bold">
-            <span class="inline border-b border-gray-500">
             {{ item?.title }}
-          </span>
           </div>
           <div class="text-[#BEC0C2] text-base text-center font-medium mt-3">
             {{ item?.description }}
@@ -67,9 +63,7 @@ const props = defineProps({
       <div class="card">
         <div class="card-content">
           <h2 class="text-2xl font-bold text-white mb-2 text-center">
-            <span class="inline border-b border-gray5300">
               {{ integrations?.title }}
-            </span>
           </h2>
           <p class="text-base text-[#BEC0C2] font-medium mb-4 text-center">
             {{ integrations?.description }}
