@@ -24,6 +24,10 @@ const props = defineProps({
     type: String,
     default: "bg-[#2A2A2A]",
   },
+  type: {
+    type: String,
+    default: "blog",
+  },
   linkColor: {
     type: String,
     default: "text-[#00A3FF]",
@@ -37,7 +41,7 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="`/blog/${blog.slug}`"
+          :href="`/${type === 'blog' ? 'blog' : 'articles'}/${blog.slug}`"
           rel="noopener noreferrer"
           :class="[cardBgColor, 'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row']"
         >

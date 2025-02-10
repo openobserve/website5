@@ -39,7 +39,7 @@ function processMarkdown(markdownText) {
  */
 async function extractHeadingsFromHTML() {
   await nextTick(); // Ensure the DOM is updated first
-
+  if (typeof window === "undefined") return; // Avoid SSR issues
   const container = document.getElementById("blog-content");
   if (!container) return;
 
@@ -79,7 +79,7 @@ const scrollToSection = (id) => {
 
 async function addCopyButtons() {
   await nextTick(); // Ensure the DOM is updated
-
+  if (typeof window === "undefined") return; // Avoid SSR issues
   const container = document.getElementById("blog-content");
   if (!container) return;
 

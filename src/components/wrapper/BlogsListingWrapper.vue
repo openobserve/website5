@@ -42,6 +42,7 @@
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
         linkColor="text-[#00A3FF]"
+         :type="type"
       />
     </div>
     <div class="hidden md:block">
