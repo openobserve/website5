@@ -94,12 +94,12 @@ const props = defineProps({
           </div>
         </div>
         <div class="flex items-center gap-6">
-          <p class="text-base gradient-hover">
+          <a href="/terms-of-service" class="text-base gradient-hover">
             <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
-          </p>
-          <p class="text-base gradient-hover">
+          </a>
+          <a href="/privacy-policy" class="text-base gradient-hover">
             <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
-          </p>
+          </a>
         </div>
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
