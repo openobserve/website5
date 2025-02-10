@@ -36,17 +36,6 @@ const dataVolume = useField("dataVolume");
 const message = useField("message");
 const terms = useField("terms");
 
-const deploymentOptions = [
-  { value: "cloud", label: "Cloud" },
-  { value: "self-hosted", label: "Self Hosted" },
-];
-
-const dataVolumeOptions = [
-  { value: "small", label: "< 100GB/day" },
-  { value: "medium", label: "100GB - 1TB/day" },
-  { value: "large", label: "> 1TB/day" },
-];
-
 const loading = ref(false);
 const error = ref(null);
 
@@ -154,7 +143,6 @@ Message: ${values.message}
             id="phone"
             v-model="phone.value.value"
             name="phone"
-            type="tel"
             placeholder="Enter here"
           />
           <span v-if="phone.errorMessage.value" class="text-xs text-red-500">{{
@@ -183,7 +171,10 @@ Message: ${values.message}
         </div>
 
         <div>
-          <label for="support" class="text-gray-200 font-medium cursor-pointer">
+          <label
+            for="deployment"
+            class="text-gray-200 font-medium cursor-pointer"
+          >
             Deployment Interest <span class="text-blue-500">*</span>
           </label>
           <select
@@ -205,7 +196,10 @@ Message: ${values.message}
         </div>
 
         <div>
-          <label for="support" class="text-gray-200 font-medium cursor-pointer">
+          <label
+            for="dataVolume"
+            class="text-gray-200 font-medium cursor-pointer"
+          >
             Expected Data Volume <span class="text-blue-500">*</span>
           </label>
           <select
