@@ -17,12 +17,13 @@ const props = defineProps({
   },
   direction: {
     type: String,
-    default: "left", // Default direction is left
+    default: "left",
     validator(value) {
-      return ["left", "right"].includes(value); // Validate direction
+      return ["left", "right"].includes(value);
     },
   },
 });
+
 const sectionClasses = computed(() => ({
   "md:flex-row-reverse": props.direction === "right",
 }));
@@ -31,19 +32,19 @@ const sectionClasses = computed(() => ({
 <template>
   <div
     :class="[
-      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 pt-10',
+      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 pt-10 relative',
       sectionClasses,
     ]"
   >
     <div class="relative w-full md:w-1/2">
-      <!-- Background Image -->
+      <!-- Background Image with Lower z-index -->
       <div
-        class="absolute inset-0 bg-cover bg-center rounded-lg"
+        class="absolute inset-0 bg-cover bg-center rounded-lg z-0"
         :style="{ backgroundImage: `url('/background/featureBG.svg')` }"
       ></div>
 
       <!-- Foreground Image -->
-      <div class="relative w-full h-auto rounded-lg shadow-md p-3">
+      <div class="relative w-full h-auto rounded-lg shadow-md p-3 z-10">
         <CustomImage
           :image="image"
           :altText="title"
@@ -51,7 +52,7 @@ const sectionClasses = computed(() => ({
         />
       </div>
     </div>
-    <div class="w-full md:w-1/2">
+    <div class="w-full md:w-1/2 z-10">
       <h2
         class="text-[#f4f4f5] mb-4 font-inter font-semibold text-xl md:text-2xl lg:text-4xl"
       >
