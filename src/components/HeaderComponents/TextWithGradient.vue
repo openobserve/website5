@@ -15,6 +15,10 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  padding: {
+    type: String,
+    required: false,
+  },
   align: {
     type: String,
     default: "left",
@@ -24,7 +28,7 @@ const props = defineProps({
 
 // Computed property for the class
 const computedClass = computed(() => {
-  return `font-semibold text-[${props.textSize}px] text-${props.align} ${props.textGradientColor} text-gradient`;
+  return `font-semibold text-[${props.textSize}px] text-${props.align} ${props.textGradientColor} text-gradient ${props.padding}`;
 });
 </script>
 

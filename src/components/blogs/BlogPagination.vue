@@ -1,39 +1,39 @@
 <template>
-  <section class="container mx-auto flex justify-center mt-8">
+  <section class="container mx-auto flex justify-center mt-8 py-4">
     <!-- Previous Button -->
-    <button
+    <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
-      :disabled="currentPage === 1"
-      @click="changePage(currentPage - 1)"
+      :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
+      :href="'/blog/page/' + (currentPage - 1)"
     >
       Previous
-    </button>
+    </a>
 
     <!-- Page Number Buttons -->
     <div class="flex items-center">
-      <button
+      <a
         v-for="page in displayedPages"
         :key="page"
+        :href="'/blog/page/' + page"
         :class="[
           'px-4 py-2 mx-1 rounded-lg',
           page === currentPage
             ? 'bg-blue-400 text-white'
             : 'text-gray-500 hover:bg-blue-50',
         ]"
-        @click="changePage(page)"
       >
         {{ page }}
-      </button>
+    </a>
     </div>
 
     <!-- Next Button -->
-    <button
-      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
-      :disabled="currentPage === totalPages"
-      @click="changePage(currentPage + 1)"
+    <a
+      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg"
+      :href="'/blog/page/' + (currentPage + 1)"
+      :class="{ 'opacity-50 pointer-events-none': currentPage === totalPages }"
     >
       Next
-    </button>
+    </a>
   </section>
 </template>
 
@@ -55,7 +55,6 @@ const props = defineProps({
     default: 1,
   },
 });
-const emit = defineEmits(["page-changed"]);
 const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>
   Math.ceil(props.totalItems / props.itemsPerPage)
@@ -78,20 +77,6 @@ const displayedPages = computed(() => {
   return pages;
 });
 
-// Change page function
-const changePage = async (newPage) => {
-  if (newPage >= 1 && newPage <= totalPages.value) {
-    currentPageRef.value = newPage;
-
-    // Update URL
-    const newUrl = newPage === 1 ? "/blog" : `/blog/page/${newPage}`;
-    window.location.assign(newUrl);
-
-    // Emit event for parent component
-    emit("page-changed", newPage);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-};
 
 // Update local state when prop changes
 onMounted(() => {

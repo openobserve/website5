@@ -62,17 +62,7 @@ watch(() => props.content, (newContent) => {
  * Scroll to a specific section when TOC is clicked.
  * @param {string} id - The ID of the section
  */
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-    element.classList.add("bg-yellow-500", "text-black", "p-2", "rounded-lg");
 
-    setTimeout(() => {
-      element.classList.remove("bg-yellow-500", "text-black", "p-2", "rounded-lg");
-    }, 2000);
-  }
-};
 </script>
 
 <template>
@@ -86,7 +76,7 @@ const scrollToSection = (id) => {
       <!-- Table of Contents -->
       <div class="w-full md:w-[25%] order-1 md:order-none">
         {{ console.log(headings, "headings") }}
-        <TableOfContents :headings="headings" @hover-heading="scrollToSection" />
+        <TableOfContents :headings="headings"/>
       </div>
     </div>
   </CustomSection>

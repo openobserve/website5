@@ -4,6 +4,7 @@ import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
+import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from 'vue';
 
@@ -51,15 +52,15 @@ const redirectToBlog = (slug) => {
 </script>
 
 <template>
-  <CustomSection>
-    <Heading
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
+    <!-- <Heading
       :title="heading?.title"
       :description="heading?.subtitle"
       align="CENTER"
-    />
+    /> -->
 
     <!-- Desktop View -->
-    <div class="md:block py-10 relative">
+    <div class="hidden md:block py-6 relative">
       <CustomImage
         image="/Platform/Ellipse-141.svg"
         altText="Background decoration"
@@ -67,7 +68,7 @@ const redirectToBlog = (slug) => {
       />
 
       <div
-        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+        class="flex flex-row gap-3 justify-center container mx-auto h-full w-full cursor-pointer"
       >
         <!-- Featured (first) card -->
         <div v-if="cards.length > 0">
@@ -78,7 +79,7 @@ const redirectToBlog = (slug) => {
         </div>
 
         <!-- Remaining cards -->
-        <div class="flex flex-col gap-3 justify-center items-center h-full">
+        <div class="flex flex-col gap-3 justify-center items-center h-full cursor-pointer">
           <RightSideCard
             v-for="(card, index) in cards.slice(1)"
             :key="card.slug || index"
@@ -90,7 +91,7 @@ const redirectToBlog = (slug) => {
     </div>
 
     <!-- Mobile View -->
-    <!-- <div class="block md:hidden">
+     <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
         <LeftSideCard
           v-for="(card, index) in cards"
@@ -99,7 +100,7 @@ const redirectToBlog = (slug) => {
           @click="redirectToBlog(card.slug)"
         />
       </div>
-    </div> -->
+    </div>
     <div class="flex justify-center mt-8" v-if="primaryButton && primaryButton.text && primaryButton.link">
       <CustomButton 
         variant="secondary" 
@@ -108,5 +109,5 @@ const redirectToBlog = (slug) => {
         :buttonLink="primaryButton.link" 
       />
     </div>
-  </CustomSection>
+  </section>
 </template>
