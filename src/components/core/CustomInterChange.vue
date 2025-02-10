@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import CustomImage from "./CustomImage.vue";
+import { slugify } from "@/utils/slugify";
 
 const props = defineProps({
   title: {
@@ -35,6 +36,7 @@ const sectionClasses = computed(() => ({
       'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 pt-10 relative',
       sectionClasses,
     ]"
+    :id="slugify(title)"
   >
     <div class="relative w-full md:w-1/2">
       <!-- Background Image with Lower z-index -->

@@ -27,7 +27,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative mx-auto flex items-center justify-center w-full bg-cover bg-center"
+  <div class="relative mx-auto flex items-center justify-center w-full bg-cover bg-center "
     style="background-image: url('/BG.svg')">
     <!-- Apply the blur effect to the background image -->
     <!-- <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/Texture.svg'); filter: blur(2px)">

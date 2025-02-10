@@ -71,7 +71,7 @@ const redirectToBlog = (slug) => {
         class="flex flex-row gap-3 justify-center container mx-auto h-full w-full cursor-pointer"
       >
         <!-- Featured (first) card -->
-        <div v-if="cards.length > 0">
+        <div v-if="cards.length > 0" class="w-full">
           <LeftSideCard
             :card="cards[0]"
             @click="redirectToBlog(cards[0].slug)"
@@ -79,7 +79,7 @@ const redirectToBlog = (slug) => {
         </div>
 
         <!-- Remaining cards -->
-        <div class="flex flex-col gap-3 justify-center items-center h-full cursor-pointer">
+        <div class="flex flex-col gap-3 justify-center items-center h-full cursor-pointer w-full">
           <RightSideCard
             v-for="(card, index) in cards.slice(1)"
             :key="card.slug || index"
