@@ -22,7 +22,7 @@ interface BlogSectionData {
 
 const props = defineProps({
   sectionData: {
-    type: Object as () => BlogSectionData,
+    type: Array,
     required: true,
   },
   titleTextColor: {
@@ -81,7 +81,7 @@ const swiperOptions = {
       <div class="text-white mb-8">
         <span class="font-semibold">Recent posts</span>
         <span :class="[descriptionTextColor, 'ml-2']"
-          >: {{ sectionData.recentPostsText }}</span
+          >: Recent Blog Posts</span
         >
       </div>
 
@@ -100,7 +100,7 @@ const swiperOptions = {
           :modules="swiperModules"
           v-bind="swiperOptions"
         >
-          <swiper-slide v-for="blog in sectionData.blogs" :key="blog.title">
+          <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <div
               :class="[
                 cardBgColor,
