@@ -40,25 +40,16 @@ const props = defineProps({
   <div class="min-h-screen">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <a
-          v-for="blog in sectionData"
-          :key="blog.title"
-          :href="`/${type === 'blog' ? 'blog' : 'articles'}/${blog.slug}`"
-          rel="noopener noreferrer"
-          :class="[
+        <a v-for="blog in sectionData" :key="blog.title"
+          :href="`/${type === 'blog' ? 'blog' : 'articles'}/${blog.slug}`" rel="noopener noreferrer" :class="[
             cardBgColor,
             'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',
-          ]"
-        >
+          ]">
           <!-- Left Side - Image -->
-          <div
-            class="h-48 w-full flex-shrink-0 bg-cover bg-center"
-          >
-            <img
-              :src="blog.image?.url || ''"
-              :alt="blog.title"
-              class="w-full h-full object-center object-contain opacity-0"
-            />
+          <div class="relative h-48 w-full flex-shrink-0 bg-cover bg-center overflow-hidden bg-white">
+            <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + blog.image?.url + ');'"></div>
+            <img :src="blog.image?.url || ''" :alt="blog.title"
+              class="absolute inset-0 w-full h-full object-center object-contain" />
           </div>
 
           <!-- Right Side - Content -->

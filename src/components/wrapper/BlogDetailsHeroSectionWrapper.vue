@@ -23,31 +23,22 @@ defineProps({
 </script>
 
 <template>
-  <CustomSection class="min-h-screen pt-10">
+  <CustomSection class="pt-10">
     <div>
-      <div
-        class="flex justify-center items-center text-white text-sm py-4"
-      >
+      <div class="flex justify-center items-center text-white text-sm py-4">
         <template v-for="(item, index) in activity" :key="`item-${index}`">
           <span>{{ item }}</span>
-          <span v-if="index !== activity.length - 1" :key="`sep-${index}`"
-            >|</span
-          >
+          <span v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
         </template>
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
         {{ title }}
       </h1>
-      <div
-        class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6"
-      >
-      <!-- {{ console.log(suggestions,"suggestionssuggestionssuggestionssuggestions") }} -->
+      <div class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6">
+        <!-- {{ console.log(suggestions,"suggestionssuggestionssuggestionssuggestions") }} -->
         <!-- Suggestions -->
-        <CustomSuggestions
-          :suggestions="suggestions"
-          @selectSuggestion="selectSuggestion"
-          class="flex flex-wrap gap-4 justify-center md:justify-start"
-        />
+        <CustomSuggestions :suggestions="suggestions" @selectSuggestion="selectSuggestion"
+          class="flex flex-wrap gap-4 justify-center md:justify-start" />
 
         <!-- Icons Container -->
         <!-- <div class="flex items-center gap-4 mt-4 md:mt-0 justify-center md:justify-end">
@@ -67,12 +58,17 @@ defineProps({
           </div>
         </div> -->
       </div>
-      <div class="flex items-center justify-center">
+      <!-- <div class="">
         <img
           :src="bottomImage"
           alt="Bottom Image"
           class="w-full object-contain"
         />
+      </div> -->
+      <div
+        class="flex items-center justify-center relative w-full h-[60vh] bg-cover bg-center overflow-hidden bg-white">
+        <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div>
+        <img :src="bottomImage" class="absolute inset-0 w-full h-full object-center object-contain" />
       </div>
     </div>
   </CustomSection>
