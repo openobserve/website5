@@ -77,14 +77,15 @@ const scrollToSection = (id) => {
 
 <template>
   <CustomSection>
-    <div class="flex flex-col md:flex-row md:mx-auto">
+    <div class="flex flex-col md:flex-row md:mx-auto md:gap-12">
       <!-- Rendered Markdown Content -->
-      <div class="w-full md:w-[70%] text-left overflow-x-auto order-2 md:order-none">
-        <div v-html="htmlContent" class="prose prose-md prose-invert"></div>
+      <div class="w-full md:w-[75%] text-left overflow-x-auto order-2  md:order-none">
+        <div v-html="htmlContent" class="prose prose-md prose-invert max-w-none p-4"></div>
       </div>
 
       <!-- Table of Contents -->
-      <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
+      <div class="w-full md:w-[25%] order-1 md:order-none">
+        {{ console.log(headings, "headings") }}
         <TableOfContents :headings="headings" @hover-heading="scrollToSection" />
       </div>
     </div>

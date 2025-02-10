@@ -17,12 +17,12 @@ const props = defineProps({
 
 <template>
   <div class="py-7">
-    <CustomSection
-      class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
+    <section
+      class="relative bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start"
     >
       <Heading :title="props?.title" align="CENTER" />
       <FAQSection :faqItems="props.faqs" />
-    </CustomSection>
+    </section>
   </div>
 </template>
 <style scoped>
