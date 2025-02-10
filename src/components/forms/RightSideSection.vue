@@ -43,7 +43,6 @@ const onSubmit = handleSubmit(async (values) => {
   // Combine fields into the message
   const finalMessage = `
 Company: ${values.company}
-Phone: ${values.phone}
 Support Type: ${values.support}
 Message: ${values.message}
   `.trim();
@@ -57,6 +56,7 @@ Message: ${values.message}
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
+          senderPhone: values.phone,
           senderMessage: finalMessage,
         }),
       }
@@ -87,7 +87,7 @@ const navigateToTerms = (e) => {
 </script>
 
 <template>
-  <div>
+  <div class="w-1/2">
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <!-- Name -->
@@ -220,7 +220,6 @@ const navigateToTerms = (e) => {
                 class="text-blue-500 underline"
                 @click="navigateToTerms"
               >
-                Terms and Conditions
               </a>
               <span class="text-blue-500">*</span>
             </label>

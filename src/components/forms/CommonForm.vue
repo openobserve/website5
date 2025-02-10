@@ -66,29 +66,38 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <CustomInput
-        v-model="name.value.value"
-        name="name"
-        label="Name"
-        placeholder="Enter here"
-      />
-      <span v-if="name.errorMessage.value" class="text-xs text-red-500">{{
-        name.errorMessage.value
-      }}</span>
-
-      <CustomInput
-        v-model="email.value.value"
-        name="email"
-        label="Email address"
-        type="email"
-        placeholder="Enter here"
-      />
-      <span v-if="email.errorMessage.value" class="text-xs text-red-500">{{
-        email.errorMessage.value
-      }}</span>
+      <div>
+        <label for="name" class="text-gray-200 font-medium cursor-pointer">
+          Name <span class="text-blue-500">*</span>
+        </label>
+        <CustomInput
+          v-model="name.value.value"
+          name="name"
+          placeholder="Enter here"
+        />
+        <span v-if="name.errorMessage.value" class="text-xs text-red-500">{{
+          name.errorMessage.value
+        }}</span>
+      </div>
+      <div>
+        <label for="email" class="text-gray-200 font-medium cursor-pointer">
+          Email Address <span class="text-blue-500">*</span>
+        </label>
+        <CustomInput
+          v-model="email.value.value"
+          name="email"
+          type="email"
+          placeholder="Enter here"
+        />
+        <span v-if="email.errorMessage.value" class="text-xs text-red-500">{{
+          email.errorMessage.value
+        }}</span>
+      </div>
 
       <div class="input-group">
-        <label class="text-sm text-gray-200">Message</label>
+        <label for="message" class="text-gray-200 font-medium cursor-pointer">
+          Message <span class="text-blue-500">*</span>
+        </label>
         <textarea
           v-model="help.value.value"
           name="help"
