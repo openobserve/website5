@@ -76,7 +76,7 @@ watch(() => props.content, (newContent) => {
       <!-- Table of Contents -->
       <div class="w-full md:w-[25%] order-1 md:order-none">
         {{ console.log(headings, "headings") }}
-        <TableOfContents :headings="headings"/>
+        <TableOfContents :headings="headings" @hover-heading="scrollToSection" />
       </div>
     </div>
   </CustomSection>
