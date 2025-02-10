@@ -1,12 +1,12 @@
 <script setup>
 import CustomButton from "../core/CustomButton.vue";
 import Heading from "../core/Heading.vue";
-import BaseForm from "../forms/BaseForm.vue";
 import CustomInput from "../forms/CustomInput.vue";
 import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 import { defineProps } from "vue";
-import { Field } from "vee-validate";
+import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
+import { ref } from "vue";
 const props = defineProps({
   title: {
     type: String,
@@ -18,22 +18,74 @@ const props = defineProps({
   },
 });
 
+// Define validation schema
 const schema = yup.object({
   name: yup.string().required("Name is required"),
-  companyName: yup.string().required("Company name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
-  phone: yup.string().required("Phone number is required"),
+  phone: yup
+    .string()
+    .matches(/^\d+$/, "Phone number must be digits only")
+    .required("Phone number is required"),
+  message: yup.string().required("Message is required"),
+  terms: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions"),
 });
 
-const handleSubmit = (values) => {
-  // console.log("Form submitted:", values);
-};
+// Initialize form validation
+const { handleSubmit } = useForm({ validationSchema: schema });
+
+const name = useField("name");
+const email = useField("email");
+const phone = useField("phone");
+const message = useField("message");
+const terms = useField("terms");
+
+const loading = ref(false);
+const error = ref(null);
+
+// Handle form submission
+const onSubmit = handleSubmit(async (values) => {
+  loading.value = true;
+  error.value = null;
+
+  try {
+    const response = await fetch(
+      "https://run.mocky.io/v3/a2626aa7-8f2d-4ef4-a811-bcf7fa85d9d3",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          senderName: values.name,
+          senderEmail: values.email,
+          senderPhone: values.phone,
+          senderMessage: values.message,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      console.log("Email sent successfully!");
+      // Navigate to success page or another route
+      window.location.assign("/thank-you");
+    } else {
+      const body = await response.json();
+      error.value = body.message || "Something went wrong!";
+      console.log(error.value);
+    }
+  } catch (err) {
+    error.value = err.message || "Network error!";
+    console.log(error.value);
+  } finally {
+    loading.value = false;
+  }
+});
 </script>
 
 <template>
   <!-- backgroundPosition: 'top center, bottom -200px center', -->
   <div
-    class="relative flex  items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 bg-no-repeat bg-cover py-8"
+    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
       backgroundImage: 'url(/ContactUsTopbg.svg), url(/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
@@ -42,7 +94,7 @@ const handleSubmit = (values) => {
     }"
   >
     <div
-      class="flex flex-col lg:flex-row  gap-4 lg:gap-12 items-center w-full container mx-auto"
+      class="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center w-full container mx-auto"
     >
       <!-- Left Column: Title & Description -->
       <div class="w-full text-left flex flex-col space-y-4">
@@ -59,68 +111,124 @@ const handleSubmit = (values) => {
         <div
           class="bg-black bg-opacity-40 rounded-2xl p-8 shadow-lg backdrop-blur-md w-full"
         >
-          <BaseForm :schema="schema" :onSubmit="handleSubmit" class="">
-            <CustomInput name="name" label="Name" placeholder="Enter here" />
+          <form @submit.prevent="onSubmit">
+            <div class="space-y-3">
+              <div>
+                <label
+                  for="name"
+                  class="text-gray-200 font-medium cursor-pointer"
+                >
+                  Name <span class="text-red-500">*</span>
+                </label>
+                <CustomInput
+                  v-model="name.value.value"
+                  name="name"
+                  placeholder="Enter here"
+                />
+                <span
+                  v-if="name.errorMessage.value"
+                  class="text-xs text-red-500"
+                  >{{ name.errorMessage.value }}</span
+                >
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="text-gray-200 font-medium cursor-pointer"
+                >
+                  Email Address <span class="text-red-500">*</span>
+                </label>
+                <CustomInput
+                  v-model="email.value.value"
+                  name="email"
+                  type="email"
+                  placeholder="Enter here"
+                />
+                <span
+                  v-if="email.errorMessage.value"
+                  class="text-xs text-red-500"
+                  >{{ email.errorMessage.value }}</span
+                >
+              </div>
+              <div>
+                <label
+                  for="phone"
+                  class="text-gray-200 font-medium cursor-pointer"
+                >
+                  Phone <span class="text-red-500">*</span>
+                </label>
+                <CustomInput
+                  v-model="phone.value.value"
+                  name="phone"
+                  type="phone"
+                  placeholder="Enter here"
+                />
+                <span
+                  v-if="phone.errorMessage.value"
+                  class="text-xs text-red-500"
+                  >{{ phone.errorMessage.value }}</span
+                >
+              </div>
 
-            <CustomInput
-              name="email"
-              label="Email address"
-              type="email"
-              placeholder="Enter here"
-            />
-
-            <CustomInput
-              name="phone"
-              label="Phone Number"
-              type="tel"
-              placeholder="Enter here"
-            />
-
-            <div class="input-group">
-              <label class="text-sm text-gray-200">Message</label>
-              <Field name="help" v-slot="{ field, errorMessage }">
+              <div class="input-group">
+                <label
+                  for="message"
+                  class="text-gray-200 font-medium cursor-pointer"
+                >
+                  Message <span class="text-red-500">*</span>
+                </label>
                 <textarea
-                  v-bind="field"
+                  v-model="message.value.value"
+                  name="message"
                   class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter Here"
                   rows="4"
                 ></textarea>
-                <span v-if="errorMessage" class="text-xs text-red-500">{{
-                  errorMessage
-                }}</span>
-              </Field>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <Field
-                name="terms"
-                type="checkbox"
-                v-slot="{ field, errorMessage }"
-              >
-                <div class="flex space-x-2">
+                <span
+                  v-if="message.errorMessage.value"
+                  class="text-xs text-red-500"
+                  >{{ message.errorMessage.value }}</span
+                >
+              </div>
+              <!-- Terms & Conditions -->
+              <div class="flex items-start gap-2">
+                <div class="relative flex items-start">
                   <input
+                    id="terms"
                     type="checkbox"
-                    v-bind="field"
-                    class="rounded bg-gray-700 border-gray-600"
+                    v-model="terms.value.value"
+                    class="mt-1 h-4 w-4 cursor-pointer"
+                    :class="{ 'border-red-500': terms.errorMessage.value }"
+                    required
                   />
-                  <label class="text-sm text-gray-200">
-                    I confirm I have read and agree to OpenObserve's
-                    <a href="#" class="text-blue-500">Terms and Conditions</a>.
-                  </label>
-                  <span
-                    v-if="errorMessage"
-                    class="text-xs text-red-500 block"
-                    >{{ errorMessage }}</span
-                  >
                 </div>
-              </Field>
-            </div>
-            <div class="flex justify-center mt-5">
+                <div class="ml-2">
+                  <label
+                    for="terms"
+                    class="text-white cursor-pointer select-none"
+                  >
+                    I confirm I have read and agree to OpenObserve's
+                    <a
+                      href="/terms-and-conditions"
+                      class="text-blue-500 underline"
+                      @click="navigateToTerms"
+                    >
+                    </a>
+                    <span class="text-red-500">*</span>
+                  </label>
+                  <p
+                    v-if="terms.errorMessage.value"
+                    class="text-xs text-red-500 mt-1"
+                  >
+                    {{ terms.errorMessage.value }}
+                  </p>
+                </div>
+              </div>
               <CustomButton variant="secondary" type="submit">
                 GET IN TOUCH
               </CustomButton>
             </div>
-          </BaseForm>
+          </form>
         </div>
       </div>
     </div>
