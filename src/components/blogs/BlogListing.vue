@@ -43,7 +43,7 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="`/${type === 'blog' ? 'blog' : 'article'}/${blog.slug}`"
+          :href="`/${type === 'blog' ? 'blog' : 'articles'}/${blog.slug}`"
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
