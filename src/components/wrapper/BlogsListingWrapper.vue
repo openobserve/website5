@@ -35,6 +35,7 @@
     <div class="py-10">
       <Heading :title="title" :description="description" align="CENTER" />
     </div>
+    {{ console.log(blogsData, "blogsData") }}
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
         :sectionData="blogsData"
@@ -44,7 +45,7 @@
         linkColor="text-[#00A3FF]"
       />
     </div>
-
+{{console.log(type,"Riddhi")}}
     <div class="hidden md:block">
       <BlogListing
         :sectionData="blogsData"
@@ -52,13 +53,16 @@
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
         linkColor="text-[#00A3FF]"
+        :type="type"
       />
     </div>
+    {{console.log(type)}}
     <BlogPagination
       :totalItems="totalItems"
       :itemsPerPage="itemsPerPage"
       :currentPage="currentPage"
       client:load
+      :type="type"
     />
 
     <!-- <div class="flex justify-center py-10">
@@ -85,6 +89,7 @@ const props = defineProps({
   currentPage: { type: Number, required: true },
   suggestionData: { type: Array, required: true },
   totalItems: { type: Number, required: true },
+  type: { type: String, required: true },
 });
 // console.log(props, "propss")
 const searchQuery = ref("");

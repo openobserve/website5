@@ -7,9 +7,9 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/cache";
-import { getTotalCounts } from "@/utils/cache";
-import { getAllBlogsCategoriesAndAuthors } from "@/utils/cache";
+import { getAllCategories, getBlogsByPagination, getCaseStudies, getResourceBlogsByPagination } from "../../utils/cache";
+import { getTotalCounts } from "../../utils/cache"
+import { getAllBlogsCategoriesAndAuthors } from "../../utils/cache";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;
@@ -18,7 +18,7 @@ const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
 await getAllBlogsCategoriesAndAuthors();
-const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
 
 const suggestionData = getAllCategories();
 
@@ -45,9 +45,12 @@ const cardData = [
   />
   <CaseStudyWrapper
     data={loadcaseStudyData}
+    title="Blog Posts"
+    subtitle="Latest articles and updates"
     client:load
   />
   <BlogsListingWrapper
+    type="article"
     blogsData={blogsData}
     currentPage={currentPage}
     suggestionData={suggestionData.slice(0,15)}

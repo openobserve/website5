@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
+import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
+import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import fetchApi from "../../utils/strapi";
+import { getCaseStudies } from "../../utils/cache";
+export async function getStaticPaths() {
+  const PageData: string[] = await fetchApi({
+    endpoint: "api/resource-pages",
+    query: { populate: "*", "pagination[pageSize]": 100 },
+  });
+  const slugs = PageData?.data;
+  return slugs.map((it: any) => ({
+    params: { slug: it.slug },
+  }));
+}
+const { slug }: any = Astro.params;
+console.log(slug);
+const SlugData = await fetchApi({
+  endpoint: "api/resource-pages",
+  query: { populate: "*", "filters[slug][$eq]": slug },
+});
+
+const loadcaseStudyData = getCaseStudies();
+---
+
+<Layout>
+  <BlogDetailsHeroSectionWrapper
+    title={SlugData?.data[0].title}
+    bottomImage={SlugData?.data[0].image?.formats?.large?.url ||
+      SlugData?.data[0].image?.url}
+    client:load
+    suggestions={SlugData?.data[0].categories}
+  />
+  <BlogDetailContentWrapper client:load content={SlugData?.data[0].content} />
+  <SingleAuthorDetails author={SlugData?.data[0].authors[0]} client:load />
+  <CaseStudyWrapper
+    title="Want to know more? Check out these Blogs."
+    description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."
+    items={loadcaseStudyData}
+    client:load
+    primaryButton={{
+      text: "See All Blogs",
+      link: "/blog",
+    }}
+  />
+</Layout>

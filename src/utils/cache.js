@@ -228,7 +228,6 @@ export async function getAllBlogsCategoriesAndAuthors() {
     resourcesCategoriesPromise
   ]);
 
-  console.log("Resources loaded", resCategories.length, resBlogs.length);
 
   setCachedData(categories, blogs, authors, resBlogs, resCategories, {
     authorsCount: authors.length,
@@ -248,11 +247,7 @@ async function fetchAllPages(endpoint) {
   while (page <= totalPages) {
     const response = await fetchApi({
       endpoint,
-      query: {
-        "pagination[pageSize]": 100,
-        "pagination[page]": page,
-        populate: "*",
-      },
+      query: { "pagination[pageSize]": 100, "pagination[page]": page , "populate": "*" },
     });
 
     if (response?.data) {

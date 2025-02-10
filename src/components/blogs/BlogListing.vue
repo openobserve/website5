@@ -29,6 +29,10 @@ const props = defineProps({
     type: String,
     default: "text-[#00A3FF]",
   },
+  type: {
+    type: String,
+    default: "blog",
+  }
 });
 </script>
 
@@ -39,7 +43,7 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="`/blog/${blog.slug}`"
+          :href="`/${type === 'blog' ? 'blog' : 'article'}/${blog.slug}`"
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
@@ -49,7 +53,6 @@ const props = defineProps({
           <!-- Left Side - Image -->
           <div
             class="h-48 w-full flex-shrink-0 bg-cover bg-center"
-            :style="{ backgroundImage: `url(${blog.image?.url || ''})` }"
           >
             <img
               :src="blog.image?.url || ''"
