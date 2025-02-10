@@ -32,10 +32,23 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection sectionClass="py-6 lg:py-8 xl:py-16" v-if="heading?.title || heading?.subtitle">
-    <Heading v-if="heading?.title || heading?.subtitle" :title="heading?.title" :description="heading?.subtitle"
-      align="CENTER" />
+  <CustomSection
+    sectionClass="py-6 lg:py-8 xl:py-16"
+    v-if="heading?.title || heading?.subtitle"
+  >
+    <Heading
+      v-if="heading?.title || heading?.subtitle"
+      :title="heading?.title"
+      :description="heading?.subtitle"
+      align="CENTER"
+    />
   </CustomSection>
-  <CustomBanner :bannerTitle="bannerTitle" :bannerDescription="bannerDescription" :primaryButton="primaryButton"
-    :secondaryButton="secondaryButton" />
+  <div :class="!heading?.title && 'mt-5'">
+    <CustomBanner
+      :bannerTitle="bannerTitle"
+      :bannerDescription="bannerDescription"
+      :primaryButton="primaryButton"
+      :secondaryButton="secondaryButton"
+    />
+  </div>
 </template>

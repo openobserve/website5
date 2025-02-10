@@ -263,13 +263,13 @@
                 <li class="cursor-pointer">
                   <a
                     href="https://openobserve.ai/docs/"
-                    class="text-lg font-bold"
+                    class="text-lg font-bold gradient-hover"
                     target="_blank"
                     >Documentation</a
                   >
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/blog" class="text-lg font-bold">Blogs</a>
+                  <a href="/blog" class="text-lg font-bold gradient-hover">Blog</a>
                 </li>
               </ul>
             </div>
@@ -278,7 +278,7 @@
               v-for="(item, index) in items.resources.item2"
               :key="index"
             >
-              <h4 class="text-base font-bold gradient-hover">
+              <h4 class="text-base font-bold ">
                 {{ item.title }}
               </h4>
               <ul class="" v-for="(it, index) in item.items" :key="index">
