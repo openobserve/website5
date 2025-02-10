@@ -37,8 +37,7 @@ const cloudData = {
   namePlaceholder: "Name",
   emailPlaceholder: "Enter here",
   passwordPlaceholder: "Password",
-  termsText:
-    "Confirm I have read and agree to OpenObserve's Terms and Conditions.",
+  termsText: "Confirm I have read and agree to OpenObserve's Terms and Conditions.",
   buttonText: "CREATE AN ACCOUNT",
   trialText: "15-day unlimited usage trial",
   loginText: "Login with",
@@ -65,8 +64,7 @@ const selfHostedData = {
   --e Z0_ROOT_USER_PASSWORD="Complexpass#123" \\
   public.ecr.aws/zinc\\abs/openobserve:latest`,
   downloadTitle: "Download",
-  downloadText:
-    "Binaries can be downloaded from releases page for the appropriate platform.",
+  downloadText: "Binaries can be downloaded from releases page for the appropriate platform.",
   enterpriseTitle: "Enterprise",
   enterpriseSubtitle: "Enterprise-Grade Features for Complex Environments",
   features: [
@@ -89,42 +87,41 @@ const caseStudyData = [
     title: "Quick Start Guide",
     description: "Learn how to deploy OpenObserve in just a few steps.",
     btnTitle: "VIEW GUIDE",
-    link: "#",
+    link: "/docs/getting-started",
   },
   {
     image: "/blogColor-2.png",
     title: "Integration Docs",
     description: "Leverage pre-configured dashboards and workflows",
     btnTitle: "EXPLORE INTEGRATIONS ",
-    link: "#",
+    link: "/docs",
   },
   {
     image: "/blogColor-3.png",
     title: "Community Templates",
     description: "Leverage pre-configured dashboards and workflows.",
     btnTitle: "BROWSE TEMPLATES",
-    link: "#",
+    link: "https://github.com/openobserve/dashboards",
   },
   {
     image: "/blogColor-3.png",
     title: "Blog Posts",
-    description:
-      "Optimize your monitoring strategy with export written articles.S",
+    description: "Optimize your monitoring strategy with export written articles.S",
     btnTitle: "EXPLORE BLOG POSTS",
-    link: "#",
+    link: "/blog",
   },
 ];
 const bannerData = {
-      bannerTitle: "Fair and transparent pricing",
-      bannerDescription: "Only pay for what you use.",
-      primaryButton:{ text: "VIEW PRICING PLANS" , buttonLink:"/"},
-      secondaryButton:{ text: "GET STARTED FOR FREE" , buttonLink:"/"},
+  bannerTitle: "Fair and transparent pricing",
+  bannerDescription: "Only pay for what you use.",
+  primaryButton: { text: "VIEW PRICING PLANS", buttonLink: "/" },
+  secondaryButton: { text: "GET STARTED FOR FREE", buttonLink: "/" },
 };
 const FaqData = {
-  heading:{
-    title: "OpenObserve Logs FAQ's"
+  heading: {
+    title: "OpenObserve Logs FAQ's",
   },
-  items:[
+  items: [
     {
       question: "Why choose OpenObserve for Log Management?",
       answer:
@@ -151,7 +148,7 @@ const FaqData = {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ],
-}
+};
 ---
 
 <Layout>
@@ -169,12 +166,13 @@ const FaqData = {
     description={caseStudyTitle.subtitle}
     client:load
   />
-  <CustomBanner 
-  bannerTitle={bannerData.bannerTitle} 
-  bannerDescription={bannerData.bannerDescription}
-  primaryButton={bannerData.primaryButton}
-  secondaryButton={bannerData.secondaryButton}
-  client:load />
+  <CustomBanner
+    bannerTitle={bannerData.bannerTitle}
+    bannerDescription={bannerData.bannerDescription}
+    primaryButton={bannerData.primaryButton}
+    secondaryButton={bannerData.secondaryButton}
+    client:load
+  />
   <!-- <FaqWrapper
    faqs={FaqData.items}
    heading={FaqData.heading} 
