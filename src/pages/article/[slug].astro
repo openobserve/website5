@@ -8,7 +8,7 @@ import fetchApi from "../../utils/strapi";
 import { getCaseStudies } from "../../utils/cache";
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
-    endpoint: "api/blog-pages",
+    endpoint: "api/resource-pages",
     query: { populate: "*", "pagination[pageSize]": 100 },
   });
   const slugs = PageData?.data;
@@ -17,8 +17,9 @@ export async function getStaticPaths() {
   }));
 }
 const { slug }: any = Astro.params;
+console.log(slug);
 const SlugData = await fetchApi({
-  endpoint: "api/blog-pages",
+  endpoint: "api/resource-pages",
   query: { populate: "*", "filters[slug][$eq]": slug },
 });
 

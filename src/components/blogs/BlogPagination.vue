@@ -4,7 +4,7 @@
     <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
       :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
-      :href="'/blog/page/' + (currentPage - 1)"
+      :href="`/${type === 'blog' ? 'blog' : 'article'}/page/${currentPage - 1}`"
     >
       Previous
     </a>
@@ -14,7 +14,7 @@
       <a
         v-for="page in displayedPages"
         :key="page"
-        :href="'/blog/page/' + page"
+        :href="'/' + (type === 'blog' ? 'blog' : 'article') + '/page/' + page"
         :class="[
           'px-4 py-2 mx-1 rounded-lg',
           page === currentPage
@@ -29,7 +29,7 @@
     <!-- Next Button -->
     <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg"
-      :href="'/blog/page/' + (currentPage + 1)"
+      :href="'/' + (type === 'blog' ? 'blog' : 'article') + '/page/' + (currentPage + 1)"
       :class="{ 'opacity-50 pointer-events-none': currentPage === totalPages }"
     >
       Next
@@ -54,6 +54,10 @@ const props = defineProps({
     required: true,
     default: 1,
   },
+  type: {
+    type: String,
+    required: true,
+  }
 });
 const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>

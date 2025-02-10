@@ -247,11 +247,7 @@ async function fetchAllPages(endpoint) {
   while (page <= totalPages) {
     const response = await fetchApi({
       endpoint,
-      query: {
-        "pagination[pageSize]": 100,
-        "pagination[page]": page,
-        populate: "*",
-      },
+      query: { "pagination[pageSize]": 100, "pagination[page]": page , "populate": "*" },
     });
 
     if (response?.data) {
