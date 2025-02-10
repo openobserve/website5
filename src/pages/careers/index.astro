@@ -5,14 +5,14 @@ import ComponentCollectionMapper from "../../components/ComponentCollectionMappe
 
 const PageData = await fetchApi({
   endpoint: "api/job",
-  query: { pLevel: "10" , status: "draft"},
+  query: { pLevel: "10", status: "draft" },
 });
-
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
-  <ComponentCollectionMapper data={PageData?.data?.body}  client:load/>
-<!-- 
+<Layout metaObj={metaObj}>
+  <ComponentCollectionMapper data={PageData?.data?.body} client:load />
+  <!-- 
   <CustomStory
   title={ourStoryData.title}
   description={ourStoryData.description}

@@ -60,7 +60,7 @@ const props = defineProps({
   },
   caseStudyData : {
     type: Array,
-    required: true
+    required: false
   }
 
 });

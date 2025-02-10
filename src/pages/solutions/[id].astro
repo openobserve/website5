@@ -31,9 +31,10 @@ const PageData = await fetchApi({
 });
 await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <ComponentCollectionMapper
     data={PageData?.data[0]?.body}
     caseStudyData={loadcaseStudyData}
