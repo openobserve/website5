@@ -41,6 +41,7 @@ const error = ref(null);
 
 // Handle form submission
 const onSubmit = handleSubmit(async (values) => {
+  console.log("Hello")
   loading.value = true;
   error.value = null;
 
@@ -53,34 +54,40 @@ Data Volume: ${values.dataVolume}
 Message: ${values.message}
   `.trim();
 
-  try {
-    const response = await fetch(
-      "https://run.mocky.io/v3/a2626aa7-8f2d-4ef4-a811-bcf7fa85d9d3",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          senderName: values.name,
-          senderEmail: values.email,
-          senderPhone: values.phone,
-          senderMessage: finalMessage,
-        }),
-      }
-    );
+  // try {
+  //   const response = await fetch(
+  //     "https://run.mocky.io/v3/a2626aa7-8f2d-4ef4-a811-bcf7fa85d9d3",
+  //     {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({
+  //         senderName: values.name,
+  //         senderEmail: values.email,
+  //         senderPhone: values.phone,
+  //         senderMessage: finalMessage,
+  //       }),
+  //     }
+  //   );
 
-    if (response.ok) {
-      console.log("Email sent successfully!");
-      window.location.assign("/thank-you");
-    } else {
-      const body = await response.json();
-      error.value = body.message || "Something went wrong!";
-    }
-  } catch (err) {
-    error.value = err.message || "Network error!";
-  } finally {
-    loading.value = false;
-  }
+  //   if (response.ok) {
+  //     console.log("Email sent successfully!");
+  //     window.location.assign("/thank-you");
+  //   } else {
+  //     const body = await response.json();
+  //     error.value = body.message || "Something went wrong!";
+  //   }
+  // } catch (err) {
+  //   error.value = err.message || "Network error!";
+  // } finally {
+  //   loading.value = false;
+  // }
 });
+
+const navigateToTerms = (e) => {
+  e.preventDefault();
+  window.location.assign("/terms-and-conditions"); // Update with your terms page URL
+};
+
 </script>
 <!-- SampleForm.vue -->
 <template>
