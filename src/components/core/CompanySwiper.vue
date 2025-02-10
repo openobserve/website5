@@ -1,6 +1,6 @@
 <script setup>
-import { computed, defineProps } from 'vue';
-import CustomImage from './CustomImage.vue';
+import { computed, defineProps } from "vue";
+import CustomImage from "./CustomImage.vue";
 
 // Props definition
 const props = defineProps({
@@ -10,25 +10,25 @@ const props = defineProps({
   },
 });
 
-// Create a computed property to duplicate the data array
+// Duplicate items once for seamless infinite scrolling
 const repeatedData = computed(() => {
-  const result = []
-  // loop 100 times
-  Array.from({ length: 100 }, (_, index) => {
-    result.push(...props.items)
-  })
-  return result
+  return [...props.items, ...props.items]; // Just duplicate once for smooth looping
 });
 </script>
-
 
 <template>
   <div class="py-10 container mx-auto">
     <div class="carousel-container">
       <div class="slide flex flex-row justify-center items-center">
-        <div v-for="(item, index) in repeatedData" :key="index"
-          class="flex-none h-16 grayscale transition duration-200 hover:grayscale-0 mx-4">
-          <CustomImage :image="item?.Image" cssClass="w-full h-full object-cover" />
+        <div
+          v-for="(item, index) in repeatedData"
+          :key="index"
+          class="flex-none h-14 grayscale transition duration-200 hover:grayscale-0 mx-8"
+        >
+          <CustomImage
+            :image="item?.Image"
+            cssClass="w-full h-full object-cover"
+          />
           <!-- :alt="item.altText" -->
         </div>
       </div>
@@ -36,10 +36,9 @@ const repeatedData = computed(() => {
   </div>
 </template>
 
-
 <style scoped>
 /* Add your styles if needed or import them */
-@keyframes slide {
+@keyframes infiniteScroll {
   from {
     transform: translateX(0);
   }
@@ -50,12 +49,11 @@ const repeatedData = computed(() => {
 }
 
 .slide {
-  flex-wrap: nowrap;
-  animation: slide 25s infinite linear;
+  display: flex;
+  animation: infiniteScroll 35s linear infinite;
   /* Adjust time based on number of items */
-  transition: translateX 0.5s ease;
   /* width: max-content; Ensure the slide container fits the content */
-  width: calc(200% + 16px);
+  width: max-content;
   /* Adjust to fit the doubled content */
 }
 
@@ -63,6 +61,13 @@ const repeatedData = computed(() => {
   position: relative;
   overflow: hidden;
   width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
   /* border-radius: 8px; */
 }
@@ -75,7 +80,7 @@ const repeatedData = computed(() => {
 /* Gradient effect at both ends with rounded corners */
 .carousel-container::before,
 .carousel-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -88,13 +93,21 @@ const repeatedData = computed(() => {
 
 .carousel-container::before {
   left: 0;
-  background: linear-gradient(to right, black 0%, rgba(var(--gray-dark), 0) 100%);
+  background: linear-gradient(
+    to right,
+    black 0%,
+    rgba(var(--gray-dark), 0) 100%
+  );
   width: 40px;
 }
 
 .carousel-container::after {
   right: 0;
-  background: linear-gradient(to left, rgba(var(--gray-dark), 1) 0%, rgba(var(--gray-dark), 0) 100%);
+  background: linear-gradient(
+    to left,
+    rgba(var(--gray-dark), 1) 0%,
+    rgba(var(--gray-dark), 0) 100%
+  );
   width: 6px;
 }
 
