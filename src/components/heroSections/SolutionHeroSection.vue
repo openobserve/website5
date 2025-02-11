@@ -73,8 +73,8 @@ defineProps({
         <div class="block md:hidden text-start">
           <CustomFeatureSliderCard
             :cards="items"
-            titleTextColor="text-gray-800"
-            descriptionTextColor="text-gray-600"
+            titleTextColor="text-white"
+            descriptionTextColor="text-slate-200 "
           />
         </div>
 
