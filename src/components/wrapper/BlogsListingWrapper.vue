@@ -21,6 +21,7 @@
         <CustomSuggestions
           :suggestions="suggestionData"
           @selectSuggestion="selectSuggestion"
+          :type="type"
         />
         <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
           <!-- <div class="bg-black border border-gray-500 rounded-md p-2">
@@ -42,7 +43,7 @@
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
         linkColor="text-[#00A3FF]"
-         :type="type"
+        :type="type"
       />
     </div>
     <div class="hidden md:block">
@@ -62,18 +63,12 @@
       client:load
       :type="type"
     />
-
-    <!-- <div class="flex justify-center py-10">
-      <CustomButton variant="secondary" size="medium" buttonText="SEE ALL BLOGS" />
-    </div> -->
   </section>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomButton from "../core/CustomButton.vue";
 import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import BlogListing from "../blogs/BlogListing.vue";

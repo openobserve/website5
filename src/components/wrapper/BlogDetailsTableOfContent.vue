@@ -6,8 +6,8 @@
         <a
           :href="`#${heading.id}`"
           class="block text-sm font-medium text-white hover:text-blue-400"
-          :class="{ 'bg-blue-500 text-white p-2 rounded-lg': activeSectionId === heading.id }"
-          @click.prevent="setActiveSection(heading.id)"
+          :class="{ 'bg-blue-500 text-white p-2 rounded-lg': currentSection === heading.id }"
+          @click="setActiveSection(heading.id)"
         >
           {{ heading.text }}
         </a>
@@ -16,8 +16,8 @@
             <a
               :href="`#${subHeading.id}`"
               class="block text-sm font-normal text-white hover:text-blue-400"
-              :class="{ 'bg-blue-500 text-white p-2 rounded-lg': activeSectionId === subHeading.id }"
-              @click.prevent="setActiveSection(subHeading.id)"
+              :class="{ 'bg-blue-500 text-white p-2 rounded-lg': currentSection  === subHeading.id }"
+              @click="setActiveSection(subHeading.id)"
             >
               {{ subHeading.text }}
             </a>
@@ -36,12 +36,16 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  activeSection: {
+    type: String,
+    required: false,
+  }
+});
+const currentSection = computed(() => {
+  return props.activeSection || null;
 });
 
-const activeSectionId = ref(null); // Store clicked section
-
 const setActiveSection = (id) => {
-  activeSectionId.value = id; // Update clicked section
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
@@ -62,3 +66,4 @@ const nestedHeadings = computed(() => {
   return nested;
 });
 </script>
+
