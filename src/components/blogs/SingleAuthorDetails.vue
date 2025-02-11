@@ -12,6 +12,9 @@ const props = defineProps({
       publishedAt: string;
       name: string;
       bio: string;
+      image: {
+        url: string;
+      }
       slug: string;
       youtubeUrl?: string | null;
       linkedInUrl?: string | null;
@@ -60,8 +63,8 @@ const props = defineProps({
           class="w-full md:w-1/6 h-44 md:h-auto relative flex items-center justify-center bg-gray-800"
         >
           <img
-            v-if="author.imageUrl"
-            :src="author.imageUrl"
+            v-if="author.image.url"
+            :src="author.image.url"
             :alt="author.name"
             class="w-full h-full object-cover absolute inset-0"
           />

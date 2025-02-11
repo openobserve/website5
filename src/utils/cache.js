@@ -8,6 +8,7 @@ let cache = {
   authors: null,
   resourcesBlogs: null,
   resourcesCategories: null,
+  resourceAuthor: null,
   len: {
     authorsCount: 0,
     blogsCount: 0,
@@ -51,6 +52,14 @@ export function getBlogsByPagination(page, pageSize) {
   return cache.blogs.slice(start, end);
 }
 
+export function getResourceAuthors() {
+  return cache.resourceAuthor;
+}
+
+export function getResourceBlogsByAuthor(author) {
+  return cache.resourcesBlogs.filter(blog => blog.authors[0].slug == author);
+}
+
 export function getResourceBlogsByPagination(page, pageSize) {
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
@@ -59,6 +68,14 @@ export function getResourceBlogsByPagination(page, pageSize) {
 
 export function getBlogsByCategory(category) {
   return cache.blogs.filter(blog => blog.categories.map(cat => cat.slug).includes(category));
+}
+
+export function getBlogsBySlug(slug) {
+  return cache.blogs.filter(blog => blog.slug == slug);
+}
+
+export function getResBlogsBySlug(slug) {
+  return cache.resourcesBlogs.filter(blog => blog.slug == slug);
 }
 
 export function getResourceBlogsByCategory(category) {
@@ -74,11 +91,12 @@ export function getCaseStudies() {
   return caseStudies.slice(0, 3);
 }
 
-export function setCachedData(categories, blogs, authors, resBlogs, resCategories, len) {
+export function setCachedData(categories, blogs, authors, resBlogs, resAuthors, resCategories, len) {
   cache.categories = categories;
   cache.blogs = blogs;
   cache.authors = authors;
   cache.resourcesBlogs = resBlogs;
+  cache.resourceAuthor = resAuthors;
   cache.resourcesCategories = resCategories;
   cache.len = len;
 }
@@ -87,99 +105,6 @@ export function clearCache() {
   cache = { categories: null, blogs: null, authors: null, resourcesBlogs: null, resourcesCategories: null, len: {} };
 }
 
-// export async function getAllBlogsCategoriesAndAuthors() {
-//   const cachedData = getCachedData();
-//   if (cachedData.categories && cachedData.blogs && cachedData.authors && cachedData.resourcesBlogs && cachedData.resourcesCategories) {
-//     return cachedData;
-//   }
-
-//   let categories = [];
-//   let blogs = [];
-//   let authors = [];
-//   let resBlogs = [];
-//   let resCategories = [];
-//   if (!cachedData.categories) {
-//     let page = 1;
-//     let totalPages = 1;
-
-//     while (page <= totalPages) {
-//       const categoriesResponse = await fetchApi({
-//         endpoint: "api/categories",
-//         query: {
-//           "pagination[pageSize]": 100,
-//           "pagination[page]": page
-//         },
-//       });
-//       if (categoriesResponse?.data) {
-//         categories = [...categories, ...categoriesResponse.data];
-//         totalPages = categoriesResponse.meta.pagination.pageCount;
-//       }
-//       page += 1;
-//     }
-//   }
-
-//   if (!cachedData.blogs) {
-//     const blogsResponse = await fetchApi({
-//       endpoint: "api/blog-pages",
-//       query: { "pagination[pageSize]": 100, "populate": "*" },
-//     });
-
-//     blogs = blogsResponse?.data || [];
-//     blogs.sort((a, b) => a.id - b.id);
-//   }
-
-//   if (!cachedData.authors) {
-//     const authorsResponse = await fetchApi({
-//       endpoint: "api/authors",
-//       query: { "pagination[pageSize]": 100 },
-//     });
-//     authors = authorsResponse?.data || [];
-//   }
-
-//   if (!cachedData.resourcesBlogs) {
-//     let page = 1;
-//     let totalPages = 1;
-
-//     while (page <= totalPages) {
-//       const blogsResponse = await fetchApi({
-//         endpoint: "api/resource-pages",
-//         query: {
-//           "pagination[pageSize]": 100,
-//           "pagination[page]": page
-//         },
-//       });
-//       if (blogsResponse?.data) {
-//         resBlogs = [...resBlogs, ...blogsResponse.data];
-//         totalPages = blogsResponse.meta.pagination.pageCount;
-//       }
-//       page += 1;
-//     }
-//     resBlogs.sort((a, b) => a.id - b.id);
-//   }
-
-//   if (!cachedData.categories) {
-//     let page = 1;
-//     let totalPages = 1;
-
-//     while (page <= totalPages) {
-//       const categoriesResponse = await fetchApi({
-//         endpoint: "api/resource-categories",
-//         query: {
-//           "pagination[pageSize]": 100,
-//           "pagination[page]": page
-//         },
-//       });
-//       if (categoriesResponse?.data) {
-//         resCategories = [...resCategories, ...categoriesResponse.data];
-//         totalPages = categoriesResponse.meta.pagination.pageCount;
-//       }
-//       page += 1;
-//     }
-//   }
-//   console.log("resources loaded", resCategories.length, resBlogs.length);
-//   setCachedData(categories, blogs, authors, resBlogs, resCategories, { authorsCount: authors.length, blogsCount: blogs.length, categoriesCount: categories.length, resourcesBlogsCount: resBlogs.length, resourcesCategoriesCount: resCategories.length});
-//   return { categories, blogs };
-// }
 export async function getAllBlogsCategoriesAndAuthors() {
   const cachedData = getCachedData();
   if (
@@ -187,7 +112,8 @@ export async function getAllBlogsCategoriesAndAuthors() {
     cachedData.blogs &&
     cachedData.authors &&
     cachedData.resourcesBlogs &&
-    cachedData.resourcesCategories
+    cachedData.resourcesCategories &&
+    cachedData.resourceAuthor
   ) {
     return cachedData;
   }
@@ -196,21 +122,29 @@ export async function getAllBlogsCategoriesAndAuthors() {
     ? Promise.resolve([])
     : fetchAllPages("api/categories");
 
-    const blogsPromise = cachedData.blogs
-      ? Promise.resolve([])
-      : fetchApi({
-          endpoint: "api/blog-pages",
-          query: { "pagination[pageSize]": 100, populate: "*" },
-        })
-          .then((response) => response?.data || [])
-          .then((blogs) => blogs.sort((a, b) => a.id - b.id));
+  const blogsPromise = cachedData.blogs
+    ? Promise.resolve([])
+    : fetchApi({
+      endpoint: "api/blog-pages",
+      query: { "pagination[pageSize]": 100, populate: "*" },
+    })
+      .then((response) => response?.data || [])
+      .then((blogs) => blogs.sort((a, b) => a.id - b.id));
 
   const authorsPromise = cachedData.authors
     ? Promise.resolve([])
     : fetchApi({
-        endpoint: "api/authors",
-        query: { "pagination[pageSize]": 100, populate: "*" },
-      }).then((response) => response?.data || []);
+      endpoint: "api/authors",
+      query: { "pagination[pageSize]": 100, populate: "*" },
+    }).then((response) => response?.data || []);
+
+  const resourceAuthorsPromise = cachedData.authors
+    ? Promise.resolve([])
+    : fetchApi({
+      endpoint: "api/resource-authors",
+      query: { "pagination[pageSize]": 100, populate: "*" },
+    }).then((response) => response?.data || []);
+
   const resourcesBlogsPromise = cachedData.resourcesBlogs
     ? Promise.resolve([])
     : fetchAllPages("api/resource-pages").then(blogs => blogs.sort((a, b) => a.id - b.id));
@@ -220,16 +154,16 @@ export async function getAllBlogsCategoriesAndAuthors() {
     : fetchAllPages("api/resource-categories");
 
   // Execute all API calls in parallel
-  const [categories, blogs, authors, resBlogs, resCategories] = await Promise.all([
+  const [categories, blogs, authors, resBlogs, resCategories, resAuthors] = await Promise.all([
     categoriesPromise,
     blogsPromise,
     authorsPromise,
     resourcesBlogsPromise,
-    resourcesCategoriesPromise
+    resourcesCategoriesPromise,
+    resourceAuthorsPromise
   ]);
 
-
-  setCachedData(categories, blogs, authors, resBlogs, resCategories, {
+  setCachedData(categories, blogs, authors, resBlogs, resAuthors, resCategories, {
     authorsCount: authors.length,
     blogsCount: blogs.length,
     categoriesCount: categories.length,
@@ -237,7 +171,7 @@ export async function getAllBlogsCategoriesAndAuthors() {
     resourcesCategoriesCount: resCategories.length,
   });
 
-  return { categories, blogs };
+  return { categories, blogs, resBlogs, resCategories, authors, resAuthors };
 }
 async function fetchAllPages(endpoint) {
   let page = 1;
@@ -247,7 +181,7 @@ async function fetchAllPages(endpoint) {
   while (page <= totalPages) {
     const response = await fetchApi({
       endpoint,
-      query: { "pagination[pageSize]": 100, "pagination[page]": page , "populate": "*" },
+      query: { "pagination[pageSize]": 100, "pagination[page]": page, "populate": "*" },
     });
 
     if (response?.data) {
