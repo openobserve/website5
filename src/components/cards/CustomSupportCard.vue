@@ -10,7 +10,7 @@ interface SupportSection {
 const props = defineProps({
   card: {
     type: Object as () => {
-      icon: string;
+      image: string;
       title: string;
       description: string;
       items: SupportSection[];
@@ -52,10 +52,10 @@ const props = defineProps({
     <div class="flex flex-col items-center text-center">
       <!-- Icon -->
       <div
-        class="w-12 h-12 mb-[4vh]  flex items-center justify-center bg-[#2A2B2E] rounded-full"
+        class="w-12 h-12 mb-[4vh] flex items-center justify-center bg-[#2A2B2E] rounded-full"
       >
         <CustomImage
-          :image="card.icon"
+          :image="card.image"
           :altText="card.title"
           cssClass="w-6 h-6"
         />
@@ -91,7 +91,7 @@ const props = defineProps({
           :buttonLink="card?.primaryButton?.link"
         >
           <CustomImage
-            cssClass="w-10 h-4"
+            cssClass="w-10 h-5"
             v-if="card.primaryButton?.icon"
             :image="card?.primaryButton?.icon"
             altText="button icon "
@@ -105,7 +105,7 @@ const props = defineProps({
           :buttonLink="card?.secondaryButton?.link"
         >
           <CustomImage
-            cssClass="w-10 h-4"
+            cssClass="w-10 h-5"
             v-if="card?.secondaryButton?.icon"
             :image="card?.secondaryButton?.icon"
             altText="button icon "

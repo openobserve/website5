@@ -52,7 +52,7 @@ const props = defineProps({
   },
   target: {
     type: String,
-    required:false
+    required: false,
   },
   onClick: Function,
 });
@@ -73,11 +73,11 @@ const variants = {
   pricing: "button-white",
   heroButton: "hero-button",
   bannerPrimary: "banner-button-primary",
-  bannerSecondary: "banner-button-secondary"
+  bannerSecondary: "banner-button-secondary",
 };
 
 // make text all capital
-const containerClass = "uppercase text-nowrap text-center"
+const containerClass = "flex uppercase text-nowrap text-center";
 
 const buttonVariant = variants[props.variant];
 </script>
@@ -127,29 +127,34 @@ const buttonVariant = variants[props.variant];
 
 .primary-button:hover {
   /* Only change the border gradient on hover */
-  background-image: linear-gradient(90deg,
-      #0079dd -10.28%,
-      #3bb3ff 92.55%,
-      #76dbff 109.08%),
-    linear-gradient(180deg,
+  background-image:
+    linear-gradient(90deg, #0079dd -10.28%, #3bb3ff 92.55%, #76dbff 109.08%),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(128, 200, 255, 0.9) 20%,
       rgba(64, 169, 255, 0.85) 40%,
       rgba(0, 136, 255, 0.8) 60%,
       rgba(0, 106, 255, 0.75) 80%,
-      rgba(0, 68, 255, 0.7) 100%);
+      rgba(0, 68, 255, 0.7) 100%
+    );
 
   /* More uniform shadow spread */
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+  box-shadow:
+    0 0 15px rgba(0, 136, 255, 0.4),
+    0 0 20px rgba(0, 106, 255, 0.2);
 }
 
 /* Active state */
 .primary-button:active {
-  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
-    linear-gradient(180deg,
+  background-image:
+    linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.8) 0%,
       rgba(64, 169, 255, 0.7) 40%,
-      rgba(0, 106, 255, 0.6) 100%);
+      rgba(0, 106, 255, 0.6) 100%
+    );
   /* Slightly reduced shadow when pressed */
   box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
 }
@@ -157,14 +162,17 @@ const buttonVariant = variants[props.variant];
 /* Focus state for accessibility */
 .primary-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+  box-shadow:
+    0 0 0 3px rgba(0, 136, 255, 0.3),
+    0 0 10px rgba(0, 136, 255, 0.4);
 }
 
 /* Disabled state */
 .primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image:
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -199,31 +207,41 @@ const buttonVariant = variants[props.variant];
 .hero-button:hover {
   border: 2px solid transparent;
   /* Transparent border to show gradient */
-  background-image: linear-gradient(272deg,
+  background-image:
+    linear-gradient(
+      272deg,
       rgba(0, 139, 255, 0.8) 4.81%,
       rgba(53, 160, 252, 0.8) 39.26%,
-      rgba(153, 202, 233, 0.8) 94.28%),
-    linear-gradient(180deg,
+      rgba(153, 202, 233, 0.8) 94.28%
+    ),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(128, 200, 255, 0.9) 20%,
       rgba(64, 169, 255, 0.85) 40%,
       rgba(0, 136, 255, 0.8) 60%,
       rgba(0, 106, 255, 0.75) 80%,
-      rgba(0, 68, 255, 0.7) 100%);
+      rgba(0, 68, 255, 0.7) 100%
+    );
   /* Gradient background */
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+  box-shadow:
+    0 0 15px rgba(0, 136, 255, 0.4),
+    0 0 20px rgba(0, 106, 255, 0.2);
   /* Glow effect */
 }
 
 .tertiary-button:active,
 .hero-button:active {
-  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
-    linear-gradient(180deg,
+  background-image:
+    linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.8) 0%,
       rgba(64, 169, 255, 0.7) 40%,
-      rgba(0, 106, 255, 0.6) 100%);
+      rgba(0, 106, 255, 0.6) 100%
+    );
   box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
 }
 
@@ -236,7 +254,8 @@ const buttonVariant = variants[props.variant];
 .hero-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image:
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -269,32 +288,42 @@ const buttonVariant = variants[props.variant];
 .button-white:hover {
   border: 2px solid transparent;
   /* Transparent border to show gradient */
-  background-image: linear-gradient(272deg,
+  background-image:
+    linear-gradient(
+      272deg,
       rgba(0, 139, 255, 0.8) 4.81%,
       rgba(53, 160, 252, 0.8) 39.26%,
-      rgba(153, 202, 233, 0.8) 94.28%),
-    linear-gradient(180deg,
+      rgba(153, 202, 233, 0.8) 94.28%
+    ),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(128, 200, 255, 0.9) 20%,
       rgba(64, 169, 255, 0.85) 40%,
       rgba(0, 136, 255, 0.8) 60%,
       rgba(0, 106, 255, 0.75) 80%,
-      rgba(0, 68, 255, 0.7) 100%);
+      rgba(0, 68, 255, 0.7) 100%
+    );
   /* Gradient background */
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 20px rgba(0, 106, 255, 0.2);
+  box-shadow:
+    0 0 15px rgba(0, 136, 255, 0.4),
+    0 0 20px rgba(0, 106, 255, 0.2);
   /* Glow effect */
 }
 
 /* Active state */
 .secondary-button:active,
 .button-white:active {
-  background-image: linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
-    linear-gradient(180deg,
+  background-image:
+    linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.8) 0%,
       rgba(64, 169, 255, 0.7) 40%,
-      rgba(0, 106, 255, 0.6) 100%);
+      rgba(0, 106, 255, 0.6) 100%
+    );
   box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
   /* Subtle shadow */
 }
@@ -374,9 +403,11 @@ const buttonVariant = variants[props.variant];
 }
 
 .button-with-icon:hover::before {
-  background: linear-gradient(180deg,
-      rgba(156, 164, 169, 0.2) 0%,
-      rgba(62, 65, 67, 0.2) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(156, 164, 169, 0.2) 0%,
+    rgba(62, 65, 67, 0.2) 100%
+  );
 }
 
 .button-with-icon:hover::after {
@@ -384,21 +415,20 @@ const buttonVariant = variants[props.variant];
   position: absolute;
   inset: -2px;
   padding: 2px;
-  background: linear-gradient(180deg,
-      rgba(173, 216, 230, 0.95) 0%,
-      /* Light blue at the top */
-      rgba(100, 149, 237, 0.9) 25%,
-      /* Cornflower blue */
-      rgba(65, 105, 225, 0.85) 50%,
-      /* Royal blue in the middle */
-      rgba(0, 0, 205, 0.8) 75%,
-      /* Medium blue towards the bottom */
-      rgba(0, 0, 139, 0.75) 100%
+  background: linear-gradient(
+    180deg,
+    rgba(173, 216, 230, 0.95) 0%,
+    /* Light blue at the top */ rgba(100, 149, 237, 0.9) 25%,
+    /* Cornflower blue */ rgba(65, 105, 225, 0.85) 50%,
+    /* Royal blue in the middle */ rgba(0, 0, 205, 0.8) 75%,
+    /* Medium blue towards the bottom */ rgba(0, 0, 139, 0.75) 100%
       /* Navy blue at the bottom */
-    );
+  );
 
   border-radius: 100px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
@@ -407,17 +437,17 @@ const buttonVariant = variants[props.variant];
 
 .button-with-icon:hover {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
+  box-shadow:
+    0 0 0 3px rgba(0, 136, 255, 0.3),
+    0 0 10px rgba(0, 136, 255, 0.4);
 }
 
 .button-with-icon:hover {
   box-shadow:
     /* Inner glow */
     0 0 20px rgba(0, 136, 255, 0.3),
-    /* Middle layer */
-    0 5px 20px rgba(0, 106, 255, 0.3),
-    /* Outer glow */
-    0 5px 10px rgba(0, 68, 255, 0.3);
+    /* Middle layer */ 0 5px 20px rgba(0, 106, 255, 0.3),
+    /* Outer glow */ 0 5px 10px rgba(0, 68, 255, 0.3);
 }
 
 /* Banner Button Base Styles */
@@ -437,7 +467,8 @@ const buttonVariant = variants[props.variant];
 /* Primary Button with Gradient Shift */
 .banner-button-primary {
   color: white;
-  background-image: linear-gradient(45deg,
+  background-image: linear-gradient(
+    45deg,
     #000000 0%,
     #1a1a1a 50%,
     #000000 100%
@@ -452,16 +483,11 @@ const buttonVariant = variants[props.variant];
 
 /* Animated gradient border on hover */
 .banner-button-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   z-index: -1;
-  background: linear-gradient(
-    90deg,
-    #4a4a4a,
-    #2a2a2a,
-    #4a4a4a
-  );
+  background: linear-gradient(90deg, #4a4a4a, #2a2a2a, #4a4a4a);
   background-size: 200% 100%;
   opacity: 0;
   transition: all 0.3s ease;
@@ -482,18 +508,17 @@ const buttonVariant = variants[props.variant];
 .banner-button-secondary:hover {
   border-color: transparent;
   color: white;
-  background-image: 
-    linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(51, 51, 51, 0.9) 50%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
+  background-image: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(51, 51, 51, 0.9) 50%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
 }
 
 /* Gradient overlay effect */
 .banner-button-secondary::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -524,9 +549,15 @@ const buttonVariant = variants[props.variant];
 
 /* Gradient border animation */
 @keyframes gradientBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Focus states */
