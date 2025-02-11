@@ -18,8 +18,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="md:w-1/2 p-6">
-    <p class="text-white mb-6">{{ description }}</p>
+  <div class="md:w-1/2 p-3">
+    <p class="text-white mb-6 text-sm md:text-lg lg:text-xl text-center md:text-start">{{ description }}</p>
     <div>
       <ul class="space-y-6">
         <li
@@ -40,7 +40,7 @@ defineProps({
           </p>
         </li>
       </ul>
-      <h3 class="text-md font-semibold text-white py-6">
+      <h3 class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start">
         {{ footerdescription }}
       </h3>
     </div>

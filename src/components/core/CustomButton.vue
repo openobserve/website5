@@ -77,7 +77,7 @@ const variants = {
 };
 
 // make text all capital
-const containerClass = "flex uppercase text-nowrap text-center";
+const containerClass = "flex uppercase text-nowrap text-center justify-center items-center";
 
 const buttonVariant = variants[props.variant];
 </script>
