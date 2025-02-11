@@ -20,7 +20,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="py-20">
+  <div >
     <CustomSection>
       <div class="py-10">
         <Heading

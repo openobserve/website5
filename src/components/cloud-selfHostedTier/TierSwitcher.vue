@@ -64,7 +64,7 @@ export default {
       </div>
 
       <!-- Tab Content -->
-      <div class="mt-6 justify-center">
+      <div class="mt-10 justify-center">
         <transition name="fade" mode="out-in">
           <CloudTier
             v-if="selectedTab === 'cloud'"

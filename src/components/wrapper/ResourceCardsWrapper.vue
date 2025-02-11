@@ -27,14 +27,18 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="pt-[10vh]">
     <CustomSection
       class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
     >
       <div>
         <!-- Main Content -->
         <div>
-          <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
+          <Heading
+            :title="heading?.title"
+            :description="heading?.subtitle"
+            align="CENTER"
+          />
         </div>
         <div
           :class="[

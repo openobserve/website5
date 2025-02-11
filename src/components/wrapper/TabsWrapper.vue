@@ -7,9 +7,9 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  heading:{
-    type:Object,
-    required:true,
+  heading: {
+    type: Object,
+    required: true,
   },
 });
 </script>
@@ -21,8 +21,7 @@ const props = defineProps({
       align="CENTER"
     />
 
-    <CustomTabs class="py-4" :items="items" client:load />
+    <CustomTabs :items="items" client:load />
   </CustomSection>
-  <div>
-  </div>
-</template> 
+  <div></div>
+</template>

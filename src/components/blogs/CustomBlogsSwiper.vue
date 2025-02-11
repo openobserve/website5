@@ -86,7 +86,7 @@ const truncateDescription = (text: string, wordLimit: number) => {
 </script>
 
 <template>
-  <div class="py-16 relative">
+  <div class="py-8 relative">
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->

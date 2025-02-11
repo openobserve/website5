@@ -12,7 +12,8 @@ const schema = yup.object({
   help: yup.string().required("Message is required"),
   terms: yup
     .boolean()
-    .oneOf([true], "You must accept the terms and conditions"),
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("You must accept the terms and conditions"),
 });
 
 // Initialize form validation
@@ -33,7 +34,7 @@ const onSubmit = handleSubmit(async (values) => {
 
   try {
     const response = await fetch(
-      "https://run.mocky.io/v3/a2626aa7-8f2d-4ef4-a811-bcf7fa85d9d3",
+      "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -145,9 +146,18 @@ const onSubmit = handleSubmit(async (values) => {
             </p>
           </div>
         </div>
-        <CustomButton variant="secondary" type="submit">
-          GET IN TOUCH
+        <!-- Submit Button -->
+        <CustomButton
+          variant="secondary"
+          type="submit"
+          :disabled="loading"
+          class="mt-4"
+        >
+          {{ loading ? "SENDING..." : "GET IN TOUCH" }}
         </CustomButton>
+
+        <!-- Error Message -->
+        <p v-if="error" class="text-red-500 mt-2">{{ error }}</p>
       </div>
     </form>
   </div>
