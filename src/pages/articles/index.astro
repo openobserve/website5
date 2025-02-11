@@ -7,8 +7,12 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllResourceCategories, getCaseStudies, getResourceBlogsByPagination } from "../../utils/cache";
-import { getTotalCounts } from "../../utils/cache"
+import {
+  getAllResourceCategories,
+  getCaseStudies,
+  getResourceBlogsByPagination,
+} from "../../utils/cache";
+import { getTotalCounts } from "../../utils/cache";
 import { getAllBlogsCategoriesAndAuthors } from "../../utils/cache";
 
 // Get the current page from URL parameters
@@ -36,9 +40,13 @@ const cardData = [
     title: "Case Studies",
   },
 ];
+
+const metaObj = {
+  title: "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
     subtitle="Explore latest insights and updates"
@@ -53,7 +61,7 @@ const cardData = [
     type="articles"
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData.slice(0,15)}
+    suggestionData={suggestionData.slice(0, 15)}
     totalItems={getTotalCounts().blogsCount}
     client:load
   />

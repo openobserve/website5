@@ -7,7 +7,11 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/cache";
+import {
+  getAllCategories,
+  getBlogsByPagination,
+  getCaseStudies,
+} from "@/utils/cache";
 import { getTotalCounts } from "@/utils/cache";
 import { getAllBlogsCategoriesAndAuthors } from "@/utils/cache";
 
@@ -36,22 +40,25 @@ const cardData = [
     title: "Case Studies",
   },
 ];
+
+const metaObj = {
+  title: "OpenObserve Blog | Observability News & Best Practices",
+  description:
+    "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
-    title= Blog
+    title="Blog"
     subtitle="Explore latest insights and updates"
   />
-  <CaseStudyWrapper
-    data={loadcaseStudyData}
-    client:load
-  />
+  <CaseStudyWrapper data={loadcaseStudyData} client:load />
   <BlogsListingWrapper
     type="blog"
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData.slice(0,15)}
+    suggestionData={suggestionData.slice(0, 15)}
     totalItems={getTotalCounts().blogsCount}
     client:load
   />
@@ -70,4 +77,4 @@ const cardData = [
   .cardShadow:hover h3 {
     color: #80b9ff;
   }
-  </style>
+</style>

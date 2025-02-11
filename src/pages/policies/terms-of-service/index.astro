@@ -9,9 +9,13 @@ const data = await fetchApi({
 });
 
 const htmlContent = marked(data?.data?.content);
+const metaObj = {
+  title:
+    "Terms Of Service | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <div class="flex flex-col justify-center items-center py-8">
     <h1 class="text-xl md:text-4xl lg:text-5xl font-bold text-white">
       {data?.data?.title}

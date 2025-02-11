@@ -4,7 +4,13 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import {getAllBlogsCategoriesAndAuthors, getAllCategories, getCaseStudies, getAllResourceBlogs, getAllResourceCategories } from "../../../utils/cache";
+import {
+  getAllBlogsCategoriesAndAuthors,
+  getAllCategories,
+  getCaseStudies,
+  getAllResourceBlogs,
+  getAllResourceCategories,
+} from "../../../utils/cache";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -54,10 +60,15 @@ const cardHeader = {
 const cardData = [
   { icon: "/resources/64pxComponent.svg", title: "Case Studies" },
 ];
+
+const metaObj = {
+  title:
+    "Tag | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
-<Layout>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
     subtitle={`Showing posts for category: ${category?.name ?? tag}`}
