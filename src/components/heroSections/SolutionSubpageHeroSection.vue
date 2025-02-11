@@ -51,16 +51,17 @@ const sectionStyles = computed(() => ({
       >
         <!-- Content Container -->
         <div class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-12 lg:mb-0">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white mb-4">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white mb-4"
+          >
             {{ heading?.title }}
           </h1>
           <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
             {{ heading?.subtitle }}
           </p>
-          <div class="flex flex-col sm:flex-row justify-start gap-4 w-full">
+          <div class="flex items-center flex-col sm:flex-row gap-4">
             <CustomButton
               variant="primary"
-              class="w-full sm:w-auto"
               :buttonLink="primaryButton?.link"
               v-if="primaryButton"
             >
@@ -68,7 +69,6 @@ const sectionStyles = computed(() => ({
             </CustomButton>
             <CustomButton
               variant="secondary"
-              class="w-full sm:w-auto"
               :buttonLink="secondaryButton?.link"
               v-if="secondaryButton"
             >
