@@ -160,7 +160,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 .sticky-tabs {
   position: sticky;
   top: 65px;
-  z-index: 50; /* Higher than the background */
+  z-index: 30; /* Higher than the background */
 }
 
 /* Ensures smooth scrolling for tabs on mobile */
