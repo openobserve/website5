@@ -18,17 +18,29 @@ const props = defineProps({
 </script>
 
 <template>
-  <!-- <div class="border-gradient w-full h-full"> -->
+  <div class="w-full h-full bg-black rounded-lg">
   <div
-    class="group custom-hover flex flex-col h-full rounded-lg bg-cover bg-center p-2 lg:p-4 space-y-2 md:space-y-4 transition-all duration-300 bg-gradient-gray"
+    class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
   >
-    <div class="">
+    <div class="w-full relative rounded-lg bg-white">
+      <!-- Blurred Background -->
+      <div
+        class="absolute"
+        :style="
+          'background-image: url(' +
+          card.image +
+          '); background-size: cover; background-position: center;'
+        "
+      ></div>
+
+      <!-- Foreground Image -->
       <CustomImage
         :image="card.image"
         :altText="card.title"
-        cssClass="w-full h-auto md:h-60 lg:h-80 object-cover rounded-lg grayscale group-hover:grayscale-0"
-      />
+        cssClass="relative w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
     </div>
+
     <div class="flex flex-col h-full space-y-2">
       <h3 class="text-white text-lg lg:text-2xl font-bold">
         {{ card?.title }}
@@ -46,7 +58,7 @@ const props = defineProps({
       </a>
     </div>
   </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <style scoped>
@@ -82,7 +94,9 @@ const props = defineProps({
     rgba(163, 163, 254, 0.75) 100%
   );
   border-radius: 8px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;

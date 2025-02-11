@@ -11,15 +11,29 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="rounded-lg w-full flex-1">
+  <div class="rounded-lg w-full flex-1 bg-black">
     <div
-      class="group custom-hover flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
+      class="group custom-hover  flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
     >
-      <div class="w-full lg:w-2/5 group-hover:grayscale-0 group-hover:filter max-h-30">
+      <div
+        class="w-full lg:w-2/5 max-h-30 relative rounded-lg overflow-hidden bg-white"
+      >
+        <!-- Blurred Background -->
+        <div
+          class="absolute inset-0"
+          :style="
+            'background-image: url(' +
+            card.image +
+            '); background-size: cover; background-position: center;'
+          "
+        ></div>
+
+        <!-- Foreground Image -->
         <CustomImage
           :image="card.image"
           :altText="card.title"
-          cssClass="w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
+          class="absolute inset-0"
+          cssClass="relative w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
         />
       </div>
       <div class="flex flex-col h-full space-y-4 w-full lg:w-3/5">
@@ -73,7 +87,9 @@ const props = defineProps({
     rgba(163, 163, 254, 0.75) 100%
   );
   border-radius: 8px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
