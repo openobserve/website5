@@ -24,7 +24,14 @@ const schema = yup.object({
 });
 
 // Initialize form validation
-const { handleSubmit } = useForm({ validationSchema: schema });
+const { handleSubmit } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    deployment: "",
+    dataVolume: "",
+    // ... other initial values
+  },
+});
 
 const name = useField("name");
 const email = useField("email");
@@ -41,7 +48,6 @@ const error = ref(null);
 
 // Handle form submission
 const onSubmit = handleSubmit(async (values) => {
-  console.log("Hello")
   loading.value = true;
   error.value = null;
 
@@ -87,7 +93,6 @@ const navigateToTerms = (e) => {
   e.preventDefault();
   window.location.assign("/terms-and-conditions"); // Update with your terms page URL
 };
-
 </script>
 <!-- SampleForm.vue -->
 <template>
@@ -188,10 +193,9 @@ const navigateToTerms = (e) => {
             id="deployment"
             v-model="deployment.value.value"
             name="deployment"
-            placeholder="Select deployment"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">Select Support Type</option>
+            <option value="" disabled selected>Select deployment type</option>
             <option value="cloud">Cloud</option>
             <option value="self-hosted">Self Hosted</option>
           </select>
@@ -213,10 +217,9 @@ const navigateToTerms = (e) => {
             id="dataVolume"
             v-model="dataVolume.value.value"
             name="dataVolume"
-            placeholder="Select data volume"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">Select Support Type</option>
+            <option value="" disabled selected>Select Data Volume type</option>
             <option value="small">< 100GB/day</option>
             <option value="medium">100GB - 1TB/day</option>
             <option value="large">> 1TB/day</option>
@@ -262,13 +265,17 @@ const navigateToTerms = (e) => {
           />
         </div>
         <div class="ml-2">
-          <label for="terms" class="text-white cursor-pointer select-none">
-            I confirm I have read and agree to OpenObserve's terms and condition
+          <label
+            for="terms"
+            class="text-white text-sm cursor-pointer select-none"
+          >
+            I confirm I have read and agree to
             <a
               href="/terms-and-conditions"
               class="text-blue-500 underline"
               @click="navigateToTerms"
             >
+              OpenObserve's terms and condition
             </a>
             <span class="text-red-500">*</span>
           </label>
