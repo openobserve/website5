@@ -94,8 +94,8 @@ const redirectToBlog = (slug) => {
     </div>
 
     <!-- Mobile View -->
-    <div class="block md:hidden">
-      <div class="flex flex-col space-y-3">
+     <div class="block md:hidden">
+      <div class="flex flex-col space-y-3 mt-5">
         <LeftSideCard
           v-for="(card, index) in cards"
           :key="card.slug || index"
@@ -104,7 +104,7 @@ const redirectToBlog = (slug) => {
         />
       </div>
     </div>
-    <!-- <div class="flex justify-center mt-8" v-if="primaryButton && primaryButton.text && primaryButton.link">
+    <div class="flex justify-center mt-6 mb-5" v-if="primaryButton && primaryButton.text && primaryButton.link">
       <CustomButton 
         variant="secondary" 
         size="medium" 

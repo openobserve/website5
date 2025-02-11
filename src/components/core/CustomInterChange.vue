@@ -33,7 +33,7 @@ const sectionClasses = computed(() => ({
 <template>
   <div
     :class="[
-      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 pt-10 relative',
+      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 mt-3 relative',
       sectionClasses,
     ]"
     :id="slugify(title)"

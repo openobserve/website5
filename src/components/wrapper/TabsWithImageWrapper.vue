@@ -20,13 +20,13 @@ const test=() => {
 <template>
   <div @click="test">
     <CustomSection>
-      <div class="py-10">
+      <div class="md:py-10">
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
       <CustomTabsWithImage :items="items" />
     </CustomSection>
-    <div class="mt-24">
-    </div>
+    <!-- <div class="mt-24">
+    </div> -->
   </div>
 </template>
 <style scoped></style>

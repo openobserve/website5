@@ -49,12 +49,12 @@ const props = defineProps({
 
       <!-- Main Content -->
       <CustomSection>
-        <div class="mb-10">
+        <div class="md:mb-10 md-5">
           <Heading :title="heading.title" align="CENTER" />
         </div>
         <div
           :class="[
-            `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn}  gap-10 w-full`,
+            `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
           ]"
         >
           <div

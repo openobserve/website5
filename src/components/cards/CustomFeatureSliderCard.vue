@@ -48,7 +48,7 @@ const swiperOptions = {
           class="rounded-lg p-4 flex flex-col justify-center items-center text-center"
         >
           <CustomRoundShape
-            :imgSrc="item.icon"
+            :imgSrc="item.image"
             iconSize="small"
             borderColor="bg-gradient-gray"
             size="small"

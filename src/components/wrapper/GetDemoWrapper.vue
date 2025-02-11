@@ -1,7 +1,6 @@
 <script setup>
 import Heading from "../core/Heading.vue";
 import CustomButton from "../core/CustomButton.vue";
-import CustomSection from "../core/CustomSection.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -14,9 +13,9 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="container mx-auto pb-16 px-20">
+  <div class="container mx-auto">
     <Heading :title="title" align="CENTER" />
-    <div class="flex justify-center text-center pt-5" v-if="primaryButton">
+    <div class="flex justify-center text-center py-5" v-if="primaryButton">
       <CustomButton
         variant="secondary"
         size="medium"
