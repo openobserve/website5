@@ -6,7 +6,7 @@ import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
-import { computed } from 'vue';
+import { computed } from "vue";
 
 // Define the props for this component
 const props = defineProps({
@@ -15,9 +15,9 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
-  heading : {
+  heading: {
     type: Object,
-    required: false
+    required: false,
   },
   primaryButton: {
     type: Object,
@@ -52,7 +52,7 @@ const redirectToBlog = (slug) => {
 </script>
 
 <template>
-  <section class="container mx-auto px-4 lg:py-8 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
+  <CustomSection>
     <Heading
       :title="heading?.title"
       :description="heading?.subtitle"
@@ -60,7 +60,7 @@ const redirectToBlog = (slug) => {
     />
 
     <!-- Desktop View -->
-    <div class="hidden md:block py-6 relative">
+    <div class="hidden md:block pt-[6vh] py-6 relative">
       <CustomImage
         image="/Platform/Ellipse-141.svg"
         altText="Background decoration"
@@ -79,7 +79,9 @@ const redirectToBlog = (slug) => {
         </div>
 
         <!-- Remaining cards -->
-        <div class="flex flex-col gap-3 justify-center items-center cursor-pointer w-full">
+        <div
+          class="flex flex-col gap-3 justify-center items-center cursor-pointer w-full"
+        >
           <RightSideCard
             v-for="(card, index) in cards.slice(1)"
             :key="card.slug || index"
@@ -91,7 +93,7 @@ const redirectToBlog = (slug) => {
     </div>
 
     <!-- Mobile View -->
-     <div class="block md:hidden">
+    <div class="block md:hidden">
       <div class="flex flex-col space-y-3">
         <LeftSideCard
           v-for="(card, index) in cards"

@@ -21,7 +21,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4 py-16">
+  <div class="w-full max-w-7xl mx-auto px-4 ">
     <!-- Pricing Cards -->
     <div class="grid md:grid-cols-3 gap-6">
       <div
