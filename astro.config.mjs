@@ -12,7 +12,4 @@ export default defineConfig({
   // redirects: {
   //   "/resources/author/[...author]": "/articles/author/[...author]",
   // },
-  build: {
-    concurrency: 2,
-  },
 });
