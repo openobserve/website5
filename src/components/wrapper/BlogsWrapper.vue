@@ -18,7 +18,6 @@ const props = defineProps({
     required: true,
   },
 });
-
 </script>
 <template>
   <div class="py-20">
@@ -31,18 +30,6 @@ const props = defineProps({
         />
       </div>
 
-      <!-- Show slider component only on mobile (≤ 768px) -->
-      <div class="block md:hidden">
-        <CustomBlogsSwiper
-          :sectionData="items"
-          titleTextColor="text-white"
-          descriptionTextColor="text-gray-400"
-          cardBgColor="bg-[#2A2A2A]"
-          linkColor="text-[#00A3FF]"
-        />
-      </div>
-
-      <!-- Show normal component on larger screens (≥ 768px) -->
       <div class="">
         <CustomBlogsSwiper
           :sectionData="items"
