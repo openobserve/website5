@@ -22,10 +22,10 @@ const props = defineProps({
   <div
     class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
   >
-    <div class="w-full relative rounded-lg bg-white">
+    <div class="w-full relative rounded-lg bg-white bg-center bg-cover">
       <!-- Blurred Background -->
       <div
-        class="absolute"
+        class="absolute inset-0 blur-3xl"
         :style="
           'background-image: url(' +
           card.image +
@@ -37,7 +37,7 @@ const props = defineProps({
       <CustomImage
         :image="card.image"
         :altText="card.title"
-        cssClass="relative w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
+        cssClass="relative w-full h-full object-contain rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
         />
     </div>
 

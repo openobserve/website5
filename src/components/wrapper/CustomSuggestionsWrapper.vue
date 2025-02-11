@@ -1,5 +1,5 @@
 <script setup>
-import { generateNavLink } from "../../utils/redirection";
+import { generateTagLink } from "../../utils/redirection";
 
 defineProps({
   suggestions: { type: Array, required: true },
@@ -16,7 +16,7 @@ defineProps({
     <a
       v-for="(suggestion, index) in suggestions"
       :key="index"
-       :href="generateNavLink(type, suggestion.name)"
+       :href="generateTagLink(type, suggestion.name)"
       class="px-6 py-1 bg-black border rounded-full hover:text-white text-sm text-neutral-400"
     >
       {{ suggestion.name }}

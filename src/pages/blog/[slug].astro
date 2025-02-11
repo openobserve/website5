@@ -34,7 +34,7 @@ const loadcaseStudyData = getCaseStudies();
     suggestions={SlugData?.data[0].categories}
   />
   <BlogDetailContentWrapper client:load content={SlugData?.data[0].content} />
-  <SingleAuthorDetails authors={SlugData?.data[0].authors} client:load />
+  <SingleAuthorDetails type="blog" authors={SlugData?.data[0].authors} client:load />
   <div class="py-5">
     <CaseStudyWrapper
       items={loadcaseStudyData}

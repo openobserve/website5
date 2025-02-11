@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {generateAuthorLink} from "../../utils/redirection";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
@@ -35,21 +36,22 @@ const props = defineProps({
     type: String,
     default: "text-[#00A3FF]",
   },
+  type: {
+    type: String,
+    default: "blog",
+  }
 });
 
-const redirectToAuthor = (slug: string) => {
-  if (slug) {
-    window.location.assign(`/author/${slug}`);
-  }
-};
 </script>
 
 <template>
   <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full">
     <p class="text-white px-2 py-2">About the Authors</p>
     <div class="flex flex-col space-y-4">
-      <div
+      {{ console.log(type) }}
+      <a
         v-for="author in authors"
+        :href="generateAuthorLink(type, author.slug)"
         :key="author.id"
         :class="[cardBgColor, 'rounded-xl overflow-hidden flex md:flex-row']"
       >
@@ -69,11 +71,10 @@ const redirectToAuthor = (slug: string) => {
         </div>
 
         <!-- Right Side - Content -->
-        <div class="w-full md:w-2/3 p-6 h-44 flex flex-col justify-between cursor-pointer"@click="redirectToAuthor(author.slug)">
+        <div class="w-full md:w-2/3 p-6 h-44 flex flex-col justify-between cursor-pointer">
           <div>
             <h3
               :class="[titleTextColor, 'text-xl font-bold mb-3 underline cursor-pointer']"
-              @click="redirectToAuthor(author.slug)"
             >
               {{ author.name }}
             </h3>
@@ -121,7 +122,7 @@ const redirectToAuthor = (slug: string) => {
             </a>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 </template>

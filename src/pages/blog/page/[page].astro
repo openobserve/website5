@@ -73,7 +73,7 @@ const cardData = [
     type="blog"
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData}
+    suggestionData={suggestionData.slice(0,15)}
     totalItems={getTotalCounts().blogsCount}
     client:load
   />

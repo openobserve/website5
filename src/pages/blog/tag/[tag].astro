@@ -70,7 +70,7 @@ const cardData = [
     type="blog"
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData || []}
+    suggestionData={suggestionData.slice(0,15)}
     client:load
   />
 
