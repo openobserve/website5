@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <CustomSection section-class="xl:px-0 relative overflow-hidden">
-  <div class="relative w-full -mt-5">
+  <div class="relative w-full -mt-16">
     <!-- Background image with lower z-index -->
     <div class="absolute w-full">
       <img

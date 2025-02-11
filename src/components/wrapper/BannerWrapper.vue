@@ -32,10 +32,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection
-    sectionClass="py-6 lg:py-8 xl:py-16"
-    v-if="heading?.title || heading?.subtitle"
-  >
+  <CustomSection v-if="heading?.title || heading?.subtitle">
     <Heading
       v-if="heading?.title || heading?.subtitle"
       :title="heading?.title"
