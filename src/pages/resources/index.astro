@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import { getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
+import { getAllBlogs, getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
 import fetchApi from "@/utils/strapi";
 
 const PageData = await fetchApi({
@@ -11,12 +11,16 @@ const PageData = await fetchApi({
 await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();
 const metaObj = PageData?.data?.seo;
+await getAllBlogsCategoriesAndAuthors();
+const allBlogs = getAllBlogs();
+const blogs = allBlogs?.slice(0, 10);
 ---
 
 <Layout metaObj={metaObj}>
   <ComponentCollectionMapper
     data={PageData?.data?.body}
     caseStudyData={loadcaseStudyData}
+    blogs={blogs}
     client:load
   />
 </Layout>

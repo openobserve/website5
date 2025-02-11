@@ -18,7 +18,7 @@ interface BlogSectionData {
 
 const props = defineProps({
   sectionData: {
-    type: Object as () => BlogSectionData,
+    type: Array,
     required: true,
   },
   titleTextColor: {
@@ -50,12 +50,12 @@ const props = defineProps({
       <div class="text-white mb-8">
         <span class="font-semibold">Recent posts</span>
         <span :class="[descriptionTextColor, 'ml-2']"
-          >: {{ sectionData.recentPostsText }}</span
+          >: Recent Blog Posts</span
         >
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <a
-          v-for="blog in sectionData.blogs"
+          v-for="blog in sectionData"
           :key="blog.title"
           :href="blog.link"
           target="_blank"
