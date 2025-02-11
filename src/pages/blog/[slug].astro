@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 const { slug }: any = Astro.params;
 const SlugData = await fetchApi({
   endpoint: "api/blog-pages",
-  query: { populate: "*", "filters[slug][$eq]": slug },
+  query: { populate: "*", "filters[slug][$eq]": slug, "pLevel": 5 },
 });
 await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();

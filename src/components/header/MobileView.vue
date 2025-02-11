@@ -91,7 +91,7 @@
               buttonLink="/downloads"
               >DOWNLOADS</CustomButton
             >
-            <CustomButton variant="primary" size="large" buttonLink="/demo"
+            <CustomButton variant="primary" size="large" buttonLink="/demo" target="_blank"
               >GET DEMO</CustomButton
             >
           </div>

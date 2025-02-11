@@ -67,11 +67,17 @@ const footerData = {
     {
       title: "Community",
       items: [
-        { name: "Slack", link: "/slack" },
-        { name: "Github", link: "/github" },
-        { name: "Twitter", link: "/twitter" },
-        { name: "LinkedIn", link: "/linkedin" },
-        { name: "YouTube", link: "/youtube" },
+        {
+          name: "Slack",
+          link: "https://join.slack.com/t/zincobserve/shared_invite/zt-11r96hv2b-UwxUILuSJ1duzl_6mhJwVg",
+        },
+        { name: "Github", link: "https://github.com/openobserve/openobserve" },
+        { name: "Twitter", link: "https://twitter.com/OpenObserve" },
+        {
+          name: "LinkedIn",
+          link: "https://www.linkedin.com/company/openobserve",
+        },
+        { name: "YouTube", link: "https://www.youtube.com/@openobserve" },
       ],
     },
   ],
@@ -111,17 +117,14 @@ const { metaObj } = Astro.props;
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <SEO
-      title={metaObj?.title}
-      description={metaObj?.description}
-      />
-      <!-- type={type}
+    <SEO title={metaObj?.title} description={metaObj?.description} />
+    <!-- type={type}
       publishedTime={publishedTime}
       modifiedTime={modifiedTime} -->
   </head>
   <body class="relative">
     <main>
-      <Header navData={NavData} class="sticky top-0 z-50" client:only />
+      <Header navData={NavData} class="sticky top-0 z-50 backdrop-blur-md" client:only />
       <div class="navbarheight">
         <slot />
       </div>
@@ -139,6 +142,7 @@ const { metaObj } = Astro.props;
     height: 100%;
     font-family: "Inter", sans-serif;
     scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
   }
 
   .navbarheight {

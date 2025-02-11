@@ -33,18 +33,19 @@ defineProps({
     <!-- Conditionally render TextWithGradient if title is provided -->
     <TextWithGradient
       v-if="heading?.title"
-      class="text-2xl md:text-5xl font-bold text-center mb-14 max-w-xl mx-auto"
+      class="text-3xl md:text-5xl font-bold text-center mb-2 md:mb-6 max-w-xl mx-auto"
       :title="heading?.title"
       textGradientColor="bg-white"
     />
       <!-- textGradientColor="text-color" -->
 
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row">
       <LeftSideCommonFormFeature
         :description="subTitle"
         :keyFeatures="items"
         :footerdescription="description"
       />
+        <!-- class="text-3xl md:text-5xl" -->
       <CommonForm />
     </div>
 

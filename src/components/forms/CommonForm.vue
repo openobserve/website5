@@ -65,7 +65,7 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <div class="w-1/2">
+  <div class="w-full md:w-1/2">
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <div>
@@ -124,14 +124,17 @@ const onSubmit = handleSubmit(async (values) => {
             />
           </div>
           <div class="ml-2">
-            <label for="terms" class="text-white cursor-pointer select-none">
-              I confirm I have read and agree to OpenObserve's Terms And
-              Conditions
+            <label
+              for="terms"
+              class="text-white cursor-pointer select-none text-sm md:text-md"
+            >
+              I confirm I have read and agree to OpenObserve's 
               <a
-                href="/terms-and-conditions"
                 class="text-blue-500 underline"
-                @click="navigateToTerms"
+                href="/policies/terms-of-service"
               >
+                <!-- @click="navigateToTerms" -->
+                terms and condition
               </a>
               <span class="text-red-500">*</span>
             </label>

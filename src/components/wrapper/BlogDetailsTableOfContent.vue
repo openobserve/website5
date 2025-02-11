@@ -6,7 +6,7 @@
         <a
           :href="`#${heading.id}`"
           class="block text-sm font-medium text-white hover:text-blue-400"
-          :class="{ 'bg-blue-500 text-white p-2 rounded-lg': currentSection === heading.id }"
+          :class="{ 'text-blue-400': currentSection === heading.id, 'text-white': currentSection !== heading.id }"
           @click="setActiveSection(heading.id)"
         >
           {{ heading.text }}
@@ -15,8 +15,8 @@
           <li v-for="(subHeading, subIndex) in heading.children" :key="subIndex">
             <a
               :href="`#${subHeading.id}`"
-              class="block text-sm font-normal text-white hover:text-blue-400"
-              :class="{ 'bg-blue-500 text-white p-2 rounded-lg': currentSection  === subHeading.id }"
+              class="block text-sm font-normal"
+              :class="{ 'text-blue-400': currentSection === subHeading.id, 'text-white': currentSection !== subHeading.id }"
               @click="setActiveSection(subHeading.id)"
             >
               {{ subHeading.text }}

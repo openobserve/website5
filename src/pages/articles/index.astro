@@ -7,7 +7,7 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllCategories, getBlogsByPagination, getCaseStudies, getResourceBlogsByPagination } from "../../utils/cache";
+import { getAllResourceCategories, getCaseStudies, getResourceBlogsByPagination } from "../../utils/cache";
 import { getTotalCounts } from "../../utils/cache"
 import { getAllBlogsCategoriesAndAuthors } from "../../utils/cache";
 
@@ -18,9 +18,9 @@ const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
 await getAllBlogsCategoriesAndAuthors();
-const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = getResourceBlogsByPagination(currentPage, itemsPerPage);
 
-const suggestionData = getAllCategories();
+const suggestionData = getAllResourceCategories();
 
 const loadcaseStudyData = getCaseStudies();
 
@@ -57,9 +57,9 @@ const cardData = [
     totalItems={getTotalCounts().blogsCount}
     client:load
   />
-  <TilesWithTitleWrapper
+  <!-- <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
-  />
+  /> -->
 </Layout>

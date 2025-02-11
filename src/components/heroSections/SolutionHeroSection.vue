@@ -59,7 +59,7 @@ defineProps({
     <div class="w-full max-w-7xl px-4">
       <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-3 w-full">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link" target="_blank">
           {{ primaryButton.text }}
         </CustomButton>
         <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link">

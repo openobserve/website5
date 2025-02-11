@@ -4,14 +4,22 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import { getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByPagination, getCaseStudies, getResourceBlogsByPagination, getTotalCounts } from "../../../utils/cache";
+import {
+  getAllBlogsCategoriesAndAuthors,
+  getAllCategories,
+  getAllResourceCategories,
+  getBlogsByPagination,
+  getCaseStudies,
+  getResourceBlogsByPagination,
+  getTotalCounts,
+} from "../../../utils/cache";
 
 const itemsPerPage = 50;
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
   await getAllBlogsCategoriesAndAuthors();
-  const totalBlogs = getTotalCounts().blogsCount;
+  const totalBlogs = getTotalCounts().resourcesBlogsCount;
 
   const totalPages = Math.ceil(totalBlogs / 50);
 
@@ -32,23 +40,10 @@ if (isNaN(currentPage) || currentPage < 1) {
 // Fetch paginated blogs for the current page
 const blogsData = getResourceBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
-const suggestionData = getAllCategories();
+const suggestionData = getAllResourceCategories();
 
 // Fetch case studies
 const caseStudyData = getCaseStudies();
-
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
 ---
 
 <Layout title={`Blog Posts | Page ${currentPage} | Resources`}>
@@ -56,28 +51,30 @@ const cardData = [
     title="Resources"
     subtitle="Explore latest insights and updates"
   />
-  
-  {caseStudyData?.length > 0 && (
-    <CaseStudyWrapper
-      data={caseStudyData || []}
-      title="Case Studies"
-      subtitle="Learn from real-world implementations"
-      client:load
-    />
-  )}
-  
+
+  {
+    caseStudyData?.length > 0 && (
+      <CaseStudyWrapper
+        data={caseStudyData || []}
+        title="Case Studies"
+        subtitle="Learn from real-world implementations"
+        client:load
+      />
+    )
+  }
+
   <BlogsListingWrapper
-      type="articles"
+    type="articles"
     blogsData={blogsData}
-    currentPage={currentPage} 
-    suggestionData={suggestionData.slice(0,15)}
+    currentPage={currentPage}
+    suggestionData={suggestionData.slice(0, 10)}
     totalItems={getTotalCounts().blogsCount}
     client:load
   />
-  
-  <TilesWithTitleWrapper
+
+  <!-- <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
-  />
+  /> -->
 </Layout>

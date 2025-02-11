@@ -103,16 +103,13 @@ const redirectToBlog = (slug) => {
         />
       </div>
     </div>
-    <div
-      class="flex justify-center mt-8"
-      v-if="primaryButton && primaryButton.text && primaryButton.link"
-    >
-      <CustomButton
-        variant="secondary"
-        size="medium"
-        :buttonText="primaryButton.text"
-        :buttonLink="primaryButton.link"
+    <!-- <div class="flex justify-center mt-8" v-if="primaryButton && primaryButton.text && primaryButton.link">
+      <CustomButton 
+        variant="secondary" 
+        size="medium" 
+        :buttonText="primaryButton.text" 
+        :buttonLink="primaryButton.link" 
       />
-    </div>
-  </CustomSection>
+    </div> -->
+  </section>
 </template>

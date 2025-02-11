@@ -41,7 +41,7 @@ const alignClass = computed(() => {
     ></h2>
 
     <p
-      class="text-base md:text-lg xl:text-xl mt-4"
+      class="text-sm md:text-lg xl:text-xl mt-4"
       :class="alignClass"
     >
       {{ props.description }}

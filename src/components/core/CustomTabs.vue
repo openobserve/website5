@@ -110,14 +110,14 @@ contentRefs.value = new Array(props.items.length).fill(null);
     <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto px-4">
         <div
-          class="flex overflow-x-auto gap-6 sm:gap-8 scroll-smooth hide-scrollbar"
+          class="flex overflow-x-auto gap-2 md:gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
         >
           <!-- Render Tabs -->
           <div
             v-for="(tab, index) in items"
             :key="slugify(tab.title)"
             @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-base sm:text-lg md:text-xl font-medium whitespace-nowrap px-3 py-2"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
             :class="{
               'text-white': activeTabIndex === index,
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
