@@ -108,11 +108,11 @@ onUnmounted(() => {
         <div class="space-y-4 px-3 w-[40%]">
           <h1 class="text-3xl font-bold md:text-3xl">{{ activeTab.title }}</h1>
           <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.description }}</p>
-          <CustomButton variant="secondary">
+          <CustomButton variant="secondary" :buttonLink="activeTab.buttonLink" class="w-40">
             {{ activeTab.buttonText }}
           </CustomButton>
         </div>
-
+        
         <!-- Image -->
         <div class="lg:translate-y-[7%] w-[60%]">
           <CustomImage

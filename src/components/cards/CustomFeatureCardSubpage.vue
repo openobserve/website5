@@ -39,7 +39,7 @@ const props = defineProps({
 
         <!-- Right Side: Text -->
         <div class="flex flex-col items-start">
-          <h2 class="font-semibold text-2xl text-white">
+          <h2 class="font-semibold text-2xl mb-2 text-white">
             {{ item.title }}
           </h2>
           <p class="text-sm md:text-base text-gray-300">

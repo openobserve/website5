@@ -52,12 +52,12 @@ const redirectToBlog = (slug) => {
 </script>
 
 <template>
-  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
-    <!-- <Heading
+  <section class="container mx-auto px-4 lg:py-8 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
+    <Heading
       :title="heading?.title"
       :description="heading?.subtitle"
       align="CENTER"
-    /> -->
+    />
 
     <!-- Desktop View -->
     <div class="hidden md:block py-6 relative">

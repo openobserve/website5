@@ -17,7 +17,7 @@ function truncate(text, maxLength = 200) {
 </script>
 
 <template>
-<div class="relative rounded-lg w-full p-[0.0625rem] bg-gradient-blue transition-all duration-300 hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)] container mx-auto">
+<div class="relative rounded-lg w-full h-full p-[0.0625rem] bg-gradient-blue transition-all duration-300 hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)] container mx-auto">
   <!-- Content Layer -->
   <div class="flex flex-col space-y-4 w-full h-full items-center rounded-lg bg-[#23282c] p-8">
     <CustomImage :image="cards.image" altText="Icon" cssClass="h-16" />
@@ -25,7 +25,7 @@ function truncate(text, maxLength = 200) {
       {{ cards.title }}
     </h3>
     <p class="text-[#DCDCDF] text-base">
-      {{ truncate(cards.description, 200) }}
+      {{ cards.description }}
     </p>
   </div>
 </div>
