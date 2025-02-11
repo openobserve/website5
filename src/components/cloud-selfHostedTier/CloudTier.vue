@@ -12,7 +12,8 @@ interface PricingTier {
   description: string;
   features: Feature[];
   buttonText: string;
-  buttonAction?: () => void;
+  buttonAction?: string;
+  target?: string
 }
 
 const props = defineProps<{
@@ -59,11 +60,13 @@ const props = defineProps<{
         </div>
 
         <!-- Action Button -->
+        <!-- @click="tier.buttonAction" -->
         <div class="text-center">
           <CustomButton
-            @click="tier.buttonAction"
             variant="pricing"
             class="px-6 transition-all duration-200"
+            :button-link="tier.buttonAction"
+            :target="tier.target"
           >
             {{ tier.buttonText }}
           </CustomButton>
