@@ -277,6 +277,7 @@ const buttonVariant = variants[props.variant];
   cursor: pointer;
   border-radius: 100px;
   background: white;
+  width:fit-content;
   /* Transparent background */
   border: 2px solid transparent;
   /* White border */

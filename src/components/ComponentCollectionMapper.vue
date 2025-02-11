@@ -83,8 +83,6 @@ const componentsMap = computed(() => ({
   "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
   "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
-  // 'section':TabsWrapper.
-  // 'section.caseStudyWrapper': CaseStudyWrapper,
   "section-cta.banner": BannerWrapper,
   "section-cta.plain-cta": GetDemoWrapper,
   "section-features.feature-list": PlatformSubTabsWrapper, //platform subpage (with bg image)

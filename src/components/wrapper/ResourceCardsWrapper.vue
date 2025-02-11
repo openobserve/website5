@@ -34,7 +34,7 @@ const props = defineProps({
       <div>
         <!-- Main Content -->
         <div>
-          <Heading :title="title" :description="subtitle" align="CENTER" />
+          <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
         </div>
         <div
           :class="[
