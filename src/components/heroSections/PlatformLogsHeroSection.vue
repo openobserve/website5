@@ -4,7 +4,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 
 // Define props for the component
-const props= defineProps({
+const props = defineProps({
   heading: {
     type: Object,
     required: true,
@@ -21,13 +21,13 @@ const props= defineProps({
     type: Object,
     required: true, // URL of the SVG or background image
   },
-  image:{
+  image: {
     type: String,
     required: true, // URL of the right-side image
   },
   bottomImage: {
     type: String,
-    required:false,
+    required: false,
   },
   items: {
     type: Array,
@@ -42,22 +42,26 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-  class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
+    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
     :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
       <div
-        class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
+        class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20 pr-[2vh]"
       >
         <!-- Content Container -->
-        <div class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-12 lg:mb-0">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white mb-4">
+        <div
+          class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-12 lg:mb-0 pr-[2vh]"
+        >
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white mb-4"
+          >
             {{ heading?.title }}
           </h1>
           <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
             {{ heading?.subtitle }}
           </p>
-          <div class="flex flex-col sm:flex-row justify-start gap-4 w-full">
+          <div class="flex flex-col sm:flex-row justify-start gap-4">
             <CustomButton
               variant="primary"
               class="w-full sm:w-auto"
@@ -67,7 +71,7 @@ const sectionStyles = computed(() => ({
             </CustomButton>
             <CustomButton
               variant="secondary"
-              class="w-full sm:w-auto"
+              class="sm:w-auto"
               :buttonLink="secondaryButton.link"
             >
               {{ secondaryButton.text }}
@@ -98,9 +102,9 @@ const sectionStyles = computed(() => ({
         altText="Bottom decoration"
         cssClass="w-[85%] sm:w-[75%] md:w-2/3 object-contain"
       /> -->
-    
-        <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
-        <!-- <div
+
+    <!-- render remaining featurecard component here for the solution subpage (items array pass here - icon,title,description)  -->
+    <!-- <div
             :class="[
               `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3  gap-10 w-full`,
             ]"
@@ -115,7 +119,7 @@ const sectionStyles = computed(() => ({
           {{console.log(items,"itemssssssssssssssssssssssssssssssss")}}
         </div>
         </div> -->
-      <!-- </div> -->
+    <!-- </div> -->
   </section>
 </template>
 <style scoped>

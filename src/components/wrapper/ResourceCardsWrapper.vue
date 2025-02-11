@@ -17,12 +17,12 @@ const props = defineProps({
   noOfGridColumn: {
     type: Number,
     required: true,
-    default: 3
+    default: 3,
   },
-  primaryButton : {
+  primaryButton: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
 
@@ -49,8 +49,12 @@ const props = defineProps({
             <CustomFeatureCard :card="item" borderColor="bg-white" />
           </div>
         </div>
-        <div class="text-center">
-          <CustomButton variant="pricing" class="mt-10" :buttonLink="primaryButton?.link">
+        <div class="flex justify-center items-center text-center">
+          <CustomButton
+            variant="pricing"
+            class="mt-10"
+            :buttonLink="primaryButton?.link"
+          >
             {{ primaryButton?.text }}
           </CustomButton>
         </div>
