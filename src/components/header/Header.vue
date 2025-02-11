@@ -138,7 +138,7 @@ const onMouseLeave = () => {
     </CustomHoverHeader>
   </div>-->
   <div
-    class="w-full top-0 z-50 backdrop-blur-sm bg-white text-black transition-all duration-500"
+    class="w-full top-0 z-50 backdrop-blur-3xl text-black transition-all duration-500"
     :class="y > 20 ? 'drop-shadow-md ' : ''"
     id="header-class"
   >
