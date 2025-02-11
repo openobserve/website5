@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://your-website.com", // Replace with your website URL
+  site: "https://openobserve.ai", // Replace with your website URL
   integrations: [vue(), tailwind(), sitemap()],
   // redirects: {
   //   "/resources/author/[...author]": "/articles/author/[...author]",
