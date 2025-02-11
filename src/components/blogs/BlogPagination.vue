@@ -1,44 +1,6 @@
-<template>
-  <section class="container mx-auto flex justify-center mt-8 py-4">
-    <!-- Previous Button -->
-    <a
-      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
-      :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
-      :href="`/${type === 'blog' ? 'blog' : 'articles'}/page/${currentPage - 1}`"
-    >
-      Previous
-    </a>
-
-    <!-- Page Number Buttons -->
-    <div class="flex items-center">
-      <a
-        v-for="page in displayedPages"
-        :key="page"
-        :href="'/' + (type === 'blog' ? 'blog' : 'articles') + '/page/' + page"
-        :class="[
-          'px-4 py-2 mx-1 rounded-lg',
-          page === currentPage
-            ? 'bg-blue-400 text-white'
-            : 'text-gray-500 hover:bg-blue-50',
-        ]"
-      >
-        {{ page }}
-    </a>
-    </div>
-
-    <!-- Next Button -->
-    <a
-      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg"
-      :href="'/' + (type === 'blog' ? 'blog' : 'articles') + '/page/' + (currentPage + 1)"
-      :class="{ 'opacity-50 pointer-events-none': currentPage === totalPages }"
-    >
-      Next
-    </a>
-  </section>
-</template>
-
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { generatePageNavLink } from "../../utils/redirection";
 
 const props = defineProps({
   totalItems: {
@@ -87,3 +49,43 @@ onMounted(() => {
   currentPageRef.value = props.currentPage;
 });
 </script>
+<template>
+  <section class="container mx-auto flex justify-center mt-8 py-4">
+    <!-- Previous Button -->
+    <a
+      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
+      :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
+     :href="generatePageNavLink(type, currentPage - 1)"
+    >
+      Previous
+    </a>
+
+    <!-- Page Number Buttons -->
+    <div class="flex items-center">
+      <a
+        v-for="page in displayedPages"
+        :key="page"
+        :href="generatePageNavLink(type, page)"
+        :class="[
+          'px-4 py-2 mx-1 rounded-lg',
+          page === currentPage
+            ? 'bg-blue-400 text-white'
+            : 'text-gray-500 hover:bg-blue-50',
+        ]"
+      >
+        {{ page }}
+    </a>
+    </div>
+
+    <!-- Next Button -->
+    <a
+      class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg"
+      :href="generatePageNavLink(type, currentPage + 1)"
+      :class="{ 'opacity-50 pointer-events-none': currentPage === totalPages }"
+    >
+      Next
+    </a>
+  </section>
+</template>
+
+

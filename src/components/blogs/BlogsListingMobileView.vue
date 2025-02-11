@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { generateNavLink } from "../../utils/redirection";
 interface Blog {
   title: string;
   description: string;
@@ -41,7 +42,7 @@ const props = defineProps({
         <a
           v-for="blog in sectionData"
           :key="blog.title"
-          :href="`/${type === 'blog' ? 'blog' : 'articles'}/${blog.slug}`"
+         :href="generateNavLink(type, blog.slug)"
           rel="noopener noreferrer"
           :class="[cardBgColor, 'rounded-xl overflow-hidden transition-transform hover:scale-105 flex flex-rows md:flex-row']"
         >
