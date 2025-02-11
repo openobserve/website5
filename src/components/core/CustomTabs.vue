@@ -136,7 +136,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 
     <!-- Dynamic Content Section -->
     <div class="">
-      <CustomSection>
+    
         <!-- Render all content from all tabs -->
         <div
           v-for="(tab, tabIndex) in items"
@@ -151,7 +151,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
             :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
           />
         </div>
-      </CustomSection>
+    
     </div>
   </section>
 </template>
@@ -159,8 +159,13 @@ contentRefs.value = new Array(props.items.length).fill(null);
 <style scoped>
 .sticky-tabs {
   position: sticky;
-  top: 65px;
+  top:65px;
   z-index: 30; /* Higher than the background */
+}
+@media (max-width: 768px) {
+  .sticky-tabs {
+    top: 58px;
+  }
 }
 
 /* Ensures smooth scrolling for tabs on mobile */
@@ -182,6 +187,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 @media (max-width: 768px) {
   .tabs {
     font-size: 1rem;
+    top:58px;
   }
 }
 

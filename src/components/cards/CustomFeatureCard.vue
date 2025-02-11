@@ -25,7 +25,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="h-14">
+  <div class="container mx-auto">
+  <div class="h-14 mb-4">
     <CustomRoundShape
       :imgSrc="card.image"
       iconSize="small"
@@ -45,4 +46,5 @@ const props = defineProps({
       {{ card.description }}
     </p>
   </div>
+</div>
 </template>

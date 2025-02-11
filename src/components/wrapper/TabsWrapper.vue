@@ -21,7 +21,7 @@ const props = defineProps({
       align="CENTER"
     />
 
-    <CustomTabs class="py-10" :items="items" client:load />
+    <CustomTabs class="py-4" :items="items" client:load />
   </CustomSection>
   <div>
   </div>

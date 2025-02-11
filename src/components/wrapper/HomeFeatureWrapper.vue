@@ -22,7 +22,7 @@ const props = defineProps({
 });
 </script>
 <template>
- <div class="container mx-auto p-6 mt-10">
+ <div class="container mx-auto p-6 mt-5">
       <Heading :title="heading.title" :description="heading.subtitle" align="CENTER" />
   
     <div v-for="(item, index) in items">
@@ -32,7 +32,6 @@ const props = defineProps({
         :title="item.title"
         :image="item.image"
         :direction="index % 2 === 0 ? 'left' : 'right'"
-        class=" mt-10"
         </CustomInterChange>
       />
     </div>
