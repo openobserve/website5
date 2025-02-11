@@ -10,7 +10,7 @@ const props = defineProps({
     required: true,
   },
   items: {
-    type: Object,
+    type: Array,
     required: true,
   },
   primaryButton: {
@@ -31,7 +31,7 @@ const props = defineProps({
       </div>
 
       <!-- Show slider component only on mobile (≤ 768px) -->
-      <!-- <div class="block md:hidden">
+      <div class="block md:hidden">
         <CustomBlogsSwiper
           :sectionData="items"
           titleTextColor="text-white"
@@ -39,18 +39,18 @@ const props = defineProps({
           cardBgColor="bg-[#2A2A2A]"
           linkColor="text-[#00A3FF]"
         />
-      </div> -->
+      </div>
 
       <!-- Show normal component on larger screens (≥ 768px) -->
-      <!-- <div class="hidden md:block">
-        <CustomBlogs
+      <div class="">
+        <CustomBlogsSwiper
           :sectionData="items"
           titleTextColor="text-white"
           descriptionTextColor="text-gray-400"
           cardBgColor="bg-[#2A2A2A]"
           linkColor="text-[#00A3FF]"
         />
-      </div> -->
+      </div>
 
       <div class="flex justify-center" v-if="primaryButton">
         <CustomButton

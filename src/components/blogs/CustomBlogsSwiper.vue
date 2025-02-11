@@ -11,18 +11,21 @@ interface Blog {
   description: string;
   image: {
     url: string;
-  };}
+  };
+}
 
 interface BlogSectionData {
-  sectionTitle: string;
-  sectionDescription: string;
-  recentPostsText: string;
-  blogs: Blog[];
+  title: string;
+  description: string;
+  image: {
+    url: string;
+  };
+  slug: string;
 }
 
 const props = defineProps({
   sectionData: {
-    type: Object as () => BlogSectionData,
+    type: Array as () => BlogSectionData[],
     required: true,
   },
   titleTextColor: {
@@ -78,13 +81,6 @@ const swiperOptions = {
 <template>
   <div class="bg-black py-16 relative">
     <div class="container mx-auto">
-      <div class="text-white mb-8">
-        <span class="font-semibold">Recent posts</span>
-        <span :class="[descriptionTextColor, 'ml-2']"
-          >: {{ sectionData.recentPostsText }}</span
-        >
-      </div>
-
       <div class="relative">
         <!-- Left and Right Gradients -->
         <div
@@ -100,7 +96,7 @@ const swiperOptions = {
           :modules="swiperModules"
           v-bind="swiperOptions"
         >
-          <swiper-slide v-for="blog in sectionData.blogs" :key="blog.title">
+          <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <div
               :class="[
                 cardBgColor,
