@@ -58,11 +58,14 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  caseStudyData : {
+  caseStudyData: {
     type: Array,
-    required: false
-  }
-
+    required: false,
+  },
+  blogs: {
+    type: Array,
+    required: false,
+  },
 });
 
 const componentsMap = computed(() => ({
@@ -120,7 +123,12 @@ const getComponentProps = (it) => {
       ...it,
       data: props.caseStudyData,
     };
+  } else if (it.__component === "section-cards.blogs") {
+    return {
+      ...it,
+      items: props.blogs,
+    };
   }
   return it;
-}
+};
 </script>

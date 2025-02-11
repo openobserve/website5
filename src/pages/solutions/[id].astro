@@ -31,7 +31,7 @@ const PageData = await fetchApi({
 });
 await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();
-const metaObj = PageData?.data?.seo;
+const metaObj = PageData?.data[0]?.seo;
 ---
 
 <Layout metaObj={metaObj}>

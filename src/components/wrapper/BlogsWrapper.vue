@@ -18,6 +18,7 @@ const props = defineProps({
     required: true,
   },
 });
+
 </script>
 <template>
   <div class="py-20">

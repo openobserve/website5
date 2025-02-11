@@ -36,7 +36,7 @@ const props = defineProps({
       <Heading :title="heading?.title" :description="heading?.subtitle" />
 
       <div
-        class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mt-10 w-full"
+        class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mt-10 w-full [&>*:nth-child(2)]:cols-start-2"
       >
         <!-- Loop moved here -->
         <IconTitleCard
@@ -48,3 +48,9 @@ const props = defineProps({
     </CustomSection>
   </div>
 </template>
+<style scoped>
+/* Selects the 6th item and moves it to the second column */
+.grid > *:nth-child(6) {
+  grid-column-start: 2;
+}
+</style>
