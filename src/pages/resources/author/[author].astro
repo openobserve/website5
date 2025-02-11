@@ -1,0 +1,19 @@
+---
+// Imports
+import { getAllAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
+
+// 🚀 Step 1: Generate dynamic paths for categories
+export async function getStaticPaths() {
+  await getAllBlogsCategoriesAndAuthors()
+  return getAllAuthors()?.map((author: any) => ({
+    params: { author: author.slug },
+  }));
+}
+
+// 🚀 Step 2: Get `categorySlug` from URL
+const { author } = Astro.params;
+// console.log("Static path", author);
+// 🚀 Step 3: Fetch blogs based on category
+
+---
+
