@@ -37,7 +37,8 @@ const cloudData = {
   namePlaceholder: "Name",
   emailPlaceholder: "Enter here",
   passwordPlaceholder: "Password",
-  termsText: "Confirm I have read and agree to OpenObserve's Terms and Conditions.",
+  termsText:
+    "Confirm I have read and agree to OpenObserve's Terms and Conditions.",
   buttonText: "CREATE AN ACCOUNT",
   trialText: "15-day unlimited usage trial",
   loginText: "Login with",
@@ -64,7 +65,8 @@ const selfHostedData = {
   --e Z0_ROOT_USER_PASSWORD="Complexpass#123" \\
   public.ecr.aws/zinc\\abs/openobserve:latest`,
   downloadTitle: "Download",
-  downloadText: "Binaries can be downloaded from releases page for the appropriate platform.",
+  downloadText:
+    "Binaries can be downloaded from releases page for the appropriate platform.",
   enterpriseTitle: "Enterprise",
   enterpriseSubtitle: "Enterprise-Grade Features for Complex Environments",
   features: [
@@ -77,9 +79,7 @@ const selfHostedData = {
 };
 
 const caseStudyTitle = {
-  title: "Want to know more? Check out these Blogs.",
-  subtitle:
-    "Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy.",
+  title: "Explore Resources",
 };
 const caseStudyData = [
   {
@@ -106,7 +106,8 @@ const caseStudyData = [
   {
     image: "/blogColor-3.png",
     title: "Blog Posts",
-    description: "Optimize your monitoring strategy with export written articles.S",
+    description:
+      "Optimize your monitoring strategy with export written articles.S",
     btnTitle: "EXPLORE BLOG POSTS",
     link: "/blog",
   },
@@ -173,8 +174,5 @@ const FaqData = {
     secondaryButton={bannerData.secondaryButton}
     client:load
   />
-  <!-- <FaqWrapper
-   faqs={FaqData.items}
-   heading={FaqData.heading} 
-   client:load /> -->
+  <FaqWrapper faqs={FaqData.items} heading={FaqData.heading} client:load />
 </Layout>
