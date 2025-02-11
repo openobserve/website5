@@ -56,13 +56,16 @@
         :type="type"
       />
     </div>
-    <BlogPagination
-      :totalItems="totalItems"
-      :itemsPerPage="itemsPerPage"
-      :currentPage="currentPage"
-      client:load
-      :type="type"
-    />
+    
+    <template v-if="totalItems !== undefined">
+      <BlogPagination
+        :totalItems="totalItems"
+        :itemsPerPage="itemsPerPage"
+        :currentPage="currentPage"
+        client:load
+        :type="type"
+      />
+    </template>
   </section>
 </template>
 
