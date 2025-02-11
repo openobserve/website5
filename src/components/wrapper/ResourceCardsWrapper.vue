@@ -42,7 +42,7 @@ const props = defineProps({
         </div>
         <div
           :class="[
-            `py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
+            `pt-3 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
           ]"
         >
           <div
@@ -56,7 +56,7 @@ const props = defineProps({
         <div class="flex justify-center items-center text-center">
           <CustomButton
             variant="pricing"
-            class="mt-10"
+            class="mt-3"
             :buttonLink="primaryButton?.link"
           >
             {{ primaryButton?.text }}

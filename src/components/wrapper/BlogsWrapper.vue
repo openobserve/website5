@@ -22,7 +22,7 @@ const props = defineProps({
 <template>
   <div >
     <CustomSection>
-      <div class="py-10">
+      <div class="py-3">
         <Heading
           :title="heading?.title"
           :description="heading?.subtitle"

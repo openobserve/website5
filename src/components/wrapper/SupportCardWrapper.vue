@@ -16,7 +16,7 @@ const props = defineProps({
 </script>
 <template>
   <CustomSection>
-    <div class="py-10">
+    <div class="py-3">
       <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
     </div>
     <div
