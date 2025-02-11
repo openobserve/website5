@@ -47,7 +47,7 @@ const containerClasses = computed(() => [
       <CustomImage
         :image="imgSrc"
         altText="Image"
-        cssClass="object-cover p-2.5"
+        cssClass="object-cover p-3"
         :style="{
           width: `${Number(iconSize)}px`,
           height: `${Number(iconSize)}px`

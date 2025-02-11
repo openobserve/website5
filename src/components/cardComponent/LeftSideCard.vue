@@ -26,14 +26,14 @@ const props = defineProps({
       <CustomImage
         :image="card.image"
         :altText="card.title"
-        cssClass="w-full h-auto max-h-60 md:max-h-80 lg:max-h-96 object-cover rounded-lg grayscale group-hover:grayscale-0"
+        cssClass="w-full h-auto md:h-60 lg:h-80 object-cover rounded-lg grayscale group-hover:grayscale-0"
       />
     </div>
-    <div class="flex flex-col h-full space-y-4">
-      <h3 class="text-[#BEC0C2] text-lg lg:text-2xl font-bold mb-2 md:mb-3">
+    <div class="flex flex-col h-full space-y-2">
+      <h3 class="text-white text-lg lg:text-2xl font-bold">
         {{ card?.title }}
       </h3>
-      <p class="text-white text-sm lg:text-base flex-1">
+      <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
         {{ card?.description }}
       </p>
       <a

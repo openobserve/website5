@@ -42,12 +42,12 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
+    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[10vh] before:z-0 before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-contain before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
     :style="sectionStyles"
   >
     <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
       <div
-        class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20 pr-[2vh]"
+        class="flex flex-col lg:flex-row lg:items-center lg:min-h-[calc(100vh-5rem)] lg:justify-between lg:gap-20 pr-[2vh]"
       >
         <!-- Content Container -->
         <div
@@ -61,7 +61,7 @@ const sectionStyles = computed(() => ({
           <p class="text-lg sm:text-xl font-medium text-gray-300 mb-8">
             {{ heading?.subtitle }}
           </p>
-          <div class="flex flex-col sm:flex-row justify-start gap-4">
+          <div class="flex flex-col flex-wrap sm:flex-row justify-start gap-4">
             <CustomButton
               variant="primary"
               class="w-full sm:w-auto"

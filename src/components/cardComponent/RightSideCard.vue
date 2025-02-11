@@ -11,22 +11,22 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="rounded-lg h-full w-full">
+  <div class="rounded-lg w-full flex-1">
     <div
       class="group custom-hover flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
     >
-      <div class="w-full lg:w-1/3 group-hover:grayscale-0 group-hover:filter min-h-[250px]">
+      <div class="w-full lg:w-2/5 group-hover:grayscale-0 group-hover:filter max-h-30">
         <CustomImage
           :image="card.image"
           :altText="card.title"
           cssClass="w-full h-full object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
         />
       </div>
-      <div class="flex flex-col h-full space-y-4 w-full lg:w-2/3">
-        <h3 class="text-[#BEC0C2] text-lg lg:text-2xl font-bold mb-3">
+      <div class="flex flex-col h-full space-y-4 w-full lg:w-3/5">
+        <h3 class="text-white text-lg lg:text-2xl font-bold mb-3 line-clamp-3">
           {{ card?.title }}
         </h3>
-        <p class="text-white text-sm lg:text-base flex-1">
+        <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
           {{ card?.description }}
         </p>
         <a

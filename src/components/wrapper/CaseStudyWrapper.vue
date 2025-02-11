@@ -79,7 +79,7 @@ const redirectToBlog = (slug) => {
         </div>
 
         <!-- Remaining cards -->
-        <div class="flex flex-col gap-3 justify-center items-center h-full cursor-pointer w-full">
+        <div class="flex flex-col gap-3 justify-center items-center cursor-pointer w-full">
           <RightSideCard
             v-for="(card, index) in cards.slice(1)"
             :key="card.slug || index"
