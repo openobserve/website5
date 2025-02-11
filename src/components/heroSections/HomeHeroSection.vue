@@ -46,7 +46,7 @@ const props = defineProps({
 
       <!-- Buttons -->
       <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link">
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link" target="_blank">
           {{ primaryButton.text }}
         </CustomButton>
         <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link"  target="_blank">
