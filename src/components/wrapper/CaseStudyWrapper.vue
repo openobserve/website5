@@ -108,6 +108,6 @@ const redirectToBlog = (slug) => {
         :buttonText="primaryButton.text" 
         :buttonLink="primaryButton.link" 
       />
-    </div>
+    </div> -->
   </section>
 </template>

@@ -40,7 +40,7 @@ const props = defineProps({
         <h3 class="text-white text-lg lg:text-2xl font-bold mb-3 line-clamp-3">
           {{ card?.title }}
         </h3>
-        <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
+        <p class="text-white text-sm lg:text-base flex-1 line-clamp-1">
           {{ card?.description }}
         </p>
         <a

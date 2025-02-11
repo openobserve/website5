@@ -51,7 +51,6 @@ const props = defineProps({
   <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full">
     <p class="text-white px-2 py-2">About the Authors</p>
     <div class="flex flex-col space-y-4">
-      {{ console.log(type) }}
       <a
         v-for="author in authors"
         :href="generateAuthorLink(type, author.slug)"
@@ -66,7 +65,7 @@ const props = defineProps({
             v-if="author.image.url"
             :src="author.image.url"
             :alt="author.name"
-            class="w-full h-full object-cover absolute inset-0"
+            class="w-full h-full object-contain absolute inset-0"
           />
           <div v-else class="w-full h-full flex items-center justify-center text-white">
             No Image
