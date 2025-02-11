@@ -20,7 +20,8 @@ const schema = yup.object({
   message: yup.string().required("Message is required"),
   terms: yup
     .boolean()
-    .oneOf([true], "You must accept the terms and conditions"),
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("You must accept the terms and conditions"),
 });
 
 // Initialize form validation
@@ -261,7 +262,6 @@ const navigateToTerms = (e) => {
             v-model="terms.value.value"
             class="mt-1 h-4 w-4 cursor-pointer"
             :class="{ 'border-red-500': terms.errorMessage.value }"
-            required
           />
         </div>
         <div class="ml-2">
