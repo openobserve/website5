@@ -9,9 +9,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://your-website.com", // Replace with your website URL
   integrations: [vue(), tailwind(), sitemap()],
-  redirects: {
-    "/resources/author/[...author]": "/articles/author/[...author]",
-  },
+  // redirects: {
+  //   "/resources/author/[...author]": "/articles/author/[...author]",
+  // },
   build: {
     concurrency: 2,
   },
