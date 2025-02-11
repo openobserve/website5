@@ -91,7 +91,11 @@
               buttonLink="/downloads"
               >DOWNLOADS</CustomButton
             >
-            <CustomButton variant="primary" size="large" buttonLink="/demo" target="_blank"
+            <CustomButton
+              variant="primary"
+              size="large"
+              buttonLink="/demo"
+              target="_blank"
               >GET DEMO</CustomButton
             >
           </div>
@@ -102,9 +106,7 @@
         <div
           v-if="activeSubMenu"
           style="
-            background-image:
-              url(&quot;/mobilenavBg1.svg&quot;),
-              url(&quot;/mobilenavBg2.svg&quot;);
+            background-image: url('/mobilenavBg1.svg'), url('/mobilenavBg2.svg');
             background-position: top, bottom;
             background-repeat: no-repeat, no-repeat;
             background-size: cover, cover;
@@ -142,7 +144,11 @@
               </div>
               <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div v-for="(item, index) in items.platform.items" :key="index">
-                  <SectionHeader :title="item.title" :items="item.items" />
+                  <SectionHeader
+                    :title="item.title"
+                    :items="item.items"
+                    :link="item.link"
+                  />
                 </div>
               </div>
               <div class="flex flex-col justify-center items-center space-y-1">
@@ -150,7 +156,17 @@
                   {{ items.platform.keyFeature.title }}
                 </h4>
                 <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                  <SectionHeader :items="items.platform.keyFeature.items" />
+                  <ul class="space-y-1 xl:space-y-2">
+                    <li
+                      v-for="(item, index) in items.platform.keyFeature.items"
+                      :key="index"
+                      class="text-[#BEC0C2] text-sm"
+                    >
+                      <div :class="item ? 'text-[#BEC0C2]' : ''">
+                        {{ item.title }}
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
