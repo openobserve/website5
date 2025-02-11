@@ -62,9 +62,9 @@ const props = defineProps({
           class="w-full md:w-1/6 h-44 md:h-auto relative flex items-center justify-center bg-gray-800"
         >
           <img
-            v-if="author.image.url"
-            :src="author.image.url"
-            :alt="author.name"
+            v-if="author?.image?.url"
+            :src="author?.image?.url"
+            :alt="author?.name"
             class="w-full h-full object-contain absolute inset-0"
           />
           <div v-else class="w-full h-full flex items-center justify-center text-white">
