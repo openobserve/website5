@@ -46,7 +46,7 @@ const formatSubtitle = (text) => {
       <div>
        <p v-html="description" class="text-white text-base md:text-lg xl:text-xl mt-4"></p>
       </div>
-      <div class="" v-if="primaryButton">
+      <div class="py-10" v-if="primaryButton">
         <CustomButton
           variant="secondary"
           class="w-full sm:w-auto"
