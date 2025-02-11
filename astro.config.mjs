@@ -9,7 +9,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://openobserve.ai", // Replace with your website URL
   integrations: [vue(), tailwind(), sitemap()],
-  // redirects: {
-  //   "/resources/author/[...author]": "/articles/author/[...author]",
-  // },
+  redirects: {
+    "/resources/[...slug]": "/articles/[...slug]",
+  },
 });

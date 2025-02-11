@@ -4,25 +4,18 @@ import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsH
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
 import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import fetchApi from "../../utils/strapi";
-import { getCaseStudies } from "../../utils/cache";
+import { getAllBlogsCategoriesAndAuthors, getCaseStudies, getResBlogsBySlug, getAllResourceBlogs } from "@/utils/cache";
+
 export async function getStaticPaths() {
-  const PageData: string[] = await fetchApi({
-    endpoint: "api/resource-pages",
-    query: { populate: "*", "pagination[pageSize]": 100 },
-  });
-  const slugs = PageData?.data;
-  return slugs.map((it: any) => ({
+  await getAllBlogsCategoriesAndAuthors(); // ✅ Use cache instead of direct API call
+  const blogs = getAllResourceBlogs();
+  return blogs?.map((it) => ({
     params: { slug: it.slug },
   }));
 }
-const { slug }: any = Astro.params;
-const SlugData = await fetchApi({
-  endpoint: "api/resource-pages",
-  query: { populate: "*", "filters[slug][$eq]": slug },
-});
 
+const { slug }: any = Astro.params;
+const cachedData = await getAllBlogsCategoriesAndAuthors();
+const SlugData = getResBlogsBySlug(slug) || {}; // ✅ Use cache lookup
 const loadcaseStudyData = getCaseStudies();
 ---
-
-

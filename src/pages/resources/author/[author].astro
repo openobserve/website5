@@ -1,19 +1,36 @@
 ---
-// Imports
-import { getAllAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
+import Layout from "../../../layouts/Layout.astro";
+import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
+import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
+import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
+import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
+import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogPagination from "../../../components/blogs/BlogPagination.vue";
+import { getResourceAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getResourceBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
 
-// 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors()
-  return getAllAuthors()?.map((author: any) => ({
+  await getAllBlogsCategoriesAndAuthors();
+  const authors = getResourceAuthors() || [];
+  return authors.map((author) => ({
     params: { author: author.slug },
   }));
 }
 
-// 🚀 Step 2: Get `categorySlug` from URL
 const { author } = Astro.params;
-// console.log("Static path", author);
-// 🚀 Step 3: Fetch blogs based on category
+await getAllBlogsCategoriesAndAuthors();
+const blogsData = getResourceBlogsByAuthor(author) || [];
+const suggestionData = getAllCategories() || [];
+const loadcaseStudyData = getCaseStudies() || [];
 
+const cardHeader = {
+  title: "Additional Learning Resources",
+  description: "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+};
+
+const cardData = [
+  {
+    icon: "/resources/64pxComponent.svg",
+    title: "Case Studies",
+  },
+];
 ---
-
