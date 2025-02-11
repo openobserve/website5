@@ -6,11 +6,11 @@ import TierSwitcher from "../../components/cloud-selfHostedTier/TierSwitcher.vue
 import CommonFormWrapper from "@/components/wrapper/CommonFormWrapper.vue";
 import CustomSeprater from "@/components/core/CustomSeprater.vue";
 
-const featureCardData ={ 
-  heading:{
-    title: "Full Stack Observability. Built for Efficiency."
+const featureCardData = {
+  heading: {
+    title: "Full Stack Observability. Built for Efficiency.",
   },
-  items:[
+  items: [
     {
       image: "/Platform/Vector.svg",
       title: "140x lower storage costs",
@@ -185,7 +185,7 @@ const selfHostedTiers = [
   },
 ];
 const tailoredSolutionsData = {
-  heading:{
+  heading: {
     title: "Request a demo",
   },
   subTitle:
@@ -206,8 +206,7 @@ const tailoredSolutionsData = {
         "Choose between cloud or self-hosted options to suit your requirements.",
     },
   ],
-  description:
-    "Take control of your observability stack with OpenObserve.",
+  description: "Take control of your observability stack with OpenObserve.",
 };
 ---
 
@@ -224,11 +223,12 @@ const tailoredSolutionsData = {
     client:load
     layout="column"
   />
-   <CommonFormWrapper
+  <CommonFormWrapper
     heading={tailoredSolutionsData.heading}
     subTitle={tailoredSolutionsData.subTitle}
     items={tailoredSolutionsData.items}
     description={tailoredSolutionsData.description}
+    client:load
   />
   <CustomSeprater />
   <!-- <TestimonialSliderWrapper

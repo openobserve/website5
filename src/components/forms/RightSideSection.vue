@@ -22,7 +22,13 @@ const schema = yup.object({
 });
 
 // Initialize form validation
-const { handleSubmit } = useForm({ validationSchema: schema });
+const { handleSubmit } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    support: "",
+    // ... other initial values
+  },
+});
 
 const name = useField("name");
 const email = useField("email");
@@ -168,6 +174,7 @@ const navigateToTerms = (e) => {
             name="support"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
+            <option value="" disabled selected>Select Support Type</option>
             <option value="Technical">Technical</option>
             <option value="Billing">Billing</option>
             <option value="Other">Other</option>
@@ -213,13 +220,13 @@ const navigateToTerms = (e) => {
           </div>
           <div class="ml-2">
             <label for="terms" class="text-white cursor-pointer select-none">
-              I confirm I have read and agree to OpenObserve's terms and
-              condition
+              I confirm I have read and agree to
               <a
                 href="/terms-and-conditions"
                 class="text-blue-500 underline"
                 @click="navigateToTerms"
               >
+                OpenObserve's terms and condition
               </a>
               <span class="text-red-500">*</span>
             </label>

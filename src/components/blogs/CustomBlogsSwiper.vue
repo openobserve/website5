@@ -11,18 +11,21 @@ interface Blog {
   description: string;
   image: {
     url: string;
-  };}
+  };
+}
 
 interface BlogSectionData {
-  sectionTitle: string;
-  sectionDescription: string;
-  recentPostsText: string;
-  blogs: Blog[];
+  title: string;
+  description: string;
+  image: {
+    url: string;
+  };
+  slug: string;
 }
 
 const props = defineProps({
   sectionData: {
-    type: Array,
+    type: Array as () => BlogSectionData[],
     required: true,
   },
   titleTextColor: {
@@ -73,27 +76,19 @@ const swiperOptions = {
     },
   },
 };
+
+const truncateDescription = (text: string, wordLimit: number) => {
+  const words = text.split(" ");
+  return words.length > wordLimit
+    ? words.slice(0, wordLimit).join(" ") + "..."
+    : text;
+};
 </script>
 
 <template>
-  <div class="bg-black py-16 relative">
+  <div class="py-16 relative">
     <div class="container mx-auto">
-      <div class="text-white mb-8">
-        <span class="font-semibold">Recent posts</span>
-        <span :class="[descriptionTextColor, 'ml-2']"
-          >: Recent Blog Posts</span
-        >
-      </div>
-
       <div class="relative">
-        <!-- Left and Right Gradients -->
-        <div
-          class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black pointer-events-none z-10 hidden md:block"
-        ></div>
-        <div
-          class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black pointer-events-none z-10 hidden md:block"
-        ></div>
-
         <!-- Swiper -->
         <swiper
           class="blog-swiper"
@@ -101,33 +96,35 @@ const swiperOptions = {
           v-bind="swiperOptions"
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
-            <div
-              :class="[
-                cardBgColor,
-                'rounded-xl overflow-hidden transition-transform hover:scale-105',
-              ]"
+            <a
+              href="#"
+              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
             >
-              <div class="h-48 overflow-hidden">
-                <CustomImage
-                  :image="blog.image.url || ''"
-                  :altText="blog.title"
-                  cssClass="w-full h-full object-cover"
-                />
+              <div
+                :class="[
+                  cardBgColor,
+                  'h-full rounded-xl overflow-hidden transition-transform ',
+                ]"
+              >
+                <div class="h-48 overflow-hidden">
+                  <CustomImage
+                    :image="blog.image.url || ''"
+                    :altText="blog.title"
+                    cssClass="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
+                    {{ blog.title }}
+                  </h3>
+                  <p
+                    :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']"
+                  >
+                    {{ blog.description }}
+                  </p>
+                </div>
               </div>
-              <div class="p-6">
-                <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
-                  {{ blog.title }}
-                </h3>
-                <p :class="[descriptionTextColor, 'mb-4 text-sm']">
-                  {{ blog.description }}
-                </p>
-                <a
-                  href="#"
-                  :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-                  >LEARN MORE</a
-                >
-              </div>
-            </div>
+            </a>
           </swiper-slide>
         </swiper>
 
@@ -148,6 +145,13 @@ const swiperOptions = {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .blog-swiper .swiper-pagination-bullet {
@@ -170,11 +174,6 @@ const swiperOptions = {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-}
-
-:deep(.swiper-button-next:hover),
-:deep(.swiper-button-prev:hover) {
-  background-color: rgba(59, 130, 246, 0.8);
 }
 
 :deep(.swiper-button-next::after),
