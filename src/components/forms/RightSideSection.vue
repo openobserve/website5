@@ -220,13 +220,13 @@ const navigateToTerms = (e) => {
           </div>
           <div class="ml-2">
             <label for="terms" class="text-white cursor-pointer select-none">
-              I confirm I have read and agree to
+              I confirm I have read and agree to OpenObserve's 
               <a
-                href="/terms-and-conditions"
+                href="/policies/terms-of-service"
                 class="text-blue-500 underline"
-                @click="navigateToTerms"
-              >
-                OpenObserve's terms and condition
+                >
+                <!-- @click="navigateToTerms" -->
+                terms and condition
               </a>
               <span class="text-red-500">*</span>
             </label>
