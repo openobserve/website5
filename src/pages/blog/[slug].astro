@@ -22,7 +22,6 @@ const SlugData = await fetchApi({
   query: { populate: "*", "filters[slug][$eq]": slug, "pLevel": 5 },
 });
 await getAllBlogsCategoriesAndAuthors();
-console.log("slugs authors", SlugData?.data[0].authors)
 const loadcaseStudyData = getCaseStudies();
 ---
 
