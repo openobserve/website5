@@ -23,24 +23,20 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="py-20">
-    <CustomSection>
-      <div class="py-10">
-        <Heading :title="title" :description="description" align="LEFT" />
-      </div>
-      <CustomBlogsSwiper
-        :sectionData="items"
-        titleTextColor="text-white"
-        descriptionTextColor="text-gray-400"
-        cardBgColor="bg-[#2A2A2A]"
-        linkColor="text-[#00A3FF]"
-      />
-      <div class="text-center">
-        <CustomButton variant="secondary" size="small"
-          >{{ btnTitle }}
-        </CustomButton>
-      </div>
-    </CustomSection>
-  </div>
+  <CustomSection>
+    <Heading :title="title" :description="description" align="LEFT" />
+    <CustomBlogsSwiper
+      :sectionData="items"
+      titleTextColor="text-white"
+      descriptionTextColor="text-gray-400"
+      cardBgColor="bg-[#2A2A2A]"
+      linkColor="text-[#00A3FF]"
+    />
+    <div class="text-center">
+      <CustomButton variant="secondary" size="small"
+        >{{ btnTitle }}
+      </CustomButton>
+    </div>
+  </CustomSection>
 </template>
 <style scoped></style>
