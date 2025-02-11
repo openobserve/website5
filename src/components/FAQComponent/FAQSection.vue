@@ -26,7 +26,7 @@ const renderMarkdown = (markdown) => {
 <template>
   <div class="w-full bg-[url('/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full">
     <!-- FAQ Items -->
-    <div class="space-y-4 mt-10 mb-10 w-full">
+    <div class="space-y-4 my-5 w-full">
       <div v-for="(item, index) in faqItems" :key="index">
         <div
           class="flex justify-between items-center cursor-pointer p-4 group relative rounded-xl border border-[rgba(0,0,0,0)]  hover:border-[rgba(255,255,255,0.2)] duration-300 transition-all"

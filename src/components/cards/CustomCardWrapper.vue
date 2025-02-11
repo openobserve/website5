@@ -26,11 +26,11 @@ const props = defineProps({
 
 <template>
   <div class="">
-    <div class="relative py-10 bg-cover bg-no-repeat overflow-visible container mx-auto">
+    <div class="relative pt-10 bg-cover bg-no-repeat overflow-visible container mx-auto">
       <!-- Main Content -->
       <CustomSection>
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-5 md:pt-20">
           <div
             v-for="(item, index) in items"
             :key="index"
