@@ -82,7 +82,9 @@
               ></div>
             </li>
           </ul>
-          <div class="flex flex-col space-y-4 w-full pt-20 px-4">
+          <div
+            class="flex flex-col justify-center items-center space-y-4 w-full pt-20"
+          >
             <CustomButton
               variant="secondary"
               size="large"
@@ -100,7 +102,9 @@
         <div
           v-if="activeSubMenu"
           style="
-            background-image: url('/mobilenavBg1.svg'), url('/mobilenavBg2.svg');
+            background-image:
+              url(&quot;/mobilenavBg1.svg&quot;),
+              url(&quot;/mobilenavBg2.svg&quot;);
             background-position: top, bottom;
             background-repeat: no-repeat, no-repeat;
             background-size: cover, cover;
