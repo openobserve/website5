@@ -27,8 +27,8 @@ const loadcaseStudyData = getCaseStudies();
     client:load
     suggestions={SlugData[0].categories}
   />
-  <BlogDetailContentWrapper client:load content={SlugData[0].content} />
-  <SingleAuthorDetails author={SlugData[0].authors?.[0]} client:load />
+  <BlogDetailContentWrapper client:load content={SlugData?.data[0].content} />
+  <SingleAuthorDetails authors={SlugData?.data[0].authors[0]} client:load type="articles" />
   <CaseStudyWrapper
     title="Want to know more? Check out these Blogs."
     description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."

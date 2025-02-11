@@ -1,0 +1,40 @@
+---
+
+import {getAllBlogsCategoriesAndAuthors, getAllCategories, getCaseStudies, getAllResourceBlogs, getAllResourceCategories } from "../../../utils/cache";
+
+// 🚀 Fetch All Categories and Blogs
+export async function getStaticPaths() {
+  await getAllBlogsCategoriesAndAuthors();
+  const categories = getAllResourceCategories();
+  const blogs = getAllResourceBlogs();
+  // Map each category to its related blogs
+  const categoryMap = categories?.map((category) => ({
+    params: { tag: category.slug }, // Correct attribute access for category
+    props: {
+      category,
+      blogs: blogs.filter((blog) =>
+        blog.categories.some(
+          (cat) => cat.id === category.id // Ensure correct comparison
+        )
+      ),
+    },
+  }));
+
+  return categoryMap;
+}
+
+// 🚀 Get Category Slug from URL
+const { tag } = Astro.params;
+const { category, blogs } = Astro.props;
+let blogsData = [];
+if (category) {
+  blogsData = blogs.filter((blog) =>
+    blog.categories.some((cat) => cat.id === category.id)
+  );
+} else {
+  console.log(`Category for tag ${tag} not found.`);
+}
+
+---
+
+

@@ -66,7 +66,7 @@ const props = defineProps({
             v-if="author.image.url"
             :src="author.image.url"
             :alt="author.name"
-            class="w-full h-full object-cover absolute inset-0"
+            class="w-full h-full object-contain absolute inset-0"
           />
           <div v-else class="w-full h-full flex items-center justify-center text-white">
             No Image
