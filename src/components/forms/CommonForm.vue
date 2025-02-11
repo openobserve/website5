@@ -69,7 +69,7 @@ const onSubmit = handleSubmit(async (values) => {
       <div class="space-y-3">
         <div>
           <label for="name" class="text-gray-200 font-medium cursor-pointer">
-            Name <span class="text-blue-500">*</span>
+            Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
             v-model="name.value.value"
@@ -82,7 +82,7 @@ const onSubmit = handleSubmit(async (values) => {
         </div>
         <div>
           <label for="email" class="text-gray-200 font-medium cursor-pointer">
-            Email Address <span class="text-blue-500">*</span>
+            Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
             v-model="email.value.value"
@@ -97,7 +97,7 @@ const onSubmit = handleSubmit(async (values) => {
 
         <div class="input-group">
           <label for="message" class="text-gray-200 font-medium cursor-pointer">
-            Message <span class="text-blue-500">*</span>
+            Message <span class="text-red-500">*</span>
           </label>
           <textarea
             v-model="help.value.value"
@@ -124,14 +124,15 @@ const onSubmit = handleSubmit(async (values) => {
           </div>
           <div class="ml-2">
             <label for="terms" class="text-white cursor-pointer select-none">
-              I confirm I have read and agree to OpenObserve's
+              I confirm I have read and agree to OpenObserve's Terms And
+              Conditions
               <a
                 href="/terms-and-conditions"
                 class="text-blue-500 underline"
                 @click="navigateToTerms"
               >
               </a>
-              <span class="text-blue-500">*</span>
+              <span class="text-red-500">*</span>
             </label>
             <p
               v-if="terms.errorMessage.value"

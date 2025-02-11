@@ -93,7 +93,7 @@ const navigateToTerms = (e) => {
         <!-- Name -->
         <div>
           <label for="name" class="text-gray-200 font-medium cursor-pointer">
-            Name <span class="text-blue-500">*</span>
+            Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="name"
@@ -109,7 +109,7 @@ const navigateToTerms = (e) => {
         <!-- Email -->
         <div>
           <label for="email" class="text-gray-200 font-medium cursor-pointer">
-            Email Address <span class="text-blue-500">*</span>
+            Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="email"
@@ -126,7 +126,7 @@ const navigateToTerms = (e) => {
         <!-- Company Name -->
         <div>
           <label for="company" class="text-gray-200 font-medium cursor-pointer">
-            Company Name <span class="text-blue-500">*</span>
+            Company Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="company"
@@ -144,7 +144,7 @@ const navigateToTerms = (e) => {
         <!-- Phone Number -->
         <div>
           <label for="phone" class="text-gray-200 font-medium cursor-pointer">
-            Phone Number <span class="text-blue-500">*</span>
+            Phone Number <span class="text-red-500">*</span>
           </label>
           <CustomInput
             id="phone"
@@ -160,7 +160,7 @@ const navigateToTerms = (e) => {
         <!-- Support Needed -->
         <div>
           <label for="support" class="text-gray-200 font-medium cursor-pointer">
-            Support Type <span class="text-blue-500">*</span>
+            Support Type <span class="text-red-500">*</span>
           </label>
           <select
             id="support"
@@ -182,7 +182,7 @@ const navigateToTerms = (e) => {
         <!-- Message -->
         <div>
           <label for="message" class="text-gray-200 font-medium cursor-pointer">
-            Message <span class="text-blue-500">*</span>
+            Message <span class="text-red-500">*</span>
           </label>
           <textarea
             id="message"
@@ -213,14 +213,15 @@ const navigateToTerms = (e) => {
           </div>
           <div class="ml-2">
             <label for="terms" class="text-white cursor-pointer select-none">
-              I confirm I have read and agree to OpenObserve's terms and condition
+              I confirm I have read and agree to OpenObserve's terms and
+              condition
               <a
                 href="/terms-and-conditions"
                 class="text-blue-500 underline"
                 @click="navigateToTerms"
               >
               </a>
-              <span class="text-blue-500">*</span>
+              <span class="text-red-500">*</span>
             </label>
             <p
               v-if="terms.errorMessage.value"
