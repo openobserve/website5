@@ -26,25 +26,25 @@ const props = defineProps({
 
 <template>
   <div class="container mx-auto">
-  <div class="h-14 mb-4">
-    <CustomRoundShape
-      :imgSrc="card.image"
-      iconSize="small"
-      :borderColor="borderColor"
-      size="small"
-    />
+    <div class="h-14 mb-4">
+      <CustomRoundShape
+        :imgSrc="card.image"
+        iconSize="small"
+        :borderColor="borderColor"
+        size="small"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2
+        :class="`font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 ${titleTextColor}`"
+      >
+        {{ card.title }}
+      </h2>
+      <p
+        :class="`text-[12px] sm:text-[14px] md:text-[16px] m-0 ${descriptionTextColor}`"
+      >
+        {{ card.description }}
+      </p>
+    </div>
   </div>
-  <div class="flex flex-col gap-2">
-    <h2
-      :class="`font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 ${titleTextColor}`"
-    >
-      {{ card.title }}
-    </h2>
-    <p
-      :class="`text-[12px] sm:text-[14px] md:text-[16px] m-0 ${descriptionTextColor}`"
-    >
-      {{ card.description }}
-    </p>
-  </div>
-</div>
 </template>
