@@ -52,6 +52,7 @@ const redirectToBlog = (slug) => {
 </script>
 
 <template>
+  <section>
   <CustomSection>
     <Heading
       :title="heading?.title"
@@ -111,5 +112,6 @@ const redirectToBlog = (slug) => {
         :buttonLink="primaryButton.link" 
       />
     </div> -->
+    </CustomSection>
   </section>
 </template>
