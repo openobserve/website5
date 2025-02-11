@@ -21,10 +21,6 @@ await getAllBlogsCategoriesAndAuthors();
 const blogsData = getResourceBlogsByAuthor(author) || [];
 const suggestionData = getAllCategories() || [];
 const loadcaseStudyData = getCaseStudies() || [];
-await getAllBlogsCategoriesAndAuthors();
-const blogsData = getResourceBlogsByAuthor(author) || [];
-const suggestionData = getAllCategories() || [];
-const loadcaseStudyData = getCaseStudies() || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -47,7 +43,6 @@ const metaObj = {
 <Layout>
   <ResourceHeroSection
     title="Blogs"
-    subtitle={`Showing posts by author: ${author}`}
     subtitle={`Showing posts by author: ${author}`}
   />
 

@@ -15,9 +15,6 @@ const props = defineProps({
       image: {
         url: string;
       }
-      image: {
-        url: string;
-      }
       slug: string;
       youtubeUrl?: string | null;
       linkedInUrl?: string | null;
