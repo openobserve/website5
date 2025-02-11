@@ -66,6 +66,7 @@ const sectionStyles = computed(() => ({
               variant="primary"
               class="w-full sm:w-auto"
               :buttonLink="primaryButton.link"
+              target="_blank"
             >
               {{ primaryButton.text }}
             </CustomButton>

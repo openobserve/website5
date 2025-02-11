@@ -61,7 +61,7 @@ defineProps({
         <CustomButton variant="bannerPrimary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
           {{ primaryButton?.text }}
         </CustomButton>
-        <CustomButton variant="bannerSecondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link">
+        <CustomButton variant="bannerSecondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link" target="_blank">
           {{ secondaryButton?.text }}
         </CustomButton>
       </div>
