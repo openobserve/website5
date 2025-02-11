@@ -4,11 +4,13 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import {getAllBlogsCategoriesAndAuthors, getAllCategories, getCaseStudies } from "../../../utils/cache";
+import {getAllBlogsCategoriesAndAuthors, getAllCategories, getCaseStudies, getAllResourceBlogs, getAllResourceCategories } from "../../../utils/cache";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  const { categories, blogs } = await getAllBlogsCategoriesAndAuthors();
+  await getAllBlogsCategoriesAndAuthors();
+  const categories = getAllResourceCategories();
+  const blogs = getAllResourceBlogs();
   // Map each category to its related blogs
   const categoryMap = categories?.map((category) => ({
     params: { tag: category.slug }, // Correct attribute access for category
