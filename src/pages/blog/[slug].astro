@@ -17,8 +17,12 @@ export async function getStaticPaths() {
   }));
 }
 const { slug }: any = Astro.params;
+const SlugData = await fetchApi({
+  endpoint: "api/blog-pages",
+  query: { populate: "*", "filters[slug][$eq]": slug, "pLevel": 5 },
+});
 await getAllBlogsCategoriesAndAuthors();
-const SlugData = getBlogsBySlug(slug) || {}
+console.log("slugs authors", SlugData?.data[0].authors)
 const loadcaseStudyData = getCaseStudies();
 
 const metaObj= {

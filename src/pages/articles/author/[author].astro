@@ -6,13 +6,7 @@ import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWra
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import {
-  getResourceAuthors,
-  getAllBlogsCategoriesAndAuthors,
-  getAllCategories,
-  getResourceBlogsByAuthor,
-  getCaseStudies,
-} from "../../../utils/cache";
+import { getResourceAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getResourceBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
 
 export async function getStaticPaths() {
   await getAllBlogsCategoriesAndAuthors();
@@ -27,11 +21,14 @@ await getAllBlogsCategoriesAndAuthors();
 const blogsData = getResourceBlogsByAuthor(author) || [];
 const suggestionData = getAllCategories() || [];
 const loadcaseStudyData = getCaseStudies() || [];
+await getAllBlogsCategoriesAndAuthors();
+const blogsData = getResourceBlogsByAuthor(author) || [];
+const suggestionData = getAllCategories() || [];
+const loadcaseStudyData = getCaseStudies() || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+  description: "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
 };
 
 const cardData = [
@@ -47,9 +44,10 @@ const metaObj = {
 };
 ---
 
-<Layout metObj={metaObj}>
+<Layout>
   <ResourceHeroSection
     title="Blogs"
+    subtitle={`Showing posts by author: ${author}`}
     subtitle={`Showing posts by author: ${author}`}
   />
 
