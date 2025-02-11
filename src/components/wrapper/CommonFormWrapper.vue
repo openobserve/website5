@@ -33,7 +33,7 @@ defineProps({
     <!-- Conditionally render TextWithGradient if title is provided -->
     <TextWithGradient
       v-if="heading?.title"
-      class="text-2xl md:text-5xl font-bold text-center mb-6 max-w-xl mx-auto"
+      class="text-2xl md:text-5xl font-bold text-center mb-14 max-w-xl mx-auto"
       :title="heading?.title"
       textGradientColor="bg-white"
     />
