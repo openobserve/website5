@@ -13,7 +13,7 @@ export default defineConfig({
     "/resources/[...slug]": "/articles/[...slug]",
     "/resources/page/[...slug]": "/articles/page/[...slug]",
     "/resources/tag/[...slug]": "/articles/tag/[...slug]",
-    "/resources/author/[...author]": "/articles/author/[...author]",
+    "/resources/author/[...slug]": "/articles/author/[...slug]",
   },
   build: {
     concurrency: 2,
