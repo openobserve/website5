@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomImage from "../core/CustomImage.vue";
+import CustomBluredImage from "../core/CustomBluredImage.vue";
 
 const props = defineProps({
   card: {
@@ -15,27 +16,8 @@ const props = defineProps({
     <div
       class="group custom-hover  flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
     >
-      <div
-        class="w-full lg:w-2/5 max-h-30 relative rounded-lg overflow-hidden bg-white bg-center bg-cover"
-      >
-        <!-- Blurred Background -->
-        <div
-          class="absolute inset-0 blur-3xl"
-          :style="
-            'background-image: url(' +
-            card.image +
-            '); background-size: cover; background-position: center;'
-          "
-        ></div>
+      <CustomBluredImage :image="card.image || ''" :altText="card.title" />
 
-        <!-- Foreground Image -->
-        <CustomImage
-          :image="card.image"
-          :altText="card.title"
-          class="absolute inset-0 "
-          cssClass="relative w-full h-full object-contain rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
-        />
-      </div>
       <div class="flex flex-col h-full space-y-4 w-full lg:w-3/5">
         <h3 class="text-white text-lg lg:text-2xl font-bold mb-3 line-clamp-3">
           {{ card?.title }}

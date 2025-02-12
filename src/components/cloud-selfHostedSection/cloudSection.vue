@@ -19,7 +19,6 @@ const schema = yup.object({
   terms: yup.boolean().oneOf([true], "You must accept the terms and conditions"),
 });
 const handleSubmit = (values) => {
-  console.log("Form submitted:", values);
 };
 </script>
 

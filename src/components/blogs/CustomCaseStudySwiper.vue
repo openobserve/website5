@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import CustomImage from "../core/CustomImage.vue";
+import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -97,13 +98,15 @@ const truncateDescription = (text: string, wordLimit: number) => {
                   'h-full rounded-xl overflow-hidden transition-transform ',
                 ]"
               >
-                <div class="h-48 overflow-hidden">
+                <!-- <div class="h-48 overflow-hidden">
                   <CustomImage
                     :image="blog.image || ''"
                     :altText="blog.title"
                     cssClass="w-full h-full object-cover"
                   />
-                </div>
+                </div> -->
+                <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
+
                 <div class="p-6">
                   <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
                     {{ blog.title }}
