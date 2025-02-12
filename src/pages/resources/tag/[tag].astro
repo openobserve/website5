@@ -5,6 +5,7 @@ import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import { getAllResourceBlogs, getAllResourceCategories } from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -39,9 +40,9 @@ if (category) {
 }
 
 // ✅ Fetch Additional Data
-const suggestionData = getAllCategories();
+const suggestionData = await getAllResourceCategories();
 
-const loadcaseStudyData = getCaseStudies();
+const loadcaseStudyData = await getCaseStudies();
 
 // 🔹 Additional Card Data
 const cardHeader = {
