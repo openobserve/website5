@@ -49,19 +49,21 @@ const data = {
         <li
           v-for="(feature, index) in data?.keyFeatures"
           :key="index"
-          class="flex flex-col gap-2"
+          class="flex flex-row gap-2"
         >
-          <div class="flex items-center gap-3">
+          <div class="flex items-center w-8 h-8">
             <img
-              image="/resources/Frame-11216.svg"
+              src="/rightTick.svg"
               alt="icon"
-              class="w-5 md:w-6 h-5 md:h-6"
+              class="w-full h-full"
             />
-            <span class="text-white font-medium">{{ feature.title }}</span>
           </div>
-          <p v-if="feature.description" class="text-gray-300 text-sm pl-10">
+          <div class="flex flex-col space-y-1">
+            <span class="text-white font-medium">{{ feature.title }}</span>
+             <p v-if="feature.description" class="text-gray-300 text-sm">
             {{ feature.description }}
           </p>
+          </div>
         </li>
       </ul>
       <h3 class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start">

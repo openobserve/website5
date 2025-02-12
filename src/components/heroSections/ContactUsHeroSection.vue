@@ -207,13 +207,13 @@ const onSubmit = handleSubmit(async (values) => {
                     for="terms"
                     class="text-white cursor-pointer select-none"
                   >
-                    I confirm I have read and agree to OpenObserve's Terms And
-                    Conditions
+                    I confirm, I have read and agree to OpenObserve's 
                     <a
                       href="/terms-and-conditions"
                       class="text-blue-500 underline"
                       @click="navigateToTerms"
                     >
+                     Terms And Conditions
                     </a>
                     <span class="text-red-500">*</span>
                   </label>

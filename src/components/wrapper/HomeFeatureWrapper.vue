@@ -25,7 +25,7 @@ const props = defineProps({
  <div class="container mx-auto p-6 mt-5">
       <Heading :title="heading.title" :description="heading.subtitle" align="CENTER" />
   
-    <div v-for="(item, index) in items">
+    <div v-for="(item, index) in items" :key="index" class="mb-8 md:mb-0">
       <CustomInterChange
         :key="{ index }"
         :items="item.items"

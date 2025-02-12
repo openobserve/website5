@@ -269,7 +269,7 @@ const navigateToTerms = (e) => {
             for="terms"
             class="text-white text-sm cursor-pointer select-none"
           >
-            I confirm I have read and agree to OpenObserve's 
+            I confirm, I have read and agree to OpenObserve's 
             <a
               href="/policies/terms-of-service"
               class="text-blue-500 underline"
