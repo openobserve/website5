@@ -17,17 +17,17 @@ const props = defineProps({
     <CustomSection>
   <div class="relative justify-center w-full">
     <!-- Background image with lower z-index -->
-    <div class="absolute w-full">
+    <!-- <div class=""> -->
       <img
         alt="Bottom decoration"
-        class="w-full h-full object-cover"
+        class="absolute w-screen h-1/4 md:h-auto rounded-2xl"
         src="/img/bg/platform/glass-bg.svg"
       />
-    </div>
+    <!-- </div> -->
 
     <!-- Content with higher z-index -->
    
-      <div class="relative w-full pt-6">
+      <div class="relative w-full pt-6 px-3">
         <Heading
           :title="heading?.title"
           :description="heading?.subtitle"
