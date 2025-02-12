@@ -28,18 +28,14 @@ const copyCode = () => {
     <!-- Content Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
       <!-- Cloud Section -->
-      <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
-        <h2 class="text-2xl font-semibold text-white mb-8">Open Source</h2>
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
+        <h2 class="text-xl md:text-2xl font-semibold text-white mb-4 md:mb-8">Open Source</h2>
         <div class="flex-grow">
-          <ul class="space-y-4 mb-8">
+          <ul class="space-y-4 mb-4 md:mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/download-pricing/docker.svg"
-                  alt="icon"
-                  class="w-6 h-6"
-              /></span>
-              <span class="text-sm">Docker</span>
+                <img src="/download-pricing/docker.svg" alt="icon" class="w-5 md:w-6 h-5 md:h-6"/></span>
+              <span class="text-sm flex items-center">Docker</span>
             </li>
           </ul>
         </div>
@@ -80,7 +76,7 @@ const copyCode = () => {
                   <img
                     src="/download-pricing/downloading.svg"
                     alt="icon"
-                    class="w-6 h-6"
+                    class="w-5 md:w-6 h-5 md:h-6"
                   />
                 </span>
                 <span class="text-sm">Downloads</span>
@@ -88,7 +84,7 @@ const copyCode = () => {
             </li>
           </ul>
         </div>
-        <h2 class="text-lg font-semibold text-white mb-8">
+        <h2 class="text-md md:text-lg font-semibold text-white mb-8">
           Binaries can be downloaded from
           <a
             href="https://github.com/openobserve/openobserve/releases"
@@ -118,10 +114,10 @@ const copyCode = () => {
         </div> 
         <CustomSeprater />-->
       </div>
-      <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <div class="mb-6">
-          <h4 class="text-white text-xl font-medium py-5">Enterprise</h4>
-          <p class="text-white text-xl font-medium py-2">
+          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-4">Enterprise</h4>
+          <p class="text-white text-sm md:text-md font-medium">
             Environments Enterprise-Grade Features for Complex Environments
           </p>
         </div>
@@ -162,7 +158,7 @@ const copyCode = () => {
           </ul>
         </div>
         <div class="mb-6">
-          <h4 class="text-white text-lg font-medium py-2">
+          <h4 class="text-white text-base md:text-lg font-medium py-2">
             Take charge of your observability with zero upfront costs.
           </h4>
         </div>

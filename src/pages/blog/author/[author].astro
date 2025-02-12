@@ -58,7 +58,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Author"
-    subtitle={`Showing posts for category: ${author}`}
+    description={`Showing posts for author: ${Astro.params.author}`}
   />
 
   <CaseStudyWrapper data={loadcaseStudyData} client:load />

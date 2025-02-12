@@ -27,11 +27,11 @@ defineProps({
           :key="index"
           class="flex flex-col gap-2"
         >
-          <div class="flex items-start gap-4">
+          <div class="flex items-center gap-3">
             <CustomImage
               image="/resources/Frame-11216.svg"
               altText="icon"
-              cssClass="w-6 h-6"
+              cssClass="w-5 md:w-6 h-5 md:h-6"
             />
             <span class="text-white font-medium">{{ feature.title }}</span>
           </div>

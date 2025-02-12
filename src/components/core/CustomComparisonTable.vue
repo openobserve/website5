@@ -20,9 +20,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full container mx-auto px-4 py-16">
+  <div class="w-full container mx-auto px-4">
     <!-- Title -->
-    <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+    <h2 class="text-2xl md:text-4xl font-semibold text-white text-center mb-6 md:mb-12">
       {{ title }}
     </h2>
 
@@ -37,13 +37,13 @@ const props = defineProps({
 
         <!-- Cloud Column -->
         <div
-          class="p-4 md:p-6 font-medium text-blue-400 border-x border-gray-800"
+          class="p-4 md:p-6 font-medium text-base md:text-lg text-blue-400 border-x border-gray-800"
         >
           {{ cloudTitle }}
         </div>
 
         <!-- Self-Hosted Column -->
-        <div class="p-4 md:p-6 font-medium text-orange-400">
+        <div class="p-4 md:p-6 font-medium text-base md:text-lg text-orange-400">
           {{ selfHostedTitle }}
         </div>
       </div>
@@ -56,17 +56,17 @@ const props = defineProps({
           class="grid grid-cols-3 text-white"
         >
           <!-- Feature Column -->
-          <div class="p-4 md:p-6 text-wrap text-sm md:text-base text-gray-400">
+          <div class="p-4 md:p-6 text-wrap text-xs md:text-base text-gray-400">
             {{ feature.name }}
           </div>
 
           <!-- Cloud Column -->
-          <div class="p-4 md:p-6 text-wrap text-sm md:text-base border-x border-gray-800">
+          <div class="p-4 md:p-6 text-wrap text-xs md:text-base border-x border-gray-800">
             {{ feature.cloud }}
           </div>
 
           <!-- Self-Hosted Column -->
-          <div class="p-4 md:p-6 text-wrap text-sm md:text-base">
+          <div class="p-4 md:p-6 text-wrap text-xs md:text-base">
             {{ feature.selfHosted }}
           </div>
         </div>
@@ -74,5 +74,3 @@ const props = defineProps({
     </div>
   </div>
 </template>
-
-<style scoped></style>

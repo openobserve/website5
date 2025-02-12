@@ -15,7 +15,13 @@
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
           </div> -->
-          <CustomButton variant="tertiary" size="small">LOG IN</CustomButton>
+          <CustomButton
+            variant="tertiary"
+            size="small"
+            buttonLink="https://cloud.openobserve.ai"
+            target="_blank"
+            >LOG IN</CustomButton
+          >
           <div
             class="cursor-pointer h-8 w-8 flex items-center"
             @click="onMenuClick"
@@ -134,6 +140,7 @@
                 />
                 <a
                   class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
+                  href="/pricing"
                   >Pricing</a
                 >
               </div>
