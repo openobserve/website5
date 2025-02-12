@@ -41,7 +41,6 @@ const props = defineProps({
             v-for="(item, index) in items"
             :key="index"
           >
-            <!-- :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'" -->
             <CustomFeatureCard :card="item" />
           </div>
         </div>
