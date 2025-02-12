@@ -34,19 +34,7 @@ const blogsData = getBlogsByAuthor(author);
 const suggestionData = getAllCategories();
 const loadcaseStudyData = getCaseStudies();
 
-// 🔹 Additional Card Data
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
 
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
 
 const metaObj = {
   title:
@@ -57,7 +45,7 @@ const metaObj = {
 <!-- ✅ Render Category-Based Blogs -->
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
-    title="Author"
+    :title={Astro.params.author}
     description={`Showing posts for author: ${Astro.params.author}`}
   />
 

@@ -8,10 +8,8 @@ const PageData = await fetchApi({
   endpoint: "api/resource",
   query: { pLevel: "10", status: "draft" },
 });
-await getAllBlogsCategoriesAndAuthors();
 const loadcaseStudyData = getCaseStudies();
 const metaObj = PageData?.data?.seo;
-await getAllBlogsCategoriesAndAuthors();
 const allBlogs = getAllBlogs();
 const blogs = allBlogs?.slice(0, 10);
 ---

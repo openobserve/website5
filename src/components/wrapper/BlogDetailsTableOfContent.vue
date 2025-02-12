@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4" style="background-image: url('/Glass.svg')">
+  <div class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 max-h-screen overflow-y-auto scrollbar" style="background-image: url('/Glass.svg')">
     <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
     <ul class="space-y-4">
       <li v-for="(heading, index) in nestedHeadings" :key="index">
@@ -66,4 +66,35 @@ const nestedHeadings = computed(() => {
   return nested;
 });
 </script>
+<style>
+.scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(221, 219, 219);
+  border-radius: 10px;
+  background-color: #f8f6f6;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgb(245, 244, 244);
+  background-color: #808080;
+}
+
+/* Small device styles */
+@media (max-width: 768px) {
+  .scrollbar::-webkit-scrollbar {
+    height: 0px; /* Adjust the height for small devices */
+  }
+}
+
+/* Large device styles */
+@media (min-width: 769px) {
+  .scrollbar::-webkit-scrollbar {
+    height: 0px; /* Adjust the height for large devices */
+  }
+}
+</style>
 

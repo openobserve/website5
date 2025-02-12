@@ -38,7 +38,6 @@ if (category) {
     blog.categories.some((cat) => cat.id === category.id)
   );
 } else {
-  console.log(`Category for tag ${tag} not found.`);
 }
 
 // ✅ Fetch Additional Data
@@ -67,7 +66,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    subtitle={`Showing posts for category: ${category?.name ?? tag}`}
+    description={`Showing posts for category: ${Astro.params.tag}`}
   />
 
   <CaseStudyWrapper data={loadcaseStudyData || []} client:load />

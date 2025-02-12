@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { generateNavLink } from "../../utils/redirection";
+import CustomBluredImage from "../core/CustomBluredImage.vue";
 interface Blog {
   title: string;
   description: string;
@@ -47,14 +48,8 @@ const props = defineProps({
             cardBgColor,
             'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',
           ]">
-          <!-- Left Side - Image -->
-          <div class="relative h-48 w-full flex-shrink-0 bg-cover bg-center overflow-hidden bg-white">
-            <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + blog.image?.url + ');'"></div>
-            <img :src="blog.image?.url || ''" :alt="blog.title"
-              class="absolute inset-0 w-full h-full object-center object-contain" />
-          </div>
-
-          <!-- Right Side - Content -->
+        
+          <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" :height="'50%' " />
           <div class="w-full p-6 flex flex-col">
             <div>
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">

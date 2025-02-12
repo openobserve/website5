@@ -4,6 +4,7 @@ import CustomFeatureCardResource from "../cards/CustomFeatureCardResource.vue";
 import Heading from "../core/Heading.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomButton from "../core/CustomButton.vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({
   heading: {
@@ -24,6 +25,7 @@ const props = defineProps({
     required: true,
   },
 });
+const isMobile = computed(() => width.value < 640); // `sm` breakpoint
 </script>
 
 <template>
@@ -40,9 +42,19 @@ const props = defineProps({
             align="CENTER"
           />
         </div>
+        <!-- <div
+          :class="[
+            'pt-[3vh] grid grid-cols-2 md:grid-cols-2 lg:grid-cols-' + noOfGridColumn,
+            'gap-10 w-full',
+            items.length % 2 !== 0 ? 'sm:[&>*:nth-last-child(1)]:col-span-2 ' : '',
+          ]"
+        > -->
         <div
           :class="[
-            `pt-[3vh] grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full [&>*:nth-child(2)]:cols-start-2`,
+            `pt-[3vh] grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
+            items.length % 2 !== 0
+              ? '[&>*:nth-last-child(1)]:col-span-2 sm:[&>*:nth-last-child(1)]:col-span-1'
+              : '',
           ]"
         >
           <div v-for="(item, index) in items" :key="index">

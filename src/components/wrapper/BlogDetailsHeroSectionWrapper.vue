@@ -23,6 +23,10 @@ defineProps({
     type: Array,
     required: false,
   },
+  type: {
+    type: String,
+    default: "blog",
+  }
 });
 </script>
 
@@ -41,7 +45,7 @@ defineProps({
       <div class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6">
         <!-- {{ console.log(suggestions,"suggestionssuggestionssuggestionssuggestions") }} -->
         <!-- Suggestions -->
-        <CustomSuggestions :suggestions="suggestions" @selectSuggestion="selectSuggestion"
+        <CustomSuggestions :suggestions="suggestions" :type="type" @selectSuggestion="selectSuggestion"
           class="flex flex-wrap gap-4 justify-center md:justify-start" />
 
         <!-- Icons Container -->

@@ -66,17 +66,14 @@ const onSubmit = handleSubmit(async (values) => {
     );
 
     if (response.ok) {
-      console.log("Email sent successfully!");
       // Navigate to success page or another route
       window.location.assign("/thank-you");
     } else {
       const body = await response.json();
       error.value = body.message || "Something went wrong!";
-      console.log(error.value);
     }
   } catch (err) {
     error.value = err.message || "Network error!";
-    console.log(error.value);
   } finally {
     loading.value = false;
   }
