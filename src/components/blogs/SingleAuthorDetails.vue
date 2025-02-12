@@ -14,7 +14,7 @@ const props = defineProps({
       bio: string;
       image: {
         url: string;
-      }
+      };
       slug: string;
       youtubeUrl?: string | null;
       linkedInUrl?: string | null;
@@ -53,15 +53,9 @@ const props = defineProps({
       <a v-for="author in authors" :href="generateAuthorLink(type, author.slug)" :key="author.id"
         :class="[cardBgColor, 'rounded-xl overflow-hidden flex md:flex-row']">
         <!-- Left Side - Profile Image -->
-        <div
-          class="w-full md:w-1/6 h-44 md:h-auto relative flex items-center justify-center bg-gray-800"
-        >
-          <img
-            v-if="author.image.url"
-            :src="author.image.url"
-            :alt="author.name"
-            class="w-full h-full object-cover absolute inset-0"
-          />
+        <div class="w-full md:w-1/6 h-44 md:h-auto relative flex items-center justify-center bg-gray-800">
+          <img v-if="author.image && author.image.url" :src="author.image.url" :alt="author.name"
+            class="w-full h-full object-cover absolute inset-0" />
           <div v-else class="w-full h-full flex items-center justify-center text-white">
             No Image
           </div>
