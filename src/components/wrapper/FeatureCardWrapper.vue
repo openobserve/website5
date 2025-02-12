@@ -7,7 +7,7 @@ const props = defineProps({
   heading: {
     type: Object,
     default: () => ({}),
-    required: true
+    required: true,
   },
   items: {
     type: Array,
@@ -16,7 +16,7 @@ const props = defineProps({
   noOfGridColumn: {
     type: Number,
     required: true,
-    default:4
+    default: 4,
   },
   // New prop to select layout (flex or column)
   layout: {
@@ -54,7 +54,7 @@ const props = defineProps({
         </div>
         <div
           :class="[
-            `grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
+            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
           ]"
         >
           <div
