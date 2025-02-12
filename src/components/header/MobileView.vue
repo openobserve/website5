@@ -262,7 +262,7 @@
                       >
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/blog" class="text-lg font-bold">Blogs</a>
+                      <a href="/blog" class="text-lg font-bold">Blog</a>
                     </li>
                   </ul>
                 </div>
