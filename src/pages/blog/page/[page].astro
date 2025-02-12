@@ -5,7 +5,11 @@ import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
-import { getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/api/blogs";
+import {
+  getAllCategories,
+  getBlogsByPagination,
+  getCaseStudies,
+} from "@/utils/api/blogs";
 
 const itemsPerPage = 50;
 
@@ -51,9 +55,15 @@ const cardData = [
     title: "Case Studies",
   },
 ];
+
+const metaObj = {
+  title:
+    "Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+  description: "Blog Posts",
+};
 ---
 
-<Layout title={`Blog Posts | Page ${currentPage} | Resources`}>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
     subtitle="Explore latest insights and updates"
@@ -69,7 +79,7 @@ const cardData = [
     type="blog"
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData.slice(0,15)}
+    suggestionData={suggestionData.slice(0, 15)}
     totalItems={count.blogsCount}
     client:load
   />
