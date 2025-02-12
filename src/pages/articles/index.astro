@@ -7,13 +7,9 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import {
-  getAllResourceCategories,
-  getCaseStudies,
-  getResourceBlogsByPagination,
-} from "../../utils/cache";
-import { getTotalCounts } from "../../utils/cache";
-import { getAllBlogsCategoriesAndAuthors } from "../../utils/cache";
+import { getAllResourceCategories, getResourceBlogsByPagination } from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
+import { getTotalCounts } from "@/utils/cache";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;
@@ -21,12 +17,13 @@ const currentPage = page ? parseInt(page) : 1;
 const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
-await getAllBlogsCategoriesAndAuthors();
-const blogsData = getResourceBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
 
-const suggestionData = getAllResourceCategories();
+const suggestionData = await getAllResourceCategories();
 
-const loadcaseStudyData = getCaseStudies();
+const loadcaseStudyData = await getCaseStudies();
+
+const count = await getTotalCounts();
 
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -62,7 +59,7 @@ const metaObj = {
     blogsData={blogsData}
     currentPage={currentPage}
     suggestionData={suggestionData.slice(0, 15)}
-    totalItems={getTotalCounts().blogsCount}
+    totalItems={count.blogsCount}
     client:load
   />
   <!-- <TilesWithTitleWrapper

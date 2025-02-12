@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
-import { getAllBlogsCategoriesAndAuthors, getCaseStudies } from "@/utils/cache";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
@@ -20,8 +20,7 @@ const PageData = await fetchApi({
   endpoint: "api/platform-pages",
   query: { pLevel: "10", status: "draft", "filters[slug][$eq]": id },
 });
-await getAllBlogsCategoriesAndAuthors();
-const loadcaseStudyData = getCaseStudies();
+const loadcaseStudyData = await getCaseStudies();
 const metaObj = PageData?.data[0]?.seo;
 ---
 

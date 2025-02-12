@@ -4,18 +4,17 @@ import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsH
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
 import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import { getAllBlogsCategoriesAndAuthors, getCaseStudies, getResBlogsBySlug, getAllResourceBlogs } from "@/utils/cache";
+import { getAllResourceBlogs, getResBlogsBySlug } from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors(); // ✅ Use cache instead of direct API call
-  const blogs = getAllResourceBlogs();
+  const blogs = await getAllResourceBlogs();
   return blogs?.map((it) => ({
     params: { slug: it.slug },
   }));
 }
 
 const { slug }: any = Astro.params;
-const cachedData = await getAllBlogsCategoriesAndAuthors();
-const SlugData = getResBlogsBySlug(slug) || {}; // ✅ Use cache lookup
-const loadcaseStudyData = getCaseStudies();
+const SlugData = await getResBlogsBySlug(slug) || {}; // ✅ Use cache lookup
+const loadcaseStudyData = await getCaseStudies();
 ---

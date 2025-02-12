@@ -4,19 +4,13 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import {
-  getAllBlogsCategoriesAndAuthors,
-  getAllCategories,
-  getCaseStudies,
-  getAllResourceBlogs,
-  getAllResourceCategories,
-} from "../../../utils/cache";
+import { getAllResourceBlogs, getAllResourceCategories } from "@/utils/api/resources";
+import { getAllCategories, getCaseStudies } from "@/utils/api/blogs";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors();
-  const categories = getAllResourceCategories();
-  const blogs = getAllResourceBlogs();
+  const categories = await getAllResourceCategories();
+  const blogs = await getAllResourceBlogs();
   // Map each category to its related blogs
   const categoryMap = categories?.map((category) => ({
     params: { tag: category.slug }, // Correct attribute access for category
@@ -46,9 +40,9 @@ if (category) {
 }
 
 // ✅ Fetch Additional Data
-const suggestionData = getAllCategories();
+const suggestionData = await getAllCategories();
 
-const loadcaseStudyData = getCaseStudies();
+const loadcaseStudyData = await getCaseStudies();
 
 // 🔹 Additional Card Data
 const cardHeader = {
