@@ -34,7 +34,7 @@ const props = defineProps({
             :href="item.link"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-[#80B9FF] font-bold text-base mt-auto"
+            class="text-[#80B9FF] font-bold text-xs md:text-base mt-auto"
           >
             {{ item.btnTitle }}
           </a>

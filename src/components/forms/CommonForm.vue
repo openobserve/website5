@@ -69,7 +69,7 @@ const onSubmit = handleSubmit(async (values) => {
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <div>
-          <label for="name" class="text-gray-200 font-medium cursor-pointer">
+          <label for="name" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -82,7 +82,7 @@ const onSubmit = handleSubmit(async (values) => {
           }}</span>
         </div>
         <div>
-          <label for="email" class="text-gray-200 font-medium cursor-pointer">
+          <label for="email" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -97,7 +97,7 @@ const onSubmit = handleSubmit(async (values) => {
         </div>
 
         <div class="input-group">
-          <label for="message" class="text-gray-200 font-medium cursor-pointer">
+          <label for="message" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Message <span class="text-red-500">*</span>
           </label>
           <textarea
