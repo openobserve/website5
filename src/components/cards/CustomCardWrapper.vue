@@ -38,9 +38,9 @@ const props = defineProps({
             <CustomCard :cards="item" />
           </div>
         </div>
-       <div class="flex justify-center items-center pt-12" v-if="primaryButton.text && primaryButton.link">
+       <!-- <div class="flex justify-center items-center pt-12" v-if="primaryButton.text && primaryButton.link">
         <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonText="primaryButton.text" :buttonLink="primaryButton.link" />
-      </div>
+      </div> -->
       </CustomSection>
     </div>
     <CustomSeprater />
