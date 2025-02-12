@@ -4,6 +4,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import CustomRoundShape from "../core/CustomRoundShape.vue";
+import CustomRoundShapeLandingPage from "../core/CustomRoundShapeLandingPage.vue";
 
 // Props to receive card data and optional styling
 const props = defineProps({
@@ -45,20 +46,26 @@ const swiperOptions = {
         class="!w-full px-2"
       >
         <div
-          class="rounded-lg p-4 flex flex-col justify-center items-center text-center"
+          class="rounded-lg flex flex-row space-x-2 items-start"
         >
-          <CustomRoundShape
-            :imgSrc="item.image"
-            iconSize="small"
-            borderColor="bg-gradient-gray"
-            size="small"
-          />
-          <h2 class="font-semibold text-base mt-2 mb-2" :class="titleTextColor">
-            {{ item.title }}
-          </h2>
-          <p class="text-sm" :class="descriptionTextColor">
-            {{ item.description }}
-          </p>
+          <div class="h-14">
+            <CustomRoundShapeLandingPage
+              :imgSrc="item.image"
+              iconSize="small"
+              size="small"
+            />
+          </div>
+          <div class="flex flex-col space-y-1">
+            <h2
+              class="font-semibold text-base"
+              :class="titleTextColor"
+            >
+              {{ item.title }}
+            </h2>
+            <p class="text-sm" :class="descriptionTextColor">
+              {{ item.description }}
+            </p>
+          </div>
         </div>
       </swiper-slide>
     </swiper>
@@ -67,7 +74,7 @@ const swiperOptions = {
 
 <style scoped>
 .testimonial-swiper {
-  padding-bottom: 40px !important;
+  padding-bottom: 30px !important;
 }
 
 .testimonial-swiper .swiper-pagination-bullet {

@@ -171,18 +171,24 @@ const onSubmit = handleSubmit(async (values) => {
                 >
               </div>
 
-              <div class="input-group">
+              <!-- Message -->
+              <div>
                 <label
                   for="message"
                   class="text-gray-200 font-medium cursor-pointer"
                 >
-                  Message <span class="text-red-500">*</span>
+                  How can I Help You ? <span class="text-red-500">*</span>
                 </label>
                 <textarea
+                  id="message"
                   v-model="message.value.value"
                   name="message"
                   class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter Here"
+                  :class="{
+                    'border-red-500': message.errorMessage.value,
+                    'border-[#43484C]': !message.errorMessage.value,
+                  }"
+                  placeholder="Enter here"
                   rows="4"
                 ></textarea>
                 <span
@@ -207,13 +213,13 @@ const onSubmit = handleSubmit(async (values) => {
                     for="terms"
                     class="text-white cursor-pointer select-none"
                   >
-                    I confirm I have read and agree to OpenObserve's Terms And
-                    Conditions
+                    I confirm, I have read and agree to OpenObserve's
                     <a
                       href="/terms-and-conditions"
                       class="text-blue-500 underline"
                       @click="navigateToTerms"
                     >
+                      Terms And Conditions
                     </a>
                     <span class="text-red-500">*</span>
                   </label>

@@ -1,8 +1,6 @@
 <script setup>
-import Heading from "../core/Heading.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 import CustomButton from "../core/CustomButton.vue";
-
+import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -17,15 +15,6 @@ const props = defineProps({
     required: false,
   },
 });
-
-// Function to split text at periods and wrap each sentence in a span
-const formatSubtitle = (text) => {
-  return text
-    .split(".")
-    .filter((sentence) => sentence.trim())
-    .map((sentence) => `<span class="sentence">${sentence.trim()}.</span>`)
-    .join("");
-};
 </script>
 
 <template>
@@ -34,7 +23,7 @@ const formatSubtitle = (text) => {
     :style="{
       backgroundImage:
         'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
-      backgroundPosition: 'center -200px,center ',
+      backgroundPosition: 'center -200px,center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat',
     }"
@@ -43,7 +32,11 @@ const formatSubtitle = (text) => {
       class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
     >
       <div>
-        <h1 class="text-5xl text-white font-bold text-center">{{ title }}</h1>
+        <TextWithGradient
+          class="text-center text-5xl lg:text-7xl max-w-xl font-bold"
+          :title="props.title"
+          textGradientColor="gradient-color"
+        />
       </div>
       <div>
         <p
@@ -63,3 +56,16 @@ const formatSubtitle = (text) => {
     </div>
   </div>
 </template>
+<style scoped>
+/* Gradient Text Styling */
+.gradient-color {
+  background: linear-gradient(
+    90deg,
+    #fff3e5 21.63%,
+    #c3d6ff 59.28%,
+    #d8d8d8 91.35%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>

@@ -242,6 +242,10 @@ const navigateToTerms = (e) => {
             v-model="message.value.value"
             name="message"
             class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :class="{
+              'border-red-500': message.errorMessage.value,
+              'border-[#43484C]': !message.errorMessage.value,
+            }"
             placeholder="Enter here"
             rows="4"
           ></textarea>
@@ -269,13 +273,13 @@ const navigateToTerms = (e) => {
             for="terms"
             class="text-white text-sm cursor-pointer select-none"
           >
-            I confirm I have read and agree to OpenObserve's 
+            I confirm, I have read and agree to OpenObserve's
             <a
               href="/policies/terms-of-service"
               class="text-blue-500 underline"
-              >
+            >
               <!-- @click="navigateToTerms" -->
-             terms and condition
+              terms and condition
             </a>
             <span class="text-red-500">*</span>
           </label>

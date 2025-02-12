@@ -57,7 +57,7 @@ onUnmounted(() => {
             style="background-color: rgba(53, 59, 64, 1)"
           >
             <!-- Text Content -->
-            <div class="space-y-4 text-center h-full">
+            <div class="space-y-4 text-left h-full">
               <h1 class="text-3xl font-bold">{{ tab.title }}</h1>
               <p class="text-[#F4F4F5] leading-relaxed">
                 {{ tab.description }}
@@ -105,7 +105,7 @@ onUnmounted(() => {
         style="background-color: rgba(53, 59, 64, 1)"
       >
         <!-- Text Content -->
-        <div class="space-y-4 px-3 w-[40%]">
+        <div class="space-y-4 px-3 w-[40%] text-left">
           <h1 class="text-lg font-bold md:text-2xl">{{ activeTab.title }}</h1>
           <p class="text-[#F4F4F5] leading-relaxed">{{ activeTab.description }}</p>
           <CustomButton variant="secondary" :buttonLink="activeTab.buttonLink" class="w-40">

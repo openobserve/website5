@@ -1,6 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
-import CustomSection from "../core/CustomSection.vue";
+import { ref, defineProps } from "vue";
 
 const props = defineProps({
   unifiedObservability: {
@@ -17,58 +16,86 @@ const props = defineProps({
     required: true,
   },
 });
+
+const expandedCards = ref({}); // Stores expanded state for each card
+
+// Toggle card expansion
+const toggleExpand = (key) => {
+  expandedCards.value[key] = !expandedCards.value[key];
+};
 </script>
 
 <template>
-  <!-- <CustomSection> -->
   <div
     class="flex flex-col items-center gap-6 w-full pb-10 px-6 lg:px-12 container mx-auto"
   >
     <!-- Card 1 (Top Section) -->
     <div class="w-full rounded-lg card">
-      <div class="card-content">
-        <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
+      <div class="card-content text-center">
+        <h2
+          class="text-2xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2 border-b border-gray-900"
+          @click="toggleExpand('top')"
+        >
           {{ props?.unifiedObservability?.title }}
         </h2>
-        <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
+
+        <p
+          class="text-base font-medium text-[#BEC0C2] mb-4"
+          :class="{ 'hidden md:block': !expandedCards['top'] }"
+        >
           {{ props?.unifiedObservability?.description }}
         </p>
-        <div class="text-center">
+
+        <div v-if="props.unifiedObservability?.buttonLink" class="text-center">
           <a
-            :href="unifiedObservability?.buttonLink"
+            :href="props.unifiedObservability?.buttonLink"
             class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
           >
-            {{ unifiedObservability?.buttonText }}
+            {{ props.unifiedObservability?.buttonText }}
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Cards Grid (Middle Section) -->
+    <!-- Cards Grid (Middle Section - Card 2) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div v-for="(item, index) in items" :key="index" class="card">
-        <div class="card-content">
-          <div class="text-white text-2xl text-center font-bold">
+        <div class="card-content text-center">
+          <h2
+            class="text-white text-xl font-bold cursor-pointer py-2 border-b border-gray-900"
+            @click="toggleExpand(`middle-${index}`)"
+          >
             {{ item?.title }}
-          </div>
-          <div class="text-[#BEC0C2] text-base text-center font-medium mt-3">
+          </h2>
+          <p
+            class="text-[#BEC0C2] text-base font-medium mt-3"
+            :class="{ 'hidden md:block': !expandedCards[`middle-${index}`] }"
+          >
             {{ item?.description }}
-          </div>
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 (Bottom Section) -->
+    <!-- Card 3 (Bottom Section) -->
     <div class="w-full">
       <div class="card">
-        <div class="card-content">
-          <h2 class="text-2xl font-bold text-white mb-2 text-center">
-              {{ integrations?.title }}
+        <div class="card-content text-center">
+          <h2
+            class="text-2xl font-bold text-white mb-2 cursor-pointer py-2 border-b border-gray-900"
+            @click="toggleExpand('bottom')"
+          >
+            {{ integrations?.title }}
           </h2>
-          <p class="text-base text-[#BEC0C2] font-medium mb-4 text-center">
+
+          <p
+            class="text-base text-[#BEC0C2] font-medium mb-4"
+            :class="{ 'hidden md:block': !expandedCards['bottom'] }"
+          >
             {{ integrations?.description }}
           </p>
-          <div class="text-center">
+
+          <div v-if="integrations?.buttonLink" class="text-center">
             <a
               :href="integrations?.buttonLink"
               class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
@@ -80,7 +107,6 @@ const props = defineProps({
       </div>
     </div>
   </div>
-  <!-- </CustomSection> -->
 </template>
 
 <style scoped>
@@ -88,20 +114,8 @@ const props = defineProps({
 .card {
   position: relative;
   padding: 0.0625rem;
+  border: 1px solid #2b2d31;
   border-radius: 12px;
-}
-
-/* Gradient Border Effect */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 0.5px;
-  background: linear-gradient(180deg, #ffffff, #a7a6a6);
-  -webkit-mask-composite: exclude;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 /* Inner Content */

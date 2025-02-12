@@ -54,11 +54,11 @@ const props = defineProps({
         </div>
         <div
           :class="[
-            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
+            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-0 md:gap-10 w-full`,
           ]"
         >
           <div
-            class="flex gap-4"
+            class="flex"
             v-for="(item, index) in items"
             :key="index"
             :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"

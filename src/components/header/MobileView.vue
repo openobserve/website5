@@ -380,8 +380,7 @@ onUnmounted(() => {
 .gradient-hover:hover {
   background: linear-gradient(
     to left,
-    rgb(var(--blue-light)),
-    rgb(var(--blue-dark))
+    #09e6ff, #00ffc3
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
