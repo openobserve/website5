@@ -20,11 +20,12 @@ const props = defineProps({
 
 // Function to split text at periods and wrap each sentence in a span
 const formatSubtitle = (text) => {
-  return text.split('.').filter(sentence => sentence.trim())
-    .map(sentence => `<span class="sentence">${sentence.trim()}.</span>`)
-    .join('');
+  return text
+    .split(".")
+    .filter((sentence) => sentence.trim())
+    .map((sentence) => `<span class="sentence">${sentence.trim()}.</span>`)
+    .join("");
 };
-
 </script>
 
 <template>
@@ -40,7 +41,9 @@ const formatSubtitle = (text) => {
       class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
     >
       <div>
-       <h1 class="text-5xl lg:text-7xl text-white font-bold text-center"> {{ title }} </h1>
+        <h1 class="text-5xl lg:text-7xl text-white font-bold text-center">
+          {{ title }}
+        </h1>
       </div>
       <div>
         <Heading
@@ -49,8 +52,12 @@ const formatSubtitle = (text) => {
           v-html="formatSubtitle(description)"
         />
       </div>
-      <div v-if="primaryButton">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
+      <div v-if="primaryButton" class="py-10">
+        <CustomButton
+          variant="primary"
+          class="w-full sm:w-auto"
+          :buttonLink="primaryButton?.link"
+        >
           {{ primaryButton?.text }}
         </CustomButton>
       </div>
@@ -59,7 +66,6 @@ const formatSubtitle = (text) => {
 </template>
 
 <style scoped>
-
 /* Ensure a smooth scaling of text gradients on smaller screens */
 @media (max-width: 640px) {
   .gradient-color {

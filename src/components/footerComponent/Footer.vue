@@ -123,9 +123,11 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row justify-between mb-5">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4"
+      >
         <!-- Pricing Section -->
-        <div class="rounded-lg w-full mb-4 md:mb-0">
+        <div class="w-full md:w-auto">
           <h3 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h3>
           <ul>
             <li>
@@ -140,24 +142,46 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
         </div>
 
         <!-- GitHub Stats Section -->
-        <div class="flex items-center space-x-2 w-full md:w-auto">
-          <GithubButton
-            href="https://github.com/openobserve/openobserve"
-            data-color-scheme=""
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star openobserve/openobserve on GitHub"
-            >Star</GithubButton
-          >
+        <div
+          class="flex flex-wrap items-center justify-center md:justify-start gap-4 w-full md:w-auto"
+        >
+          <div class="flex items-center gap-3">
+            <!-- Icon -->
+            <div class="w-12 h-12 flex-shrink-0">
+              <img src="/SOC.png" class="w-full h-full object-contain" />
+            </div>
 
-          <GithubButton
-            href="https://github.com/openobserve/openobserve/fork"
-            data-color-scheme=""
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork openobserve/openobserve on GitHub"
-            >Fork</GithubButton
-          >
+            <!-- Title & Description in one line -->
+            <div class="flex flex-col text-white">
+              <h2 class="text-sm sm:text-base whitespace-nowrap">
+                SOC Type II
+              </h2>
+              <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
+            </div>
+          </div>
+
+          <!-- GitHub Buttons Container -->
+          <div class="flex flex-wrap justify-center md:justify-start gap-2">
+            <GithubButton
+              href="https://github.com/openobserve/openobserve"
+              data-color-scheme=""
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star openobserve/openobserve on GitHub"
+            >
+              Star
+            </GithubButton>
+
+            <GithubButton
+              href="https://github.com/openobserve/openobserve/fork"
+              data-color-scheme=""
+              data-size="large"
+              data-show-count="true"
+              aria-label="Fork openobserve/openobserve on GitHub"
+            >
+              Fork
+            </GithubButton>
+          </div>
         </div>
       </div>
 
