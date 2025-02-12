@@ -31,47 +31,54 @@ const sectionClasses = computed(() => ({
 </script>
 
 <template>
-  <div
-    :class="[
-      'w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 mt-3 relative',
-      sectionClasses,
-    ]"
-    :id="slugify(title)"
-  >
-    <div class="relative w-full md:w-1/2">
-      <!-- Background Image with Lower z-index -->
-      <div
-        class="absolute inset-0 bg-cover bg-center rounded-lg z-0"
-        :style="{ backgroundImage: `url('/background/featureBG.svg')` }"
-      ></div>
+    <div
+      :class="[
+        'w-full flex flex-col md:flex-row justify-center items-center gap-2 md:gap-6 mt-3 relative ',
+        sectionClasses,
+      ]"
+      :id="slugify(title)"
+    >
+      <div class="relative w-full md:w-1/2">
+        <!-- Background Image with Lower z-index -->
+        <div
+          class="absolute inset-0 bg-cover bg-center rounded-lg z-0"
+          :style="{ backgroundImage: `url('/background/featureBG.svg')` }"
+        ></div>
 
-      <!-- Foreground Image -->
-      <div class="relative w-full h-auto rounded-lg shadow-md p-3 z-10">
-        <CustomImage
-          :image="image"
-          :altText="title"
-          cssClass="w-full h-auto rounded-lg shadow-md"
-        />
+        <!-- Foreground Image -->
+        <div class="relative w-full h-auto rounded-lg shadow-md p-3 z-10">
+          <CustomImage
+            :image="image"
+            :altText="title"
+            cssClass="w-full h-auto rounded-lg shadow-md"
+          />
+        </div>
       </div>
-    </div>
-    <div class="w-full md:w-1/2 z-10">
-      <h2
-        class="text-[#f4f4f5] mb-4 font-inter font-semibold text-xl md:text-2xl lg:text-4xl"
-      >
-        {{ title }}
-      </h2>
-      <div v-if="items?.length">
-        <div v-for="(item, index) in items" :key="index" class="mb-4">
-          <h3
-            class="font-inter font-semibold text-sm md:text-base lg:text-lg text-white mb-2"
+      <div class="w-full md:w-1/2 z-10 flex flex-col space-y-2">
+        <h2
+          class="text-[#f4f4f5] font-inter font-semibold text-xl md:text-2xl lg:text-4xl"
+        >
+          {{ title }}
+        </h2>
+        <div
+          v-if="items?.length"
+          class=" flex flex-col space-y-2"
+        >
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="flex flex-col space-y-1"
           >
-            {{ item.title }}
-          </h3>
-          <p class="font-inter text-sm text-gray-300 mb-2">
-            {{ item.description }}
-          </p>
+            <h3
+              class="font-inter font-semibold text-sm md:text-base lg:text-lg text-white"
+            >
+              {{ item.title }}
+            </h3>
+            <p class="font-inter text-sm text-gray-300">
+              {{ item.description }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
