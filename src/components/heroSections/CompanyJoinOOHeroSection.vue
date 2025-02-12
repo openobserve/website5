@@ -1,8 +1,6 @@
 <script setup>
-import Heading from "../core/Heading.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 import CustomButton from "../core/CustomButton.vue";
-
+import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -21,7 +19,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8 mb-[20vh]"
+    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
       backgroundImage:
         'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
@@ -34,7 +32,12 @@ const props = defineProps({
       class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
     >
       <div>
-        <h1 class="text-5xl text-white font-bold text-center">{{ title }}</h1>
+        <TextWithGradient
+          class="text-center text-5xl lg:text-7xl max-w-xl font-bold pt-[5vh] md:pt-[12vh]"
+          :title="props.title"
+          textGradientColor="gradient-color"
+          padding="pb-5"
+        />
       </div>
       <div>
         <p
@@ -54,3 +57,16 @@ const props = defineProps({
     </div>
   </div>
 </template>
+<style scoped>
+/* Gradient Text Styling */
+.gradient-color {
+  background: linear-gradient(
+    90deg,
+    #fff3e5 21.63%,
+    #c3d6ff 59.28%,
+    #d8d8d8 91.35%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>

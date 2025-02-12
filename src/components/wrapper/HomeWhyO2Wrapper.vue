@@ -34,13 +34,10 @@ const props = defineProps({
 
         <div
           :class="[
-            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns} gap-1 md:gap-10 w-full mt-4 md:mt-10`,
+            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns} gap-1`,
           ]"
         >
-          <div
-            v-for="(item, index) in items"
-            :key="index"
-          >
+          <div v-for="(item, index) in items" :key="index">
             <CustomFeatureCard :card="item" />
           </div>
         </div>
