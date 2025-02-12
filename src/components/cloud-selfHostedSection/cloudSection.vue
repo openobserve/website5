@@ -25,9 +25,9 @@ const handleSubmit = (values) => {
 
 <template>
 
-  <div class="w-full max-w-7xl container mx-auto">
+  <div class="w-full container mx-auto ">
     <div class="justify-center grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <!-- <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
         <BaseForm
           :schema="schema"
@@ -79,48 +79,48 @@ const handleSubmit = (values) => {
             CREATE AN ACCOUNT
           </CustomButton>
         </BaseForm> -->
-        <h2 class="text-2xl font-semibold text-white text-let mb-8">
+        <h2 class="text-xl md:text-2xl font-semibold text-white text-left mb-4 md:mb-8">
           Create a free account
         </h2>
-        <div class="text-md font-medium text-white text-left mb-8">By using this service, you agree to OpenObserve's Terms and Conditions.</div>
+        <div class="text-sm md:text-md font-medium text-white text-left mb-8">By using this service, you agree to OpenObserve's Terms and Conditions.</div>
         <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
           <a href="https://auth.openobserve.ai/dex/auth/github?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-full md:w-80">
             <button
-              class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+              class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
               <img src="/download-pricing/github.svg" alt="GitHub" class="h-6 w-6 mr-3" />
-              <span class="font-medium">Log in with GitHub</span>
+              <span class="font-medium text-sm md:text-base">Log in with GitHub</span>
             </button>
           </a>
 
           <a href="https://auth.openobserve.ai/dex/auth/gitlab?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-full md:w-80">
             <button
-              class="flex items-center justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+              class="flex items-center justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
               <img src="/download-pricing/gitlab.svg" alt="GitLab" class="h-6 w-6 mr-3" />
-              <span class="font-medium">Log in with GitLab</span>
+              <span class="font-medium text-sm md:text-base">Log in with GitLab</span>
             </button>
           </a>
 
           <a href="https://auth.openobserve.ai/dex/auth/google?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-full md:w-80">
             <button
-              class="flex items-center justify-start gap-5 md:gap-10  w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+              class="flex items-center justify-start gap-5 md:gap-10  w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
               <img src="/download-pricing/google.svg" alt="Google" class="h-6 w-6 mr-3" />
-              <span class="font-medium">Log in with Google</span>
+              <span class="font-medium text-sm md:text-base">Log in with Google</span>
             </button>
           </a>
 
           <a href="https://auth.openobserve.ai/dex/auth/microsoft?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-full md:w-80">
             <button
-              class="flex items-center justify-start gap-2 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-3 shadow-md hover:bg-gray-700 transition"
+              class="flex items-center justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
               <img
                 src="/download-pricing/microsoft.svg"
                 alt="Microsoft"
                 class="h-6 w-6 mr-3"
               />
-              <span class="font-medium">Log in with Microsoft</span>
+              <span class="font-medium text-sm md:text-base">Log in with Microsoft</span>
             </button>
           </a>
         </div>
@@ -163,9 +163,9 @@ const handleSubmit = (values) => {
           </div>
         </div> -->
       </div>
-      <div class="bg-[#23282c]/40 rounded-lg p-8 border-r border-gray-800/50">
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <div class="mb-6">
-          <h4 class="text-white text-xl font-medium py-5">Free Forever Access</h4>
+          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">Free Forever Access</h4>
         </div>
 
         <!-- Features List -->
@@ -198,10 +198,10 @@ const handleSubmit = (values) => {
           </ul>
         </div>
         <div class="mb-6">
-          <h4 class="text-white text-xl font-medium py-2">
+          <h4 class="text-white text-lg md:text-xl font-medium py-2">
             15 day unlimited usage trial
           </h4>
-          <p class="text-white text-xl font-medium py-2">
+          <p class="text-white text-md md:text-lg font-medium py-2">
             Unlimited metrics, logs, and users, long-term retention, and premium team
             collaboration features.
           </p>

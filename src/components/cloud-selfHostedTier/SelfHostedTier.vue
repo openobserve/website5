@@ -22,26 +22,26 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4 py-16">
+  <div class="w-full container mx-auto">
     <!-- Pricing Cards -->
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div
         v-for="(tier, index) in tiers"
         :key="index"
-        class="rounded-lg p-8 border border-gray-800/50 flex flex-col"
+        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col items-center"
       >
         <!-- Tier Header -->
         <div class="mb-6 text-center">
-          <h3 class="t-color text-3xl font-semibold mb-4">
+          <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
             {{ tier.name }}
           </h3>
-          <h4 class="text-white text-xl font-medium py-5">{{ tier.title }}</h4>
-          <p class="text-gray-400 text-sm py-5">{{ tier.description }}</p>
+          <h4 class="text-white text-md md:text-lg font-medium">{{ tier.title }}</h4>
+          <p class="text-gray-400 text-xs md:text-sm pt-4">{{ tier.description }}</p>
         </div>
 
         <!-- Features List -->
         <div class="flex-grow">
-          <ul class="space-y-4 mb-8">
+          <ul class="space-y-2 md:space-y-4 mb-8">
             <li
               v-for="(feature, featureIndex) in tier.features"
               :key="featureIndex"
@@ -51,7 +51,7 @@ const props = defineProps<{
                 <img
                   src="/resources/Frame-11216.svg"
                   alt="icon"
-                  class="w-6 h-6"
+                  class="w-5 md:w-6 h-5 md:h-6"
                 />
               </span>
               <span class="text-sm">{{ feature.text }}</span>
@@ -62,17 +62,30 @@ const props = defineProps<{
         <!-- Action Button -->
         <div class="text-center">
           <!-- @click="tier.buttonAction" -->
-          <CustomButton
-            variant="pricing"
-            class="px-6 transition-all duration-200"
-            :button-link="tier.buttonAction"
-            :target="tier.target"
-          >
-            {{ tier.buttonText }}
-          </CustomButton>
+          <div class="hidden lg:block">
+            <CustomButton
+              variant="pricing"
+              :button-link="tier.buttonAction"
+              class="transition-all duration-200"
+              :target="tier.target"
+            >
+              {{ tier.buttonText }}
+            </CustomButton>
+          </div>
+          <div class="lg:hidden">
+            <CustomButton
+              variant="secondary"
+              size="small"
+              class="transition-all duration-200"
+              :button-link="tier.buttonAction"
+              :target="tier.target"
+            >
+              {{ tier.buttonText }}
+            </CustomButton>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 

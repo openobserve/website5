@@ -29,11 +29,11 @@ export default {
 
 <template>
   <CustomSection>
-    <div class="w-full mx-auto p-6">
+    <div class="w-full mx-auto">
       <!-- Tab Buttons -->
       <div class="flex relative border-b-[3px] border-gray-500">
         <button
-          class="w-1/2 cld-btn py-3 text-lg font-semibold transition-colors duration-300 relative"
+          class="w-1/2 cld-btn py-2 md:py-3 text-md md:text-lg font-semibold transition-colors duration-300 relative"
           :class="
             selectedTab === 'cloud'
               ? 'text-white'
@@ -44,7 +44,7 @@ export default {
           Cloud
         </button>
         <button
-          class="w-1/2 slf-btn py-3 text-lg font-semibold transition-colors duration-300 relative"
+          class="w-1/2 slf-btn py-2 text-md md:text-lg font-semibold transition-colors duration-300 relative"
           :class="
             selectedTab === 'selfHosted'
               ? 'text-white'
