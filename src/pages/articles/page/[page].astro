@@ -5,7 +5,10 @@ import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
-import { getAllResourceCategories, getResourceBlogsByPagination } from "@/utils/api/resources";
+import {
+  getAllResourceCategories,
+  getResourceBlogsByPagination,
+} from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
 
 const itemsPerPage = 50;
@@ -39,9 +42,15 @@ const suggestionData = await getAllResourceCategories();
 const caseStudyData = await getCaseStudies();
 
 const count = await getTotalCounts();
+
+const metaObj = {
+  title:
+    "Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+  description: "Resources Posts",
+};
 ---
 
-<Layout title={`Blog Posts | Page ${currentPage} | Resources`}>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
     subtitle="Explore latest insights and updates"

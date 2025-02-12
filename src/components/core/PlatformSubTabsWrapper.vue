@@ -20,7 +20,7 @@ const props = defineProps({
     <!-- <div class=""> -->
       <img
         alt="Bottom decoration"
-        class="absolute w-screen h-1/4 md:h-auto rounded-2xl"
+        class="absolute w-screen h-2/5 md:h-auto rounded-2xl"
         src="/img/bg/platform/glass-bg.svg"
       />
     <!-- </div> -->
