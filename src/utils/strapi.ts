@@ -23,7 +23,6 @@ export default async function fetchApi<T>({
   // Construct the base URL
   const baseUrl = import.meta.env.PUBLIC_API_BASE_URL;
   let url = new URL(`${baseUrl}/${endpoint}`);
-  console.log(url.toString(), "URL");
 
   // Append query parameters if provided
   if (query) {
