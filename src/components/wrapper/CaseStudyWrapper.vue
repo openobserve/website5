@@ -109,7 +109,7 @@ const redirectToBlog = (slug) => {
           <CustomCaseStudySwiper :sectionData="cards"  />
         </div>
       </div>
-      <div
+      <!-- <div
         class="flex justify-center mt-6 mb-5"
         v-if="primaryButton && primaryButton.text && primaryButton.link"
       >
@@ -119,7 +119,7 @@ const redirectToBlog = (slug) => {
           :buttonText="primaryButton.text"
           :buttonLink="primaryButton.link"
         />
-      </div>
+      </div> -->
     </CustomSection>
   </section>
 </template>
