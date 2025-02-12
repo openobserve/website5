@@ -25,7 +25,6 @@ const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>
   Math.ceil(props.totalItems / props.itemsPerPage)
 );
-console.log(props)
 // Compute the pages to display (show 5 pages at a time)
 const displayedPages = computed(() => {
   const pages = [];

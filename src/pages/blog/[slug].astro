@@ -32,7 +32,16 @@ const metaObj= {
     bottomImage={SlugData?.[0].image?.formats?.large?.url ||
       SlugData?.[0].image?.url}
     client:load
-    suggestions={SlugData?.[0].categories}
+    suggestions={SlugData?.[0]?.categories || []} 
+    activity={[
+      SlugData?.[0].authors[0].name,
+      new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }).format(new Date(SlugData?.[0].publishedAt)),
+    ]}
   />
   <BlogDetailContentWrapper client:load content={SlugData?.[0].content} />
   <SingleAuthorDetails type="blog" authors={SlugData?.[0].authors} client:load />

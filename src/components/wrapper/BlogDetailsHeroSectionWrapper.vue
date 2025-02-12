@@ -18,7 +18,11 @@ defineProps({
   },
   content: {
     type: String || null,
-  }
+  },
+  activity: {
+    type: Array,
+    required: false,
+  },
 });
 </script>
 
@@ -27,7 +31,7 @@ defineProps({
     <div>
       <div class="flex justify-center items-center text-white text-sm py-4">
         <template v-for="(item, index) in activity" :key="`item-${index}`">
-          <span>{{ item }}</span>
+          <span class="px-2">{{ item }}</span>
           <span v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
         </template>
       </div>
