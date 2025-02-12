@@ -32,6 +32,7 @@ const loadcaseStudyData = await getCaseStudies();
     bottomImage={SlugData.image?.formats?.large?.url || SlugData.image?.url}
     client:load
     suggestions={SlugData.categories}
+    type="articles"
   />
   <BlogDetailContentWrapper client:load content={SlugData.content} />
   <SingleAuthorDetails authors={author} client:load type="articles" />

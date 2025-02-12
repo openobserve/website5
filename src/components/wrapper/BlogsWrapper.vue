@@ -1,8 +1,7 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomBlogs from "../../components/blogs/CustomBlogs.vue";
-import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
+import CustomBlogsSwiper from "../../components/blogs/CustomBlogsSwiper.vue";
 import CustomButton from "../core/CustomButton.vue";
 const props = defineProps({
   heading: {
@@ -30,7 +29,6 @@ const props = defineProps({
         />
       </div>
 
-      <div class="">
         <CustomBlogsSwiper
           :sectionData="items"
           titleTextColor="text-white"
@@ -38,7 +36,6 @@ const props = defineProps({
           cardBgColor="bg-[#2A2A2A]"
           linkColor="text-[#00A3FF]"
         />
-      </div>
 
       <div class="flex justify-center" v-if="primaryButton">
         <CustomButton

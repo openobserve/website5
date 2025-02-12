@@ -64,7 +64,6 @@ export default async function fetchApi<T>({
 
     return data as T;
   } catch (error) {
-    console.error("Fetch API Error:", error);
     throw error;
   }
 }

@@ -77,7 +77,6 @@ Message: ${values.message}
     );
 
     if (response.ok) {
-      console.log("Email sent successfully!");
       window.location.assign("/thank-you");
     } else {
       const body = await response.json();

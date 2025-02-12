@@ -84,7 +84,7 @@ async function addCopyButtons() {
     button.tabIndex = 0;
     button.style.position = "absolute";
     button.style.top = "-20px"; // Adjust this value as needed
-    button.style.right = "10px";
+    button.style.right = "20px";
 
     // Append button to wrapper (not inside <pre>)
     wrapper.appendChild(button);
@@ -172,7 +172,7 @@ onMounted(() => {
       >
         <div
           v-html="htmlContent"
-          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-90 overflow-auto"
+          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 overflow-y-auto"
         ></div>
       </div>
 

@@ -54,7 +54,6 @@ const copyCode = () => {
       copied.value = false;
     }, 1500);
   } catch (err) {
-    console.error("Failed to copy:", err);
   } finally {
     // Clean up by removing the textarea
     document.body.removeChild(textarea);

@@ -2,6 +2,8 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import CustomImage from "../core/CustomImage.vue";
+import {generateNavLink} from "../../utils/redirection";
+import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -77,12 +79,6 @@ const swiperOptions = {
   },
 };
 
-const truncateDescription = (text: string, wordLimit: number) => {
-  const words = text.split(" ");
-  return words.length > wordLimit
-    ? words.slice(0, wordLimit).join(" ") + "..."
-    : text;
-};
 </script>
 
 <template>
@@ -97,34 +93,26 @@ const truncateDescription = (text: string, wordLimit: number) => {
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
-              href="#"
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-            >
-              <div
-                :class="[
-                  cardBgColor,
-                  'h-full rounded-xl overflow-hidden transition-transform ',
-                ]"
-              >
-                <div class="h-48 overflow-hidden">
-                  <CustomImage
-                    :image="blog.image.url || ''"
-                    :altText="blog.title"
-                    cssClass="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="p-6">
-                  <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
-                    {{ blog.title }}
-                  </h3>
-                  <p
-                    :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']"
-                  >
-                    {{ blog.description }}
-                  </p>
-                </div>
-              </div>
-            </a>
+              :href="generateNavLink('blog', blog.slug)"
+           rel="noopener noreferrer" :class="[
+            cardBgColor,
+            ' rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',
+          ]">
+         
+          <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" />
+
+          <!-- Right Side - Content -->
+          <div class="w-full p-6 flex flex-col">
+            <div>
+              <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
+                {{ blog.title }}
+              </h6>
+              <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
+                {{ blog.description }}
+              </p>
+            </div>
+          </div>
+        </a>
           </swiper-slide>
         </swiper>
 

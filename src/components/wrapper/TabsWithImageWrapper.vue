@@ -13,12 +13,9 @@ const props = defineProps({
     required: true,
   },
 });
-const test=() => {
-  console.log("test===");
-}
 </script>
 <template>
-  <div @click="test">
+  <div>
     <CustomSection>
       <div class="md:py-10">
         <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
