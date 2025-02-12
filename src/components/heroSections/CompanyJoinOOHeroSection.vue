@@ -30,11 +30,13 @@ const formatSubtitle = (text) => {
 
 <template>
   <div
-    class="relative flex flex-col justify-center items-center py-10 lg:py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover h-[70vh] lg:h-[50vh]"
+    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
-      backgroundImage: 'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
-      backgroundSize: 'contain, contain',
-      backgroundPosition: 'top center, bottom -100px center',
+      backgroundImage:
+        'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
+      backgroundPosition: 'center -200px,center ',
+      backgroundSize: 'cover, cover',
+      backgroundRepeat: 'no-repeat, no-repeat',
     }"
   >
     <div
@@ -44,7 +46,10 @@ const formatSubtitle = (text) => {
         <h1 class="text-5xl text-white font-bold text-center">{{ title }}</h1>
       </div>
       <div>
-       <p v-html="description" class="text-white text-base md:text-lg xl:text-xl mt-4"></p>
+        <p
+          v-html="description"
+          class="text-white text-base md:text-lg xl:text-xl max-w-3xl mt-4"
+        ></p>
       </div>
       <div class="py-10" v-if="primaryButton">
         <CustomButton
