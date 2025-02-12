@@ -110,7 +110,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
     <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto px-4">
         <div
-          class="flex overflow-x-auto gap-2 md:gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
+          class="flex overflow-x-auto gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
         >
           <!-- Render Tabs -->
           <div
@@ -142,6 +142,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
           v-for="(tab, tabIndex) in items"
           :key="slugify(tab.title)"
           :ref="(el) => (contentRefs[tabIndex] = el)"
+          class="mb-8 md:mb-0"
         >
           <CustomInterChange
             :key="slugify(tab.title)"

@@ -34,7 +34,7 @@ const props = defineProps({
   type: {
     type: String,
     default: "blog",
-  }
+  },
 });
 </script>
 
@@ -42,14 +42,17 @@ const props = defineProps({
   <div class="min-h-screen">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <a v-for="blog in sectionData" :key="blog.title"
-         :href="generateNavLink(type, blog.slug)"
-           rel="noopener noreferrer" :class="[
+        <a
+          v-for="blog in sectionData"
+          :key="blog.title"
+          :href="generateNavLink(type, blog.slug)"
+          rel="noopener noreferrer"
+          :class="[
             cardBgColor,
-            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',
-          ]">
+            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',]">
         
           <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" :height="'50%' " />
+
           <div class="w-full p-6 flex flex-col">
             <div>
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">

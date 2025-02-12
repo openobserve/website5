@@ -42,10 +42,10 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:-top-28 before:bg-no-repeat before:bg-contain before:bg-right-top"
+    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-full md:before:min-h-[160vh] before:top-20 md:before:-top-28 before:bg-no-repeat before:bg-cover md:before:bg-contain  before:bg-right-top"
     :style="sectionStyles"
   >
-    <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
+    <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0 z-10">
       <div
         class="flex flex-col lg:flex-row lg:items-center lg:h-screen lg:justify-between lg:gap-20"
       >

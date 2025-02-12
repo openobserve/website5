@@ -45,13 +45,13 @@ const sectionStyles = computed(() => ({
     class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[10vh] before:z-0 before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-cover before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
     :style="sectionStyles"
   >
-    <div class="container mx-auto px-6 sm:px-10 lg:px-16 pt-20 lg:pt-0">
+    <div class="container mx-auto px-3 md:px-10 lg:px-16 pt-14 lg:pt-0">
       <div
-        class="flex flex-col lg:flex-row lg:items-center lg:min-h-[calc(100vh-5rem)] lg:justify-between lg:gap-20 pr-[2vh]"
+        class="flex flex-col lg:flex-row lg:items-center lg:min-h-[calc(100vh-5rem)] lg:justify-between lg:gap-20 md:pr-[2vh]"
       >
         <!-- Content Container -->
         <div
-          class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-4 lg:mb-0 pr-[2vh]"
+          class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-4 lg:mb-0 md:pr-[2vh]"
         >
           <h1
             class="text-2xl sm:text-3xl md:text-5xl xl:text-7xl font-bold text-white mb-4"

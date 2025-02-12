@@ -19,7 +19,7 @@ const dynamicComponent = props.card.link ? "a" : "div";
   >
     <!-- Content Layer -->
     <div
-      class="flex flex-col space-y-2 md:space-y-3 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-3 md:p-6"
+      class="flex flex-col space-y-2 md:space-y-3 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] pt-8 md:pt-9 p-1 md:p-6"
     >
       <CustomImage :image="card.image" altText="Icon" cssClass="h-8 lg:h-16" />
       <h3
@@ -34,10 +34,10 @@ const dynamicComponent = props.card.link ? "a" : "div";
 <style scoped>
 .title-fixed {
   display: block;
-  min-height: calc(1.5rem * 2); /* Reserves space for exactly two lines */
+  min-height: calc(1.2rem * 2); /* Reserves space for exactly two lines */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  line-height: 1.5rem; /* Keeps consistent line spacing */
+  line-height: 1rem; /* Keeps consistent line spacing */
 }
 </style>

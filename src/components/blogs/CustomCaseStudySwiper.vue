@@ -85,10 +85,11 @@ const truncateDescription = (text: string, wordLimit: number) => {
           class="blog-swiper"
           :modules="swiperModules"
           v-bind="swiperOptions"
+
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
-              href="#"
+              :href="`/blog/${blog?.slug}`"
               :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
             >
               <div
@@ -138,13 +139,13 @@ const truncateDescription = (text: string, wordLimit: number) => {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
-  mask-image: linear-gradient(
+  /* mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0) 0%,
     black 10%,
     black 90%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ); */
 }
 
 .blog-swiper .swiper-pagination-bullet {

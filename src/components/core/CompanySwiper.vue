@@ -23,7 +23,7 @@ const repeatedData = computed(() => {
         <div
           v-for="(item, index) in repeatedData"
           :key="index"
-          class="flex-none h-14 grayscale brightness-75 hover:brightness-100 transition duration-200 hover:grayscale-0 mx-8"
+          class="flex-none h-10 md:h-14 grayscale brightness-75 hover:brightness-100 transition duration-200 hover:grayscale-0 mx-8"
         >
           <CustomImage
             :image="item?.Image"

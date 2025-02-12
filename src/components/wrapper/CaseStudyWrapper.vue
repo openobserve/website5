@@ -69,7 +69,7 @@ const redirectToBlog = (slug) => {
         <CustomImage
           image="/Platform/Ellipse-141.svg"
           altText="Background decoration"
-          cssClass="absolute opacity-30 object-contain"
+          cssClass="absolute opacity-30 object-contain -z-10"
         />
 
         <div
@@ -109,7 +109,7 @@ const redirectToBlog = (slug) => {
           <CustomCaseStudySwiper :sectionData="cards"  />
         </div>
       </div>
-      <div
+      <!-- <div
         class="flex justify-center mt-6 mb-5"
         v-if="primaryButton && primaryButton.text && primaryButton.link"
       >
@@ -119,7 +119,7 @@ const redirectToBlog = (slug) => {
           :buttonText="primaryButton.text"
           :buttonLink="primaryButton.link"
         />
-      </div>
+      </div> -->
     </CustomSection>
   </section>
 </template>
