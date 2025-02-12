@@ -51,7 +51,7 @@ const props = defineProps({
             cardBgColor,
             'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',]">
         
-          <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" :height="'50%' " />
+          <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title"  />
 
           <div class="w-full p-6 flex flex-col">
             <div>

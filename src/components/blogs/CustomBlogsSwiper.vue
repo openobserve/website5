@@ -96,7 +96,7 @@ const swiperOptions = {
               :href="generateNavLink('blog', blog.slug)"
            rel="noopener noreferrer" :class="[
             cardBgColor,
-            ' rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',
+            ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
           ]">
          
           <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" />

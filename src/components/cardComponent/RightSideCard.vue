@@ -16,7 +16,7 @@ const props = defineProps({
     <div
       class="group custom-hover  flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
     >
-      <CustomBluredImage :image="card.image || ''" :altText="card.title" />
+      <CustomBluredImage :image="card.image || ''" :altText="card.title" height="full" />
 
       <div class="flex flex-col h-full space-y-4 w-full lg:w-3/5">
         <h3 class="text-white text-lg lg:text-2xl font-bold mb-3 line-clamp-3">

@@ -12,7 +12,6 @@ const props = defineProps({
   },
   height: {
     type: String,
-    default: "100%",
   }
 });
 
@@ -20,9 +19,17 @@ const props = defineProps({
 
 <template>
   <div
-    class="w-full max-h-30 h-1/2 relative rounded-lg overflow-hidden bg-white bg-center bg-cover"
-  >
-    <!-- Blurred Background -->
+    :class="[
+      'w-full',
+      'relative',
+      'rounded-lg',
+      'overflow-hidden',
+      'bg-white',
+      'bg-center',
+      'bg-cover',
+      props.height ? 'h-full' : 'h-1/2'
+    ]"
+    >
     <div
       class="absolute inset-0 blur-3xl"
       :style="{
