@@ -23,7 +23,7 @@ const props = defineProps({
         class="text-center text-5xl lg:text-9xl font-bold pt-[12vh]"
         :title="props.title"
         textGradientColor="gradient-color"
-        padding="pb-10"
+        padding="pb-5"
       />
       <Heading
         :description="props.description"

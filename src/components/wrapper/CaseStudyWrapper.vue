@@ -7,6 +7,8 @@ import CustomButton from "../core/CustomButton.vue";
 import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
+import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
+import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
 
 // Define the props for this component
 const props = defineProps({
@@ -98,12 +100,13 @@ const redirectToBlog = (slug) => {
       <!-- Mobile View -->
       <div class="block md:hidden">
         <div class="flex flex-col space-y-3 mt-5">
-          <LeftSideCard
-            v-for="(card, index) in cards"
-            :key="card.slug || index"
-            :card="card"
-            @click="redirectToBlog(card.slug)"
-          />
+          <!-- <LeftSideCard
+          v-for="(card, index) in cards"
+          :key="card.slug || index"
+          :card="card"
+          @click="redirectToBlog(card.slug)"
+        /> -->
+          <CustomCaseStudySwiper :sectionData="cards"  />
         </div>
       </div>
       <div
@@ -117,7 +120,6 @@ const redirectToBlog = (slug) => {
           :buttonLink="primaryButton.link"
         />
       </div>
-      -->
     </CustomSection>
   </section>
 </template>

@@ -67,33 +67,38 @@ async function addCopyButtons() {
   if (!container) return;
 
   const addButtonToCodeBlock = (pre) => {
-  if (pre.querySelector(".copy-button")) return; // Avoid duplicates
+    if (pre.parentElement.classList.contains("code-container")) return; // Avoid duplicates
 
-  // Ensure the code block has a relative container
-  pre.style.position = "relative";
+    // Wrap pre inside a div to position the button separately
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-container relative";
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
 
-  const button = document.createElement("button");
-  button.innerText = "Copy";
-  button.className =
-    "copy-button absolute top-2 right-2 bg-gray-800 text-white px-2 py-1 rounded-md text-sm transition-opacity opacity-100";
-  button.setAttribute("aria-label", "Copy code to clipboard");
-  button.tabIndex = 0;
+    // Create copy button
+    const button = document.createElement("button");
+    button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`;
+    button.className =
+      "copy-button absolute top-0 right-3  px-1  rounded-md text-sm transition-opacity opacity-100";
+    button.setAttribute("aria-label", "Copy code to clipboard");
+    button.tabIndex = 0;
+    button.style.position = "absolute";
+    button.style.top = "-20px"; // Adjust this value as needed
+    button.style.right = "10px";
 
-  // Append the button
-  pre.appendChild(button);
+    // Append button to wrapper (not inside <pre>)
+    wrapper.appendChild(button);
 
-  // Handle copy logic
-  button.addEventListener("click", () => {
-    const code = pre.querySelector("code")?.innerText.trim();
-    if (code) {
-      navigator.clipboard.writeText(code);
-      button.innerText = "Copied!";
-      setTimeout(() => (button.innerText = "Copy"), 2000);
-    }
-  });
-
-};
-
+    // Handle copy logic
+    button.addEventListener("click", () => {
+      const code = pre.querySelector("code")?.innerText.trim();
+      if (code) {
+        navigator.clipboard.writeText(code);
+        button.innerHTML = `<img src="/download-pricing/copiedIcon.svg" alt="Plus Icon" class="h-5 w-5" />`;
+        setTimeout(() => (button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`), 2000);
+      }
+    });
+  };
 
   // Apply buttons to existing code blocks
   container.querySelectorAll("pre").forEach(addButtonToCodeBlock);
@@ -136,13 +141,17 @@ function observeHeadings() {
 }
 
 // Watch for content changes
-watch(() => props.content, async (newContent) => {
-  processMarkdown(newContent);
-  await nextTick();
-  extractHeadingsFromHTML();
-  addCopyButtons();
-  observeHeadings(); // Observe headings on content change
-}, { immediate: true });
+watch(
+  () => props.content,
+  async (newContent) => {
+    processMarkdown(newContent);
+    await nextTick();
+    extractHeadingsFromHTML();
+    addCopyButtons();
+    observeHeadings(); // Observe headings on content change
+  },
+  { immediate: true }
+);
 
 // Run once when the component mounts
 onMounted(() => {
@@ -157,17 +166,21 @@ onMounted(() => {
   <CustomSection>
     <div class="flex flex-col md:flex-row md:mx-auto">
       <!-- Rendered Markdown Content -->
-      <div id="blog-content" class="w-full md:w-[70%] text-left overflow-x-auto order-2 md:order-none">
-        <div v-html="htmlContent" class="prose prose-md prose-invert prose-pre:bg-gray-800"></div>
+      <div
+        id="blog-content"
+        class="w-full md:w-[70%] text-left order-2 md:order-none"
+      >
+        <div
+          v-html="htmlContent"
+          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-90 overflow-auto"
+        ></div>
       </div>
 
       <!-- Table of Contents -->
       <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
-        <TableOfContents :headings="headings":activeSection="currentSection" />
+        <TableOfContents :headings="headings" :activeSection="currentSection" />
       </div>
     </div>
   </CustomSection>
 </template>
-<style scoped>
-
-</style>
+<style></style>

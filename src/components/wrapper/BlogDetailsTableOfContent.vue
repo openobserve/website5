@@ -5,7 +5,7 @@
       <li v-for="(heading, index) in nestedHeadings" :key="index">
         <a
           :href="`#${heading.id}`"
-          class="block text-sm font-medium text-white hover:text-blue-400"
+          class="block text-sm font-medium"
           :class="{ 'text-blue-400': currentSection === heading.id, 'text-white': currentSection !== heading.id }"
           @click="setActiveSection(heading.id)"
         >
