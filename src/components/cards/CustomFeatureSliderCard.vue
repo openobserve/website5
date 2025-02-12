@@ -53,7 +53,7 @@ const swiperOptions = {
             borderColor="bg-gradient-gray"
             size="small"
           />
-          <h2 class="font-semibold text-base mb-2" :class="titleTextColor">
+          <h2 class="font-semibold text-base mt-2 mb-2" :class="titleTextColor">
             {{ item.title }}
           </h2>
           <p class="text-sm" :class="descriptionTextColor">

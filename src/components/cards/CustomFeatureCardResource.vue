@@ -25,11 +25,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
-    <!-- Main Row Layout -->
-    <div class="flex flex-row md:flex-col md:items-start gap-4 md:gap-2">
+  <div class="container mx-auto">
+    <!-- Layout changes based on screen size -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
       <!-- Icon -->
-      <div class="w-14 h-14 flex-shrink-0">
+      <div class="h-14 w-14 flex-shrink-0">
         <CustomRoundShape
           :imgSrc="card.image"
           iconSize="small"
@@ -39,7 +39,7 @@ const props = defineProps({
       </div>
 
       <!-- Title & Description -->
-      <div class="flex flex-col pt-[2vh]">
+      <div class="flex flex-col text-center md:text-left">
         <h2
           :class="`font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 ${titleTextColor}`"
         >

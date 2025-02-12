@@ -1,6 +1,6 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
-import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
+import CustomFeatureCardResource from "../cards/CustomFeatureCardResource.vue";
 import Heading from "../core/Heading.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomButton from "../core/CustomButton.vue";
@@ -42,21 +42,17 @@ const props = defineProps({
         </div>
         <div
           :class="[
-            `py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full `,
+            `pt-[3vh] grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full [&>*:nth-child(2)]:cols-start-2`,
           ]"
         >
-          <div
-            class="flex gap-4 md:flex-row flex-col justify-start"
-            v-for="(item, index) in items"
-            :key="index"
-          >
-            <CustomFeatureCard :card="item" borderColor="bg-white" />
+          <div v-for="(item, index) in items" :key="index">
+            <CustomFeatureCardResource :card="item" borderColor="bg-gray-400" />
           </div>
         </div>
-        <div class="flex justify-center items-center text-center">
+        <div class="flex justify-center items-center text-center pt-[10vh]">
           <CustomButton
             variant="pricing"
-            class="mt-10"
+            class="mt-3"
             :buttonLink="primaryButton?.link"
           >
             {{ primaryButton?.text }}
@@ -76,5 +72,9 @@ const props = defineProps({
     rgba(1, 1, 1, 0.48) 29.9%,
     rgba(1, 1, 1, 0.8) 100%
   );
+}
+/* Selects the 6th item and moves it to the second column */
+.grid > *:nth-child(6) {
+  grid-column-start: 2;
 }
 </style>

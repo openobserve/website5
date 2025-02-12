@@ -6,6 +6,7 @@ import CustomBanner from "../../components/core/CustomBanner.vue";
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import SectionSwitcher from "../../components/cloud-selfHostedSection/SectionSwitcher.vue";
 import DownloadCaseStudyWrapper from "../../components/wrapper/DownloadCaseStudyWrapper.vue";
+import fetchApi from "@/utils/strapi";
 
 const comparisonData = {
   title: "Why Choose OpenObserve?",
@@ -153,9 +154,15 @@ const FaqData = {
     },
   ],
 };
+
+const PageData = await fetchApi({
+  endpoint: "api/download",
+  query: { pLevel: "10", status: "draft" },
+});
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <SectionSwitcher client:load />
   <CustomComparisonTable
     title={comparisonData.title}
@@ -169,8 +176,8 @@ const FaqData = {
     title={caseStudyTitle.title}
     description=""
     client:load
-    />
-    <!-- description={caseStudyTitle?.subtitle} -->
+  />
+  <!-- description={caseStudyTitle?.subtitle} -->
   <CustomBanner
     bannerTitle={bannerData.bannerTitle}
     bannerDescription={bannerData.bannerDescription}

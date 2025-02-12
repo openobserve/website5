@@ -54,7 +54,7 @@ const redirectToBlog = (slug) => {
 <template>
   <section>
     <CustomSection>
-      <div class="py-4">
+      <div >
         <Heading
           :title="heading?.title"
           :description="heading?.subtitle"

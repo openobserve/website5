@@ -6,7 +6,13 @@ import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWra
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import { getResourceAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getResourceBlogsByAuthor, getCaseStudies } from "../../../utils/cache";
+import {
+  getResourceAuthors,
+  getAllBlogsCategoriesAndAuthors,
+  getAllCategories,
+  getResourceBlogsByAuthor,
+  getCaseStudies,
+} from "../../../utils/cache";
 
 export async function getStaticPaths() {
   await getAllBlogsCategoriesAndAuthors();
@@ -24,7 +30,8 @@ const loadcaseStudyData = getCaseStudies() || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
-  description: "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
 };
 
 const cardData = [
@@ -33,9 +40,14 @@ const cardData = [
     title: "Case Studies",
   },
 ];
+
+const metaObj = {
+  title:
+    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
 ---
 
-<Layout>
+<Layout metObj={metaObj}>
   <ResourceHeroSection
     title="Blogs"
     subtitle={`Showing posts by author: ${author}`}
@@ -52,7 +64,7 @@ const cardData = [
     type="articles"
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData.slice(0,15)}
+    suggestionData={suggestionData.slice(0, 15)}
     client:load
   />
 

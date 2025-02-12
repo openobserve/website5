@@ -211,9 +211,14 @@ const tailoredSolutionsData = {
   ],
   description: "Take control of your observability stack with OpenObserve.",
 };
+
+const metaObj = {
+  title:
+    "Pricing | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <TierSwitcher
     cloud-tiers={cloudTiers}
     self-hosted-tiers={selfHostedTiers}

@@ -64,6 +64,7 @@ const sectionStyles = computed(() => ({
               variant="primary"
               :buttonLink="primaryButton?.link"
               v-if="primaryButton"
+              class="w-full sm:w-auto"
             >
               {{ primaryButton.text }}
             </CustomButton>
@@ -71,6 +72,7 @@ const sectionStyles = computed(() => ({
               variant="secondary"
               :buttonLink="secondaryButton?.link"
               v-if="secondaryButton"
+              class="w-full sm:w-auto"
             >
               {{ secondaryButton.text }}
             </CustomButton>
@@ -79,12 +81,12 @@ const sectionStyles = computed(() => ({
 
         <!-- Right Image Container -->
         <div
-          class="relative py-4 lg:absolute lg:right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-[50%] flex justify-center lg:justify-end items-center z-20 mt-8 sm:mt-12 lg:mt-0"
+          class="relative py-4 lg:absolute lg:right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-[50%] flex justify-center lg:justify-end items-center z-20"
         >
           <CustomImage
             :image="image"
             altText="Right visual"
-            cssClass="w-[90%] lg:w-auto max-w-full h-auto rounded-md object-contain opacity-90 lg:opacity-100"
+            cssClass="w-full lg:w-auto max-w-full h-auto rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>
       </div>

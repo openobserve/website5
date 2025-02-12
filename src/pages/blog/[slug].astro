@@ -20,9 +20,13 @@ const { slug }: any = Astro.params;
 await getAllBlogsCategoriesAndAuthors();
 const SlugData = getBlogsBySlug(slug) || {}
 const loadcaseStudyData = getCaseStudies();
+
+const metaObj= {
+  title: SlugData?.[0]?.title
+}
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <BlogDetailsHeroSectionWrapper
     title={SlugData?.[0].title}
     bottomImage={SlugData?.[0].image?.formats?.large?.url ||

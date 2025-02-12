@@ -8,11 +8,17 @@ import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
 import { slugify } from "../../../utils/slugify";
-import { getAllAuthors, getAllBlogsCategoriesAndAuthors, getAllCategories, getBlogsByAuthor, getCaseStudies } from "@/utils/cache";
+import {
+  getAllAuthors,
+  getAllBlogsCategoriesAndAuthors,
+  getAllCategories,
+  getBlogsByAuthor,
+  getCaseStudies,
+} from "@/utils/cache";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors()
+  await getAllBlogsCategoriesAndAuthors();
   return getAllAuthors()?.map((author: any) => ({
     params: { author: author.slug },
   }));
@@ -41,24 +47,26 @@ const cardData = [
     title: "Case Studies",
   },
 ];
+
+const metaObj = {
+  title:
+    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
-<Layout>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Author"
     subtitle={`Showing posts for category: ${author}`}
   />
 
-  <CaseStudyWrapper
-    data={loadcaseStudyData}
-    client:load
-  />
+  <CaseStudyWrapper data={loadcaseStudyData} client:load />
 
   <BlogsListingWrapper
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData.slice(0,15)}
+    suggestionData={suggestionData.slice(0, 15)}
     client:load
   />
 
