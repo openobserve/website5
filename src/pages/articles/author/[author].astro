@@ -11,7 +11,6 @@ import { getCaseStudies } from "@/utils/api/blogs";
 
 export async function getStaticPaths() {
   const authors = await getResourceAuthors() || [];
-  console.log(authors, "Articles authors")
   return authors.map((author) => ({
     params: { author: author.slug },
   }));
