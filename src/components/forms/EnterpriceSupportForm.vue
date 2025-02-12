@@ -25,13 +25,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="pt-[4vh]">
+  <div class="">
     <CustomSection
       class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card max-w-7xl mx-auto"
     >
       <!-- Title Section -->
       <Heading
-        class="text-2xl md:text-3xl font-bold text-center mb-6 text-white"
+        class="text-2xl md:text-3xl font-bold text-center text-white"
         :title="heading.title"
       />
 
