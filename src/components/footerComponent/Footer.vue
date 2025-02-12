@@ -140,7 +140,20 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
         </div>
 
         <!-- GitHub Stats Section -->
-        <div class="flex items-center space-x-2 w-full md:w-auto">
+        <div class="flex items-center space-x-6 w-full md:w-auto">
+          <div class="flex flex-row gap-3 items-center">
+            <!-- Icon -->
+            <div class="w-14 h-14 flex-shrink-0">
+              <img src="/SOC.png" />
+            </div>
+
+            <!-- Title & Description in one line -->
+            <div class="flex flex-col text-white">
+              <h2 class="text-base whitespace-nowrap">SOC Type II</h2>
+              <p class="text-sm whitespace-nowrap">Certified</p>
+            </div>
+          </div>
+
           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme=""
