@@ -34,8 +34,7 @@ const copyCode = () => {
           <ul class="space-y-4 mb-4 md:mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img src="/download-pricing/docker.svg" alt="icon" class="w-5 md:w-6 md:h-6
-              /></span>
+                <img src="/download-pricing/docker.svg" alt="icon" class="w-5 md:w-6 h-5 md:h-6"/></span>
               <span class="text-sm flex items-center">Docker</span>
             </li>
           </ul>
