@@ -42,7 +42,9 @@ const copyCode = () => {
         </div>
 
         <!-- Copyable Code Block -->
-        <div class="relative bg-gray-800 rounded-lg p-4 text-gray-300 font-mono text-md">
+        <div
+          class="relative bg-gray-800 rounded-lg p-4 text-gray-300 font-mono text-md"
+        >
           <button
             @click="copyCode"
             class="absolute top-2 right-2 text-white p-1 flex items-center focus:outline-none focus:ring-0"
@@ -58,13 +60,13 @@ const copyCode = () => {
             />
           </button>
           <pre><code ref="codeBlock">
-docker run -d \
-  --name openobserve \
-  -v $PWD/data:/data \
-  -p 5080:5080 \
-  -e ZO_ROOT_USER_EMAIL="root@example.com" \
-  -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \
-  public.ecr.aws/zinclabs/openobserve:latest
+        docker run -d \
+          <!-- --name openobserve \
+          -v $PWD/data:/data \
+          -p 5080:5080 \ -->
+          -e ZO_ROOT_USER_EMAIL="root@example.com" \
+          -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \
+          public.ecr.aws/zinclabs/openobserve:latest`,
           </code></pre>
         </div>
         <div class="flex-grow">
@@ -126,22 +128,32 @@ docker run -d \
           <ul class="space-y-4 mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
+                <img
+                  src="/resources/Frame-11216.svg"
+                  alt="icon"
+                  class="w-6 h-6"
               /></span>
               <span class="text-sm">Single Sign On (SSO)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
+                <img
+                  src="/resources/Frame-11216.svg"
+                  alt="icon"
+                  class="w-6 h-6"
               /></span>
               <span class="text-sm">Role-Based Access Control (RBAC)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img src="/resources/Frame-11216.svg" alt="icon" class="w-6 h-6"
+                <img
+                  src="/resources/Frame-11216.svg"
+                  alt="icon"
+                  class="w-6 h-6"
               /></span>
               <span class="text-sm"
-                >Search concurrency control at cluster & user level Super Cluster</span
+                >Search concurrency control at cluster & user level Super
+                Cluster</span
               >
             </li>
           </ul>
@@ -161,17 +173,22 @@ docker run -d \
 
 <style scoped>
 button {
-  outline: none; /* Removes default focus outline */
-  border: none; /* Ensures no border appears */
+  outline: none;
+  /* Removes default focus outline */
+  border: none;
+  /* Ensures no border appears */
 }
 
 button:focus {
   outline: none;
-  box-shadow: none; /* Removes any focus glow */
+  box-shadow: none;
+  /* Removes any focus glow */
 }
+
 pre {
   overflow-x: auto;
 }
+
 /* Custom focus styles */
 input:focus,
 button:focus {
@@ -200,9 +217,11 @@ input[type="checkbox"]:checked {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
