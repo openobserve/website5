@@ -49,7 +49,7 @@ onUnmounted(() => {
     <div class="w-full rounded-lg card">
       <div class="card-content text-center">
         <h2
-          class="text-2xl font-bold text-white mb-2 heading-stroke cursor-pointer"
+          class="text-2xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2 border-b border-gray-900"
           @click="toggleExpand('top')"
         >
           {{ props?.unifiedObservability?.title }}
@@ -81,7 +81,7 @@ onUnmounted(() => {
       <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content text-center">
           <h2
-            class="text-white text-xl font-bold cursor-pointer"
+            class="text-white text-xl font-bold cursor-pointer py-2 border-b border-gray-900"
             @click="toggleExpand(`middle-${index}`)"
           >
             {{ item?.title }}
@@ -104,7 +104,7 @@ onUnmounted(() => {
       <div class="card">
         <div class="card-content text-center">
           <h2
-            class="text-2xl font-bold text-white mb-2 cursor-pointer"
+            class="text-2xl font-bold text-white mb-2 cursor-pointer py-2 border-b border-gray-900"
             @click="toggleExpand('bottom')"
           >
             {{ integrations?.title }}
@@ -149,7 +149,7 @@ onUnmounted(() => {
   inset: 0;
   padding: 2px; /* Adjust for border thickness */
   border-radius: 12px;
-  background: linear-gradient(to top left, #3b82f6, #1e293b);
+  background: linear-gradient(to top left, #545f70, #1d2229);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
