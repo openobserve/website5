@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import { getAllBlogs, getAllBlogsCategoriesAndAuthors } from "@/utils/cache";
+import { getAllBlogs } from "@/utils/api/blogs";
 import fetchApi from "@/utils/strapi";
 
 const PageData = await fetchApi({
@@ -10,8 +10,7 @@ const PageData = await fetchApi({
 });
 
 const metaObj = PageData?.data?.seo;
-await getAllBlogsCategoriesAndAuthors();
-const allBlogs = getAllBlogs();
+const allBlogs = await getAllBlogs();
 const blogs = allBlogs?.slice(0, 10);
 ---
 

@@ -4,16 +4,13 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import {
-  getAllBlogsCategoriesAndAuthors,
-  getAllCategories,
-  getCaseStudies,
-} from "../../../utils/cache";
+import { getAllBlogs, getAllCategories, getCaseStudies } from "@/utils/api/blogs";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  const { categories, blogs } = await getAllBlogsCategoriesAndAuthors();
   // Map each category to its related blogs
+  const categories = await getAllCategories();
+  const blogs = await getAllBlogs();
   const categoryMap = categories?.map((category) => ({
     params: { tag: category.slug }, // Correct attribute access for category
     props: {
@@ -42,9 +39,9 @@ if (category) {
 }
 
 // ✅ Fetch Additional Data
-const suggestionData = getAllCategories();
+const suggestionData = await getAllCategories();
 
-const loadcaseStudyData = getCaseStudies();
+const loadcaseStudyData = await getCaseStudies();
 
 // 🔹 Additional Card Data
 const cardHeader = {
@@ -67,7 +64,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    subtitle={`Showing posts for category: ${category?.name ?? tag}`}
+    description={`Showing posts for category: ${category?.name ?? tag}`}
   />
 
   <CaseStudyWrapper data={loadcaseStudyData || []} client:load />

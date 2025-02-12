@@ -1,0 +1,54 @@
+import {
+    fetchAuthors,
+    fetchCategories,
+    fetchBlogs
+} from "../cache"
+
+export const itemsPerPage = 50;
+
+export async function getAuthorDetails(author) {
+    const authors = await getAllAuthors();
+    return authors.filter(auth => auth.slug === author)[0];
+}
+
+export async function getBlogsByCategory(category) {
+    const blogs = await getAllBlogs();
+    return blogs.filter(blog => blog.categories.some(cat => cat.slug === category));
+}
+
+export async function getCaseStudies() {
+    const blogs = await getAllBlogs();
+    return blogs.filter(blog => blog.caseStudies).slice(0, 3);
+}
+
+export async function getAllAuthors() {
+    const auth = await fetchAuthors();
+    return auth;
+}
+
+export async function getAllCategories() {
+    const categories = await fetchCategories();
+    return categories;
+}
+
+export async function getAllBlogs() {
+    const blogs = await fetchBlogs();
+    return blogs;
+}
+
+export async function getBlogsBySlug(slug) {
+    const blogs = await getAllBlogs();
+    return blogs.filter(blog => blog.slug === slug)[0];
+}
+
+export async function getBlogsByAuthor(author) {
+    const blogs = await getAllBlogs();
+    return blogs.filter(blog => blog.authors.some(auth => auth.slug === author));
+}
+
+export async function getBlogsByPagination(page, pageSize) {
+    const blogs = await getAllBlogs();
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
+    return blogs.slice(start, end);
+}
