@@ -59,13 +59,13 @@ const copyCode = () => {
             />
           </button>
           <pre><code ref="codeBlock">
-        docker run -d \
-          <!-- --name openobserve \
-          -v $PWD/data:/data \
-          -p 5080:5080 \ -->
-          -e ZO_ROOT_USER_EMAIL="root@example.com" \
-          -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \
-          public.ecr.aws/zinclabs/openobserve:latest`,
+docker run -d \
+  <!-- --name openobserve \
+  -v $PWD/data:/data \
+  -p 5080:5080 \ -->
+  -e ZO_ROOT_USER_EMAIL="root@example.com" \
+  -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \
+  public.ecr.aws/zinclabs/openobserve:latest`,
           </code></pre>
         </div>
         <div class="flex-grow">
@@ -130,30 +130,27 @@ const copyCode = () => {
                 <img
                   src="/resources/Frame-11216.svg"
                   alt="icon"
-                  class="w-6 h-6"
+                  class="w-5 md:w-6 h-5 md:h-6"
               /></span>
-              <span class="text-sm">Single Sign On (SSO)</span>
+              <span class="text-sm flex-1">Single Sign On (SSO)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
               <span>
                 <img
                   src="/resources/Frame-11216.svg"
                   alt="icon"
-                  class="w-6 h-6"
+                  class="w-5 md:w-6 h-5 md:h-6"
               /></span>
-              <span class="text-sm">Role-Based Access Control (RBAC)</span>
+              <span class="text-sm flex-1">Role-Based Access Control (RBAC)</span>
             </li>
             <li class="flex gap-3 text-gray-300">
-              <span>
+              <span class="">
                 <img
                   src="/resources/Frame-11216.svg"
                   alt="icon"
-                  class="w-6 h-6"
+                  class="w-5 md:w-6 h-5 md:h-6"
               /></span>
-              <span class="text-sm"
-                >Search concurrency control at cluster & user level Super
-                Cluster</span
-              >
+              <span class="text-sm flex-1">Search concurrency control at cluster & user level Super Cluster</span>
             </li>
           </ul>
         </div>

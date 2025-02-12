@@ -28,7 +28,7 @@ const props = defineProps<{
       <div
         v-for="(tier, index) in tiers"
         :key="index"
-        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col items-center"
+        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col items-start"
       >
         <!-- Tier Header -->
         <div class="mb-6 text-center">
@@ -60,9 +60,9 @@ const props = defineProps<{
         </div>
 
         <!-- Action Button -->
-        <div class="text-center">
+        <div class="text-center w-full">
           <!-- @click="tier.buttonAction" -->
-          <div class="hidden lg:block">
+          <div class="hidden lg:block place-items-center">
             <CustomButton
               variant="pricing"
               :button-link="tier.buttonAction"

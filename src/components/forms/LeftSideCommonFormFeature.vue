@@ -53,7 +53,7 @@ const data = {
         >
           <div class="flex items-center gap-3">
             <img
-              image="/resources/Frame-11216.svg"
+              src="/resources/Frame-11216.svg"
               alt="icon"
               class="w-5 md:w-6 h-5 md:h-6"
             />
