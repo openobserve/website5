@@ -27,10 +27,14 @@ const props = defineProps({
     <!-- Card 1 (Top Section) -->
     <div class="w-full rounded-lg card">
       <div class="card-content">
-        <h2 class="text-2xl font-bold text-white mb-2 text-center heading-stroke">
+        <h2
+          class="text-2xl font-bold text-white mb-2 text-center heading-stroke"
+        >
           {{ props?.unifiedObservability?.title }}
         </h2>
-        <p class="text-base font-medium text-[#BEC0C2] mb-4 text-center">
+        <p
+          class="text-base font-medium text-[#BEC0C2] mb-4 text-center hidden md:block"
+        >
           {{ props?.unifiedObservability?.description }}
         </p>
         <div class="text-center">
@@ -63,7 +67,7 @@ const props = defineProps({
       <div class="card">
         <div class="card-content">
           <h2 class="text-2xl font-bold text-white mb-2 text-center">
-              {{ integrations?.title }}
+            {{ integrations?.title }}
           </h2>
           <p class="text-base text-[#BEC0C2] font-medium mb-4 text-center">
             {{ integrations?.description }}
@@ -96,12 +100,14 @@ const props = defineProps({
   content: "";
   position: absolute;
   inset: 0;
+  padding: 2px; /* Adjust for border thickness */
   border-radius: 12px;
-  padding: 0.5px;
-  background: linear-gradient(180deg, #ffffff, #a7a6a6);
-  -webkit-mask-composite: exclude;
+  background: linear-gradient(to top left, #3b82f6, #1e293b);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
   mask-composite: exclude;
-  pointer-events: none;
 }
 
 /* Inner Content */

@@ -143,12 +143,15 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
 
         <!-- GitHub Stats Section -->
         <div
-          class="flex flex-wrap items-center justify-center md:justify-start gap-4 w-full md:w-auto"
+          class="flex flex-wrap items-center justify-center md:justify-start gap-8 w-full md:w-auto"
         >
           <div class="flex items-center gap-3">
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
-              <img src="/SOC.png" class="w-full h-full object-contain" />
+              <img
+                src="/SOC.svg"
+                class="w-full h-full object-contain grayscale"
+              />
             </div>
 
             <!-- Title & Description in one line -->
