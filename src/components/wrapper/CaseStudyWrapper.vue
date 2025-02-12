@@ -69,7 +69,7 @@ const redirectToBlog = (slug) => {
         <CustomImage
           image="/Platform/Ellipse-141.svg"
           altText="Background decoration"
-          cssClass="absolute opacity-30 object-contain"
+          cssClass="absolute opacity-30 object-contain -z-10"
         />
 
         <div

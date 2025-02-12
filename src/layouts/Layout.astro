@@ -124,7 +124,11 @@ const { metaObj } = Astro.props;
   </head>
   <body class="relative">
     <main>
-      <Header navData={NavData} class="sticky top-0 z-50 backdrop-blur-md" client:only />
+      <Header
+        navData={NavData}
+        class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
+        client:only
+      />
       <div class="navbarheight">
         <slot />
       </div>
