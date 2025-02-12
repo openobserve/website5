@@ -34,15 +34,14 @@ const props = defineProps({
 
         <div
           :class="[
-            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns}  gap-10 w-full mt-10`,
+            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumns} gap-1 md:gap-10 w-full mt-4 md:mt-10`,
           ]"
         >
           <div
-            class="flex gap-4"
             v-for="(item, index) in items"
             :key="index"
-            :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
           >
+            <!-- :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'" -->
             <CustomFeatureCard :card="item" />
           </div>
         </div>

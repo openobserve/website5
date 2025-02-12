@@ -39,7 +39,7 @@ defineProps({
     />
       <!-- textGradientColor="text-color" -->
 
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row gap-2 md:gap-8">
       <LeftSideCommonFormFeature
         :description="subTitle"
         :keyFeatures="items"

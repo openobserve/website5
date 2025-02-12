@@ -19,11 +19,11 @@ const dynamicComponent = props.card.link ? "a" : "div";
   >
     <!-- Content Layer -->
     <div
-      class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-8"
+      class="flex flex-col space-y-2 md:space-y-3 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] p-3 md:p-6"
     >
-      <CustomImage :image="card.image" altText="Icon" cssClass="h-16" />
+      <CustomImage :image="card.image" altText="Icon" cssClass="h-8 lg:h-16" />
       <h3
-        class="text-[#BEC0C2] text-base font-semibold text-center group-hover:text-[#80B9FF] title-fixed"
+        class="text-[#BEC0C2] text-xs md:text-base  font-semibold text-center group-hover:text-[#80B9FF] title-fixed"
         :title="card.title"
       >
         {{ card.title }}

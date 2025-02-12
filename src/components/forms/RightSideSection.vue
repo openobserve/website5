@@ -93,12 +93,12 @@ const navigateToTerms = (e) => {
 </script>
 
 <template>
-  <div class="w-1/2">
+  <div class="w-full md:w-1/2">
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <!-- Name -->
         <div>
-          <label for="name" class="text-gray-200 font-medium cursor-pointer">
+          <label for="name" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -114,7 +114,7 @@ const navigateToTerms = (e) => {
 
         <!-- Email -->
         <div>
-          <label for="email" class="text-gray-200 font-medium cursor-pointer">
+          <label for="email" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -131,7 +131,7 @@ const navigateToTerms = (e) => {
 
         <!-- Company Name -->
         <div>
-          <label for="company" class="text-gray-200 font-medium cursor-pointer">
+          <label for="company" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Company Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -149,7 +149,7 @@ const navigateToTerms = (e) => {
 
         <!-- Phone Number -->
         <div>
-          <label for="phone" class="text-gray-200 font-medium cursor-pointer">
+          <label for="phone" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Phone Number <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -165,7 +165,7 @@ const navigateToTerms = (e) => {
 
         <!-- Support Needed -->
         <div>
-          <label for="support" class="text-gray-200 font-medium cursor-pointer">
+          <label for="support" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Support Type <span class="text-red-500">*</span>
           </label>
           <select
@@ -188,7 +188,7 @@ const navigateToTerms = (e) => {
 
         <!-- Message -->
         <div>
-          <label for="message" class="text-gray-200 font-medium cursor-pointer">
+          <label for="message" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
             Message <span class="text-red-500">*</span>
           </label>
           <textarea
@@ -207,19 +207,19 @@ const navigateToTerms = (e) => {
         </div>
 
         <!-- Terms & Conditions -->
-        <div class="flex items-start gap-2">
+        <div class="flex items-start gap-4">
           <div class="relative flex items-start">
             <input
               id="terms"
               type="checkbox"
               v-model="terms.value.value"
-              class="mt-1 h-4 w-4 cursor-pointer"
+              class=" h-3 md:h-4 w-3 md:w-4 cursor-pointer"
               :class="{ 'border-red-500': terms.errorMessage.value }"
               required
             />
           </div>
-          <div class="ml-2">
-            <label for="terms" class="text-white cursor-pointer select-none">
+          <div class="flex items-start">
+            <label for="terms" class="text-white cursor-pointer items-start text-xs md:text-sm select-none">
               I confirm I have read and agree to OpenObserve's 
               <a
                 href="/policies/terms-of-service"
@@ -246,6 +246,7 @@ const navigateToTerms = (e) => {
         type="submit"
         :disabled="loading"
         class="mt-4"
+        size="small"
       >
         {{ loading ? "SENDING..." : "GET IN TOUCH" }}
       </CustomButton>

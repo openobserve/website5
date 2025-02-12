@@ -33,11 +33,14 @@ const props = defineProps({
     />
 
     <CustomSection>
+    <div 
+    v-if="heading"
+    >
       <Heading :title="heading?.title" :description="heading?.subtitle" />
-
+    </div>
       <div class="flex justify-center w-full">
         <div
-          class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mt-10 w-[80%] mx-auto [&>*:nth-child(2)]:cols-start-2"
+          class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto [&>*:nth-child(2)]:cols-start-2"
         >
           <!-- Loop moved here -->
           <IconTitleCard
