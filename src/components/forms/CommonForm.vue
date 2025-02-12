@@ -69,7 +69,10 @@ const onSubmit = handleSubmit(async (values) => {
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <div>
-          <label for="name" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="name"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -82,7 +85,10 @@ const onSubmit = handleSubmit(async (values) => {
           }}</span>
         </div>
         <div>
-          <label for="email" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="email"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -97,13 +103,20 @@ const onSubmit = handleSubmit(async (values) => {
         </div>
 
         <div class="input-group">
-          <label for="message" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="message"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Message <span class="text-red-500">*</span>
           </label>
           <textarea
             v-model="help.value.value"
             name="help"
             class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :class="{
+              'border-red-500': message.errorMessage.value,
+              'border-[#43484C]': !message.errorMessage.value,
+            }"
             placeholder="Enter Here"
             rows="4"
           ></textarea>
@@ -120,7 +133,6 @@ const onSubmit = handleSubmit(async (values) => {
               v-model="terms.value.value"
               class="mt-1 h-4 w-4 cursor-pointer"
               :class="{ 'border-red-500': terms.errorMessage.value }"
-              required
             />
           </div>
           <div class="ml-2">
@@ -128,7 +140,7 @@ const onSubmit = handleSubmit(async (values) => {
               for="terms"
               class="text-white cursor-pointer select-none text-sm md:text-md"
             >
-              I confirm, I have read and agree to OpenObserve's 
+              I confirm, I have read and agree to OpenObserve's
               <a
                 class="text-blue-500 underline"
                 href="/policies/terms-of-service"

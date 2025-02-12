@@ -18,7 +18,8 @@ const schema = yup.object({
   message: yup.string().required("Message is required"),
   terms: yup
     .boolean()
-    .oneOf([true], "You must accept the terms and conditions"),
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("You must accept the terms and conditions"),
 });
 
 // Initialize form validation
@@ -98,7 +99,10 @@ const navigateToTerms = (e) => {
       <div class="space-y-3">
         <!-- Name -->
         <div>
-          <label for="name" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="name"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -114,7 +118,10 @@ const navigateToTerms = (e) => {
 
         <!-- Email -->
         <div>
-          <label for="email" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="email"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Email Address <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -131,7 +138,10 @@ const navigateToTerms = (e) => {
 
         <!-- Company Name -->
         <div>
-          <label for="company" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="company"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Company Name <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -149,7 +159,10 @@ const navigateToTerms = (e) => {
 
         <!-- Phone Number -->
         <div>
-          <label for="phone" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="phone"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Phone Number <span class="text-red-500">*</span>
           </label>
           <CustomInput
@@ -165,7 +178,10 @@ const navigateToTerms = (e) => {
 
         <!-- Support Needed -->
         <div>
-          <label for="support" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="support"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Support Type <span class="text-red-500">*</span>
           </label>
           <select
@@ -188,7 +204,10 @@ const navigateToTerms = (e) => {
 
         <!-- Message -->
         <div>
-          <label for="message" class="text-gray-200 font-medium cursor-pointer text-sm md:text-base">
+          <label
+            for="message"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
             Message <span class="text-red-500">*</span>
           </label>
           <textarea
@@ -196,6 +215,10 @@ const navigateToTerms = (e) => {
             v-model="message.value.value"
             name="message"
             class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :class="{
+              'border-red-500': message.errorMessage.value,
+              'border-[#43484C]': !message.errorMessage.value,
+            }"
             placeholder="Enter here"
             rows="4"
           ></textarea>
@@ -213,18 +236,20 @@ const navigateToTerms = (e) => {
               id="terms"
               type="checkbox"
               v-model="terms.value.value"
-              class=" h-3 md:h-4 w-3 md:w-4 cursor-pointer"
+              class="h-3 md:h-4 w-3 md:w-4 cursor-pointer"
               :class="{ 'border-red-500': terms.errorMessage.value }"
-              required
             />
           </div>
-          <div class="flex items-start">
-            <label for="terms" class="text-white cursor-pointer items-start text-xs md:text-sm select-none">
-              I confirm, I have read and agree to OpenObserve's 
+          <div class="ml-2">
+            <label
+              for="terms"
+              class="text-white cursor-pointer items-start text-xs md:text-sm select-none"
+            >
+              I confirm, I have read and agree to OpenObserve's
               <a
                 href="/policies/terms-of-service"
                 class="text-blue-500 underline"
-                >
+              >
                 <!-- @click="navigateToTerms" -->
                 terms and condition
               </a>
