@@ -128,7 +128,7 @@ const onSubmit = handleSubmit(async (values) => {
               for="terms"
               class="text-white cursor-pointer select-none text-sm md:text-md"
             >
-              I confirm I have read and agree to OpenObserve's 
+              I confirm, I have read and agree to OpenObserve's 
               <a
                 class="text-blue-500 underline"
                 href="/policies/terms-of-service"

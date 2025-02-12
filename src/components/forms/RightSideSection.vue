@@ -220,7 +220,7 @@ const navigateToTerms = (e) => {
           </div>
           <div class="flex items-start">
             <label for="terms" class="text-white cursor-pointer items-start text-xs md:text-sm select-none">
-              I confirm I have read and agree to OpenObserve's 
+              I confirm, I have read and agree to OpenObserve's 
               <a
                 href="/policies/terms-of-service"
                 class="text-blue-500 underline"
