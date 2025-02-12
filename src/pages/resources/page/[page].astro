@@ -4,22 +4,15 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import {
-  getAllBlogsCategoriesAndAuthors,
-  getAllCategories,
-  getAllResourceCategories,
-  getBlogsByPagination,
-  getCaseStudies,
-  getResourceBlogsByPagination,
-  getTotalCounts,
-} from "../../../utils/cache";
+import { getTotalCounts } from "@/utils/cache";
+import { getAllResourceCategories, getResourceBlogsByPagination } from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 const itemsPerPage = 50;
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors();
-  const totalBlogs = getTotalCounts().resourcesBlogsCount;
+  const totalBlogs = (await getTotalCounts()).resourceBlogsCount;
 
   const totalPages = Math.ceil(totalBlogs / 50);
 
@@ -38,10 +31,10 @@ if (isNaN(currentPage) || currentPage < 1) {
 }
 
 // Fetch paginated blogs for the current page
-const blogsData = getResourceBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
-const suggestionData = getAllResourceCategories();
+const suggestionData = await getAllResourceCategories();
 
 // Fetch case studies
-const caseStudyData = getCaseStudies();
+const caseStudyData = await getCaseStudies();
 ---

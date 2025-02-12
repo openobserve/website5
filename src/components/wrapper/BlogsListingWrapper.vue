@@ -76,7 +76,7 @@ import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { itemsPerPage } from "@/utils/cache";
+import { itemsPerPage } from "@/utils/api/blogs";
 
 const props = defineProps({
   title: { type: String, required: true },

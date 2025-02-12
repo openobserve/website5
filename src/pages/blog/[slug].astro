@@ -4,47 +4,51 @@ import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsH
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
 import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import fetchApi from "../../utils/strapi";
-import { getAllBlogsCategoriesAndAuthors, getBlogsBySlug, getCaseStudies } from "@/utils/cache";
+import {
+  getAllBlogs,
+  getAuthorDetails,
+  getBlogsBySlug,
+  getCaseStudies,
+} from "@/utils/api/blogs";
 export async function getStaticPaths() {
-  const PageData: string[] = await fetchApi({
-    endpoint: "api/blog-pages",
-    query: { populate: "*", "pagination[pageSize]": 100 },
-  });
-  const slugs = PageData?.data;
+  const slugs = await getAllBlogs();
   return slugs.map((it: any) => ({
     params: { slug: it.slug },
   }));
 }
 const { slug }: any = Astro.params;
-await getAllBlogsCategoriesAndAuthors();
-const SlugData = getBlogsBySlug(slug) || {}
-const loadcaseStudyData = getCaseStudies();
+const SlugData = (await getBlogsBySlug(slug)) || {};
+const authorsSlugs = SlugData.authors || [];
 
-const metaObj= {
-  title: SlugData?.[0]?.title
-}
+const author = await Promise.all(
+  authorsSlugs.map(async (authorSlug) => {
+    return await getAuthorDetails(authorSlug.slug);
+  })
+);
+const loadcaseStudyData = await getCaseStudies();
+const metaObj = {
+  title: SlugData?.title,
+};
 ---
 
 <Layout metaObj={metaObj}>
   <BlogDetailsHeroSectionWrapper
-    title={SlugData?.[0].title}
-    bottomImage={SlugData?.[0].image?.formats?.large?.url ||
-      SlugData?.[0].image?.url}
+    title={SlugData?.title}
+    bottomImage={SlugData?.image?.formats?.large?.url || SlugData?.image?.url}
     client:load
-    suggestions={SlugData?.[0]?.categories || []} 
+    suggestions={SlugData?.categories || []}
     activity={[
-      SlugData?.[0].authors[0].name,
+      author[0].name,
       new Intl.DateTimeFormat("en-US", {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "2-digit",
-      }).format(new Date(SlugData?.[0].publishedAt)),
+      }).format(new Date(SlugData?.publishedAt)),
     ]}
   />
-  <BlogDetailContentWrapper client:load content={SlugData?.[0].content} />
-  <SingleAuthorDetails type="blog" authors={SlugData?.[0].authors} client:load />
+  <BlogDetailContentWrapper client:load content={SlugData?.content} />
+  <SingleAuthorDetails type="blog" authors={author} client:load />
   <div class="py-5">
     <CaseStudyWrapper
       items={loadcaseStudyData}

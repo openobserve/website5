@@ -6,32 +6,25 @@ import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWra
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import {
-  getResourceAuthors,
-  getAllBlogsCategoriesAndAuthors,
-  getAllCategories,
-  getResourceBlogsByAuthor,
-  getCaseStudies,
-} from "../../../utils/cache";
+import { getResourceAuthors, getResourceBlogsByAuthor, getAllResourceCategories } from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 export async function getStaticPaths() {
-  await getAllBlogsCategoriesAndAuthors();
-  const authors = getResourceAuthors() || [];
+  const authors = await getResourceAuthors() || [];
+  console.log(authors, "Articles authors")
   return authors.map((author) => ({
     params: { author: author.slug },
   }));
 }
 
 const { author } = Astro.params;
-await getAllBlogsCategoriesAndAuthors();
-const blogsData = getResourceBlogsByAuthor(author) || [];
-const suggestionData = getAllCategories() || [];
-const loadcaseStudyData = getCaseStudies() || [];
+const blogsData = await getResourceBlogsByAuthor(author) || [];
+const suggestionData = await getAllResourceCategories() || [];
+const loadcaseStudyData = await getCaseStudies() || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+  description: "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
 };
 
 const cardData = [
@@ -47,9 +40,9 @@ const metaObj = {
 };
 ---
 
-<Layout metObj={metaObj}>
+<Layout>
   <ResourceHeroSection
-    title="Blogs"
+    title="Resources"
     subtitle={`Showing posts by author: ${author}`}
   />
 

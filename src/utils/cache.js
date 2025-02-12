@@ -1,20 +1,19 @@
 import fetchApi from "./strapi";
 
-export const itemsPerPage = 50;
-
 let cache = {
   categories: null,
   blogs: null,
   authors: null,
-  resourcesBlogs: null,
-  resourcesCategories: null,
-  resourceAuthor: null,
+  resourceBlogs: null,
+  resourceCategories: null,
+  resourceAuthors: null,
   len: {
     authorsCount: 0,
     blogsCount: 0,
     categoriesCount: 0,
-    resourcesBlogsCount: 0,
-    resourcesCategoriesCount: 0,
+    resourceBlogsCount: 0,
+    resourceCategoriesCount: 0,
+    resourceAuthorsCount: 0,
   }
 };
 
@@ -22,158 +21,11 @@ export function getCachedData() {
   return cache;
 }
 
-export function getTotalCounts() {
+export async function getTotalCounts() {
   return cache.len;
 }
 
-export function getAllAuthors() {
-  return cache.authors;
-}
-
-export function getAllCategories() {
-  return cache.categories;
-}
-
-export function getAllBlogs() {
-  return cache.blogs;
-}
-
-export function getAllResourceCategories() {
-  return cache.resourcesCategories;
-}
-
-export function getAllResourceBlogs() {
-  return cache.resourcesBlogs;
-}
-
-export function getBlogsByPagination(page, pageSize) {
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  return cache.blogs.slice(start, end);
-}
-
-export function getResourceAuthors() {
-  return cache.resourceAuthor;
-}
-
-export function getResourceBlogsByAuthor(author) {
-  return cache.resourcesBlogs.filter(blog => blog.authors[0].slug == author);
-}
-
-export function getResourceBlogsByPagination(page, pageSize) {
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  return cache.resourcesBlogs.slice(start, end);
-}
-
-export function getBlogsByCategory(category) {
-  return cache.blogs.filter(blog => blog.categories.map(cat => cat.slug).includes(category));
-}
-
-export function getBlogsBySlug(slug) {
-  return cache.blogs.filter(blog => blog.slug == slug);
-}
-
-export function getResBlogsBySlug(slug) {
-  return cache.resourcesBlogs.filter(blog => blog.slug == slug);
-}
-
-export function getResourceBlogsByCategory(category) {
-  return cache.resourcesBlogs.filter(blog => blog.categories.map(cat => cat.slug).includes(category));
-}
-
-export function getBlogsByAuthor(author) {
-  return cache.blogs.filter(blog => blog.authors.map(auth => auth.slug).includes(author));
-}
-
-export function getCaseStudies() {
-  const caseStudies = cache?.blogs?.filter(blog => blog.caseStudies == true);
-  return caseStudies.slice(0, 3);
-}
-
-export function setCachedData(categories, blogs, authors, resBlogs, resAuthors, resCategories, len) {
-  cache.categories = categories;
-  cache.blogs = blogs;
-  cache.authors = authors;
-  cache.resourcesBlogs = resBlogs;
-  cache.resourceAuthor = resAuthors;
-  cache.resourcesCategories = resCategories;
-  cache.len = len;
-}
-
-export function clearCache() {
-  cache = { categories: null, blogs: null, authors: null, resourcesBlogs: null, resourcesCategories: null, len: {} };
-}
-
-export async function getAllBlogsCategoriesAndAuthors() {
-  const cachedData = getCachedData();
-  if (
-    cachedData.categories &&
-    cachedData.blogs &&
-    cachedData.authors &&
-    cachedData.resourcesBlogs &&
-    cachedData.resourcesCategories &&
-    cachedData.resourceAuthor
-  ) {
-    return cachedData;
-  }
-
-  const categoriesPromise = cachedData.categories
-    ? Promise.resolve([])
-    : fetchAllPages("api/categories");
-
-  const blogsPromise = cachedData.blogs
-    ? Promise.resolve([])
-    : fetchApi({
-      endpoint: "api/blog-pages",
-      query: { "pagination[pageSize]": 100, populate: "*" },
-    })
-      .then((response) => response?.data || [])
-      .then((blogs) => blogs.sort((a, b) => a.id - b.id));
-
-  const authorsPromise = cachedData.authors
-    ? Promise.resolve([])
-    : fetchApi({
-      endpoint: "api/authors",
-      query: { "pagination[pageSize]": 100, populate: "*" },
-    }).then((response) => response?.data || []);
-
-  const resourceAuthorsPromise = cachedData.authors
-    ? Promise.resolve([])
-    : fetchApi({
-      endpoint: "api/resource-authors",
-      query: { "pagination[pageSize]": 100, populate: "*" },
-    }).then((response) => response?.data || []);
-
-  const resourcesBlogsPromise = cachedData.resourcesBlogs
-    ? Promise.resolve([])
-    : fetchAllPages("api/resource-pages").then(blogs => blogs.sort((a, b) => a.id - b.id));
-
-  const resourcesCategoriesPromise = cachedData.resourcesCategories
-    ? Promise.resolve([])
-    : fetchAllPages("api/resource-categories");
-
-  // Execute all API calls in parallel
-  const [categories, blogs, authors, resBlogs, resCategories, resAuthors] = await Promise.all([
-    categoriesPromise,
-    blogsPromise,
-    authorsPromise,
-    resourcesBlogsPromise,
-    resourcesCategoriesPromise,
-    resourceAuthorsPromise
-  ]);
-
-  setCachedData(categories, blogs, authors, resBlogs, resAuthors, resCategories, {
-    authorsCount: authors.length,
-    blogsCount: blogs.length,
-    categoriesCount: categories.length,
-    resourcesBlogsCount: resBlogs.length,
-    resourcesCategoriesCount: resCategories.length,
-  });
-
-  return { categories, blogs, resBlogs, resCategories, authors, resAuthors };
-}
-async function fetchAllPages(endpoint) {
+async function fetchAllPages({ endpoint, query = {} }) {
   let page = 1;
   let totalPages = 1;
   let allData = [];
@@ -181,16 +33,101 @@ async function fetchAllPages(endpoint) {
   while (page <= totalPages) {
     const response = await fetchApi({
       endpoint,
-      query: { "pagination[pageSize]": 100, "pagination[page]": page, "populate": "*" },
+      query: {
+        "pagination[pageSize]": 100,
+        "pagination[page]": page,
+        ...query,
+      },
     });
 
     if (response?.data) {
+      response.data.sort((a, b) => {
+        const dateA = new Date(a.publishDate).getTime();
+        const dateB = new Date(b.publishDate).getTime();
+        return dateB - dateA;
+    });
       allData = [...allData, ...response.data];
       totalPages = response.meta.pagination.pageCount;
     }
-
     page += 1;
   }
-
   return allData;
+}
+
+export async function fetchAuthors() {
+  if (cache.authors) {
+    return cache.authors;
+  }
+  const data = (await fetchApi({
+    endpoint: "api/authors",
+    query: { "pagination[pageSize]": 100, "populate": "image" },
+  })).data;
+
+  cache.authors = data;
+  cache.len.authorsCount = data.length;
+
+  return data;
+}
+
+export async function fetchCategories() {
+  if (cache.categories) {
+    return cache.categories;
+  }
+  const data = await fetchAllPages({ endpoint: "api/categories" });
+
+  cache.categories = data;
+  cache.len.categoriesCount = data.length;
+
+  return data;
+}
+
+export async function fetchBlogs() {
+  if (cache.blogs) {
+    return cache.blogs;
+  }
+  const data = await fetchAllPages({ endpoint: "api/blog-pages", query: { populate: "*" } });
+
+  cache.blogs = data;
+  cache.len.blogsCount = data.length;
+
+  return data;
+}
+
+export async function fetchResourceCategories() {
+  if (cache.resourceCategories) {
+    return cache.resourceCategories;
+  }
+  const data = await fetchAllPages({ endpoint: "api/resource-categories" });
+
+  cache.resourceCategories = data;
+  cache.len.resourceCategoriesCount = data.length;
+
+  return data;
+}
+
+export async function fetchResourceBlogs() {
+  if (cache.resourceBlogs) {
+    return cache.resourceBlogs;
+  }
+  const data = await fetchAllPages({ endpoint: "api/resource-pages", query: { populate: "*" } });
+
+  cache.resourceBlogs = data;
+  cache.len.resourceBlogsCount = data.length;
+
+  return data;
+}
+
+export async function fetchResourceAuthors() {
+  if (cache.resourceAuthors) {
+    return cache.resourceAuthors;
+  }
+  const data = (await fetchApi({
+    endpoint: "api/resource-authors",
+    query: { "pagination[pageSize]": 100, "populate": "image" },
+  })).data;
+
+  cache.resourceAuthors = data;
+  cache.len.resourceAuthorsCount = data.length;
+
+  return data;
 }
