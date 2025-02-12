@@ -114,8 +114,8 @@ const onSubmit = handleSubmit(async (values) => {
             name="help"
             class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             :class="{
-              'border-red-500': message.errorMessage.value,
-              'border-[#43484C]': !message.errorMessage.value,
+              'border-red-500': help.errorMessage.value,
+              'border-[#43484C]': !help.errorMessage.value,
             }"
             placeholder="Enter Here"
             rows="4"
