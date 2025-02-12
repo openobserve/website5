@@ -23,7 +23,7 @@ const props = defineProps({
     :style="{
       backgroundImage:
         'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
-      backgroundPosition: 'center -200px,center ',
+      backgroundPosition: 'center -200px,center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat',
     }"
@@ -33,10 +33,9 @@ const props = defineProps({
     >
       <div>
         <TextWithGradient
-          class="text-center text-5xl lg:text-7xl max-w-xl font-bold pt-[5vh] md:pt-[12vh]"
+          class="text-center text-5xl lg:text-7xl max-w-xl font-bold"
           :title="props.title"
           textGradientColor="gradient-color"
-          padding="pb-5"
         />
       </div>
       <div>
