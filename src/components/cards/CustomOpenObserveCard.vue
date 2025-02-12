@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, onMounted, onUnmounted } from "vue";
+import { ref, defineProps } from "vue";
 
 const props = defineProps({
   unifiedObservability: {
@@ -17,28 +17,12 @@ const props = defineProps({
   },
 });
 
-const isMobile = ref(window.innerWidth < 768);
 const expandedCards = ref({}); // Stores expanded state for each card
-
-// Check screen size
-const checkScreenSize = () => {
-  isMobile.value = window.innerWidth < 768;
-};
 
 // Toggle card expansion
 const toggleExpand = (key) => {
-  if (isMobile.value) {
-    expandedCards.value[key] = !expandedCards.value[key];
-  }
+  expandedCards.value[key] = !expandedCards.value[key];
 };
-
-onMounted(() => {
-  window.addEventListener("resize", checkScreenSize);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", checkScreenSize);
-});
 </script>
 
 <template>
@@ -56,11 +40,8 @@ onUnmounted(() => {
         </h2>
 
         <p
-          v-if="
-            (!isMobile || expandedCards['top']) &&
-            props.unifiedObservability?.description
-          "
           class="text-base font-medium text-[#BEC0C2] mb-4"
+          :class="{ 'hidden md:block': !expandedCards['top'] }"
         >
           {{ props?.unifiedObservability?.description }}
         </p>
@@ -87,11 +68,8 @@ onUnmounted(() => {
             {{ item?.title }}
           </h2>
           <p
-            v-if="
-              (!isMobile || expandedCards[`middle-${index}`]) &&
-              item?.description
-            "
             class="text-[#BEC0C2] text-base font-medium mt-3"
+            :class="{ 'hidden md:block': !expandedCards[`middle-${index}`] }"
           >
             {{ item?.description }}
           </p>
@@ -111,11 +89,8 @@ onUnmounted(() => {
           </h2>
 
           <p
-            v-if="
-              (!isMobile || expandedCards['bottom']) &&
-              integrations?.description
-            "
             class="text-base text-[#BEC0C2] font-medium mb-4"
+            :class="{ 'hidden md:block': !expandedCards['bottom'] }"
           >
             {{ integrations?.description }}
           </p>
@@ -139,22 +114,8 @@ onUnmounted(() => {
 .card {
   position: relative;
   padding: 0.0625rem;
+  border: 1px solid #2b2d31;
   border-radius: 12px;
-}
-
-/* Gradient Border Effect */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px; /* Adjust for border thickness */
-  border-radius: 12px;
-  background: linear-gradient(to top left, #545f70, #1d2229);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
 }
 
 /* Inner Content */

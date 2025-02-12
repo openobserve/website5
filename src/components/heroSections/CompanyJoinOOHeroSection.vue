@@ -17,20 +17,11 @@ const props = defineProps({
     required: false,
   },
 });
-
-// Function to split text at periods and wrap each sentence in a span
-const formatSubtitle = (text) => {
-  return text
-    .split(".")
-    .filter((sentence) => sentence.trim())
-    .map((sentence) => `<span class="sentence">${sentence.trim()}.</span>`)
-    .join("");
-};
 </script>
 
 <template>
   <div
-    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
+    class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8 mb-[20vh]"
     :style="{
       backgroundImage:
         'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
