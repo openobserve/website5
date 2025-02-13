@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps, ref, onMounted } from "vue";
+import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
+import DockerCode from "../core/DockerCode.vue";
 
 const props = defineProps({
   title: {
@@ -24,50 +25,15 @@ const props = defineProps({
     required: false,
   },
 });
-
-const copied = ref(false);
-
-// Define the docker command as a constant
-const DOCKER_COMMAND = `docker run -d -e ZO_ROOT_USER_EMAIL="root@example.com -e ZO_ROOT_USER_PASSWORD="Complexpass#123 public.ecr.aws/zinclabs/openobserve:latest`;
-
-const copyCode = () => {
-  // Create a temporary textarea element
-  const textarea = document.createElement("textarea");
-  textarea.value = DOCKER_COMMAND;
-
-  // Make the textarea invisible but keep it in the DOM
-  textarea.style.position = "absolute";
-  textarea.style.left = "-9999px";
-  textarea.style.top = "0";
-
-  // Add it to the DOM
-  document.body.appendChild(textarea);
-
-  try {
-    // Select and copy the text
-    textarea.select();
-    document.execCommand("copy");
-    copied.value = true;
-
-    // Reset copy status after 1.5 seconds
-    setTimeout(() => {
-      copied.value = false;
-    }, 1500);
-  } catch (err) {
-  } finally {
-    // Clean up by removing the textarea
-    document.body.removeChild(textarea);
-  }
-};
 </script>
 
 <template>
   <section
-    class="relative flex lg:justify-start md:h-[calc(100vh-100px)] pb-36 md:pb-0 text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
+    class="relative flex flex-col items-center lg:justify-start md:h-[calc(100vh-100px)] pb-36 md:pb-0 text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
   >
     <video
       v-if="backgroundVideo"
-      class="absolute lg:bottom-0 left-0 w-full h-full object-contain object-bottom"
+      class="absolute inset-0 w-full h-full object-cover"
       autoplay
       loop
       muted
@@ -77,61 +43,49 @@ const copyCode = () => {
       Your browser does not support the video tag.
     </video>
 
+    <!-- Large screen: Position absolute at the top-right -->
+    <div class="hidden lg:block absolute right-7 top-8 z-10">
+      <DockerCode />
+    </div>
+
     <div
-      class="relative pt-10 md:pt-10 md:pl-10 lg:pt-20 lg:pl-20 text-white max-w-4xl"
+      class="relative flex flex-col lg:flex-row justify-between items-start w-full pt-10 md:pt-10 lg:pt-20 text-white"
     >
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center sm:text-left"
-        v-html="title"
-      ></h1>
-
-      <p class="sm:text-xl mb-6">
-        {{ description }}
-      </p>
-
-      <!-- Code Block Container -->
       <div
-        class="relative bg-gray-800 rounded-lg text-gray-300 font-mono text-md w-full max-w-md p-4 mt-[2vh] overflow-x-auto my-[2vh]"
+        class="flex flex-col items-center space-y-6 lg:items-start max-w-xl text-center lg:text-left w-full px-2 sm:px-4"
       >
-        <!-- Copy Button -->
-        <button
-          @click="copyCode"
-          class="absolute top-4 right-2 text-white p-1 flex items-center focus:outline-none focus:ring-0"
-        >
-          <img
-            :src="
-              copied
-                ? '/download-pricing/copiedIcon.svg'
-                : '/download-pricing/copyIcon.svg'
-            "
-            alt="copy icon"
-            class="w-4 h-4"
-          />
-        </button>
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+          v-html="title"
+        ></h1>
 
-        <!-- Code Content -->
-        <pre class="whitespace-pre-wrap break-all line-clamp-1 pr-[2vh]">{{
-          DOCKER_COMMAND
-        }}</pre>
-      </div>
+        <p class="text-sm sm:text-lg md:text-xl mb-6" v-html="description"></p>
 
-      <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-        <CustomButton
-          variant="primary"
-          class="w-full sm:w-auto"
-          :buttonLink="primaryButton.link"
-          target="_blank"
+        <div
+          class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full"
         >
-          {{ primaryButton.text }}
-        </CustomButton>
-        <CustomButton
-          variant="secondary"
-          class="w-full sm:w-auto"
-          :buttonLink="secondaryButton.link"
-          target="_blank"
-        >
-          {{ secondaryButton.text }}
-        </CustomButton>
+          <CustomButton
+            variant="primary"
+            class="w-full sm:w-auto"
+            :buttonLink="primaryButton.link"
+            target="_blank"
+          >
+            {{ primaryButton.text }}
+          </CustomButton>
+          <CustomButton
+            variant="secondary"
+            class="w-full sm:w-auto"
+            :buttonLink="secondaryButton.link"
+            target="_blank"
+          >
+            {{ secondaryButton.text }}
+          </CustomButton>
+        </div>
+
+        <!-- Small & medium screens: Show DockerCode below buttons -->
+        <div class="lg:hidden w-full flex justify-center">
+          <DockerCode />
+        </div>
       </div>
     </div>
   </section>
