@@ -52,7 +52,7 @@ const props = defineProps({
           <!-- Left Side - Image -->
           <div class="h-full overflow-hidden">
             <img
-              :src="blog.image.url || ''"
+              :src="blog?.image?.url || ''"
               :alt="blog.title"
               class="w-full object-cover h-40"
             />
