@@ -6,13 +6,17 @@ import fetchApi from "@/utils/strapi";
 
 const PageData = await fetchApi({
   endpoint: "api/enterprice-support",
-  query: { pLevel: "10", status: "draft" },
+  query: { pLevel: "4", status: "draft" },
 });
 const metaObj = PageData?.data?.seo;
 const allBlogs = await getAllBlogs();
-const blogs = allBlogs?.slice(0,10)
+const blogs = allBlogs?.slice(0, 10);
 ---
 
 <Layout metaObj={metaObj}>
-  <ComponentCollectionMapper data={PageData?.data?.body} blogs={blogs} client:load />
+  <ComponentCollectionMapper
+    data={PageData?.data?.body}
+    blogs={blogs}
+    client:load
+  />
 </Layout>

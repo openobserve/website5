@@ -6,7 +6,7 @@ import { getCaseStudies } from "@/utils/api/blogs";
 
 const PageData = await fetchApi({
   endpoint: "api/solution-landing-page",
-  query: { pLevel: "10", status: "draft" },
+  query: { pLevel: "4", status: "draft" },
 });
 const loadcaseStudyData = await getCaseStudies();
 const metaObj = PageData?.data?.seo;
