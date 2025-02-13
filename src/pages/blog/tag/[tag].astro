@@ -63,7 +63,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    description={`Showing posts for category: ${category?.name ?? tag}`}
+    description={`Post by the category: ${category?.name ?? tag}`}
   />
 
   <CaseStudyWrapper data={loadcaseStudyData || []} client:load />
