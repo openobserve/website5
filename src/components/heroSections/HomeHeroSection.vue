@@ -29,63 +29,70 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center lg:justify-start md:h-[calc(100vh-100px)] pb-36 md:pb-0 text-center lg:text-left bg-cover bg-center bg-no-repeat px-4 sm:px-8 lg:px-16"
+    class="relative flex items-start justify-center min-h-screen px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden text-white text-center lg:text-left"
   >
-    <video
-      v-if="backgroundVideo"
-      class="absolute inset-0 w-full h-full object-cover"
-      autoplay
-      loop
-      muted
-      playsinline
-    >
-      <source :src="backgroundVideo?.url" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-    <!-- Large screen: Position absolute at the top-right -->
-    <div class="hidden lg:block absolute right-7 top-8 z-10">
-      <DockerCode />
+    <!-- Background Video -->
+    <div>
+      <video
+        v-if="backgroundVideo"
+        class="absolute inset-x-0 top-20 w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+        <source :src="backgroundVideo?.url" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
 
+    <!-- Main Content -->
     <div
-      class="relative flex flex-col lg:flex-row justify-between items-start w-full pt-10 md:pt-10 lg:pt-20 text-white"
+      class="relative z-10 flex flex-col lg:flex-row items-start justify-between w-full mx-auto pt-16 md:pt-[10vh] px-4 sm:px-6 lg:px-8 space-y-10 lg:space-y-0"
     >
+      <!-- Left Content -->
       <div
-        class="flex flex-col items-center space-y-6 lg:items-start max-w-xl text-center lg:text-left w-full px-2 sm:px-4"
+        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
       >
         <h1
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
           v-html="title"
         ></h1>
+        <p
+          class="text-base sm:text-lg md:text-xl opacity-80"
+          v-html="description"
+        ></p>
 
-        <p class="text-sm sm:text-lg md:text-xl mb-6" v-html="description"></p>
-
+        <!-- Buttons -->
         <div
-          class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full"
+          class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start"
         >
           <CustomButton
             variant="primary"
-            class="w-full sm:w-auto"
+            class="w-full sm:w-auto px-6 py-3"
             :buttonLink="primaryButton.link"
             target="_blank"
           >
             {{ primaryButton.text }}
           </CustomButton>
           <CustomButton
+            v-if="secondaryButton.text"
             variant="secondary"
-            class="w-full sm:w-auto"
+            class="w-full sm:w-auto px-6 py-3"
             :buttonLink="secondaryButton.link"
             target="_blank"
           >
             {{ secondaryButton.text }}
           </CustomButton>
         </div>
+      </div>
 
-        <!-- Small & medium screens: Show DockerCode below buttons -->
-        <div class="lg:hidden w-full flex justify-center">
-          <DockerCode />
-        </div>
+      <!-- Right Content (DockerCode) -->
+      <div
+        class="w-full lg:w-1/2 flex justify-center lg:justify-end px-4 sm:px-0"
+      >
+        <DockerCode class="w-full max-w-xs sm:max-w-md" />
       </div>
     </div>
   </section>
