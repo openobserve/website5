@@ -29,11 +29,14 @@ function removeFrontmatter(content) {
 /**
  * Convert Markdown to HTML.
  */
-function processMarkdown(markdownText) {
+async function processMarkdown(markdownText) {
   if (!markdownText) return;
 
   const cleanedContent = removeFrontmatter(markdownText);
   htmlContent.value = marked(cleanedContent);
+
+  await nextTick();
+  extractHeadingsFromHTML();
 }
 
 /**
@@ -79,7 +82,7 @@ async function addCopyButtons() {
     const button = document.createElement("button");
     button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`;
     button.className =
-      "copy-button absolute top-0 right-3  px-1  rounded-md text-sm transition-opacity opacity-100";
+      "copy-button absolute top-0 right-0  px-0  rounded-md text-sm transition-opacity opacity-100";
     button.setAttribute("aria-label", "Copy code to clipboard");
     button.tabIndex = 0;
     button.style.position = "absolute";
@@ -120,17 +123,19 @@ function observeHeadings() {
   if (typeof window === "undefined") return;
 
   const options = {
-    root: null, // viewport
-    rootMargin: "-50% 0px -50% 0px", // Trigger when heading is in the middle
-    threshold: 0, // Fire when any part of the heading enters
+    root: null, // Use the viewport
+    rootMargin: "-20% 0px -70% 0px", // Adjust visibility trigger zones
+    threshold: [0.1, 0.5, 0.9], // Multiple thresholds to track entry more accurately
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        currentSection.value = entry.target.id;
-      }
-    });
+    let visibleSections = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio); // Sort by most visible
+
+    if (visibleSections.length > 0) {
+      currentSection.value = visibleSections[0].target.id;
+    }
   }, options);
 
   const container = document.getElementById("blog-content");
@@ -160,11 +165,13 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
 });
+
+
 </script>
 
 <template>
   <CustomSection>
-    <div class="flex flex-col md:flex-row md:mx-auto">
+    <div class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10">
       <!-- Rendered Markdown Content -->
       <div
         id="blog-content"
@@ -172,7 +179,7 @@ onMounted(() => {
       >
         <div
           v-html="htmlContent"
-          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 overflow-y-auto"
+          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 overflow-y-auto max-w-none"
         ></div>
       </div>
 

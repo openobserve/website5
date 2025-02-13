@@ -4,8 +4,12 @@ import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsH
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
 import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import { getResBlogsBySlug, getAllResourceBlogs, getAuthorDetails } from "@/utils/api/resources";
-import { getCaseStudies } from "@/utils/api/blogs"
+import {
+  getResBlogsBySlug,
+  getAllResourceBlogs,
+  getAuthorDetails,
+} from "@/utils/api/resources";
+import { getCaseStudies } from "@/utils/api/blogs";
 
 export async function getStaticPaths() {
   const blogs = await getAllResourceBlogs();
@@ -15,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { slug }: any = Astro.params;
-const SlugData = await getResBlogsBySlug(slug) || {};
+const SlugData = (await getResBlogsBySlug(slug)) || {};
 const authorsSlugs = SlugData.authors || [];
 
 const author = await Promise.all(
@@ -44,8 +48,10 @@ const loadcaseStudyData = await getCaseStudies();
     type="articles"
   />
   <BlogDetailContentWrapper client:load content={SlugData.content} />
-  <SingleAuthorDetails authors={author} client:load type="articles" />
-  <CaseStudyWrapper
+  <div class="py-3">
+    <SingleAuthorDetails authors={author} client:load type="articles" />
+  </div>
+  <!-- <CaseStudyWrapper
     title="Want to know more? Check out these Blogs."
     description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."
     items={loadcaseStudyData}
@@ -54,5 +60,5 @@ const loadcaseStudyData = await getCaseStudies();
       text: "See All Blogs",
       link: "/blog",
     }}
-  />
+  /> -->
 </Layout>

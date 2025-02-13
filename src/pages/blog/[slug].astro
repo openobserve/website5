@@ -48,8 +48,10 @@ const metaObj = {
     ]}
   />
   <BlogDetailContentWrapper client:load content={SlugData?.content} />
-  <SingleAuthorDetails type="blog" authors={author} client:load />
-  <div class="py-5">
+  <div class="py-3">
+    <SingleAuthorDetails type="blog" authors={author} client:load />
+  </div>
+  <!-- <div class="py-5">
     <CaseStudyWrapper
       items={loadcaseStudyData}
       client:load
@@ -58,5 +60,5 @@ const metaObj = {
         link: "/blog",
       }}
     />
-  </div>
+  </div> -->
 </Layout>

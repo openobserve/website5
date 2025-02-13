@@ -54,14 +54,12 @@ const props = defineProps({
           <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
 
           <div class="w-full p-6 flex flex-col">
-            <div>
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                 {{ blog.title }}
               </h6>
               <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
                 {{ blog.description }}
               </p>
-            </div>
           </div>
         </a>
       </div>
