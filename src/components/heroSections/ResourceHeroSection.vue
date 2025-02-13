@@ -16,11 +16,11 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh] before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh] before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
   >
     <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
-        class="text-center text-5xl lg:text-9xl font-bold pt-[5vh] md:pt-[12vh]"
+        class="text-center text-5xl lg:text-9xl font-bold md:pt-[12vh]"
         :title="title"
         textGradientColor="gradient-color"
         padding="pb-5"
