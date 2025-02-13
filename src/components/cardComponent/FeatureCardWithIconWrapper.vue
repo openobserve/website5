@@ -33,11 +33,9 @@ const props = defineProps({
     />
 
     <CustomSection>
-    <div 
-    v-if="heading"
-    >
-      <Heading :title="heading?.title" :description="heading?.subtitle" />
-    </div>
+      <div v-if="heading">
+        <Heading :title="heading?.title" :description="heading?.subtitle" />
+      </div>
       <div class="flex justify-center w-full">
         <div
           class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto [&>*:nth-child(2)]:cols-start-2"
@@ -54,8 +52,16 @@ const props = defineProps({
   </div>
 </template>
 <style scoped>
-/* Selects the 6th item and moves it to the second column */
-.grid > *:nth-child(6) {
-  grid-column-start: 2;
+@media (max-width: 640px) {
+  /* Tailwind's sm breakpoint */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two columns */
+  }
+
+  /* If the last child is alone in the row, center it */
+  .grid > *:nth-child(odd):last-child {
+    grid-column: span 2;
+    justify-self: center;
+  }
 }
 </style>
