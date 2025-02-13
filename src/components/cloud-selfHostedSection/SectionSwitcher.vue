@@ -1,30 +1,75 @@
-<script>
+<script setup>
+import { ref } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import cloudSection from "./cloudSection.vue";
 import selfHostedSection from "./selfHostedSection.vue";
 
-export default {
-  components: {
-    cloudSection,
-    selfHostedSection,
-    CustomSection,
-  },
-  props: {
-    cloudSectionData: {
-      type: Object,
+// export default {
+//   components: {
+//     cloudSection,
+//     selfHostedSection,
+//     CustomSection,
+//   },
+//   props: {
+//     cloudSectionData: {
+//       type: Object,
+//       required: true,
+//     },
+//     selfHostedSectionData: {
+//       type: Object,
+//       required: true,
+//     },
+//   },
+//   data() {
+//     return {
+//       selectedTab: "cloud", // Default tab
+//     };
+//   },
+// };
+const props = defineProps({
+  cloudData:{
+      title:{
+        type: String,
+        required: true,
+      },
+      items:{
+        type: Array,
+        required: true,
+      },
+      bottomTitle:{
+        type: String,
+        required: true,
+      },
+      bottomDescription:{
+        type: String,
+        required: true,
+      },
+   },
+   selfHostedData:{
+    dockerCommand:{
+      type: String,
       required: true,
     },
-    selfHostedSectionData: {
-      type: Object,
+    downloadTitle:{
+      type: String,
       required: true,
     },
-  },
-  data() {
-    return {
-      selectedTab: "cloud", // Default tab
-    };
-  },
-};
+    enterpriseTitle:{
+      type: String,
+      required: true,
+    },
+    enterpriseDescription:{
+      type: String,
+      required: true,
+    },
+    enterpriseFeatures:{
+      type: Array,
+      required: true,
+    },
+   }
+})
+
+const selectedTab = ref("cloud");
 </script>
 
 <template>
@@ -63,12 +108,17 @@ export default {
         <transition name="fade" mode="out-in">
           <cloudSection
             v-if="selectedTab === 'cloud'"
-            :cloudSection="{ cloudSectionData }"
+            :title="cloudData?.title"
+            :items="cloudData?.items"
+            :bottom-title="cloudData?.bottomTitle"
+            :bottom-description="cloudData?.bottomDescription"
             key="cloud"
           />
           <selfHostedSection
             v-else
-            :selfHostedSection="{ selfHostedSectionData }"
+            :docker-command="selfHostedData?.dockerCommand"
+            :enterprise-features="selfHostedData?.enterpriseFeatures"
+            :enterprise-title="selfHostedData?.enterpriseTitle"
             key="selfHosted"
           />
         </transition>
