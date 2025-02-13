@@ -14,7 +14,9 @@ const props = defineProps({
 </script>
 <template>
   <div class="container mx-auto">
+  <div class="px-2 md:px-0">
     <Heading :title="title" align="CENTER" />
+  </div>
     <div class="flex justify-center text-center py-5" v-if="primaryButton">
       <CustomButton
         variant="secondary"
