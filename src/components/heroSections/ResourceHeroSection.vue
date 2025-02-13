@@ -1,5 +1,4 @@
 <script setup>
-import Heading from "../core/Heading.vue";
 import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 
 const props = defineProps({
@@ -22,15 +21,13 @@ const props = defineProps({
     <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
         class="text-center text-5xl lg:text-9xl font-bold pt-[5vh] md:pt-[12vh]"
-        :title="props.title"
+        :title="title"
         textGradientColor="gradient-color"
         padding="pb-5"
       />
-      <Heading
-        :description="props.description"
-        align="CENTER"
-        class="text-base sm:text-lg md:text-xl lg:text-2xl"
-      />
+      <p class=" w-full text-white mt-2 text-center text-base sm:text-lg md:text-xl lg:text-2xl">
+      {{ description }}
+      </p>
     </div>
   </section>
 </template>
