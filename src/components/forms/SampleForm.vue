@@ -96,7 +96,7 @@ const navigateToTerms = (e) => {
 </script>
 <!-- SampleForm.vue -->
 <template>
-  <div class="w-1/2">
+  <div class="">
     <form @submit.prevent="onSubmit">
       <div class="space-y-3">
         <div>
