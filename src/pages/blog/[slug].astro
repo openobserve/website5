@@ -44,7 +44,7 @@ const metaObj = {
         year: "numeric",
         month: "long",
         day: "2-digit",
-      }).format(new Date(SlugData?.publishedAt)),
+      }).format(new Date(SlugData?.publishDate)),
     ]}
   />
   <BlogDetailContentWrapper client:load content={SlugData?.content} />
