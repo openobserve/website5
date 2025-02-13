@@ -14,27 +14,27 @@ const props = defineProps({
 });
 </script>
 <template>
-    <CustomSection>
-  <div class="relative justify-center w-full">
-    <!-- Background image with lower z-index -->
-    <!-- <div class=""> -->
+  <CustomSection>
+    <div class="relative justify-center w-full">
+      <!-- Background image with lower z-index -->
+      <!-- <div class=""> -->
       <img
         alt="Bottom decoration"
         class="absolute w-screen h-2/5 md:h-auto rounded-2xl"
         src="/img/bg/platform/glass-bg.svg"
       />
-    <!-- </div> -->
+      <!-- </div> -->
 
-    <!-- Content with higher z-index -->
-   
+      <!-- Content with higher z-index -->
+
       <div class="relative w-full pt-6 px-3">
         <Heading
           :title="heading?.title"
           :description="heading?.subtitle"
           align="CENTER"
         />
-        <CustomTabs class="pt-8 px-3" :items="items" client:load />
       </div>
-  </div>
-</CustomSection>
+    </div>
+  </CustomSection>
+  <CustomTabs class="pt-8" :items="items" client:load />
 </template>

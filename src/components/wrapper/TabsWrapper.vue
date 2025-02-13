@@ -20,8 +20,7 @@ const props = defineProps({
       :description="heading?.subtitle"
       align="CENTER"
     />
-
-    <CustomTabs :items="items" client:load />
   </CustomSection>
+  <CustomTabs :items="items" client:load />
   <div></div>
 </template>
