@@ -195,17 +195,18 @@ const onSubmit = handleSubmit(async (values) => {
                 >
               </div>
               <!-- Terms & Conditions -->
-              <div class="flex items-start gap-2">
-                <div class="relative flex items-start">
-                  <input
-                    id="terms"
-                    type="checkbox"
-                    v-model="terms.value.value"
-                    class="mt-1 h-4 w-4 cursor-pointer"
-                    :class="{ 'border-red-500': terms.errorMessage.value }"
-                  />
-                </div>
-                <div class="ml-2">
+              <div class="flex flex-col items-start gap-2">
+                <div class="flex items-start gap-2">
+                  <div class="relative flex items-start">
+                    <input
+                      id="terms"
+                      type="checkbox"
+                      v-model="terms.value.value"
+                      class="mt-1 h-4 w-4 cursor-pointer"
+                      :class="{ 'border-red-500': terms.errorMessage.value }"
+                    />
+                  </div>
+
                   <label
                     for="terms"
                     class="text-white text-sm cursor-pointer select-none"
@@ -220,14 +221,14 @@ const onSubmit = handleSubmit(async (values) => {
                     </a>
                     <span class="text-red-500">*</span>
                   </label>
-                  <p
-                    v-if="terms.errorMessage.value"
-                    class="text-xs text-red-500 mt-1"
-                  >
-                    {{ terms.errorMessage.value }}
-                  </p>
                 </div>
+
+                <!-- ✅ Error Message Now Displays Below in Mobile View -->
+                <p v-if="terms.errorMessage.value" class="text-xs text-red-500">
+                  {{ terms.errorMessage.value }}
+                </p>
               </div>
+
               <!-- Submit Button -->
               <CustomButton
                 variant="secondary"

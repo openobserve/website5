@@ -195,7 +195,7 @@ const navigateToTerms = (e) => {
             name="deployment"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" disabled selected>Select deployment type</option>
+            <option value="" hidden>Select deployment type</option>
             <option value="cloud">Cloud</option>
             <option value="self-hosted">Self Hosted</option>
           </select>
@@ -219,7 +219,7 @@ const navigateToTerms = (e) => {
             name="dataVolume"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" disabled selected>Select Data Volume type</option>
+            <option value="" hidden>Select Data Volume type</option>
             <option value="small">< 100GB/day</option>
             <option value="medium">100GB - 1TB/day</option>
             <option value="large">> 1TB/day</option>
@@ -267,7 +267,7 @@ const navigateToTerms = (e) => {
             :class="{ 'border-red-500': terms.errorMessage.value }"
           />
         </div>
-        <div class="ml-2">
+        <div>
           <label
             for="terms"
             class="text-white text-sm cursor-pointer select-none"
@@ -276,8 +276,8 @@ const navigateToTerms = (e) => {
             <a
               href="/policies/terms-of-service"
               class="text-blue-500 underline"
+              @click="navigateToTerms"
             >
-              <!-- @click="navigateToTerms" -->
               terms and condition
             </a>
             <span class="text-red-500">*</span>
