@@ -27,34 +27,34 @@ const props = defineProps({
   <CustomSection>
     <div
       :class="[
-        'w-full flex lg:flex-row flex-col-reverse lg:flex-col-2 space-y-4 md:space-y-0 space-x-0 md:space-x-4 gap-6 justify-center items-center',
-        direction === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row',
+        'w-full flex flex-col-reverse md:flex-row space-y-6 md:space-y-0 md:space-x-6 items-center justify-center',
+        direction === 'left' ? 'md:flex-row-reverse' : 'md:flex-row',
       ]"
     >
-      <div class="flex flex-col space-y-3">
+      <!-- Text Content -->
+      <div
+        class="flex flex-col space-y-3 text-center md:text-left px-4 sm:px-6"
+      >
         <h2
-          class="text-white font-inter font-bold text-xl md:text-2xl lg:text-4xl"
+          class="text-white font-inter font-bold text-lg sm:text-xl md:text-2xl lg:text-4xl"
         >
           {{ title }}
         </h2>
-        <div
-          class="font-inter font-medium text-sm md:text-lg lg:text-xl text-white mb-2"
+        <p
+          class="font-inter font-medium text-xs sm:text-sm md:text-lg lg:text-xl text-white"
         >
           {{ description }}
-        </div>
+        </p>
       </div>
-      <div
-        :class="[
-          ' flex  items-center  w-full',
-          direction === 'left' ? 'flex-col-reverse' : 'flex-col',
-        ]"
-      >
-        <div class="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+
+      <!-- Image Container -->
+      <div class="flex items-center w-full justify-center">
+        <div class="bg-gray-700 bg-opacity-50 p-3 sm:p-4 rounded-lg">
           <CustomImage
             v-if="image"
             :image="image"
             :altText="image"
-            cssClass="w-20 h-20"
+            class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
           />
         </div>
       </div>

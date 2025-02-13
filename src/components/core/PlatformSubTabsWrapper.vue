@@ -14,27 +14,33 @@ const props = defineProps({
 });
 </script>
 <template>
-  <CustomSection>
-    <div class="relative justify-center w-full">
-      <!-- Background image with lower z-index -->
-      <!-- <div class=""> -->
-      <img
-        alt="Bottom decoration"
-        class="absolute w-screen h-2/5 md:h-auto rounded-2xl"
-        src="/img/bg/platform/glass-bg.svg"
-      />
-      <!-- </div> -->
-
-      <!-- Content with higher z-index -->
-
-      <div class="relative w-full pt-6 px-3">
-        <Heading
-          :title="heading?.title"
-          :description="heading?.subtitle"
-          align="CENTER"
+  <div class="relative">
+    <!-- For smaller screens, image is outside CustomSection -->
+    <img
+      alt="Bottom decoration"
+      class="md:hidden absolute w-screen h-2/5 rounded-2xl"
+      src="/img/bg/platform/glass-bg.svg"
+    />
+    
+    <CustomSection>
+      <div class="relative justify-center w-full">
+        <!-- For md screens and up, image is inside CustomSection -->
+        <img
+          alt="Bottom decoration"
+          class="hidden md:block absolute w-screen h-auto rounded-2xl"
+          src="/img/bg/platform/glass-bg.svg"
         />
+
+        <!-- Content -->
+        <div class="relative w-full pt-2 md:pt-6 px-0 md:px-3">
+          <Heading
+            :title="heading?.title"
+            :description="heading?.subtitle"
+            align="CENTER"
+          />
+          <CustomTabs class="md:pt-6" :items="items" client:load />
+        </div>
       </div>
-    </div>
-  </CustomSection>
-  <CustomTabs class="pt-8" :items="items" client:load />
+    </CustomSection>
+  </div>
 </template>

@@ -35,12 +35,9 @@ const isMobile = computed(() => width.value < 640); // `sm` breakpoint
     >
       <div>
         <!-- Main Content -->
-        <div>
-          <Heading
-            :title="heading?.title"
-            :description="heading?.subtitle"
-            align="CENTER"
-          />
+        <div class="w-full text-white mt-2">
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-center"> {{ heading?.title }} </h1>
+          <p class="text-sm md:text-lg xl:text-xl my-4 text-center"> {{ heading?.subtitle }}</p>
         </div>
         <!-- <div
           :class="[

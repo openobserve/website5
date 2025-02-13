@@ -226,27 +226,26 @@ const navigateToTerms = (e) => {
         </div>
 
         <!-- Terms & Conditions -->
-        <div class="flex items-start gap-4">
-          <div class="relative flex items-start">
+        <div class="flex items-center gap-4">
+          <div class="relative flex items-center">
             <input
               id="terms"
               type="checkbox"
               v-model="terms.value.value"
-              class="h-3 md:h-4 w-3 md:w-4 cursor-pointer"
+              class="h-4 w-4 cursor-pointer"
               :class="{ 'border-red-500': terms.errorMessage.value }"
             />
           </div>
-          <div class="ml-2">
+          <div class="ml-2 leading-none">
             <label
               for="terms"
-              class="text-white cursor-pointer items-start text-xs md:text-sm select-none"
+              class="text-white cursor-pointer text-xs md:text-sm select-none"
             >
               I confirm, I have read and agree to OpenObserve's
               <a
                 href="/policies/terms-of-service"
                 class="text-blue-500 underline"
               >
-                <!-- @click="navigateToTerms" -->
                 terms and condition
               </a>
               <span class="text-red-500">*</span>

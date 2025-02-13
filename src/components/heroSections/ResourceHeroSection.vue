@@ -1,5 +1,4 @@
 <script setup>
-import Heading from "../core/Heading.vue";
 import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 
 const props = defineProps({
@@ -11,26 +10,25 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  
 });
 </script>
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh] before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[30vh] md:min-h-[40vh] lg:min-h-[50vh] before:content-[''] before:absolute before:w-full before:min-h-[120vh] md:before:min-h-[100vh] before:top-0 before:bg-no-repeat before:bg-center before:bg-cover before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
   >
-    <div class="z-10 container mx-auto max-w-4xl">
+    <div class="z-10 container mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
       <TextWithGradient
-        class="text-center text-5xl lg:text-9xl font-bold pt-[5vh] md:pt-[12vh]"
-        :title="props.title"
+        class="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pt-10 md:pt-16 lg:pt-20"
+        :title="title"
         textGradientColor="gradient-color"
-        padding="pb-5"
+        padding="pb-3 md:pb-5"
       />
-      <Heading
-        :description="props.description"
-        align="CENTER"
-        class="text-base sm:text-lg md:text-xl lg:text-2xl"
-      />
+      <p
+        class="text-white mt-3 text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed md:leading-loose"
+      >
+        {{ description }}
+      </p>
     </div>
   </section>
 </template>

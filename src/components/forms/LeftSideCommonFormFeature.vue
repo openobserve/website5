@@ -38,37 +38,34 @@ const data = {
   footerdescription:
     "Take control of your observability stack with OpenObserve.",
 };
-
 </script>
 
 <template>
-  <div class="md:w-1/2 p-3">
-    <p class="text-white mb-6 text-sm md:text-lg lg:text-xl text-center md:text-start">{{ data?.description }}</p>
-    <div>
-      <ul class="space-y-6">
-        <li
-          v-for="(feature, index) in data?.keyFeatures"
-          :key="index"
-          class="flex flex-row gap-2"
-        >
-          <div class="flex items-center w-8 h-8">
-            <img
-              src="/rightTick.svg"
-              alt="icon"
-              class="w-full h-full"
-            />
-          </div>
-          <div class="flex flex-col space-y-1">
-            <span class="text-white font-medium">{{ feature.title }}</span>
-             <p v-if="feature.description" class="text-gray-300 text-sm">
+  <div class="w-full md:w-1/2 p-2">
+    <p
+      class="text-white mb-6 text-sm md:text-lg lg:text-xl text-center md:text-start"
+    >
+      {{ data?.description }}
+    </p>
+    <ul class="w-full space-y-3 md:space-y-6">
+      <li
+        v-for="(feature, index) in data?.keyFeatures"
+        :key="index"
+        class="w-full flex flex-row items-center gap-2"
+      >
+        <img src="/rightTick.svg" alt="icon" class="w-7 h-7" />
+        <div class="flex flex-col space-y-1">
+          <span class="text-white font-medium">{{ feature.title }}</span>
+          <p v-if="feature.description" class="text-gray-300 text-sm">
             {{ feature.description }}
           </p>
-          </div>
-        </li>
-      </ul>
-      <h3 class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start">
-        {{ data?.footerdescription }}
-      </h3>
-    </div>
+        </div>
+      </li>
+    </ul>
+    <h3
+      class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start"
+    >
+      {{ data?.footerdescription }}
+    </h3>
   </div>
 </template>

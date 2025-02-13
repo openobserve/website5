@@ -14,9 +14,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <!-- <CustomSection> -->
   <div
-    class="flex flex-col md:flex-row justify-between gap-4 w-full items-center py-10 container mx-auto px-5"
+    class="flex flex-col md:flex-row justify-center items-center text-center md:text-left gap-6 w-full py-6 container mx-auto px-5"
   >
     <div class="w-full md:w-1/3">
       <h2 class="text-xl sm:text-2xl md:text-4xl font-semibold text-white">
@@ -30,5 +29,4 @@ const props = defineProps({
       ></p>
     </div>
   </div>
-  <!-- </CustomSection> -->
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import TextWithGradient from "../../components/HeaderComponents/TextWithGradient.vue";
 import { defineProps } from "vue";
+
 const props = defineProps({
   title: {
     type: String,
@@ -8,9 +9,10 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
   <section
-    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-[50%_-50vh] xl:before:bg-[50%_-30vh] before:bg-[url('/demoPage/Eclipse.svg')]"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[40vh] before:content-[''] before:absolute before:w-full before:h-full before:top-0 before:bg-no-repeat before:bg-cover before:bg-center sm:before:bg-[50%_-20vh] md:before:bg-[50%_-30vh] xl:before:bg-[50%_-40vh] before:bg-[url('/demoPage/Eclipse.svg')]"
   >
     <div class="z-10 container mx-auto max-w-4xl">
       <TextWithGradient
@@ -21,6 +23,7 @@ const props = defineProps({
     </div>
   </section>
 </template>
+
 <style scoped>
 /* Gradient Text Styling */
 .gradient-color {
@@ -30,7 +33,6 @@ const props = defineProps({
     #a6cab8 59.28%,
     #d8d8d8 91.35%
   );
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

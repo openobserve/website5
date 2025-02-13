@@ -25,7 +25,7 @@ const formattedTitle = computed(() => {
 const alignClass = computed(() => {
   const alignment = {
     LEFT: "text-left",
-    CENTER: "text-left md:text-center",
+    CENTER: "text-center",
     RIGHT: "text-right",
   };
   return alignment[props.align] || "text-center"; // default to 'text-center'

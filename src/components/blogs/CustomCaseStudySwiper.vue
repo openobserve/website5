@@ -107,8 +107,8 @@ const truncateDescription = (text: string, wordLimit: number) => {
                 </div> -->
                 <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
 
-                <div class="p-6">
-                  <h3 :class="[titleTextColor, 'text-xl font-bold mb-3']">
+                <div class="p-6 mb-3">
+                  <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">
                     {{ blog.title }}
                   </h3>
                   <p

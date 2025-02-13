@@ -132,13 +132,12 @@ onMounted(() => {
 <template>
   <section class="text-white">
     <!-- Tabs Section -->
-    <div
-      class="sticky-tabs carousel-container flex justify-center backdrop-blur-sm"
-    >
+    <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto">
-        <!-- Add relative positioning and shadow containers -->
-        <div class="relative">
-          <!-- Left shadow -->
+        <div
+          class="flex overflow-x-auto gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
+        >
+          <!-- Render Tabs -->
           <div
             v-show="showLeftShadow"
             class="absolute left-0 top-0 bottom-0 w-8 pointer-events-none shadow-gradient-left"
