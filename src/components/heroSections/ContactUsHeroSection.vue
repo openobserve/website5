@@ -208,12 +208,12 @@ const onSubmit = handleSubmit(async (values) => {
                 <div class="ml-2">
                   <label
                     for="terms"
-                    class="text-white cursor-pointer select-none"
+                    class="text-white text-sm cursor-pointer select-none"
                   >
                     I confirm, I have read and agree to OpenObserve's
                     <a
                       href="/terms-and-conditions"
-                      class="text-blue-500 underline"
+                      class="text-blue-500 underline text-sm"
                       @click="navigateToTerms"
                     >
                       Terms And Conditions

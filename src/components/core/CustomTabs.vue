@@ -102,6 +102,31 @@ watch(
 
 // Initialize contentRefs with the correct number of refs
 contentRefs.value = new Array(props.items.length).fill(null);
+
+// Add these new refs
+const tabsContainer = ref(null);
+const showLeftShadow = ref(false);
+const showRightShadow = ref(false);
+
+// Add this new method to check scroll position
+const checkScrollShadows = () => {
+  if (tabsContainer.value) {
+    const container = tabsContainer.value;
+    // Show left shadow if scrolled right
+    showLeftShadow.value = container.scrollLeft > 0;
+    // Show right shadow if there's more content to scroll
+    showRightShadow.value =
+      container.scrollLeft < container.scrollWidth - container.clientWidth;
+  }
+};
+
+// Add to onMounted
+onMounted(() => {
+  // ... existing onMounted code ...
+
+  // Initial check for shadows
+  checkScrollShadows();
+});
 </script>
 
 <template>
@@ -114,53 +139,108 @@ contentRefs.value = new Array(props.items.length).fill(null);
         >
           <!-- Render Tabs -->
           <div
-            v-for="(tab, index) in items"
-            :key="slugify(tab.title)"
-            @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
-            :class="{
-              'text-white': activeTabIndex === index,
-              'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
-            }"
+            v-show="showLeftShadow"
+            class="absolute left-0 top-0 bottom-0 w-8 pointer-events-none shadow-gradient-left"
+          ></div>
+
+          <!-- Tabs container with scroll event -->
+          <div
+            ref="tabsContainer"
+            @scroll="checkScrollShadows"
+            class="flex overflow-x-auto gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
           >
-            <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
-            <!-- Bottom Border Indicator -->
-            <span
-              v-if="activeTabIndex === index"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
-            ></span>
+            <!-- Existing tab items -->
+            <div
+              v-for="(tab, index) in items"
+              :key="slugify(tab.title)"
+              @click="setActiveTab(index, slugify(tab.title))"
+              class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
+              :class="{
+                'text-white': activeTabIndex === index,
+                'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
+              }"
+            >
+              <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
+              <span
+                v-if="activeTabIndex === index"
+                class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
+              ></span>
+            </div>
           </div>
+
+          <!-- Right shadow -->
+          <div
+            v-show="showRightShadow"
+            class="absolute right-0 top-0 bottom-0 w-8 pointer-events-none shadow-gradient-right"
+          ></div>
         </div>
       </div>
     </div>
 
     <!-- Dynamic Content Section -->
     <div class="">
-    
-        <!-- Render all content from all tabs -->
-        <div
-          v-for="(tab, tabIndex) in items"
+      <!-- Render all content from all tabs -->
+      <div
+        v-for="(tab, tabIndex) in items"
+        :key="slugify(tab.title)"
+        :ref="(el) => (contentRefs[tabIndex] = el)"
+        class="mb-8 md:mb-0"
+      >
+        <CustomInterChange
           :key="slugify(tab.title)"
-          :ref="(el) => (contentRefs[tabIndex] = el)"
-          class="mb-8 md:mb-0"
-        >
-          <CustomInterChange
-            :key="slugify(tab.title)"
-            :items="tab.items"
-            :title="tab.title"
-            :image="tab.image"
-            :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
-          />
-        </div>
-    
+          :items="tab.items"
+          :title="tab.title"
+          :image="tab.image"
+          :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 8px; */
+}
+/* Add these new styles for the shadows */
+.shadow-gradient-left {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.shadow-gradient-right {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Update the existing sticky-tabs style */
 .sticky-tabs {
   position: sticky;
-  top:65px;
+  top: 65px;
+  z-index: 30;
+  width: 100%;
+}
+
+.sticky-tabs {
+  position: sticky;
+  top: 65px;
   z-index: 30; /* Higher than the background */
 }
 @media (max-width: 768px) {
@@ -188,7 +268,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 @media (max-width: 768px) {
   .tabs {
     font-size: 1rem;
-    top:58px;
+    top: 58px;
   }
 }
 

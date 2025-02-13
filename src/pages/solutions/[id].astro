@@ -10,13 +10,13 @@ import { getCaseStudies } from "@/utils/api/blogs";
 // const { id } = Astro.params;
 // const PageData = await fetchApi({
 //   endpoint: "api/solutions",
-//   query: { pLevel: "10" , status: "draft" , slug: id},
+//   query: { pLevel: "4" , status: "draft" , slug: id},
 // });
 
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
     endpoint: "api/solution-pages",
-    query: { pLevel: "10", status: "draft" },
+    query: { pLevel: "4", status: "draft" },
   });
   const slugs = PageData?.data;
   return slugs.map((it: any) => ({
@@ -27,7 +27,7 @@ const { id }: any = Astro.params;
 
 const PageData = await fetchApi({
   endpoint: "api/solution-pages",
-  query: { pLevel: "10", status: "draft", "filters[slug][$eq]": id },
+  query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
 });
 const loadcaseStudyData = await getCaseStudies();
 const metaObj = PageData?.data[0]?.seo;
