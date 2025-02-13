@@ -25,7 +25,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="container mx-auto p-4 w-full">
+  <div class="container mx-auto p-2 w-full">
     <!-- Main Row Layout -->
     <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-2">
       <!-- Icon -->
