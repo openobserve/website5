@@ -209,12 +209,12 @@ const onSubmit = handleSubmit(async (values) => {
 
                   <label
                     for="terms"
-                    class="text-white text-sm cursor-pointer select-none"
+                    class="text-white text-sm cursor-pointer select-none leading-snug flex flex-wrap items-center gap-1"
                   >
                     I confirm, I have read and agree to OpenObserve's
                     <a
                       href="/terms-and-conditions"
-                      class="text-blue-500 underline text-sm"
+                      class="text-blue-500 underline text-sm whitespace-nowrap"
                       @click="navigateToTerms"
                     >
                       Terms And Conditions
@@ -224,7 +224,10 @@ const onSubmit = handleSubmit(async (values) => {
                 </div>
 
                 <!-- ✅ Error Message Now Displays Below in Mobile View -->
-                <p v-if="terms.errorMessage.value" class="text-xs text-red-500">
+                <p
+                  v-if="terms.errorMessage.value"
+                  class="text-xs text-red-500 leading-tight"
+                >
                   {{ terms.errorMessage.value }}
                 </p>
               </div>
