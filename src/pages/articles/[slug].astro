@@ -32,6 +32,15 @@ const loadcaseStudyData = await getCaseStudies();
     bottomImage={SlugData.image?.formats?.large?.url || SlugData.image?.url}
     client:load
     suggestions={SlugData.categories}
+    activity={[
+      author[0].name,
+      new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }).format(new Date(SlugData?.publishDate)),
+    ]}
     type="articles"
   />
   <BlogDetailContentWrapper client:load content={SlugData.content} />
