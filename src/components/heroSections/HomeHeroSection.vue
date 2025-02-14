@@ -53,12 +53,13 @@ const props = defineProps({
     >
       <!-- Left Content -->
       <div
-        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
+        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left "
       >
         <h1
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight"
+          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl  font-bold leading-tight sm:leading-[2rem] md:leading-[2.5rem] lg:leading-[2.8rem] xl:leading-[3.5rem]"
           v-html="title"
         ></h1>
+
         <p
           class="text-base sm:text-lg md:text-xl opacity-80"
           v-html="description"
@@ -90,9 +91,7 @@ const props = defineProps({
 
       <!-- Right Content (DockerCode) -->
       <div class="w-full lg:w-1/2 flex justify-center lg:justify-end sm:px-0">
-        <DockerCode
-          class="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
-        />
+        <DockerCode class="w-full max-w-xs sm:max-w-md md:max-w-lg" />
       </div>
     </div>
   </section>

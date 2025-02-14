@@ -31,9 +31,9 @@ const copyCode = () => {
 };
 
 // Tailwind responsive classes
-const responsiveClasses = computed(() => [
-  "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl",
-]);
+// const responsiveClasses = computed(() => [
+//   "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl",
+// ]);
 </script>
 
 <template>
@@ -59,7 +59,7 @@ const responsiveClasses = computed(() => [
 
     <!-- Scrollable Code Block -->
     <div class="overflow-x-auto overflow-y-hidden custom-scrollbar">
-      <pre class="whitespace-pre text-xs sm:text-sm break-words px-2 py-1">{{
+      <pre class="whitespace-pre text-xs sm:text-base break-words px-2 py-1">{{
         DOCKER_COMMAND
       }}</pre>
     </div>
