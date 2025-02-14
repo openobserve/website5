@@ -27,7 +27,7 @@ const repeatedData = computed(() => {
         >
           <CustomImage
             :image="item?.Image"
-            cssClass="w-full h-full object-cover"
+            cssClass="w-auto h-full object-cover"
           />
           <!-- :alt="item.altText" -->
         </div>
@@ -50,10 +50,11 @@ const repeatedData = computed(() => {
 
 .slide {
   display: flex;
-  animation: infiniteScroll 40s linear infinite;
+  animation: infiniteScroll 30s linear infinite;
+  transition: translateX 0.5s ease;
   /* Adjust time based on number of items */
   /* width: max-content; Ensure the slide container fits the content */
-  width: max-content;
+  width: calc(200% + 16px);
   /* Adjust to fit the doubled content */
 }
 
