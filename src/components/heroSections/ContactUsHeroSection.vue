@@ -213,7 +213,7 @@ const onSubmit = handleSubmit(async (values) => {
                   >
                     I confirm, I have read and agree to OpenObserve's
                     <a
-                      href="/terms-and-conditions"
+                      href="/policies/terms-of-service"
                       class="text-blue-500 underline text-sm whitespace-nowrap"
                       @click="navigateToTerms"
                     >
