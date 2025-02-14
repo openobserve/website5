@@ -16,13 +16,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const expandedCards = ref({}); // Stores expanded state for each card
-
-// Toggle card expansion
-const toggleExpand = (key) => {
-  expandedCards.value[key] = !expandedCards.value[key];
-};
 </script>
 
 <template>
@@ -33,23 +26,19 @@ const toggleExpand = (key) => {
     <div class="w-full rounded-lg card">
       <div class="card-content text-center">
         <h2
-          class="text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2"
-          @click="toggleExpand('top')"
+          class="text-lg sm:text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2"
         >
           {{ props?.unifiedObservability?.title }}
         </h2>
 
-        <p
-          class="text-base font-medium text-[#BEC0C2] mb-4"
-          :class="{ 'hidden md:block': !expandedCards['top'] }"
-        >
+        <p class="text-sm sm:text-base font-medium text-[#BEC0C2] mb-4">
           {{ props?.unifiedObservability?.description }}
         </p>
 
         <div v-if="props.unifiedObservability?.buttonLink" class="text-center">
           <a
             :href="props.unifiedObservability?.buttonLink"
-            class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
+            class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300"
           >
             {{ props.unifiedObservability?.buttonText }}
           </a>
@@ -62,15 +51,11 @@ const toggleExpand = (key) => {
       <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content text-center">
           <h2
-            class="text-white text-xl font-bold cursor-pointer py-2"
-            @click="toggleExpand(`middle-${index}`)"
+            class="text-lg sm:text-xl text-white font-bold cursor-pointer py-2"
           >
             {{ item?.title }}
           </h2>
-          <p
-            class="text-[#BEC0C2] text-base font-medium mt-3"
-            :class="{ 'hidden md:block': !expandedCards[`middle-${index}`] }"
-          >
+          <p class="text-sm sm:text-base text-[#BEC0C2] font-medium mt-3">
             {{ item?.description }}
           </p>
         </div>
@@ -82,23 +67,19 @@ const toggleExpand = (key) => {
       <div class="card">
         <div class="card-content text-center">
           <h2
-            class="text-xl font-bold text-white mb-2 cursor-pointer py-2"
-            @click="toggleExpand('bottom')"
+            class="text-lg sm:text-xl font-bold text-white mb-2 cursor-pointer py-2"
           >
             {{ integrations?.title }}
           </h2>
 
-          <p
-            class="text-base text-[#BEC0C2] font-medium mb-4"
-            :class="{ 'hidden md:block': !expandedCards['bottom'] }"
-          >
+          <p class="text-sm sm:text-base text-[#BEC0C2] font-medium mb-4">
             {{ integrations?.description }}
           </p>
 
           <div v-if="integrations?.buttonLink" class="text-center">
             <a
               :href="integrations?.buttonLink"
-              class="text-[#1C99FF] text-sm font-bold transition-colors duration-300"
+              class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300"
             >
               {{ integrations?.buttonText }}
             </a>
