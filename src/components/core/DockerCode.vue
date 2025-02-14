@@ -1,53 +1,50 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const copied = ref(false);
 
 // Define the docker command as a constant
-const DOCKER_COMMAND = `docker run -d
+const DOCKER_COMMAND = `docker run 
 -e ZO_ROOT_USER_EMAIL="root@example.com"
 -e ZO_ROOT_USER_PASSWORD="Complexpass#123"
 public.ecr.aws/zinclabs/openobserve:latest`;
 
 const copyCode = () => {
-  // Create a temporary textarea element
   const textarea = document.createElement("textarea");
   textarea.value = DOCKER_COMMAND;
-
-  // Make the textarea invisible but keep it in the DOM
   textarea.style.position = "absolute";
   textarea.style.left = "-9999px";
   textarea.style.top = "0";
-
-  // Add it to the DOM
   document.body.appendChild(textarea);
 
   try {
-    // Select and copy the text
     textarea.select();
     document.execCommand("copy");
     copied.value = true;
-
-    // Reset copy status after 1.5 seconds
     setTimeout(() => {
       copied.value = false;
     }, 1500);
   } catch (err) {
   } finally {
-    // Clean up by removing the textarea
     document.body.removeChild(textarea);
   }
 };
+
+// Tailwind responsive classes
+// const responsiveClasses = computed(() => [
+//   "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl",
+// ]);
 </script>
 
 <template>
   <div
-    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm max-w-full w-full p-6 sm:p-8 mt-4 sm:mt-6"
+    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-6 sm:p-8 mt-4 sm:mt-6 flex flex-col"
+    :class="responsiveClasses"
   >
     <!-- Copy Button -->
     <button
       @click="copyCode"
-      class="absolute top-2 right-2 text-white p-1 flex items-center focus:outline-none"
+      class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition"
     >
       <img
         :src="
@@ -56,13 +53,13 @@ const copyCode = () => {
             : '/download-pricing/copyIcon.svg'
         "
         alt="copy icon"
-        class="w-4 h-4"
+        class="w-5 h-5 sm:w-5 sm:h-5"
       />
     </button>
 
     <!-- Scrollable Code Block -->
     <div class="overflow-x-auto overflow-y-hidden custom-scrollbar">
-      <pre class="whitespace-pre text-xs sm:text-sm break-words px-2 py-1">{{
+      <pre class="whitespace-pre text-xs sm:text-base break-words px-2 py-1">{{
         DOCKER_COMMAND
       }}</pre>
     </div>
