@@ -27,7 +27,7 @@ const props = defineProps({
       'bg-white',
       'bg-center',
       'bg-cover',
-      props.height ? 'h-full' : 'h-1/2'
+      props.height ? 'h-full' : 'h-44'
     ]"
     >
     <div
