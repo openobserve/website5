@@ -1,30 +1,21 @@
-<script>
+<script setup>
+import { ref } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import CloudTier from "./CloudTier.vue";
 import SelfHostedTier from "./SelfHostedTier.vue";
 
-export default {
-  components: {
-    CloudTier,
-    SelfHostedTier,
-    CustomSection,
+const props = defineProps({
+  cloudData: {
+    type: Array,
+    required: true,
   },
-  props: {
-    cloudTiers: {
-      type: Array,
-      required: true,
-    },
-    selfHostedTiers: {
-      type: Array,
-      required: true,
-    },
+  selfHostedData: {
+    type: Array,
+    required: true,
   },
-  data() {
-    return {
-      selectedTab: "cloud", // Default tab
-    };
-  },
-};
+});
+
+const selectedTab = ref("cloud");
 </script>
 
 <template>
@@ -54,11 +45,13 @@ export default {
         >
           Self-Hosted
         </button>
-          <!-- Single Underline Indicator -->
-          <div
+        <!-- Single Underline Indicator -->
+        <div
           class="absolute bottom-0 h-0.5 w-1/2 transition-all duration-300"
           :class="[
-            selectedTab === 'cloud' ? 'left-0 bg-blue-400 shadow-blue-glow' : 'left-1/2 bg-orange-400 shadow-orange-glow'
+            selectedTab === 'cloud'
+              ? 'left-0 bg-blue-400 shadow-blue-glow'
+              : 'left-1/2 bg-orange-400 shadow-orange-glow',
           ]"
         ></div>
       </div>
@@ -68,10 +61,10 @@ export default {
         <transition name="fade" mode="out-in">
           <CloudTier
             v-if="selectedTab === 'cloud'"
-            :tiers="cloudTiers"
+            :tiers="cloudData"
             key="cloud"
           />
-          <SelfHostedTier v-else :tiers="selfHostedTiers" key="selfHosted" />
+          <SelfHostedTier v-else :tiers="selfHostedData" key="selfHosted" />
         </transition>
       </div>
     </div>
@@ -175,7 +168,7 @@ export default {
   opacity: 0;
 }
 .active-cloud-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -191,7 +184,7 @@ export default {
 }
 
 .active-self-hosted-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;

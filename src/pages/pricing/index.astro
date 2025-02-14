@@ -5,6 +5,8 @@ import FaqWrapper from "../../components/FAQComponent/FaqWrapper.vue";
 import TierSwitcher from "../../components/cloud-selfHostedTier/TierSwitcher.vue";
 import CommonFormWrapper from "@/components/wrapper/CommonFormWrapper.vue";
 import CustomSeprater from "@/components/core/CustomSeprater.vue";
+import fetchApi from "@/utils/strapi";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 
 const featureCardData = {
   heading: {
@@ -216,10 +218,17 @@ const metaObj = {
   title:
     "Pricing | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
+
+const PageData = await fetchApi({
+  endpoint: "api/pricing",
+  query: { pLevel: "4", status: "draft" },
+});
+
 ---
 
 <Layout metaObj={metaObj}>
-  <TierSwitcher
+  <ComponentCollectionMapper data={PageData?.data?.body} client:load/>
+  <!-- <TierSwitcher
     cloud-tiers={cloudTiers}
     self-hosted-tiers={selfHostedTiers}
     client:load
@@ -238,7 +247,7 @@ const metaObj = {
     description={tailoredSolutionsData.description}
     client:load
   />
-  <CustomSeprater />
+  <CustomSeprater /> -->
   <!-- <TestimonialSliderWrapper
     items={testimonials}
     title={testimonialsHeader.sectionTitle}

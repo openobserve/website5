@@ -5,10 +5,38 @@ import CustomSeprater from "../core/CustomSeprater.vue";
 import DockerCode from "../core/DockerCode.vue";
 
 const props = defineProps({
-  cloudSection: {
-    type: Object,
+  title: {
+    type: String,
     required: true,
   },
+  dockerCommand: {
+    type: String,
+    required: true,
+  },
+  downloadTitle: {
+    type: String,
+    required: true,
+  },
+  enterpriseTitle: {
+    type: String,
+    required: true,
+  },
+  enterpriseDescription: {
+    type: String,
+    required: true,
+  },
+  enterpriseFeatures: {
+    type: Array,
+    required: true,
+  },
+  enterpriseBottomDescription: {
+    type: String,
+    required: false
+  },
+  selfHostedButton:{
+    type: Object,
+    required:false
+  }
 });
 
 const copied = ref(false);
@@ -23,7 +51,7 @@ const copied = ref(false);
         class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
       >
         <h2 class="text-xl md:text-2xl font-semibold text-white mb-4 md:mb-8">
-          Open Source
+          {{ title }}
         </h2>
         <div class="flex-grow">
           <ul class="space-y-4 mb-4 md:mb-8">
@@ -43,7 +71,9 @@ const copied = ref(false);
         <div>
           <DockerCode />
         </div>
-        <div class="flex-grow">
+
+        <!-- static icon for downloads -->
+        <div class="flex-grow mt-3">
           <ul class="space-y-4 py-4">
             <li class="text-gray-300">
               <a href="" class="flex gap-3 items-center hover:text-white">
@@ -59,15 +89,12 @@ const copied = ref(false);
             </li>
           </ul>
         </div>
-        <h2 class="text-md md:text-lg font-semibold text-white mb-8">
-          Binaries can be downloaded from
-          <a
-            href="https://github.com/openobserve/openobserve/releases"
-            class="text-[#0ea5e9] hover:underline"
-            >releases</a
-          >
-          page for the appropriate platform.
-        </h2>
+
+        <div
+          href="https://github.com/openobserve/openobserve/releases"
+          class=" text-md md:text-lg font-semibold text-white mb-8"
+          v-html="downloadTitle"
+        ></div>
 
         <!-- <div class="flex gap-3 items-center py-5">
           <a
@@ -94,58 +121,38 @@ const copied = ref(false);
       >
         <div class="mb-6">
           <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-4">
-            Enterprise
+            {{ enterpriseTitle }}
           </h4>
           <p class="text-white text-sm md:text-md font-medium">
-            Environments Enterprise-Grade Features for Complex Environments
+            {{ enterpriseDescription }}
           </p>
         </div>
 
-        <!-- Features List -->
+        <!-- Features List loop -->
         <div class="flex-grow">
           <ul class="space-y-4 mb-8">
-            <li class="flex gap-3 text-gray-300">
+            <li
+              v-for="(item, index) in enterpriseFeatures"
+              :key="index"
+              class="flex gap-3 text-gray-300"
+            >
               <span>
                 <img
                   src="/rightTick.svg"
                   alt="icon"
                   class="w-5 md:w-6 h-5 md:h-6"
               /></span>
-              <span class="text-sm flex-1">Single Sign On (SSO)</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span>
-                <img
-                  src="/rightTick.svg"
-                  alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
-              /></span>
-              <span class="text-sm flex-1"
-                >Role-Based Access Control (RBAC)</span
-              >
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="">
-                <img
-                  src="/rightTick.svg"
-                  alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
-              /></span>
-              <span class="text-sm flex-1"
-                >Search concurrency control at cluster & user level Super
-                Cluster</span
-              >
+              <span class="text-sm flex-1">{{ item.title }}</span>
             </li>
           </ul>
         </div>
         <div class="mb-6">
-          <h4 class="text-white text-base md:text-lg font-medium py-2">
-            Take charge of your observability with zero upfront costs.
+          <h4 class="text-white text-sm md:text-base font-medium py-2" v-html="enterpriseBottomDescription">
           </h4>
         </div>
-        <!-- <div>
-          <CustomButton variant="primary"> DOCUMENATION </CustomButton>
-        </div> -->
+        <div class="mt-20" v-if="selfHostedButton.text && selfHostedButton.link">
+          <CustomButton variant="primary" :button-link="selfHostedButton?.link"> {{ selfHostedButton?.text }} </CustomButton>
+        </div>
       </div>
     </div>
   </div>
