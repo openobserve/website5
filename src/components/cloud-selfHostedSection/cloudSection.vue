@@ -101,7 +101,7 @@ const handleSubmit = (values) => {
             <button
               class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
-              <img src="/logo.svg" alt="OpenObserve" class="h-6 w-6 mr-3" />
+              <img src="/favicon.png" alt="OpenObserve" class="h-6 w-6 mr-3" />
               <span class="font-medium text-sm md:text-base">Try OpenObserve Cloud</span>
             </button>
           </a>
