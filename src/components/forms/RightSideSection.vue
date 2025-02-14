@@ -186,7 +186,7 @@ const navigateToTerms = (e) => {
             name="support"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" hidden>Select Support Type</option>
+            <option value="" hidden disabled>Select Support Type</option>
             <option value="Technical">Technical</option>
             <option value="Billing">Billing</option>
             <option value="Other">Other</option>
