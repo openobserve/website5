@@ -56,7 +56,7 @@ const props = defineProps({
         class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
       >
         <h1
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight"
           v-html="title"
         ></h1>
         <p
@@ -70,7 +70,7 @@ const props = defineProps({
         >
           <CustomButton
             variant="primary"
-            class="w-full sm:w-auto px-6 py-3"
+            class="w-full sm:w-auto px-6 py-3 md:text-lg"
             :buttonLink="primaryButton.link"
             target="_blank"
           >
@@ -79,7 +79,7 @@ const props = defineProps({
           <CustomButton
             v-if="secondaryButton.text"
             variant="secondary"
-            class="w-full sm:w-auto px-6 py-3"
+            class="w-full sm:w-auto px-6 py-3 md:text-lg"
             :buttonLink="secondaryButton.link"
             target="_blank"
           >
@@ -89,10 +89,10 @@ const props = defineProps({
       </div>
 
       <!-- Right Content (DockerCode) -->
-      <div
-        class="w-full lg:w-1/2 flex justify-center lg:justify-end px-4 sm:px-0"
-      >
-        <DockerCode class="w-full max-w-xs sm:max-w-md" />
+      <div class="w-full lg:w-1/2 flex justify-center lg:justify-end sm:px-0">
+        <DockerCode
+          class="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+        />
       </div>
     </div>
   </section>
