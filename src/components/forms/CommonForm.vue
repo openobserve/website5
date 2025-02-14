@@ -59,6 +59,10 @@ const onSubmit = handleSubmit(async (values) => {
     loading.value = false;
   }
 });
+const navigateToTerms = (e) => {
+  e.preventDefault();
+  window.location.assign("policies/terms-of-service"); // Update with your terms page URL
+};
 </script>
 
 <template>
