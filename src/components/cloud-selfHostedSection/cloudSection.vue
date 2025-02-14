@@ -7,8 +7,20 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
-  cloudSection: {
-    type: Object,
+  title:{
+    type: String,
+    required: true,
+  },
+  items:{
+    type: Array,
+    required: true,
+  },
+  bottomTitle:{
+    type: String,
+    required: true,
+  },
+  bottomDescription:{
+    type: String,
     required: true,
   },
 });
@@ -20,12 +32,15 @@ const schema = yup.object({
 });
 const handleSubmit = (values) => {
 };
+
+console.log("title=====>", props?.title);
 </script>
 
 <template>
 
   <div class="w-full container mx-auto ">
     <div class="justify-center grid grid-cols-1 lg:grid-cols-2 gap-5">
+    <!-- static content -->
       <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <!-- <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
         <BaseForm
@@ -162,47 +177,32 @@ const handleSubmit = (values) => {
           </div>
         </div> -->
       </div>
+
+      <!-- dynamic content -->
       <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <div class="mb-6">
-          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">Free Forever Access</h4>
+          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">{{ title }}</h4>
         </div>
 
-        <!-- Features List -->
+        <!-- Features List loop -->
         <div class="flex-grow">
           <ul class="space-y-4 mb-8">
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">10K metrics</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">50GB logs</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">50GB traces</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">50GB profiles</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">500VUh k6 testing</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">50k frontend sessions</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">3 active users</span>
-            </li>
-            <li class="flex gap-3 text-gray-300">
-              <span class="text-sm">14 day retention</span>
+            <li
+              v-for="(item, index) in items"
+              :key="index"
+              class="flex gap-3 text-gray-300"
+            >
+            <span class="text-sm">{{ item.title }}</span>
             </li>
           </ul>
         </div>
+
         <div class="mb-6">
           <h4 class="text-white text-lg md:text-xl font-medium py-2">
-            15 day unlimited usage trial
+            {{ bottomTitle }}
           </h4>
           <p class="text-white text-md md:text-lg font-medium py-2">
-            Unlimited metrics, logs, and users, long-term retention, and premium team
-            collaboration features.
+           {{ bottomDescription }}
           </p>
         </div>
       </div>

@@ -52,6 +52,9 @@ import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
 import EnterpriceSupportForm from "./forms/EnterpriceSupportForm.vue";
+import SectionSwitcher from "./cloud-selfHostedSection/SectionSwitcher.vue";
+import CustomComparisonTable from "./core/CustomComparisonTable.vue";
+import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
 
 const props = defineProps({
   data: {
@@ -113,6 +116,15 @@ const componentsMap = computed(() => ({
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper,
+  //download page
+  "section-tabs.download-tabs":SectionSwitcher,
+  "section-table.plans-feature-table":CustomComparisonTable,
+  // "section-cards.explore-resources":DownloadCaseStudyWrapper,
+  "section-forms.contact": CommonFormWrapper, //it is in the up section.......
+
+  // pricing page
+  "section-tabs.pricing-tabs": TierSwitcher,
+  
 }));
 
 const getComponentProps = (it) => {

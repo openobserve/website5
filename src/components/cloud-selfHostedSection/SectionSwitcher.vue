@@ -1,30 +1,41 @@
-<script>
+<script setup>
+import { ref } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import cloudSection from "./cloudSection.vue";
 import selfHostedSection from "./selfHostedSection.vue";
 
-export default {
-  components: {
-    cloudSection,
-    selfHostedSection,
-    CustomSection,
+// export default {
+//   components: {
+//     cloudSection,
+//     selfHostedSection,
+//     CustomSection,
+//   },
+//   props: {
+//     cloudSectionData: {
+//       type: Object,
+//       required: true,
+//     },
+//     selfHostedSectionData: {
+//       type: Object,
+//       required: true,
+//     },
+//   },
+//   data() {
+//     return {
+//       selectedTab: "cloud", // Default tab
+//     };
+//   },
+// };
+const props = defineProps({
+  cloudData: {
+    type: Object,
   },
-  props: {
-    cloudSectionData: {
-      type: Object,
-      required: true,
-    },
-    selfHostedSectionData: {
-      type: Object,
-      required: true,
-    },
+  selfHostedData: {
+    type: Object,
   },
-  data() {
-    return {
-      selectedTab: "cloud", // Default tab
-    };
-  },
-};
+});
+
+const selectedTab = ref("cloud");
 </script>
 
 <template>
@@ -35,7 +46,9 @@ export default {
         <button
           class="w-1/2 py-3 cld-btn text-lg font-semibold transition-colors duration-300 relative"
           :class="[
-            selectedTab === 'cloud' ? 'text-white ' : 'border-transparent cld-be-effect'
+            selectedTab === 'cloud'
+              ? 'text-white '
+              : 'border-transparent cld-be-effect',
           ]"
           @click="selectedTab = 'cloud'"
         >
@@ -44,7 +57,9 @@ export default {
         <button
           class="w-1/2 py-3 slf-btn text-lg font-semibold transition-colors duration-300 relative"
           :class="[
-            selectedTab === 'selfHosted' ? 'text-white' : 'border-transparent slf-be-effect'
+            selectedTab === 'selfHosted'
+              ? 'text-white'
+              : 'border-transparent slf-be-effect',
           ]"
           @click="selectedTab = 'selfHosted'"
         >
@@ -54,7 +69,9 @@ export default {
         <div
           class="absolute bottom-0 h-0.5 w-1/2 transition-all duration-300"
           :class="[
-            selectedTab === 'cloud' ? 'left-0 bg-blue-400 shadow-blue-glow' : 'left-1/2 bg-orange-400 shadow-orange-glow'
+            selectedTab === 'cloud'
+              ? 'left-0 bg-blue-400 shadow-blue-glow'
+              : 'left-1/2 bg-orange-400 shadow-orange-glow',
           ]"
         ></div>
       </div>
@@ -63,12 +80,22 @@ export default {
         <transition name="fade" mode="out-in">
           <cloudSection
             v-if="selectedTab === 'cloud'"
-            :cloudSection="{ cloudSectionData }"
+            :title="cloudData?.title"
+            :items="cloudData?.items"
+            :bottom-title="cloudData?.bottomTitle"
+            :bottom-description="cloudData?.bottomDescription"
             key="cloud"
           />
           <selfHostedSection
             v-else
-            :selfHostedSection="{ selfHostedSectionData }"
+            :docker-command="selfHostedData?.dockerCommand"
+            :enterprise-features="selfHostedData?.enterpriseFeatures"
+            :enterprise-title="selfHostedData?.enterpriseTitle"
+            :download-title="selfHostedData?.downloadTitle"
+            :enterprise-description="selfHostedData?.enterpriseDescription"
+            :enterpriseBottomDescription="selfHostedData?.enterpriseBottomDescription"
+            :title="selfHostedData?.title"
+            :self-hosted-button="selfHostedData?.selfHostedButton"
             key="selfHosted"
           />
         </transition>
@@ -174,7 +201,7 @@ export default {
   opacity: 0;
 }
 .active-cloud-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -190,7 +217,7 @@ export default {
 }
 
 .active-self-hosted-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
