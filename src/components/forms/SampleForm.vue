@@ -274,7 +274,7 @@ const navigateToTerms = (e) => {
           >
             I confirm, I have read and agree to OpenObserve's
             <a
-              href="/policies/terms-of-service"
+              href="policies/terms-of-service"
               class="text-blue-500 underline"
               @click="navigateToTerms"
             >
