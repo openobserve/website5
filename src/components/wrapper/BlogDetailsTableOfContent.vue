@@ -57,7 +57,6 @@ const currentSection = computed(() => {
   return props.activeSection || null;
 });
 
-console.log(currentSection, "Current Section");
 
 const setActiveSection = (id) => {
   document

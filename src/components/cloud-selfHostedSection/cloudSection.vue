@@ -33,7 +33,6 @@ const schema = yup.object({
 const handleSubmit = (values) => {
 };
 
-console.log("title=====>", props?.title);
 </script>
 
 <template>
