@@ -107,6 +107,8 @@ const handleSubmit = (values) => {
           </a>
         </div>
 
+        <!-- Commenting out the following for now and replacing with the above snippet to directly navigate to Cloud login page.
+        TO-DO - Fix the links below and ensure they all work to login. -->
         <!-- <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
           <a href="https://auth.openobserve.ai/dex/auth/github?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" class="w-full md:w-80">
             <button
