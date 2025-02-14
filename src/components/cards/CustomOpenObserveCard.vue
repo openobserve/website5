@@ -33,7 +33,7 @@ const toggleExpand = (key) => {
     <div class="w-full rounded-lg card">
       <div class="card-content text-center">
         <h2
-          class="text-2xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2 border-b border-gray-900"
+          class="text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2"
           @click="toggleExpand('top')"
         >
           {{ props?.unifiedObservability?.title }}
@@ -62,7 +62,7 @@ const toggleExpand = (key) => {
       <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content text-center">
           <h2
-            class="text-white text-xl font-bold cursor-pointer py-2 border-b border-gray-900"
+            class="text-white text-xl font-bold cursor-pointer py-2"
             @click="toggleExpand(`middle-${index}`)"
           >
             {{ item?.title }}
@@ -82,7 +82,7 @@ const toggleExpand = (key) => {
       <div class="card">
         <div class="card-content text-center">
           <h2
-            class="text-2xl font-bold text-white mb-2 cursor-pointer py-2 border-b border-gray-900"
+            class="text-xl font-bold text-white mb-2 cursor-pointer py-2"
             @click="toggleExpand('bottom')"
           >
             {{ integrations?.title }}
@@ -114,7 +114,7 @@ const toggleExpand = (key) => {
 .card {
   position: relative;
   padding: 0.0625rem;
-  border: 1px solid #2b2d31;
+  border: 1px solid #484c53;
   border-radius: 12px;
 }
 
@@ -123,7 +123,7 @@ const toggleExpand = (key) => {
   position: relative;
   z-index: 1;
   padding: 24px;
-  background: black;
+  background: rgb(19, 18, 25);
   border-radius: 10px;
   transition: background 0.3s ease-in-out;
   height: 100%;
