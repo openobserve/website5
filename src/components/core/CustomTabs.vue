@@ -197,7 +197,7 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 30px;
-  background: linear-gradient(to right, rgb(12, 12, 12) 20%, transparent);
+  background: linear-gradient(to right, rgb(12, 12, 12) 40%, transparent);
   pointer-events: none; /* Prevent interaction */
   z-index: 5; /* Ensure it is above text */
 }
@@ -209,7 +209,7 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 30px;
-  background: linear-gradient(to left, rgb(12, 12, 12) 20%, transparent);
+  background: linear-gradient(to left, rgb(12, 12, 12) 40%, transparent);
   pointer-events: none; /* Prevent interaction */
 }
 
