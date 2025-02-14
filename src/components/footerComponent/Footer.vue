@@ -157,7 +157,7 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
             <!-- Title & Description in one line -->
             <div class="flex flex-col text-white">
               <h2 class="text-sm sm:text-base whitespace-nowrap">
-                SOC2 Type II
+                SOC2 Type 2
               </h2>
               <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
             </div>
