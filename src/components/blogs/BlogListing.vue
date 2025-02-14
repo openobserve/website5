@@ -41,7 +41,7 @@ const props = defineProps({
 <template>
   <div class="pb-2">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <a
           v-for="blog in sectionData"
           :key="blog.title"
@@ -49,7 +49,7 @@ const props = defineProps({
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
-            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-300 hover:shadow-2xl',]">
+            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-100 hover:shadow-2xl',]">
         
           <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
 
