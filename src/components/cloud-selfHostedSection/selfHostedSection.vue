@@ -73,7 +73,7 @@ const copied = ref(false);
         </div>
 
         <!-- static icon for downloads -->
-        <div class="flex-grow">
+        <div class="flex-grow mt-3">
           <ul class="space-y-4 py-4">
             <li class="text-gray-300">
               <a href="" class="flex gap-3 items-center hover:text-white">
@@ -147,11 +147,10 @@ const copied = ref(false);
           </ul>
         </div>
         <div class="mb-6">
-          <h4 class="text-white text-base md:text-lg font-medium py-2">
-            {{ enterpriseBottomDescription }}
+          <h4 class="text-white text-sm md:text-base font-medium py-2" v-html="enterpriseBottomDescription">
           </h4>
         </div>
-        <div class="mt-20">
+        <div class="mt-20" v-if="selfHostedButton.text && selfHostedButton.link">
           <CustomButton variant="primary" :button-link="selfHostedButton?.link"> {{ selfHostedButton?.text }} </CustomButton>
         </div>
       </div>
