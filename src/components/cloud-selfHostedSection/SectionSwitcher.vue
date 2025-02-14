@@ -27,47 +27,13 @@ import selfHostedSection from "./selfHostedSection.vue";
 //   },
 // };
 const props = defineProps({
-  cloudData:{
-      title:{
-        type: String,
-        required: true,
-      },
-      items:{
-        type: Array,
-        required: true,
-      },
-      bottomTitle:{
-        type: String,
-        required: true,
-      },
-      bottomDescription:{
-        type: String,
-        required: true,
-      },
-   },
-   selfHostedData:{
-    dockerCommand:{
-      type: String,
-      required: true,
-    },
-    downloadTitle:{
-      type: String,
-      required: true,
-    },
-    enterpriseTitle:{
-      type: String,
-      required: true,
-    },
-    enterpriseDescription:{
-      type: String,
-      required: true,
-    },
-    enterpriseFeatures:{
-      type: Array,
-      required: true,
-    },
-   }
-})
+  cloudData: {
+    type: Object,
+  },
+  selfHostedData: {
+    type: Object,
+  },
+});
 
 const selectedTab = ref("cloud");
 </script>
@@ -80,7 +46,9 @@ const selectedTab = ref("cloud");
         <button
           class="w-1/2 py-3 cld-btn text-lg font-semibold transition-colors duration-300 relative"
           :class="[
-            selectedTab === 'cloud' ? 'text-white ' : 'border-transparent cld-be-effect'
+            selectedTab === 'cloud'
+              ? 'text-white '
+              : 'border-transparent cld-be-effect',
           ]"
           @click="selectedTab = 'cloud'"
         >
@@ -89,7 +57,9 @@ const selectedTab = ref("cloud");
         <button
           class="w-1/2 py-3 slf-btn text-lg font-semibold transition-colors duration-300 relative"
           :class="[
-            selectedTab === 'selfHosted' ? 'text-white' : 'border-transparent slf-be-effect'
+            selectedTab === 'selfHosted'
+              ? 'text-white'
+              : 'border-transparent slf-be-effect',
           ]"
           @click="selectedTab = 'selfHosted'"
         >
@@ -99,7 +69,9 @@ const selectedTab = ref("cloud");
         <div
           class="absolute bottom-0 h-0.5 w-1/2 transition-all duration-300"
           :class="[
-            selectedTab === 'cloud' ? 'left-0 bg-blue-400 shadow-blue-glow' : 'left-1/2 bg-orange-400 shadow-orange-glow'
+            selectedTab === 'cloud'
+              ? 'left-0 bg-blue-400 shadow-blue-glow'
+              : 'left-1/2 bg-orange-400 shadow-orange-glow',
           ]"
         ></div>
       </div>
@@ -119,6 +91,11 @@ const selectedTab = ref("cloud");
             :docker-command="selfHostedData?.dockerCommand"
             :enterprise-features="selfHostedData?.enterpriseFeatures"
             :enterprise-title="selfHostedData?.enterpriseTitle"
+            :download-title="selfHostedData?.downloadTitle"
+            :enterprise-description="selfHostedData?.enterpriseDescription"
+            :enterpriseBottomDescription="selfHostedData?.enterpriseBottomDescription"
+            :title="selfHostedData?.title"
+            :self-hosted-button="selfHostedData?.selfHostedButton"
             key="selfHosted"
           />
         </transition>
@@ -224,7 +201,7 @@ const selectedTab = ref("cloud");
   opacity: 0;
 }
 .active-cloud-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -240,7 +217,7 @@ const selectedTab = ref("cloud");
 }
 
 .active-self-hosted-tab::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
