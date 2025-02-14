@@ -31,9 +31,7 @@ const props = defineProps({
         :items="item.items"
         :title="item.title"
         :image="item.image"
-        :direction="index % 2 === 0 ? 'left' : 'right'"
-        </CustomInterChange>
-      />
+        :direction="index % 2 === 0 ? 'left' : 'right'" />
     </div>
   </div>
 </template>
