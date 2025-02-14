@@ -49,7 +49,7 @@ const props = defineProps({
           rel="noopener noreferrer"
           :class="[
             cardBgColor,
-            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-100 hover:shadow-2xl',]">
+            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 hover:shadow-2xl',]">
         
           <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
 
