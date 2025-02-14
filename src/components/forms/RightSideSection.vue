@@ -85,7 +85,7 @@ Message: ${values.message}
 
 const navigateToTerms = (e) => {
   e.preventDefault();
-  window.location.assign("policies/terms-of-service"); // Update with your terms page URL
+  window.location.assign("/policies/terms-of-service"); // Update with your terms page URL
 };
 </script>
 
