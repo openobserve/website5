@@ -91,7 +91,7 @@ Message: ${values.message}
 
 const navigateToTerms = (e) => {
   e.preventDefault();
-  window.location.assign("/terms-and-conditions"); // Update with your terms page URL
+  window.location.assign("policies/terms-of-service"); // Update with your terms page URL
 };
 </script>
 <!-- SampleForm.vue -->
@@ -195,7 +195,7 @@ const navigateToTerms = (e) => {
             name="deployment"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" hidden>Select deployment type</option>
+            <option value="" hidden disabled>Select deployment type</option>
             <option value="cloud">Cloud</option>
             <option value="self-hosted">Self Hosted</option>
           </select>
@@ -219,7 +219,7 @@ const navigateToTerms = (e) => {
             name="dataVolume"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" hidden>Select Data Volume type</option>
+            <option value="" hidden disabled>Select Data Volume type</option>
             <option value="small">< 100GB/day</option>
             <option value="medium">100GB - 1TB/day</option>
             <option value="large">> 1TB/day</option>

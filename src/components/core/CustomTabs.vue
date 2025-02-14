@@ -1,6 +1,5 @@
 <script setup>
-import { onMounted, ref, watch, onUnmounted } from "vue";
-import CustomSection from "./CustomSection.vue";
+import { onMounted, ref, watch, onUnmounted, nextTick } from "vue";
 import CustomInterChange from "./CustomInterChange.vue";
 import { slugify } from "../../utils/slugify";
 
@@ -77,6 +76,11 @@ onMounted(() => {
     }
   }
 
+  // Initial check for shadows AFTER the DOM is ready
+  nextTick(() => {
+    checkScrollShadows();
+  });
+
   // Add scroll event listener
   window.addEventListener("scroll", throttledScrollHandler);
 });
@@ -112,10 +116,9 @@ const showRightShadow = ref(false);
 const checkScrollShadows = () => {
   if (tabsContainer.value) {
     const container = tabsContainer.value;
-    // Show left shadow if scrolled right
     showLeftShadow.value = container.scrollLeft > 0;
-    // Show right shadow if there's more content to scroll
     showRightShadow.value =
+      container.scrollWidth > container.clientWidth &&
       container.scrollLeft < container.scrollWidth - container.clientWidth;
   }
 };
@@ -134,46 +137,34 @@ onMounted(() => {
     <!-- Tabs Section -->
     <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto">
+        <!-- Left Shadow -->
+        <div v-if="showLeftShadow" class="left-shadow"></div>
+
         <div
-          class="flex overflow-x-auto gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
+          ref="tabsContainer"
+          @scroll="checkScrollShadows"
+          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar"
         >
-          <!-- Render Tabs -->
           <div
-            v-show="showLeftShadow"
-            class="absolute left-0 top-0 bottom-0 w-8 pointer-events-none shadow-gradient-left"
-          ></div>
-
-          <!-- Tabs container with scroll event -->
-          <div
-            ref="tabsContainer"
-            @scroll="checkScrollShadows"
-            class="flex overflow-x-auto gap-3 lg:gap-6 scroll-smooth hide-scrollbar"
+            v-for="(tab, index) in items"
+            :key="slugify(tab.title)"
+            @click="setActiveTab(index, slugify(tab.title))"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
+            :class="{
+              'text-white': activeTabIndex === index,
+              'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
+            }"
           >
-            <!-- Existing tab items -->
-            <div
-              v-for="(tab, index) in items"
-              :key="slugify(tab.title)"
-              @click="setActiveTab(index, slugify(tab.title))"
-              class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
-              :class="{
-                'text-white': activeTabIndex === index,
-                'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
-              }"
-            >
-              <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
-              <span
-                v-if="activeTabIndex === index"
-                class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
-              ></span>
-            </div>
+            <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
+            <span
+              v-if="activeTabIndex === index"
+              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
+            ></span>
           </div>
-
-          <!-- Right shadow -->
-          <div
-            v-show="showRightShadow"
-            class="absolute right-0 top-0 bottom-0 w-8 pointer-events-none shadow-gradient-right"
-          ></div>
         </div>
+
+        <!-- Right Shadow -->
+        <div v-if="showRightShadow" class="right-shadow"></div>
       </div>
     </div>
 
@@ -199,35 +190,35 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%,
-    black 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-  /* border-radius: 8px; */
-}
-/* Add these new styles for the shadows */
-.shadow-gradient-left {
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+/* Left Shadow - Ensure it's above text */
+.left-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background: linear-gradient(to right, rgb(12, 12, 12) 40%, transparent);
+  pointer-events: none; /* Prevent interaction */
+  z-index: 5; /* Ensure it is above text */
 }
 
-.shadow-gradient-right {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+/* Right Shadow */
+.right-shadow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background: linear-gradient(to left, rgb(12, 12, 12) 40%, transparent);
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Ensure shadows are only visible on mobile */
+@media (min-width: 768px) {
+  .left-shadow,
+  .right-shadow {
+    display: none;
+  }
 }
 
 /* Update the existing sticky-tabs style */
@@ -271,10 +262,6 @@ onMounted(() => {
     top: 58px;
   }
 }
-
-/* .gradient-text {
-  display: inline-block;
-} */
 
 .gradient-text {
   display: inline-block;
