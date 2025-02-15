@@ -48,8 +48,8 @@ const props = defineProps({
           :href="generateNavLink(type, blog.slug)"
           rel="noopener noreferrer"
           :class="[
-            cardBgColor,
-            'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 hover:shadow-2xl',]">
+  cardBgColor,
+  'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-100 ease-in-out',]">
         
           <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
 
