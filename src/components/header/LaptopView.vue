@@ -271,9 +271,12 @@
                 <li class="cursor-pointer">
                   <a href="/blog" class="text-lg font-bold gradient-hover">Blog</a>
                 </li>
+                <li class="cursor-pointer">
+                  <a href="/faqs" class="text-lg font-bold gradient-hover">Frequently Asked Questions</a>
+                </li>
               </ul>
             </div>
-            <div
+            <!-- <div
               class="flex flex-col space-y-3"
               v-for="(item, index) in items.resources.item2"
               :key="index"
@@ -290,7 +293,7 @@
                   >
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
           <div class="flex justify-center">
             <div class="w-full">

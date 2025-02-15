@@ -8,7 +8,6 @@ const props = defineProps({
     default: () => [],
   },
 });
-
 const currentIndex = ref(0);
 const isAnimating = ref(false);
 
@@ -78,40 +77,9 @@ const getSlideClass = (index) => {
 </script>
 
 <template>
-  <div class="w-full min-h-screen max-w-md mx-auto px-4 items-center">
+  <div class="w-full max-w-md mx-auto px-4 items-center min-h-[500px] md:min-h-screen">
     <div class="relative perspective">
-      <!-- <div
-        v-for="(testimonial, index) in testimonials"
-        :key="testimonial.id"
-        :class="['testimonial-card ', getSlideClass(index)]"
-      >
-        <div class="bg-gray-900 rounded-2xl p-6 md:p-10 relative shadow-lg">
-          <div class="text-5xl text-blue-500 absolute top-3 left-4 opacity-20">
-            "
-          </div>
-          <div class="relative z-10">
-            <p class="text-white text-lg md:text-xl mb-6 leading-relaxed">
-              {{ testimonial.content }}
-            </p>
-            <div class="flex items-center">
-              <img
-                :src="testimonial.avatar"
-                :alt="testimonial.author"
-                class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover mr-4"
-              />
-              <div>
-                <h4 class="text-white font-semibold text-base md:text-lg">
-                  {{ testimonial.author }}
-                </h4>
-                <p class="text-gray-400 text-sm md:text-base">
-                  {{ testimonial.position }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
+      <!-- Desktop View -->
       <div class="hidden md:block relative">
         <div class="flex">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -119,43 +87,99 @@ const getSlideClass = (index) => {
               v-for="(testimonial, index) in testimonials"
               :key="testimonial.id"
               class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center relative"
-              :class="['testimonial-card ', getSlideClass(index)]"
+              :class="['testimonial-card', getSlideClass(index)]"
             >
               <img
-                src="/public/download-pricing/Frame.svg"
+                 :src="testimonial.image?.formats?.small.url"
                 :alt="testimonial.name"
                 class="w-20 h-20 rounded-full object-center"
               />
               <p class="text-gray-300 mb-3 text-lg leading-relaxed py-10">
-                {{ testimonial.content }}
+                {{ testimonial.description }}
               </p>
-              <img
-                src="/blogColor-2.png"
-                :alt="testimonial.name"
-                class="w-20 h-20 rounded-full object-cover"
-              />
               <h3 class="text-blue-400 font-semibold text-lg mb-1">
-                {{ testimonial.author }}
+                {{ testimonial.name }}
               </h3>
-              <p class="text-gray-400">{{ testimonial.position }}</p>
+              <p class="text-gray-400">{{ testimonial.role }}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Navigation Buttons -->
-      <div>
+      <!-- Mobile View -->
+      <div class="md:hidden relative">
+        <div class="flex overflow-hidden">
+          <div
+            v-for="(testimonial, index) in testimonials"
+            :key="testimonial.id"
+            class="bg-[#1a1a1a] rounded-lg p-4 flex-shrink-0 w-full flex flex-col items-center text-center transition-transform duration-300 ease-in-out relative"
+            :style="{
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }"
+          >
+            <div class="flex items-center gap-4 absolute left-4 top-4">
+              <img
+                :src="testimonial.image?.formats?.small.url"
+                :alt="testimonial.name"
+                class="w-12 h-12 rounded-full object-center"
+              />
+              <div class="text-left">
+                <h3 class="text-blue-400 font-semibold text-base">
+                  {{ testimonial.name }}
+                </h3>
+                <p class="text-gray-400 text-sm">{{ testimonial.role }}</p>
+              </div>
+            </div>
+            
+            <p class="text-gray-300 text-sm leading-relaxed mt-20 mb-4">
+              {{ testimonial.description }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-between px-2 z-10">
+          <button
+            @click="goToPrev"
+            class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+            :disabled="isAnimating"
+          >
+            <span class="text-white text-lg">&larr;</span>
+          </button>
+
+          <button
+            @click="goToNext"
+            class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+            :disabled="isAnimating"
+          >
+            <span class="text-white text-lg">&rarr;</span>
+          </button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="flex justify-center gap-2 mt-4 bg-">
+          <div
+            v-for="(_, index) in testimonials"
+            :key="index"
+            class="w-1.5 h-1.5 rounded-full transition-colors duration-300"
+            :class="index === currentIndex ? 'bg-blue-400' : 'bg-gray-600'"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Buttons -->
+      <div class="hidden md:block">
         <button
           @click="goToPrev"
-          class="absolute top-1/2 left-2 md:left-4 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
+          class="absolute top-1/2 left-4 z-20 bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
         >
-          <span class="text-white text-lg md:text-2xl">&larr;</span>
+          <span class="text-white text-2xl">&larr;</span>
         </button>
         <button
           @click="goToNext"
-          class="absolute top-1/2 right-2 md:right-4 z-20 bg-white/10 hover:bg-white/20 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
+          class="absolute top-1/2 right-4 z-20 bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition-colors transform -translate-y-1/2"
         >
-          <span class="text-white text-lg md:text-2xl">&rarr;</span>
+          <span class="text-white text-2xl">&rarr;</span>
         </button>
       </div>
     </div>
@@ -167,58 +191,49 @@ const getSlideClass = (index) => {
   perspective: 1000px;
 }
 
-.testimonial-card {
-  position: absolute;
-  width: 100%;
-  transition: all 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateX(-50%) translateZ(-200px) rotateY(45deg);
-  pointer-events: none;
-}
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .testimonial-card {
+    position: absolute;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(-50%) translateZ(-200px) rotateY(45deg);
+    pointer-events: none;
+  }
 
-.testimonial-card.current {
-  opacity: 1;
-  transform: translateX(0) translateZ(0) rotateY(0);
-  z-index: 10;
-  pointer-events: auto;
-}
-
-.testimonial-card.next {
-  opacity: 1;
-  filter: blur(5px);
-  transform: translateX(50%) translateZ(-100px) rotateY(-10deg);
-  z-index: 5;
-}
-
-.testimonial-card.prev {
-  opacity: 1;
-  filter: blur(5px);
-  transform: translateX(-50%) translateZ(-100px) rotateY(10deg);
-  z-index: 5;
-}
-
-.testimonial-card.hidden {
-  opacity: 0;
-  transform: translateX(0) translateZ(-200px);
-  z-index: 0;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
   .testimonial-card.current {
-    transform: translateX(0) translateZ(0) rotateY(0) scale(0.95);
+    opacity: 1;
+    transform: translateX(0) translateZ(0) rotateY(0);
+    z-index: 10;
+    pointer-events: auto;
   }
 
   .testimonial-card.next {
-    transform: translateX(40%) translateZ(-100px) rotateY(-8deg) scale(0.9);
+    opacity: 1;
+    filter: blur(5px);
+    transform: translateX(50%) translateZ(-100px) rotateY(-10deg);
+    z-index: 5;
   }
 
   .testimonial-card.prev {
-    transform: translateX(-40%) translateZ(-100px) rotateY(8deg) scale(0.9);
+    opacity: 1;
+    filter: blur(5px);
+    transform: translateX(-50%) translateZ(-100px) rotateY(10deg);
+    z-index: 5;
   }
 
   .testimonial-card.hidden {
-    transform: translateX(0) translateZ(-200px) scale(0.85);
+    opacity: 0;
+    transform: translateX(0) translateZ(-200px);
+    z-index: 0;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .testimonial-card {
+    transition: transform 0.3s ease-in-out;
   }
 }
 </style>

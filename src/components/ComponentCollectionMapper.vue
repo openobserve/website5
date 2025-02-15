@@ -55,6 +55,7 @@ import EnterpriceSupportForm from "./forms/EnterpriceSupportForm.vue";
 import SectionSwitcher from "./cloud-selfHostedSection/SectionSwitcher.vue";
 import CustomComparisonTable from "./core/CustomComparisonTable.vue";
 import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
+import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
 
 const props = defineProps({
   data: {
@@ -80,6 +81,7 @@ const componentsMap = computed(() => ({
   "section-cards.case-studies": CaseStudyWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
+  'section-cards.testimonials': pLevelpLevel,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": FeatureCardWrapper,

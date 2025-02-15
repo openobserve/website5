@@ -55,11 +55,10 @@ const swiperOptions = {
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4 py-16 overflow-visible">
-    <h2 class="text-4xl font-bold text-center text-white pb-32">
-      Employee Testimonials
+  <div class="w-full mx-auto px-2 py-16 overflow-visible">
+    <h2 class="text-4xl font-bold text-center text-white pb-20">
+      {{ isMobile ? "Testimonials" : "Employee Testimonials" }}
     </h2>
-
     <!-- Mobile Swiper View -->
     <div v-if="isMobile" class="md:hidden">
       <swiper
@@ -76,13 +75,13 @@ const swiperOptions = {
               :altText="testimonial.name"
               cssClass="w-20 h-20 rounded-full mb-6 object-cover"
             />
-            <p class="text-gray-300 mb-6 text-lg leading-relaxed">
-              "{{ testimonial.quote }}"
+            <p class="text-gray-300 mb-6 text-lg leading-relaxed line-clamp-5">
+              "{{ testimonial.description }}"
             </p>
             <h3 class="text-blue-400 font-semibold text-lg mb-1">
               {{ testimonial.name }}
             </h3>
-            <p class="text-gray-400">{{ testimonial.position }}</p>
+            <p class="text-gray-400">{{ testimonial.role }}</p>
           </div>
         </swiper-slide>
       </swiper>
@@ -90,8 +89,8 @@ const swiperOptions = {
 
     <!-- Desktop Grid View -->
     <div v-else class="hidden md:block relative">
-      <div class="flex">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex justify-center">
+        <div class="grid grid-cols-3 gap-2">
           <div
             v-for="(testimonial, index) in testimonials"
             :key="testimonial.id"
@@ -107,12 +106,12 @@ const swiperOptions = {
               cssClass="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a] "
             />
             <p class="text-gray-300 mb-6 text-lg leading-relaxed">
-              "{{ testimonial.quote }}"
+              {{ testimonial.description }}
             </p>
             <h3 class="text-blue-400 font-semibold text-lg mb-1">
               {{ testimonial.name }}
             </h3>
-            <p class="text-gray-400">{{ testimonial.position }}</p>
+            <p class="text-gray-400">{{ testimonial.role }}</p>
           </div>
         </div>
       </div>
