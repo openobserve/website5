@@ -5,9 +5,9 @@ const copied = ref(false);
 
 // Define the docker command as a constant
 const DOCKER_COMMAND = `docker run 
--e ZO_ROOT_USER_EMAIL="root@example.com"
--e ZO_ROOT_USER_PASSWORD="Complexpass#123"
-public.ecr.aws/zinclabs/openobserve:latest`;
+  -e ZO_ROOT_USER_EMAIL="root@example.com"
+  -e ZO_ROOT_USER_PASSWORD="Complexpass#123"
+  public.ecr.aws/zinclabs/openobserve:latest`;
 
 const copyCode = () => {
   const textarea = document.createElement("textarea");
