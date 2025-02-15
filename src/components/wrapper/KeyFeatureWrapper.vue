@@ -1,4 +1,5 @@
 <script setup>
+import { slugify } from "@/utils/slugify";
 import CustomImage from "../core/CustomImage.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
@@ -24,6 +25,7 @@ const props = defineProps({
         'flex flex-col-reverse space-y-4 md:space-y-0 md:space-x-6 items-center py-4 md:py-12',
         index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
       ]"
+      :id="slugify(item.title)"
     >
       <!-- Text Container -->
       <div
