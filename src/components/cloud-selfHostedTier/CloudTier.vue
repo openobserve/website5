@@ -71,6 +71,8 @@ const props = defineProps<{
               class="transition-all duration-200 w-full"
               :button-link="tier.primaryButton.link"
               :target="tier.primaryButton.target"
+              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
+
               >
               {{ tier.primaryButton.text }}
             </CustomButton>
@@ -82,6 +84,8 @@ const props = defineProps<{
               class="transition-all duration-200 w-full"
               :button-link="tier.primaryButton.link"
               :target="tier.primaryButton.target"
+              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
+
               >
               {{ tier.primaryButton.text }}
             </CustomButton>

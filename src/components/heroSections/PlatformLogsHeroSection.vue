@@ -71,9 +71,10 @@ const sectionStyles = computed(() => ({
               {{ primaryButton.text }}
             </CustomButton>
             <CustomButton
+              v-if="secondaryButton?.text && secondaryButton?.link"
               variant="secondary"
               class="w-full sm:w-auto"
-              :buttonLink="secondaryButton.link"
+              :buttonLink="secondaryButton?.link"
             >
               {{ secondaryButton.text }}
             </CustomButton>
