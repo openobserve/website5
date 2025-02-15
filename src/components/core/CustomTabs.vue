@@ -138,7 +138,7 @@ onMounted(() => {
     <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto">
         <!-- Left Shadow -->
-        <div v-if="showLeftShadow" class="left-shadow"></div>
+        <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
 
         <div
           ref="tabsContainer"
@@ -164,7 +164,7 @@ onMounted(() => {
         </div>
 
         <!-- Right Shadow -->
-        <div v-if="showRightShadow" class="right-shadow"></div>
+        <!-- <div v-if="showRightShadow" class="right-shadow"></div> -->
       </div>
     </div>
 
@@ -197,7 +197,7 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 30px;
-  background: linear-gradient(to right, rgb(12, 12, 12) 40%, transparent);
+  background: linear-gradient(to right, rgb(12, 12, 12) 25%, transparent);
   pointer-events: none; /* Prevent interaction */
   z-index: 5; /* Ensure it is above text */
 }
@@ -209,7 +209,7 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 30px;
-  background: linear-gradient(to left, rgb(12, 12, 12) 40%, transparent);
+  background: linear-gradient(to left, rgb(12, 12, 12) 25%, transparent);
   pointer-events: none; /* Prevent interaction */
 }
 
