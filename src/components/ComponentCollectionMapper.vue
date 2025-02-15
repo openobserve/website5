@@ -56,6 +56,7 @@ import SectionSwitcher from "./cloud-selfHostedSection/SectionSwitcher.vue";
 import CustomComparisonTable from "./core/CustomComparisonTable.vue";
 import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
 import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
+import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -126,6 +127,7 @@ const componentsMap = computed(() => ({
 
   // pricing page
   "section-tabs.pricing-tabs": TierSwitcher,
+  "section-features.key-feature-wrapper" : KeyFeatureWrapper
   
 }));
 
