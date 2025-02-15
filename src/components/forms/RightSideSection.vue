@@ -245,7 +245,7 @@ const navigateToTerms = (e) => {
               I confirm, I have read and agree to OpenObserve's
               <a
                 href="/policies/terms-of-service"
-                class="text-blue-500 underline text-sm"
+                class="text-sm"
                 @click="navigateToTerms"
               >
                 Terms And Conditions

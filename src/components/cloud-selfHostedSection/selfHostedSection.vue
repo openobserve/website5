@@ -73,10 +73,10 @@ const copied = ref(false);
         </div>
 
         <!-- static icon for downloads -->
-        <div class="flex-grow mt-3">
+        <div class="flex-grow mt-6">
           <ul class="space-y-4 py-4">
             <li class="text-gray-300">
-              <a href="" class="flex gap-3 items-center hover:text-white">
+              <div class="flex gap-3 items-center">
                 <span>
                   <img
                     src="/download-pricing/downloading.svg"
@@ -85,14 +85,13 @@ const copied = ref(false);
                   />
                 </span>
                 <span class="text-sm">Downloads</span>
-              </a>
+              </div>
             </li>
           </ul>
         </div>
 
         <div
-          href="https://github.com/openobserve/openobserve/releases"
-          class="text-md md:text-lg font-semibold text-white mb-8"
+          class="text-md md:text-lg font-semibold text-white mb-8 v-html-content"
           v-html="downloadTitle"
         ></div>
 
@@ -120,10 +119,10 @@ const copied = ref(false);
         class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
       >
         <div class="mb-6">
-          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-4">
+          <h4 class="text-white text-lg md:text-xl font-medium mb-4 md:mb-4">
             {{ enterpriseTitle }}
           </h4>
-          <p class="text-white text-sm md:text-md font-medium">
+          <p class="text-md md:text-lg font-semibold text-white">
             {{ enterpriseDescription }}
           </p>
         </div>
@@ -146,12 +145,10 @@ const copied = ref(false);
             </li>
           </ul>
         </div>
-        <div class="mb-6">
-          <h4
-            class="text-white text-sm md:text-base font-medium py-2"
-            v-html="enterpriseBottomDescription"
-          ></h4>
-        </div>
+        <div
+          class="mb-6 text-md md:text-lg font-semibold text-white py-2 v-html-content"
+          v-html="enterpriseBottomDescription"
+        ></div>
         <div
           class="mt-10 sm:mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center w-full px-4 sm:px-6 md:px-8"
           v-if="selfHostedButton.text && selfHostedButton.link"
@@ -160,6 +157,7 @@ const copied = ref(false);
             variant="primary"
             :button-link="selfHostedButton?.link"
             class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] text-center py-3"
+            target="_blank"
           >
             {{ selfHostedButton?.text }}
           </CustomButton>
@@ -228,5 +226,22 @@ input[type="checkbox"]:checked {
 .bg-gradient-animate {
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
+}
+
+/* :deep(a) {
+  text-decoration: underline;
+  color: #3b82f6;
+} */
+
+/*  */
+:deep(.v-html-content a) {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+/* Remove underline for <a> inside buttons */
+:deep(button a) {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
