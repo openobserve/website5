@@ -31,12 +31,12 @@ const props = defineProps({
   },
   enterpriseBottomDescription: {
     type: String,
-    required: false
+    required: false,
   },
-  selfHostedButton:{
+  selfHostedButton: {
     type: Object,
-    required:false
-  }
+    required: false,
+  },
 });
 
 const copied = ref(false);
@@ -92,7 +92,7 @@ const copied = ref(false);
 
         <div
           href="https://github.com/openobserve/openobserve/releases"
-          class=" text-md md:text-lg font-semibold text-white mb-8"
+          class="text-md md:text-lg font-semibold text-white mb-8"
           v-html="downloadTitle"
         ></div>
 
@@ -147,11 +147,22 @@ const copied = ref(false);
           </ul>
         </div>
         <div class="mb-6">
-          <h4 class="text-white text-sm md:text-base font-medium py-2" v-html="enterpriseBottomDescription">
-          </h4>
+          <h4
+            class="text-white text-sm md:text-base font-medium py-2"
+            v-html="enterpriseBottomDescription"
+          ></h4>
         </div>
-        <div class="mt-20" v-if="selfHostedButton.text && selfHostedButton.link">
-          <CustomButton variant="primary" :button-link="selfHostedButton?.link"> {{ selfHostedButton?.text }} </CustomButton>
+        <div
+          class="mt-10 sm:mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center w-full px-4 sm:px-6 md:px-8"
+          v-if="selfHostedButton.text && selfHostedButton.link"
+        >
+          <CustomButton
+            variant="primary"
+            :button-link="selfHostedButton?.link"
+            class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] text-center py-3""
+          >
+            {{ selfHostedButton?.text }}
+          </CustomButton>
         </div>
       </div>
     </div>
