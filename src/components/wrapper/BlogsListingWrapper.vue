@@ -32,10 +32,6 @@
         </div>
       </div>
     </div>
-
-    <div class="py-10">
-      <Heading :title="title" :description="description" align="CENTER" />
-    </div>
     <div class="block md:hidden">
       <BlogsListingMobileWrapper
         :sectionData="blogsData"
