@@ -159,19 +159,26 @@
                 </div>
               </div>
               <div class="flex flex-col justify-center items-center space-y-1">
-                <h4 class="text-[#FFFFFF] text-base font-semibold">
+                <a
+                  :href="items?.platform?.keyFeature?.link"
+                  class="text-[#FFFFFF] text-base font-semibold gradient-hover"
+                >
                   {{ items.platform.keyFeature.title }}
-                </h4>
+                </a>
                 <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+                  <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
                   <ul class="space-y-1 xl:space-y-2">
                     <li
                       v-for="(item, index) in items.platform.keyFeature.items"
                       :key="index"
                       class="text-[#BEC0C2] text-sm"
                     >
-                      <div :class="item ? 'text-[#BEC0C2]' : ''">
+                      <a
+                        :href="`/key-features#${slugify(item.title)}`"
+                        :class="item.title ? 'gradient-hover' : ''"
+                      >
                         {{ item.title }}
-                      </div>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -256,17 +263,22 @@
                     <li class="cursor-pointer">
                       <a
                         href="https://openobserve.ai/docs/"
-                        class="text-lg font-bold"
+                        class="text-lg font-bold gradient-hover"
                         target="_blank"
                         >Documentation</a
                       >
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/blog" class="text-lg font-bold">Blog</a>
+                      <a href="/blog" class="text-lg font-bold gradient-hover">Blog</a>
+                    </li>
+                    <li class="cursor-pointer">
+                      <a href="/faqs" class="text-lg font-bold gradient-hover"
+                        >Frequently Asked Questions</a
+                      >
                     </li>
                   </ul>
                 </div>
-                <div
+                <!-- <div
                   class="flex flex-col space-y-3"
                   v-for="(item, index) in items.resources.item2"
                   :key="index"
@@ -281,7 +293,7 @@
                       >
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
             <div
@@ -316,6 +328,7 @@ import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
 import SectionHeader from "./SectionHeader.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
+import { slugify } from "@/utils/slugify";
 
 defineProps({
   items: Object,
@@ -378,10 +391,7 @@ onUnmounted(() => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(
-    to left,
-    #09e6ff, #00ffc3
-  );
+  background: linear-gradient(to left, #09e6ff, #00ffc3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -10,13 +10,13 @@
             "title": "Real-time Analytics"
           },
           {
-            "title": "Search and Analysis"
+            "title": "Powerful Search"
           },
           {
             "title": "Log Processing"
           },
           {
-            "title": "Storage Optimization"
+            "title": "Optimized Storage"
           }
         ]
       },
@@ -31,10 +31,10 @@
             "title": "Prometheus Integration"
           },
           {
-            "title": "Data Processing"
+            "title": "Metrics Processing"
           },
           {
-            "title": "Storage Optimization"
+            "title": "Optimized Storage"
           }
         ]
       },
@@ -52,7 +52,7 @@
             "title": "Trace Analysis"
           },
           {
-            "title": "Storage Management"
+            "title": "Optimized Storage"
           }
         ]
       },
@@ -64,13 +64,13 @@
             "title": "User Experience Monitoring"
           },
           {
-            "title": "Error Management"
+            "title": "Error Tracking"
           },
           {
             "title": "Performance Analysis"
           },
           {
-            "title": "Seamless Implementation"
+            "title": "Quick Implementation"
           }
         ]
       },
@@ -103,7 +103,7 @@
             "title": "Alert Configuration"
           },
           {
-            "title": "Notification Management"
+            "title": "Notifications"
           },
           {
             "title": "Alert Controls"
@@ -131,7 +131,11 @@
     ],
     "keyFeature": {
       "title": "Key Features",
+      "link": "/key-features",
       "items": [
+        {
+          "title":"140x Lower Storage Costs"
+        },
         {
           "title": "Advanced Multilingual GUI"
         },
@@ -224,7 +228,7 @@
     },
     {
       "title": "Contact Us",
-      "link": "/contact"
+      "link": "/contactus"
     }
   ],
   "resources": {

@@ -1,6 +1,6 @@
 <template>
   <!-- Sticky Header -->
-  <header class="sticky top-0 z-50 ">
+  <header class="sticky top-0 z-50">
     <div class="w-full mx-auto px-4 flex justify-between items-center py-2">
       <Logo />
       <nav>
@@ -60,7 +60,7 @@
           <li class="relative">
             <a
               href="/downloads"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50 "
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50"
             >
               Downloads
             </a>
@@ -136,9 +136,12 @@
               </div>
             </div>
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
-              <h4 class="text-[#FFFFFF] text-base font-semibold">
+              <a
+                :href="items?.platform?.keyFeature?.link"
+                class="text-[#FFFFFF] text-base font-semibold gradient-hover"
+              >
                 {{ items.platform.keyFeature.title }}
-              </h4>
+              </a>
               <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
                 <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
                 <ul class="space-y-1 xl:space-y-2">
@@ -147,9 +150,12 @@
                     :key="index"
                     class="text-[#BEC0C2] text-sm"
                   >
-                    <div :class="item ? 'text-[#BEC0C2]' : ''">
+                    <a
+                      :href="`/key-features#${slugify(item.title)}`"
+                      :class="item.title ? 'gradient-hover' : ''"
+                    >
                       {{ item.title }}
-                    </div>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -269,7 +275,9 @@
                   >
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/blog" class="text-lg font-bold gradient-hover">Blog</a>
+                  <a href="/blog" class="text-lg font-bold gradient-hover"
+                    >Blog</a
+                  >
                 </li>
                 <li class="cursor-pointer">
                   <a href="/faqs" class="text-lg font-bold gradient-hover">Frequently Asked Questions</a>
@@ -281,7 +289,7 @@
               v-for="(item, index) in items.resources.item2"
               :key="index"
             >
-              <h4 class="text-base font-bold ">
+              <h4 class="text-base font-bold">
                 {{ item.title }}
               </h4>
               <ul class="" v-for="(it, index) in item.items" :key="index">
@@ -356,6 +364,7 @@ import CustomHeaderButton from "./CustomHeaderButton.vue";
 import SectionHeader from "./SectionHeader.vue";
 import { defineProps, ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
+import { slugify } from "@/utils/slugify";
 defineProps({
   items: {
     type: Object,
@@ -462,11 +471,15 @@ onUnmounted(() => {
   display: inline-block;
 }
 
-/* .gradient-hover:hover {
-  background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
+.gradient-hover:hover {
+  background: linear-gradient(
+    to left,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-} */
+}
 
 .gradient-hover:hover {
   background: linear-gradient(to left, #09e6ff, #00ffc3);
