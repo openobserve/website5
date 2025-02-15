@@ -68,7 +68,7 @@ const swiperOptions = {
       >
         <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
           <div
-            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center"
+            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center h-[50vh]"
           >
             <CustomImage
               :image="testimonial.image"
