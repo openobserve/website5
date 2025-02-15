@@ -93,8 +93,8 @@
         ]
       },
       {
-        "title": "Alerting",
-        "link": "alerting",
+        "title": "Alerts",
+        "link": "alerts",
         "items": [
           {
             "title": "Alert Types"
