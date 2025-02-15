@@ -38,13 +38,13 @@ const copyCode = () => {
 
 <template>
   <div
-    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-6 sm:p-8 mt-4 sm:mt-6 flex flex-col"
+    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-4 md:p-6  mt-4 sm:mt-6 flex flex-col"
     :class="responsiveClasses"
   >
     <!-- Copy Button -->
     <button
       @click="copyCode"
-      class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition"
+      class="absolute top-1 right-1 md:top-3 md:right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition"
     >
       <img
         :src="
@@ -53,13 +53,13 @@ const copyCode = () => {
             : '/download-pricing/copyIcon.svg'
         "
         alt="copy icon"
-        class="w-5 h-5 sm:w-5 sm:h-5"
+        class="w-4 h-4 md:w-5 md:h-5"
       />
     </button>
 
     <!-- Scrollable Code Block -->
     <div class="overflow-x-auto overflow-y-hidden custom-scrollbar">
-      <pre class="whitespace-pre text-xs sm:text-base break-words px-2 py-1">{{
+      <pre class="text-left whitespace-pre text-xs sm:text-base break-words px-2 py-1">{{
         DOCKER_COMMAND
       }}</pre>
     </div>
