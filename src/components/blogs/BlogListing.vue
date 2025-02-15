@@ -49,7 +49,8 @@ const props = defineProps({
           rel="noopener noreferrer"
           :class="[
   cardBgColor,
-  'flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent hover:border-blue-500 transition-all duration-100 ease-in-out',]">
+  'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
+]">
         
           <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
 
@@ -66,3 +67,18 @@ const props = defineProps({
     </div>
   </div>
 </template>
+<style>
+.cardShadow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.cardShadow:hover::after {
+  border-color: #3b82f6; /* Tailwind blue-500 */
+}
+
+</style>
