@@ -73,6 +73,7 @@ const props = defineProps<{
           <!-- @click="tier.buttonAction" -->
           <div class="hidden lg:block place-items-center">
             <CustomButton
+              v-if="tier?.primaryButton?.link"
               variant="pricing"
               :button-link="tier.primaryButton.link"
               class="transition-all duration-200"
@@ -83,6 +84,7 @@ const props = defineProps<{
           </div>
           <div class="lg:hidden">
             <CustomButton
+              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
               variant="secondary"
               size="small"
               class="transition-all duration-200"
