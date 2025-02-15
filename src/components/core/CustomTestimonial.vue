@@ -75,7 +75,7 @@ const swiperOptions = {
               :altText="testimonial.name"
               cssClass="w-20 h-20 rounded-full mb-6 object-cover"
             />
-            <p class="text-gray-300 mb-6 text-lg leading-relaxed line-clamp-5">
+            <p class="text-gray-300 mb-6 text-base">
               "{{ testimonial.description }}"
             </p>
             <h3 class="text-blue-400 font-semibold text-lg mb-1">
