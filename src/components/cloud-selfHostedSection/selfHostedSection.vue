@@ -159,7 +159,7 @@ const copied = ref(false);
           <CustomButton
             variant="primary"
             :button-link="selfHostedButton?.link"
-            class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] text-center py-3""
+            class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] text-center py-3"
           >
             {{ selfHostedButton?.text }}
           </CustomButton>
