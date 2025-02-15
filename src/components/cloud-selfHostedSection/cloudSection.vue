@@ -7,19 +7,19 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 
 const props = defineProps({
-  title:{
+  title: {
     type: String,
     required: true,
   },
-  items:{
+  items: {
     type: Array,
     required: true,
   },
-  bottomTitle:{
+  bottomTitle: {
     type: String,
     required: true,
   },
-  bottomDescription:{
+  bottomDescription: {
     type: String,
     required: true,
   },
@@ -28,19 +28,20 @@ const props = defineProps({
 // Define the validation schema
 const schema = yup.object({
   name: yup.string().required("Name is required"),
-  terms: yup.boolean().oneOf([true], "You must accept the terms and conditions"),
+  terms: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions"),
 });
-const handleSubmit = (values) => {
-};
-
+const handleSubmit = (values) => {};
 </script>
 
 <template>
-
-  <div class="w-full container mx-auto ">
+  <div class="w-full container mx-auto">
     <div class="justify-center grid grid-cols-1 lg:grid-cols-2 gap-5">
-    <!-- static content -->
-      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
+      <!-- static content -->
+      <div
+        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
+      >
         <!-- <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
         <BaseForm
           :schema="schema"
@@ -92,17 +93,32 @@ const handleSubmit = (values) => {
             CREATE AN ACCOUNT
           </CustomButton>
         </BaseForm> -->
-        <h2 class="text-xl md:text-2xl font-semibold text-white text-left mb-4 md:mb-8">
+        <h2
+          class="text-xl md:text-2xl font-semibold text-white text-left mb-4 md:mb-8"
+        >
           Create a free account
         </h2>
-        <div class="text-sm md:text-md font-medium text-white text-left mb-8">By using this service, you agree to OpenObserve's Terms and Conditions.</div>
+        <div class="text-sm md:text-md font-medium text-white text-left mb-8">
+          By using this service, you agree to OpenObserve's
+          <a
+            href="/policies/terms-of-service"
+            class="text-blue-500 underline text-sm"
+          >
+            Terms And Conditions
+          </a>
+        </div>
         <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
-          <a href="https://cloud.openobserve.ai/web/login" class="w-full md:w-80">
+          <a
+            href="https://cloud.openobserve.ai/web/login"
+            class="w-full md:w-80"
+          >
             <button
               class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
             >
               <img src="/favicon.png" alt="OpenObserve" class="h-6 w-6 mr-3" />
-              <span class="font-medium text-sm md:text-base">Try OpenObserve Cloud</span>
+              <span class="font-medium text-sm md:text-base"
+                >Try OpenObserve Cloud</span
+              >
             </button>
           </a>
         </div>
@@ -191,9 +207,13 @@ const handleSubmit = (values) => {
       </div>
 
       <!-- dynamic content -->
-      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
+      <div
+        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
+      >
         <div class="mb-6">
-          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">{{ title }}</h4>
+          <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">
+            {{ title }}
+          </h4>
         </div>
 
         <!-- Features List loop -->
@@ -204,17 +224,17 @@ const handleSubmit = (values) => {
               :key="index"
               class="flex gap-3 text-gray-300"
             >
-            <span class="text-sm">{{ item.title }}</span>
+              <span class="text-sm">{{ item.title }}</span>
             </li>
           </ul>
         </div>
 
         <div class="mb-6">
-          <h4 class="text-white text-lg md:text-xl font-medium py-2">
+          <h4 class="text-white text-xl md:text-2xl font-medium mb-2 md:mb-6">
             {{ bottomTitle }}
           </h4>
-          <p class="text-white text-md md:text-lg font-medium py-2">
-           {{ bottomDescription }}
+          <p class="text-gray-300 text-sm py-2">
+            {{ bottomDescription }}
           </p>
         </div>
       </div>
