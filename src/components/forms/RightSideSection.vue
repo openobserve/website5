@@ -246,7 +246,6 @@ const navigateToTerms = (e) => {
               <a
                 href="/policies/terms-of-service"
                 class="text-sm"
-                @click="navigateToTerms"
               >
                 Terms And Conditions
               </a>
