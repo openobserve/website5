@@ -138,7 +138,7 @@ onMounted(() => {
     <div class="sticky-tabs flex justify-center backdrop-blur-sm">
       <div class="relative max-w-full mx-auto">
         <!-- Left Shadow -->
-        <div v-if="showLeftShadow" class="left-shadow"></div>
+        <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
 
         <div
           ref="tabsContainer"
@@ -164,7 +164,7 @@ onMounted(() => {
         </div>
 
         <!-- Right Shadow -->
-        <div v-if="showRightShadow" class="right-shadow"></div>
+        <!-- <div v-if="showRightShadow" class="right-shadow"></div> -->
       </div>
     </div>
 
