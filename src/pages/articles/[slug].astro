@@ -33,7 +33,7 @@ const loadcaseStudyData = await getCaseStudies();
 <Layout>
   <BlogDetailsHeroSectionWrapper
     title={SlugData.title}
-    bottomImage={SlugData.image?.formats?.large?.url || SlugData.image?.url}
+    bottomImage={SlugData.image?.url || SlugData.image?.url}
     client:load
     suggestions={SlugData.categories}
     activity={[

@@ -34,7 +34,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <BlogDetailsHeroSectionWrapper
     title={SlugData?.title}
-    bottomImage={SlugData?.image?.formats?.large?.url || SlugData?.image?.url}
+    bottomImage={SlugData?.image?.url || SlugData?.image?.url}
     client:load
     suggestions={SlugData?.categories || []}
     activity={[
