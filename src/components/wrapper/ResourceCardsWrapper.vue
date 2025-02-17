@@ -63,6 +63,7 @@ const isMobile = computed(() => width.value < 640); // `sm` breakpoint
             variant="pricing"
             class="mt-3"
             :buttonLink="primaryButton?.link"
+            :target="primaryButton?.target"
           >
             {{ primaryButton?.text }}
           </CustomButton>
