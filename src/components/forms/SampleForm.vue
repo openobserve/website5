@@ -66,12 +66,12 @@ Message: ${values.message}
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization"
-        },
+        // headers: { 
+        //   "Content-Type": "application/json",
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        //   "Access-Control-Allow-Headers": "Content-Type, Authorization"
+        // },
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
