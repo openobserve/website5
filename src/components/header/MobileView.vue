@@ -89,15 +89,17 @@
             </li>
           </ul>
           <div
-            class="flex flex-col justify-center items-center space-y-4 w-full pt-20"
+            class="flex flex-col justify-center items-center space-y-4 pt-20"
           >
             <CustomButton
+              class="w-full"
               variant="secondary"
               size="large"
               buttonLink="/downloads"
               >DOWNLOADS</CustomButton
             >
             <CustomButton
+              class="w-full"
               variant="primary"
               size="large"
               buttonLink="/demo"
@@ -112,7 +114,9 @@
         <div
           v-if="activeSubMenu"
           style="
-            background-image: url('/mobilenavBg1.svg'), url('/mobilenavBg2.svg');
+            background-image:
+              url(&quot;/mobilenavBg1.svg&quot;),
+              url(&quot;/mobilenavBg2.svg&quot;);
             background-position: top, bottom;
             background-repeat: no-repeat, no-repeat;
             background-size: cover, cover;
@@ -269,7 +273,9 @@
                       >
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/blog" class="text-lg font-bold gradient-hover">Blog</a>
+                      <a href="/blog" class="text-lg font-bold gradient-hover"
+                        >Blog</a
+                      >
                     </li>
                     <li class="cursor-pointer">
                       <a href="/faqs" class="text-lg font-bold gradient-hover"
