@@ -48,6 +48,8 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
+          senderWebsite: "",
+          senderMobile: "",
           senderMessage: values.help,
         }),
       }
