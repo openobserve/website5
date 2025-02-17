@@ -27,7 +27,7 @@ import CustomImage from "./CustomImage.vue";
 
 const props = defineProps({
   imgSrc: {
-    type: String,
+    type: Object,
     required: true,
   },
   size: {

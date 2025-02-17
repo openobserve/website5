@@ -84,10 +84,10 @@ const truncateDescription = (text: string, wordLimit: number) => {
         <swiper
           class="blog-swiper"
           :modules="swiperModules"
-          v-bind="swiperOptions"
+          :v-bind="swiperOptions"
 
         >
-          <swiper-slide v-for="blog in sectionData" :key="blog.title">
+          <swiper-slide v-for="blog in sectionData" :key="blog.slug">
             <a
               :href="`/blog/${blog?.slug}`"
               :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
