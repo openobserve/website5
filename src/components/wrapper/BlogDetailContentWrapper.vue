@@ -4,6 +4,7 @@ import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { slugify } from "@/utils/slugify";
+import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
 
 // Define props
 const props = defineProps({
@@ -11,6 +12,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  authors : {
+    type: Array,
+    required: true
+  }
 });
 
 // Reactive variables
@@ -98,7 +103,11 @@ async function addCopyButtons() {
       if (code) {
         navigator.clipboard.writeText(code);
         button.innerHTML = `<img src="/download-pricing/copiedIcon.svg" alt="Plus Icon" class="h-5 w-5" />`;
-        setTimeout(() => (button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`), 2000);
+        setTimeout(
+          () =>
+            (button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`),
+          2000
+        );
       }
     });
   };
@@ -165,24 +174,28 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
 });
-
-
 </script>
 
 <template>
   <CustomSection>
-    <div class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10">
+    <div
+      class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
+    >
       <!-- Rendered Markdown Content -->
-      <div
-        id="blog-content"
-        class="w-full md:w-[70%] text-left order-2 md:order-none"
-      >
+      <div class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none">
         <div
-          v-html="htmlContent"
-          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 overflow-y-auto max-w-none"
-        ></div>
+          id="blog-content"
+          class=""
+        >
+          <div
+            v-html="htmlContent"
+            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none"
+          ></div>
+        </div>
+        <div class="py-3">
+          <SingleAuthorDetails type="blog" :authors="authors" client:load />
+        </div>
       </div>
-
       <!-- Table of Contents -->
       <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
         <TableOfContents :headings="headings" :activeSection="currentSection" />

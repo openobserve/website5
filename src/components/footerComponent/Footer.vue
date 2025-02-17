@@ -6,14 +6,6 @@ const props = defineProps({
   footerData: {
     type: Object,
     required: true,
-    validator(value) {
-      return (
-        value.sections &&
-        value.copyright &&
-        value.githubStats &&
-        value.socialLinks
-      );
-    },
   },
 });
 

@@ -47,9 +47,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full">
+  <section class="w-full">
     <p class="text-white px-2 py-2">About the Authors</p>
-    <div class="flex flex-col space-y-4">
+    <div class="flex flex-col space-y-4 w-full">
       <a
         v-for="author in authors"
         :href="generateAuthorLink(type, author.slug)"
@@ -58,13 +58,13 @@ const props = defineProps({
       >
         <!-- Left Side - Profile Image -->
         <div
-          class="w-full md:w-1/6 h-44 md:h-auto relative flex items-center justify-center bg-gray-800 overflow-hidden"
+          class="w-52 lg:w-1/5 h-44 relative flex items-center justify-center bg-gray-800 overflow-hidden"
         >
           <img
             v-if="author.image && author.image.url"
             :src="author.image.url"
             :alt="author.name"
-            class="w-full h-full object-cover object-top absolute inset-0"
+            class="w-full h-full object-cover object-center"
           />
           <div
             v-else
@@ -76,19 +76,19 @@ const props = defineProps({
 
         <!-- Right Side - Content -->
         <div
-          class="w-full md:w-2/3 p-6 h-44 flex flex-col justify-between cursor-pointer"
+          class="w-full lg:w-4/5 p-2 md:p-3 lg:p-6 h-44 flex flex-col justify-between cursor-pointer"
         >
-          <div>
+          <div class="flex flex-col space-y-2">
             <h3
               :class="[
                 titleTextColor,
-                'text-xl font-bold mb-3 underline cursor-pointer',
+                'text-lg md:text-xl font-bold underline cursor-pointer',
               ]"
             >
               {{ author.name }}
             </h3>
             <p
-              class="mb-4 text-sm break-words line-clamp-3"
+              class="text-sm break-words line-clamp-3"
               :class="[descriptionTextColor]"
             >
               {{ author.bio }}

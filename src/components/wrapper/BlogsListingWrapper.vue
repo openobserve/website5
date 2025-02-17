@@ -1,6 +1,6 @@
 <template>
   <section
-    class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start"
+    class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start"
   >
     <div class="search-container relative w-full px-4">
       <!-- <div
@@ -17,7 +17,7 @@
         </button>
       </div> -->
 
-      <div class="py-6">
+      <div class="py-3 md:py-6">
         <CustomSuggestions
           :suggestions="suggestionData"
           @selectSuggestion="selectSuggestion"
