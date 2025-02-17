@@ -89,7 +89,7 @@
             </li>
           </ul>
           <div
-            class="flex flex-col justify-center w-full items-center space-y-4 pt-20 mx-auto px-4"
+            class="flex flex-col justify-center w-full items-center space-y-4 pt-20 mx-auto px-10"
           >
             <CustomButton
               class="w-full"
