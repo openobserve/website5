@@ -37,7 +37,7 @@ const onSubmit = handleSubmit(async (values) => {
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
         method: "POST",
-        // headers: { 
+        // headers: {
         //   "Content-Type": "application/json",
         //   "Access-Control-Allow-Origin": "*",
         //   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -46,6 +46,8 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
+          senderWebsite: "",
+          senderMobile: "",
           senderMessage: values.help,
         }),
       }
