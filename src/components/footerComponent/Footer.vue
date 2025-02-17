@@ -21,6 +21,8 @@ const firstSections = computed(
   () => props.footerData?.sections.slice(0, 4) || []
 );
 const lastSection = computed(() => props.footerData?.sections[4] || null);
+
+const getCurrentYear = () => new Date().getFullYear();
 </script>
 <template>
   <div class="relative bg-[#14181B] w-full">
@@ -197,11 +199,8 @@ const lastSection = computed(() => props.footerData?.sections[4] || null);
           <div
             class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm"
           >
-            <p class="text-base">
-              <TextGradient textGradientColor="" />{{
-                footerData?.copyright?.text
-              }}
-            </p>
+            <TextGradient textGradientColor="" /> OpenObserve Inc. ©
+            {{ getCurrentYear() }}
           </div>
         </div>
         <div class="flex items-center gap-6">
