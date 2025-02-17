@@ -55,7 +55,7 @@ const swiperOptions = {
                 :altText="testimonial.name"
                 class="w-20 h-20 rounded-full mb-4 object-cover"
               />
-              <p class="text-gray-300 mb-4 text-base leading-relaxed">
+              <p class="text-gray-300 mb-4 text-base leading-snug">
                 "{{ testimonial.description }}"
               </p>
               <h3 class="text-blue-400 font-semibold text-lg">
@@ -79,7 +79,7 @@ const swiperOptions = {
             :altText="testimonial.name"
             class="w-20 h-20 rounded-full object-cover absolute -top-12 left-1/2 transform -translate-x-1/2 border border-[#1a1a1a]"
           />
-          <p class="text-gray-300 mb-4 text-lg leading-relaxed">
+          <p class="text-gray-300 mb-4 text-base leading-snug">
             "{{ testimonial.description }}"
           </p>
           <h3 class="text-blue-400 font-semibold text-lg">
