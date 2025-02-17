@@ -16,7 +16,7 @@ const props = defineProps({
       v-for="(suggestion, index) in suggestions"
       :key="index"
       :href="generateTagLink(type, suggestion.name)"
-      class="px-6 py-1 bg-black border rounded-full hover:text-white text-sm text-neutral-400"
+      class="px-4 md:px-6 py-1 bg-black border rounded-full hover:text-white text-xs md:text-sm text-neutral-400"
     >
       {{ suggestion.name }}
   </a>

@@ -36,7 +36,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="min-h-screen flex items-center justify-center">
+  <div class="flex items-center justify-center mb-4">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 gap-3">
         <a
