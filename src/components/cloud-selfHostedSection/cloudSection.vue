@@ -104,7 +104,7 @@ const handleSubmit = (values) => {};
             href="/policies/terms-of-service"
             class="text-blue-500 underline text-sm"
           >
-            Terms And Conditions
+            Terms and Conditions
           </a>
         </div>
         <!-- <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
