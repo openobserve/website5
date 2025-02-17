@@ -5,11 +5,11 @@ import { computed } from "vue";
 const props = defineProps({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   textGradientColor: {
     type: String,
-    required: true,
+    required: false,
   },
   textSize: {
     type: String,

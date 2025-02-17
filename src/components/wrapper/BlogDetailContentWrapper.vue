@@ -13,7 +13,7 @@ const props = defineProps({
     required: true,
   },
   authors : {
-    type: String,
+    type: Array,
     required: true
   }
 });
