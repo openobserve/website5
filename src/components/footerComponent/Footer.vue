@@ -86,6 +86,7 @@ const getCurrentYear = () => new Date().getFullYear();
             <li v-for="item in section.items" :key="item.name">
               <a
                 :href="item.link"
+                :target="item.target"
                 class="gradient-hover text-[#BEC0C2] text-base transition duration-300"
               >
                 <TextGradient textGradientColor="" />
