@@ -8,7 +8,7 @@
       <li v-for="(heading, index) in nestedHeadings" :key="index">
         <a
           :href="`#${heading.id}`"
-          class="block text-sm font-medium"
+          class="block text-sm font-medium hover:text-blue-400"
           :class="{
             'text-blue-400': currentSection === heading.id,
             'text-white': currentSection !== heading.id,
@@ -24,7 +24,7 @@
           >
             <a
               :href="`#${subHeading.id}`"
-              class="block text-sm font-normal"
+              class="block text-sm font-normal hover:text-blue-400"
               :class="{
                 'text-blue-400': currentSection === subHeading.id,
                 'text-white': currentSection !== subHeading.id,

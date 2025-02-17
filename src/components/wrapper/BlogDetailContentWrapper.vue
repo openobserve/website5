@@ -182,19 +182,20 @@ onMounted(() => {
       class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
     >
       <!-- Rendered Markdown Content -->
-      <div
-        id="blog-content"
-        class="w-full md:w-[70%] text-left order-2 md:order-none flex flex-col"
-      >
+      <div class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none">
         <div
-          v-html="htmlContent"
-          class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96  max-w-none"
-        ></div>
+          id="blog-content"
+          class=""
+        >
+          <div
+            v-html="htmlContent"
+            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none"
+          ></div>
+        </div>
         <div class="py-3">
           <SingleAuthorDetails type="blog" :authors="authors" client:load />
         </div>
       </div>
-
       <!-- Table of Contents -->
       <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
         <TableOfContents :headings="headings" :activeSection="currentSection" />
