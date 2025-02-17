@@ -37,8 +37,8 @@ const props = defineProps({
 </script>
 <template>
   <div class="min-h-screen flex items-center justify-center">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 gap-6">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 gap-3">
         <a
           v-for="blog in sectionData"
           :key="blog.title"
@@ -50,20 +50,20 @@ const props = defineProps({
           ]"
         >
           <!-- Left Side - Image -->
-          <div class="h-full overflow-hidden">
+          <div class="h-full rounded-lg">
             <img
               :src="blog?.image?.url || ''"
               :alt="blog.title"
-              class="w-full object-cover h-40"
+              class="w-full  h-full rounded-lg"
             />
           </div>
 
           <!-- Right Side - Content -->
-          <div class="px-2 col-span-2 h-full">
-            <h6 :class="[titleTextColor, 'text-md font-bold line-clamp-2']">
+          <div class="px-2 col-span-2 flex flex-col space-y-2 h-full">
+            <h6 :class="[titleTextColor, 'text-sm font-bold']">
               {{ blog.title }}
             </h6>
-            <p :class="[descriptionTextColor, 'text-sm line-clamp-2']">
+            <p :class="[descriptionTextColor, 'text-sm line-clamp-3']">
               {{ blog.description }}
             </p>
 
