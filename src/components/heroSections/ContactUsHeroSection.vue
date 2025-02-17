@@ -52,7 +52,7 @@ const onSubmit = handleSubmit(async (values) => {
 
   try {
     const response = await fetch(
-      "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
+      "/api/triggerEmail",
       {
         method: "POST",
         headers: { 
