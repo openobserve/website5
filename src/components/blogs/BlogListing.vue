@@ -36,6 +36,24 @@ const props = defineProps({
     default: "blog",
   },
 });
+
+/**
+ * Returns the url of the image that is most suitable for the
+ * blog listing display. Tries to return the medium image url
+ * first, then the large, then the small, and finally the
+ * original image url.
+ * 
+ * This function is used to get the image URL and not using the default one for below reasons:
+ * 1. To render low resolution image for the listing
+ * 2. Avoid large GIFs to avoid rednering delays
+ * 3. Fallback to other formats if the intended one is not found
+ */
+const getImageUrl = ({ image }: Blog) =>
+  image?.formats?.medium?.url ??
+  image?.formats?.large?.url ??
+  image?.formats?.small?.url ??
+  image?.url ??
+  "";
 </script>
 
 <template>
@@ -51,9 +69,7 @@ const props = defineProps({
   cardBgColor,
   'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
 ]">
-        
-          <CustomBluredImage :image="blog?.image?.url || ''" :altText="blog.title"  />
-
+          <CustomBluredImage :image="getImageUrl(blog)" :altText="blog.title"  />
           <div class="w-full p-6 flex flex-col">
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                 {{ blog.title }}
