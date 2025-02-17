@@ -55,11 +55,11 @@ const onSubmit = handleSubmit(async (values) => {
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization"
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
         },
         body: JSON.stringify({
           senderName: values.name,
@@ -204,41 +204,42 @@ const navigateToTerms = (e) => {
                 >
               </div>
               <!-- Terms & Conditions -->
-              <div class="flex flex-col items-start gap-2">
-                <div class="flex items-start gap-2">
-                  <div class="relative flex items-start">
-                    <input
-                      id="terms"
-                      type="checkbox"
-                      v-model="terms.value.value"
-                      class="mt-1 h-4 w-4 cursor-pointer"
-                      :class="{ 'border-red-500': terms.errorMessage.value }"
-                    />
-                  </div>
+              <div class="flex flex-col items-start gap-1">
+                <div class="flex items-center gap-2">
+                  <!-- Checkbox -->
+                  <input
+                    id="terms"
+                    type="checkbox"
+                    v-model="terms.value.value"
+                    class="h-4 w-4 cursor-pointer"
+                    :class="{ 'border-red-500': terms.errorMessage.value }"
+                  />
 
+                  <!-- Label with clickable link -->
                   <label
                     for="terms"
-                    class="text-white text-sm cursor-pointer select-none leading-snug flex flex-wrap items-center gap-1"
+                    class="text-white text-sm cursor-pointer select-none flex flex-wrap items-center gap-1"
                   >
                     I confirm, I have read and agree to OpenObserve's
                     <a
                       href="/policies/terms-of-service"
                       class="text-blue-500 underline text-sm whitespace-nowrap"
-                      >
-                      <!-- @click="navigateToTerms" -->
+                    >
                       Terms and Conditions
                     </a>
                     <span class="text-red-500">*</span>
                   </label>
                 </div>
 
-                <!-- ✅ Error Message Now Displays Below in Mobile View -->
+                <!-- ✅ Reserved Space for Error Message to Prevent Shifting -->
                 <p
                   v-if="terms.errorMessage.value"
-                  class="text-xs text-red-500 leading-tight"
+                  class="text-xs text-red-500 min-h-[1rem]"
                 >
                   {{ terms.errorMessage.value }}
                 </p>
+                <p v-else class="min-h-[1rem]"></p>
+                <!-- Keeps space even when no error -->
               </div>
 
               <!-- Submit Button -->
