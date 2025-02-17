@@ -82,7 +82,7 @@ const componentsMap = computed(() => ({
   "section-cards.case-studies": CaseStudyWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
-  'section-cards.testimonials': pLevelpLevel,
+  "section-cards.testimonials": pLevelpLevel,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": FeatureCardWrapper,
@@ -120,15 +120,15 @@ const componentsMap = computed(() => ({
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper,
   //download page
-  "section-tabs.download-tabs":SectionSwitcher,
-  "section-table.plans-feature-table":CustomComparisonTable,
+  "section-tabs.download-tabs": SectionSwitcher,
+  "section-table.plans-feature-table": CustomComparisonTable,
   // "section-cards.explore-resources":DownloadCaseStudyWrapper,
   "section-forms.contact": CommonFormWrapper, //it is in the up section.......
 
   // pricing page
   "section-tabs.pricing-tabs": TierSwitcher,
-  "section-features.key-feature-wrapper" : KeyFeatureWrapper
-  
+  "section-features.key-feature-wrapper": KeyFeatureWrapper,
+  "section-forms.download-contact-form": CommonFormWrapper,
 }));
 
 const getComponentProps = (it) => {
