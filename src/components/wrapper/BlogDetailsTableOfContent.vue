@@ -74,7 +74,7 @@ const nestedHeadings = computed(() => {
   let lastParent = null;
 
   props.headings.forEach((heading) => {
-    if (heading.level === 2) {
+    if (heading.level === 2  || heading.level === 3) {
       lastParent = { ...heading, children: [] };
       nested.push(lastParent);
     } else if (heading.level === 3 && lastParent) {
