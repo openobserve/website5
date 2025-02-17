@@ -25,7 +25,7 @@ const props = defineProps({
     <div class="w-full md:w-2/3">
       <p
         v-html="description"
-        class="text-white text-base md:text-lg xl:text-xl"
+        class="text-white text-base md:text-lg xl:text-xl !m-0 !p-0 !leading-snug"
       ></p>
     </div>
   </div>
