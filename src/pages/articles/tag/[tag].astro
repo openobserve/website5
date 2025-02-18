@@ -39,7 +39,7 @@ if (category) {
 }
 
 // ✅ Fetch Additional Data
-const suggestionData = await getAllCategories();
+const suggestionData = await getAllResourceCategories();
 
 const loadcaseStudyData = await getCaseStudies();
 
@@ -64,7 +64,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
-    subtitle={`Showing posts for category: ${category?.name ?? tag}`}
+    description={`Showing posts for category: ${category?.name ?? tag}`}
   />
 
   <CaseStudyWrapper
