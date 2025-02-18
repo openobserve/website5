@@ -53,7 +53,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
-    subtitle="Explore latest insights and updates"
+    description="Explore latest insights and updates"
   />
 
   {
@@ -71,7 +71,7 @@ const metaObj = {
     type="articles"
     blogsData={blogsData}
     currentPage={currentPage}
-    suggestionData={suggestionData.slice(0, 10)}
+    suggestionData={suggestionData.slice(0, 15) || []}
     totalItems={count.blogsCount}
     client:load
   />
