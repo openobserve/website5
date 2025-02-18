@@ -1,34 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import GetDemoHeroSection from "../../components/heroSections/GetDemoHeroSection.vue";
-import DemoPageFormWrapper from "../../components/wrapper/DemoPageFormWrapper.vue";
+import fetchApi from "../../utils/strapi";
+import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 
-const tailoredSolutionsData = {
-  title: "Tailored Solutions for Your Business",
-  description:
-    "Enterprise Support provides personalized assistance, faster response times, and expert guidance to optimize your observability solutions. Whether you need help scaling, troubleshooting, or training your team, we’ve got you covered.",
-  keyFeatures: [
-    "Tailored to You: Every demo is customized to showcase how OpenObserve aligns with your goals.",
-    "Real-Time Interaction: Get answers to your questions on the spot.",
-    "Expert Insights: Learn tips and best practices to maximize the value of observability.",
-  ],
-  keyFeatures2: [
-    "A live walkthrough of OpenObserve’s key features and tools.",
-    "Insightful use cases specific to your industry or team.",
-    "Answers to your questions from our product experts.",
-  ],
-  footerdescription:
-    "Contact us to find the perfect support solution for your business.",
-};
+const PageData = await fetchApi({
+  endpoint: "api/demo-page",
+  query: { pLevel: "4", status: "draft" },
+});
+// console.log(PageData?.data?.body);
+const metaObj = PageData?.data?.seo;
 ---
 
-<Layout>
-  <GetDemoHeroSection title="Request a Demo" />
-  <DemoPageFormWrapper
-    description={tailoredSolutionsData.description}
-    keyFeatures={tailoredSolutionsData.keyFeatures}
-    keyFeatures2={tailoredSolutionsData.keyFeatures2}
-    footerdescription={tailoredSolutionsData.footerdescription}
-    client:load
-  />
+<Layout metaObj={metaObj}>
+  <ComponentCollectionMapper data={PageData?.data?.body} client:load />
 </Layout>
