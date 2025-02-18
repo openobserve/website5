@@ -252,6 +252,7 @@ const navigateToTerms = (e) => {
               <a
                 href="/policies/terms-of-service"
                 class="text-sm"
+                target="_blank"
               >
                 Terms and Conditions
               </a>

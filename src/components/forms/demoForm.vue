@@ -157,6 +157,7 @@ const onSubmit = handleSubmit(async (values) => {
                 <a
                   href="/policies/terms-of-service"
                   class="text-blue-500 underline text-sm"
+                  target=""
                 >
                   Terms and Conditions
                 </a>

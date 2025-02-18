@@ -103,6 +103,7 @@ const handleSubmit = (values) => {};
           <a
             href="/policies/terms-of-service"
             class="text-blue-500 underline text-sm"
+            target="_blank"
           >
             Terms and Conditions
           </a>
@@ -111,9 +112,11 @@ const handleSubmit = (values) => {};
           <a
             href="https://cloud.openobserve.ai/web/login"
             class="w-full md:w-80"
+            target="_blank"
           >
             <button
               class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
+              
             >
               <img src="/favicon.png" alt="OpenObserve" class="h-6 w-6 mr-3" />
               <span class="font-medium text-sm md:text-base"
