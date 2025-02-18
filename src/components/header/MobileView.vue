@@ -1,9 +1,9 @@
 <template>
   <header class="bg-black flex flex-col z-50 relative">
     <div class="relative">
-      <div class="flex justify-between items-center p-2">
+      <div class="flex justify-between items-center p-1.5">
         <Logo />
-        <div class="flex items-center space-x-1">
+        <div class="flex items-center">
           <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"
@@ -15,15 +15,25 @@
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
           </div> -->
+          <GithubButton
+            href="https://github.com/openobserve/openobserve"
+            data-color-scheme="dark"
+            data-size="small"
+            data-show-count="false"
+            aria-label="Star openobserve/openobserve on GitHub"
+            class=""
+            >Star</GithubButton
+          >
           <CustomButton
             variant="tertiary"
             size="small"
             buttonLink="https://cloud.openobserve.ai"
             target="_blank"
+            btn-class="p-0"
             >LOG IN</CustomButton
           >
           <div
-            class="cursor-pointer h-8 w-8 flex items-center"
+            class="cursor-pointer h-6 w-6 flex items-center"
             @click="onMenuClick"
           >
             <img
@@ -334,6 +344,7 @@ import CustomButton from "../core/CustomButton.vue";
 import SectionHeader from "./SectionHeader.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
 import { slugify } from "@/utils/slugify";
+import GithubButton from "vue-github-button";
 
 defineProps({
   items: Object,

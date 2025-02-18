@@ -1,7 +1,7 @@
 <template>
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50">
-    <div class="w-full mx-auto px-4 flex justify-between items-center py-2">
+    <div class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2">
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full">
@@ -80,23 +80,15 @@
           />
         </div> -->
         <!-- GitHub Stats Section -->
-        <!-- <GithubButton
+        <GithubButton
           href="https://github.com/openobserve/openobserve"
-          data-color-scheme=""
-          data-size="small"
+          data-color-scheme="dark"
+          data-size="large"
           data-show-count="true"
           aria-label="Star openobserve/openobserve on GitHub"
+          class="pt-1.5"
           >Star</GithubButton
         >
-
-        <GithubButton
-          href="https://github.com/openobserve/openobserve/fork"
-          data-color-scheme=""
-          data-size="small"
-          data-show-count="true"
-          aria-label="Fork openobserve/openobserve on GitHub"
-          >Fork</GithubButton
-        > -->
         <CustomButton
           variant="secondary"
           size="small"
