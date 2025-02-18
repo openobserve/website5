@@ -154,6 +154,7 @@ const navigateToTerms = (e) => {
               <a
                 href="/policies/terms-of-service"
                 class="text-blue-500 underline text-sm"
+                target="_blank"
               >
                 Terms and Conditions
               </a>
