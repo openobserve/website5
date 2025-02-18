@@ -24,10 +24,7 @@ const swiperOptions = {
   pagination: {
     clickable: true,
   },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+  navigation: true, // Enable default navigation settings
   breakpoints: {
     1024: {
       slidesPerView: 3,
@@ -56,6 +53,7 @@ onMounted(() => {
         ref="swiperRef"
         :modules="swiperModules"
         v-bind="swiperOptions"
+        :navigation="true"
         class="testimonial-swiper"
       >
         <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
