@@ -3,7 +3,7 @@
     <div class="relative">
       <div class="flex justify-between items-center p-2">
         <Logo />
-        <div class="flex items-center">
+        <div class="flex items-center space-x-1">
           <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"

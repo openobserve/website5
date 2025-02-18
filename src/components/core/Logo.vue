@@ -1,5 +1,5 @@
 <template>
-  <a class="flex items-center w-44 md:w-52" href="/">
+  <a class="flex items-center w-40 md:w-52" href="/">
     <img
       src="/logo.svg"
       alt="OpenObserve Logo"
