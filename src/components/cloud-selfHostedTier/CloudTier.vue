@@ -44,7 +44,7 @@ const props = defineProps<{
 
         <!-- Features List -->
         <div class="flex-grow">
-          <ul class="space-y-2 md:space-y-4 mb-8">
+          <ul class="space-y-2 md:space-y-2 mb-8">
             <li
               v-for="(feature, featureIndex) in tier.features"
               :key="featureIndex"
@@ -54,7 +54,7 @@ const props = defineProps<{
                 <img
                   src="/img/bg/icon/Frame-11216.svg"
                   alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
+                  class="w-4 md:w-5 h-4 md:h-5"
                 />
               </span>
               <span class="text-sm">{{ feature.title }}</span>
