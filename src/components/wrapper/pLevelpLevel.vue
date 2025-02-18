@@ -20,7 +20,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <section class="py-4 md:py-16 lg:py-24 px-2">
+  <section class="py-4 md:py-12 px-2">
     <div class="flex flex-col md:flex-row justify-between items-center gap-20">
       <CustomTestimonial :testimonials="items" client:load />
     </div>

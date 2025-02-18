@@ -44,7 +44,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full mx-auto px-4 py-16">
+  <div class="w-full mx-auto">
     <h2 class="text-4xl font-bold text-center text-white pb-10">
       <span class="md:hidden">Testimonials</span>
       <span class="hidden md:inline">Employee Testimonials</span>
@@ -58,16 +58,16 @@ onMounted(() => {
         v-bind="swiperOptions"
         class="testimonial-swiper"
       >
-        <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
+        <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id" class="!h-auto">
           <div
-            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center h-auto"
+            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center h-full"
           >
             <CustomImage
               :image="testimonial.image"
               :altText="testimonial.name"
               class="w-20 h-20 rounded-full mb-4 object-cover"
             />
-            <p class="text-gray-300 mb-4 text-base leading-snug">
+            <p class="text-gray-300 mb-4 text-base leading-snug flex-1">
               "{{ testimonial.description }}"
             </p>
             <h3 class="text-blue-400 font-semibold text-lg">
@@ -77,8 +77,8 @@ onMounted(() => {
           </div>
         </swiper-slide>
 
-        <!-- Navigation Arrows (Both Mobile & Desktop)
-        <div
+        <!-- Navigation Arrows (Both Mobile & Desktop) -->
+        <!-- <div
           class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
         ></div>
         <div
