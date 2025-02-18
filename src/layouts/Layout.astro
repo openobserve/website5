@@ -144,6 +144,9 @@ const { metaObj } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script src="/js/zinc.js" is:inline></script>
+    <script src="/js/clarity.js" is:inline></script>
+    <script src="/js/vector_co.js" is:inline></script>
     <meta name="generator" content={Astro.generator} />
     <SEO title={metaObj?.title} description={metaObj?.description} />
     <!-- type={type}
@@ -154,7 +157,6 @@ const { metaObj } = Astro.props;
     <main>
       <Header
         navData={NavData}
-        class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
         client:only
       />
       <div class="navbarheight">
