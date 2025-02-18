@@ -49,8 +49,8 @@ const metaObj = {
     type="blog"
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData.slice(0, 15)}
-    client:load
+   suggestionData={suggestionData.slice(0, 15) || []}
+   client:load
   />
 
   <!-- <TilesWithTitleWrapper
