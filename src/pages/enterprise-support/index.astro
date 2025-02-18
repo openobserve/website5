@@ -4,19 +4,19 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import { getAllBlogs } from "@/utils/api/blogs";
 import fetchApi from "@/utils/strapi";
 
-const PageData = await fetchApi({
-  endpoint: "api/enterprice-support",
-  query: { pLevel: "4", status: "draft" },
-});
-const metaObj = PageData?.data?.seo;
-const allBlogs = await getAllBlogs();
-const blogs = allBlogs?.slice(0, 10);
+// const PageData = await fetchApi({
+//   endpoint: "api/enterprice-support",
+//   query: { pLevel: "4", status: "draft" },
+// });
+// const metaObj = PageData?.data?.seo;
+// const allBlogs = await getAllBlogs();
+// const blogs = allBlogs?.slice(0, 10);
 ---
 
-<Layout metaObj={metaObj}>
+<!-- <Layout metaObj={metaObj}>
   <ComponentCollectionMapper
     data={PageData?.data?.body}
     blogs={blogs}
     client:load
   />
-</Layout>
+</Layout> -->
