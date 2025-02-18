@@ -24,7 +24,7 @@ defineProps({
 
 <template>
   <div class="md:w-1/2 p-6">
-    <div class="py-5">
+    <div class="">
       <h3 class="text-lg md:text-xl font-semibold text-white mb-4">
         Why Request a Demo?
       </h3>
@@ -42,7 +42,7 @@ defineProps({
         {{ footerdescription }}
       </h3>
       <CustomSeprater />
-      <h3 class="text-lg md:text-xl font-semibold text-white mb-4 mt-[4vh]">
+      <h3 class="text-lg md:text-xl font-semibold text-white mb-4 pt-6">
         What to Expect in Your Demo?
       </h3>
       <ul class="space-y-4">
