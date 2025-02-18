@@ -58,6 +58,7 @@ import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
 import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
 import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
+import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -94,6 +95,7 @@ const componentsMap = computed(() => ({
   "section-cta.plain-cta": GetDemoWrapper,
   "section-features.feature-list": PlatformSubTabsWrapper, //platform subpage (with bg image)
   "section-features.feature-sub-page-top-tabs": TabsWrapper, //solution sub page (without bg image )
+  "section-hero.demo-herosection": DemoPageWrapper,
 
   "section-hero.feature-sub-hero-section": PlatformLogsHeroSection,
   // 'section-cards.feature-highlights':CustomFeatureCard,
