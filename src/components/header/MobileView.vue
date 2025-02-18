@@ -3,7 +3,7 @@
     <div class="relative">
       <div class="flex justify-between items-center p-2">
         <Logo />
-        <div class="flex items-center space-x-1">
+        <div class="flex items-center space-x-1.5">
           <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"
@@ -21,7 +21,7 @@
             data-size="small"
             data-show-count="false"
             aria-label="Star openobserve/openobserve on GitHub"
-            class=""
+            class="pt-1"
             >Star</GithubButton
           >
           <CustomButton
