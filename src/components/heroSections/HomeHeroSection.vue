@@ -56,7 +56,7 @@ const props = defineProps({
         class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left "
       >
         <h1
-          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl  font-bold leading-tight sm:leading-[2rem] md:leading-[2.5rem] lg:leading-[2.8rem] xl:leading-[3.5rem]"
+          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl  font-bold  leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
           v-html="title"
         ></h1>
 
