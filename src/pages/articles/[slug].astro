@@ -48,10 +48,7 @@ const loadcaseStudyData = await getCaseStudies();
     ]}
     type="articles"
   />
-  <BlogDetailContentWrapper client:load content={SlugData.content} />
-  <div class="py-3">
-    <SingleAuthorDetails authors={author} client:load type="articles" />
-  </div>
+  <BlogDetailContentWrapper type="articles" client:load content={SlugData.content} authors={author} />
   <!-- <CaseStudyWrapper
     title="Want to know more? Check out these Blogs."
     description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."

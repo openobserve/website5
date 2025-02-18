@@ -48,7 +48,7 @@ const metaObj = {
       }).format(new Date(SlugData?.publishDate)),
     ]}
   />
-  <BlogDetailContentWrapper client:load content={SlugData?.content} authors={author}/>
+  <BlogDetailContentWrapper  :type="blog" client:load content={SlugData?.content} authors={author}/>
   
   <!-- <div class="py-5">
     <CaseStudyWrapper

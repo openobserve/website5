@@ -15,6 +15,9 @@ const props = defineProps({
   authors : {
     type: Array,
     required: true
+  },
+  type: {
+    type: String,
   }
 });
 
@@ -193,7 +196,7 @@ onMounted(() => {
           ></div>
         </div>
         <div class="py-3">
-          <SingleAuthorDetails type="blog" :authors="authors" client:load />
+          <SingleAuthorDetails :type=type :authors="authors" client:load />
         </div>
       </div>
       <!-- Table of Contents -->
