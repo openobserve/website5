@@ -41,6 +41,7 @@ const selectedTab = ref("cloud");
 <template>
   <CustomSection>
     <div class="w-full mx-auto">
+        <h1 class="mb-10 text-4xl text-white font-semibold text-center">Get started with OpenObserve</h1>
       <!-- Tab Buttons -->
       <div class="flex w-full relative border-b-[3px] border-gray-500">
         <button
