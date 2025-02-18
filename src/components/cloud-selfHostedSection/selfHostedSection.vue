@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  haDeploymentDescription: {
+    type: String,
+    required: true,
+  },
   enterpriseTitle: {
     type: String,
     required: true,
@@ -39,7 +43,7 @@ const props = defineProps({
   },
 });
 
-const copied = ref(false);
+console.log(props.haDeploymentDescription);
 </script>
 
 <template>
