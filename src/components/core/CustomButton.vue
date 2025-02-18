@@ -59,7 +59,7 @@ const props = defineProps({
 
 // Tailwind classes for button sizes
 const sizes = {
-  small: "px-2 md:px-5 py-2 text-xs",
+  small: "px-3 md:px-5 py-2 text-xs",
   medium: "px-8 py-3 text-sm",
   large: "px-10 py-4 text-md",
 };

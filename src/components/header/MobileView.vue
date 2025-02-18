@@ -1,7 +1,7 @@
 <template>
   <header class="bg-black flex flex-col z-50 relative">
     <div class="relative">
-      <div class="flex justify-between items-center p-1.5">
+      <div class="flex justify-between items-center p-2">
         <Logo />
         <div class="flex items-center">
           <!-- <div
@@ -33,7 +33,7 @@
             >LOG IN</CustomButton
           >
           <div
-            class="cursor-pointer h-6 w-6 flex items-center"
+            class="cursor-pointer h-7 w-7 flex items-center"
             @click="onMenuClick"
           >
             <img
