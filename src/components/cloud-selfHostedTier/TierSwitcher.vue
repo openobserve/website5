@@ -64,7 +64,6 @@ const selectedTab = ref("cloud");
               <CloudTier :tiers="cloudData" />
             </div>
             <div v-if="selectedTab === 'selfHosted'">
-              fdxcfdgf
               <SelfHostedTier :tiers="selfHostedData" />
             </div>
           </div>

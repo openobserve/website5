@@ -104,12 +104,12 @@ console.log(props.haDeploymentDescription);
               <div class="flex gap-3 items-center">
                 <span>
                   <img
-                    src="/download-pricing/HA-deploy.svg"
+                    src="/download-pricing/High Availability (HA) and Clustering.svg"
                     alt="icon"
-                    class="w-5 md:w-6 h-5 md:h-6"
+                    class="w-4 md:w-5 h-4 md:h-5"
                   />
                 </span>
-                <span class="text-sm">High Availability</span>
+                <span class="text-sm">High Availability(HA) Deployment</span>
               </div>
             </li>
           </ul>
