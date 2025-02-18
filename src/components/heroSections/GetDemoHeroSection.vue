@@ -12,15 +12,21 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[30vh] sm:min-h-[40vh] before:content-[''] before:absolute before:w-full before:h-full before:top-0 before:bg-no-repeat before:bg-cover before:bg-center sm:before:bg-[50%_-20vh] md:before:bg-[50%_-10vh] xl:before:bg-[50%_-10vh] before:bg-[url('/demoPage/Eclipse.svg')]"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[30vh] sm:min-h-[40vh]"
   >
-    <div class="z-10 container mx-auto max-w-4xl">
+    <!-- Top Background -->
+    <div
+      class="absolute inset-0 bg-no-repeat bg-cover bg-top sm:bg-[50%_-20vh] md:bg-[50%_-10vh] xl:bg-[50%_-10vh]"
+      style="background-image: url('/ContactUsTopbg.svg')"
+    ></div>
+    <div class="z-10 container mx-auto max-w-4xl absolute">
       <TextWithGradient
         class="text-center text-4xl py-3 md:text-5xl xl:text-7xl font-bold"
         :title="props.title"
         textGradientColor="gradient-color"
       />
     </div>
+   
   </section>
 </template>
 

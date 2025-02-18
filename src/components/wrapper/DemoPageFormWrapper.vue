@@ -24,7 +24,7 @@ defineProps({
 
 <template>
   <div
-    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card p-6 md:p-12 max-w-7xl mx-auto"
+    class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card pt-6 md:pt-12 pb-0 max-w-7xl mx-auto"
   >
     <div class="flex flex-col md:flex-row gap-8">
       <LeftFeatureSection
@@ -35,9 +35,15 @@ defineProps({
       />
       <SampleForm />
     </div>
+     <!-- Bottom Background -->
     <div
-      class=""
-      style="background-image: url('/demoPage/Eclipse-2.svg')"
+      class="w-full h-56 scale-x-125"
+     :style="{
+      backgroundImage: 'url(/ContactUsBottombg.svg)',
+      backgroundPosition: 'bottom',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+    }"
     ></div>
   </div>
 </template>
