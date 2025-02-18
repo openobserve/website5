@@ -104,7 +104,7 @@ console.log(props.haDeploymentDescription);
               <div class="flex gap-3 items-center">
                 <span>
                   <img
-                    src="/download-pricing/HA-deployment.svg"
+                    src="/download-pricing/HA-deploy.svg"
                     alt="icon"
                     class="w-5 md:w-6 h-5 md:h-6"
                   />
