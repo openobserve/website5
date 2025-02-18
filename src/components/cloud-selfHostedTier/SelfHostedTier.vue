@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { StringValidation } from "astro:schema";
 import CustomButton from "../core/CustomButton.vue";
 
 interface Feature {
@@ -17,6 +18,14 @@ interface PricingTier {
     target: string;
   };
   bottomDescription: string;
+  enterpriseTitle: String;
+  enterpriseDescription: String;
+  enterpriseFeatures: Feature[];
+  demoButton: {
+    text: string;
+    link: string;
+    target: string;
+  };
 }
 
 const props = defineProps<{
@@ -25,80 +34,102 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-full container mx-auto ">
-    <!-- Pricing Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div
-        v-for="(tier, index) in tiers"
-        :key="index"
-        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
-      >
-        <!-- Tier Header -->
-        <div class="mb-6 text-center">
-          <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
-            {{ tier.title }}
-          </h3>
-          <h4 class="text-white text-md md:text-lg font-medium">
-            {{ tier.subTitle }}
-          </h4>
-          <p class="text-gray-400 text-xs md:text-sm pt-4">
-            {{ tier.description }}
+  <div class="w-full container mx-auto flex flex-col items-center">
+    <div class="p-2.5 border border-gray-700/50 rounded-lg w-full">
+      <div class="grid grid-cols-1 gap-10">
+        
+        <!-- Column 1 -->
+        <div class="flex flex-col items-center text-center">
+          <p class="text-white text-md md:text-lg pt-4">
+            {{ tiers.enterpriseTitle }}
           </p>
-        </div>
+          <h4 class="text-gray-400 text-xs md:text-sm mt-3 font-medium">
+            {{ tiers.enterpriseDescription  }}
+          </h4>
 
-        <!-- Features List -->
-        <div class="flex-grow">
-          <ul class="space-y-2 md:space-y-4 mb-8">
+         
+          
+          <!-- Features List -->
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-[70%]">
             <li
-              v-for="(feature, featureIndex) in tier.features"
+              v-for="(feature, featureIndex) in tiers.enterpriseFeatures"
               :key="featureIndex"
               class="flex items-center gap-3 text-gray-300"
             >
-              <span class="flex-shrink-0">
-                <img
-                  src="/img/bg/icon/Frame-11216.svg"
-                  alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
-                />
-              </span>
+              <img
+                src="/img/bg/icon/Frame-11216.svg"
+                alt="icon"
+                class="w-4 md:w-5 h-4 md:h-5"
+              />
+              <span class="text-sm text-left">{{ feature.title }}</span>
+            </li>
+          </ul>
+
+          <p class="text-gray-400 text-xs md:text-sm mt-3">
+            {{ tiers.bottomDescription }}
+          </p>
+
+            <!-- Action Button -->
+            <div class="mt-6">
+            <CustomButton
+              v-if="tiers?.demoButton?.link"
+              variant="primary"
+              :button-link="tiers.demoButton.link"
+              class="transition-all duration-200"
+              :target="tiers.demoButton.target"
+            >
+              {{ tiers.demoButton.text }}
+            </CustomButton>
+          </div>
+
+         
+        </div>
+
+        <!-- Column 2 -->
+        <div class="flex flex-col items-center text-center">
+          <p class="text-white text-md md:text-lg pt-4">
+            {{ tiers.subTitle }}
+          </p>
+          <h4 class="text-gray-400 text-xs md:text-sm mt-3 font-medium">
+            {{ tiers.description }}
+          </h4>
+          
+          <!-- Enterprise Features List -->
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4  w-[70%]">
+            <li
+              v-for="(feature, featureIndex) in tiers.features"
+              :key="featureIndex"
+              class="flex items-center gap-3 text-gray-300"
+            >
+              <img
+                src="/img/bg/icon/Frame-11216.svg"
+                alt="icon"
+                class="w-4 md:w-5 h-4 md:h-5"
+              />
               <span class="text-sm">{{ feature.title }}</span>
             </li>
           </ul>
-          <p class="text-gray-400 text-xs md:text-sm text-center">
-            {{ tier.bottomDescription }}
-          </p>
-        </div>
-        <!-- Action Button -->
-        <div class="text-center w-full mt-6">
-          <!-- @click="tier.buttonAction" -->
-          <div class="hidden lg:block place-items-center">
+
+           <!-- Action Button -->
+           <div class="mt-6">
             <CustomButton
-              v-if="tier?.primaryButton?.link"
-              variant="pricing"
-              :button-link="tier.primaryButton.link"
-              class="transition-all duration-200"
-              :target="tier.primaryButton.target"
-            >
-              {{ tier.primaryButton.text }}
-            </CustomButton>
-          </div>
-          <div class="lg:hidden">
-            <CustomButton
-              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
+              v-if="tiers?.primaryButton?.link"
               variant="secondary"
-              size="small"
+              :button-link="tiers.primaryButton.link"
               class="transition-all duration-200"
-              :button-link="tier.primaryButton.link"
-              :target="tier.primaryButton.target"
+              :target="tiers.primaryButton.target"
             >
-              {{ tier.primaryButton.text }}
+              {{ tiers.primaryButton.text }}
             </CustomButton>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </template>
+
+
 
 <style scoped>
 .t-color {
@@ -113,6 +144,7 @@ const props = defineProps<{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* Optional: Add custom animations or transitions */
 .transition-all {
   transition-property: all;
