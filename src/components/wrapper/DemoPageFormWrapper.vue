@@ -37,7 +37,7 @@ defineProps({
     </div>
      <!-- Bottom Background -->
     <div
-      class="w-full h-56 scale-x-125"
+      class="w-full h-56 lg:scale-x-110"
      :style="{
       backgroundImage: 'url(/ContactUsBottombg.svg)',
       backgroundPosition: 'bottom',
