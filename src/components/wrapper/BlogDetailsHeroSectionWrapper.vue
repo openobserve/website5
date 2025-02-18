@@ -46,8 +46,7 @@ defineProps({
         <!-- {{ console.log(suggestions,"suggestionssuggestionssuggestionssuggestions") }} -->
         <!-- Suggestions -->
         <CustomSuggestions :suggestions="suggestions" @selectSuggestion="selectSuggestion" :type="type"
-          class="flex flex-wrap gap-4 justify-center md:justify-start" />
-
+          class="flex flex-wrap gap-4 justify-center " />
         <!-- Icons Container -->
         <!-- <div class="flex items-center gap-4 mt-4 md:mt-0 justify-center md:justify-end">
           <span class="text-white text-sm">Share:</span>
