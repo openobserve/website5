@@ -26,7 +26,7 @@ defineProps({
   <div
     class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card pt-6 md:pt-12 pb-0 max-w-7xl mx-auto"
   >
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row gap-8 px-4">
       <LeftFeatureSection
         :description="description"
         :keyFeatures="keyFeatures"

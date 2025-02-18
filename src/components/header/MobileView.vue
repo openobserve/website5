@@ -103,7 +103,6 @@
               variant="primary"
               size="large"
               buttonLink="/demo"
-              target="_blank"
               >GET DEMO</CustomButton
             >
           </div>
