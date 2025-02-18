@@ -107,7 +107,7 @@ const handleSubmit = (values) => {};
             Terms and Conditions
           </a>
         </div>
-        <!-- <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
+        <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
           <a
             href="https://cloud.openobserve.ai/web/login"
             class="w-full md:w-80"
@@ -121,11 +121,11 @@ const handleSubmit = (values) => {};
               >
             </button>
           </a>
-        </div> -->
+        </div>
 
         <!-- Commenting out the following for now and replacing with the above snippet to directly navigate to Cloud login page.
         TO-DO - Fix the links below and ensure they all work to login. -->
-        <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
+        <!-- <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
           <a href="https://auth.openobserve.ai/dex/auth/github?client_id=o2-client&redirect_uri=https%3A%2F%2Fcloud.openobserve.ai%2Fconfig%2Fredirect&response_type=code&scope=openid+profile+email+groups+offline_access&state=5cuFXm2a0iMLlHZvJNCJVK9NgTPUNWLp" target="_blank" class="w-full md:w-80">
             <button
               class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
@@ -165,7 +165,7 @@ const handleSubmit = (values) => {};
               <span class="font-medium text-sm md:text-base">Log in with Microsoft</span>
             </button>
           </a>
-        </div>
+        </div> -->
 
         <!-- <CustomSeprater /> -->
 

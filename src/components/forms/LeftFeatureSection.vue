@@ -25,27 +25,24 @@ defineProps({
 <template>
   <div class="md:w-1/2 p-6">
     <div class="py-5">
-      <h3 class="text-lg font-semibold text-white mb-4">Why Request a Demo?</h3>
+      <h3 class="text-lg md:text-xl font-semibold text-white mb-4">
+        Why Request a Demo?
+      </h3>
       <ul class="space-y-4">
         <li
           v-for="(feature, index) in keyFeatures"
           :key="index"
           class="flex items-start gap-4"
         >
-          
-          <img
-            src="/rightTick.svg"
-            alt="icon"
-            class="w-6 h-6"
-          />
-          <span class="text-white">{{ feature }}</span>
+          <img src="/rightTick.svg" alt="icon" class="w-6 h-6" />
+          <span class="text-white text-sm">{{ feature }}</span>
         </li>
       </ul>
       <h3 class="text-md font-semibold text-white py-6">
         {{ footerdescription }}
       </h3>
       <CustomSeprater />
-      <h3 class="text-lg font-semibold text-white mb-4">
+      <h3 class="text-lg md:text-xl font-semibold text-white mb-4 mt-[4vh]">
         What to Expect in Your Demo?
       </h3>
       <ul class="space-y-4">
@@ -59,7 +56,7 @@ defineProps({
             altText="icon"
             cssClass="w-6 h-6"
           />
-          <span class="text-white">{{ feature }}</span>
+          <span class="text-white text-sm">{{ feature }}</span>
         </li>
       </ul>
     </div>

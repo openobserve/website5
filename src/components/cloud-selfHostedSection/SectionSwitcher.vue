@@ -92,8 +92,11 @@ const selectedTab = ref("cloud");
             :enterprise-features="selfHostedData?.enterpriseFeatures"
             :enterprise-title="selfHostedData?.enterpriseTitle"
             :download-title="selfHostedData?.downloadTitle"
+            :haDeploymentDescription="selfHostedData?.haDeploymentDescription"
             :enterprise-description="selfHostedData?.enterpriseDescription"
-            :enterpriseBottomDescription="selfHostedData?.enterpriseBottomDescription"
+            :enterpriseBottomDescription="
+              selfHostedData?.enterpriseBottomDescription
+            "
             :title="selfHostedData?.title"
             :self-hosted-button="selfHostedData?.selfHostedButton"
             key="selfHosted"
@@ -114,7 +117,8 @@ const selectedTab = ref("cloud");
 }
 .cld-btn {
   border-radius: 4px;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 7.31%,
       rgba(2, 16, 112, 0.4) 80.86%
@@ -136,7 +140,8 @@ const selectedTab = ref("cloud");
 }
 .slf-btn {
   border-radius: 4px;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 48.63%,
       rgba(44, 8, 80, 0.4) 86.59%
@@ -162,11 +167,8 @@ const selectedTab = ref("cloud");
 .slf-be-effect {
   color: white;
   border-radius: 4px;
-  background: linear-gradient(
-      88deg,
-      rgba(0, 0, 0, 0) 51.76%,
-      rgba(1, 1, 1, 0.8) 92%
-    ),
+  background:
+    linear-gradient(88deg, rgba(0, 0, 0, 0) 51.76%, rgba(1, 1, 1, 0.8) 92%),
     linear-gradient(
       92deg,
       rgba(255, 255, 255, 0) -3.08%,
@@ -176,11 +178,8 @@ const selectedTab = ref("cloud");
 .cld-be-effect {
   color: white;
   border-radius: 4px;
-  background: linear-gradient(
-      270deg,
-      rgba(0, 0, 0, 0) 6.6%,
-      rgba(1, 8, 55, 0.56) 71.85%
-    ),
+  background:
+    linear-gradient(270deg, rgba(0, 0, 0, 0) 6.6%, rgba(1, 8, 55, 0.56) 71.85%),
     linear-gradient(
       271deg,
       rgba(255, 183, 175, 0.24) 11.39%,

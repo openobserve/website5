@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  haDeploymentDescription: {
+    type: String,
+    required: true,
+  },
   enterpriseTitle: {
     type: String,
     required: true,
@@ -39,7 +43,7 @@ const props = defineProps({
   },
 });
 
-const copied = ref(false);
+console.log(props.haDeploymentDescription);
 </script>
 
 <template>
@@ -93,6 +97,27 @@ const copied = ref(false);
         <div
           class="text-md md:text-lg font-semibold text-white mb-8 v-html-content"
           v-html="downloadTitle"
+        ></div>
+        <div class="flex-grow">
+          <ul class="space-y-4 pb-[2vh]">
+            <li class="text-gray-300">
+              <div class="flex gap-3 items-center">
+                <span>
+                  <img
+                    src="/download-pricing/HA-deployment.svg"
+                    alt="icon"
+                    class="w-5 md:w-6 h-5 md:h-6"
+                  />
+                </span>
+                <span class="text-sm">High Availability</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="text-md md:text-lg font-semibold text-white mb-8 v-html-content"
+          v-html="haDeploymentDescription"
         ></div>
 
         <!-- <div class="flex gap-3 items-center py-5">
