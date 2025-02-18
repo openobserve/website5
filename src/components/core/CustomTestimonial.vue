@@ -24,7 +24,10 @@ const swiperOptions = {
   pagination: {
     clickable: true,
   },
-  navigation: true, // Enable default navigation settings
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
   breakpoints: {
     1024: {
       slidesPerView: 3,
@@ -53,7 +56,6 @@ onMounted(() => {
         ref="swiperRef"
         :modules="swiperModules"
         v-bind="swiperOptions"
-        :navigation="true"
         class="testimonial-swiper"
       >
         <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
@@ -75,13 +77,13 @@ onMounted(() => {
           </div>
         </swiper-slide>
 
-        <!-- Navigation Arrows (Only Visible on Desktop) -->
+        <!-- Navigation Arrows (Both Mobile & Desktop)
         <div
-          class="swiper-button-prev hidden md:flex absolute -left-10 top-1/2 transform -translate-y-1/2 z-20 opacity-60 hover:opacity-100 transition duration-300"
+          class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
         ></div>
         <div
-          class="swiper-button-next hidden md:flex absolute -right-10 top-1/2 transform -translate-y-1/2 z-20 opacity-60 hover:opacity-100 transition duration-300"
-        ></div>
+          class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
+        ></div> -->
       </swiper>
     </div>
   </div>
@@ -92,7 +94,6 @@ onMounted(() => {
   padding-bottom: 40px !important;
 }
 
-/* Pagination Bullets */
 .testimonial-swiper .swiper-pagination-bullet {
   background: #4b5563;
   opacity: 1;
@@ -102,60 +103,40 @@ onMounted(() => {
   background: #3b82f6;
 }
 
-/* Navigation Arrows (Hidden on Mobile, Visible on Desktop) */
+/* Customize Navigation Arrows */
 .swiper-button-prev,
 .swiper-button-next {
-  width: 40px; /* Adjusted size */
-  height: 40px;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  color: white;
-  border-radius: 50%;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    opacity 0.3s ease-in-out,
-    background 0.3s ease-in-out;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 50%;
 }
 
-/* Proper Positioning on Desktop */
-@media (min-width: 1024px) {
-  .swiper-button-prev {
-    left: -50px; /* Adjusted for better alignment */
-  }
-  .swiper-button-next {
-    right: -50px; /* Adjusted for better alignment */
-  }
-}
-
-/* Hide Arrows on Mobile */
-@media (max-width: 640px) {
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none !important;
-  }
-}
-
-/* Arrow Hover Effect */
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
   background: rgba(0, 0, 0, 0.8);
-  opacity: 1;
 }
 
-/* Swiper's Built-in Styling Tweaks */
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
   color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 :deep(.swiper-button-next::after),
 :deep(.swiper-button-prev::after) {
-  font-size: 16px; /* Proper icon size */
+  font-size: 20px;
 }
 
 :deep(.swiper-button-disabled) {
-  opacity: 0.3; /* Faint visibility when disabled */
+  opacity: 0.35;
   cursor: not-allowed;
 }
 </style>
