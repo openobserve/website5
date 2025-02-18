@@ -27,7 +27,7 @@ const props = defineProps({
         <!-- For md screens and up, image is inside CustomSection -->
         <img
           alt="Bottom decoration"
-          class="hidden md:block absolute w-screen h-auto rounded-2xl"
+          class="hidden md:block absolute w-screen h-3/5 "
           src="/img/bg/platform/glass-bg.svg"
         />
 
