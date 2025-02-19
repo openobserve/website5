@@ -9,4 +9,8 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://openobserve.ai", // Replace with your website URL
   integrations: [vue(), tailwind(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
 });
