@@ -238,7 +238,7 @@
       </CustomHoverHeader>
     </div>
     <div
-      class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[45%] container mx-auto"
+      class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] container mx-auto"
       v-if="isResourcesMenuOpen"
       @mouseenter="onResourcesMenuHover"
     >
@@ -308,7 +308,7 @@
       </CustomHoverHeader>
     </div>
     <div
-      class="absolute top-full flex justify-center left-1/2 w-52 container mx-auto"
+      class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto"
       v-if="isCompanyMenuOpen"
       @mouseenter="onCompanyMenuHover"
     >
