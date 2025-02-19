@@ -18,18 +18,17 @@ const props = defineProps({
 
 <template>
   <CustomSection>
-    <div class="grid-container md:px-4 md:-mt-20 md:z-10">
+    <div class="grid-container md:px-4 md:-mt-16 md:z-10">
       <div
         v-for="(item, index) in items"
         :key="index"
-        class="grid-item rounded-3xl w-full h-full p-[0.0625rem] bg-gradient-blue transition-all duration-300 shadow-2xl hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)]"
+        class="grid-item rounded-sm bg-[#131219]  w-full h-full"
       >
         <!-- Content Layer -->
         <div
-          class="grid bg-gray-800 rounded-3xl p-6 h-full transition-colors"
+          class="flex flex-col p-6 h-full gap-4"
         >
           <!-- Icon and Title Row -->
-          <div class="flex items-center space-x-4 mb-3">
             <!-- Icon/Logo -->
             <CustomImage
               v-if="item?.image"
@@ -38,11 +37,9 @@ const props = defineProps({
               class="w-10 h-10"
             />
             <!-- Title -->
-            <h3 class="text-white font-medium text-lg">{{ item.title }}</h3>
-          </div>
-
+          <h3 class=" text-white font-medium text-lg text-left">{{ item.title }}</h3>
           <!-- Description -->
-          <p class="text-gray-300 text-sm" v-html="item?.description"></p>
+          <p class="text-[#BEC0C2] text-sm text-left" v-html="item?.description"></p>
         </div>
       </div>
     </div>
@@ -57,7 +54,6 @@ const props = defineProps({
 }
 
 .grid-item {
-  background-color: #e5e7eb;
   text-align: center;
   grid-column: span 2;
 }
