@@ -388,7 +388,7 @@ const onPlatformMenuHover = () => {
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
     isPlatformMenuOpen.value = false;
-  }, 500); // 2-second delay before closing
+  }, 300); 
 };
 
 const onSolutionMenuHover = () => {
