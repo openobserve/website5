@@ -1,5 +1,6 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref, computed } from "vue";
+import VueTyping from "@dmncodes/vue-typing";
 import CustomButton from "../core/CustomButton.vue";
 import DockerCode from "../core/DockerCode.vue";
 
@@ -25,6 +26,9 @@ const props = defineProps({
     required: false,
   },
 });
+
+// Convert title (with <br/> tags) into an array of sentences for VueTyping
+const sentences = computed(() => props.title.split("<br/>"));
 </script>
 
 <template>
@@ -53,12 +57,21 @@ const props = defineProps({
     >
       <!-- Left Content -->
       <div
-        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left "
+        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
       >
-        <h1
-          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl  font-bold  leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
-          v-html="title"
-        ></h1>
+        <!-- Typing Effect -->
+        <VueTyping
+          class="text-white text-2xl sm:text-3xl md:text-4xl xl:text-6xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
+          :sentences="sentences"
+          :minTypeSpeed="150"
+          :maxTypeSpeed="150"
+          :eraseSpeed="50"
+          :eraseDelay="1000"
+          :writeDelay="0"
+          caret="|"
+          caretClass="custom-caret"
+          :loop="true"
+        />
 
         <p
           class="text-base sm:text-lg md:text-xl opacity-80"
@@ -96,3 +109,23 @@ const props = defineProps({
     </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+:deep(.dmn-typing span.caret) {
+  color: #a5a7a9 !important; /* Tailwind gray-600 */
+  font-weight: 300 !important;
+  font-size: 1em !important;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
