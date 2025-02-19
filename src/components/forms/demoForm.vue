@@ -17,6 +17,10 @@ const props = defineProps({
 const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
+  phone: yup
+    .string()
+    .matches(/^\d+$/, "Phone number must be digits only")
+    .required("Phone number is required"),
   help: yup.string().required("Message is required"),
   terms: yup
     .boolean()
@@ -29,6 +33,7 @@ const { handleSubmit } = useForm({ validationSchema: schema });
 
 const name = useField("name");
 const email = useField("email");
+const phone = useField("phone");
 const help = useField("help");
 const terms = useField("terms");
 
@@ -48,6 +53,7 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
+          senderPhone: values.phone,
           senderWebsite: "",
           senderMobile: "",
           senderMessage: values.help,
@@ -67,6 +73,15 @@ const onSubmit = handleSubmit(async (values) => {
     loading.value = false;
   }
 });
+
+// Restrict input to numeric values and 10 digits
+const onContactInput = (event) => {
+  let value = event.target.value;
+  // Allow only numeric input and truncate to 10 digits
+  value = value.replace(/\D/g, "").slice(0, 10);
+  event.target.value = value; // Update the input value in the DOM
+  contact.value.value = value; // Update the model value
+};
 </script>
 
 <template>
@@ -77,6 +92,7 @@ const onSubmit = handleSubmit(async (values) => {
     <div class="w-full max-w-md md:max-w-lg p-6 md:p-8 rounded-lg shadow-lg">
       <form @submit.prevent="onSubmit">
         <div class="space-y-3">
+          <!-- Name Field -->
           <div>
             <label
               for="name"
@@ -93,6 +109,8 @@ const onSubmit = handleSubmit(async (values) => {
               name.errorMessage.value
             }}</span>
           </div>
+
+          <!-- Email Field -->
           <div>
             <label
               for="email"
@@ -112,10 +130,27 @@ const onSubmit = handleSubmit(async (values) => {
               >{{ email.errorMessage.value }}</span
             >
           </div>
+           <!-- Contact Field -->
+           <div>
+          <label for="phone" class="text-gray-200 font-medium cursor-pointer">
+            Phone Number <span class="text-red-500">*</span>
+          </label>
+          <CustomInput
+            id="phone"
+            v-model="phone.value.value"
+            name="phone"
+            placeholder="Enter here"
+          />
+          <span v-if="phone.errorMessage.value" class="text-xs text-red-500">{{
+            phone.errorMessage.value
+          }}</span>
+        </div>
 
-          <div class="input-group">
+
+          <!-- Message Field -->
+          <div>
             <label
-              for="message"
+              for="help"
               class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
             >
               Message <span class="text-red-500">*</span>
@@ -136,6 +171,7 @@ const onSubmit = handleSubmit(async (values) => {
             }}</span>
           </div>
 
+         
           <!-- Terms & Conditions -->
           <div class="flex flex-col items-start gap-2">
             <div class="flex items-start gap-2">
