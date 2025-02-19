@@ -118,7 +118,14 @@ const sentences = computed(() => props.title.split("<br/>"));
 }
 :deep(.dmn-typing span.caret) {
   color: #a5a7a9 !important; /* Tailwind gray-600 */
-  font-weight: 300 !important; /* Lighter font makes caret thinner */
-  font-size: 1em !important; /* Ensures it matches text size */
+  font-weight: 300 !important;
+  font-size: 1em !important;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 </style>
