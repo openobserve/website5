@@ -7,6 +7,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
@@ -25,6 +29,9 @@ const props = defineProps({
         :title="props.title"
         textGradientColor="gradient-color"
       />
+      <div v-if="description">
+        <h1 class="text-white text-base md:text-lg xl:text-xl mt-4">{{ description }}</h1>
+      </div>
     </div>
    
   </section>

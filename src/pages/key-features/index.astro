@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 import { getCaseStudies } from "@/utils/api/blogs";
+import GetDemoHeroSection from "@/components/heroSections/GetDemoHeroSection.vue";
 
 const PageData = await fetchApi({
   endpoint: "api/key-features-page",
@@ -13,6 +14,10 @@ const metaObj = PageData?.data?.seo;
 ---
 
 <Layout metaObj={metaObj}>
+  <GetDemoHeroSection
+    title="Key Features"
+    description="Transform your observability strategy with OpenObserve's comprehensive features, designed for modern, scalable deployments."
+  />
   <ComponentCollectionMapper
     data={PageData?.data?.body}
     caseStudyData={loadcaseStudyData}
