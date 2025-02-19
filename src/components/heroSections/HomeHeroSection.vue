@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import DockerCode from "../core/DockerCode.vue";
+import TypingText from "../core/TypingText.vue";
 
 const props = defineProps({
   title: {
@@ -53,12 +54,9 @@ const props = defineProps({
     >
       <!-- Left Content -->
       <div
-        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left "
+        class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
       >
-        <h1
-          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl  font-bold  leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
-          v-html="title"
-        ></h1>
+        <TypingText :text="title" />
 
         <p
           class="text-base sm:text-lg md:text-xl opacity-80"
