@@ -47,11 +47,14 @@ const copyCode = () => {
       class="absolute top-1 right-1 md:top-3 md:right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition"
     >
       <img
-        :src="
-          copied
-            ? '/download-pricing/copiedIcon.svg'
-            : '/download-pricing/copyIcon.svg'
-        "
+        v-show="copied"
+        src="/download-pricing/copiedIcon.svg"
+        alt="copy icon"
+        class="w-4 h-4 md:w-5 md:h-5"
+      />
+      <img
+        v-show="!copied"
+        src="/download-pricing/copyIcon.svg"
         alt="copy icon"
         class="w-4 h-4 md:w-5 md:h-5"
       />

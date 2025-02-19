@@ -19,8 +19,7 @@ const schema = yup.object({
   email: yup.string().email("Invalid email").required("Email is required"),
   phone: yup
     .string()
-    .matches(/^\d+$/, "Phone number must be digits only")
-    .required("Phone number is required"),
+    .matches(/^\d+$/, "Phone number must be digits only"),
   help: yup.string().required("Message is required"),
   terms: yup
     .boolean()
