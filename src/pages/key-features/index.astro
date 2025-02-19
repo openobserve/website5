@@ -14,18 +14,23 @@ const metaObj = PageData?.data?.seo;
 ---
 
 <Layout metaObj={metaObj}>
-  <!-- <GetDemoHeroSection
-    title="Observability in Your Hands: Analyze, Transform, and Streamline Your Telemetry Data"
-    description="A first-class single pane experience with end-to-end telemetry management to control your observability data and its costs."
-  /> -->
-  <div class="place-items-center py-16 bg-[url('/background/key-feature-bg.svg')] bg-cover bg-center bg-no-repeat">
-    <h1 class="text-white text-md font-bold md:text-3xl mt-4 max-w-3xl text-center">
-      Observability in Your Hands: Analyze, Transform, and Streamline Your Telemetry Data
+  <GetDemoHeroSection
+    title="Key Features"
+    description="Transform your observability strategy with OpenObserve's comprehensive features, designed for modern, scalable deployments."
+    />
+  <!-- <div
+    class="place-items-center py-16 bg-[url('/background/key-feature-bg.svg')] bg-cover bg-center bg-no-repeat"
+  >
+    <h1
+      class="text-white text-md font-bold md:text-3xl mt-4 max-w-3xl text-center"
+    >
+      Key Features
     </h1>
     <p class="text-white text-base font-medium md:text-lg xl:text-xl mt-4">
-      A first-class single pane experience with end-to-end telemetry management to control your observability data and its costs.
+      Transform your observability strategy with OpenObserve's comprehensive
+      features, designed for modern, scalable deployments.
     </p>
-  </div>
+  </div> -->
   <ComponentCollectionMapper
     data={PageData?.data?.body}
     caseStudyData={loadcaseStudyData}
