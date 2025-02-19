@@ -61,17 +61,17 @@ const sentences = computed(() => props.title.split("<br/>"));
       >
         <!-- Typing Effect -->
         <VueTyping
-          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
+          class="text-white text-2xl sm:text-3xl md:text-4xl xl:text-6xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
           :sentences="sentences"
-          :minTypeSpeed="50"
+          :minTypeSpeed="150"
           :maxTypeSpeed="150"
-          :eraseSpeed="100"
-          :eraseDelay="1500"
+          :eraseSpeed="50"
+          :eraseDelay="1000"
           :writeDelay="0"
           caret="|"
+          caretClass="custom-caret"
           :loop="true"
-        >
-        </VueTyping>
+        />
 
         <p
           class="text-base sm:text-lg md:text-xl opacity-80"
@@ -111,18 +111,14 @@ const sentences = computed(() => props.title.split("<br/>"));
 </template>
 
 <style scoped>
-/* Blinking Vertical Cursor */
-.dmn-typing span.caret {
-  display: inline-block;
-  width: 0.5rem; /* Adjust width */
-  height: 1.2em; /* Match text height */
-  background-color: currentColor;
-  animation: blink 1s infinite;
-}
-
 @keyframes blink {
   50% {
     opacity: 0;
   }
+}
+:deep(.dmn-typing span.caret) {
+  color: #a5a7a9 !important; /* Tailwind gray-600 */
+  font-weight: 300 !important; /* Lighter font makes caret thinner */
+  font-size: 1em !important; /* Ensures it matches text size */
 }
 </style>
