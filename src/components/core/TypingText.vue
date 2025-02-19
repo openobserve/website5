@@ -9,8 +9,6 @@ const props = defineProps({
   },
 });
 
-// Ensure text is passed as an array
-const textArray = computed(() => [props.text]);
 console.log(props.text);
 </script>
 

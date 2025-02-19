@@ -1,8 +1,8 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref, computed } from "vue";
+import VueTyping from "@dmncodes/vue-typing";
 import CustomButton from "../core/CustomButton.vue";
 import DockerCode from "../core/DockerCode.vue";
-import TypingText from "../core/TypingText.vue";
 
 const props = defineProps({
   title: {
@@ -26,6 +26,9 @@ const props = defineProps({
     required: false,
   },
 });
+
+// Convert title (with <br/> tags) into an array of sentences for VueTyping
+const sentences = computed(() => props.title.split("<br/>"));
 </script>
 
 <template>
@@ -56,7 +59,19 @@ const props = defineProps({
       <div
         class="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left"
       >
-        <TypingText :text="title" />
+        <!-- Typing Effect -->
+        <VueTyping
+          class="text-2xl sm:text-3xl md:text-4xl xl:text-6xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
+          :sentences="sentences"
+          :minTypeSpeed="50"
+          :maxTypeSpeed="150"
+          :eraseSpeed="100"
+          :eraseDelay="1500"
+          :writeDelay="0"
+          caret="|"
+          :loop="true"
+        >
+        </VueTyping>
 
         <p
           class="text-base sm:text-lg md:text-xl opacity-80"
@@ -94,3 +109,20 @@ const props = defineProps({
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Blinking Vertical Cursor */
+.dmn-typing span.caret {
+  display: inline-block;
+  width: 0.5rem; /* Adjust width */
+  height: 1.2em; /* Match text height */
+  background-color: currentColor;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
