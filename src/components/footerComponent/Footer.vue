@@ -212,7 +212,7 @@ const getCurrentYear = () => new Date().getFullYear();
                 <img src="/Slack.svg" class="w-8 h-8" />
               </a> -->
               <a
-                href="https://join.slack.com/t/zincobserve/shared_invite/zt-11r96hv2b-UwxUILuSJ1duzl_6mhJwVg"
+                href="https://short.openobserve.ai/community"
                 target="_blank"
                 class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]"
               >

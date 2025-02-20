@@ -1,7 +1,9 @@
 <template>
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50">
-    <div class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2">
+    <div
+      class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2"
+    >
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full">
@@ -79,6 +81,17 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
+        <a
+          class="rounded-[4px] transition flex items-center border border-[#3d444d]"
+          href="https://short.openobserve.ai/community"
+          target="_blank"
+        >
+          <img
+            src="/slackIcon.svg"
+            alt="Search Icon"
+            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
+          />
+        </a>
         <!-- GitHub Stats Section -->
         <GithubButton
           href="https://github.com/openobserve/openobserve"
@@ -272,7 +285,9 @@
                   >
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/faqs" class="text-lg font-bold gradient-hover">Frequently Asked Questions</a>
+                  <a href="/faqs" class="text-lg font-bold gradient-hover"
+                    >Frequently Asked Questions</a
+                  >
                 </li>
               </ul>
             </div>
@@ -326,6 +341,25 @@
         </ul>
       </CustomHoverHeader>
     </div>
+    <!-- <div
+      class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto"
+      v-if="isCommunityOpen"
+      @mouseenter="onCommunityMenuHover"
+    >
+      <CustomHoverHeader @mouseleave="onCommunityMenuMouseLeave">
+        <ul class="flex flex-col space-y-2">
+          <li
+            v-for="(item, index) in items?.company"
+            :key="index"
+            class="text-[#BEC0C2] text-sm"
+          >
+            <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
+              item.title
+            }}</a>
+          </li>
+        </ul>
+      </CustomHoverHeader>
+    </div> -->
     <div
       class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2"
       v-if="isOpenSearch"
@@ -368,12 +402,14 @@ const isPlatformMenuOpen = ref(false);
 const isSolutionMenuOpen = ref(false);
 const isResourcesMenuOpen = ref(false);
 const isCompanyMenuOpen = ref(false);
+const isCommunityMenuOpen = ref(false);
 const isOpenSearch = ref(false);
 const searchWrapper = ref(null); // Reference to the search bar wrapper
 const platformMenuTimeout = ref(null);
 const solutionMenuTimeout = ref(null);
 const resourcesMenuTimeout = ref(null);
 const companyMenuTimeout = ref(null);
+const communityMenuTimeout = ref(null);
 
 const onPlatformMenuHover = () => {
   clearTimeout(platformMenuTimeout.value);
@@ -388,7 +424,7 @@ const onPlatformMenuHover = () => {
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
     isPlatformMenuOpen.value = false;
-  }, 300); 
+  }, 300);
 };
 
 const onSolutionMenuHover = () => {
@@ -438,6 +474,23 @@ const onCompanyMenuMouseLeave = () => {
     isCompanyMenuOpen.value = false;
   }, 500);
 };
+
+// const onCommunityMenuHover = () => {
+//   clearTimeout(communityMenuTimeout.value);
+//   isCommunityMenuOpen.value = true;
+
+//   // Close other menus immediately
+//   isPlatformMenuOpen.value = false;
+//   isSolutionMenuOpen.value = false;
+//   isResourcesMenuOpen.value = false;
+
+// };
+
+// const onCommunityMenuMouseLeave = () => {
+//   communityMenuTimeout.value = setTimeout(() => {
+//     isCommunityMenuOpen.value = false;
+//   }, 500);
+// };
 
 const onSearchClick = () => {
   isOpenSearch.value = !isOpenSearch.value;

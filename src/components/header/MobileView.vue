@@ -3,7 +3,7 @@
     <div class="relative">
       <div class="flex justify-between items-center p-2">
         <Logo />
-        <div class="flex items-center space-x-1.5">
+        <div class="flex items-center space-x-2">
           <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"
@@ -15,6 +15,17 @@
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
           </div> -->
+          <a
+            class="rounded-md transition flex items-center border border-[#3d444d] mt-1"
+            href="https://short.openobserve.ai/community"
+            target="_blank"
+          >
+            <img
+              src="/slackIcon.svg"
+              alt="Search Icon"
+              class="cursor-pointer w-5 h-5 object-cover p-1"
+            />
+          </a>
           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme="dark"
@@ -24,14 +35,20 @@
             class="pt-1"
             >Star</GithubButton
           >
-          <CustomButton
+          <a
+            href="https://cloud.openobserve.ai"
+            class="text-white text-xs"
+            target="_blank"
+            >LOG IN</a
+          >
+          <!-- <CustomButton
             variant="tertiary"
             size="small"
             buttonLink="https://cloud.openobserve.ai"
             target="_blank"
             btn-class="p-0"
             >LOG IN</CustomButton
-          >
+          > -->
           <div
             class="cursor-pointer h-7 w-7 flex items-center"
             @click="onMenuClick"
