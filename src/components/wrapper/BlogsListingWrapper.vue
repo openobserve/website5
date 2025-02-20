@@ -1,6 +1,8 @@
 <template>
   <section class="w-full flex flex-col justify-start">
     <!-- <div class="py-3 md:py-6">
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
+    <!-- <div class="py-3 md:py-6">
       <CustomSuggestions :suggestions="suggestionData" @selectSuggestion="selectSuggestion" :type="type" />
       <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
         <div class="bg-black border border-gray-500 rounded-md p-2">
@@ -39,7 +41,7 @@
         descriptionTextColor="text-gray-400" cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" :type="type" />
     </div> -->
     <div>
-      <BlogListing :sectionData="blogsData" titleTextColor="text-white" descriptionTextColor="text-gray-400"
+      <BlogListing :sectionData="filteredBlogsData" titleTextColor="text-white" descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" :type="type" />
     </div>
 

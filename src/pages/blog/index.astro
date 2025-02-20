@@ -5,6 +5,7 @@ import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCa
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import CustomSuggestions from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
 import {
   getAllBlogs,
@@ -54,34 +55,31 @@ const metaObj = {
     title="Blog"
     description="Explore latest insights and updates"
   />
-  <CaseStudyWrapper data={loadcaseStudyData} client:load />
-
+  <!-- <CaseStudyWrapper data={loadcaseStudyData} client:load /> -->
+  
   <!-- categories section -->
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
-      <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, 15) || []}
-        type="blog"
-        client:load
+      <CustomSuggestions 
+        @selectSuggestion="selectSuggestion"
+        suggestions={suggestionData.slice(0, 15) || []} 
+        type="blog" 
+        client:load 
       />
     </div>
 
     <!-- SearchBar Section -->
     <div class="search-container relative w-full px-4 pb-5">
       <div
-        class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700"
-      >
+        class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700">
         <span class="text-white px-4">
-          <img src="/search.svg" alt="" class="w-6 h-6" />
+          <img src="/search.svg" alt="" class="w-6 h-6"/>
         </span>
-        <input
-          id="blogSearchInput"
-          type="text"
+        <input id="blogSearchInput" type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-neutral-400"
-          placeholder="Search for a blog..."
-          @input="searchBlogs"
-        />
+          placeholder="Search for a blog..." 
+          @input="searchBlogs"/>
       </div>
       <!-- <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
@@ -94,21 +92,20 @@ const metaObj = {
         </template>
       </div>
     </div> -->
-    </div>
-
-    <!-- Blog Listing Component -->
-    <div id="blogListingContainer">
-      <BlogsListingWrapper blogsData={blogsData} client:load />
-    </div>
-
-    <div>
-      <BlogPagination
-        totalItems={count.blogsCount}
-        itemsPerPage={itemsPerPage}
-        currentPage={currentPage}
-        client:load
-        type="blog"
-      />
-    </div>
   </section>
+
+  <!-- Blog Listing Component -->
+  <div id="blogListingContainer">
+    <BlogsListingWrapper
+      type="blog"
+      title="Blog"
+      description="Explore latest insights and updates"
+      blogsData={blogsData}
+      allBlogData={allBlogsData}
+      currentPage={currentPage}
+      suggestionData={suggestionData.slice(0, 15) || []}
+      totalItems={count.blogsCount}
+      client:load
+    />
+  </div>
 </Layout>
