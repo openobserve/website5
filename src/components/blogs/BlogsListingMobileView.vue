@@ -50,11 +50,11 @@ const props = defineProps({
           ]"
         >
           <!-- Left Side - Image -->
-          <div class="h-full rounded-lg">
+          <div class="h-full overflow-hidden">
             <img
               :src="blog?.image?.url || ''"
               :alt="blog.title"
-              class="w-full  h-full rounded-lg"
+              class="w-full object-cover h-40"
             />
           </div>
 
