@@ -6,6 +6,7 @@ import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCa
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import CustomSuggestions from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
 import { getAllBlogs, getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
@@ -66,13 +67,3 @@ const metaObj = {
     items={cardData}
   /> -->
 </Layout>
-<style scoped>
-  .cardShadow:hover {
-    box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8); /* Shadow effect */
-    border-radius: 1rem;
-    transition: all;
-  }
-  .cardShadow:hover h3 {
-    color: #80b9ff;
-  }
-</style>

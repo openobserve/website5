@@ -1,13 +1,13 @@
 <template>
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start">
-    <div class="py-3 md:py-6">
+    <!-- <div class="py-3 md:py-6">
       <CustomSuggestions :suggestions="suggestionData" @selectSuggestion="selectSuggestion" :type="type" />
       <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
-        <!-- <div class="bg-black border border-gray-500 rounded-md p-2">
+        <div class="bg-black border border-gray-500 rounded-md p-2">
             <button class="flex items-center justify-center">
               <img src="/filter.svg" alt="Filter Icon" class="w-6 h-6" />
             </button>
-          </div> -->
+          </div>
       </div>
     </div>
     <div class="search-container relative w-full px-4 pb-5">
@@ -18,8 +18,8 @@
         </span>
         <input v-model="searchItem" type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-neutral-400"
+        @input="handleSearch"
           placeholder="Search for a blog..." />
-        <!-- @input="handleSearch" -->
       </div>
       <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
@@ -33,12 +33,12 @@
       </div>
 
 
-    </div>
-    <div class="block md:hidden">
+    </div> -->
+    <!-- <div class="block md:hidden">
       <BlogsListingMobileWrapper :sectionData="filteredBlogsData" titleTextColor="text-white"
         descriptionTextColor="text-gray-400" cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" :type="type" />
-    </div>
-    <div class="hidden md:block">
+    </div> -->
+    <div>
       <BlogListing :sectionData="filteredBlogsData" titleTextColor="text-white" descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" :type="type" />
     </div>
