@@ -112,21 +112,23 @@ onUnmounted(() => {
   <!-- Image Dialog -->
   <div
     v-if="showDialog"
-    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
-  >
-    <div class="relative p-8 rounded-lg w-full h-screen">
-      <!-- Close button should be inside this relative container -->
-      <button
-        class="absolute top-3 right-3 text-white cursor-pointer z-50"
-        @click="closeDialog"
-      >
-        ✖
-      </button>
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closeDialog"
+    >
+    <!-- Close button should be inside this relative container -->
+    <button
+      class="absolute top-3 right-3 text-white cursor-pointer z-50"
+      @click="closeDialog"
+    >
+      ✖
+    </button>
+    <div class="relative p-8 md:p-[5rem] rounded-lg md:h-screen">
       <CustomImage
         :src="image.url"
         :alt="title"
-        class="w-full h-full rounded-lg p-[3%] object-contain"
-      />
+        class="w-full h-full rounded-lg object-contain"
+        @click.stop
+        />
     </div>
   </div>
 </template>
