@@ -14,11 +14,11 @@
       <div
         class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700">
         <span class="text-white px-4">
-          <img src="/search.svg" alt="Search Icon" />
+          <img src="/search.svg" alt="" class="w-6 h-6"/>
         </span>
         <input v-model="searchItem" type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-neutral-400"
-          placeholder="Search for a Blog..." />
+          placeholder="Search for a blog..." />
         <!-- @input="handleSearch" -->
       </div>
       <div class="mt-2 ml-3 text-white text-sm">
@@ -71,18 +71,17 @@ const props = defineProps({
 });
 
 const searchQuery = ref(""); // category click event
-const allBlogsData = ref([]);
+// const allBlogsData = ref([]);
 const searchItem = ref(""); // type in the search box
 const filteredBlogsData = computed(() => {
-
-  console.log(searchItem, "SearchItem");
+  console.log(searchItem,"Search Item");
   if (!searchItem.value.trim()) {
     return props.blogsData;
   }
 
   const query = searchItem.value.toLowerCase().trim();
-
-  return allBlogsData.value.filter(blog => {
+  console.log(query,"Query");
+  return props.allBlogData.filter(blog => {
     // Match with blog title as per your requirement
     return blog.title?.toLowerCase().includes(query);
   });
@@ -92,22 +91,22 @@ const selectSuggestion = (suggestion) => {
   searchQuery.value = suggestion;
 };
 
-const handleClickOutside = (event) => {
-  if (!event.target.closest(".search-container")) {
-    // Don't clear search query when clicking outside
-  }
-};
+// const handleClickOutside = (event) => {
+//   if (!event.target.closest(".search-container")) {
+//     // Don't clear search query when clicking outside
+//   }
+// };
 
-onMounted(async () => {
-  document.addEventListener("click", handleClickOutside);
-  // Initialize with blogsData prop
-  if (props.blogsData && props.blogsData.length > 0) {
-    allBlogsData.value = props.blogsData;
-  }
-});
+// onMounted(async () => {
+//   document.addEventListener("click", handleClickOutside);
+//   // Initialize with blogsData prop
+//   if (props.blogsData && props.blogsData.length > 0) {
+//     allBlogsData.value = props.blogsData;
+//   }
+// });
 
-onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-  clearTimeout(searchTimeout);
-});
+// onUnmounted(() => {
+//   document.removeEventListener("click", handleClickOutside);
+//   clearTimeout(searchTimeout);
+// });
 </script>

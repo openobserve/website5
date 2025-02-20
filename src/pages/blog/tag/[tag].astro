@@ -41,6 +41,8 @@ if (category) {
 const suggestionData = await getAllCategories();
 
 const loadcaseStudyData = await getCaseStudies();
+const allBlogsData = await getAllBlogs();
+
 
 // 🔹 Additional Card Data
 const cardHeader = {
@@ -71,6 +73,7 @@ const metaObj = {
   <BlogsListingWrapper
     type="blog"
     blogsData={blogsData}
+    allBlogData={allBlogsData}
     currentPage={1}
     suggestionData={suggestionData.slice(0, 15) || []}
     client:load

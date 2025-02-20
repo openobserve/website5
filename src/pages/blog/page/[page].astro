@@ -9,6 +9,7 @@ import {
   getAllCategories,
   getBlogsByPagination,
   getCaseStudies,
+  getAllBlogs
 } from "@/utils/api/blogs";
 
 const itemsPerPage = 50;
@@ -37,6 +38,8 @@ if (isNaN(currentPage) || currentPage < 1) {
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
 const suggestionData = await getAllCategories();
+const allBlogsData = await getAllBlogs();
+
 
 // Fetch case studies
 const caseStudyData = await getCaseStudies();
@@ -78,6 +81,7 @@ const metaObj = {
   <BlogsListingWrapper
     type="blog"
     blogsData={blogsData}
+    allBlogData={allBlogsData}
     currentPage={currentPage}
     suggestionData={suggestionData.slice(0, 15) || []}
     totalItems={count.blogsCount}
