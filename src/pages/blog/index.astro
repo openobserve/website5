@@ -7,7 +7,7 @@ import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrappe
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
 import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/api/blogs";
+import { getAllBlogs, getAllCategories, getBlogsByPagination, getCaseStudies } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 
 // Get the current page from URL parameters
@@ -17,6 +17,7 @@ const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
+const allBlogsData = await getAllBlogs();
 
 const suggestionData = await getAllCategories();
 
@@ -53,6 +54,7 @@ const metaObj = {
   <BlogsListingWrapper
     type="blog"
     blogsData={blogsData}
+    allBlogData={allBlogsData}
     currentPage={currentPage}
     suggestionData={suggestionData.slice(0, 15) || []}
     totalItems={count.blogsCount}
