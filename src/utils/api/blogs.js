@@ -18,7 +18,7 @@ export async function getBlogsByCategory(category) {
 
 export async function getCaseStudies() {
     const blogs = await getAllBlogs();
-    return blogs.filter(blog => blog.caseStudies).slice(0, 3);
+    return blogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate)).slice(0,3);
 }
 
 export async function getAllAuthors() {

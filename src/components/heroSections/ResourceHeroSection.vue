@@ -19,11 +19,11 @@ const props = defineProps({
   >
     <div class="z-10 container mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
       <TextWithGradient
-        class="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pt-10 md:pt-16 lg:pt-20"
+        class="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
         :title="title"
         textGradientColor="gradient-color"
         padding="pb-3 md:pb-5"
-      />
+        />
       <p
         class="text-white mt-3 text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed md:leading-loose"
       >

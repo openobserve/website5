@@ -133,9 +133,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="text-white">
+  <section class="text-white ">
     <!-- Tabs Section -->
-    <div class="sticky-tabs flex justify-center backdrop-blur-sm">
+    <div class="sticky-tabs flex justify-center  backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto">
         <!-- Left Shadow -->
         <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
