@@ -7,7 +7,7 @@ const props = defineProps({
   heading: { type: Object, required: true },
   primaryButton: { type: Object, required: false },
   secondaryButton: { type: Object, default: () => ({}) },
-  backgroundImage: { type: Object, required: true },
+  backgroundImage: { type: Object, required: false },
   image: { type: String, required: true },
   bottomImage: { type: String, required: false },
   items: { type: Array, required: false },
@@ -19,13 +19,13 @@ const sectionStyles = computed(() => ({
 </script>
 
 <template>
-  <section
-    class="relative flex flex-col items-center justify-center w-full min-h-screen bg-cover bg-no-repeat before:bg-no-repeat before:content-[''] before:absolute before:w-full before:h-full before:top-0 before:bg-right-top"
-    :style="sectionStyles"
-  >
-    <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 py-16 z-10">
+  <section class="relative w-full h-full py-10 lg:py-0">
+    <div
+      class="absolute left-0 lg:left-[35%] top-0 lg:-top-10 right-0 w-full h-screen lg:h-[80vh] bg-[url('/Platform/SolutionSubHeroBg.svg')] bg-cover bg-right bg-no-repeat"
+    ></div>
+    <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24  relative">
       <div
-        class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12"
+        class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0 lg:gap-12"
       >
         <!-- Content Container -->
         <div class="w-full lg:w-1/2 text-center lg:text-left">
@@ -74,7 +74,5 @@ const sectionStyles = computed(() => ({
 </template>
 
 <style scoped>
-section::before {
-  background-image: var(--before-bg);
-}
+
 </style>
