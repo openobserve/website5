@@ -21,9 +21,9 @@ const sectionStyles = computed(() => ({
 <template>
   <section class="relative w-full h-full py-10 lg:py-0">
     <div
-      class="absolute left-0 lg:left-[35%] top-0 lg:-top-10 right-0 w-full h-screen lg:h-[80vh] bg-[url('/Platform/SolutionSubHeroBg.svg')] bg-cover bg-right bg-no-repeat"
+      class="absolute top-0 lg:-top-10 right-0 w-full h-screen lg:h-[80vh] bg-[url('/Platform/SolutionSubHeroBg.svg')] bg-cover bg-right bg-no-repeat"
     ></div>
-    <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24  relative">
+    <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 relative">
       <div
         class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0 lg:gap-12"
       >
@@ -73,6 +73,4 @@ const sectionStyles = computed(() => ({
   </section>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
