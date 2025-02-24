@@ -4,7 +4,15 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import { getAllBlogs, getAllCategories, getCaseStudies } from "@/utils/api/blogs";
+import {
+  getAllBlogs,
+  getAllCategories,
+  getCaseStudies,
+  itemsPerPage,
+} from "@/utils/api/blogs";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import BlogPagination from "@/components/blogs/BlogPagination.vue";
+import { getTotalCounts } from "@/utils/cache";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -41,6 +49,8 @@ if (category) {
 const suggestionData = await getAllCategories();
 
 const loadcaseStudyData = await getCaseStudies();
+const allBlogsData = await getAllBlogs();
+const count = await getTotalCounts();
 
 // 🔹 Additional Card Data
 const cardHeader = {
@@ -68,17 +78,33 @@ const metaObj = {
 
   <!-- <CaseStudyWrapper data={loadcaseStudyData || []} client:load /> -->
 
-  <BlogsListingWrapper
-    type="blog"
-    blogsData={blogsData}
-    currentPage={1}
-    suggestionData={suggestionData.slice(0, 15) || []}
-    client:load
-  />
-  <!-- 
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
+    <!-- CustomSuggestions Section -->
+    <div class="py-3 md:py-6">
+      <CustomSuggestionsWrapper
+        suggestions={suggestionData.slice(0, 15) || []}
+        type="blog"
+        client:load
+      />
+    </div>
+
+    <BlogsListingWrapper type="blog"  blogsData={blogsData} client:load />
+
+    <!-- <div>
+      <BlogPagination
+        totalItems={count.blogsCount} 
+        itemsPerPage={itemsPerPage}
+        currentPage={1}
+        client:load
+        type="blog"
+      />
+    </div> -->
+
+    <!-- 
   <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
   /> -->
+  </section>
 </Layout>

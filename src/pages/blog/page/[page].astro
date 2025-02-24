@@ -9,7 +9,9 @@ import {
   getAllCategories,
   getBlogsByPagination,
   getCaseStudies,
+  getAllBlogs,
 } from "@/utils/api/blogs";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 
 const itemsPerPage = 50;
 
@@ -37,6 +39,7 @@ if (isNaN(currentPage) || currentPage < 1) {
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
 const suggestionData = await getAllCategories();
+const allBlogsData = await getAllBlogs();
 
 // Fetch case studies
 const caseStudyData = await getCaseStudies();
@@ -73,20 +76,62 @@ const metaObj = {
     caseStudyData?.length > 0 && (
       <CaseStudyWrapper data={caseStudyData || []} client:load />
     )
-  } -->
+  }-->
+  }-->
+  <!-- categories section -->
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
+    <!-- CustomSuggestions Section -->
+    <div class="py-3 md:py-6">
+      <CustomSuggestionsWrapper
+        @selectSuggestion="selectSuggestion"
+        suggestions={suggestionData.slice(0, 15) || []}
+        type="blog"
+        client:load
+      />
+    </div>
 
-  <BlogsListingWrapper
-    type="blog"
-    blogsData={blogsData}
-    currentPage={currentPage}
-    suggestionData={suggestionData.slice(0, 15) || []}
-    totalItems={count.blogsCount}
-    client:load
-  />
+    <!-- SearchBar Section -->
+    <!-- <div class="search-container relative w-full px-4 pb-5">
+      <div
+        class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700"
+      >
+        <span class="text-white px-4">
+          <img src="/search.svg" alt="" class="w-6 h-6" />
+        </span>
+        <input
+          id="blogSearchInput"
+          type="text"
+          class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-neutral-400"
+          placeholder="Search for a blog..."
+          @input="searchBlogs"
+        />
+      </div> -->
+      <!-- <div class="mt-2 ml-3 text-white text-sm">
+        <template v-if="searchItem.trim()">
+          <p v-show="filteredBlogsData.length > 0">
+            Search results for "<span class="font-bold">{{ searchItem }}</span>"
+          </p>
+          <p v-show="filteredBlogsData.length === 0">
+            No results for "<span class="font-bold">{{ searchItem }}</span>"
+          </p>
+        </template>
+      </div>
+    </div> -->
+    </div>
+    <BlogsListingWrapper
+      searchBar
+      type="blog"
+      blogsData={blogsData}
+      allBlogData={allBlogsData}
+      currentPage={currentPage}
+      totalItems={count.blogsCount}
+      client:load
+    />
 
-  <!-- <TilesWithTitleWrapper
+    <!-- <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
   /> -->
+  </section>
 </Layout>

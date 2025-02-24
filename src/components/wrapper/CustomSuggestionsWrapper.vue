@@ -9,7 +9,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center items-center content-center gap-2 w-full max-h-full overflow-visible">
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-2 w-full flex flex-col justify-center">
+  <div class="flex flex-wrap justify-center items-center content-center gap-2 z-20">
     <a
       v-for="(suggestion, index) in suggestions"
       :key="index"
@@ -19,5 +20,6 @@ const props = defineProps({
       {{ suggestion.name }}
     </a>
   </div>
+  </section>
 </template>
 

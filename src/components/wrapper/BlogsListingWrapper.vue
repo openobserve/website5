@@ -2,49 +2,42 @@
   <section
     class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11 w-full flex flex-col justify-start"
   >
-    <div class="search-container relative w-full px-4">
-      <!-- <div
+    <div v-if="searchBar" class="search-container relative w-full px-4 pb-5">
+      <div
         class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700"
       >
+        <span class="text-white px-4">
+          <img src="/img/icon/filter.svg" alt="Search Icon" />
+        </span>
         <input
-          v-model="searchQuery"
+          v-model="searchItem"
           type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-neutral-400"
-          placeholder="Search here"
+          placeholder="Search for a Blog..."
         />
-        <button class="text-white px-4">
-          <img src="/img/icon/search.svg" alt="Search Icon" />
-        </button>
-      </div> -->
-
-      <div class="py-3 md:py-6">
-        <CustomSuggestions
-          :suggestions="suggestionData"
-          @selectSuggestion="selectSuggestion"
-          :type="type"
-        />
-        <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
-          <!-- <div class="bg-black border border-gray-500 rounded-md p-2">
-            <button class="flex items-center justify-center">
-              <img src="/img/icon/filter.svg" alt="Filter Icon" class="w-6 h-6" />
-            </button>
-          </div> -->
-        </div>
+        <!-- @input="handleSearch" -->
+      </div>
+      <div class="mt-2 ml-3 text-white text-sm">
+        <template v-if="searchItem.trim()">
+          <p v-show="filteredBlogsData.length > 0">
+            Search results for "<span class="font-bold">{{ searchItem }}</span
+            >"
+          </p>
+          <p v-show="filteredBlogsData.length === 0">
+            No results for "<span class="font-bold">{{ searchItem }}</span
+            >"
+          </p>
+        </template>
       </div>
     </div>
-    <div class="block md:hidden">
-      <BlogsListingMobileWrapper
-        :sectionData="blogsData"
-        titleTextColor="text-white"
-        descriptionTextColor="text-gray-400"
-        cardBgColor="bg-[#2A2A2A]"
-        linkColor="text-[#00A3FF]"
-        :type="type"
-      />
-    </div>
-    <div class="hidden md:block">
+
+    <!-- <div class="block md:hidden">
+      <BlogsListingMobileWrapper :sectionData="filteredBlogsData" titleTextColor="text-white"
+        descriptionTextColor="text-gray-400" cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" :type="type" />
+    </div> -->
+    <div>
       <BlogListing
-        :sectionData="blogsData"
+        :sectionData="filteredBlogsData"
         titleTextColor="text-white"
         descriptionTextColor="text-gray-400"
         cardBgColor="bg-[#2A2A2A]"
@@ -52,9 +45,10 @@
         :type="type"
       />
     </div>
-    
+
     <template v-if="totalItems !== undefined">
       <BlogPagination
+        v-show="!searchItem.trim()"
         :totalItems="totalItems"
         :itemsPerPage="itemsPerPage"
         :currentPage="currentPage"
@@ -66,41 +60,48 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
-import Heading from "../core/Heading.vue";
+import { ref, watch } from "vue";
 import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
-import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { itemsPerPage } from "@/utils/api/blogs";
+import { itemsPerPage, getAllBlogs } from "@/utils/api/blogs";
+import { handleBlogSearch } from "@/utils/searchBar";
 
 const props = defineProps({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
   blogsData: { type: Array, required: true },
-  currentPage: { type: Number, required: true },
-  suggestionData: { type: Array, required: true },
-  totalItems: { type: Number, required: true },
+  allBlogData: { type: Array, required: true },
+  currentPage: { type: Number, required: false },
+  totalItems: { type: Number, required: false },
   type: { type: String, required: true },
+  searchBar: { type: Boolean, required: false },
 });
-// console.log(props, "propss")
-const searchQuery = ref("");
 
-const selectSuggestion = (suggestion) => {
-  searchQuery.value = suggestion;
-};
+const searchItem = ref(""); // type in the search box
+const filteredBlogsData = ref(props?.blogsData);
+watch(searchItem, async (newValue) => {
+  filteredBlogsData.value = await handleBlogSearch(
+    newValue,
+    props?.allBlogData,
+    props?.blogsData
+  );
+});
 
 const handleClickOutside = (event) => {
   if (!event.target.closest(".search-container")) {
-    searchQuery.value = "";
+    // Don't clear search query when clicking outside
   }
 };
 
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
+// onMounted(async () => {
+//   document.addEventListener("click", handleClickOutside);
+//   // Initialize with blogsData prop
+//   if (props.blogsData && props.blogsData.length > 0) {
+//     allBlogsData.value = props.blogsData;
+//   }
+// });
 
-onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
+// onUnmounted(() => {
+//   document.removeEventListener("click", handleClickOutside);
+//   clearTimeout(searchTimeout);
+// });
 </script>
