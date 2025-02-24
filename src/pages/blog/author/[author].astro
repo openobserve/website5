@@ -51,18 +51,22 @@ const metaObj = {
     description={`Post by the author: ${auth.name}`}
   />
 
-  <!-- <CaseStudyWrapper data={loadcaseStudyData} client:load /> -->
+  <CaseStudyWrapper data={loadcaseStudyData} client:load />
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
+    <!-- CustomSuggestions Section -->
+    <div class="py-3 md:py-6">
+      <CustomSuggestionsWrapper
+        suggestions={suggestionData.slice(0, 15) || []}
+        type="blog"
+        client:load
+      />
+    </div>
 
-  <BlogsListingWrapper
-    type="blog"
-    blogsData={blogsData}
-    allBlogData={allBlogsData}
-    currentPage={1}
-   suggestionData={suggestionData.slice(0, 15) || []}
-   client:load
-  />
+    <BlogsListingWrapper type="blog" blogsData={blogsData} totalItems={count.blogsCount} client:load />
 
-  <!-- <TilesWithTitleWrapper
+
+    <!-- 
+  <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}

@@ -70,8 +70,8 @@ import { handleBlogSearch } from "@/utils/searchBar";
 const props = defineProps({
   blogsData: { type: Array, required: true },
   allBlogData: { type: Array, required: true },
-  currentPage: { type: Number, required: true },
-  totalItems: { type: Number, required: true },
+  currentPage: { type: Number, required: false },
+  totalItems: { type: Number, required: false },
   type: { type: String, required: true },
   searchBar: { type: Boolean, required: false },
 });

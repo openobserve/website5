@@ -88,9 +88,9 @@ const metaObj = {
       />
     </div>
 
-    <BlogsListingWrapper blogsData={blogsData} client:load />
+    <BlogsListingWrapper type="blog"  blogsData={blogsData} totalItems={count.blogsCount} currentPage={1} client:load />
 
-    <div>
+    <!-- <div>
       <BlogPagination
         totalItems={count.blogsCount}
         itemsPerPage={itemsPerPage}
@@ -98,7 +98,7 @@ const metaObj = {
         client:load
         type="blog"
       />
-    </div>
+    </div> -->
 
     <!-- 
   <TilesWithTitleWrapper

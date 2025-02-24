@@ -13,7 +13,5 @@ export const handleBlogSearch = async (
       blog.title.toLowerCase().includes(searchText.toLowerCase())
     ) ?? [];
 
-  console.log(filteredBlogs, "Filtered Blogs");
-
   return filteredBlogs;
 };
