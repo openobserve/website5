@@ -18,10 +18,6 @@ const props = defineProps({
       value.hasOwnProperty("text") && value.hasOwnProperty("link"),
   },
   getStartedText: { type: String, default: "Get Started" },
-  features: {
-    type: Array,
-    default: () => ["Feature 1", "Feature 2", "Feature 3"],
-  },
   items: { type: Array, required: false },
 });
 </script>
