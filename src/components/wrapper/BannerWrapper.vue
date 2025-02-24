@@ -28,6 +28,14 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  getStartedText: {
+    type: String,
+    required: false,
+  },
+  items: {
+    type: Array,
+    required: false,
+  },
 });
 </script>
 
@@ -46,6 +54,8 @@ const props = defineProps({
       :bannerDescription="bannerDescription"
       :primaryButton="primaryButton"
       :secondaryButton="secondaryButton"
+      :getStartedText="getStartedText"
+      :items="items"
     />
   </div>
 </template>

@@ -1,70 +1,93 @@
 <script setup>
+import { defineProps } from "vue";
 import CustomButton from "./CustomButton.vue";
-import CustomSection from "./CustomSection.vue";
 
-defineProps({
-  bannerTitle: {
-    type: String,
-    required: true,
-  },
-  bannerDescription: {
-    type: String,
-    required: true,
-  },
-  // buttons: {
-  //   type: Array,
-  //   required: true,
-  // },
+const props = defineProps({
+  bannerTitle: { type: String, required: true },
+  bannerDescription: { type: String, required: true },
   primaryButton: {
     type: Object,
     required: true,
+    validator: (value) =>
+      value.hasOwnProperty("text") && value.hasOwnProperty("link"),
   },
   secondaryButton: {
     type: Object,
-    default: () => ({}),
-  }
+    default: () => ({ text: "", link: "#" }),
+    validator: (value) =>
+      value.hasOwnProperty("text") && value.hasOwnProperty("link"),
+  },
+  getStartedText: { type: String, default: "Get Started" },
+  items: { type: Array, required: false },
 });
 </script>
 
 <template>
-  <div class="relative mx-auto flex items-center justify-center w-full bg-cover bg-center "
-    style="background-image: url('/img/bg/gradient-bg/bannerBg.svg')">
-    <!-- Apply the blur effect to the background image -->
-    <!-- <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/Texture.svg'); filter: blur(2px)">
-    </div> -->
+  <section
+    class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
+    :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
+    aria-labelledby="banner-title"
+  >
+    <div class="mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Column 1: Title & Primary Button -->
+        <div class="text-center md:text-left space-y-5">
+          <h1 class="text-3xl md:text-4xl font-bold text-black">
+            {{ bannerTitle }}
+          </h1>
+          <p class="text-base text-gray-700">
+            {{ bannerDescription }}
+          </p>
+          <div class="flex justify-center md:justify-start">
+            <CustomButton
+              v-if="primaryButton?.text"
+              variant="bannerSecondary"
+              :button-link="primaryButton.link"
+            >
+              {{ primaryButton.text }}
+            </CustomButton>
+          </div>
+        </div>
 
-    <div
-      class="container mx-auto flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-4 py-8 md:py-14 lg:py-20 gap-6 md:gap-8">
-      <!-- Text Content -->
-      <div class="text-center md:text-left w-full md:w-auto">
-        <h1 class="text-5xl sm:text-4xl md:text-3xl lg:text-5xl text-black drop-shadow-md">
-          {{ bannerTitle }}
-        </h1>
-        <p class="text-xl sm:text-lg md:text-xl text-black mt-3 sm:mt-4 md:mt-5 font-light drop-shadow-md max-w-2xl">
-          {{ bannerDescription }}
-        </p>
-      </div>
+        <!-- Column 2: Features List -->
+        <div class="text-center md:text-left space-y-4">
+          <h2 class="text-2xl font-semibold text-black">
+            Openobserve Cloud Free Tier
+          </h2>
+          <ul class="space-y-3">
+            <li
+              v-for="(feature, index) in items"
+              :key="index"
+              class="flex gap-3 text-sm text-gray-800"
+            >
+              <img
+                src="/img/bg/icon/Frame-11216.svg"
+                alt="icon"
+                class="w-5 h-5"
+              />
+              <span class="text-left">{{ feature.title }}</span>
+            </li>
+          </ul>
+        </div>
 
-      <!-- Buttons -->
-      <div
-        class="flex flex-col sm:flex-row items-center sm:items-start md:items-center justify-center gap-2 sm:gap-4 md:gap-6 w-full md:w-auto"
-        v-if="primaryButton || secondaryButton"
-      >
-        <!-- <CustomButton
-            v-for="(button, index) in buttons"
-            :key="index"
-            :variant="button.variant"
-            class="w-full sm:w-auto px-4 py-2 text-sm sm:text-base md:text-lg"
+        <!-- Column 3: Secondary Button & Description -->
+        <div class="flex flex-col justify-center space-y-5 items-center">
+          <CustomButton
+            class="justify-center"
+            v-if="secondaryButton?.text"
+            variant="bannerPrimary"
+            :button-link="secondaryButton.link"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {{ button.text }}
-          </CustomButton> -->
-        <CustomButton variant="bannerPrimary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
-          {{ primaryButton?.text }}
-        </CustomButton>
-        <CustomButton variant="bannerSecondary" class="w-full sm:w-auto" :buttonLink="secondaryButton?.link" target="_blank">
-          {{ secondaryButton?.text }}
-        </CustomButton>
+            {{ secondaryButton.text }}
+          </CustomButton>
+
+          <p class="text-sm">
+            {{ getStartedText }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
