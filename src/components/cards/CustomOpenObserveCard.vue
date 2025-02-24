@@ -26,7 +26,7 @@ const props = defineProps({
     <div class="w-full rounded-lg card">
       <div class="card-content text-center">
         <h2
-          class="text-lg sm:text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2"
+          class="text-lg sm:text-xl font-bold text-white mb-2 heading-stroke py-2"
         >
           {{ props?.unifiedObservability?.title }}
         </h2>
@@ -50,9 +50,7 @@ const props = defineProps({
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div v-for="(item, index) in items" :key="index" class="card">
         <div class="card-content text-center">
-          <h2
-            class="text-lg sm:text-xl text-white font-bold cursor-pointer py-2"
-          >
+          <h2 class="text-lg sm:text-xl text-white font-bold py-2">
             {{ item?.title }}
           </h2>
           <p class="text-sm sm:text-base text-[#BEC0C2] font-medium mt-3">
@@ -66,9 +64,7 @@ const props = defineProps({
     <div class="w-full">
       <div class="card">
         <div class="card-content text-center">
-          <h2
-            class="text-lg sm:text-xl font-bold text-white mb-2 cursor-pointer py-2"
-          >
+          <h2 class="text-lg sm:text-xl font-bold text-white mb-2 py-2">
             {{ integrations?.title }}
           </h2>
 
