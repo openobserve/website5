@@ -73,10 +73,10 @@ const sentences = computed(() => props.title.split("<br/>"));
           :loop="true"
         />
 
-        <p
-          class="text-base sm:text-lg md:text-xl opacity-80"
+        <h2
+          class="text-base sm:text-md md:text-lg opacity-80"
           v-html="description"
-        ></p>
+        ></h2>
 
         <!-- Buttons -->
         <div
