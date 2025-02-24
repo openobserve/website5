@@ -61,7 +61,7 @@ const sentences = computed(() => props.title.split("<br/>"));
       >
         <!-- Typing Effect -->
         <VueTyping
-          class="text-white text-2xl sm:text-3xl md:text-4xl xl:text-6xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
+          class="text-white text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold leading-[2.5rem] md:leading-[2.8rem] lg:leading-[3.3rem] xl:leading-[4.2rem]"
           :sentences="sentences"
           :minTypeSpeed="150"
           :maxTypeSpeed="150"
@@ -73,10 +73,10 @@ const sentences = computed(() => props.title.split("<br/>"));
           :loop="true"
         />
 
-        <p
-          class="text-base sm:text-lg md:text-xl opacity-80"
+        <h2
+          class="text-base sm:text-md md:text-lg opacity-80"
           v-html="description"
-        ></p>
+        ></h2>
 
         <!-- Buttons -->
         <div
