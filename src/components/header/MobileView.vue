@@ -99,7 +99,7 @@
                 <h4 class="text-gray-300 text-lg md:text-xl font-semibold">
                   {{ item }}
                 </h4>
-                <img src="/subMenuIcon.svg" alt="Arrow Icon" class="w-4 h-4" />
+                <img src="/img/icon/subMenuIcon.svg" alt="Arrow Icon" class="w-4 h-4" />
               </div>
               <div
                 class="w-full flex justify-center h-0.5"

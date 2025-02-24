@@ -88,7 +88,7 @@ const props = defineProps({
 }
 
 .group:hover {
-  background-image: url("/blogRightCardBg.svg");
+  background-image: url("/img/bg/gradient-bg/blogRightCardBg.svg");
   background-size: cover;
   background-position: center;
 }

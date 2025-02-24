@@ -13,10 +13,10 @@ interface PricingTier {
   features: Feature[];
   primaryButton: {
     text: string;
-    link:string;
-    target: string
-  },
-  bottomDescription:string
+    link: string;
+    target: string;
+  };
+  bottomDescription: string;
 }
 
 const props = defineProps<{
@@ -31,15 +31,19 @@ const props = defineProps<{
       <div
         v-for="(tier, index) in tiers"
         :key="index"
-        class=" w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
+        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
       >
         <!-- Tier Header -->
         <div class="mb-6 text-center">
           <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
             {{ tier.title }}
           </h3>
-          <h4 class="text-white text-md md:text-lg font-medium ">{{ tier.subTitle }}</h4>
-          <p class="text-gray-400 text-xs md:text-sm pt-4">{{ tier.description }}</p>
+          <h4 class="text-white text-md md:text-lg font-medium">
+            {{ tier.subTitle }}
+          </h4>
+          <p class="text-gray-400 text-xs md:text-sm pt-4">
+            {{ tier.description }}
+          </p>
         </div>
 
         <!-- Features List -->
@@ -52,7 +56,7 @@ const props = defineProps<{
             >
               <span class="flex-shrink-0">
                 <img
-                  src="/img/bg/icon/Frame-11216.svg"
+                  src="/img/icon/RightTick.svg"
                   alt="icon"
                   class="w-4 md:w-5 h-4 md:h-5"
                 />
@@ -60,7 +64,9 @@ const props = defineProps<{
               <span class="text-sm">{{ feature.title }}</span>
             </li>
           </ul>
-          <p class="text-gray-400 text-xs md:text-sm  text-center">{{ tier.bottomDescription }}</p>
+          <p class="text-gray-400 text-xs md:text-sm text-center">
+            {{ tier.bottomDescription }}
+          </p>
         </div>
         <!-- Action Button -->
         <!-- @click="tier.buttonAction" -->
@@ -72,8 +78,7 @@ const props = defineProps<{
               :button-link="tier.primaryButton.link"
               :target="tier.primaryButton.target"
               v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
-
-              >
+            >
               {{ tier.primaryButton.text }}
             </CustomButton>
           </div>
@@ -85,11 +90,10 @@ const props = defineProps<{
               :button-link="tier.primaryButton.link"
               :target="tier.primaryButton.target"
               v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
-
-              >
+            >
               {{ tier.primaryButton.text }}
             </CustomButton>
-        </div>
+          </div>
         </div>
       </div>
     </div>

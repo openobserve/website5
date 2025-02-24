@@ -22,12 +22,12 @@ const props = defineProps({
     class="relative container mx-auto bg-cover bg-no-repeat w-full overflow-visible"
   >
     <img
-      src="/cardBg1.svg"
+      src="/img/bg/gradient-bg/cardBg1.svg"
       class="absolute top-[0%] left-[-20%] -z-10 object-cover"
       alt="Background SVG"
     />
     <img
-      src="/cardBg2.svg"
+      src="/img/bg/gradient-bg/cardBg2.svg"
       alt="Image"
       class="absolute bottom-[-60vh] -z-10 object-cover"
     />

@@ -32,7 +32,7 @@ const formatSubtitle = (text) => {
   <div
     class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
     :style="{
-      backgroundImage: 'url(/aboutusHerosectionbg)',
+      backgroundImage: 'url(/img/bg/gradient-bg/aboutusHerosectionbg)',
       backgroundSize: 'contain',
       backgroundPosition: 'center',
     }"
