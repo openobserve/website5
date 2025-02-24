@@ -69,7 +69,7 @@ const metaObj = {
 
     <!-- Blog Listing Component -->
     <div id="blogListingContainer">
-      <BlogsListingWrapper searchBar blogsData={blogsData} client:load />
+      <BlogsListingWrapper searchBar blogsData={blogsData} allBlogData={allBlogsData} totalItems={count.blogsCount} type="blog" currentPage={currentPage} client:load />
     </div>
 
     <div>
