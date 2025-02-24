@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, computed } from "vue";
+import { defineProps, ref, computed, onUnmounted } from "vue";
 import VueTyping from "@dmncodes/vue-typing";
 import CustomButton from "../core/CustomButton.vue";
 import DockerCode from "../core/DockerCode.vue";
@@ -29,6 +29,45 @@ const props = defineProps({
 
 // Convert title (with <br/> tags) into an array of sentences for VueTyping
 const sentences = computed(() => props.title.split("<br/>"));
+
+// Reactive state for modal visibility
+const showDialog = ref(false);
+
+// Toggle dialog visibility
+const openDialog = () => {
+  showDialog.value = true;
+  window.addEventListener("keydown", handleKeydown);
+};
+
+const closeDialog = () => {
+  showDialog.value = false;
+  window.removeEventListener("keydown", handleKeydown);
+};
+
+// Handle Escape key press
+const handleKeydown = (event) => {
+  if (event.key === "Escape") {
+    closeDialog();
+  }
+};
+
+// Ensure event listener cleanup
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
+const getEmbedUrl = (url) => {
+  if (!url) return "";
+
+  // Extract video ID from short URL or normal YouTube link
+  const match = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:.*v=|embed\/|v\/|shorts\/))([^?&]+)/
+  );
+
+  if (match && match[1]) {
+    return `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0`;
+  }
+  return "";
+};
 </script>
 
 <template>
@@ -94,8 +133,7 @@ const sentences = computed(() => props.title.split("<br/>"));
             v-if="secondaryButton.text"
             variant="secondary"
             class="w-full sm:w-auto px-6 py-3 md:text-lg"
-            :buttonLink="secondaryButton.link"
-            target="_blank"
+            @click="openDialog"
           >
             {{ secondaryButton.text }}
           </CustomButton>
@@ -105,6 +143,34 @@ const sentences = computed(() => props.title.split("<br/>"));
       <!-- Right Content (DockerCode) -->
       <div class="w-full lg:w-1/2 flex justify-center lg:justify-end sm:px-0">
         <DockerCode class="w-full max-w-xs sm:max-w-md md:max-w-lg" />
+      </div>
+    </div>
+    <!-- Video Dialog -->
+    <div
+      v-if="showDialog"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+      @click="closeDialog"
+    >
+      <!-- Close button inside the container -->
+      <button
+        class="absolute top-3 right-3 text-white cursor-pointer z-50"
+        @click="closeDialog"
+      >
+        ✖
+      </button>
+      <div
+        class="relative p-8 md:p-[5rem] rounded-lg md:h-screen w-full max-w-4xl"
+      >
+        <iframe
+          v-if="secondaryButton?.link"
+          :src="getEmbedUrl(secondaryButton.link)"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="w-full h-full rounded-lg object-contain"
+          @click.stop
+        ></iframe>
       </div>
     </div>
   </section>
