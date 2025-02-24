@@ -119,11 +119,11 @@ const metaObj = {
     </div> -->
     </div>
     <BlogsListingWrapper
+      searchBar
       type="blog"
       blogsData={blogsData}
       allBlogData={allBlogsData}
       currentPage={currentPage}
-      suggestionData={suggestionData.slice(0, 15) || []}
       totalItems={count.blogsCount}
       client:load
     />
