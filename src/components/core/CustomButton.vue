@@ -1,5 +1,8 @@
 <script setup>
-import { computed, defineProps } from "vue";
+import { computed, defineProps, defineEmits } from "vue";
+
+const emit = defineEmits(["click"]); // Define emit for click event
+
 const props = defineProps({
   variant: {
     type: String,
@@ -54,10 +57,8 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  onClick: Function,
 });
 
-// Tailwind classes for button sizes
 const sizes = {
   small: "px-3 md:px-5 py-2 text-xs",
   medium: "px-8 py-3 text-sm",
@@ -65,6 +66,7 @@ const sizes = {
 };
 
 const buttonSize = sizes[props.size];
+
 const variants = {
   primary: "primary-button",
   secondary: "secondary-button",
@@ -76,17 +78,24 @@ const variants = {
   bannerSecondary: "banner-button-secondary",
 };
 
-// make text all capital
-const containerClass = "flex uppercase text-nowrap text-center justify-center items-center";
+const containerClass =
+  "flex uppercase text-nowrap text-center justify-center items-center";
 
 const buttonVariant = variants[props.variant];
+
+// Function to handle click event
+const onClick = (event) => {
+  if (!props.disabled && !props.loading) {
+    emit("click", event); // Emit the click event
+  }
+};
 </script>
 
 <template>
   <component
     :is="buttonLink ? 'a' : 'button'"
     :class="[containerClass, buttonSize, buttonVariant]"
-    @click="!disabled && !loading ? onClick : null"
+    @click="onClick"
     :disabled="disabled || loading"
     :href="buttonLink"
     :target="target"
@@ -277,7 +286,7 @@ const buttonVariant = variants[props.variant];
   cursor: pointer;
   border-radius: 100px;
   background: white;
-  width:fit-content;
+  width: fit-content;
   /* Transparent background */
   border: 2px solid transparent;
   /* White border */
