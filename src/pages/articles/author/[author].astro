@@ -8,6 +8,7 @@ import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
 import { getResourceAuthors, getResourceBlogsByAuthor, getAllResourceCategories } from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 
 export async function getStaticPaths() {
   const authors = await getResourceAuthors() || [];
@@ -51,12 +52,18 @@ const metaObj = {
     subtitle="Latest articles and updates"
     client:load
   /> -->
+  <div class="py-3 md:py-6">
+    <CustomSuggestionsWrapper
+      suggestions={suggestionData.slice(0, 15) || []}
+      type="articles"
+      client:load
+    />
+  </div>
 
   <BlogsListingWrapper
     type="articles"
     blogsData={blogsData}
     currentPage={1}
-    suggestionData={suggestionData.slice(0, 15) || []}
     client:load
   />
 
