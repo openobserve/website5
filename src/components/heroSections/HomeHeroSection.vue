@@ -32,15 +32,18 @@ const sentences = computed(() => props.title.split("<br/>"));
 
 // Reactive state for modal visibility
 const showDialog = ref(false);
+const isLoading = ref(false); // Track loading state
 
 // Toggle dialog visibility
 const openDialog = () => {
   showDialog.value = true;
+  isLoading.value = true; // Start loading before iframe appears
   window.addEventListener("keydown", handleKeydown);
 };
 
 const closeDialog = () => {
   showDialog.value = false;
+  isLoading.value = false;
   window.removeEventListener("keydown", handleKeydown);
 };
 
@@ -151,16 +154,25 @@ const getEmbedUrl = (url) => {
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
       @click="closeDialog"
     >
-      <!-- Close button inside the container -->
       <button
         class="absolute top-3 right-3 text-white cursor-pointer z-50"
         @click="closeDialog"
       >
         ✖
       </button>
+      <!-- Spinner -->
       <div
-        class="relative p-8 md:p-[5rem] rounded-lg md:h-screen w-full max-w-4xl"
+        v-if="isLoading"
+        class="absolute inset-0 flex items-center justify-center"
       >
+        <div
+          class="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"
+        ></div>
+      </div>
+      <div
+        class="relative p-8 md:p-[5rem] rounded-lg md:h-screen w-full max-w-4xl flex items-center justify-center"
+      >
+        <!-- Iframe Video -->
         <iframe
           v-if="secondaryButton?.link"
           :src="getEmbedUrl(secondaryButton.link)"
@@ -170,6 +182,7 @@ const getEmbedUrl = (url) => {
           allowfullscreen
           class="w-full h-full rounded-lg object-contain"
           @click.stop
+          @load="isLoading = false"
         ></iframe>
       </div>
     </div>
