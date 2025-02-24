@@ -55,6 +55,19 @@ const handleKeydown = (event) => {
 onUnmounted(() => {
   window.removeEventListener("keydown", handleKeydown);
 });
+const getEmbedUrl = (url) => {
+  if (!url) return "";
+
+  // Extract video ID from short URL or normal YouTube link
+  const match = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:.*v=|embed\/|v\/|shorts\/))([^?&]+)/
+  );
+
+  if (match && match[1]) {
+    return `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0`;
+  }
+  return "";
+};
 </script>
 
 <template>
@@ -148,14 +161,16 @@ onUnmounted(() => {
       <div
         class="relative p-8 md:p-[5rem] rounded-lg md:h-screen w-full max-w-4xl"
       >
-        <video
+        <iframe
           v-if="secondaryButton?.link"
-          v-bind:src="secondaryButton.link"
+          :src="getEmbedUrl(secondaryButton.link)"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
           class="w-full h-full rounded-lg object-contain"
-          controls
-          autoplay
           @click.stop
-        ></video>
+        ></iframe>
       </div>
     </div>
   </section>
