@@ -59,6 +59,7 @@ const props = defineProps({
           >
             {{ featureTitle }}
           </h2>
+          <p class="text-sm text-black">Monthly Limits:</p>
           <ul class="space-y-3">
             <li
               v-for="(feature, index) in items"
