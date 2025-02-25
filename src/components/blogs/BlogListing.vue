@@ -72,7 +72,6 @@ const getImageUrl = ({ image }: Blog) =>
   'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
 ]">
           <CustomBluredImage :image="getImageUrl(blog)" :altText="blog.title"  />
-          {{ console.log(sectionData,"sectionData") }}
           <div class="w-full p-6 flex flex-col flex-1">
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                 {{ blog.title }}
