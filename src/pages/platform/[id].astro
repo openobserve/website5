@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 import { getCaseStudies } from "@/utils/api/blogs";
-
+import { fetchBannerData } from "../../utils/api/globalApi";
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
     endpoint: "api/platform-pages",
@@ -21,6 +21,7 @@ const PageData = await fetchApi({
   query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
 });
 const loadcaseStudyData = await getCaseStudies();
+const BannerData = await fetchBannerData();
 const metaObj = PageData?.data[0]?.seo;
 ---
 
@@ -28,6 +29,7 @@ const metaObj = PageData?.data[0]?.seo;
   <ComponentCollectionMapper
     data={PageData?.data[0]?.body}
     caseStudyData={loadcaseStudyData}
+    bannerData={BannerData.data}
     client:visible
   />
 </Layout>

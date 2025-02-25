@@ -19,6 +19,7 @@ const props = defineProps({
   },
   getStartedText: { type: String, default: "Get Started" },
   items: { type: Array, required: false },
+  featureTitle: { type: String, required: false },
 });
 </script>
 
@@ -28,14 +29,16 @@ const props = defineProps({
     :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
     aria-labelledby="banner-title"
   >
-    <div class="mx-auto max-w-6xl">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Column 1: Title & Primary Button -->
         <div class="text-center md:text-left space-y-5">
-          <h1 class="text-3xl md:text-4xl font-bold text-black">
+          <h1
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-black text-center md:text-left"
+          >
             {{ bannerTitle }}
           </h1>
-          <p class="text-base text-gray-700">
+          <p class="text-base text-black">
             {{ bannerDescription }}
           </p>
           <div class="flex justify-center md:justify-start">
@@ -50,28 +53,32 @@ const props = defineProps({
         </div>
 
         <!-- Column 2: Features List -->
-        <div class="text-center md:text-left space-y-4">
-          <h2 class="text-2xl font-semibold text-black">
-            Openobserve Cloud Free Tier
+        <div class="md:text-left space-y-4">
+          <h2
+            class="text-xl md:text-2xl font-semibold text-black text-center md:text-left"
+          >
+            {{ featureTitle }}
           </h2>
           <ul class="space-y-3">
             <li
               v-for="(feature, index) in items"
               :key="index"
-              class="flex gap-3 text-sm text-gray-800"
+              class="flex items-x gap-3 text-sm text-black"
             >
               <img
                 src="/img/bg/icon/Frame-11216.svg"
                 alt="icon"
                 class="w-5 h-5"
               />
-              <span class="text-left">{{ feature.title }}</span>
+              <span>{{ feature.title }}</span>
             </li>
           </ul>
         </div>
 
         <!-- Column 3: Secondary Button & Description -->
-        <div class="flex flex-col justify-center space-y-5 items-center">
+        <div
+          class="md:col-span-2 lg:col-span-1 flex flex-col justify-center space-y-5 items-center md:mx-auto lg:mx-0"
+        >
           <CustomButton
             class="justify-center"
             v-if="secondaryButton?.text"
@@ -83,7 +90,7 @@ const props = defineProps({
             {{ secondaryButton.text }}
           </CustomButton>
 
-          <p class="text-sm">
+          <p class="text-sm text-center max-w-[30vh]">
             {{ getStartedText }}
           </p>
         </div>
