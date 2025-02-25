@@ -32,8 +32,8 @@
             data-size="small"
             data-show-count="false"
             aria-label="Star openobserve/openobserve on GitHub"
-            class="pt-1"
-            >Star</GithubButton
+            class=""
+            >Star</GithubButton 
           >
           <a
             href="https://cloud.openobserve.ai"
