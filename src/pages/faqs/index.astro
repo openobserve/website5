@@ -4,14 +4,19 @@ import ResourceHeroSection from "../../components/heroSections/ResourceHeroSecti
 import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import fetchApi from "@/utils/strapi";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-
+import { fetchBannerData } from "../../utils/api/globalApi";
 const PageData = await fetchApi({
   endpoint: "api/faq",
   query: { pLevel: "4", status: "draft" },
 });
+const BannerData = await fetchBannerData();
 const metaObj = PageData?.data?.seo;
 ---
 
 <Layout metaObj={metaObj}>
-  <ComponentCollectionMapper data={PageData?.data?.body} client:load />
+  <ComponentCollectionMapper
+    data={PageData?.data?.body}
+    bannerData={BannerData.data}
+    client:load
+  />
 </Layout>
