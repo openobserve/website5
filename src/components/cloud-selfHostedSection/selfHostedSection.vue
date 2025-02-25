@@ -43,7 +43,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.haDeploymentDescription);
 </script>
 
 <template>
