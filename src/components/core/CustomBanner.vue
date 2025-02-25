@@ -19,6 +19,7 @@ const props = defineProps({
   },
   getStartedText: { type: String, default: "Get Started" },
   items: { type: Array, required: false },
+  featureTitle: { type: String, required: false },
 });
 </script>
 
@@ -56,7 +57,7 @@ const props = defineProps({
           <h2
             class="text-xl md:text-2xl font-semibold text-black text-center md:text-left"
           >
-            Openobserve Cloud Free Tier
+            {{ featureTitle }}
           </h2>
           <ul class="space-y-3">
             <li
