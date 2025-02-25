@@ -170,7 +170,7 @@ const getEmbedUrl = (url) => {
         ></div>
       </div>
       <div
-        class="relative p-8 md:p-[5rem] rounded-lg md:h-screen w-full max-w-4xl flex items-center justify-center"
+        class="relative p-8 md:p-[5rem] rounded-lg w-full h-full flex items-center justify-center"
       >
         <!-- Iframe Video -->
         <iframe
