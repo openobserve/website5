@@ -3,11 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import ComponentCollectionMapper from "../components/ComponentCollectionMapper.vue";
 import fetchApi from "../utils/strapi";
 import { getCaseStudies } from "@/utils/api/blogs";
+import { fetchBannerData } from "../utils/api/globalApi";
 const PageData = await fetchApi({
   endpoint: "api/homepage",
   query: { pLevel: "4", status: "draft" },
 });
+
 const loadcaseStudyData = await getCaseStudies();
+const BannerData = await fetchBannerData();
 const metaObj = PageData?.data?.seo;
 ---
 
@@ -16,6 +19,7 @@ const metaObj = PageData?.data?.seo;
   <ComponentCollectionMapper
     data={PageData.data.body}
     caseStudyData={loadcaseStudyData}
+    bannerData={BannerData.data}
     client:load
   />
 </Layout>
