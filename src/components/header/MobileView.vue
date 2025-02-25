@@ -16,7 +16,7 @@
             />
           </div> -->
           <a
-            class="rounded-md transition flex items-center border border-[#3d444d] mt-1"
+            class="rounded-md transition flex items-center border -mt-0.5 border-[#3d444d]"
             href="https://short.openobserve.ai/community"
             target="_blank"
           >
