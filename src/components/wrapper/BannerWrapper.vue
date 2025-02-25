@@ -4,15 +4,11 @@ import Heading from "../core/Heading.vue";
 import CustomBanner from "../core/CustomBanner.vue";
 
 const props = defineProps({
-  // items: {
-  //   type: Object,
-  //   required: true,
-  // },
-  bannerTitle: {
+  title: {
     type: String,
     required: false,
   },
-  bannerDescription: {
+  description: {
     type: String,
     required: true,
   },
@@ -28,12 +24,16 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-  getStartedText: {
+  bottomText: {
     type: String,
     required: false,
   },
   items: {
     type: Array,
+    required: false,
+  },
+  featureTitle: {
+    type: String,
     required: false,
   },
 });
@@ -50,11 +50,12 @@ const props = defineProps({
   </CustomSection>
   <div :class="!heading?.title && 'mt-5'">
     <CustomBanner
-      :bannerTitle="bannerTitle"
-      :bannerDescription="bannerDescription"
+      :bannerTitle="title"
+      :bannerDescription="description"
       :primaryButton="primaryButton"
       :secondaryButton="secondaryButton"
-      :getStartedText="getStartedText"
+      :getStartedText="bottomText"
+      :featureTitle="featureTitle"
       :items="items"
     />
   </div>

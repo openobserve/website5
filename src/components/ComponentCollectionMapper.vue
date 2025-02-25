@@ -73,6 +73,10 @@ const props = defineProps({
     type: Array,
     required: false,
   },
+  bannerData: {
+    type: Array,
+    required: false,
+  },
 });
 
 const componentsMap = computed(() => ({
@@ -144,6 +148,17 @@ const getComponentProps = (it) => {
     return {
       ...it,
       items: props.blogs,
+    };
+  } else if (it.__component === "section-cta.banner") {
+    return {
+      ...it,
+      title: props.bannerData.title,
+      description: props.bannerData.description,
+      featureTitle: props.bannerData.featureTitle,
+      primaryButton: props.bannerData.primaryButton,
+      secondaryButton: props.bannerData.secondaryButton,
+      bottomText: props.bannerData.bottomText,
+      items: props.bannerData.items,
     };
   }
   return it;
