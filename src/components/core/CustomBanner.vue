@@ -28,7 +28,7 @@ const props = defineProps({
     :style="{ backgroundImage: 'url(/BG.svg)' }"
     aria-labelledby="banner-title"
   >
-    <div class="mx-auto max-w-6xl">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Column 1: Title & Primary Button -->
         <div class="text-center md:text-left space-y-5">
@@ -51,7 +51,9 @@ const props = defineProps({
 
         <!-- Column 2: Features List -->
         <div class="md:text-left space-y-4">
-          <h2 class="text-2xl font-semibold text-black">
+          <h2
+            class="text-xl md:text-2xl font-semibold text-black text-center md:text-left"
+          >
             Openobserve Cloud Free Tier
           </h2>
           <ul class="space-y-3">
