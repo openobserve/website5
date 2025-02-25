@@ -32,7 +32,9 @@ const props = defineProps({
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Column 1: Title & Primary Button -->
         <div class="text-center md:text-left space-y-5">
-          <h1 class="text-3xl md:text-4xl font-bold text-black">
+          <h1
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-black text-center md:text-left"
+          >
             {{ bannerTitle }}
           </h1>
           <p class="text-base text-black">
