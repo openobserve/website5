@@ -192,7 +192,7 @@ onMounted(() => {
         >
           <div
             v-html="htmlContent"
-            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none"
+            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words"
           ></div>
         </div>
         <div class="py-3">
