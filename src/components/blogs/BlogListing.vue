@@ -8,6 +8,8 @@ interface Blog {
     url: string;
   };
   slug: string;
+  authors: any[];
+  publishDate: string;
 }
 
 const props = defineProps({
@@ -59,7 +61,7 @@ const getImageUrl = ({ image }: Blog) =>
 <template>
   <div class="pb-2">
     <div class="container mx-auto px-4">
-      <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <a
           v-for="blog in sectionData"
           :key="blog.title"
@@ -70,13 +72,28 @@ const getImageUrl = ({ image }: Blog) =>
   'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
 ]">
           <CustomBluredImage :image="getImageUrl(blog)" :altText="blog.title"  />
-          <div class="w-full p-6 flex flex-col">
+          {{ console.log(sectionData,"sectionData") }}
+          <div class="w-full p-6 flex flex-col flex-1">
               <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                 {{ blog.title }}
               </h6>
               <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
                 {{ blog.description }}
               </p>
+              <div class="flex-1"></div>
+                <!-- <p class="text-white text-xs sm:text-sm">{{ blog.authors[0].name }}</p> -->
+                <p class="text-white text-xs sm:text-sm">
+                  {{ blog.authors.map(author => author.name).join(', ') }}
+                </p>
+                <p class="text-white text-xs sm:text-sm">
+                  {{new Date(blog.publishDate)
+                      .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+                      .replace(/(\d+) (\w+) (\d+)/, '$1 $2, $3')
+                  }}
+                </p>
+              <!-- <div class="flex flex-col gap-1 text-white text-xs sm:text-sm mg:text-base mt-auto"> -->
+                <!-- <span>|</span> -->
+              <!-- </div> -->
           </div>
         </a>
       </div>

@@ -33,10 +33,10 @@ defineProps({
 <template>
   <CustomSection class="pt-10">
     <div>
-      <div class="flex justify-center items-center text-white text-sm py-4">
+      <div class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4">
         <template v-for="(item, index) in activity" :key="`item-${index}`">
           <span class="px-2">{{ item }}</span>
-          <span v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
+          <span class="hidden md:block" v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
         </template>
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
@@ -73,7 +73,7 @@ defineProps({
         />
       </div> -->
       <div
-        class="flex items-center justify-center relative w-full h-[60vh] bg-cover bg-center overflow-hidden bg-white">
+        class="flex items-center justify-center relative w-full h-[17vh] md:h-[60vh] bg-cover bg-center overflow-hidden bg-white">
         <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div>
         <img :src="bottomImage" class="absolute inset-0 w-full h-full object-center object-contain" />
       </div>
