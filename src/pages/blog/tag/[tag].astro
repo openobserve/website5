@@ -52,6 +52,14 @@ const loadcaseStudyData = await getCaseStudies();
 const allBlogsData = await getAllBlogs();
 const count = await getTotalCounts();
 
+const shouldPaginate = blogsData.length > 50;
+
+const paginationProps = shouldPaginate
+  ? {
+      totalItems: blogsData.length,
+    }
+  : {};
+
 // 🔹 Additional Card Data
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -88,7 +96,11 @@ const metaObj = {
       />
     </div>
 
-    <BlogsListingWrapper type="blog"  blogsData={blogsData} client:load />
+    <BlogsListingWrapper  
+    type="blog" 
+    blogsData={blogsData} 
+    client:load 
+    {...paginationProps}  />
 
     <!-- <div>
       <BlogPagination
