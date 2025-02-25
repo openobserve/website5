@@ -16,13 +16,13 @@
             />
           </div> -->
           <a
-            class="rounded-md transition flex items-center border border-[#3d444d] mt-1"
+            class="rounded-md transition flex items-center border -mt-0.5 border-[#3d444d]"
             href="https://short.openobserve.ai/community"
             target="_blank"
           >
             <img
               src="/slackIcon.svg"
-              alt="Search Icon"
+              alt="Slack Icon"
               class="cursor-pointer w-5 h-5 object-cover p-1"
             />
           </a>

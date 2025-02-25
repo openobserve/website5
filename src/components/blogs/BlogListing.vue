@@ -60,7 +60,7 @@ const getImageUrl = ({ image }: Blog) =>
 
 <template>
   <div class="pb-2">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <a
           v-for="blog in sectionData"
