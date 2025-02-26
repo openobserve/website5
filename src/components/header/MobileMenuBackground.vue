@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[url('/MenuTexture.svg')] w-full rounded-lg">
+  <div class="bg-[url('/img/bg/gradient-bg/MenuTexture.svg')] w-full rounded-lg">
   <div
     class="w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white p-10 rounded-lg"
 

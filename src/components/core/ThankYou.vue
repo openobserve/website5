@@ -12,7 +12,7 @@ const handleClick = () => {
       <div
         class="flex flex-col justify-center items-center space-y-8 text-white"
       >
-        <img src="/img/bg/icon/Thank-You-Page.svg" alt="" class="h-40" />
+        <img src="/img/icon/Thank-You-Page.svg" alt="" class="h-40" />
         <h1 class="text-5xl">Thank you!</h1>
         <h3 class="text-xl">
           We received your request. We'll get back to you soon...

@@ -91,7 +91,7 @@ const props = defineProps({
 }
 
 .group:hover {
-  background-image: url("/CaseStudyEclipse.svg");
+  background-image: url("/img/bg/gradient-bg/CaseStudyEclipse.svg");
   background-size: cover;
   background-position: center;
 }

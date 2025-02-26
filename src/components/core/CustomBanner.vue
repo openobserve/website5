@@ -26,7 +26,7 @@ const props = defineProps({
 <template>
   <section
     class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
-    :style="{ backgroundImage: 'url(/BG.svg)' }"
+    :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
     aria-labelledby="banner-title"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
@@ -67,7 +67,7 @@ const props = defineProps({
               class="flex items-x gap-3 text-sm text-black"
             >
               <img
-                src="/img/bg/icon/Frame-11216.svg"
+                src="/img/icon/RightTick.svg"
                 alt="icon"
                 class="w-5 h-5"
               />

@@ -144,7 +144,7 @@ const getCurrentYear = () => new Date().getFullYear();
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
               <img
-                src="/SOC.svg"
+                src="/img/SOC.svg"
                 class="w-full h-full object-contain grayscale"
               />
             </div>
@@ -208,37 +208,34 @@ const getCurrentYear = () => new Date().getFullYear();
           <!-- Social Links -->
           <div class="social-links flex space-x-4">
             <div class="flex items-center space-x-4">
-              <!-- <a href="/" class="flex items-center rounded-md p-2 hover:">
-                <img src="/Slack.svg" class="w-8 h-8" />
-              </a> -->
               <a
                 href="https://short.openobserve.ai/community"
                 target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/SlackHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/img/icon/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/SlackHover.svg')]"
               >
               </a>
               <a
                 href="https://twitter.com/OpenObserve"
                 target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/TwitterHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/img/icon/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/TwitterHover.svg')]"
               >
               </a>
               <a
                 href="https://www.linkedin.com/company/openobserve"
                 target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/Linkedin.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/LinkedinHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/img/icon/Linkedin.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/LinkedinHover.svg')]"
               >
               </a>
               <a
                 href="https://github.com/openobserve/openobserve"
                 target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/GitHub.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/GitHubHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/img/icon/GitHub.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/GitHubHover.svg')]"
               >
               </a>
               <a
                 href="https://www.youtube.com/@openobserve"
                 target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/YoutubeHover.svg')]"
+                class="w-12 h-12 rounded-md bg-[url('/img/icon/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/YoutubeHover.svg')]"
               >
               </a>
             </div>

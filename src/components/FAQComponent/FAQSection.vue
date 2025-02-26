@@ -24,7 +24,7 @@ const renderMarkdown = (markdown) => {
 </script>
 
 <template>
-  <div class="w-full bg-[url('/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full">
+  <div class="w-full bg-[url('/img/bg/gradient-bg/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full">
     <!-- FAQ Items -->
     <div class="space-y-4 my-5 w-full">
       <div v-for="(item, index) in faqItems" :key="index">
@@ -41,7 +41,7 @@ const renderMarkdown = (markdown) => {
             {{ item.question }}
           </h3>
           <img
-            src="/faq+Icon.svg"
+            src="/img/icon/faq+Icon.svg"
             alt="toggle"
             :class="{
               'rotate-45': visibleAnswers[index]

@@ -118,7 +118,7 @@ const handleSubmit = (values) => {};
               class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
               
             >
-              <img src="/favicon.png" alt="OpenObserve" class="h-6 w-6 mr-3" />
+              <img src="/img/icon/TryOOCloudIcon.png" alt="OpenObserve" class="h-6 w-6 mr-3" />
               <span class="font-medium text-sm md:text-base"
                 >Try OpenObserve Cloud</span
               >
@@ -180,7 +180,7 @@ const handleSubmit = (values) => {};
               class="p-3 bg-[#2A2D31] rounded-lg hover:bg-[#32363B] transition-all duration-200 shadow-lg shadow-black/20"
             >
               <img
-                src="/download-pricing/search.svg"
+                src="/img/icon/search.svg"
                 alt="Search login"
                 class="h-10 w-10"
               />

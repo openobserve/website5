@@ -68,7 +68,7 @@ onUnmounted(() => {
       <!-- Background Image -->
       <div
         class="absolute inset-0 bg-cover bg-center rounded-lg z-0"
-        :style="{ backgroundImage: `url('/background/featureBG.svg')` }"
+        :style="{ backgroundImage: `url('/img/bg/gradient-bg/featureBG.svg')` }"
       ></div>
 
       <!-- Foreground Image (Clickable) -->

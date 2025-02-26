@@ -19,7 +19,7 @@ const props = defineProps({
     <img
       alt="Bottom decoration"
       class="md:hidden absolute w-screen h-2/5 rounded-2xl"
-      src="/img/bg/platform/glass-bg.svg"
+      src="/img/bg/gradient-bg/glass-bg.svg"
     />
     
     <CustomSection>
@@ -28,7 +28,7 @@ const props = defineProps({
         <img
           alt="Bottom decoration"
           class="hidden md:block absolute w-screen h-3/5 "
-          src="/img/bg/platform/glass-bg.svg"
+          src="/img/bg/gradient-bg/glass-bg.svg"
         />
 
         <!-- Content -->

@@ -22,7 +22,7 @@ const props = defineProps({
     class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
       backgroundImage:
-        'url(/CareerHeroSectionTopBg.svg), url(/CareerHeroBottomBg.svg)',
+        'url(/img/bg/gradient-bg/CareerHeroSectionTopBg.svg), url(/img/bg/gradient-bg/CareerHeroBottomBg.svg)',
       backgroundPosition: 'center -200px,center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat',

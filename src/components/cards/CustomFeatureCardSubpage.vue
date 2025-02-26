@@ -30,7 +30,7 @@ const swiperOptions = {
       <img
         alt="Bottom decoration"
         class="absolute w-screen h-screen bg-black/80 rounded-3xl"
-        src="/img/bg/platform/glass-bg.svg"
+        src="/img/bg/gradient-bg/glass-bg.svg"
       />
 
       <!-- Desktop Layout (Flexbox) -->

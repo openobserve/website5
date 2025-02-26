@@ -29,7 +29,7 @@ defineProps({
           class="flex items-start gap-4"
         >
           <CustomImage
-            image="/img/bg/icon/Frame-11216.svg"
+            image="/img/icon/RightTick.svg"
             altText="icon"
             cssClass="w-6 h-6"
           />
