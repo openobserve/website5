@@ -2,60 +2,66 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import CustomButton from "./CustomButton.vue";
 
-// Control modal state
 const isOpen = ref(false);
-const showMainButton = ref(true); // Controls button visibility after modal hides
+const showMainButton = ref(false);
+const shouldHide = ref(false);
+let observer = null; // Mutation observer reference
 
 // Function to open modal
 const openModal = () => {
-  showMainButton.value = false; // Hide button when opening modal
+  showMainButton.value = true;
   isOpen.value = true;
-  window.addEventListener("keydown", handleKeydown);
 };
 
 // Function to close modal
 const closeDialog = () => {
-  isOpen.value = false; // Start closing modal
-  window.removeEventListener("keydown", handleKeydown);
-};
-
-// Function to show button after modal completely hides
-const showButton = () => {
-  showMainButton.value = true; // Button appears after modal hide transition completes
-};
-
-// Handle Escape key press
-const handleKeydown = (event) => {
-  if (event.key === "Escape") {
-    closeDialog();
-  }
+  isOpen.value = false;
 };
 
 // Function to check scroll position
-// Function to check scroll position with smooth transition
 const handleScroll = () => {
-  const scrollY = window.scrollY; // Current scroll position
-  const documentHeight = document.documentElement.scrollHeight; // Total document height
-  const triggerScroll = documentHeight * 0.2; // 20% of the page height
+  const scrollY = window.scrollY;
+  const triggerScroll = window.innerHeight;
 
-  // Open modal with a smooth delay if user scrolls past the 20% mark
-  if (scrollY >= triggerScroll && !isOpen.value) {
-    setTimeout(() => {
-      openModal();
-    }, 300); // Adding a slight delay of 300ms for a smoother effect
+  if (scrollY >= triggerScroll) {
+    showMainButton.value = true;
+  } else {
+    showMainButton.value = false;
+    isOpen.value = false;
   }
 };
 
-// Attach scroll listener when component mounts
+// Function to check if `#main-component` exists
+const checkForMainComponent = () => {
+  if (document.getElementById("main-component")) {
+    shouldHide.value = true; // Hide component if found
+  }
+};
+
+// Attach scroll listener and observe DOM changes
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
+  checkForMainComponent(); // Initial check
+
+  // Observe DOM changes in case `#main-component` is added later
+  observer = new MutationObserver(() => {
+    checkForMainComponent();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Only add scroll listener if component is not hidden
+  if (!shouldHide.value) {
+    window.addEventListener("scroll", handleScroll);
+  }
 });
 
-// Remove event listener when component unmounts
+// Cleanup event listeners and observer
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  if (observer) {
+    observer.disconnect();
+  }
 });
-
 // Features data
 const features = ref([
   { title: "Ingestion - 50 GB logs, 50 GB metrics, 50 GB traces" },
@@ -70,7 +76,8 @@ const features = ref([
 
 <template>
   <div
-    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 bottom-4 sm:bottom-4 flex flex-col items-end z-20"
+    v-if="!shouldHide"
+    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 bottom-4 sm:bottom-4 flex flex-col items-end z-40"
   >
     <!-- Button (Now appears only after modal fully hides) -->
     <button
