@@ -27,13 +27,11 @@ const swiperOptions = {
   <CustomSection section-class="xl:px-0 relative overflow-hidden">
     <div class="relative w-full -mt-10 lg:-mt-12">
       <!-- Background image -->
-      
-        <img
-          alt="Bottom decoration"
-          class="absolute w-screen h-screen bg-black/80 rounded-3xl"
-          src="/img/bg/gradient-bg/glass-bg.svg"
-        />
-      
+      <img
+        alt="Bottom decoration"
+        class="absolute w-screen h-screen bg-black/80 rounded-3xl"
+        src="/img/bg/gradient-bg/glass-bg.svg"
+      />
 
       <!-- Desktop Layout (Flexbox) -->
       <div
