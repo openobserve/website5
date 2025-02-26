@@ -31,7 +31,7 @@ const swiperOptions = {
         <img
           alt="Bottom decoration"
           class="w-full h-full"
-          src="/img/bg/platform/glass-bg.svg"
+          src="/img/bg/gradient-bg/glass-bg.svg"
         />
       </div>
 

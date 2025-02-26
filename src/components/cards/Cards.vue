@@ -21,9 +21,9 @@ const props = defineProps({
 });
 
 const bg = {
-  0: "/Homepage/Tiles-F1-eclipse.svg",
-  1: "/Homepage/Home-F2-Eclipse.svg",
-  2: "/Homepage/Home-F3-Eclipse.svg",
+  0: "/img/bg/gradient-bg/Tiles-F1-eclipse.svg",
+  1: "/img/bg/gradient-bg/Home-F2-Eclipse.svg",
+  2: "/img/bg/gradient-bg/Home-F3-Eclipse.svg",
 };
 </script>
 

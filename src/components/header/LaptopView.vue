@@ -76,7 +76,7 @@
           ref="searchWrapper"
         >
           <img
-            src="/search.svg"
+            src="/img/icon/search.svg"
             alt="Search Icon"
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
@@ -87,7 +87,7 @@
           target="_blank"
         >
           <img
-            src="/slackIcon.svg"
+            src="/img/icon/slackIcon.svg"
             alt="Search Icon"
             class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
           />
@@ -368,14 +368,14 @@
       <div
         class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
       >
-        <img src="/search.svg" alt="Search Icon" class="" />
+        <img src="/img/icon/search.svg" alt="Search Icon" class="" />
         <input
           type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
           placeholder="Search here"
         />
         <button @click="isOpenSearch = false" class="text-white">
-          <img src="/close.svg" alt="Search Icon" class="" />
+          <img src="/img/icon/close.svg" alt="Search Icon" class="" />
         </button>
       </div>
     </div>

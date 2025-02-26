@@ -10,7 +10,7 @@
             ref="searchWrapper"
           >
             <img
-              src="/search.svg"
+              src="/img/icon/search.svg"
               alt="Search Icon"
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
@@ -21,7 +21,7 @@
             target="_blank"
           >
             <img
-              src="/slackIcon.svg"
+              src="/img/icon/slackIcon.svg"
               alt="Search Icon"
               class="cursor-pointer w-5 h-5 object-cover p-1"
             />
@@ -54,7 +54,7 @@
             @click="onMenuClick"
           >
             <img
-              :src="isMenuOpen ? '/close.svg' : '/navmenu.svg'"
+              :src="isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'"
               alt="Mobile View Menu Icon"
               class=""
             />
@@ -69,14 +69,14 @@
         <div
           class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
         >
-          <img src="/search.svg" alt="Search Icon" class="" />
+          <img src="/img/icon/search.svg" alt="Search Icon" class="" />
           <input
             type="text"
             class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-white"
             placeholder="Search here"
           />
           <button @click="isOpenSearch = false" class="text-white">
-            <img src="/close.svg" alt="Search Icon" class="" />
+            <img src="/img/icon/close.svg" alt="close Icon" class="" />
           </button>
         </div>
       </div>
@@ -136,13 +136,13 @@
         </div>
 
         <!-- Submenu Content -->
-        <!-- <div style="background-image: url('/mobilenavBg1.svg')" class="bg-cover bg-no-repeat top-1/2" ></div> -->
+        <!-- <div style="background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg')" class="bg-cover bg-no-repeat top-1/2" ></div> -->
         <div
           v-if="activeSubMenu"
           style="
             background-image:
-              url(&quot;/mobilenavBg1.svg&quot;),
-              url(&quot;/mobilenavBg2.svg&quot;);
+              url(&quot;/img/bg/gradient-bg/mobilenavBg1.svg&quot;),
+              url(&quot;/img/bg/gradient-bg/mobilenavBg2.svg.svg&quot;);
             background-position: top, bottom;
             background-repeat: no-repeat, no-repeat;
             background-size: cover, cover;
@@ -151,7 +151,7 @@
         >
           <div class="flex items-center px-4 py-2">
             <button class="text-gray-300" @click="closeSubMenu">
-              <img src="/NavBack.svg" alt="Back Icon" class="w-5 h-5" />
+              <img src="/img/icon/NavBack.svg" alt="Back Icon" class="w-5 h-5" />
             </button>
             <h4 class="text-[#BEC0C2] text-2xl font-semibold ml-2">
               {{ activeSubMenu }}
@@ -348,7 +348,7 @@
             </div>
           </div>
         </div>
-        <!-- <div style="background-image: url('/mobilenavBg1.svg')"></div> -->
+        <!-- <div style="background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg')"></div> -->
       </div>
     </div>
   </header>

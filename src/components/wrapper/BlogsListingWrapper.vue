@@ -13,7 +13,7 @@
           placeholder="Search here"
         />
         <button class="text-white px-4">
-          <img src="/search.svg" alt="Search Icon" />
+          <img src="/img/icon/search.svg" alt="Search Icon" />
         </button>
       </div> -->
 
@@ -26,7 +26,7 @@
         <div class="w-full md:w-3/5 justify-center md:justify-end mt-4 md:mt-0">
           <!-- <div class="bg-black border border-gray-500 rounded-md p-2">
             <button class="flex items-center justify-center">
-              <img src="/filter.svg" alt="Filter Icon" class="w-6 h-6" />
+              <img src="/img/icon/filter.svg" alt="Filter Icon" class="w-6 h-6" />
             </button>
           </div> -->
         </div>

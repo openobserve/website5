@@ -21,7 +21,7 @@ const props = defineProps({
     <!-- Top Background -->
     <div
       class="absolute inset-0 bg-no-repeat bg-cover bg-top sm:bg-[50%_-20vh] md:bg-[50%_-10vh] xl:bg-[50%_-10vh]"
-      style="background-image: url('/ContactUsTopbg.svg')"
+      style="background-image: url('/img/bg/gradient-bg/ContactUsTopbg.svg')"
     ></div>
     <div class="z-10 container mx-auto max-w-4xl absolute">
       <TextWithGradient

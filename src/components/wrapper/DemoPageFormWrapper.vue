@@ -39,7 +39,7 @@ defineProps({
     <div
       class="w-full h-56 lg:scale-x-110"
      :style="{
-      backgroundImage: 'url(/ContactUsBottombg.svg)',
+      backgroundImage: 'url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
       backgroundPosition: 'bottom',
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
