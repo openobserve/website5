@@ -1,25 +1,89 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+import CustomButton from "./CustomButton.vue";
+
+// Control modal state
+const isOpen = ref(false);
+const showMainButton = ref(true); // Controls button visibility after modal hides
+
+// Function to open modal
+const openModal = () => {
+  showMainButton.value = false; // Hide button when opening modal
+  isOpen.value = true;
+  window.addEventListener("keydown", handleKeydown);
+};
+
+// Function to close modal
+const closeDialog = () => {
+  isOpen.value = false; // Start closing modal
+  window.removeEventListener("keydown", handleKeydown);
+};
+
+// Function to show button after modal completely hides
+const showButton = () => {
+  showMainButton.value = true; // Button appears after modal hide transition completes
+};
+
+// Handle Escape key press
+const handleKeydown = (event) => {
+  if (event.key === "Escape") {
+    closeDialog();
+  }
+};
+
+// Function to check scroll position
+const handleScroll = () => {
+  const scrollY = window.scrollY; // Current scroll position
+  const documentHeight = document.documentElement.scrollHeight; // Total document height
+  const triggerScroll = documentHeight * 0.2; // 20% of the page height
+
+  // Open modal when user scrolls past the 20% mark
+  if (scrollY >= triggerScroll && !isOpen.value) {
+    openModal();
+  }
+};
+
+// Attach scroll listener when component mounts
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+// Remove event listener when component unmounts
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+// Features data
+const features = ref([
+  { title: "Ingestion - 50 GB logs, 50 GB metrics, 50 GB traces" },
+  { title: "Query volume - 200 GB" },
+  { title: "Pipelines - 50 GB of Data Processing" },
+  { title: "1K RUM & Session Replay" },
+  { title: "1K Action Runs" },
+  { title: "3 Users" },
+  { title: "7-Days Retention" },
+]);
+</script>
+
 <template>
   <div
-    class="fixed md:right-4 md:top-1/2 md:transform md:-translate-y-1/2 bottom-4 right-4 sm:bottom-4 flex flex-col items-end z-20"
+    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 bottom-4 sm:bottom-4 flex flex-col items-end z-20"
   >
-    <!-- Button - hidden immediately when clicked -->
+    <!-- Button (Now appears only after modal fully hides) -->
     <button
-      v-if="!isOpen"
+      v-if="showMainButton"
       @click="openModal"
-      class="primary-button px-2 py-1 md:px-2 md:py-2 md:-rotate-90 origin-right"
+      class="primary-button px-2 py-1 md:px-2 md:py-2 origin-bottom-right md:-rotate-90"
     >
-      <span class="text-base md:text-md">GET STARTED</span>
+      <span class="px-3 md:px-3 text-xs">GET STARTED</span>
     </button>
 
     <!-- Modal with smooth transition -->
-    <Transition name="slide-fade">
-      <div
-        v-if="isOpen"
-        class="bg-color rounded-lg shadow-lg max-w-md p-6 relative mx-4"
-      >
+    <Transition name="slide-fade" @after-leave="showButton">
+      <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
         <!-- Close Button -->
         <button
-          @click="isOpen = false"
+          @click="closeDialog"
           class="absolute top-1 right-1 w-8 h-8 flex items-center justify-center rounded-full text-white hover:text-gray-200 transition-colors"
         >
           <span class="text-lg">✖</span>
@@ -31,7 +95,7 @@
           >
             Openobserve Cloud Free Tier
           </h2>
-          <ul class="space-y-3">
+          <ul class="space-y-2">
             <li
               v-for="(feature, index) in features"
               :key="index"
@@ -48,55 +112,22 @@
         </div>
 
         <div class="flex flex-col items-start">
-          <CustomButton variant="primary" class="mt-8 text-base md:text-md">
+          <CustomButton
+            variant="primary"
+            size="small"
+            class="mt-2 mb-2"
+            buttonLink="https://cloud.openobserve.ai/web/login"
+          >
             GET STARTED
           </CustomButton>
           <p class="text-white text-xs md:text-sm">
-            Get Started in minutes-no credit card required.
+            Get Started in minutes - no credit card required.
           </p>
         </div>
       </div>
     </Transition>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import CustomButton from "./CustomButton.vue";
-
-// Control modal state
-const isOpen = ref(false);
-
-// Function to open modal - button hides immediately
-const openModal = () => {
-  isOpen.value = true;
-};
-
-// Features data
-const features = ref([
-  {
-    title: "Ingestion - 50 GB logs, 50 GB metrics , 50 GB traces",
-  },
-  {
-    title: "Query volume - 200 GB",
-  },
-  {
-    title: "Pipelines - 50 GB of Data Processing",
-  },
-  {
-    title: "1K RUM & Session Replay",
-  },
-  {
-    title: "1K Action Runs",
-  },
-  {
-    title: "3 Users",
-  },
-  {
-    title: "7-Days Retention",
-  },
-]);
-</script>
 
 <style>
 /* Vertical text style */
@@ -112,22 +143,25 @@ const features = ref([
   border: 1px solid rgba(49, 53, 57, 1);
 }
 
-/* Transition for the modal only */
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
+/* Smooth transition for modal */
+.slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.2s ease-in;
-}
-.slide-fade-enter-from {
-  transform: translateX(20px);
-  opacity: 0;
-}
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out;
 }
 
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Primary button styles */
 .primary-button {
   position: relative;
   border: none;
@@ -138,16 +172,11 @@ const features = ref([
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
 
-  /* Base gradient for button fill with matching border in normal state */
   background-image: linear-gradient(180deg, #0095ff 0%, #0088ff 100%);
-  /* linear-gradient(180deg, #0095ff 0%, #0088ff 100%); */
-
-  /* Creates a 2px border that matches the button color initially */
   border: 1px solid transparent;
 }
 
 .primary-button:hover {
-  /* Only change the border gradient on hover */
   background-image:
     linear-gradient(90deg, #0079dd -10.28%, #3bb3ff 92.55%, #76dbff 109.08%),
     linear-gradient(
@@ -160,7 +189,6 @@ const features = ref([
       rgba(0, 68, 255, 0.7) 100%
     );
 
-  /* More uniform shadow spread */
   box-shadow:
     0 0 15px rgba(0, 136, 255, 0.4),
     0 0 20px rgba(0, 106, 255, 0.2);
@@ -176,25 +204,14 @@ const features = ref([
       rgba(64, 169, 255, 0.7) 40%,
       rgba(0, 106, 255, 0.6) 100%
     );
-  /* Slightly reduced shadow when pressed */
   box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
-}
-
-/* Focus state for accessibility */
-.primary-button:focus {
-  outline: none;
-  box-shadow:
-    0 0 0 3px rgba(0, 136, 255, 0.3),
-    0 0 10px rgba(0, 136, 255, 0.4);
 }
 
 /* Disabled state */
 .primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image:
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
 </style>
