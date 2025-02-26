@@ -36,7 +36,7 @@ const props = defineProps<{
         class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
       >
         <!-- Tier Header -->
-        <div class="mb-6 text-center h-[20vh]">
+        <div class="mb-6 text-center h-[18vh] md:h-[20vh]">
           <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
             {{ tier.title }}
           </h3>
