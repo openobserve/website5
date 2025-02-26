@@ -5,7 +5,8 @@ import CustomButton from "./CustomButton.vue";
 const isOpen = ref(false);
 const showMainButton = ref(false);
 const shouldHide = ref(false);
-let observer = null; // Mutation observer reference
+const modalRef = ref(null); // Reference for modal
+let scrollObserver = null;
 
 // Function to open modal
 const openModal = () => {
@@ -31,37 +32,40 @@ const handleScroll = () => {
   }
 };
 
-// Function to check if `#main-component` exists
-const checkForMainComponent = () => {
-  if (document.getElementById("main-component")) {
-    shouldHide.value = true; // Hide component if found
+// Function to check visibility of #9
+const observeMainComponent = () => {
+  const target = document.getElementById("9");
+
+  if (target) {
+    scrollObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        shouldHide.value = entry.isIntersecting; // Hide if visible
+      },
+      {
+        root: null, // Observe within viewport
+        threshold: 0.1, // Trigger when 10% is visible
+      }
+    );
+
+    scrollObserver.observe(target);
   }
 };
 
-// Attach scroll listener and observe DOM changes
+// Attach event listeners
 onMounted(() => {
-  checkForMainComponent(); // Initial check
-
-  // Observe DOM changes in case `#main-component` is added later
-  observer = new MutationObserver(() => {
-    checkForMainComponent();
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // Only add scroll listener if component is not hidden
-  if (!shouldHide.value) {
-    window.addEventListener("scroll", handleScroll);
-  }
+  observeMainComponent(); // Start observing visibility
+  window.addEventListener("scroll", handleScroll);
 });
 
-// Cleanup event listeners and observer
+// Cleanup observers
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
-  if (observer) {
-    observer.disconnect();
+  if (scrollObserver) {
+    scrollObserver.disconnect();
   }
 });
+
 // Features data
 const features = ref([
   { title: "Ingestion - 50 GB logs, 50 GB metrics, 50 GB traces" },
@@ -77,7 +81,7 @@ const features = ref([
 <template>
   <div
     v-if="!shouldHide"
-    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 bottom-4 sm:bottom-4 flex flex-col items-end z-40"
+    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-40 md:transform bottom-4 sm:bottom-4 flex-col items-end z-40 hidden sm:flex"
   >
     <!-- Button (Now appears only after modal fully hides) -->
     <button
@@ -90,7 +94,11 @@ const features = ref([
 
     <!-- Modal with smooth transition -->
     <Transition name="slide-fade" @after-leave="showButton">
-      <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
+      <div
+        v-if="isOpen"
+        class="bg-color rounded-lg shadow-lg p-6 relative"
+        @click="closeDialog"
+      >
         <!-- Close Button -->
         <button
           @click="closeDialog"
