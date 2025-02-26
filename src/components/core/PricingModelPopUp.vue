@@ -89,7 +89,7 @@ const features = ref([
       @click="openModal"
       class="primary-button px-2 py-1 md:px-2 md:py-1 origin-bottom-right md:-rotate-90"
     >
-      <span class="px-3 md:px-3 text-xs">GET STARTED FREE</span>
+      <span class="px-3 md:px-3 text-xs">GET STARTED FOR FREE</span>
     </button>
 
     <!-- Modal with smooth transition -->
