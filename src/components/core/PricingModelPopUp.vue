@@ -119,11 +119,7 @@ const features = ref([
               :key="index"
               class="flex items-x gap-3 text-xs text-white text-left"
             >
-              <img
-                src="/img/bg/icon/Frame-11216.svg"
-                alt="icon"
-                class="w-5 h-5"
-              />
+              <img src="/img/icon/RightTick.svg" alt="icon" class="w-5 h-5" />
               <span>{{ feature.title }}</span>
             </li>
           </ul>
