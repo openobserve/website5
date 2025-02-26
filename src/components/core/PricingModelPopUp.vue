@@ -34,8 +34,8 @@ const handleScroll = () => {
 
 // Function to check visibility of #9
 const observeMainComponent = () => {
-  const target = document.getElementById("9");
-
+  const target = document.getElementById("bannerComponent");
+  console.log(target);
   if (target) {
     scrollObserver = new IntersectionObserver(
       (entries) => {
@@ -94,11 +94,7 @@ const features = ref([
 
     <!-- Modal with smooth transition -->
     <Transition name="slide-fade" @after-leave="showButton">
-      <div
-        v-if="isOpen"
-        class="bg-color rounded-lg shadow-lg p-6 relative"
-        @click="closeDialog"
-      >
+      <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
         <!-- Close Button -->
         <button
           @click="closeDialog"
