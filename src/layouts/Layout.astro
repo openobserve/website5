@@ -4,6 +4,8 @@ import Footer from "../components/footerComponent/Footer.vue";
 import NavData from "../content/header.json";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
+import PricingModelPopUp from "@/components/core/PricingModelPopUp.vue";
+
 const footerData = {
   sections: [
     {
@@ -160,6 +162,8 @@ const { metaObj } = Astro.props;
         class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
         client:only
       />
+      <PricingModelPopUp client:load />
+      <!-- Import your modal component here -->
       <div class="navbarheight">
         <slot />
       </div>
