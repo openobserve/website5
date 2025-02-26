@@ -32,14 +32,17 @@ const handleKeydown = (event) => {
 };
 
 // Function to check scroll position
+// Function to check scroll position with smooth transition
 const handleScroll = () => {
   const scrollY = window.scrollY; // Current scroll position
   const documentHeight = document.documentElement.scrollHeight; // Total document height
   const triggerScroll = documentHeight * 0.2; // 20% of the page height
 
-  // Open modal when user scrolls past the 20% mark
+  // Open modal with a smooth delay if user scrolls past the 20% mark
   if (scrollY >= triggerScroll && !isOpen.value) {
-    openModal();
+    setTimeout(() => {
+      openModal();
+    }, 300); // Adding a slight delay of 300ms for a smoother effect
   }
 };
 
@@ -73,7 +76,7 @@ const features = ref([
     <button
       v-if="showMainButton"
       @click="openModal"
-      class="primary-button px-2 py-1 md:px-2 md:py-2 origin-bottom-right md:-rotate-90"
+      class="primary-button px-2 py-1 md:px-2 md:py-1 origin-bottom-right md:-rotate-90"
     >
       <span class="px-3 md:px-3 text-xs">GET STARTED</span>
     </button>
@@ -118,7 +121,7 @@ const features = ref([
             class="mt-2 mb-2"
             buttonLink="https://cloud.openobserve.ai/web/login"
           >
-            GET STARTED
+            GET STARTED FOR FREE
           </CustomButton>
           <p class="text-white text-xs md:text-sm">
             Get Started in minutes - no credit card required.
@@ -143,22 +146,27 @@ const features = ref([
   border: 1px solid rgba(49, 53, 57, 1);
 }
 
-/* Smooth transition for modal */
-.slide-fade-enter-active,
+/* Modal smooth transition - Slide from right */
+.slide-fade-enter-active {
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
 .slide-fade-leave-active {
   transition:
-    opacity 0.2s ease-out,
-    transform 0.2s ease-out;
+    opacity 0.3s ease-in,
+    transform 0.3s ease-in;
 }
 
 .slide-fade-enter-from {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateX(30px); /* Move from right */
 }
 
 .slide-fade-leave-to {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateX(30px); /* Move to right when closing */
 }
 
 /* Primary button styles */
@@ -167,7 +175,7 @@ const features = ref([
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 10px 10px 0px 0px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
@@ -175,7 +183,12 @@ const features = ref([
   background-image: linear-gradient(180deg, #0095ff 0%, #0088ff 100%);
   border: 1px solid transparent;
 }
-
+/* Apply 100px border-radius on mobile screens */
+@media (max-width: 768px) {
+  .primary-button {
+    border-radius: 100px;
+  }
+}
 .primary-button:hover {
   background-image:
     linear-gradient(90deg, #0079dd -10.28%, #3bb3ff 92.55%, #76dbff 109.08%),
