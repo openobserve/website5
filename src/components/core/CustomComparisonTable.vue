@@ -27,7 +27,7 @@ const props = defineProps({
 
     <!-- Comparison Table -->
     <div
-      class="rounded-xl border border-gray-500 lg:border-transparent overflow-hidden backdrop-blur-sm bg-cover bg-center bg-no-repeat bg-[url('/download-pricing/Eclipse.svg'),url('/download-pricing/Eclipse(1).svg'),url('/download-pricing/Eclipse(2).svg')] mt-5 md:mt-10"
+      class="rounded-xl border border-gray-500 lg:border-transparent overflow-hidden backdrop-blur-sm bg-cover bg-center bg-no-repeat bg-[url('/img/bg/gradient-bg/Eclipse.svg'),url('/img/bg/gradient-bg/Eclipse(1).svg'),url('/img/bg/gradient-bg/Eclipse(2).svg')] mt-5 md:mt-10"
     >
       <!-- Table Header -->
       <div class="grid grid-cols-[1fr_2fr_2fr] text-white border-b border-gray-700">

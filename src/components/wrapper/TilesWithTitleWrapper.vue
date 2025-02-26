@@ -23,12 +23,12 @@ const props = defineProps({
 <template>
   <div class="relative bg-cover bg-no-repeat w-full overflow-visible">
     <CustomImage
-      image="/cardBg1.svg"
+      image="/img/bg/gradient-bg/cardBg1.svg"
       cssClass="absolute bottom-[-60vh] right-[105vh] -z-10 object-contain"
       altText="Background SVG"
     />
     <CustomImage
-      image="/cardBg2.svg"
+      image="/img/bg/gradient-bg/cardBg2.svg"
       altText="Image"
       cssClass="absolute bottom-[-6ovh] -z-10 object-contain"
     />

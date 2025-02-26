@@ -95,7 +95,7 @@ const navigateToTerms = (e) => {
   <div
     class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
-      backgroundImage: 'url(/ContactUsTopbg.svg), url(/ContactUsBottombg.svg)',
+      backgroundImage: 'url(/img/bg/gradient-bg/ContactUsTopbg.svg), url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat',

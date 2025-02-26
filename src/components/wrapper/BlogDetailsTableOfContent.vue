@@ -1,7 +1,7 @@
 <template>
   <div
     class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 max-h-screen overflow-y-auto scrollbar"
-    style="background-image: url('/Glass.svg')"
+    style="background-image: url('/img/bg/gradient-bg/BlogTableOfContentGlassBg.svg')"
   >
     <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
     <ul class="space-y-4">

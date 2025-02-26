@@ -13,8 +13,8 @@ const props = defineProps({
 });
 
 const bgImages = [
-  "/Homepage/Tiles-F1-eclipse.svg", // First and last card
-  "/Homepage/Home-F2-Eclipse.svg",  // Middle card
+  "/img/bg/gradient-bg/Tiles-F1-eclipse.svg", // First and last card
+  "/img/bg/gradient-bg/Home-F2-Eclipse.svg",  // Middle card
 ];
 </script>
 

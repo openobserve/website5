@@ -7,7 +7,8 @@
         class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700"
       >
         <span class="text-white px-4">
-          <img src="/search.svg" alt="Search Icon" />
+
+          <img src="/img/icon/search.svg" alt="Search Icon" />
         </span>
         <input
           v-model="searchItem"

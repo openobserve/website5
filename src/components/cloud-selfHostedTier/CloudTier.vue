@@ -72,7 +72,7 @@ const props = defineProps<{
             >
               <span class="flex-shrink-0">
                 <img
-                  src="/img/bg/icon/Frame-11216.svg"
+                  src="/img/icon/RightTick.svg"
                   alt="icon"
                   class="w-4 md:w-5 h-4 md:h-5"
                 />

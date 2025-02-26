@@ -67,7 +67,7 @@ const redirectToBlog = (slug) => {
       <!-- Desktop View -->
       <div class="hidden md:block pt-[6vh] py-6 relative">
         <CustomImage
-          image="/Platform/Ellipse-141.svg"
+          image="/img/bg/gradient-bg/Ellipse-141.svg"
           altText="Background decoration"
           cssClass="absolute opacity-30 object-contain -z-10"
         />

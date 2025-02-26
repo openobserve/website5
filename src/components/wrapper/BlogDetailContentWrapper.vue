@@ -88,7 +88,7 @@ async function addCopyButtons() {
 
     // Create copy button
     const button = document.createElement("button");
-    button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`;
+    button.innerHTML = `<img src="/img/icon/copyIcon.svg" alt="Plus Icon" />`;
     button.className =
       "copy-button absolute top-0 right-0  px-0  rounded-md text-sm transition-opacity opacity-100";
     button.setAttribute("aria-label", "Copy code to clipboard");
@@ -105,10 +105,10 @@ async function addCopyButtons() {
       const code = pre.querySelector("code")?.innerText.trim();
       if (code) {
         navigator.clipboard.writeText(code);
-        button.innerHTML = `<img src="/download-pricing/copiedIcon.svg" alt="Plus Icon" class="h-5 w-5" />`;
+        button.innerHTML = `<img src="/img/icon/copiedIcon.svg" alt="Plus Icon" class="h-5 w-5" />`;
         setTimeout(
           () =>
-            (button.innerHTML = `<img src="/download-pricing/copyIcon.svg" alt="Plus Icon" />`),
+            (button.innerHTML = `<img src="/img/icon/copyIcon.svg" alt="Plus Icon" />`),
           2000
         );
       }

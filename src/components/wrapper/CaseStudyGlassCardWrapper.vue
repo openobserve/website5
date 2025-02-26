@@ -34,7 +34,7 @@ const props = defineProps({
     <!-- Desktop View -->
     <div class="md:block py-10 relative">
   <CustomImage
-    image="/Platform/Ellipse-141.svg"
+    image="/img/bg/gradient-bg/Ellipse-141.svg"
     altText="Background decoration"
     cssClass="absolute opacity-30 object-contain"
   />

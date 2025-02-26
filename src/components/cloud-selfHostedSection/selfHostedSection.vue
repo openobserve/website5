@@ -61,7 +61,7 @@ const props = defineProps({
             <li class="flex gap-3 text-gray-300">
               <span>
                 <img
-                  src="/download-pricing/docker.svg"
+                  src="/img/icon/docker.svg"
                   alt="icon"
                   class="w-5 md:w-6 h-5 md:h-6"
               /></span>
@@ -82,7 +82,7 @@ const props = defineProps({
               <div class="flex gap-3 items-center">
                 <span>
                   <img
-                    src="/download-pricing/downloading.svg"
+                    src="/img/icon/downloading.svg"
                     alt="icon"
                     class="w-5 md:w-6 h-5 md:h-6"
                   />
@@ -103,7 +103,7 @@ const props = defineProps({
               <div class="flex gap-3 items-center">
                 <span>
                   <img
-                    src="/download-pricing/High Availability (HA) and Clustering.svg"
+                    src="/img/HA-Clustering.svg"
                     alt="icon"
                     class="w-4 md:w-5 h-4 md:h-5"
                   />
@@ -161,7 +161,7 @@ const props = defineProps({
             >
               <span>
                 <img
-                  src="/rightTick.svg"
+                  src="/img/icon/RightTick.svg"
                   alt="icon"
                   class="w-5 md:w-6 h-5 md:h-6"
               /></span>

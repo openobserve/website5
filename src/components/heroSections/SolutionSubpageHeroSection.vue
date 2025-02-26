@@ -14,7 +14,7 @@ const props = defineProps({
 });
 
 const sectionStyles = computed(() => ({
-  "--before-bg": `url('/Platform/SolutionSubHeroBg.svg')`,
+  "--before-bg": `url('/img/bg/gradient-bg/SolutionSubHeroBg.svg')`,
 }));
 </script>
 

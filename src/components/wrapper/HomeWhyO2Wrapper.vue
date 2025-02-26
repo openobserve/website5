@@ -27,7 +27,7 @@ const props = defineProps({
       />
       <div class="relative">
         <img
-          src="/cardBg1.svg"
+          src="/img/bg/gradient-bg/cardBg1.svg"
           class="absolute -left-80 -top-44 w-full xl:w-[50%]"
           alt="Background SVG"
         />
