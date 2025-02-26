@@ -24,6 +24,11 @@ interface PricingTier {
 const props = defineProps<{
   tiers: PricingTier[];
 }>();
+
+const isPricingTextNumber = (number: any) => {
+  if (Number.parseFloat(number)) return true;
+  else return false;
+};
 </script>
 
 <template>
@@ -36,7 +41,7 @@ const props = defineProps<{
         class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
       >
         <!-- Tier Header -->
-        <div class="mb-6 text-center h-[18vh] md:h-[20vh]">
+        <div class="mb-6 text-center">
           <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
             {{ tier.title }}
           </h3>
@@ -48,16 +53,23 @@ const props = defineProps<{
           </p>
         </div>
 
-        <div class="text-white space-y-4 mb-2 h-[13vh]">
+        <div class="text-white my-4">
           <p v-if="tier.pricing">
             <span class="text-5xl font-bold">
-              {{ tier.pricing.split(" ")[0] }}
+              {{
+                isPricingTextNumber(tier.pricing)
+                  ? `$${tier.pricing}`
+                  : tier.pricing
+              }}
             </span>
-            <span class="text-sm text-gray-300">
-              {{ tier.pricing.split(" ").slice(1).join(" ") }}
+            <span
+              v-if="isPricingTextNumber(tier.pricing)"
+              class="text-sm text-gray-300"
+            >
+              /Month
             </span>
           </p>
-          <p v-if="tier.monthlyText" class="mb-4 text-sm">
+          <p v-if="tier.monthlyText" class="text-sm mt-4">
             {{ tier.monthlyText }}:
           </p>
         </div>
