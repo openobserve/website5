@@ -161,7 +161,7 @@ const props = defineProps({
             >
               <span>
                 <img
-                  src="/rightTick.svg"
+                  src="/img/icon/RightTick.svg"
                   alt="icon"
                   class="w-5 md:w-6 h-5 md:h-6"
               /></span>

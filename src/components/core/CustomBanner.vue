@@ -67,7 +67,7 @@ const props = defineProps({
               class="flex items-x gap-3 text-sm text-black"
             >
               <img
-                src="/img/bg/icon/Frame-11216.svg"
+                src="/img/icon/RightTick.svg"
                 alt="icon"
                 class="w-5 h-5"
               />

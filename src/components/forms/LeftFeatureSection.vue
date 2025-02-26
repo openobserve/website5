@@ -34,7 +34,7 @@ defineProps({
           :key="index"
           class="flex items-start gap-4"
         >
-          <img src="/rightTick.svg" alt="icon" class="w-6 h-6" />
+          <img src="/img/icon/RightTick.svg" alt="icon" class="w-6 h-6" />
           <span class="text-white text-sm">{{ feature }}</span>
         </li>
       </ul>
@@ -52,7 +52,7 @@ defineProps({
           class="flex items-start gap-4"
         >
           <CustomImage
-            image="/rightTick.svg"
+            image="/img/icon/RightTick.svg"
             altText="icon"
             cssClass="w-6 h-6"
           />

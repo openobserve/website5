@@ -53,7 +53,7 @@ const data = {
         :key="index"
         class="w-full flex flex-row items-center gap-2"
       >
-        <img src="/rightTick.svg" alt="icon" class="w-7 h-7" />
+        <img src="/img/icon/RightTick.svg" alt="icon" class="w-7 h-7" />
         <div class="flex flex-col space-y-1">
           <span class="text-white font-medium">{{ feature.title }}</span>
           <p v-if="feature.description" class="text-gray-300 text-sm">
