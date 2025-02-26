@@ -22,7 +22,7 @@
           >
             <img
               src="/img/icon/slackIcon.svg"
-              alt="Search Icon"
+              alt="Slack Icon"
               class="cursor-pointer w-5 h-5 object-cover p-1"
             />
           </a>
