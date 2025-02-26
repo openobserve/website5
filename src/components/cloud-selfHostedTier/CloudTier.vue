@@ -55,7 +55,7 @@ const isPricingTextNumber = (number: any) => {
 
         <div class="text-white my-4">
           <p v-if="tier.pricing">
-            <span class="text-5xl font-bold">
+            <span class="text-3xl font-bold">
               {{
                 isPricingTextNumber(tier.pricing)
                   ? `$${tier.pricing}`
