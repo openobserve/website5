@@ -20,6 +20,10 @@ const props = defineProps({
   getStartedText: { type: String, default: "Get Started" },
   items: { type: Array, required: false },
   featureTitle: { type: String, required: false },
+  monthlyText: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
@@ -59,7 +63,7 @@ const props = defineProps({
           >
             {{ featureTitle }}
           </h2>
-          <p class="text-sm text-black">Monthly Limits:</p>
+          <p class="text-sm text-black">{{ monthlyText }}:</p>
           <ul class="space-y-3">
             <li
               v-for="(feature, index) in items"
