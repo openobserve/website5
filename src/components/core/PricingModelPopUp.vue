@@ -89,7 +89,7 @@ const features = ref([
       @click="openModal"
       class="primary-button px-2 py-1 md:px-2 md:py-1 origin-bottom-right md:-rotate-90"
     >
-      <span class="px-3 md:px-3 text-xs">GET STARTED</span>
+      <span class="px-3 md:px-3 text-xs">GET STARTED FREE</span>
     </button>
 
     <!-- Modal with smooth transition -->
@@ -131,6 +131,7 @@ const features = ref([
             size="small"
             class="mt-2 mb-2"
             buttonLink="https://cloud.openobserve.ai/web/login"
+            target="_blank"
           >
             GET STARTED FOR FREE
           </CustomButton>
