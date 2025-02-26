@@ -50,14 +50,13 @@ const repeatedData = computed(() => {
 
 .slide {
   display: flex;
-  animation: infiniteScroll 30s linear infinite;
+  animation: infiniteScroll 40s linear infinite;
   transition: translateX 0.5s ease;
   /* Adjust time based on number of items */
   /* width: max-content; Ensure the slide container fits the content */
-  width: calc(200% + 16px);
+  width: max-content;
   /* Adjust to fit the doubled content */
 }
-
 .carousel-container {
   position: relative;
   overflow: hidden;

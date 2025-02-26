@@ -159,6 +159,7 @@ const getComponentProps = (it) => {
       secondaryButton: props.bannerData.secondaryButton,
       bottomText: props.bannerData.bottomText,
       items: props.bannerData.items,
+      monthlyText: props.bannerData.monthlyText,
     };
   }
   return it;

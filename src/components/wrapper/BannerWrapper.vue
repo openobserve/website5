@@ -36,27 +36,34 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  monthlyText: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
 <template>
-  <CustomSection v-if="heading?.title || heading?.subtitle">
-    <Heading
-      v-if="heading?.title || heading?.subtitle"
-      :title="heading?.title"
-      :description="heading?.subtitle"
-      align="CENTER"
-    />
-  </CustomSection>
-  <div :class="!heading?.title && 'mt-5'">
-    <CustomBanner
-      :bannerTitle="title"
-      :bannerDescription="description"
-      :primaryButton="primaryButton"
-      :secondaryButton="secondaryButton"
-      :getStartedText="bottomText"
-      :featureTitle="featureTitle"
-      :items="items"
-    />
+  <div id="main-component">
+    <CustomSection v-if="heading?.title || heading?.subtitle">
+      <Heading
+        v-if="heading?.title || heading?.subtitle"
+        :title="heading?.title"
+        :description="heading?.subtitle"
+        align="CENTER"
+      />
+    </CustomSection>
+    <div :class="!heading?.title && 'mt-5'">
+      <CustomBanner
+        :bannerTitle="title"
+        :bannerDescription="description"
+        :primaryButton="primaryButton"
+        :secondaryButton="secondaryButton"
+        :getStartedText="bottomText"
+        :featureTitle="featureTitle"
+        :items="items"
+        :monthlyText="monthlyText"
+      />
+    </div>
   </div>
 </template>
