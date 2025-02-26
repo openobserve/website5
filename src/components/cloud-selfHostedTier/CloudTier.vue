@@ -17,6 +17,8 @@ interface PricingTier {
     target: string;
   };
   bottomDescription: string;
+  monthlyText: string;
+  pricing: string;
 }
 
 const props = defineProps<{
@@ -34,7 +36,7 @@ const props = defineProps<{
         class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
       >
         <!-- Tier Header -->
-        <div class="mb-6 text-center">
+        <div class="mb-6 text-center h-[18vh] md:h-[20vh]">
           <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
             {{ tier.title }}
           </h3>
@@ -43,6 +45,20 @@ const props = defineProps<{
           </h4>
           <p class="text-gray-400 text-xs md:text-sm pt-4">
             {{ tier.description }}
+          </p>
+        </div>
+
+        <div class="text-white space-y-4 mb-2 h-[13vh]">
+          <p v-if="tier.pricing">
+            <span class="text-5xl font-bold">
+              {{ tier.pricing.split(" ")[0] }}
+            </span>
+            <span class="text-sm text-gray-300">
+              {{ tier.pricing.split(" ").slice(1).join(" ") }}
+            </span>
+          </p>
+          <p v-if="tier.monthlyText" class="mb-4 text-sm">
+            {{ tier.monthlyText }}:
           </p>
         </div>
 
