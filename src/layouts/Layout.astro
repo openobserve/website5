@@ -6,6 +6,7 @@ import "@/styles/global.css";
 import { SEO } from "astro-seo";
 import PricingModelPopUp from "@/components/core/PricingModelPopUp.vue";
 import { fetchBannerData } from "../utils/api/globalApi";
+import fetchApi from "../utils/strapi";
 const footerData = {
   sections: [
     {
@@ -131,6 +132,10 @@ const footerData = {
   ],
 };
 
+const HeaderData = await fetchApi({
+  endpoint: "api/header",
+  query: { pLevel: "4", status: "draft" },
+});
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
 const BannerData = await fetchBannerData();
@@ -159,7 +164,7 @@ const BannerData = await fetchBannerData();
   <body class="relative">
     <main>
       <Header
-        navData={NavData}
+        navData={HeaderData?.data}
         class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
         client:only
       />
