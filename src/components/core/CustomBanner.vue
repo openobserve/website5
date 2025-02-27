@@ -32,6 +32,7 @@ const props = defineProps({
     class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
     :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
     aria-labelledby="banner-title"
+    id="bannerComponent"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,7 +80,6 @@ const props = defineProps({
         <!-- Column 3: Secondary Button & Description -->
         <div
           class="md:col-span-2 lg:col-span-1 flex flex-col justify-center space-y-5 items-center md:mx-auto lg:mx-0"
-          id="bannerComponent"
         >
           <CustomButton
             class="justify-center"
