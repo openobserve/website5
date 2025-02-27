@@ -9,9 +9,7 @@ const props = defineProps({
   },
 });
 
-const firstSections = computed(
-  () => props.footerData?.sections.slice(0, 4) || []
-);
+const firstSections = computed(() => props.footerData?.sections.slice(0, 4) || []);
 const lastSection = computed(() => props.footerData?.sections[4] || null);
 
 const getCurrentYear = () => new Date().getFullYear();
@@ -26,12 +24,7 @@ const getCurrentYear = () => new Date().getFullYear();
       fill="none"
     >
       <g filter="url(#filter0_f_1434_1855)">
-        <circle
-          cx="610.5"
-          cy="610.5"
-          r="410.5"
-          fill="url(#paint0_radial_1434_1855)"
-        />
+        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
       </g>
       <defs>
         <filter
@@ -50,10 +43,7 @@ const getCurrentYear = () => new Date().getFullYear();
             in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur
-            stdDeviation="100"
-            result="effect1_foregroundBlur_1434_1855"
-          />
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
         </filter>
         <radialGradient
           id="paint0_radial_1434_1855"
@@ -73,11 +63,7 @@ const getCurrentYear = () => new Date().getFullYear();
       <!-- Main Footer Content -->
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <!-- First loop (show first 4 items) -->
-        <div
-          v-for="section in firstSections"
-          :key="section.title"
-          class="min-w-0"
-        >
+        <div v-for="section in firstSections" :key="section.title" class="min-w-0">
           <h3 class="text-[#929A9E] font-medium text-xl mb-4">
             {{ section.title }}
           </h3>
@@ -143,17 +129,12 @@ const getCurrentYear = () => new Date().getFullYear();
           <div class="flex items-center gap-3">
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
-              <img
-                src="/img/SOC.svg"
-                class="w-full h-full object-contain grayscale"
-              />
+              <img src="/img/SOC.svg" class="w-full h-full object-contain grayscale" />
             </div>
 
             <!-- Title & Description in one line -->
             <div class="flex flex-col text-white">
-              <h2 class="text-sm sm:text-base whitespace-nowrap">
-                SOC2 Type 2
-              </h2>
+              <h2 class="text-sm sm:text-base whitespace-nowrap">SOC2 Type 2</h2>
               <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
             </div>
           </div>
@@ -189,9 +170,7 @@ const getCurrentYear = () => new Date().getFullYear();
       >
         <!-- Copyright -->
         <div class="flex items-center">
-          <div
-            class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm"
-          >
+          <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
             <TextGradient textGradientColor="" /> OpenObserve Inc. ©
             {{ getCurrentYear() }}
           </div>
@@ -206,39 +185,22 @@ const getCurrentYear = () => new Date().getFullYear();
         </div>
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
-          <div class="social-links flex space-x-4">
-            <div class="flex items-center space-x-4">
-              <a
-                href="https://short.openobserve.ai/community"
-                target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/img/icon/slack.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/SlackHover.svg')]"
-              >
-              </a>
-              <a
-                href="https://twitter.com/OpenObserve"
-                target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/img/icon/twitter.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/TwitterHover.svg')]"
-              >
-              </a>
-              <a
-                href="https://www.linkedin.com/company/openobserve"
-                target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/img/icon/Linkedin.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/LinkedinHover.svg')]"
-              >
-              </a>
-              <a
-                href="https://github.com/openobserve/openobserve"
-                target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/img/icon/GitHub.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/GitHubHover.svg')]"
-              >
-              </a>
-              <a
-                href="https://www.youtube.com/@openobserve"
-                target="_blank"
-                class="w-12 h-12 rounded-md bg-[url('/img/icon/youtube.svg')] bg-cover bg-center group transition-all duration-300 hover:bg-[url('/img/icon/YoutubeHover.svg')]"
-              >
-              </a>
-            </div>
+          <div class="social-links">
+            <a href="https://short.openobserve.ai/community" class="icon slack">
+              <img src="/img/icon/slackIcon.svg" class="icon-img" />
+            </a>
+            <a href="https://twitter.com/OpenObserve" class="icon twitter">
+              <img src="/img/icon/TwitterIcon.svg" class="icon-img" />
+            </a>
+            <a href="https://www.linkedin.com/company/openobserve" class="icon linkedin">
+              <img src="/img/icon/LinkedInIcon.svg" class="icon-img" />
+            </a>
+            <a href="https://github.com/openobserve/openobserve" class="icon github">
+              <img src="/img/icon/GitHubIconFooter.svg" class="icon-img" />
+            </a>
+            <a href="https://www.youtube.com/@openobserve" class="icon youtube">
+              <img src="/img/icon/YouTubeIcon.svg" class="icon-img" />
+            </a>
           </div>
         </div>
       </div>
@@ -250,18 +212,74 @@ const getCurrentYear = () => new Date().getFullYear();
 .gradient-hover {
   display: inline-block;
 }
-
-/* .gradient-hover:hover {
-  background: linear-gradient(to left,
-      rgb(var(--blue-light)),
-      rgb(var(--blue-dark)));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
 .gradient-hover:hover {
   background: linear-gradient(to left, #09e6ff, #00ffc3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Slack */
+.slack {
+  box-shadow: inset 0 -2px 4px rgba(202, 138, 4, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.slack:hover {
+  box-shadow: inset 0 -3px 6px rgba(202, 138, 4, 0.8), inset 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Twitter */
+.twitter {
+  box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.twitter:hover {
+  box-shadow: inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+    inset 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* LinkedIn */
+.linkedin {
+  box-shadow: inset 0 -3px 6px rgba(3, 105, 161, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+.linkedin:hover {
+  box-shadow: inset 0 -4px 8px rgba(3, 105, 161, 0.8),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3);
+}
+
+/* GitHub */
+.github {
+  box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.github:hover {
+  box-shadow: inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+    inset 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* YouTube */
+.youtube {
+  box-shadow: inset 0 -2px 4px rgba(225, 96, 96, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.youtube:hover {
+  box-shadow: inset 0 -3px 6px rgba(225, 96, 96, 0.8), inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 </style>
