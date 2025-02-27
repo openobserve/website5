@@ -118,7 +118,6 @@ const sectionStyles = computed(() => ({
           :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
         >
           <CustomFeatureCard :card="item" />
-          {{console.log(items,"itemssssssssssssssssssssssssssssssss")}}
         </div>
         </div> -->
     <!-- </div> -->

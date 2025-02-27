@@ -2,16 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 import fetchApi from "../../utils/strapi";
-import { getCaseStudies } from "@/utils/api/blogs";
+import { getBlogsByCategory, getCaseStudies } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
-// export async function getStaticPaths() {
-//   return [{ params: { id: "aws" } }];
-// }
-// const { id } = Astro.params;
-// const PageData = await fetchApi({
-//   endpoint: "api/solutions",
-//   query: { pLevel: "4" , status: "draft" , slug: id},
-// });
+import  fetchBlogsByCategories  from "../../utils/fetchBlogsBasedOnPages";
 
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
@@ -29,15 +22,17 @@ const PageData = await fetchApi({
   endpoint: "api/solution-pages",
   query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
 });
-const loadcaseStudyData = await getCaseStudies();
+
+const blogs = await fetchBlogsByCategories(PageData);
 const BannerData = await fetchBannerData();
 const metaObj = PageData?.data[0]?.seo;
 ---
 
 <Layout metaObj={metaObj}>
+  <div class="text-white"></div>
   <ComponentCollectionMapper
     data={PageData?.data[0]?.body}
-    caseStudyData={loadcaseStudyData}
+    caseStudyData={blogs}
     bannerData={BannerData.data}
     client:load
   />
