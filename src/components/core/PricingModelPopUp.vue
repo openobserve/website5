@@ -23,10 +23,6 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  componentId: {
-    type: String,
-    required: true,
-  },
 });
 const isOpen = ref(false);
 const showMainButton = ref(false);

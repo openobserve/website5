@@ -79,6 +79,7 @@ const props = defineProps({
         <!-- Column 3: Secondary Button & Description -->
         <div
           class="md:col-span-2 lg:col-span-1 flex flex-col justify-center space-y-5 items-center md:mx-auto lg:mx-0"
+          id="bannerComponent"
         >
           <CustomButton
             class="justify-center"
