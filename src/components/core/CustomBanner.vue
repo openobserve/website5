@@ -31,7 +31,7 @@ const props = defineProps({
   <section
     class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
     :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
-    aria-labelledby="banner-title"
+    id="bannerComponent"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -70,11 +70,7 @@ const props = defineProps({
               :key="index"
               class="flex items-x gap-3 text-sm text-black"
             >
-              <img
-                src="/img/icon/RightTick.svg"
-                alt="icon"
-                class="w-5 h-5"
-              />
+              <img src="/img/icon/RightTick.svg" alt="icon" class="w-5 h-5" />
               <span>{{ feature.title }}</span>
             </li>
           </ul>

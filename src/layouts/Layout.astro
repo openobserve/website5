@@ -5,7 +5,7 @@ import NavData from "../content/header.json";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
 import PricingModelPopUp from "@/components/core/PricingModelPopUp.vue";
-
+import { fetchBannerData } from "../utils/api/globalApi";
 const footerData = {
   sections: [
     {
@@ -133,6 +133,7 @@ const footerData = {
 
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
+const BannerData = await fetchBannerData();
 ---
 
 <!doctype html>
@@ -162,7 +163,14 @@ const { metaObj } = Astro.props;
         class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
         client:only
       />
-      <PricingModelPopUp client:load />
+      <PricingModelPopUp
+        primaryButton={BannerData?.data?.primaryButton}
+        bottomText={BannerData?.data?.bottomText}
+        monthlyText={BannerData?.data?.monthlyText}
+        items={BannerData?.data?.items}
+        featureTitle={BannerData?.data?.featureTitle}
+        client:load
+      />
       <!-- Import your modal component here -->
       <div class="navbarheight">
         <slot />

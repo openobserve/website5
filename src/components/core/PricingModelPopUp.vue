@@ -1,11 +1,32 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, defineProps } from "vue";
 import CustomButton from "./CustomButton.vue";
 
+const props = defineProps({
+  primaryButton: {
+    type: Object,
+    required: true,
+  },
+  bottomText: {
+    type: String,
+    required: false,
+  },
+  items: {
+    type: Array,
+    required: false,
+  },
+  featureTitle: {
+    type: String,
+    required: false,
+  },
+  monthlyText: {
+    type: String,
+    required: false,
+  },
+});
 const isOpen = ref(false);
 const showMainButton = ref(false);
 const shouldHide = ref(false);
-const modalRef = ref(null); // Reference for modal
 let scrollObserver = null;
 
 // Function to open modal
@@ -35,7 +56,6 @@ const handleScroll = () => {
 // Function to check visibility of #9
 const observeMainComponent = () => {
   const target = document.getElementById("bannerComponent");
-  console.log(target);
   if (target) {
     scrollObserver = new IntersectionObserver(
       (entries) => {
@@ -65,17 +85,6 @@ onUnmounted(() => {
     scrollObserver.disconnect();
   }
 });
-
-// Features data
-const features = ref([
-  { title: "Ingestion - 50 GB logs, 50 GB metrics, 50 GB traces" },
-  { title: "Query volume - 200 GB" },
-  { title: "Pipelines - 50 GB of Data Processing" },
-  { title: "1K RUM & Session Replay" },
-  { title: "1K Action Runs" },
-  { title: "3 Users" },
-  { title: "7-Days Retention" },
-]);
 </script>
 
 <template>
@@ -107,11 +116,12 @@ const features = ref([
           <h2
             class="text-lg md:text-xl font-semibold text-center md:text-left text-white"
           >
-            Openobserve Cloud Free Tier
+            {{ featureTitle }}
           </h2>
+          <p class="text-sm text-white">{{ monthlyText }}:</p>
           <ul class="space-y-2">
             <li
-              v-for="(feature, index) in features"
+              v-for="(feature, index) in items"
               :key="index"
               class="flex items-x gap-3 text-xs text-white text-left"
             >
@@ -129,10 +139,10 @@ const features = ref([
             buttonLink="https://cloud.openobserve.ai/web/login"
             target="_blank"
           >
-            GET STARTED FOR FREE
+            {{ primaryButton.text }}
           </CustomButton>
           <p class="text-white text-xs md:text-sm">
-            Get Started in minutes - no credit card required.
+            {{ bottomText }}
           </p>
         </div>
       </div>
