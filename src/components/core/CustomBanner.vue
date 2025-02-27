@@ -31,7 +31,6 @@ const props = defineProps({
   <section
     class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
     :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
-    aria-labelledby="banner-title"
     id="bannerComponent"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
