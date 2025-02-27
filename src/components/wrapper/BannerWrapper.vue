@@ -44,7 +44,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div id="main-component">
+  <div>
     <CustomSection v-if="heading?.title || heading?.subtitle">
       <Heading
         v-if="heading?.title || heading?.subtitle"
