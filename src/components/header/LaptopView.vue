@@ -331,7 +331,7 @@
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
           <li
-            v-for="(item, index) in items?.company"
+            v-for="(item, index) in items?.company?.items"
             :key="index"
             class="text-[#BEC0C2] text-sm"
           >

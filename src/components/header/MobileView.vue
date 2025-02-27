@@ -345,7 +345,7 @@
             >
               <ul class="flex flex-col space-y-3">
                 <li
-                  v-for="(item, index) in items?.company"
+                  v-for="(item, index) in items?.company?.items"
                   :key="index"
                   class="text-theme-secondaryFont text-base"
                 >
