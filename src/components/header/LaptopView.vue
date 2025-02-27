@@ -420,7 +420,11 @@ const onPlatformMenuHover = () => {
   isResourcesMenuOpen.value = false;
   isCompanyMenuOpen.value = false;
 };
-
+const closeMenus = () => {
+  setTimeout(() => {
+    isPlatformMenuOpen.value = false;
+  }, 700);
+};
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
     isPlatformMenuOpen.value = false;
