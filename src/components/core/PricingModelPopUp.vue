@@ -23,6 +23,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  
 });
 const isOpen = ref(false);
 const showMainButton = ref(false);
@@ -136,7 +137,7 @@ onUnmounted(() => {
             variant="primary"
             size="small"
             class="mt-2 mb-2"
-            buttonLink="https://cloud.openobserve.ai/web/login"
+            :buttonLink="primaryButton.link"
             target="_blank"
           >
             {{ primaryButton.text }}
