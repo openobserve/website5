@@ -33,7 +33,7 @@
             data-show-count="false"
             aria-label="Star openobserve/openobserve on GitHub"
             class=""
-            >Star</GithubButton 
+            >Star</GithubButton
           >
           <a
             href="https://cloud.openobserve.ai"
@@ -54,7 +54,9 @@
             @click="onMenuClick"
           >
             <img
-              :src="isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'"
+              :src="
+                isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'
+              "
               alt="Mobile View Menu Icon"
               class=""
             />
@@ -99,7 +101,11 @@
                 <h4 class="text-gray-300 text-lg md:text-xl font-semibold">
                   {{ item }}
                 </h4>
-                <img src="/img/icon/subMenuIcon.svg" alt="Arrow Icon" class="w-4 h-4" />
+                <img
+                  src="/img/icon/subMenuIcon.svg"
+                  alt="Arrow Icon"
+                  class="w-4 h-4"
+                />
               </div>
               <div
                 class="w-full flex justify-center h-0.5"
@@ -151,7 +157,11 @@
         >
           <div class="flex items-center px-4 py-2">
             <button class="text-gray-300" @click="closeSubMenu">
-              <img src="/img/icon/NavBack.svg" alt="Back Icon" class="w-5 h-5" />
+              <img
+                src="/img/icon/NavBack.svg"
+                alt="Back Icon"
+                class="w-5 h-5"
+              />
             </button>
             <h4 class="text-[#BEC0C2] text-2xl font-semibold ml-2">
               {{ activeSubMenu }}
@@ -189,8 +199,9 @@
                 </div>
               </div>
               <div class="flex flex-col justify-center items-center space-y-1">
+                <!-- :href="items?.platform?.keyFeature?.link" -->
                 <a
-                  :href="items?.platform?.keyFeature?.link"
+                  href="/key-features"
                   class="text-[#FFFFFF] text-base font-semibold gradient-hover"
                 >
                   {{ items.platform.keyFeature.title }}
