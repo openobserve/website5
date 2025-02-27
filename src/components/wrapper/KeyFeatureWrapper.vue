@@ -22,6 +22,7 @@ const props = defineProps({
       <div
         v-for="(item, index) in items"
         :key="index"
+        :id="slugify(item.title)"
         class="grid-item rounded-sm bg-[#131219]  w-full h-full"
       >
         <!-- Content Layer -->
