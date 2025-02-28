@@ -47,14 +47,14 @@ const sectionStyles = computed(() => ({
   >
     <div class="container mx-auto px-3 md:px-10 lg:px-16 pt-14 lg:pt-0">
       <div
-        class="flex flex-col lg:flex-row lg:items-center lg:min-h-[calc(100vh-5rem)] lg:justify-between lg:gap-20 md:pr-[2vh]"
+       class="flex flex-col lg:flex-row lg:items-center lg:min-h-[20rem] xl:min-h-[30rem] lg:justify-between lg:gap-20 md:pr-[2vh]"
       >
         <!-- Content Container -->
         <div
           class="relative z-30 w-full lg:w-[50%] mb-8 sm:mb-4 lg:mb-0 md:pr-[2vh]"
         >
           <h1
-            class="text-2xl sm:text-3xl md:text-5xl xl:text-7xl font-bold text-white mb-4"
+            class="text-2xl sm:text-3xl md:text-4xl xl:text-7xl font-bold text-white mb-4"
           >
             {{ heading?.title }}
           </h1>
