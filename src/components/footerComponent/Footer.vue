@@ -166,16 +166,9 @@ const getCurrentYear = () => new Date().getFullYear();
 
       <!-- Bottom Section -->
       <div
-        class="border-t border-gray-700 pt-5 flex flex-col gap-4 md:flex-row justify-between items-center text-[#FFFFFF]"
+        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-[#FFFFFF]"
       >
-        <!-- Copyright -->
-        <div class="flex items-center">
-          <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
-            <TextGradient textGradientColor="" /> OpenObserve Inc. ©
-            {{ getCurrentYear() }}
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
+      <div class="flex items-center gap-4">
           <a href="/policies/terms-of-service" class="text-base gradient-hover">
             <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
           </a>
@@ -183,6 +176,15 @@ const getCurrentYear = () => new Date().getFullYear();
             <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
           </a>
         </div>
+        <!-- Copyright -->
+        <div class="flex flex-col items-center space-y-2">
+           <h1 class=" md:mb-0 font-normal text-sm">OpenObserve Inc. ©
+            {{ getCurrentYear() }}
+            </h1>
+          <p class="font-normal text-center text-sm"> 3000 Sand Hill Rd Building 1, Suite 260, Menlo Park, CA 94025</p>
+         
+        </div>
+       
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
           <div class="social-links">
