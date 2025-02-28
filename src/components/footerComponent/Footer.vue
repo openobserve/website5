@@ -7,12 +7,44 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  copyRightText: {
+    type: String,
+    required: true,
+  },
+  termsOfService: {
+    type: Object,
+    required: true,
+  },
+  privacyText: {
+    type: Object,
+    required: true,
+  },
+  socialMedia: {
+    type: Array,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  }
 });
 
-const firstSections = computed(() => props.footerData?.sections.slice(0, 4) || []);
-const lastSection = computed(() => props.footerData?.sections[4] || null);
+const firstSections = computed(() => props.footerData.slice(0, 4) || []);
+const lastSection = computed(() => props.footerData?.[4] || null);
 
 const getCurrentYear = () => new Date().getFullYear();
+
+// Function to return the correct icon path based on name
+const socialIcon = (name) => {
+  const icons = {
+    slack: "/img/icon/slackIcon.svg",
+    twitter: "/img/icon/TwitterIcon.svg",
+    linkdin: "/img/icon/LinkedInIcon.svg",
+    github: "/img/icon/GitHubIconFooter.svg",
+    youtube: "/img/icon/YouTubeIcon.svg",
+  };
+  return icons[name.toLowerCase()];
+};
 </script>
 <template>
   <div class="relative bg-[#14181B] w-full">
@@ -69,14 +101,14 @@ const getCurrentYear = () => new Date().getFullYear();
           </h3>
 
           <ul class="space-y-2">
-            <li v-for="item in section.items" :key="item.name">
+            <li v-for="item in section.items" :key="item.text ">
               <a
                 :href="item.link"
                 :target="item.target"
                 class="gradient-hover text-[#BEC0C2] text-base transition duration-300"
               >
                 <TextGradient textGradientColor="" />
-                {{ item.name }}
+                {{ item.text }}
               </a>
             </li>
           </ul>
@@ -89,15 +121,14 @@ const getCurrentYear = () => new Date().getFullYear();
           </h3>
 
           <ul class="space-y-2">
-            <li v-for="item in lastSection.items" :key="item.name">
+            <li v-for="item in lastSection.items" :key="item.text">
               <a
                 :href="item.link"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="gradient-hover text-[#BEC0C2] text-base transition duration-300"
               >
-                <TextGradient textGradientColor="" />
-                {{ item.name }}
+                {{ item.text }}
               </a>
             </li>
           </ul>
@@ -115,8 +146,7 @@ const getCurrentYear = () => new Date().getFullYear();
               <a
                 href="/pricing"
                 class="gradient-hover text-[#BEC0C2] font-normal text-base"
-              >
-                <TextGradient textGradientColor="" /> View Plans
+              >View Plans
               </a>
             </li>
           </ul>
@@ -166,40 +196,43 @@ const getCurrentYear = () => new Date().getFullYear();
 
       <!-- Bottom Section -->
       <div
-        class="border-t border-gray-700 pt-5 flex flex-col gap-4 md:flex-row justify-between items-center text-[#FFFFFF]"
+        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-[#FFFFFF]"
       >
         <!-- Copyright -->
-        <div class="flex items-center">
-          <div class="flex flex-row items-center space-x-4 md:mb-0 font-normal text-sm">
-            <TextGradient textGradientColor="" /> OpenObserve Inc. ©
-            {{ getCurrentYear() }}
-          </div>
+        <div class="flex flex-col items-center lg:items-start space-y-0.5">
+          <h1 class="md:mb-0 font-normal text-xs">
+            {{ copyRightText }} © {{ getCurrentYear() }}
+          </h1>
+          <p class="font-normal text-center lg:text-start text-xs">
+            {{ address }}
+          </p>
         </div>
-        <div class="flex items-center gap-6">
-          <a href="/policies/terms-of-service" class="text-base gradient-hover">
-            <TextGradient textGradientColor="" />{{ footerData?.tos?.text }}
+        <div class="flex items-center gap-4">
+          <a 
+          :href="termsOfService?.link" 
+          :target="termsOfService?.target"
+          class="text-base gradient-hover">
+            {{ termsOfService?.text }}
           </a>
-          <a href="/policies/privacy-policy" class="text-base gradient-hover">
-            <TextGradient textGradientColor="" />{{ footerData?.pp?.text }}
+          <a 
+          :href="privacyText?.link"
+          :target="privacyText?.target"
+          class="text-base gradient-hover">
+            {{ privacyText?.text }}
           </a>
         </div>
+
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
           <div class="social-links">
-            <a href="https://short.openobserve.ai/community" class="icon slack">
-              <img src="/img/icon/slackIcon.svg" class="icon-img" />
-            </a>
-            <a href="https://twitter.com/OpenObserve" class="icon twitter">
-              <img src="/img/icon/TwitterIcon.svg" class="icon-img" />
-            </a>
-            <a href="https://www.linkedin.com/company/openobserve" class="icon linkedin">
-              <img src="/img/icon/LinkedInIcon.svg" class="icon-img" />
-            </a>
-            <a href="https://github.com/openobserve/openobserve" class="icon github">
-              <img src="/img/icon/GitHubIconFooter.svg" class="icon-img" />
-            </a>
-            <a href="https://www.youtube.com/@openobserve" class="icon youtube">
-              <img src="/img/icon/YouTubeIcon.svg" class="icon-img" />
+            <a
+              v-for="(item, index) in socialMedia"
+              :key="index"
+              :href="item.link"
+              :class="['icon', item.name.toLowerCase()]" 
+              class="icon"
+            >
+              <img :src="socialIcon(item.name)" class="icon-img" />
             </a>
           </div>
         </div>
@@ -256,11 +289,11 @@ const getCurrentYear = () => new Date().getFullYear();
 }
 
 /* LinkedIn */
-.linkedin {
+.linkdin {
   box-shadow: inset 0 -3px 6px rgba(3, 105, 161, 0.6),
     inset 0 2px 4px rgba(255, 255, 255, 0.2);
 }
-.linkedin:hover {
+.linkdin:hover {
   box-shadow: inset 0 -4px 8px rgba(3, 105, 161, 0.8),
     inset 0 3px 6px rgba(255, 255, 255, 0.3);
 }

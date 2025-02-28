@@ -29,7 +29,7 @@ const isMobile = computed(() => width.value < 640); // `sm` breakpoint
 </script>
 
 <template>
-  <div class="pt-[10vh]">
+  <div class="pt-10">
     <CustomSection
       class="bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg glass-card"
     >
@@ -48,7 +48,7 @@ const isMobile = computed(() => width.value < 640); // `sm` breakpoint
         > -->
         <div
           :class="[
-            `pt-[3vh] grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
+            `pt-3 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-10 w-full`,
             items.length % 2 !== 0
               ? '[&>*:nth-last-child(1)]:col-span-2 sm:[&>*:nth-last-child(1)]:col-span-1'
               : '',
