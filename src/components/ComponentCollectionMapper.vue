@@ -25,7 +25,7 @@ import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
-import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
 import BannerWrapper from "./wrapper/BannerWrapper.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
 import CustomCardWrapper from "./cards/CustomCardWrapper.vue";
@@ -85,7 +85,7 @@ const componentsMap = computed(() => ({
   "section-cards.features2": UsecaseCardWithIconWrapper,
   "section-cards.stats": TopCompaniesWrapper,
   "section-cards.clients": CompanySwiper,
-  "section-cards.case-studies": CaseStudyWrapper,
+  "section-cards.case-studies": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-cards.testimonials": pLevelpLevel,
@@ -129,7 +129,7 @@ const componentsMap = computed(() => ({
   //download page
   "section-tabs.download-tabs": SectionSwitcher,
   "section-table.plans-feature-table": CustomComparisonTable,
-  // "section-cards.explore-resources":DownloadCaseStudyWrapper,
+  // "section-cards.explore-resources":DownloadBlogsDataWrapper,
   "section-forms.contact": CommonFormWrapper, //it is in the up section.......
 
   // pricing page

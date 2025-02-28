@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import {
   getAllBlogs,
   getAllCategories,
@@ -84,7 +84,7 @@ const metaObj = {
     description={`Post by the category: ${category?.name ?? tag}`}
   />
 
-  <!-- <CaseStudyWrapper data={loadcaseStudyData || []} client:load /> -->
+  <!-- <BlogsDataWrapper data={loadcaseStudyData || []} client:load /> -->
 
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
     <!-- CustomSuggestions Section -->
@@ -96,11 +96,12 @@ const metaObj = {
       />
     </div>
 
-    <BlogsListingWrapper  
-    type="blog" 
-    blogsData={blogsData} 
-    client:load 
-    {...paginationProps}  />
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogsData}
+      client:load
+      {...paginationProps}
+    />
 
     <!-- <div>
       <BlogPagination

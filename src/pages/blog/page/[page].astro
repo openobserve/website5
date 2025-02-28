@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
 import {
   getAllCategories,
@@ -74,7 +74,7 @@ const metaObj = {
 
   <!-- {
     caseStudyData?.length > 0 && (
-      <CaseStudyWrapper data={caseStudyData || []} client:load />
+      <BlogsDataWrapper data={caseStudyData || []} client:load />
     )
   }-->
   }-->
@@ -106,7 +106,7 @@ const metaObj = {
           @input="searchBlogs"
         />
       </div> -->
-      <!-- <div class="mt-2 ml-3 text-white text-sm">
+    <!-- <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
           <p v-show="filteredBlogsData.length > 0">
             Search results for "<span class="font-bold">{{ searchItem }}</span>"
@@ -117,21 +117,20 @@ const metaObj = {
         </template>
       </div>
     </div> -->
-    </div>
-    <BlogsListingWrapper
-      searchBar
-      type="blog"
-      blogsData={blogsData}
-      allBlogData={allBlogsData}
-      currentPage={currentPage}
-      totalItems={count.blogsCount}
-      client:load
-    />
+  </section>
+  <BlogsListingWrapper
+    searchBar
+    type="blog"
+    blogsData={blogsData}
+    allBlogData={allBlogsData}
+    currentPage={currentPage}
+    totalItems={count.blogsCount}
+    client:load
+  />
 
-    <!-- <TilesWithTitleWrapper
+  <!-- <TilesWithTitleWrapper
     title={cardHeader.title}
     subtitle={cardHeader.description}
     items={cardData}
   /> -->
-  </section>
 </Layout>
