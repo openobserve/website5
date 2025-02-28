@@ -136,6 +136,12 @@ const HeaderData = await fetchApi({
   endpoint: "api/header",
   query: { pLevel: "4", status: "draft" },
 });
+
+const FooterData = await fetchApi({
+  endpoint: "api/footer",
+  query: { pLevel: "4", status: "draft" },
+});
+
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
 const BannerData = await fetchBannerData();
@@ -180,7 +186,14 @@ const BannerData = await fetchBannerData();
       <div class="navbarheight">
         <slot />
       </div>
-      <Footer footerData={footerData} client:load />
+      <Footer
+        footerData={FooterData?.data?.footerData}
+        copyRightText={FooterData?.data?.copyRightText}
+        termsOfService={FooterData?.data?.termsOfService}
+        privacyText={FooterData?.data?.privacyText}
+        socialMedia={FooterData?.data?.socialMedia}
+        client:load
+      />
     </main>
   </body>
 </html>
