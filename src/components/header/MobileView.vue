@@ -199,9 +199,8 @@
                 </div>
               </div>
               <div class="flex flex-col justify-center items-center space-y-1">
-                <!-- :href="items?.platform?.keyFeature?.link" -->
                 <a
-                  href="/key-features"
+                  :href="items?.platform?.keyFeature?.link"
                   class="text-[#FFFFFF] text-base font-semibold gradient-hover"
                 >
                   {{ items.platform.keyFeature.title }}

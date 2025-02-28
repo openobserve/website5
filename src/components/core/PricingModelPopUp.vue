@@ -91,17 +91,22 @@ onUnmounted(() => {
 <template>
   <div
     v-if="!shouldHide"
-    class="fixed right-0 p-2 md:p-0 md:right-0 md:top-40 md:transform bottom-4 sm:bottom-4 flex-col items-end z-40 hidden sm:flex"
+    class="fixed right-0 p-2 md:p-0 md:right-0 md:transform flex-col items-end z-40 hidden sm:flex origin-bottom-right md:-rotate-90 md:top-44 "
   >
     <!-- Button (Now appears only after modal fully hides) -->
     <button
-      v-if="showMainButton"
+      v-if="showMainButton && !isOpen"
       @click="openModal"
-      class="primary-button px-2 py-1 md:px-2 md:py-1 origin-bottom-right md:-rotate-90"
+      class="primary-button px-2 py-1 md:px-2 md:py-1 "
     >
       <span class="px-3 md:px-3 text-xs">GET STARTED FOR FREE</span>
     </button>
+  </div>
 
+  <div
+    v-if="!shouldHide"
+    class="fixed right-0 p-2 md:p-0 md:right-0 md:transform flex-col items-end z-40 hidden sm:flex md:top-44"
+  >
     <!-- Modal with smooth transition -->
     <Transition name="slide-fade" @after-leave="showButton">
       <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
