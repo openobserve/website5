@@ -15,7 +15,7 @@ const props = defineProps({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[30vh] md:min-h-[40vh] lg:min-h-[50vh] before:content-[''] before:absolute before:w-full before:min-h-[120vh] md:before:min-h-[100vh] before:top-0 before:bg-no-repeat before:bg-center before:bg-cover before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
+    class="relative flex flex-col items-center justify-center text-center px-4 w-full min-h-[8rem] lg:min-h-[12rem] before:content-[''] before:absolute before:w-full before:min-h-[30rem] md:before:min-h-[40rem] before:top-0 before:bg-no-repeat before:bg-center before:bg-cover before:bg-[url('/img/bg/gradient-bg/BG.svg')]"
   >
     <div class="z-10 container mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
       <TextWithGradient

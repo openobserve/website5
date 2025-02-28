@@ -23,6 +23,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  }
 });
 
 const firstSections = computed(() => props.footerData.slice(0, 4) || []);
@@ -200,7 +204,7 @@ const socialIcon = (name) => {
             {{ copyRightText }} © {{ getCurrentYear() }}
           </h1>
           <p class="font-normal text-center lg:text-start text-xs">
-            3000 Sand Hill Rd Building 1, Suite 260, Menlo Park, CA 94025
+            {{ address }}
           </p>
         </div>
         <div class="flex items-center gap-4">
