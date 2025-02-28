@@ -23,7 +23,6 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  
 });
 const isOpen = ref(false);
 const showMainButton = ref(false);
@@ -91,13 +90,13 @@ onUnmounted(() => {
 <template>
   <div
     v-if="!shouldHide"
-    class="fixed right-0 p-2 md:p-0 md:right-0 md:transform flex-col items-end z-40 hidden sm:flex origin-bottom-right md:-rotate-90 md:top-44 "
+    class="fixed p-0 right-0 flex-col items-end z-40 hidden sm:flex origin-bottom-right -rotate-90 md:top-44"
   >
     <!-- Button (Now appears only after modal fully hides) -->
     <button
       v-if="showMainButton && !isOpen"
       @click="openModal"
-      class="primary-button px-2 py-1 md:px-2 md:py-1 "
+      class="primary-button px-2 py-1 md:px-2 md:py-1"
     >
       <span class="px-3 md:px-3 text-xs">GET STARTED FOR FREE</span>
     </button>
@@ -206,12 +205,6 @@ onUnmounted(() => {
 
   background-image: linear-gradient(180deg, #0095ff 0%, #0088ff 100%);
   border: 1px solid transparent;
-}
-/* Apply 100px border-radius on mobile screens */
-@media (max-width: 768px) {
-  .primary-button {
-    border-radius: 100px;
-  }
 }
 .primary-button:hover {
   background-image:
