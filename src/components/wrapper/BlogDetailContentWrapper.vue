@@ -118,6 +118,8 @@ async function addCopyButtons() {
   // Apply buttons to existing code blocks
   container.querySelectorAll("pre").forEach(addButtonToCodeBlock);
 
+
+
   // Observe for dynamically added code blocks
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -130,6 +132,27 @@ async function addCopyButtons() {
   });
 
   observer.observe(container, { childList: true, subtree: true });
+}
+
+  /**
+ * Wrap tables in a scrollable div.
+ */
+ async function wrapTablesWithScroll() {
+  await nextTick(); // Ensure DOM updates first
+  if (typeof window === "undefined") return; // Avoid SSR issues
+
+  const container = document.getElementById("blog-content");
+  if (!container) return;
+
+  container.querySelectorAll("table").forEach((table) => {
+    if (table.parentElement.classList.contains("table-wrapper")) return; // Skip if already wrapped
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "table-wrapper overflow-x-auto w-full";
+
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
 }
 function observeHeadings() {
   if (typeof window === "undefined") return;
@@ -166,6 +189,7 @@ watch(
     extractHeadingsFromHTML();
     addCopyButtons();
     observeHeadings(); // Observe headings on content change
+    wrapTablesWithScroll();
   },
   { immediate: true }
 );
@@ -176,6 +200,7 @@ onMounted(() => {
   extractHeadingsFromHTML();
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
+  wrapTablesWithScroll();
 });
 </script>
 
@@ -190,9 +215,10 @@ onMounted(() => {
           id="blog-content"
           class=""
         >
-          <div
+        <div
             v-html="htmlContent"
-            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words"
+            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words 
+                   prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
           ></div>
         </div>
         <div class="py-3">
@@ -206,4 +232,28 @@ onMounted(() => {
     </div>
   </CustomSection>
 </template>
-<style></style>
+<style scoped>
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-wrapper th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+</style>
+
