@@ -43,7 +43,7 @@ const socialIcon = (name) => {
     github: "/img/icon/GitHubIconFooter.svg",
     youtube: "/img/icon/YouTubeIcon.svg",
   };
-  return icons[name.toLowerCase()] || "/img/icon/defaultIcon.svg"; // Fallback icon
+  return icons[name.toLowerCase()];
 };
 </script>
 <template>
