@@ -34,7 +34,6 @@ const props = defineProps({
             <CustomImage
               v-if="item?.image"
               :image="item?.image"
-              :altText="item.title || ''"
               class="w-10 h-10"
             />
             <!-- Title -->

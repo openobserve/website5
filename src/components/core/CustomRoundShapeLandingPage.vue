@@ -46,7 +46,6 @@ const containerClasses = computed(() => [
     <div class="absolute rounded-full border border-white bg-stone-300 flex items-center justify-center">
       <CustomImage
         :image="imgSrc"
-        altText="Image"
         cssClass="object-cover p-3"
         :style="{
           width: `${Number(iconSize)}px`,
