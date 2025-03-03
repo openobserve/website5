@@ -78,7 +78,6 @@ onUnmounted(() => {
       >
         <CustomImage
           :image="image"
-          :altText="title"
           cssClass="w-full h-auto rounded-lg shadow-md"
         />
       </div>
@@ -125,7 +124,6 @@ onUnmounted(() => {
     <div class="relative p-8 md:p-[5rem] rounded-lg md:h-screen">
       <CustomImage
         :src="image.url"
-        :alt="title"
         class="w-full h-full rounded-lg object-contain"
         @click.stop
       />

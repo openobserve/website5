@@ -26,7 +26,7 @@ const dynamicComponent = props.cards.link ? "a" : "div";
       <div
         class="flex flex-col space-y-4 w-full h-full items-center rounded-lg bg-[#23282c] p-8"
       >
-        <CustomImage :image="cards.image" altText="Icon" cssClass="h-16" />
+        <CustomImage :image="cards.image" cssClass="h-16" />
         <h3
           class="text-[#BEC0C2] text-2xl font-bold truncate"
           :title="cards.title"

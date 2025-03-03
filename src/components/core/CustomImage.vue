@@ -24,7 +24,7 @@ const props = defineProps({
 <template>
   <img
     :src="image?.url || image ||'/img/default_project_image.png'"
-    :alt="altText || image?.alt || 'Default Image'"
+    :alt="image?.alternativeText || 'Default Image'"
     :class="cssClass"
     loading="lazy"
   />
