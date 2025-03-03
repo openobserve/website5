@@ -1,39 +1,37 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomImage from "../core/CustomImage.vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
-
+// Define props for the component
 const props = defineProps({
-  card: {
-    type: Object,
+  cards: {
+    type: Array,
     required: true,
-    default: () => ({
-      image: "",
-      title: "",
-      description: "",
-      btnTitle: "",
-      link: "#",
-    }),
   },
 });
+
+// Define emit events
+const emit = defineEmits(["card-click"]);
+
+// Handle card click
+const handleCardClick = (slug) => {
+  emit("card-click", slug);
+};
 </script>
 
 <template>
-  <div class="w-full h-full bg-black rounded-lg">
+  <div class="grid grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
     <div
-      class="group custom-hover flex flex-row rounded-lg h-full bg-center p-3 md:p-4 transition-all duration-300 bg-gradient-gray"
+      v-for="(card, index) in cards"
+      :key="index"
+      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
     >
-      <!-- Image section - now on the left side -->
-      <div class="w-1/3 mr-3">
-        <CustomBluredImage
-          :image="card.image || ''"
-          :altText="card.title"
-          height="full"
-        />
-      </div>
+      <CustomBluredImage
+        :image="card.image || ''"
+        :altText="card.title"
+        height="full"
+      />
 
-      <!-- Content section - now on the right side -->
-      <div class="flex flex-col w-2/3 space-y-2">
+      <div class="flex flex-col h-full space-y-2">
         <h3 class="text-white text-lg lg:text-2xl font-bold">
           {{ card?.title }}
         </h3>
@@ -52,12 +50,11 @@ const props = defineProps({
     </div>
   </div>
 </template>
-
 <style scoped>
 .custom-hover {
   position: relative;
   display: inline-flex;
-  justify-content: flex-start; /* Changed from center to align content to the left */
+  justify-content: center;
   transition: all 0.3s ease;
   border: none;
   isolation: isolate;
