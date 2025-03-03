@@ -19,7 +19,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div >
+  <div>
     <CustomSection>
       <div class="py-3">
         <Heading
@@ -29,13 +29,13 @@ const props = defineProps({
         />
       </div>
 
-        <CustomBlogsSwiper
-          :sectionData="items"
-          titleTextColor="text-white"
-          descriptionTextColor="text-gray-400"
-          cardBgColor="bg-[#2A2A2A]"
-          linkColor="text-[#00A3FF]"
-        />
+      <CustomBlogsSwiper
+        :sectionData="items"
+        titleTextColor="text-white"
+        descriptionTextColor="text-gray-400"
+        cardBgColor="bg-[#2A2A2A]"
+        linkColor="text-[#00A3FF]"
+      />
 
       <div class="flex justify-center" v-if="primaryButton">
         <CustomButton

@@ -7,7 +7,6 @@
         class="flex flex-row w-full space-x-2 justify-between items-center text-white border border-gray-50/10 h-10 rounded-lg px-2 focus-within:border-sky-500 bg-gray-700"
       >
         <span class="text-white px-4">
-
           <img src="/img/icon/search.svg" alt="Search Icon" />
         </span>
         <input
@@ -62,10 +61,9 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import BlogsListingMobileWrapper from "../blogs/BlogsListingMobileView.vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { itemsPerPage, getAllBlogs } from "@/utils/api/blogs";
+import { itemsPerPage } from "@/utils/api/blogs";
 import { handleBlogSearch } from "@/utils/searchBar";
 
 const props = defineProps({

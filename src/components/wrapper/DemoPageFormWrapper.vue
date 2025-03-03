@@ -35,15 +35,15 @@ defineProps({
       />
       <SampleForm />
     </div>
-     <!-- Bottom Background -->
+    <!-- Bottom Background -->
     <div
       class="w-full h-56 lg:scale-x-110"
-     :style="{
-      backgroundImage: 'url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
-      backgroundPosition: 'bottom',
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-    }"
+      :style="{
+        backgroundImage: 'url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
+        backgroundPosition: 'bottom',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+      }"
     ></div>
   </div>
 </template>

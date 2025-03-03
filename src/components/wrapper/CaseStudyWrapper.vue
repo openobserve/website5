@@ -4,10 +4,8 @@ import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
-import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
-import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
 import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
 
 // Define the props for this component
@@ -29,7 +27,6 @@ const props = defineProps({
     }),
   },
 });
-
 
 // Transform the blog data for card display
 const transformBlogData = (blog) => ({
@@ -55,7 +52,7 @@ const redirectToBlog = (slug) => {
 <template>
   <section>
     <CustomSection>
-      <div >
+      <div>
         <Heading
           :title="heading?.title"
           :description="heading?.subtitle"
@@ -105,7 +102,7 @@ const redirectToBlog = (slug) => {
           :card="card"
           @click="redirectToBlog(card.slug)"
         /> -->
-          <CustomCaseStudySwiper :sectionData="cards"  />
+          <CustomCaseStudySwiper :sectionData="cards" />
         </div>
       </div>
       <div

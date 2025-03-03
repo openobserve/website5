@@ -9,9 +9,9 @@ defineProps({
   //   type: String,
   //   required: true,
   // },
-  heading:{
+  heading: {
     type: Object,
-    required:true
+    required: true,
   },
   subTitle: {
     type: String,
@@ -37,7 +37,7 @@ defineProps({
       :title="heading?.title"
       textGradientColor="bg-white"
     />
-      <!-- textGradientColor="text-color" -->
+    <!-- textGradientColor="text-color" -->
 
     <div class="flex flex-col md:flex-row gap-2 md:gap-8">
       <LeftSideCommonFormFeature
@@ -45,13 +45,13 @@ defineProps({
         :keyFeatures="items"
         :footerdescription="description"
       />
-        <!-- class="text-3xl md:text-5xl" -->
+      <!-- class="text-3xl md:text-5xl" -->
       <CommonForm />
     </div>
 
     <div
       class=""
-      style="background-image: url('/demoPage/Eclipse-2.svg')"
+      style="background-image: url(&quot;/demoPage/Eclipse-2.svg&quot;)"
     ></div>
   </CustomSection>
 </template>

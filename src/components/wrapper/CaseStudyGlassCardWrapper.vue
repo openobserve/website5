@@ -4,7 +4,6 @@ import Heading from "../core/Heading.vue";
 import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
-import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 const props = defineProps({
   items: {
     type: Array,
@@ -33,27 +32,27 @@ const props = defineProps({
     />
     <!-- Desktop View -->
     <div class="md:block py-10 relative">
-  <CustomImage
-    image="/img/bg/gradient-bg/Ellipse-141.svg"
-    altText="Background decoration"
-    cssClass="absolute opacity-30 object-contain"
-  />
-</div>
-      <div
-        class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
-      >
-        <div v-if="props.items.length > 0">
-          <LeftSideCard
-            class="relative bg-opacity-80 backdrop-blur-lg glass-card"
-            :card="props.items[0]"
-          />
-        </div>
+      <CustomImage
+        image="/img/bg/gradient-bg/Ellipse-141.svg"
+        altText="Background decoration"
+        cssClass="absolute opacity-30 object-contain"
+      />
+    </div>
+    <div
+      class="flex flex-row gap-3 justify-center container mx-auto pt-3 h-full w-full"
+    >
+      <div v-if="props.items.length > 0">
+        <LeftSideCard
+          class="relative bg-opacity-80 backdrop-blur-lg glass-card"
+          :card="props.items[0]"
+        />
+      </div>
 
-        <div v-if="props.items.length > 0">
-          <RightSideCard :cards="props.items.slice(1)" />
-        </div>
+      <div v-if="props.items.length > 0">
+        <RightSideCard :cards="props.items.slice(1)" />
       </div>
     </div>
+
     <div class="flex justify-center" v-if="buttonText">
       <CustomButton
         variant="secondary"
