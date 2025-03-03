@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import CustomImage from "./CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 
@@ -114,7 +114,7 @@ onUnmounted(() => {
     v-if="showDialog"
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
     @click="closeDialog"
-    >
+  >
     <!-- Close button should be inside this relative container -->
     <button
       class="absolute top-3 right-3 text-white cursor-pointer z-50"
@@ -128,7 +128,7 @@ onUnmounted(() => {
         :alt="title"
         class="w-full h-full rounded-lg object-contain"
         @click.stop
-        />
+      />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const copied = ref(false);
 
@@ -38,7 +38,7 @@ const copyCode = () => {
 
 <template>
   <div
-    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-4 md:p-6  mt-4 sm:mt-6 flex flex-col"
+    class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-4 md:p-6 mt-4 sm:mt-6 flex flex-col"
     :class="responsiveClasses"
   >
     <!-- Copy Button -->
@@ -62,9 +62,10 @@ const copyCode = () => {
 
     <!-- Scrollable Code Block -->
     <div class="overflow-x-auto overflow-y-hidden custom-scrollbar">
-      <pre class="text-left whitespace-pre text-xs sm:text-base break-words px-2 py-1">{{
-        DOCKER_COMMAND
-      }}</pre>
+      <pre
+        class="text-left whitespace-pre text-xs sm:text-base break-words px-2 py-1"
+        >{{ DOCKER_COMMAND }}</pre
+      >
     </div>
   </div>
 </template>
