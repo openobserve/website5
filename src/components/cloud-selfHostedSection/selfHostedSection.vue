@@ -1,7 +1,5 @@
 <script setup>
 import CustomButton from "../core/CustomButton.vue";
-import { ref } from "vue";
-import CustomSeprater from "../core/CustomSeprater.vue";
 import DockerCode from "../core/DockerCode.vue";
 
 const props = defineProps({
@@ -42,7 +40,6 @@ const props = defineProps({
     required: false,
   },
 });
-
 </script>
 
 <template>
