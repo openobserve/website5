@@ -26,7 +26,7 @@ const props = defineProps({
   address: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const firstSections = computed(() => props.footerData.slice(0, 4) || []);
@@ -56,7 +56,12 @@ const socialIcon = (name) => {
       fill="none"
     >
       <g filter="url(#filter0_f_1434_1855)">
-        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
+        <circle
+          cx="610.5"
+          cy="610.5"
+          r="410.5"
+          fill="url(#paint0_radial_1434_1855)"
+        />
       </g>
       <defs>
         <filter
@@ -75,7 +80,10 @@ const socialIcon = (name) => {
             in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
+          <feGaussianBlur
+            stdDeviation="100"
+            result="effect1_foregroundBlur_1434_1855"
+          />
         </filter>
         <radialGradient
           id="paint0_radial_1434_1855"
@@ -95,13 +103,17 @@ const socialIcon = (name) => {
       <!-- Main Footer Content -->
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <!-- First loop (show first 4 items) -->
-        <div v-for="section in firstSections" :key="section.title" class="min-w-0">
+        <div
+          v-for="section in firstSections"
+          :key="section.title"
+          class="min-w-0"
+        >
           <h3 class="text-[#929A9E] font-medium text-xl mb-4">
             {{ section.title }}
           </h3>
 
           <ul class="space-y-2">
-            <li v-for="item in section.items" :key="item.text ">
+            <li v-for="item in section.items" :key="item.text">
               <a
                 :href="item.link"
                 :target="item.target"
@@ -146,7 +158,7 @@ const socialIcon = (name) => {
               <a
                 href="/pricing"
                 class="gradient-hover text-[#BEC0C2] font-normal text-base"
-              >View Plans
+                >View Plans
               </a>
             </li>
           </ul>
@@ -159,12 +171,17 @@ const socialIcon = (name) => {
           <div class="flex items-center gap-3">
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
-              <img src="/img/SOC.svg" class="w-full h-full object-contain grayscale" />
+              <img
+                src="/img/SOC.svg"
+                class="w-full h-full object-contain grayscale"
+              />
             </div>
 
             <!-- Title & Description in one line -->
             <div class="flex flex-col text-white">
-              <h2 class="text-sm sm:text-base whitespace-nowrap">SOC2 Type 2</h2>
+              <h2 class="text-sm sm:text-base whitespace-nowrap">
+                SOC2 Type 2
+              </h2>
               <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
             </div>
           </div>
@@ -208,16 +225,18 @@ const socialIcon = (name) => {
           </p>
         </div>
         <div class="flex items-center gap-4">
-          <a 
-          :href="termsOfService?.link" 
-          :target="termsOfService?.target"
-          class="text-base gradient-hover">
+          <a
+            :href="termsOfService?.link"
+            :target="termsOfService?.target"
+            class="text-base gradient-hover"
+          >
             {{ termsOfService?.text }}
           </a>
-          <a 
-          :href="privacyText?.link"
-          :target="privacyText?.target"
-          class="text-base gradient-hover">
+          <a
+            :href="privacyText?.link"
+            :target="privacyText?.target"
+            class="text-base gradient-hover"
+          >
             {{ privacyText?.text }}
           </a>
         </div>
@@ -229,7 +248,7 @@ const socialIcon = (name) => {
               v-for="(item, index) in socialMedia"
               :key="index"
               :href="item.link"
-              :class="['icon', item.name.toLowerCase()]" 
+              :class="['icon', item.name.toLowerCase()]"
               class="icon"
             >
               <img :src="socialIcon(item.name)" class="icon-img" />
@@ -272,47 +291,61 @@ const socialIcon = (name) => {
 
 /* Slack */
 .slack {
-  box-shadow: inset 0 -2px 4px rgba(202, 138, 4, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 -2px 4px rgba(202, 138, 4, 0.6),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .slack:hover {
-  box-shadow: inset 0 -3px 6px rgba(202, 138, 4, 0.8), inset 0 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    inset 0 -3px 6px rgba(202, 138, 4, 0.8),
+    inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Twitter */
 .twitter {
-  box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.2),
+  box-shadow:
+    inset 0 -2px 4px rgba(255, 255, 255, 0.2),
     inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .twitter:hover {
-  box-shadow: inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+  box-shadow:
+    inset 0 -3px 6px rgba(255, 255, 255, 0.3),
     inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* LinkedIn */
 .linkdin {
-  box-shadow: inset 0 -3px 6px rgba(3, 105, 161, 0.6),
+  box-shadow:
+    inset 0 -3px 6px rgba(3, 105, 161, 0.6),
     inset 0 2px 4px rgba(255, 255, 255, 0.2);
 }
 .linkdin:hover {
-  box-shadow: inset 0 -4px 8px rgba(3, 105, 161, 0.8),
+  box-shadow:
+    inset 0 -4px 8px rgba(3, 105, 161, 0.8),
     inset 0 3px 6px rgba(255, 255, 255, 0.3);
 }
 
 /* GitHub */
 .github {
-  box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.2),
+  box-shadow:
+    inset 0 -2px 4px rgba(255, 255, 255, 0.2),
     inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .github:hover {
-  box-shadow: inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+  box-shadow:
+    inset 0 -3px 6px rgba(255, 255, 255, 0.3),
     inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* YouTube */
 .youtube {
-  box-shadow: inset 0 -2px 4px rgba(225, 96, 96, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 -2px 4px rgba(225, 96, 96, 0.6),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .youtube:hover {
-  box-shadow: inset 0 -3px 6px rgba(225, 96, 96, 0.8), inset 0 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    inset 0 -3px 6px rgba(225, 96, 96, 0.8),
+    inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 </style>
