@@ -5,10 +5,8 @@ import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CentralCard from "../cardComponent/CentralCard.vue"; // Import the new component
 import CustomButton from "../core/CustomButton.vue";
-import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
-import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
 import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
 
 // Define the props for this component
