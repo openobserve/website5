@@ -46,7 +46,6 @@
       <div class="absolute rounded-full border border-white bg-black flex items-center justify-center">
         <CustomImage
           :image="imgSrc"
-          altText="Image"
           cssClass="object-cover p-2.5"
           :style="{
             width: `${Number(iconSize)}px`,

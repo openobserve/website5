@@ -53,7 +53,6 @@ const props = defineProps({
           <CustomImage
             v-if="image"
             :image="image"
-            :altText="image"
             class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
           />
         </div>

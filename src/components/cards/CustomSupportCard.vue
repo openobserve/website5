@@ -56,7 +56,6 @@ const props = defineProps({
       >
         <CustomImage
           :image="card.image"
-          :altText="card.title"
           cssClass="w-6 h-6"
         />
       </div>
@@ -94,7 +93,6 @@ const props = defineProps({
             cssClass="w-10 h-5"
             v-if="card.primaryButton?.icon"
             :image="card?.primaryButton?.icon"
-            altText="button icon "
           />
         </CustomButton>
       </div>
@@ -108,7 +106,6 @@ const props = defineProps({
             cssClass="w-10 h-5"
             v-if="card?.secondaryButton?.icon"
             :image="card?.secondaryButton?.icon"
-            altText="button icon "
           />
         </CustomButton>
       </div>

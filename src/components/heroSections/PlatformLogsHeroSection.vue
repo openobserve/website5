@@ -87,7 +87,6 @@ const sectionStyles = computed(() => ({
         >
           <CustomImage
             :image="image"
-            altText="Right visual"
             cssClass="w-full lg:w-auto max-w-full h-auto rounded-md object-contain opacity-90 lg:opacity-100"
           />
         </div>

@@ -24,7 +24,7 @@ const bgImages = [
     :style="{ backgroundImage: `url(${index === 0 || index > 1 ? bgImages[0] : bgImages[1]})` }"
   >
     <div class="rounded-full flex justify-center items-center mb-4">
-      <CustomImage :image="card.image" altText="Card Image" cssClass="w-full h-auto" />
+      <CustomImage :image="card.image" cssClass="w-full h-auto" />
     </div>
     <h3 class="title-color text-3xl font-semibold text-[#BEC0C2] text-center">
       {{ card.title }}
