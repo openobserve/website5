@@ -1,6 +1,5 @@
 <script setup>
-import { computed, defineProps, ref } from "vue";
-import CustomImage from "../core/CustomImage.vue";
+import { defineProps, ref } from "vue";
 import { marked } from "marked";
 
 const props = defineProps({
@@ -18,18 +17,20 @@ const toggleAnswer = (index) => {
 };
 
 const renderMarkdown = (markdown) => {
-  const content = marked(markdown)
+  const content = marked(markdown);
   return content;
 };
 </script>
 
 <template>
-  <div class="w-full bg-[url('/img/bg/gradient-bg/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full">
+  <div
+    class="w-full bg-[url('/img/bg/gradient-bg/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full"
+  >
     <!-- FAQ Items -->
     <div class="space-y-4 my-5 w-full">
       <div v-for="(item, index) in faqItems" :key="index">
         <div
-          class="flex justify-between items-center cursor-pointer p-4 group relative rounded-xl border border-[rgba(0,0,0,0)]  hover:border-[rgba(255,255,255,0.2)] duration-300 transition-all"
+          class="flex justify-between items-center cursor-pointer p-4 group relative rounded-xl border border-[rgba(0,0,0,0)] hover:border-[rgba(255,255,255,0.2)] duration-300 transition-all"
           @click="toggleAnswer(index)"
         >
           <div
@@ -44,7 +45,7 @@ const renderMarkdown = (markdown) => {
             src="/img/icon/faq+Icon.svg"
             alt="toggle"
             :class="{
-              'rotate-45': visibleAnswers[index]
+              'rotate-45': visibleAnswers[index],
             }"
             class="transition-transform duration-300 ease-in-out"
           />
@@ -57,8 +58,10 @@ const renderMarkdown = (markdown) => {
             'min-h-full opacity-100 mt-4': visibleAnswers[index],
           }"
         >
-          <div class="prose  prose-invert max-w-none" v-html="renderMarkdown(item.answer)">
-          </div>
+          <div
+            class="prose prose-invert max-w-none"
+            v-html="renderMarkdown(item.answer)"
+          ></div>
         </div>
       </div>
     </div>
