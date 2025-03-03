@@ -4,7 +4,7 @@ import ResourceHeroSection from "../../components/heroSections/ResourceHeroSecti
 import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import BlogsDataWrapper from "../../components/wrapper/BlogsDataWrapper.vue";
+import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
 import {
   getAllBlogs,
@@ -54,7 +54,7 @@ const metaObj = {
     title="Blog"
     description="Explore latest insights and updates"
   />
-  <BlogsDataWrapper data={loadcaseStudyData} client:load />
+  <CaseStudyWrapper data={loadcaseStudyData} client:load />
 
   <!-- categories section -->
 
