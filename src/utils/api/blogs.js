@@ -31,6 +31,15 @@ export async function getCaseStudies(params) {
 
   return caseStudies;
 }
+export async function getBlogs(params) {
+  const blogs = await getAllBlogs();
+  // Filter blogs where caseStudies is true
+  const caseStudies = blogs
+    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+    .slice(0, 3);
+
+  return caseStudies;
+}
 
 export async function getAllAuthors() {
   const auth = await fetchAuthors();

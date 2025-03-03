@@ -56,6 +56,7 @@ import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
 import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
+import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
 
 const props = defineProps({
   data: {
@@ -82,7 +83,8 @@ const componentsMap = computed(() => ({
   "section-cards.features2": UsecaseCardWithIconWrapper,
   "section-cards.stats": TopCompaniesWrapper,
   "section-cards.clients": CompanySwiper,
-  "section-cards.case-studies": BlogsDataWrapper,
+  "section-cards.case-studies": CaseStudyWrapper,
+  "section-cards.blog": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-cards.testimonials": pLevelpLevel,
@@ -116,7 +118,7 @@ const componentsMap = computed(() => ({
   "section-hero.contact-hero-section": ContactUsHeroSection,
   "section-hero.resource-hero-section": ResourceHeroSection,
   "section-cards.resource-feature-highlight": ResourceCardsWrapper,
-  "section-cards.blogs": BlogsWrapper,
+  "section-cards.resources-blogs": BlogsWrapper,
   // "section-cards.blog-with-categories":
   "section-cards.resource-support-card": SupportCardWrapper,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
@@ -136,12 +138,12 @@ const componentsMap = computed(() => ({
 }));
 
 const getComponentProps = (it) => {
-  if (it.__component === "section-cards.case-studies") {
+  if (it.__component === "section-cards.blog") {
     return {
       ...it,
       data: props.caseStudyData,
     };
-  } else if (it.__component === "section-cards.blogs") {
+  } else if (it.__component === "section-cards.resources-blogs") {
     return {
       ...it,
       items: props.blogs,

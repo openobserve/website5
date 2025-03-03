@@ -2,13 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import fetchApi from "../../utils/strapi";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
-import { getCaseStudies } from "@/utils/api/blogs";
+import { getBlogs } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
 const PageData = await fetchApi({
   endpoint: "api/platform",
   query: { pLevel: "4", status: "draft" },
 });
-const loadcaseStudyData = await getCaseStudies();
+const loadcaseStudyData = await getBlogs();
 const BannerData = await fetchBannerData();
 const metaObj = PageData?.data?.seo;
 ---
