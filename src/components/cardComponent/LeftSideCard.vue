@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomImage from "../core/CustomImage.vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 
 const props = defineProps({
@@ -20,28 +19,32 @@ const props = defineProps({
 
 <template>
   <div class="w-full h-full bg-black rounded-lg">
-  <div
-    class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
-  >
-    <CustomBluredImage :image="card.image || ''" :altText="card.title"  height="full"/>
+    <div
+      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
+    >
+      <CustomBluredImage
+        :image="card.image || ''"
+        :altText="card.title"
+        height="full"
+      />
 
-    <div class="flex flex-col h-full space-y-2">
-      <h3 class="text-white text-lg lg:text-2xl font-bold">
-        {{ card?.title }}
-      </h3>
-      <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
-        {{ card?.description }}
-      </p>
-      <a
-        :href="card.link"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-[#80B9FF] font-bold text-sm md:text-base lg:text-lg mt-auto"
-      >
-        {{ card?.btnTitle }}
-      </a>
+      <div class="flex flex-col h-full space-y-2">
+        <h3 class="text-white text-lg lg:text-2xl font-bold">
+          {{ card?.title }}
+        </h3>
+        <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
+          {{ card?.description }}
+        </p>
+        <a
+          :href="card.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#80B9FF] font-bold text-sm md:text-base lg:text-lg mt-auto"
+        >
+          {{ card?.btnTitle }}
+        </a>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 

@@ -22,7 +22,11 @@ const props = defineProps({
       <div
         class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] hover:bg-[#14181B] p-8"
       >
-        <CustomImage :image="item.image" altText="Icon" cssClass="w-16 h-16 object-cover" />
+        <CustomImage
+          :image="item.image"
+          altText="Icon"
+          cssClass="w-16 h-16 object-cover"
+        />
         <h3 class="text-[#BEC0C2] text-base font-semibold" :title="item.title">
           {{ item.title }}
         </h3>

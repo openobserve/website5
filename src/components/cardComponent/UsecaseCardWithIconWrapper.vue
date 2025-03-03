@@ -2,7 +2,6 @@
 import { defineProps } from "vue";
 import IconTitleCard from "./UsecaseCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
-import CustomImage from "../core/CustomImage.vue";
 import Heading from "../core/Heading.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 
@@ -24,9 +23,16 @@ const props = defineProps({
       <div class="flex flex-col max-w-full container mx-auto">
         <Heading :title="heading?.title" :description="heading?.subtitle" />
         <div class="mt-10">
-          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
+          <div
+            class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
+          >
             <!-- Loop moved here -->
-            <IconTitleCard v-for="(item, index) in items" :key="index" :card="item" :index="index" />
+            <IconTitleCard
+              v-for="(item, index) in items"
+              :key="index"
+              :card="item"
+              :index="index"
+            />
           </div>
         </div>
       </div>
