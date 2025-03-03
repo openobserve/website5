@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { generateAuthorLink } from "../../utils/redirection";
-import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
   authors: {
