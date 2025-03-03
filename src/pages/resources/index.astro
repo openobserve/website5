@@ -8,7 +8,7 @@ const PageData = await fetchApi({
   endpoint: "api/resource",
   query: { pLevel: "5", status: "draft" },
 });
-const loadcaseStudyData = await getCaseStudies();
+const loadBlogsData = await getCaseStudies();
 const BannerData = await fetchBannerData();
 const metaObj = PageData?.data?.seo;
 const allBlogs = await getAllBlogs();
@@ -18,7 +18,7 @@ const blogs = allBlogs?.slice(0, 10);
 <Layout metaObj={metaObj}>
   <ComponentCollectionMapper
     data={PageData?.data?.body}
-    caseStudyData={loadcaseStudyData}
+    blogsData={loadBlogsData}
     bannerData={BannerData.data}
     blogs={blogs}
     client:load

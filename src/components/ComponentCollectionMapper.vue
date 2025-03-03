@@ -63,7 +63,7 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  caseStudyData: {
+  blogsData: {
     type: Array,
     required: false,
   },
@@ -141,7 +141,7 @@ const getComponentProps = (it) => {
   if (it.__component === "section-cards.blog") {
     return {
       ...it,
-      data: props.caseStudyData,
+      data: props.blogsData,
     };
   } else if (it.__component === "section-cards.resources-blogs") {
     return {
