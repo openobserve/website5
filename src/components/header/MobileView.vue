@@ -405,10 +405,6 @@ const closeSubMenu = () => {
   activeSubMenu.value = null;
 };
 
-const onSearchClick = () => {
-  isOpenSearch.value = !isOpenSearch.value;
-};
-
 const handleClickOutside = (event) => {
   // Close search bar if clicked outside
   if (searchWrapper.value && !searchWrapper.value.contains(event.target)) {
