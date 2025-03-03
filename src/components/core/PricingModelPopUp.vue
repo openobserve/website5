@@ -23,12 +23,29 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  inheritAttrs: false, // Prevents Vue from passing extra attributes
 });
 const isOpen = ref(false);
 const showMainButton = ref(false);
 const shouldHide = ref(false);
 let scrollObserver = null;
+const isMobileDevice = ref(false);
 
+const checkIfMobile = () => {
+  const mobileRegex =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  isMobileDevice.value = mobileRegex.test(navigator.userAgent);
+};
+const handleResize = () => {
+  // For mobile devices, always hide regardless of orientation
+  if (isMobileDevice.value) {
+    shouldHide.value = true;
+    return;
+  }
+
+  // For non-mobile devices, show only if screen is tablet size or larger
+  shouldHide.value = window.innerWidth < 640;
+};
 // Function to open modal
 const openModal = () => {
   showMainButton.value = true;
@@ -74,6 +91,8 @@ const observeMainComponent = () => {
 
 // Attach event listeners
 onMounted(() => {
+  checkIfMobile(); // First detect if it's a mobile device
+  handleResize(); // Then check dimensions
   observeMainComponent(); // Start observing visibility
   window.addEventListener("scroll", handleScroll);
 });
@@ -89,7 +108,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    v-if="!shouldHide"
+    v-if="!shouldHide && !isMobileDevice"
     class="fixed p-0 right-0 flex-col items-end z-40 hidden sm:flex origin-bottom-right -rotate-90 md:top-44"
   >
     <!-- Button (Now appears only after modal fully hides) -->
@@ -107,7 +126,7 @@ onUnmounted(() => {
     class="fixed right-0 p-2 md:p-0 md:right-0 md:transform flex-col items-end z-40 hidden sm:flex md:top-44"
   >
     <!-- Modal with smooth transition -->
-    <Transition name="slide-fade" @after-leave="showButton">
+    <Transition name="slide-fade">
       <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
         <!-- Close Button -->
         <button

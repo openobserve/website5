@@ -10,14 +10,18 @@ const props = defineProps({
   },
   heading: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
 <template>
   <CustomSection>
     <div class="py-3">
-      <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
+      <Heading
+        :title="heading?.title"
+        :description="heading?.subtitle"
+        align="CENTER"
+      />
     </div>
     <div
       :class="[

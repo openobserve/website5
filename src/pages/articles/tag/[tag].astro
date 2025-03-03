@@ -3,8 +3,11 @@ import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
-import { getAllResourceBlogs, getAllResourceCategories } from "@/utils/api/resources";
+import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
+import {
+  getAllResourceBlogs,
+  getAllResourceCategories,
+} from "@/utils/api/resources";
 import { getAllCategories, getCaseStudies } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 
@@ -52,7 +55,6 @@ const paginationProps = shouldPaginate
     }
   : {};
 
-
 // 🔹 Additional Card Data
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -77,7 +79,7 @@ const metaObj = {
     description={`Showing posts for category: ${category?.name ?? tag}`}
   />
 
-  <!-- <CaseStudyWrapper
+  <!-- <BlogsDataWrapper
     data={loadcaseStudyData || []}
     title="Blog Posts"
     subtitle="Latest articles and updates"
@@ -97,7 +99,7 @@ const metaObj = {
     blogsData={blogsData}
     currentPage={1}
     client:load
-    {...paginationProps} 
+    {...paginationProps}
   />
 
   <!-- <TilesWithTitleWrapper

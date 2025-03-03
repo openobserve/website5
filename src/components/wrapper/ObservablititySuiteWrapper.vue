@@ -1,6 +1,4 @@
 <script setup>
-import CustomSection from "../core/CustomSection.vue";
-
 const props = defineProps({
   title: {
     type: String,

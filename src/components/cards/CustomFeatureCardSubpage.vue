@@ -60,9 +60,7 @@ const swiperOptions = {
       </div>
 
       <!-- Mobile Layout (Swiper) -->
-       <div>
-        
-       </div>
+      <div></div>
       <div class="relative block lg:hidden w-full mt-10 px-3">
         <swiper
           class="custom-feature-swiper w-full"

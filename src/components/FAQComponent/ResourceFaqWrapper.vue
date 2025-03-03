@@ -21,9 +21,9 @@ const handleFaqSearch = (searchTerm, originalFaqs) => {
   if (!searchTerm || searchTerm.trim() === "") {
     return originalFaqs;
   }
-  
+
   const term = searchTerm.toLowerCase().trim();
-  return originalFaqs.filter(faq => 
+  return originalFaqs.filter((faq) =>
     faq.question.toLowerCase().includes(term)
   );
 };
@@ -46,24 +46,25 @@ const handleClickOutside = (event) => {
       <div
         class="flex flex-row w-full justify-between items-center border border-gray-600 h-12 rounded-xl px-4 bg-dark-glass shadow-lg backdrop-blur-lg"
       >
-      <span class="opacity-70">
+        <span class="opacity-70">
           <img src="/img/icon/search.svg" alt="Search Icon" class="w-4 h-4" />
         </span>
         <input
           v-model="searchItem"
           type="text"
-          class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-gray-400 ml-5 "
+          class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-gray-400 ml-5"
           placeholder="Search here"
         />
-       
       </div>
       <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
           <p v-show="filteredFaqs.length > 0">
-            Search results for "<span class="font-bold">{{ searchItem }}</span>"
+            Search results for "<span class="font-bold">{{ searchItem }}</span
+            >"
           </p>
           <p v-show="filteredFaqs.length === 0">
-            No results for "<span class="font-bold">{{ searchItem }}</span>"
+            No results for "<span class="font-bold">{{ searchItem }}</span
+            >"
           </p>
         </template>
       </div>
@@ -83,10 +84,18 @@ const handleClickOutside = (event) => {
 .glass-card {
   border-radius: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(180deg, rgba(1, 1, 1, 0.48) 30%, rgba(1, 1, 1, 0.8) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(1, 1, 1, 0.48) 30%,
+    rgba(1, 1, 1, 0.8) 100%
+  );
 }
 
 .bg-dark-glass {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
 }
 </style>

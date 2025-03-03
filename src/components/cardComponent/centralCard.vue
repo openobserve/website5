@@ -1,51 +1,60 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
-
+// Define props for the component
 const props = defineProps({
-  card: {
-    type: Object,
+  cards: {
+    type: Array,
     required: true,
   },
 });
+
+// Define emit events
+const emit = defineEmits(["card-click"]);
+
+// Handle card click
+const handleCardClick = (slug) => {
+  emit("card-click", slug);
+};
 </script>
 
 <template>
-  <div class="rounded-lg w-full flex-1 bg-black">
+  <div class="grid grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
     <div
-      class="group custom-hover flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
+      v-for="(card, index) in cards"
+      :key="index"
+      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
     >
-      <div class="lg:w-2/5">
-        <CustomBluredImage
-          :image="card.image || ''"
-          :altText="card.title"
-          height="full"
-        />
-      </div>
+      <CustomBluredImage
+        :image="card.image || ''"
+        :altText="card.title"
+        height="full"
+      />
 
-      <div class="flex flex-col h-full space-y-0 w-full lg:w-3/5">
-        <h3 class="text-white text-lg lg:text-2xl font-bold mb-3 line-clamp-3">
+      <div class="flex flex-col h-full space-y-2">
+        <h3 class="text-white text-lg lg:text-2xl font-bold">
           {{ card?.title }}
         </h3>
-        <p class="text-white text-sm lg:text-base flex-1 line-clamp-3">
+        <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
           {{ card?.description }}
         </p>
         <a
           :href="card.link"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-[#80B9FF] font-bold text-base mt-auto"
+          class="text-[#80B9FF] font-bold text-sm md:text-base lg:text-lg mt-auto"
         >
-          {{ card.btnTitle }}
+          {{ card?.btnTitle }}
         </a>
       </div>
     </div>
   </div>
 </template>
-
 <style scoped>
 .custom-hover {
   position: relative;
+  display: inline-flex;
+  justify-content: center;
   transition: all 0.3s ease;
   border: none;
   isolation: isolate;
@@ -84,11 +93,10 @@ const props = defineProps({
 }
 .group {
   background-color: transparent; /* Default background */
-  transition: background 0.3s ease-in-out;
 }
 
 .group:hover {
-  background-image: url("/img/bg/gradient-bg/blogRightCardBg.svg");
+  background-image: url("/img/bg/gradient-bg/CaseStudyEclipse.svg");
   background-size: cover;
   background-position: center;
 }

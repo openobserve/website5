@@ -23,7 +23,7 @@ const props = defineProps({
         :title="title"
         textGradientColor="gradient-color"
         padding="pb-3 md:pb-5"
-        />
+      />
       <p
         class="text-white mt-3 text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed md:leading-loose"
       >

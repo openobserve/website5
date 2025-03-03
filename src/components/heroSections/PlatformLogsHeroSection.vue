@@ -47,7 +47,7 @@ const sectionStyles = computed(() => ({
   >
     <div class="container mx-auto px-3 md:px-10 lg:px-16 pt-14 lg:pt-0">
       <div
-       class="flex flex-col lg:flex-row lg:items-center lg:min-h-[20rem] xl:min-h-[30rem] lg:justify-between lg:gap-20 md:pr-[2vh]"
+        class="flex flex-col lg:flex-row lg:items-center lg:min-h-[20rem] xl:min-h-[30rem] lg:justify-between lg:gap-20 md:pr-[2vh]"
       >
         <!-- Content Container -->
         <div

@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
 import SingleAuthorDetails from "../../components/blogs/SingleAuthorDetails.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../components/wrapper/BlogsDataWrapper.vue";
 import {
   getResBlogsBySlug,
   getAllResourceBlogs,
@@ -32,7 +32,7 @@ const loadcaseStudyData = await getCaseStudies();
 
 <Layout>
   <BlogDetailsHeroSectionWrapper
-  type="articles"
+    type="articles"
     title={SlugData.title}
     bottomImage={SlugData.image?.url || SlugData.image?.url}
     client:load
@@ -48,8 +48,13 @@ const loadcaseStudyData = await getCaseStudies();
     ]}
     type="articles"
   />
-  <BlogDetailContentWrapper type="articles" client:load content={SlugData.content} authors={author} />
-  <!-- <CaseStudyWrapper
+  <BlogDetailContentWrapper
+    type="articles"
+    client:load
+    content={SlugData.content}
+    authors={author}
+  />
+  <!-- <BlogsDataWrapper
     title="Want to know more? Check out these Blogs."
     description="Dive deeper into observability best practices and learn how OpenObserve can transform your monitoring strategy."
     items={loadcaseStudyData}

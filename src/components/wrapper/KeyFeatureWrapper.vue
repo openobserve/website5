@@ -2,7 +2,6 @@
 import { slugify } from "@/utils/slugify";
 import CustomImage from "../core/CustomImage.vue";
 import CustomSection from "../core/CustomSection.vue";
-import Heading from "../core/Heading.vue";
 
 const props = defineProps({
   heading: {
@@ -23,12 +22,10 @@ const props = defineProps({
         v-for="(item, index) in items"
         :key="index"
         :id="slugify(item.title)"
-        class="grid-item rounded-sm bg-[#131219]  w-full h-full"
+        class="grid-item rounded-sm bg-[#131219] w-full h-full"
       >
         <!-- Content Layer -->
-        <div
-          class="flex flex-col p-6 h-full gap-4"
-        >
+        <div class="flex flex-col p-6 h-full gap-4">
           <!-- Icon and Title Row -->
             <!-- Icon/Logo -->
             <CustomImage
@@ -39,7 +36,10 @@ const props = defineProps({
             <!-- Title -->
           <h3 class=" text-white font-medium text-lg text-left">{{ item.title }}</h3>
           <!-- Description -->
-          <p class="text-[#BEC0C2] text-sm text-left" v-html="item?.description"></p>
+          <p
+            class="text-[#BEC0C2] text-sm text-left"
+            v-html="item?.description"
+          ></p>
         </div>
       </div>
     </div>
@@ -85,7 +85,6 @@ const props = defineProps({
     grid-column: span 3; /* Single last item centered */
     grid-column-start: 2;
     grid-column-end: 6;
-
   }
 }
 

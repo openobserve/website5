@@ -402,14 +402,12 @@ const isPlatformMenuOpen = ref(false);
 const isSolutionMenuOpen = ref(false);
 const isResourcesMenuOpen = ref(false);
 const isCompanyMenuOpen = ref(false);
-const isCommunityMenuOpen = ref(false);
 const isOpenSearch = ref(false);
 const searchWrapper = ref(null); // Reference to the search bar wrapper
 const platformMenuTimeout = ref(null);
 const solutionMenuTimeout = ref(null);
 const resourcesMenuTimeout = ref(null);
 const companyMenuTimeout = ref(null);
-const communityMenuTimeout = ref(null);
 
 const onPlatformMenuHover = () => {
   clearTimeout(platformMenuTimeout.value);
@@ -420,11 +418,7 @@ const onPlatformMenuHover = () => {
   isResourcesMenuOpen.value = false;
   isCompanyMenuOpen.value = false;
 };
-const closeMenus = () => {
-  setTimeout(() => {
-    isPlatformMenuOpen.value = false;
-  }, 700);
-};
+
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
     isPlatformMenuOpen.value = false;

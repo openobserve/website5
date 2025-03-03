@@ -19,7 +19,7 @@ const props = defineProps({
   type: {
     type: String,
     required: true,
-  }
+  },
 });
 const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>
@@ -42,7 +42,6 @@ const displayedPages = computed(() => {
   return pages;
 });
 
-
 // Update local state when prop changes
 onMounted(() => {
   currentPageRef.value = props.currentPage;
@@ -54,7 +53,7 @@ onMounted(() => {
     <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
       :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
-     :href="generatePageNavLink(type, currentPage - 1)"
+      :href="generatePageNavLink(type, currentPage - 1)"
     >
       Previous
     </a>
@@ -73,7 +72,7 @@ onMounted(() => {
         ]"
       >
         {{ page }}
-    </a>
+      </a>
     </div>
 
     <!-- Next Button -->
@@ -86,5 +85,3 @@ onMounted(() => {
     </a>
   </section>
 </template>
-
-

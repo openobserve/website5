@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import ComponentCollectionMapper from "../../components/ComponentCollectionMapper.vue";
 import fetchApi from "../../utils/strapi";
-import { getBlogsByCategory, getCaseStudies } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
-import  fetchBlogsByCategories  from "../../utils/fetchBlogsBasedOnPages";
+import fetchBlogsByCategories from "../../utils/fetchBlogsBasedOnPages";
 
 export async function getStaticPaths() {
   const PageData: string[] = await fetchApi({
@@ -32,7 +31,7 @@ const metaObj = PageData?.data[0]?.seo;
   <div class="text-white"></div>
   <ComponentCollectionMapper
     data={PageData?.data[0]?.body}
-    caseStudyData={blogs}
+    blogsData={blogs}
     bannerData={BannerData.data}
     client:load
   />

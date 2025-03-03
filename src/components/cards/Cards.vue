@@ -1,5 +1,5 @@
 <script setup>
-import CustomImage from '../core/CustomImage.vue';
+import CustomImage from "../core/CustomImage.vue";
 const props = defineProps({
   image: {
     type: Array,
