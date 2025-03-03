@@ -29,17 +29,11 @@ const copyCode = () => {
     document.body.removeChild(textarea);
   }
 };
-
-// Tailwind responsive classes
-// const responsiveClasses = computed(() => [
-//   "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl",
-// ]);
 </script>
 
 <template>
   <div
     class="relative bg-[#232628]/90 rounded-lg text-gray-300 font-mono text-xs sm:text-sm w-full p-4 md:p-6 mt-4 sm:mt-6 flex flex-col"
-    :class="responsiveClasses"
   >
     <!-- Copy Button -->
     <button

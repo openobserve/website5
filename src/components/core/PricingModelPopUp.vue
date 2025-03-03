@@ -23,6 +23,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  inheritAttrs: false, // Prevents Vue from passing extra attributes
 });
 const isOpen = ref(false);
 const showMainButton = ref(false);
@@ -107,7 +108,7 @@ onUnmounted(() => {
     class="fixed right-0 p-2 md:p-0 md:right-0 md:transform flex-col items-end z-40 hidden sm:flex md:top-44"
   >
     <!-- Modal with smooth transition -->
-    <Transition name="slide-fade" @after-leave="showButton">
+    <Transition name="slide-fade">
       <div v-if="isOpen" class="bg-color rounded-lg shadow-lg p-6 relative">
         <!-- Close Button -->
         <button
