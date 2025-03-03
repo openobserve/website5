@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from "vue";
+import { defineProps } from "vue";
 import FAQSection from "./FAQSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
@@ -8,18 +8,18 @@ const props = defineProps({
     type: Array,
     required: true,
   },
- heading:{
-  type: Object,
-  required:true,
- }
+  heading: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
 <template>
   <CustomSection>
     <!-- <div class="w-full bg-[url('/img/bg/gradient-bg/faqBg2.svg')] bg-cover bg-center bg-no-repeat"> -->
-      <Heading :title="heading?.title" align="CENTER" />
-      <FAQSection :faqItems="faqs" />
+    <Heading :title="heading?.title" align="CENTER" />
+    <FAQSection :faqItems="faqs" />
     <!-- </div> -->
   </CustomSection>
 </template>

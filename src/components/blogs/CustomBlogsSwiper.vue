@@ -1,20 +1,11 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
-import CustomImage from "../core/CustomImage.vue";
-import {generateNavLink} from "../../utils/redirection";
+import { generateNavLink } from "../../utils/redirection";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-interface Blog {
-  title: string;
-  description: string;
-  image: {
-    url: string;
-  };
-}
 
 interface BlogSectionData {
   title: string;
@@ -78,7 +69,6 @@ const swiperOptions = {
     },
   },
 };
-
 </script>
 
 <template>
@@ -94,25 +84,31 @@ const swiperOptions = {
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
               :href="generateNavLink('blog', blog.slug)"
-           rel="noopener noreferrer" :class="[
-            cardBgColor,
-            ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
-          ]">
-         
-          <CustomBluredImage :image="blog.image?.url || ''" :altText="blog.title" />
+              rel="noopener noreferrer"
+              :class="[
+                cardBgColor,
+                ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
+              ]"
+            >
+              <CustomBluredImage
+                :image="blog.image?.url || ''"
+                :altText="blog.title"
+              />
 
-          <!-- Right Side - Content -->
-          <div class="w-full p-6 flex flex-col">
-            <div>
-              <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
-                {{ blog.title }}
-              </h6>
-              <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
-                {{ blog.description }}
-              </p>
-            </div>
-          </div>
-        </a>
+              <!-- Right Side - Content -->
+              <div class="w-full p-6 flex flex-col">
+                <div>
+                  <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
+                    {{ blog.title }}
+                  </h6>
+                  <p
+                    :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']"
+                  >
+                    {{ blog.description }}
+                  </p>
+                </div>
+              </div>
+            </a>
           </swiper-slide>
         </swiper>
 

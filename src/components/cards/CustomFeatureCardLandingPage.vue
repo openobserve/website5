@@ -24,11 +24,8 @@ const props = defineProps({
     >
       {{ card.title }}
     </h2>
-    <p
-      class="text-[12px] sm:text-[14px] md:text-[16px] m-0 text-[#23282C]"
-    >
+    <p class="text-[12px] sm:text-[14px] md:text-[16px] m-0 text-[#23282C]">
       {{ card.description }}
     </p>
   </div>
 </template>
-

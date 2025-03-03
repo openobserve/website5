@@ -44,7 +44,7 @@ const props = defineProps({
  * blog listing display. Tries to return the medium image url
  * first, then the large, then the small, and finally the
  * original image url.
- * 
+ *
  * This function is used to get the image URL and not using the default one for below reasons:
  * 1. To render low resolution image for the listing
  * 2. Avoid large GIFs to avoid rednering delays
@@ -68,31 +68,37 @@ const getImageUrl = ({ image }: Blog) =>
           :href="generateNavLink(type, blog.slug)"
           rel="noopener noreferrer"
           :class="[
-  cardBgColor,
-  'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
-]">
-          <CustomBluredImage :image="getImageUrl(blog)" :altText="blog.title"  />
+            cardBgColor,
+            'relative flex flex-col rounded-xl overflow-hidden cardShadow border border-transparent transition-all duration-200 ease-in-out',
+          ]"
+        >
+          <CustomBluredImage :image="getImageUrl(blog)" :altText="blog.title" />
           <div class="w-full p-6 flex flex-col flex-1">
-              <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
-                {{ blog.title }}
-              </h6>
-              <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
-                {{ blog.description }}
-              </p>
-              <div class="flex-1"></div>
-                <!-- <p class="text-white text-xs sm:text-sm">{{ blog.authors[0].name }}</p> -->
-                <p class="text-white text-xs sm:text-sm">
-                  {{ blog.authors.map(author => author.name).join(', ') }}
-                </p>
-                <p class="text-white text-xs sm:text-sm">
-                  {{new Date(blog.publishDate)
-                      .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
-                      .replace(/(\d+) (\w+) (\d+)/, '$1 $2, $3')
-                  }}
-                </p>
-              <!-- <div class="flex flex-col gap-1 text-white text-xs sm:text-sm mg:text-base mt-auto"> -->
-                <!-- <span>|</span> -->
-              <!-- </div> -->
+            <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
+              {{ blog.title }}
+            </h6>
+            <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
+              {{ blog.description }}
+            </p>
+            <div class="flex-1"></div>
+            <!-- <p class="text-white text-xs sm:text-sm">{{ blog.authors[0].name }}</p> -->
+            <p class="text-white text-xs sm:text-sm">
+              {{ blog.authors.map((author) => author.name).join(", ") }}
+            </p>
+            <p class="text-white text-xs sm:text-sm">
+              {{
+                new Date(blog.publishDate)
+                  .toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })
+                  .replace(/(\d+) (\w+) (\d+)/, "$1 $2, $3")
+              }}
+            </p>
+            <!-- <div class="flex flex-col gap-1 text-white text-xs sm:text-sm mg:text-base mt-auto"> -->
+            <!-- <span>|</span> -->
+            <!-- </div> -->
           </div>
         </a>
       </div>
@@ -112,5 +118,4 @@ const getImageUrl = ({ image }: Blog) =>
 .cardShadow:hover::after {
   border-color: #3b82f6; /* Tailwind blue-500 */
 }
-
 </style>

@@ -6,9 +6,9 @@ import CustomImage from "../core/CustomImage.vue";
 import CustomFeatureCardLandingPage from "../cards/CustomFeatureCardLandingPage.vue";
 // Define props for dynamic data
 defineProps({
-  heading:{
-    type:Object,
-    required:true,
+  heading: {
+    type: Object,
+    required: true,
   },
   items: {
     type: Array,
@@ -16,7 +16,7 @@ defineProps({
   },
   noOfGridColumn: {
     type: Number,
-    default:3,
+    default: 3,
     required: true,
   },
   primaryButton: {
@@ -36,13 +36,11 @@ defineProps({
     required: true, // URL of the footer image
   },
 });
-
-
 </script>
 
 <template>
   <section
-    class="relative  min-h-[100vh] flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%] bg-cover px-4 pt-20"
+    class="relative min-h-[100vh] flex flex-col items-center text-center bg-no-repeat bg-[50%_40vh] md:bg-[50%] bg-cover px-4 pt-20"
     :style="{
       backgroundImage: `url('/img/bg/gradient-bg/solutionHeroSectionBackground.svg')`,
     }"
@@ -52,17 +50,29 @@ defineProps({
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
         {{ heading?.title }}
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#E2E3E5]">{{ heading?.subtitle }}</p>
+      <p class="text-lg sm:text-xl md:text-2xl font-medium text-[#E2E3E5]">
+        {{ heading?.subtitle }}
+      </p>
     </div>
 
     <!-- Hero Section with Background -->
     <div class="w-full max-w-7xl px-4">
       <!-- Buttons Section -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-3 w-full">
-        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton.link" target="_blank">
+        <CustomButton
+          variant="primary"
+          class="w-full sm:w-auto"
+          :buttonLink="primaryButton.link"
+          target="_blank"
+        >
           {{ primaryButton.text }}
         </CustomButton>
-        <CustomButton variant="secondary" class="w-full sm:w-auto" :buttonLink="secondaryButton.link" v-if="secondaryButton?.text && secondaryButton?.link">
+        <CustomButton
+          variant="secondary"
+          class="w-full sm:w-auto"
+          :buttonLink="secondaryButton.link"
+          v-if="secondaryButton?.text && secondaryButton?.link"
+        >
           {{ secondaryButton.text }}
         </CustomButton>
       </div>
@@ -93,9 +103,7 @@ defineProps({
                 layout === 'column' ? 'flex-col justify-start' : 'flex-row'
               "
             >
-            <CustomFeatureCardLandingPage
-                :card="item"
-              />
+              <CustomFeatureCardLandingPage :card="item" />
             </div>
           </div>
         </div>

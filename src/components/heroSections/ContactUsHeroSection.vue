@@ -2,7 +2,6 @@
 import CustomButton from "../core/CustomButton.vue";
 import Heading from "../core/Heading.vue";
 import CustomInput from "../forms/CustomInput.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 import { defineProps } from "vue";
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
@@ -84,10 +83,6 @@ const onSubmit = handleSubmit(async (values) => {
     loading.value = false;
   }
 });
-const navigateToTerms = (e) => {
-  e.preventDefault();
-  window.location.assign("/policies/terms-of-service"); // Update with your terms page URL
-};
 </script>
 
 <template>
@@ -95,7 +90,8 @@ const navigateToTerms = (e) => {
   <div
     class="relative flex items-center justify-center min-h-[40vh] px-6 sm:px-12 lg:px-24 bg-no-repeat py-8"
     :style="{
-      backgroundImage: 'url(/img/bg/gradient-bg/ContactUsTopbg.svg), url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
+      backgroundImage:
+        'url(/img/bg/gradient-bg/ContactUsTopbg.svg), url(/img/bg/gradient-bg/ContactUsBottombg.svg)',
       backgroundPosition: 'center -200px, bottom center',
       backgroundSize: 'cover, cover',
       backgroundRepeat: 'no-repeat, no-repeat',

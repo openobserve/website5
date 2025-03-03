@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
-import CustomImage from "../core/CustomImage.vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-interface BlogSectionData {
-  title: string;
-  description: string;
-  image:string
-  slug: string;
-}
 
 const props = defineProps({
   sectionData: {
@@ -85,7 +77,6 @@ const truncateDescription = (text: string, wordLimit: number) => {
           class="blog-swiper"
           :modules="swiperModules"
           :v-bind="swiperOptions"
-
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.slug">
             <a
@@ -105,7 +96,10 @@ const truncateDescription = (text: string, wordLimit: number) => {
                     cssClass="w-full h-full object-cover"
                   />
                 </div> -->
-                <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
+                <CustomBluredImage
+                  :image="blog.image || ''"
+                  :altText="blog.title"
+                />
 
                 <div class="p-6 mb-3">
                   <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">

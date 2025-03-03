@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomImage from "../core/CustomImage.vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 
 const props = defineProps({
@@ -14,10 +13,14 @@ const props = defineProps({
 <template>
   <div class="rounded-lg w-full flex-1 bg-black">
     <div
-      class="group custom-hover  flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
+      class="group custom-hover flex rounded-lg h-full p-2 lg:p-4 space-x-2 lg:space-x-4 bg-gradient-gray transition-all duration-300 w-full"
     >
       <div class="lg:w-2/5">
-        <CustomBluredImage :image="card.image || ''" :altText="card.title" height="full" />
+        <CustomBluredImage
+          :image="card.image || ''"
+          :altText="card.title"
+          height="full"
+        />
       </div>
 
       <div class="flex flex-col h-full space-y-0 w-full lg:w-3/5">

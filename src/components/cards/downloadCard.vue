@@ -75,7 +75,9 @@ const props = defineProps({
     rgba(163, 163, 254, 0.75) 100%
   );
   border-radius: 8px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;

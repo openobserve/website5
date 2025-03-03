@@ -3,7 +3,6 @@ import { ref } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import CloudTier from "./CloudTier.vue";
 import SelfHostedTier from "./SelfHostedTier.vue";
-import Heading from "../core/Heading.vue";
 
 const props = defineProps({
   cloudData: {
@@ -22,13 +21,17 @@ const selectedTab = ref("cloud");
 <template>
   <CustomSection>
     <div class="w-full mx-auto">
-        <h1 class="mb-10 text-4xl text-white font-semibold text-center">Pricing</h1>
+      <h1 class="mb-10 text-4xl text-white font-semibold text-center">
+        Pricing
+      </h1>
       <!-- Tab Buttons -->
       <div class="flex relative border-b-[3px] border-gray-500">
         <button
           class="w-1/2 cld-btn py-2 md:py-3 text-md md:text-lg font-semibold transition-colors duration-300 relative"
           :class="
-            selectedTab === 'cloud' ? 'text-white' : 'border-transparent cld-be-effect'
+            selectedTab === 'cloud'
+              ? 'text-white'
+              : 'border-transparent cld-be-effect'
           "
           @click="selectedTab = 'cloud'"
         >
@@ -84,7 +87,8 @@ const selectedTab = ref("cloud");
 
 .cld-btn {
   border-radius: 4px;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 7.31%,
       rgba(2, 16, 112, 0.4) 80.86%
@@ -98,12 +102,17 @@ const selectedTab = ref("cloud");
       rgba(74, 157, 255, 0.8) 66.57%,
       rgba(0, 136, 255, 0.8) 93.03%
     ),
-    linear-gradient(153deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    linear-gradient(
+      153deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
 }
 
 .slf-btn {
   border-radius: 4px;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 48.63%,
       rgba(44, 8, 80, 0.4) 86.59%
@@ -130,14 +139,20 @@ const selectedTab = ref("cloud");
 .slf-be-effect {
   border-radius: 4px;
   color: white;
-  background: linear-gradient(88deg, rgba(0, 0, 0, 0) 51.76%, rgba(1, 1, 1, 0.8) 92%),
-    linear-gradient(92deg, rgba(255, 255, 255, 0) -3.08%, rgba(223, 127, 106, 0.6) 100%);
+  background:
+    linear-gradient(88deg, rgba(0, 0, 0, 0) 51.76%, rgba(1, 1, 1, 0.8) 92%),
+    linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0) -3.08%,
+      rgba(223, 127, 106, 0.6) 100%
+    );
 }
 
 .cld-be-effect {
   color: white;
   border-radius: 4px;
-  background: linear-gradient(270deg, rgba(0, 0, 0, 0) 6.6%, rgba(1, 8, 55, 0.56) 71.85%),
+  background:
+    linear-gradient(270deg, rgba(0, 0, 0, 0) 6.6%, rgba(1, 8, 55, 0.56) 71.85%),
     linear-gradient(
       271deg,
       rgba(255, 183, 175, 0.24) 11.39%,

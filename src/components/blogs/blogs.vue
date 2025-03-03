@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CustomImage from '../core/CustomImage.vue';
+import CustomImage from "../core/CustomImage.vue";
 
 defineProps<{
   title: string;

@@ -66,12 +66,9 @@ const props = defineProps({
             <p :class="[descriptionTextColor, 'text-sm line-clamp-3']">
               {{ blog.description }}
             </p>
-
           </div>
         </a>
       </div>
     </div>
   </div>
 </template>
-
-

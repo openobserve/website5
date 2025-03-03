@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { StringValidation } from "astro:schema";
 import CustomButton from "../core/CustomButton.vue";
 
 interface Feature {

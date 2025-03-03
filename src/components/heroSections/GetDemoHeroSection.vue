@@ -21,7 +21,9 @@ const props = defineProps({
     <!-- Top Background -->
     <div
       class="absolute inset-0 bg-no-repeat bg-cover bg-top sm:bg-[50%_-20vh] md:bg-[50%_-10vh] xl:bg-[50%_-10vh]"
-      style="background-image: url('/img/bg/gradient-bg/ContactUsTopbg.svg')"
+      style="
+        background-image: url(&quot;/img/bg/gradient-bg/ContactUsTopbg.svg&quot;);
+      "
     ></div>
     <div class="z-10 container mx-auto max-w-4xl absolute">
       <TextWithGradient
@@ -30,10 +32,11 @@ const props = defineProps({
         textGradientColor="gradient-color"
       />
       <div v-if="description">
-        <h1 class="text-white text-base md:text-lg xl:text-xl mt-4">{{ description }}</h1>
+        <h1 class="text-white text-base md:text-lg xl:text-xl mt-4">
+          {{ description }}
+        </h1>
       </div>
     </div>
-   
   </section>
 </template>
 

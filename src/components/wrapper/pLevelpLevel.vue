@@ -1,7 +1,4 @@
 <script setup>
-import CustomTestimonialSlider from "../../components/core/CustomTestimonialSlider.vue";
-import CustomSection from "../core/CustomSection.vue";
-import Heading from "../core/Heading.vue";
 import CustomTestimonial from "../core/CustomTestimonial.vue";
 
 const props = defineProps({

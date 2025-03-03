@@ -1,6 +1,5 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
-import CustomSeprater from "../core/CustomSeprater.vue";
 import CustomTabsWithImage from "../core/CustomTabsWithImage.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
@@ -18,7 +17,11 @@ const props = defineProps({
   <div>
     <CustomSection>
       <div class="md:py-10">
-        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
+        <Heading
+          :title="heading?.title"
+          :description="heading?.subtitle"
+          align="CENTER"
+        />
       </div>
       <CustomTabsWithImage :items="items" />
     </CustomSection>

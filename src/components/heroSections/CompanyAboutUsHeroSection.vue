@@ -1,6 +1,5 @@
 <script setup>
 import Heading from "../core/Heading.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
 import CustomButton from "../core/CustomButton.vue";
 
 const props = defineProps({

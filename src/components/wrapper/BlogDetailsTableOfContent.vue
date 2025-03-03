@@ -1,7 +1,9 @@
 <template>
   <div
-    class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 max-h-screen overflow-y-auto scrollbar"
-    style="background-image: url('/img/bg/gradient-bg/BlogTableOfContentGlassBg.svg')"
+    class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 h-[calc(100vh-100px)] overflow-y-auto scrollbar"
+    style="
+      background-image: url(&quot;/img/bg/gradient-bg/BlogTableOfContentGlassBg.svg&quot;);
+    "
   >
     <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
     <ul class="space-y-4">
@@ -41,7 +43,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, ref } from "vue";
+import { defineProps, computed } from "vue";
 
 const props = defineProps({
   headings: {
@@ -56,7 +58,6 @@ const props = defineProps({
 const currentSection = computed(() => {
   return props.activeSection || null;
 });
-
 
 const setActiveSection = (id) => {
   document
@@ -74,7 +75,7 @@ const nestedHeadings = computed(() => {
   let lastParent = null;
 
   props.headings.forEach((heading) => {
-    if (heading.level === 2  || heading.level === 3) {
+    if (heading.level === 2 || heading.level === 3) {
       lastParent = { ...heading, children: [] };
       nested.push(lastParent);
     } else if (heading.level === 3 && lastParent) {

@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomButton from "../core/CustomButton.vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
 
