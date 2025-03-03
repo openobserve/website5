@@ -17,10 +17,8 @@ import FeatureCardWithIconWrapper from "./cardComponent/FeatureCardWithIconWrapp
 import UsecaseCardWithIconWrapper from "./cardComponent/UsecaseCardWithIconWrapper.vue";
 import TopCompaniesWrapper from "./wrapper/TopCompaniesWrapper.vue";
 import CompanySwiper from "./core/CompanySwiper.vue";
-import BlogWrapper from "./wrapper/BlogWrapper.vue";
 import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
-import CustomBanner from "./core/CustomBanner.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
@@ -38,7 +36,6 @@ import CommunitySupportCardWrapper from "./cardComponent/CommunitySupportCardWra
 import ContactUsHeroSection from "./heroSections/ContactUsHeroSection.vue";
 import CustomSeprater from "./core/CustomSeprater.vue";
 import PlatformSubTabsWrapper from "./core/PlatformSubTabsWrapper.vue";
-import CustomFeatureCard from "./cards/CustomFeatureCard.vue";
 import SolutionSubpageHeroSection from "./heroSections/SolutionSubpageHeroSection.vue";
 import SolutionHeroSection from "./heroSections/SolutionHeroSection.vue";
 import CustomFeatureCardSubPage from "./cards/CustomFeatureCardSubpage.vue";
