@@ -87,7 +87,7 @@ const componentsMap = computed(() => ({
   "section-cards.features2": UsecaseCardWithIconWrapper,
   "section-cards.stats": TopCompaniesWrapper,
   "section-cards.clients": CompanySwiper,
-  "section-cards.case-studies": CaseStudyWrapper,
+  // "section-cards.case-studies": CaseStudyWrapper,
   "section-cards.blog": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
