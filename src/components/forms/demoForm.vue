@@ -17,9 +17,7 @@ const props = defineProps({
 const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
-  phone: yup
-    .string()
-    .matches(/^\d+$/, "Phone number must be digits only"),
+  phone: yup.string().matches(/^\d+$/, "Phone number must be digits only"),
   help: yup.string().required("Message is required"),
   terms: yup
     .boolean()
@@ -129,22 +127,23 @@ const onContactInput = (event) => {
               >{{ email.errorMessage.value }}</span
             >
           </div>
-           <!-- Contact Field -->
-           <div>
-          <label for="phone" class="text-gray-200 font-medium cursor-pointer">
-            Phone Number <span class="text-red-500">*</span>
-          </label>
-          <CustomInput
-            id="phone"
-            v-model="phone.value.value"
-            name="phone"
-            placeholder="Enter here"
-          />
-          <span v-if="phone.errorMessage.value" class="text-xs text-red-500">{{
-            phone.errorMessage.value
-          }}</span>
-        </div>
-
+          <!-- Contact Field -->
+          <div>
+            <label for="phone" class="text-gray-200 font-medium cursor-pointer">
+              Phone Number <span class="text-red-500">*</span>
+            </label>
+            <CustomInput
+              id="phone"
+              v-model="phone.value.value"
+              name="phone"
+              placeholder="Enter here"
+            />
+            <span
+              v-if="phone.errorMessage.value"
+              class="text-xs text-red-500"
+              >{{ phone.errorMessage.value }}</span
+            >
+          </div>
 
           <!-- Message Field -->
           <div>
@@ -170,7 +169,6 @@ const onContactInput = (event) => {
             }}</span>
           </div>
 
-         
           <!-- Terms & Conditions -->
           <div class="flex flex-col items-start gap-2">
             <div class="flex items-start gap-2">

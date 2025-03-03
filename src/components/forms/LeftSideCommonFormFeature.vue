@@ -1,6 +1,4 @@
 <script setup>
-import CustomImage from "../core/CustomImage.vue";
-
 defineProps({
   description: {
     type: String,
