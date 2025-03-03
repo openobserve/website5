@@ -1,5 +1,5 @@
 <script setup>
-import CustomImage from '../core/CustomImage.vue';
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
   card: {
@@ -14,17 +14,23 @@ const props = defineProps({
 
 const bgImages = [
   "/img/bg/gradient-bg/Tiles-F1-eclipse.svg", // First and last card
-  "/img/bg/gradient-bg/Home-F2-Eclipse.svg",  // Middle card
+  "/img/bg/gradient-bg/Home-F2-Eclipse.svg", // Middle card
 ];
 </script>
 
 <template>
   <div
     class="w-full border border-[#313539] h-auto p-6 flex flex-col items-center rounded-lg gap-4 bg-no-repeat"
-    :style="{ backgroundImage: `url(${index === 0 || index > 1 ? bgImages[0] : bgImages[1]})` }"
+    :style="{
+      backgroundImage: `url(${index === 0 || index > 1 ? bgImages[0] : bgImages[1]})`,
+    }"
   >
     <div class="rounded-full flex justify-center items-center mb-4">
-      <CustomImage :image="card.image" altText="Card Image" cssClass="w-full h-auto" />
+      <CustomImage
+        :image="card.image"
+        altText="Card Image"
+        cssClass="w-full h-auto"
+      />
     </div>
     <h3 class="title-color text-3xl font-semibold text-[#BEC0C2] text-center">
       {{ card.title }}

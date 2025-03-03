@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import CustomButton from "../core/CustomButton.vue";
 
 defineProps({
   cards: {
