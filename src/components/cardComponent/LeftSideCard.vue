@@ -1,13 +1,15 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   card: {
     type: Object,
     required: true,
+
     default: () => ({
-      image: "",
+      image: {},
       title: "",
       description: "",
       btnTitle: "",
@@ -23,7 +25,7 @@ const props = defineProps({
       class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
     >
       <CustomBluredImage
-        :image="card.image || ''"
+        :image="getImageUrl(card.image) || ''"
         :altText="card.title"
         height="full"
       />

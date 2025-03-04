@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   card: {
@@ -17,7 +18,7 @@ const props = defineProps({
     >
       <div class="lg:w-2/5">
         <CustomBluredImage
-          :image="card.image || ''"
+          :image="getImageUrl(card.image) || ''"
           :altText="card.title"
           height="full"
         />

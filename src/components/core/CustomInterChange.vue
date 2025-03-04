@@ -2,6 +2,7 @@
 import { ref, computed, onUnmounted } from "vue";
 import CustomImage from "./CustomImage.vue";
 import { slugify } from "@/utils/slugify";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   title: {
@@ -76,9 +77,15 @@ onUnmounted(() => {
         class="relative w-full h-auto rounded-lg shadow-md p-3 z-10 cursor-zoom-in"
         @click="openDialog"
       >
-        <CustomImage
+        <!-- <CustomImage
           :image="image"
           cssClass="w-full h-auto rounded-lg shadow-md"
+        /> -->
+        <CustomImage
+          :image="getImageUrl(image) || ''"
+          :altText="title"
+          height="full"
+          class="w-full h-auto rounded-lg shadow-md"
         />
       </div>
     </div>

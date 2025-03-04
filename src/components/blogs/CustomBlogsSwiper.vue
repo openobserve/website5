@@ -6,6 +6,7 @@ import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 interface BlogSectionData {
   title: string;
@@ -83,6 +84,7 @@ const swiperOptions = {
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
+              :key="blog.title"
               :href="generateNavLink('blog', blog.slug)"
               rel="noopener noreferrer"
               :class="[
@@ -91,7 +93,7 @@ const swiperOptions = {
               ]"
             >
               <CustomBluredImage
-                :image="blog.image?.url || ''"
+                :image="getImageUrl(blog.image) || ''"
                 :altText="blog.title"
               />
 
