@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   card: {
@@ -8,12 +9,6 @@ const props = defineProps({
     required: true,
   },
 });
-const getImageUrl = (image) =>
-  image?.formats?.medium?.url ??
-  image?.formats?.large?.url ??
-  image?.formats?.small?.url ??
-  image?.url ??
-  "";
 </script>
 
 <template>

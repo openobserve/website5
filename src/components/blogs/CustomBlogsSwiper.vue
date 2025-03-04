@@ -6,6 +6,7 @@ import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 interface BlogSectionData {
   title: string;
@@ -69,12 +70,6 @@ const swiperOptions = {
     },
   },
 };
-const getImageUrl = (image) =>
-  image?.formats?.medium?.url ??
-  image?.formats?.large?.url ??
-  image?.formats?.small?.url ??
-  image?.url ??
-  "";
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed, onUnmounted } from "vue";
-import CustomBluredImage from "../core/CustomBluredImage.vue";
 import CustomImage from "./CustomImage.vue";
 import { slugify } from "@/utils/slugify";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   title: {
@@ -55,13 +55,6 @@ const sectionClasses = computed(() => ({
 onUnmounted(() => {
   window.removeEventListener("keydown", handleKeydown);
 });
-
-const getImageUrl = (image) =>
-  image?.formats?.medium?.url ??
-  image?.formats?.large?.url ??
-  image?.formats?.small?.url ??
-  image?.url ??
-  "";
 </script>
 
 <template>

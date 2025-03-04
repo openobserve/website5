@@ -1,11 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
+import { getImageUrl } from "@/utils/GetImageUrl";
 
 const props = defineProps({
   card: {
     type: Object,
     required: true,
+
     default: () => ({
       image: {},
       title: "",
@@ -15,12 +17,6 @@ const props = defineProps({
     }),
   },
 });
-const getImageUrl = (image) =>
-  image?.formats?.medium?.url ??
-  image?.formats?.large?.url ??
-  image?.formats?.small?.url ??
-  image?.url ??
-  "";
 </script>
 
 <template>
