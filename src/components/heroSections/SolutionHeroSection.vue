@@ -113,7 +113,6 @@ defineProps({
       <div class="w-full">
         <CustomImage
           :image="image"
-          altText="Footer visual"
           cssClass="w-full object-contain rounded-lg"
         />
       </div>

@@ -23,7 +23,7 @@ import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
-import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
 import BannerWrapper from "./wrapper/BannerWrapper.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
 import CustomCardWrapper from "./cards/CustomCardWrapper.vue";
@@ -56,17 +56,22 @@ import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
 import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
+import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
 
 const props = defineProps({
   data: {
     type: Array,
     required: true,
   },
-  caseStudyData: {
+  blogsData: {
     type: Array,
     required: false,
   },
   blogs: {
+    type: Array,
+    required: false,
+  },
+  caseStudyData: {
     type: Array,
     required: false,
   },
@@ -82,7 +87,8 @@ const componentsMap = computed(() => ({
   "section-cards.features2": UsecaseCardWithIconWrapper,
   "section-cards.stats": TopCompaniesWrapper,
   "section-cards.clients": CompanySwiper,
-  "section-cards.case-studies": CaseStudyWrapper,
+  // "section-cards.case-studies": CaseStudyWrapper,
+  "section-cards.blog": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-cards.testimonials": pLevelpLevel,
@@ -116,7 +122,7 @@ const componentsMap = computed(() => ({
   "section-hero.contact-hero-section": ContactUsHeroSection,
   "section-hero.resource-hero-section": ResourceHeroSection,
   "section-cards.resource-feature-highlight": ResourceCardsWrapper,
-  "section-cards.blogs": BlogsWrapper,
+  "section-cards.resources-blogs": BlogsWrapper,
   // "section-cards.blog-with-categories":
   "section-cards.resource-support-card": SupportCardWrapper,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
@@ -126,7 +132,7 @@ const componentsMap = computed(() => ({
   //download page
   "section-tabs.download-tabs": SectionSwitcher,
   "section-table.plans-feature-table": CustomComparisonTable,
-  // "section-cards.explore-resources":DownloadCaseStudyWrapper,
+  // "section-cards.explore-resources":DownloadBlogsDataWrapper,
   "section-forms.contact": CommonFormWrapper, //it is in the up section.......
 
   // pricing page
@@ -136,12 +142,17 @@ const componentsMap = computed(() => ({
 }));
 
 const getComponentProps = (it) => {
-  if (it.__component === "section-cards.case-studies") {
+  if (it.__component === "section-cards.blog") {
+    return {
+      ...it,
+      data: props.blogsData,
+    };
+  } else if (it.__component === "section-cards.case-studies") {
     return {
       ...it,
       data: props.caseStudyData,
     };
-  } else if (it.__component === "section-cards.blogs") {
+  } else if (it.__component === "section-cards.resources-blogs") {
     return {
       ...it,
       items: props.blogs,

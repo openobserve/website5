@@ -1,15 +1,18 @@
 ---
-
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
 import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
 import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
 import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../components/wrapper/BlogsDataWrapper.vue";
 import CustomSuggestions from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import BlogPagination from "../../components/blogs/BlogPagination.vue";
-import { getAllResourceBlogs, getAllResourceCategories, getResourceBlogsByPagination } from "@/utils/api/resources";
+import {
+  getAllResourceBlogs,
+  getAllResourceCategories,
+  getResourceBlogsByPagination,
+} from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 
@@ -42,7 +45,8 @@ const cardData = [
 ];
 
 const metaObj = {
-  title: "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
+  title:
+    "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
 };
 ---
 
@@ -51,7 +55,7 @@ const metaObj = {
     title="Resources"
     description="Explore latest insights and updates"
   />
-  <!-- <CaseStudyWrapper
+  <!-- <BlogsDataWrapper
     data={loadcaseStudyData}
     title="Blog Posts"
     subtitle="Latest articles and updates"
@@ -60,11 +64,11 @@ const metaObj = {
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
-      <CustomSuggestions 
+      <CustomSuggestions
         @selectSuggestion="selectSuggestion"
-        suggestions={suggestionData.slice(0, 15) || []} 
-        type="articles" 
-        client:load 
+        suggestions={suggestionData.slice(0, 15) || []}
+        type="articles"
+        client:load
       />
     </div>
 
@@ -80,7 +84,7 @@ const metaObj = {
           placeholder="Search for a blog..." 
           @input="searchBlogs"/>
       </div> -->
-      <!-- <div class="mt-2 ml-3 text-white text-sm">
+    <!-- <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
           <p v-show="filteredBlogsData.length > 0">
             Search results for "<span class="font-bold">{{ searchItem }}</span>"

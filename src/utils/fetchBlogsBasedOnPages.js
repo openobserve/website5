@@ -3,7 +3,7 @@ import { getBlogsByCategory } from "./api/blogs";
 async function fetchBlogsByCategories(pageData) {
   const categories =
     pageData?.data?.[0]?.body
-      ?.filter((it) => it?.__component === "section-cards.case-studies")
+      ?.filter((it) => it?.__component === "section-cards.blog")
       ?.flatMap((it) => it.categories) ?? [];
 
   const blogs = [];
@@ -15,7 +15,7 @@ async function fetchBlogsByCategories(pageData) {
     }
   }
 
-  return blogs ? blogs.slice(0,3) : [];
+  return blogs ? blogs.slice(0, 3) : [];
 }
 
 export default fetchBlogsByCategories;

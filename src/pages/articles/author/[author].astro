@@ -4,27 +4,32 @@ import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSe
 import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import { getResourceAuthors, getResourceBlogsByAuthor, getAllResourceCategories } from "@/utils/api/resources";
+import {
+  getResourceAuthors,
+  getResourceBlogsByAuthor,
+  getAllResourceCategories,
+} from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 
 export async function getStaticPaths() {
-  const authors = await getResourceAuthors() || [];
+  const authors = (await getResourceAuthors()) || [];
   return authors.map((author) => ({
     params: { author: author.slug },
   }));
 }
 
 const { author } = Astro.params;
-const blogsData = await getResourceBlogsByAuthor(author) || [];
-const suggestionData = await getAllResourceCategories() || [];
-const loadcaseStudyData = await getCaseStudies() || [];
+const blogsData = (await getResourceBlogsByAuthor(author)) || [];
+const suggestionData = (await getAllResourceCategories()) || [];
+const loadcaseStudyData = (await getCaseStudies()) || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
-  description: "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
+  description:
+    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
 };
 
 const cardData = [
@@ -46,7 +51,7 @@ const metaObj = {
     description={`Showing posts by author: ${author}`}
   />
 
-  <!-- <CaseStudyWrapper
+  <!-- <BlogsDataWrapper
     items={loadcaseStudyData}
     title="Blog Posts"
     subtitle="Latest articles and updates"

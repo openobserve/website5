@@ -1,6 +1,7 @@
 <script setup>
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
-import CaseStudyWrapper from "./CaseStudyWrapper.vue";
+import CustomSection from "../core/CustomSection.vue";
+import BlogsDataWrapper from "./BlogsDataWrapper.vue";
 const props = defineProps({
   heading: {
     type: Object,
@@ -10,7 +11,7 @@ const props = defineProps({
 </script>
 <template>
   <CustomSectionBackground direction="top">
-    <CaseStudyWrapper
+    <BlogsDataWrapper
       :title="heading?.title"
       :description="heading?.subtitle"
     />

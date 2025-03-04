@@ -27,17 +27,14 @@ const props = defineProps({
         <!-- Content Layer -->
         <div class="flex flex-col p-6 h-full gap-4">
           <!-- Icon and Title Row -->
-          <!-- Icon/Logo -->
-          <CustomImage
-            v-if="item?.image"
-            :image="item?.image"
-            :altText="item.title || ''"
-            class="w-10 h-10"
-          />
-          <!-- Title -->
-          <h3 class="text-white font-medium text-lg text-left">
-            {{ item.title }}
-          </h3>
+            <!-- Icon/Logo -->
+            <CustomImage
+              v-if="item?.image"
+              :image="item?.image"
+              class="w-10 h-10"
+            />
+            <!-- Title -->
+          <h3 class=" text-white font-medium text-lg text-left">{{ item.title }}</h3>
           <!-- Description -->
           <p
             class="text-[#BEC0C2] text-sm text-left"

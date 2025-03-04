@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
 import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import CaseStudyWrapper from "../../../components/wrapper/CaseStudyWrapper.vue";
+import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
 import {
   getAllResourceCategories,
@@ -59,7 +59,7 @@ const metaObj = {
 
   <!-- {
     caseStudyData?.length > 0 && (
-      <CaseStudyWrapper
+      <BlogsDataWrapper
         data={caseStudyData || []}
         title="Case Studies"
         subtitle="Learn from real-world implementations"
@@ -74,7 +74,7 @@ const metaObj = {
       client:load
     />
   </div>
-a
+  a
   <BlogsListingWrapper
     searchBar
     type="articles"

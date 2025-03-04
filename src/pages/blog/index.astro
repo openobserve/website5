@@ -57,22 +57,30 @@ const metaObj = {
   <!-- <CaseStudyWrapper data={loadcaseStudyData} client:load /> -->
 
   <!-- categories section -->
-  
-    <!-- CustomSuggestions Section -->
-    <div class="py-3 md:py-6">
-      <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, 15) || []}
-        type="blog"
-        client:load
-      />
-    </div>
 
-    <!-- Blog Listing Component -->
-    <div id="blogListingContainer">
-      <BlogsListingWrapper searchBar blogsData={blogsData} allBlogData={allBlogsData} totalItems={count.blogsCount} type="blog" currentPage={currentPage} client:load />
-    </div>
+  <!-- CustomSuggestions Section -->
+  <div class="py-3 md:py-6">
+    <CustomSuggestionsWrapper
+      suggestions={suggestionData.slice(0, 15) || []}
+      type="blog"
+      client:load
+    />
+  </div>
 
-    <!-- <div>
+  <!-- Blog Listing Component -->
+  <div id="blogListingContainer">
+    <BlogsListingWrapper
+      searchBar
+      blogsData={blogsData}
+      allBlogData={allBlogsData}
+      totalItems={count.blogsCount}
+      type="blog"
+      currentPage={currentPage}
+      client:load
+    />
+  </div>
+
+  <!-- <div>
       <BlogPagination
         totalItems={count.blogsCount}
         itemsPerPage={itemsPerPage}

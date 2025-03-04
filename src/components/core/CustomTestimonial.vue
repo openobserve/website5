@@ -64,7 +64,6 @@ onMounted(() => {
           >
             <CustomImage
               :image="testimonial.image"
-              :altText="testimonial.name"
               class="w-20 h-20 rounded-full mb-4 object-cover"
             />
             <p class="text-gray-300 mb-4 text-base leading-snug flex-1">

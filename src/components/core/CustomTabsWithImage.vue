@@ -68,7 +68,6 @@ onUnmounted(() => {
             <div class="w-full flex justify-center">
               <CustomImage
                 :image="tab.image?.url"
-                :altText="tab.title"
                 cssClass="rounded-lg shadow-lg"
               />
             </div>
@@ -116,7 +115,6 @@ onUnmounted(() => {
         <div class="w-[60%] px-3">
           <CustomImage
             :image="activeTab.image"
-            :altText="activeTab.title"
             cssClass="rounded-lg shadow-sm"
           />
         </div>
