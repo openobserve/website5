@@ -4,6 +4,7 @@ import ComponentCollectionMapper from "../components/ComponentCollectionMapper.v
 import fetchApi from "../utils/strapi";
 import { getCaseStudies } from "@/utils/api/blogs";
 import { fetchBannerData } from "../utils/api/globalApi";
+import Search from "astro-pagefind/components/Search";
 const PageData = await fetchApi({
   endpoint: "api/homepage",
   query: { pLevel: "4", status: "draft" },
@@ -16,6 +17,11 @@ const metaObj = PageData?.data?.seo;
 
 <Layout metaObj={metaObj}>
   <!-- <CustomAnnouncement AnnouncementBanner={announcementBanner} /> -->
+  <!-- <Search
+    id="search"
+    className="pagefind-ui"
+    uiOptions={{ showImages: false }}
+  /> -->
   <ComponentCollectionMapper
     data={PageData.data.body}
     caseStudyData={loadcaseStudyData}

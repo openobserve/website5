@@ -21,14 +21,14 @@
   --gray-light: 49, 53, 57; /* #313539 */
   --gray-dark: 31, 34, 38; /* #1F2226 */
   --button-primary-color: 28, 153, 255;
-  --text-darkgray:60, 60, 60;   /*#3c3c3c*/
-  --text-blueishgray:75, 90, 125; /*#4b5a7d*/
-  --text-darkblue:30, 50, 80; /*#1e3250*/
-  --text-white:254,254,254; /*#FEFEFE*/
-  --text-neutral:212,222,210; /*D4DED2*/
-  --text-orange:225,196,152; /*#E1C498*/
-  --text-emerald:214,240,238;/*#D6F0EE*/
-  --text-cyan:130,240,255; /*#82F0FF*/
+  --text-darkgray: 60, 60, 60; /*#3c3c3c*/
+  --text-blueishgray: 75, 90, 125; /*#4b5a7d*/
+  --text-darkblue: 30, 50, 80; /*#1e3250*/
+  --text-white: 254, 254, 254; /*#FEFEFE*/
+  --text-neutral: 212, 222, 210; /*D4DED2*/
+  --text-orange: 225, 196, 152; /*#E1C498*/
+  --text-emerald: 214, 240, 238; /*#D6F0EE*/
+  --text-cyan: 130, 240, 255; /*#82F0FF*/
 
   /* Gradient backgrounds */
   --gradient-blue: linear-gradient(
@@ -51,21 +51,65 @@
     rgb(var(--gray-light)),
     rgb(var(--gray-dark))
   );
-  --gradient-title-au: linear-gradient(to right, rgb(var(--text-darkgray)), rgb(var(--text-blueishgray)), rgb(var(--text-darkblue)));
-  --gradient-title-cu: linear-gradient(to right, rgb(var(--text-neutral)), rgb(var(--text-orange)), rgb(var(--text-emerald)));
-  --gradient-title-ju: linear-gradient(to right, rgb(var(--text-white)), rgb(var(--text-cyan)), rgb(var(--text-emerald)));
-
+  --gradient-title-au: linear-gradient(
+    to right,
+    rgb(var(--text-darkgray)),
+    rgb(var(--text-blueishgray)),
+    rgb(var(--text-darkblue))
+  );
+  --gradient-title-cu: linear-gradient(
+    to right,
+    rgb(var(--text-neutral)),
+    rgb(var(--text-orange)),
+    rgb(var(--text-emerald))
+  );
+  --gradient-title-ju: linear-gradient(
+    to right,
+    rgb(var(--text-white)),
+    rgb(var(--text-cyan)),
+    rgb(var(--text-emerald))
+  );
 
   /* Button component variable for background and border gradient  */
   --bg-blue-dark: 0, 121, 221;
   --bg-blue-light: 59, 179, 255;
   --bg-sky-blue: 118, 219, 255;
-  --bg-light-blue:0, 139, 255;
-  --bg-light-sky-blue:153, 202, 233;
-  --bg-dark-sky-blue:53, 160, 252;
-  --bg-tertiary-blue:0, 118, 216 ;
-  --bg-tertiary-light-blue:33, 149, 252;
-  --bg-tertiary-sky:202, 241, 255;
+  --bg-light-blue: 0, 139, 255;
+  --bg-light-sky-blue: 153, 202, 233;
+  --bg-dark-sky-blue: 53, 160, 252;
+  --bg-tertiary-blue: 0, 118, 216;
+  --bg-tertiary-light-blue: 33, 149, 252;
+  --bg-tertiary-sky: 202, 241, 255;
   --bg-gray-dark: 156, 164, 169;
-  --bg-gray-light:62, 65, 67;
+  --bg-gray-light: 62, 65, 67;
+}
+.pagefind-ui.svelte-e9gkc3.pagefind-ui--reset {
+  position: fixed;
+  top: calc(100vh - 100px);
+  z-index: 10;
+  width: 50%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .pagefind-ui.svelte-e9gkc3.pagefind-ui--reset {
+    width: 100%;
+  }
+}
+
+.pagefind-ui__search-input.svelte-e9gkc3 {
+  background-color: #23282c !important;
+  border: 1px solid #8a8989 !important;
+  height: 2.75rem; /* Slightly taller for better UI */
+  border-radius: 0.75rem; /* More rounded corners */
+  color: #ffffff;
+  font-size: 1rem; /* Slightly larger text */
+  outline: none; /* Removes focus outline */
+  transition: all 0.2s ease-in-out;
+  padding: 0.0625rem;
+  font-weight: 500;
+}
+
+.pagefind-ui__search-input:focus {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }

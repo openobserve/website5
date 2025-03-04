@@ -17,7 +17,6 @@ export default {
         "gradient-title-au": "var(--gradient-title-au)",
         "gradient-title-cu": "var(--gradient-title-cu)",
         "gradient-title-ju": "var(--gradient-title-ju)",
-
       },
       colors: {
         theme: {
@@ -58,5 +57,5 @@ export default {
       },
     },
   },
-  plugins:  [require('@tailwindcss/typography')],
+  plugins: [require("@tailwindcss/typography")],
 };

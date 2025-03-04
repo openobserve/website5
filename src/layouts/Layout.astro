@@ -7,6 +7,7 @@ import { SEO } from "astro-seo";
 import PricingModelPopUp from "@/components/core/PricingModelPopUp.vue";
 import { fetchBannerData } from "../utils/api/globalApi";
 import fetchApi from "../utils/strapi";
+import Search from "astro-pagefind/components/Search";
 const footerData = {
   sections: [
     {
@@ -145,6 +146,8 @@ const FooterData = await fetchApi({
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
 const BannerData = await fetchBannerData();
+
+// open a model when the search icon is clicked and get the true from the window obje
 ---
 
 <!doctype html>
@@ -169,10 +172,22 @@ const BannerData = await fetchBannerData();
   </head>
   <body class="relative">
     <main>
-      <Header
-        navData={HeaderData?.data}
-        class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl"
-        client:only
+      <!-- Listen for the open-search-modal event -->
+      <script is:inline>
+        window.addEventListener("open-search-modal", () => {
+          const searchModal = document.getElementById("search-modal");
+          if (searchModal) {
+            searchModal.classList.remove("hidden");
+            // searchModal.classList.add("pagefind-ui");
+          }
+        });
+      </script>
+      <Header navData={HeaderData?.data} class="sticky top-0 z-50 bg-black/50 backdrop-blur-3xl" client:only />
+      <!-- Pagefind Search Component -->
+      <Search
+        id="search-modal"
+        className="hidden"
+        uiOptions={{ showImages: false }}
       />
       <PricingModelPopUp
         primaryButton={BannerData?.data?.secondaryButton}
@@ -214,4 +229,6 @@ const BannerData = await fetchBannerData();
   .navbarheight {
     padding-top: 1vh;
   }
+
+
 </style>

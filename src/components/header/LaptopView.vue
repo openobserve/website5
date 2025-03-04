@@ -70,17 +70,7 @@
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
-        <!-- <div
-          class="relative rounded-xl hover:bg-gradient-to-r hover:from-[#3E93D9] hover:to-[#99CAE9] transition"
-          @click="onSearchClick"
-          ref="searchWrapper"
-        >
-          <img
-            src="/img/icon/search.svg"
-            alt="Search Icon"
-            class="cursor-pointer w-full h-full object-cover p-2.5"
-          />
-        </div> -->
+       <Searchbar />
         <a
           class="rounded-[4px] transition flex items-center border border-[#3d444d]"
           href="https://short.openobserve.ai/community"
@@ -373,10 +363,29 @@
           type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
           placeholder="Search here"
+          v-model="query"
+          @input="onSearch"
+          @blur="onBlur"
+          @focus="isSearchVisible = true"
         />
         <button @click="isOpenSearch = false" class="text-white">
           <img src="/img/icon/close.svg" alt="Search Icon" class="" />
         </button>
+      </div>
+      <!-- Display Search Results -->
+      <div
+        v-if="results.length && isSearchVisible"
+        class="absolute bg-white shadow-lg rounded-xl w-full mt-2 p-2 z-10"
+      >
+        <ul class="list-none m-0 p-0">
+          <li
+            v-for="result in results"
+            :key="result.href"
+            class="p-2 hover:bg-gray-100 cursor-pointer"
+          >
+            <a :href="result.href">{{ result.title }}</a>
+          </li>
+        </ul>
       </div>
     </div>
   </header>
@@ -391,6 +400,7 @@ import SectionHeader from "./SectionHeader.vue";
 import { defineProps, ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
 import { slugify } from "@/utils/slugify";
+import Searchbar from "./Searchbar.vue";
 defineProps({
   items: {
     type: Object,
@@ -477,6 +487,52 @@ const onCompanyMenuMouseLeave = () => {
   companyMenuTimeout.value = setTimeout(() => {
     isCompanyMenuOpen.value = false;
   }, 500);
+};
+
+const query = ref("");
+const results = ref([]);
+const isSearchVisible = ref(false);
+const searchInput = ref(null);
+
+onMounted(async () => {
+  if (typeof window !== "undefined" && !window.pagefind) {
+    const script = document.createElement("script");
+    script.src = "/pagefind/pagefind.js"; // Load from built assets
+    script.async = true;
+    script.onload = () => console.log("Pagefind loaded");
+    script.onerror = () => console.error("Failed to load Pagefind");
+    document.body.appendChild(script);
+  }
+});
+
+const onSearch = async () => {
+  console.log("Searching for", query.value);
+  if (!query.value.trim()) {
+    results.value = [];
+    return;
+  }
+
+  console.log(window, "Winddow Object");
+  console.log(window.pagefind, "Winddow Object with Page FInd");
+  console.log(window.pagefind.search(query.value), "Winddow Object contains search value");
+
+  const searchResults = await window.pagefind.search(query.value);
+  console.log("Search results", searchResults);
+  results.value = await Promise.all(
+    searchResults.results.map(async (result) => {
+      const data = await result.data();
+      return {
+        title: data.meta.title || "Untitled",
+        href: data.url,
+      };
+    })
+  );
+};
+
+const onBlur = () => {
+  setTimeout(() => {
+    isSearchVisible.value = false;
+  }, 200); // Delay to allow click on results
 };
 
 // const onCommunityMenuHover = () => {
