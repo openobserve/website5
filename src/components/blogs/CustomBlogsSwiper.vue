@@ -69,6 +69,12 @@ const swiperOptions = {
     },
   },
 };
+const getImageUrl = (image) =>
+  image?.formats?.medium?.url ??
+  image?.formats?.large?.url ??
+  image?.formats?.small?.url ??
+  image?.url ??
+  "";
 </script>
 
 <template>
@@ -83,6 +89,7 @@ const swiperOptions = {
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
+              :key="blog.title"
               :href="generateNavLink('blog', blog.slug)"
               rel="noopener noreferrer"
               :class="[
@@ -91,7 +98,7 @@ const swiperOptions = {
               ]"
             >
               <CustomBluredImage
-                :image="blog.image?.url || ''"
+                :image="getImageUrl(blog.image) || ''"
                 :altText="blog.title"
               />
 
