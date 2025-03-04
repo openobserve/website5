@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onUnmounted } from "vue";
+import CustomBluredImage from "../core/CustomBluredImage.vue";
 import CustomImage from "./CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 
@@ -54,6 +55,13 @@ const sectionClasses = computed(() => ({
 onUnmounted(() => {
   window.removeEventListener("keydown", handleKeydown);
 });
+
+const getImageUrl = (image) =>
+  image?.formats?.medium?.url ??
+  image?.formats?.large?.url ??
+  image?.formats?.small?.url ??
+  image?.url ??
+  "";
 </script>
 
 <template>
@@ -76,9 +84,15 @@ onUnmounted(() => {
         class="relative w-full h-auto rounded-lg shadow-md p-3 z-10 cursor-zoom-in"
         @click="openDialog"
       >
-        <CustomImage
+        <!-- <CustomImage
           :image="image"
           cssClass="w-full h-auto rounded-lg shadow-md"
+        /> -->
+        <CustomBluredImage
+          :image="getImageUrl(image) || ''"
+          :altText="title"
+          height="full"
+          class="w-full h-auto rounded-lg shadow-md"
         />
       </div>
     </div>
