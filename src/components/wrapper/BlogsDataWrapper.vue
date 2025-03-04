@@ -35,7 +35,7 @@ const props = defineProps({
 const transformBlogData = (blog) => ({
   title: blog.title,
   description: blog.description,
-  image: blog.image?.url || "",
+  image: blog.image || "",
   date: new Date(blog.publishDate).toLocaleDateString(),
   author: blog.authors?.[0]?.name || "Anonymous",
   slug: blog.slug,

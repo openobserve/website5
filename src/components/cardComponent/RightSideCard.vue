@@ -8,6 +8,12 @@ const props = defineProps({
     required: true,
   },
 });
+const getImageUrl = (image) =>
+  image?.formats?.medium?.url ??
+  image?.formats?.large?.url ??
+  image?.formats?.small?.url ??
+  image?.url ??
+  "";
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const props = defineProps({
     >
       <div class="lg:w-2/5">
         <CustomBluredImage
-          :image="card.image || ''"
+          :image="getImageUrl(card.image) || ''"
           :altText="card.title"
           height="full"
         />

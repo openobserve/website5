@@ -7,7 +7,7 @@ const props = defineProps({
     type: Object,
     required: true,
     default: () => ({
-      image: "",
+      image: {},
       title: "",
       description: "",
       btnTitle: "",
@@ -15,6 +15,12 @@ const props = defineProps({
     }),
   },
 });
+const getImageUrl = (image) =>
+  image?.formats?.medium?.url ??
+  image?.formats?.large?.url ??
+  image?.formats?.small?.url ??
+  image?.url ??
+  "";
 </script>
 
 <template>
@@ -23,7 +29,7 @@ const props = defineProps({
       class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
     >
       <CustomBluredImage
-        :image="card.image || ''"
+        :image="getImageUrl(card.image) || ''"
         :altText="card.title"
         height="full"
       />
