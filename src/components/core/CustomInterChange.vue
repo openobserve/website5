@@ -88,7 +88,7 @@ const getImageUrl = (image) =>
           :image="image"
           cssClass="w-full h-auto rounded-lg shadow-md"
         /> -->
-        <CustomBluredImage
+        <CustomImage
           :image="getImageUrl(image) || ''"
           :altText="title"
           height="full"
