@@ -90,7 +90,7 @@ const metaObj = {
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, 15) || []}
+        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
         type="blog"
         client:load
       />

@@ -29,7 +29,7 @@ const props = defineProps({
   },
 });
 
-const firstSections = computed(() => props.footerData.slice(0, 4) || []);
+const firstSections = computed(() => props.footerData.slice(0, Math.min(4, props.footerData.length)) || []);
 const lastSection = computed(() => props.footerData?.[4] || null);
 
 const getCurrentYear = () => new Date().getFullYear();

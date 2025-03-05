@@ -15,12 +15,13 @@ async function fetchBlogsByCategories(pageData) {
     }
   }
 
-  // If no category blogs were found, fetch the latest 3 blogs from all blogs
+  // If no category blogs were found, fetch the latest blogs
   if (blogs.length === 0) {
     return await getBlogsByCategory(null);
   }
 
-  return blogs.slice(0, 3);
+  // Ensure we return at most 3 blogs but handle cases with less than 3
+  return blogs.slice(0, Math.min(3, blogs.length));
 }
 
 export default fetchBlogsByCategories;
