@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, computed } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import { generateNavLink } from "../../utils/redirection";
@@ -70,6 +71,26 @@ const swiperOptions = {
     },
   },
 };
+const currentIndex = ref(0);
+const slidesPerView = ref(1);
+
+const totalSlides = computed(() => props.sectionData.length);
+
+const updateShadow = (swiper: any) => {
+  currentIndex.value = swiper.activeIndex;
+  slidesPerView.value = swiper.params.slidesPerView; // Get slidesPerView dynamically
+};
+
+const shadowClass = computed(() => {
+  if (totalSlides.value <= 1) return ""; // No shadows if only 1 blog
+
+  const lastVisibleIndex = totalSlides.value - slidesPerView.value;
+
+  if (currentIndex.value === 0) return "hide-left"; // Hide left shadow at first slide
+  if (currentIndex.value >= lastVisibleIndex) return "hide-right"; // Hide right shadow at last visible slide
+
+  return "show-both"; // Show both shadows in the middle
+});
 </script>
 
 <template>
@@ -79,8 +100,10 @@ const swiperOptions = {
         <!-- Swiper -->
         <swiper
           class="blog-swiper"
+          :class="shadowClass"
           :modules="swiperModules"
           v-bind="swiperOptions"
+          @slideChange="updateShadow"
         >
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
             <a
@@ -131,12 +154,33 @@ const swiperOptions = {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
+}
+
+.blog-swiper.show-both {
   mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0) 0%,
     black 10%,
     black 90%,
     rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.blog-swiper.hide-left {
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.blog-swiper.hide-right {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 100%
   );
 }
 
