@@ -1,8 +1,8 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
-import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
+import LeftSideCard from "../cards/LeftSideCard.vue";
+import RightSideCard from "../cards/RightSideCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 const props = defineProps({
   items: {
