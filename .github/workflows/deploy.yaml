@@ -1,4 +1,4 @@
-name: Deploy to S3 and Invalidate CloudFront
+name: Build and Deploy
 
 on:
   pull_request:
@@ -11,7 +11,9 @@ on:
     types: [strapi-cms]
 
 jobs:
+  # Build Job: Runs ONLY on PRs to verify the code
   build:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: dev
 
@@ -37,8 +39,8 @@ jobs:
       - name: Generate static files
         run: npm run build
 
+  # Deploy Job: Runs ONLY when PR is merged into main
   deploy:
-    needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: dev
