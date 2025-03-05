@@ -12,7 +12,7 @@ const loadBlogsData = await getCaseStudies();
 const BannerData = await fetchBannerData();
 const metaObj = PageData?.data?.seo;
 const allBlogs = await getAllBlogs();
-const blogs = allBlogs?.slice(0, 10);
+const blogs = allBlogs?.slice(0, Math.min(10, allBlogs.length)) || [];
 ---
 
 <Layout metaObj={metaObj}>

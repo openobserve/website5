@@ -14,7 +14,7 @@ export async function getBlogsByCategory(category) {
     // Return the latest three blogs from all blogs if no category is provided
     return blogs
       .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
-      .slice(0, 3);
+      .slice(0, Math.min(3, blogs.length));
   }
 
   // Return blogs that match the given category
@@ -35,19 +35,18 @@ export async function getCaseStudies(params) {
   // Filter blogs where caseStudies is true
   const caseStudies = blogs
     .filter((blog) => blog.caseStudies === true)
-    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
-    .slice(0, 3);
+    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
-  return caseStudies;
+  return caseStudies.slice(0, Math.min(3, caseStudies.length));
 }
 export async function getBlogs(params) {
   const blogs = await getAllBlogs();
   // Filter blogs where caseStudies is true
-  const caseStudies = blogs
-    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
-    .slice(0, 3);
+  const caseStudies = blogs.sort(
+    (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
+  );
 
-  return caseStudies;
+  return caseStudies.slice(0, Math.min(3, caseStudies.length));
 }
 
 export async function getAllAuthors() {

@@ -84,7 +84,7 @@ const metaObj = {
     <div class="py-3 md:py-6">
       <CustomSuggestionsWrapper
         @selectSuggestion="selectSuggestion"
-        suggestions={suggestionData.slice(0, 15) || []}
+        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
         type="blog"
         client:load
       />

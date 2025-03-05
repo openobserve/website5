@@ -75,7 +75,7 @@ const onSubmit = handleSubmit(async (values) => {
 const onContactInput = (event) => {
   let value = event.target.value;
   // Allow only numeric input and truncate to 10 digits
-  value = value.replace(/\D/g, "").slice(0, 10);
+  value = value.replace(/\D/g, "").slice(0, Math.min(10, value.length));
   event.target.value = value; // Update the input value in the DOM
   contact.value.value = value; // Update the model value
 };
