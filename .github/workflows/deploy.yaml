@@ -1,21 +1,19 @@
 name: Deploy to S3 and Invalidate CloudFront
-# this is for dev 
+
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
-      - dev
+      - main
   repository_dispatch:
     types: [strapi-cms]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    #runs-on: ubicloud-standard-2
     environment: dev
-
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
       - name: Checkout Code
@@ -24,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Adjust as needed
+          node-version: '18'
 
       - name: Create .env File
         uses: 'DamianReeves/write-file-action@master'
@@ -38,7 +36,39 @@ jobs:
 
       - name: Generate static files
         run: npm run build
-        
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment: dev
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Create .env File
+        uses: 'DamianReeves/write-file-action@master'
+        with:
+          path: ./.env
+          write-mode: overwrite
+          contents: ${{ secrets.ENV_FILE }}
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Generate static files
+        run: npm run build
+
       - name: Configure AWS with OIDC
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -47,9 +77,8 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./dist s3://openobserve-prod-website/ --exclude=".git/*"  --exclude="assets/*"
+          aws s3 sync ./dist s3://openobserve-prod-website/ --exclude=".git/*" --exclude="assets/*"
 
       - name: Invalidate CloudFront Cache
         run: |
-          # aws cloudfront create-invalidation --distribution-id E2B7ZRE5H9284Z --paths "/*"
           aws cloudfront create-invalidation --distribution-id E2GZJM0TJIDFRM --paths "/*"
