@@ -42,10 +42,10 @@ const sectionStyles = computed(() => ({
 
 <template>
   <section
-    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[10vh] before:z-0 before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:top-0 before:bg-no-repeat before:bg-cover before:bg-[50%_40vh] xl:before:bg-[50%_40vh]"
+    class="relative flex flex-col items-center justify-end px-4 max-w-full min-h-[10rem] before:z-0 before:content-[''] before:absolute before:w-full before:min-h-[160vh] before:-top-40 xxl:before:-top-96 before:bg-no-repeat before:bg-cover before:bg-[50%_40vh] xl:before:bg-[50%_40vh] "
     :style="sectionStyles"
   >
-    <div class="container mx-auto px-3 md:px-10 lg:px-16 pt-14 lg:pt-0">
+    <div class="container mx-auto px-3 md:px-10 lg:px-16 pt-14 lg:pt-3">
       <div
         class="flex flex-col lg:flex-row lg:items-center lg:min-h-[20rem] xl:min-h-[30rem] lg:justify-between lg:gap-20 md:pr-[2vh]"
       >
@@ -83,7 +83,7 @@ const sectionStyles = computed(() => ({
 
         <!-- Right Image Container -->
         <div
-          class="relative py-4 lg:absolute lg:right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-[50%] flex justify-center lg:justify-end items-center z-20 lg:mt-0"
+          class="relative py-4 lg:absolute lg:right-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-[50%] flex justify-center lg:justify-end items-center z-20 lg:mt-4"
         >
           <CustomImage
             :image="image"

@@ -19,9 +19,9 @@ const sectionStyles = computed(() => ({
 </script>
 
 <template>
-  <section class="relative w-full h-full py-10 lg:py-0">
+  <section class="relative w-full h-full py-10  lg:py-0">
     <div
-      class="absolute top-0 lg:-top-10 right-0 w-full lg:w-[60%] h-screen lg:h-[80vh] bg-[url('/img/bg/gradient-bg/SolutionSubHeroBg.svg')] bg-cover bg-right bg-no-repeat"
+      class="absolute top-0 lg:-top-10 xxl:-top-96 right-0 w-full lg:w-[60%] h-screen bg-[url('/img/bg/gradient-bg/SolutionSubHeroBg.svg')] bg-cover bg-right bg-no-repeat"
     ></div>
     <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 relative">
       <div
