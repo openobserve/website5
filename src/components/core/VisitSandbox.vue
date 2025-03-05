@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <div 
-    class="flex items-center justify-center overflow-hidden max-w-screen bg-[url('/img/bg/gradient-bg/sandboxBG.svg')] bg-cover bg-center bg-no-repeat px-4 py-10"
+    class="flex items-center justify-center overflow-hidden max-w-screen bg-[url('/img/bg/gradient-bg/sandboxBG.jpg')] bg-cover bg-center bg-no-repeat px-4 py-10"
   >
     <div class="text-center text-wrap container mx-auto">
       <h1 class="text-white text-3xl md:text-5xl font-bold">
