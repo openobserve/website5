@@ -172,7 +172,7 @@ const socialIcon = (name) => {
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
               <img
-                src="/img/SOC.svg"
+                src="/img/SOC.webp"
                 class="w-full h-full object-contain grayscale"
               />
             </div>
