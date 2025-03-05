@@ -170,5 +170,6 @@ const swiperOptions = {
 :deep(.swiper-button-disabled) {
   opacity: 0.35;
   cursor: not-allowed;
+  pointer-events: auto; /* Ensure it still intercepts clicks */
 }
 </style>
