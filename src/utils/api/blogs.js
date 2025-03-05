@@ -9,6 +9,15 @@ export async function getAuthorDetails(author) {
 
 export async function getBlogsByCategory(category) {
   const blogs = await getAllBlogs();
+
+  if (!category) {
+    // Return the latest three blogs from all blogs if no category is provided
+    return blogs
+      .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+      .slice(0, 3);
+  }
+
+  // Return blogs that match the given category
   return blogs.filter((blog) =>
     blog.categories.some((cat) => cat.slug === category)
   );
