@@ -23,16 +23,9 @@ const props = defineProps({
       <div class="flex flex-col max-w-full container mx-auto">
         <Heading :title="heading?.title" :description="heading?.subtitle" />
         <div class="mt-10">
-          <div
-            class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
-          >
+          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
             <!-- Loop moved here -->
-            <UsecaseCardWithIcon
-              v-for="(item, index) in items"
-              :key="index"
-              :card="item"
-              :index="index"
-            />
+            <UsecaseCardWithIcon v-for="(item, index) in items" :key="index" :card="item" :index="index" />
           </div>
         </div>
       </div>
