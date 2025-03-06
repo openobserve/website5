@@ -1,18 +1,16 @@
 <script setup>
-import { defineProps } from "vue";
 import FeatureCardWithIcon from "../cards/FeatureCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
-const props = defineProps({
+defineProps({
   heading: {
     type: Object,
     default: () => ({}),
-    required: true,
   },
   data: {
     type: Array,
-    required: true,
+    default: () => [],
   },
 });
 </script>
@@ -33,20 +31,21 @@ const props = defineProps({
     /> -->
 
     <CustomSection>
-      <div v-if="heading">
-        <Heading :title="heading?.title" :description="heading?.subtitle" />
-      </div>
+      <!-- Heading -->
+      <Heading v-if="heading?.title || heading?.subtitle" :title="heading?.title" :description="heading?.subtitle" />
+
+      <!-- Feature Cards Grid -->
       <div class="flex justify-center w-full">
         <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto">
-          <!-- Loop moved here -->
           <FeatureCardWithIcon v-for="(item, index) in data" :key="index" :card="item" />
         </div>
       </div>
     </CustomSection>
   </div>
 </template>
+
 <style scoped>
-/* Selects the 6th item and moves it to the second column */
+/* Moves the 6th item to the second column */
 .grid>*:nth-child(6) {
   grid-column-start: 2;
 }
