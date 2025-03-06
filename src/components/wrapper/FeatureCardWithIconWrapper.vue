@@ -1,43 +1,44 @@
 <script setup>
-import { defineProps } from "vue";
 import FeatureCardWithIcon from "../cards/FeatureCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
-const props = defineProps({
+defineProps({
   heading: {
     type: Object,
     default: () => ({}),
-    required: true,
   },
   data: {
     type: Array,
-    required: true,
+    default: () => [],
   },
 });
 </script>
 
 <template>
   <div class="relative container mx-auto bg-cover bg-no-repeat w-full overflow-visible">
-    <img src="/img/bg/gradient-bg/cardBg1.svg" class="absolute top-[0%] left-[-20%] -z-10 object-cover"
+    <!-- Background Images -->
+    <img src="/img/bg/gradient-bg/cardBg1.svg" class="absolute top-0 left-[-20%] -z-10 object-cover"
       alt="Background SVG" />
-    <img src="/img/bg/gradient-bg/cardBg2.svg" alt="Image" class="absolute bottom-[-60vh] -z-10 object-cover" />
+    <img src="/img/bg/gradient-bg/cardBg2.svg" class="absolute bottom-[-60vh] -z-10 object-cover"
+      alt="Background Image" />
 
     <CustomSection>
-      <div v-if="heading">
-        <Heading :title="heading?.title" :description="heading?.subtitle" />
-      </div>
+      <!-- Heading -->
+      <Heading v-if="heading?.title || heading?.subtitle" :title="heading?.title" :description="heading?.subtitle" />
+
+      <!-- Feature Cards Grid -->
       <div class="flex justify-center w-full">
         <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto">
-          <!-- Loop moved here -->
           <FeatureCardWithIcon v-for="(item, index) in data" :key="index" :card="item" />
         </div>
       </div>
     </CustomSection>
   </div>
 </template>
+
 <style scoped>
-/* Selects the 6th item and moves it to the second column */
+/* Moves the 6th item to the second column */
 .grid>*:nth-child(6) {
   grid-column-start: 2;
 }
