@@ -26,7 +26,7 @@ import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
 import CustomBanner from "./core/CustomBanner.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
-import CustomCardWrapper from "./wrapper/CustomCardWrapper.vue";
+import CustomCard from "./cards/CustomCard.vue";
 import VisitSandbox from "./core/VisitSandbox.vue";
 import GetDemoWrapper from "./wrapper/GetDemoWrapper.vue";
 import CompanyAboutUsHeroSection from "./heroSections/CompanyAboutUsHeroSection.vue";
@@ -114,7 +114,7 @@ const componentsMap = computed(() => ({
   "section-hero.feature-solution-hero-section": SolutionSubpageHeroSection, //solution subpage hero section
   "section-cards.feature-highlights": CustomFeatureCardSubPage,
   "section-cta.call-to-action": VisitSandbox,
-  "section-cards.features5": CustomCardWrapper,
+  "section-cards.features5": CustomCard,
   "section-cta.call-to-action": VisitSandbox,
   "section-hero.company-hero-section": CompanyAboutUsHeroSection,
   "section-features.info-right-feature": CustomStoryWrapper,
