@@ -44,7 +44,7 @@ import CustomOpenObserveCard from "./cards/CustomOpenObserveCard.vue";
 import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
 import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
-import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
+import CustomSupportCard from "./cards/CustomSupportCard.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
@@ -126,7 +126,7 @@ const componentsMap = computed(() => ({
   "section-cards.resource-feature-highlight": ResourceCardsWrapper,
   "section-cards.resources-blogs": BlogsWrapper,
   // "section-cards.blog-with-categories":
-  "section-cards.resource-support-card": SupportCardWrapper,
+  "section-cards.resource-support-card": CustomSupportCard,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
