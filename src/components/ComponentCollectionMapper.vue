@@ -15,7 +15,7 @@ import HomeHeroSection from "./heroSections/HomeHeroSection.vue";
 import FaqWrapper from "./FAQComponent/FaqWrapper.vue";
 import FeatureCardWithIconWrapper from "./wrapper/FeatureCardWithIconWrapper.vue";
 import UsecaseCardWithIconWrapper from "./wrapper/UsecaseCardWithIconWrapper.vue";
-import TopCompaniesWrapper from "./wrapper/TopCompaniesWrapper.vue";
+import CustomTiels from "./cards/CustomTiles.vue";
 import CompanySwiper from "./core/CompanySwiper.vue";
 import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
@@ -87,7 +87,7 @@ const componentsMap = computed(() => ({
   "section-hero.homepage-hero": HomeHeroSection,
   "section-cards.features1": FeatureCardWithIconWrapper,
   "section-cards.features2": UsecaseCardWithIconWrapper,
-  "section-cards.stats": TopCompaniesWrapper,
+  "section-cards.stats": CustomTiels,
   "section-cards.clients": CompanySwiper,
   // "section-cards.case-studies": CaseStudyWrapper,
   "section-cards.blog": BlogsDataWrapper,
