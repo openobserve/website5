@@ -52,17 +52,11 @@ const props = defineProps({
         <div class="md:mb-10 md-5">
           <Heading :title="heading.title" align="CENTER" />
         </div>
-        <div
-          :class="[
-            `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-0 md:gap-10 w-full`,
-          ]"
-        >
-          <div
-            class="flex"
-            v-for="(item, index) in items"
-            :key="index"
-            :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'"
-          >
+        <div :class="[
+          `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${noOfGridColumn} gap-0 md:gap-10 w-full`,
+        ]">
+          <div class="flex" v-for="(item, index) in items" :key="index"
+            :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'">
             <CustomFeatureCard :card="item" />
           </div>
         </div>
@@ -74,6 +68,7 @@ const props = defineProps({
 <style scoped>
 /* Customize the image sizes and positions if needed */
 img {
-  z-index: -1; /* Ensure the images appear behind the content */
+  z-index: -1;
+  /* Ensure the images appear behind the content */
 }
 </style>

@@ -95,17 +95,10 @@ onUnmounted(() => observer?.disconnect());
       <div class="relative max-w-full mx-auto flex flex-row">
         <div v-if="showLeftShadow" class="absolute left-shadow"></div>
 
-        <div
-          ref="tabsContainer"
-          @scroll="checkScrollShadows"
-          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar"
-        >
-          <div
-            v-for="(tab, index) in items"
-            :key="slugify(tab.title)"
-            @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
-            :class="{
+        <div ref="tabsContainer" @scroll="checkScrollShadows"
+          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar">
+          <div v-for="(tab, index) in items" :key="slugify(tab.title)" @click="setActiveTab(index, slugify(tab.title))"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2" :class="{
               'text-white': activeTabIndex === index,
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
             }"
