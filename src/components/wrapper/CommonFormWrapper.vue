@@ -2,7 +2,7 @@
 import LeftSideCommonFormFeature from "../../components/forms/LeftSideCommonFormFeature.vue";
 import CustomSection from "../core/CustomSection.vue";
 import CommonForm from "../forms/CommonForm.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
+import TextWithGradient from "../header/TextWithGradient.vue";
 
 defineProps({
   // title: {
