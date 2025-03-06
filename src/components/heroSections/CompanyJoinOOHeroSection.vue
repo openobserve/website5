@@ -1,6 +1,6 @@
 <script setup>
 import CustomButton from "../core/CustomButton.vue";
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
+import TextWithGradient from "../header/TextWithGradient.vue";
 const props = defineProps({
   title: {
     type: String,

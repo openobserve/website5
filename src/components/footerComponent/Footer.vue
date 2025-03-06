@@ -1,6 +1,6 @@
 <script setup>
 import GithubButton from "vue-github-button";
-import TextGradient from "../HeaderComponents/TextWithGradient.vue";
+import TextGradient from "../header/TextWithGradient.vue";
 import { computed } from "vue";
 const props = defineProps({
   footerData: {
@@ -29,7 +29,9 @@ const props = defineProps({
   },
 });
 
-const firstSections = computed(() => props.footerData.slice(0, Math.min(4, props.footerData.length)) || []);
+const firstSections = computed(
+  () => props.footerData.slice(0, Math.min(4, props.footerData.length)) || []
+);
 const lastSection = computed(() => props.footerData?.[4] || null);
 
 const getCurrentYear = () => new Date().getFullYear();

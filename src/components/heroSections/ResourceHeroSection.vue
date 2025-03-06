@@ -1,5 +1,5 @@
 <script setup>
-import TextWithGradient from "../HeaderComponents/TextWithGradient.vue";
+import TextWithGradient from "../header/TextWithGradient.vue";
 
 const props = defineProps({
   title: {
