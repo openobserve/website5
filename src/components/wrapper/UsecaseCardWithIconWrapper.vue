@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-import IconTitleCard from "./UsecaseCardWithIcon.vue";
+import UsecaseCardWithIcon from "../cards/UsecaseCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
@@ -27,7 +27,7 @@ const props = defineProps({
             class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6"
           >
             <!-- Loop moved here -->
-            <IconTitleCard
+            <UsecaseCardWithIcon
               v-for="(item, index) in items"
               :key="index"
               :card="item"

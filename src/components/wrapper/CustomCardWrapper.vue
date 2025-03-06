@@ -1,7 +1,7 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomCard from "./CustomCard.vue";
+import CustomCard from "../cards/CustomCard.vue";
 import CustomSeprater from "../core/CustomSeprater.vue";
 import { defineProps } from "vue";
 const props = defineProps({
