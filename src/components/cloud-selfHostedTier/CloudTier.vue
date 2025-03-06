@@ -35,11 +35,8 @@ const isPricingTextNumber = (number: any) => {
   <div class="w-full container mx-auto">
     <!-- Pricing Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div
-        v-for="(tier, index) in tiers"
-        :key="index"
-        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col"
-      >
+      <div v-for="(tier, index) in tiers" :key="index"
+        class="w-full rounded-lg p-2.5 border border-gray-800/50 flex flex-col">
         <!-- Tier Header -->
         <div class="mb-6 text-center">
           <h3 class="t-color text-2xl md:text-3xl font-semibold mb-4">
@@ -62,10 +59,7 @@ const isPricingTextNumber = (number: any) => {
                   : tier.pricing
               }}
             </span>
-            <span
-              v-if="isPricingTextNumber(tier.pricing)"
-              class="text-sm text-gray-300"
-            >
+            <span v-if="isPricingTextNumber(tier.pricing)" class="text-sm text-gray-300">
               /Month
             </span>
           </p>
@@ -77,17 +71,10 @@ const isPricingTextNumber = (number: any) => {
         <!-- Features List -->
         <div class="flex-grow">
           <ul class="space-y-2 md:space-y-2 mb-8">
-            <li
-              v-for="(feature, featureIndex) in tier.features"
-              :key="featureIndex"
-              class="flex items-center gap-3 text-gray-300"
-            >
+            <li v-for="(feature, featureIndex) in tier.features" :key="featureIndex"
+              class="flex items-center gap-3 text-gray-300">
               <span class="flex-shrink-0">
-                <img
-                  src="/img/icon/RightTick.svg"
-                  alt="icon"
-                  class="w-4 md:w-5 h-4 md:h-5"
-                />
+                <img src="/img/icon/RightTick.svg" alt="icon" class="w-4 md:w-5 h-4 md:h-5" />
               </span>
               <span class="text-sm">{{ feature.title }}</span>
             </li>
@@ -100,25 +87,16 @@ const isPricingTextNumber = (number: any) => {
         <!-- @click="tier.buttonAction" -->
         <div class="text-center w-full mt-6">
           <div class="hidden lg:block place-items-center">
-            <CustomButton
-              variant="pricing"
-              class="transition-all duration-200 w-full"
-              :button-link="tier.primaryButton.link"
-              :target="tier.primaryButton.target"
-              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
-            >
+            <CustomButton variant="pricing" class="transition-all duration-200 w-full"
+              :button-link="tier.primaryButton.link" :target="tier.primaryButton.target"
+              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text">
               {{ tier.primaryButton.text }}
             </CustomButton>
           </div>
           <div class="lg:hidden">
-            <CustomButton
-              variant="secondary"
-              size="small"
-              class="transition-all duration-200 w-full"
-              :button-link="tier.primaryButton.link"
-              :target="tier.primaryButton.target"
-              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text"
-            >
+            <CustomButton variant="secondary" size="small" class="transition-all duration-200 w-full"
+              :button-link="tier.primaryButton.link" :target="tier.primaryButton.target"
+              v-if="tier?.primaryButton?.link && tier?.primaryButton?.text">
               {{ tier.primaryButton.text }}
             </CustomButton>
           </div>
@@ -130,17 +108,16 @@ const isPricingTextNumber = (number: any) => {
 
 <style scoped>
 .t-color {
-  background: linear-gradient(
-    264deg,
-    #76dbff -14.95%,
-    #37a1e2 33.11%,
-    #0e7bcf 107.25%,
-    #005eac 121.85%
-  );
+  background: linear-gradient(264deg,
+      #76dbff -14.95%,
+      #37a1e2 33.11%,
+      #0e7bcf 107.25%,
+      #005eac 121.85%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* Optional: Add custom animations or transitions */
 .transition-all {
   transition-property: all;

@@ -19,16 +19,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <div
-    class="flex flex-col items-center gap-6 w-full pb-10 px-6 lg:px-12 container mx-auto"
-  >
+  <div class="flex flex-col items-center gap-6 w-full pb-10 px-6 lg:px-12 container mx-auto">
     <!-- Card 1 (Top Section) -->
     <div class="w-full rounded-lg card">
       <a :href="props.unifiedObservability?.buttonLink">
         <div class="card-content text-center">
-          <h2
-            class="text-lg sm:text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2"
-          >
+          <h2 class="text-lg sm:text-xl font-bold text-white mb-2 heading-stroke cursor-pointer py-2">
             {{ props?.unifiedObservability?.title }}
           </h2>
 
@@ -36,14 +32,9 @@ const props = defineProps({
             {{ props?.unifiedObservability?.description }}
           </p>
 
-          <div
-            v-if="props.unifiedObservability?.buttonLink"
-            class="text-center"
-          >
-            <a
-              :href="props.unifiedObservability?.buttonLink"
-              class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300"
-            >
+          <div v-if="props.unifiedObservability?.buttonLink" class="text-center">
+            <a :href="props.unifiedObservability?.buttonLink"
+              class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300">
               {{ props.unifiedObservability?.buttonText }}
             </a>
           </div>
@@ -70,9 +61,7 @@ const props = defineProps({
       <a :href="integrations?.buttonLink">
         <div class="card">
           <div class="card-content text-center">
-            <h2
-              class="text-lg sm:text-xl font-bold text-white mb-2 cursor-pointer py-2"
-            >
+            <h2 class="text-lg sm:text-xl font-bold text-white mb-2 cursor-pointer py-2">
               {{ integrations?.title }}
             </h2>
 
@@ -81,10 +70,8 @@ const props = defineProps({
             </p>
 
             <div v-if="integrations?.buttonLink" class="text-center">
-              <a
-                :href="integrations?.buttonLink"
-                class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300"
-              >
+              <a :href="integrations?.buttonLink"
+                class="text-[#1C99FF] text-xs sm:text-sm font-bold transition-colors duration-300">
                 {{ integrations?.buttonText }}
               </a>
             </div>
@@ -114,6 +101,7 @@ const props = defineProps({
   transition: background 0.3s ease-in-out;
   height: 100%;
 }
+
 .card-content-without-hover {
   position: relative;
   z-index: 1;

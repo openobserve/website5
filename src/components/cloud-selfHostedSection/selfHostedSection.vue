@@ -47,9 +47,7 @@ const props = defineProps({
     <!-- Content Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
       <!-- Cloud Section -->
-      <div
-        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
-      >
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <h2 class="text-xl md:text-2xl font-semibold text-white mb-4 md:mb-8">
           {{ title }}
         </h2>
@@ -57,11 +55,7 @@ const props = defineProps({
           <ul class="space-y-4 mb-4 md:mb-8">
             <li class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/img/icon/docker.svg"
-                  alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
-              /></span>
+                <img src="/img/icon/docker.svg" alt="icon" class="w-5 md:w-6 h-5 md:h-6" /></span>
               <span class="text-sm flex items-center">Docker</span>
             </li>
           </ul>
@@ -78,11 +72,7 @@ const props = defineProps({
             <li class="text-gray-300">
               <div class="flex gap-3 items-center">
                 <span>
-                  <img
-                    src="/img/icon/downloading.svg"
-                    alt="icon"
-                    class="w-5 md:w-6 h-5 md:h-6"
-                  />
+                  <img src="/img/icon/downloading.svg" alt="icon" class="w-5 md:w-6 h-5 md:h-6" />
                 </span>
                 <span class="text-sm">Downloads</span>
               </div>
@@ -90,20 +80,13 @@ const props = defineProps({
           </ul>
         </div>
 
-        <div
-          class="text-md md:text-lg font-semibold text-white mb-8 v-html-content"
-          v-html="downloadTitle"
-        ></div>
+        <div class="text-md md:text-lg font-semibold text-white mb-8 v-html-content" v-html="downloadTitle"></div>
         <div class="flex-grow">
           <ul class="space-y-4 pb-[2vh]">
             <li class="text-gray-300">
               <div class="flex gap-3 items-center">
                 <span>
-                  <img
-                    src="/img/HA-Clustering.svg"
-                    alt="icon"
-                    class="w-4 md:w-5 h-4 md:h-5"
-                  />
+                  <img src="/img/HA-Clustering.svg" alt="icon" class="w-4 md:w-5 h-4 md:h-5" />
                 </span>
                 <span class="text-sm">High Availability(HA) Deployment</span>
               </div>
@@ -111,10 +94,8 @@ const props = defineProps({
           </ul>
         </div>
 
-        <div
-          class="text-md md:text-lg font-semibold text-white mb-8 v-html-content"
-          v-html="haDeploymentDescription"
-        ></div>
+        <div class="text-md md:text-lg font-semibold text-white mb-8 v-html-content" v-html="haDeploymentDescription">
+        </div>
 
         <!-- <div class="flex gap-3 items-center py-5">
           <a
@@ -136,9 +117,7 @@ const props = defineProps({
         </div> 
         <CustomSeprater />-->
       </div>
-      <div
-        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
-      >
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <div class="mb-6">
           <h4 class="text-white text-lg md:text-xl font-medium mb-4 md:mb-4">
             {{ enterpriseTitle }}
@@ -151,35 +130,20 @@ const props = defineProps({
         <!-- Features List loop -->
         <div class="flex-grow">
           <ul class="space-y-4 mb-8">
-            <li
-              v-for="(item, index) in enterpriseFeatures"
-              :key="index"
-              class="flex gap-3 text-gray-300"
-            >
+            <li v-for="(item, index) in enterpriseFeatures" :key="index" class="flex gap-3 text-gray-300">
               <span>
-                <img
-                  src="/img/icon/RightTick.svg"
-                  alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
-              /></span>
+                <img src="/img/icon/RightTick.svg" alt="icon" class="w-5 md:w-6 h-5 md:h-6" /></span>
               <span class="text-sm flex-1">{{ item.title }}</span>
             </li>
           </ul>
         </div>
-        <div
-          class="mb-6 text-md md:text-lg font-semibold text-white py-2 v-html-content"
-          v-html="enterpriseBottomDescription"
-        ></div>
+        <div class="mb-6 text-md md:text-lg font-semibold text-white py-2 v-html-content"
+          v-html="enterpriseBottomDescription"></div>
         <div
           class="mt-10 sm:mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center w-full px-4 sm:px-6 md:px-8"
-          v-if="selfHostedButton.text && selfHostedButton.link"
-        >
-          <CustomButton
-            variant="primary"
-            :button-link="selfHostedButton?.link"
-            class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] text-center py-3"
-            target="_blank"
-          >
+          v-if="selfHostedButton.text && selfHostedButton.link">
+          <CustomButton variant="primary" :button-link="selfHostedButton?.link"
+            class="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] text-center py-3" target="_blank">
             {{ selfHostedButton?.text }}
           </CustomButton>
         </div>

@@ -22,28 +22,15 @@ const props = defineProps({
   <div>
     <CustomSection>
       <div class="py-3">
-        <Heading
-          :title="heading?.title"
-          :description="heading?.subtitle"
-          align="CENTER"
-        />
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
 
-      <CustomBlogsSwiper
-        :sectionData="items"
-        titleTextColor="text-white"
-        descriptionTextColor="text-gray-400"
-        cardBgColor="bg-[#2A2A2A]"
-        linkColor="text-[#00A3FF]"
-      />
+      <CustomBlogsSwiper :sectionData="items" titleTextColor="text-white" descriptionTextColor="text-gray-400"
+        cardBgColor="bg-[#2A2A2A]" linkColor="text-[#00A3FF]" />
 
       <div class="flex justify-center" v-if="primaryButton">
-        <CustomButton
-          variant="secondary"
-          size="medium"
-          :buttonText="primaryButton.text"
-          :buttonLink="primaryButton.link"
-        />
+        <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text"
+          :buttonLink="primaryButton.link" />
       </div>
     </CustomSection>
   </div>

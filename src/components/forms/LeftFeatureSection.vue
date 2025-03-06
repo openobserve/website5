@@ -29,11 +29,7 @@ defineProps({
         Why Request a Demo?
       </h3>
       <ul class="space-y-4">
-        <li
-          v-for="(feature, index) in keyFeatures"
-          :key="index"
-          class="flex items-start gap-4"
-        >
+        <li v-for="(feature, index) in keyFeatures" :key="index" class="flex items-start gap-4">
           <img src="/img/icon/RightTick.svg" alt="icon" class="w-6 h-6" />
           <span class="text-white text-sm">{{ feature }}</span>
         </li>
@@ -46,16 +42,8 @@ defineProps({
         What to Expect in Your Demo?
       </h3>
       <ul class="space-y-4">
-        <li
-          v-for="(feature, index) in keyFeatures2"
-          :key="index"
-          class="flex items-start gap-4"
-        >
-          <CustomImage
-            image="/img/icon/RightTick.svg"
-            altText="icon"
-            cssClass="w-6 h-6"
-          />
+        <li v-for="(feature, index) in keyFeatures2" :key="index" class="flex items-start gap-4">
+          <CustomImage image="/img/icon/RightTick.svg" altText="icon" cssClass="w-6 h-6" />
           <span class="text-white text-sm">{{ feature }}</span>
         </li>
       </ul>

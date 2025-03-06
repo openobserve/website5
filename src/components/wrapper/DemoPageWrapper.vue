@@ -20,15 +20,8 @@ const props = defineProps({
   <!-- Destructure the required data for better readability -->
   <GetDemoHeroSection :title="heading?.title" />
 
-  <DemoPageFormWrapper
-    :description="
-      features[0]?.items?.[0]?.description || 'No description available'
-    "
-    :keyFeatures="features[0]?.items.map((item) => item.title) || []"
-    :keyFeatures2="features[1]?.items.map((item) => item.title) || []"
-    :footerdescription="
-      features[0]?.description || 'No footer description available'
-    "
-    client:load
-  />
+  <DemoPageFormWrapper :description="features[0]?.items?.[0]?.description || 'No description available'
+    " :keyFeatures="features[0]?.items.map((item) => item.title) || []"
+    :keyFeatures2="features[1]?.items.map((item) => item.title) || []" :footerdescription="features[0]?.description || 'No footer description available'
+      " client:load />
 </template>

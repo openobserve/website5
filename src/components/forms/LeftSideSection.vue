@@ -23,16 +23,8 @@ defineProps({
     <div>
       <h3 class="text-lg font-semibold text-white mb-4">Key Features:</h3>
       <ul class="space-y-4">
-        <li
-          v-for="(feature, index) in keyFeatures"
-          :key="index"
-          class="flex items-start gap-4"
-        >
-          <CustomImage
-            image="/img/icon/RightTick.svg"
-            altText="icon"
-            cssClass="w-6 h-6"
-          />
+        <li v-for="(feature, index) in keyFeatures" :key="index" class="flex items-start gap-4">
+          <CustomImage image="/img/icon/RightTick.svg" altText="icon" cssClass="w-6 h-6" />
           <span class="text-white">{{ feature.title }}</span>
           <!-- Now accessing `title` inside each feature object -->
         </li>

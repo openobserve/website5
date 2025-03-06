@@ -52,20 +52,10 @@ onMounted(() => {
 
     <div class="relative w-full max-w-5xl mx-auto">
       <!-- Swiper for Both Mobile & Desktop -->
-      <swiper
-        ref="swiperRef"
-        :modules="swiperModules"
-        v-bind="swiperOptions"
-        class="testimonial-swiper"
-      >
+      <swiper ref="swiperRef" :modules="swiperModules" v-bind="swiperOptions" class="testimonial-swiper">
         <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id" class="!h-auto">
-          <div
-            class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center h-full"
-          >
-            <CustomImage
-              :image="testimonial.image"
-              class="w-20 h-20 rounded-full mb-4 object-cover"
-            />
+          <div class="bg-[#1a1a1a] rounded-lg p-6 flex flex-col items-center text-center h-full">
+            <CustomImage :image="testimonial.image" class="w-20 h-20 rounded-full mb-4 object-cover" />
             <p class="text-gray-300 mb-4 text-base leading-snug flex-1">
               "{{ testimonial.description }}"
             </p>

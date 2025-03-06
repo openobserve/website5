@@ -44,37 +44,29 @@ const handleClickOutside = (event) => {
     <!-- Search Bar -->
     <div class="search-container relative w-full mb-4">
       <div
-        class="flex flex-row w-full justify-between items-center border border-gray-600 h-12 rounded-xl px-4 bg-dark-glass shadow-lg backdrop-blur-lg"
-      >
+        class="flex flex-row w-full justify-between items-center border border-gray-600 h-12 rounded-xl px-4 bg-dark-glass shadow-lg backdrop-blur-lg">
         <span class="opacity-70">
           <img src="/img/icon/search.svg" alt="Search Icon" class="w-4 h-4" />
         </span>
-        <input
-          v-model="searchItem"
-          type="text"
+        <input v-model="searchItem" type="text"
           class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-gray-400 ml-5"
-          placeholder="Search here"
-        />
+          placeholder="Search here" />
       </div>
       <div class="mt-2 ml-3 text-white text-sm">
         <template v-if="searchItem.trim()">
           <p v-show="filteredFaqs.length > 0">
-            Search results for "<span class="font-bold">{{ searchItem }}</span
-            >"
+            Search results for "<span class="font-bold">{{ searchItem }}</span>"
           </p>
           <p v-show="filteredFaqs.length === 0">
-            No results for "<span class="font-bold">{{ searchItem }}</span
-            >"
+            No results for "<span class="font-bold">{{ searchItem }}</span>"
           </p>
         </template>
       </div>
     </div>
 
     <!-- Glass Card Section for FAQs -->
-    <section
-      v-if="filteredFaqs.length > 0"
-      class="relative glass-card w-full bg-opacity-80 backdrop-blur-lg shadow-lg px-4 flex flex-col justify-start"
-    >
+    <section v-if="filteredFaqs.length > 0"
+      class="relative glass-card w-full bg-opacity-80 backdrop-blur-lg shadow-lg px-4 flex flex-col justify-start">
       <FAQSection :faqItems="filteredFaqs" />
     </section>
   </div>
@@ -84,18 +76,14 @@ const handleClickOutside = (event) => {
 .glass-card {
   border-radius: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(
-    180deg,
-    rgba(1, 1, 1, 0.48) 30%,
-    rgba(1, 1, 1, 0.8) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(1, 1, 1, 0.48) 30%,
+      rgba(1, 1, 1, 0.8) 100%);
 }
 
 .bg-dark-glass {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
 }
 </style>

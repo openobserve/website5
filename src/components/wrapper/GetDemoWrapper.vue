@@ -18,12 +18,8 @@ const props = defineProps({
       <Heading :title="title" align="CENTER" />
     </div>
     <div class="flex justify-center text-center py-5" v-if="primaryButton">
-      <CustomButton
-        variant="secondary"
-        size="medium"
-        :buttonText="primaryButton.text"
-        :buttonLink="primaryButton.link"
-      />
+      <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text"
+        :buttonLink="primaryButton.link" />
     </div>
   </div>
 </template>
