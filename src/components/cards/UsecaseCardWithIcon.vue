@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+import { computed } from "vue";
 import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
@@ -13,17 +13,21 @@ const props = defineProps({
   },
 });
 
-const dynamicComponent = props.card.link ? "a" : "div";
+// Compute dynamic component (either 'a' or 'div')
+const dynamicComponent = computed(() => (props.card.link ? "a" : "div"));
+
+// Compute dynamic class bindings for responsiveness
+const cardClasses = computed(() => [
+  "rounded-2xl w-full p-[0.0625rem] bg-gradient-blue transition-all duration-300 shadow-2xl hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)]",
+  {
+    "lg:col-span-2": props.index === 0 || props.index === 1,
+    "lg:col-span-3": props.index === 2,
+  },
+]);
 </script>
 
 <template>
-  <dynamicComponent :href="card.link" :class="[
-    'rounded-2xl w-full p-[0.0625rem] bg-gradient-blue transition-all duration-300 shadow-2xl hover:shadow-[0_0_60px_0_rgba(66,174,255,0.8)]',
-    {
-      'lg:col-span-2': index === 0 || index === 1,
-      'lg:col-span-3': index === 2,
-    },
-  ]">
+  <component :is="dynamicComponent" :href="card.link" :class="cardClasses">
     <!-- Content Layer -->
     <div
       class="flex flex-col space-y-4 w-full h-full items-center justify-center rounded-2xl bg-[#23282c] pb-3 md:pb-2 pt-8 md:pt-9 p-1 md:p-6">
@@ -32,14 +36,17 @@ const dynamicComponent = props.card.link ? "a" : "div";
         {{ card.title }}
       </h3>
     </div>
-  </dynamicComponent>
+  </component>
 </template>
 
 <style scoped>
+.cardShadow {
+  transition: all 0.3s ease-in-out;
+}
+
 .cardShadow:hover {
   box-shadow: 0 0 60px 0 rgba(66, 174, 255, 0.8);
   border-radius: 1rem;
-  transition: all;
 }
 
 .title-fixed {
@@ -51,5 +58,10 @@ const dynamicComponent = props.card.link ? "a" : "div";
   white-space: normal;
   line-height: 1rem;
   /* Keeps consistent line spacing */
+}
+
+/* Fix scoped styling issue for hover effect */
+.cardShadow:hover :deep(h3) {
+  color: #80b9ff;
 }
 </style>
