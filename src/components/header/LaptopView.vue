@@ -271,21 +271,21 @@
                 </li>
               </ul> -->
               <ul class="flex flex-col space-y-2">
-                <li class="cursor-pointer">
+                <li class="cursor-pointer text-[#BEC0C2] text-bas gradient-hover">
                   <a
                     href="https://openobserve.ai/docs/"
-                    class="text-lg font-bold gradient-hover"
+                    class="text-[#BEC0C2] text-base gradient-hover"
                     target="_blank"
                     >Documentation</a
                   >
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/blog" class="text-lg font-bold gradient-hover"
+                  <a href="/blog" class="text-[#BEC0C2] text-base gradient-hover"
                     >Blog</a
                   >
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/faqs" class="text-lg font-bold gradient-hover"
+                  <a href="/faqs" class="text-[#BEC0C2] text-base gradient-hover"
                     >Frequently Asked Questions</a
                   >
                 </li>

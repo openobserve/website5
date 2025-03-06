@@ -25,7 +25,7 @@ const swiperOptions = {
 
 <template>
   <CustomSection section-class="xl:px-0 relative overflow-hidden">
-    <div class="relative w-full -mt-10 lg:-mt-12">
+    <div class="relative w-full md:-mt-[43px] lg:mt-0">
       <!-- Background image -->
       <img
         alt="Bottom decoration"
@@ -34,9 +34,7 @@ const swiperOptions = {
       />
 
       <!-- Desktop Layout (Flexbox) -->
-      <div
-        class="relative hidden lg:flex flex-row w-full justify-center mt-10 px-3 gap-4"
-      >
+      <div class="relative hidden lg:flex flex-row w-full justify-center mt-10 px-3 gap-4">
         <div
           v-for="(item, index) in items"
           :key="index"

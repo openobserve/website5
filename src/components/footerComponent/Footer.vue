@@ -250,6 +250,7 @@ const socialIcon = (name) => {
               :href="item.link"
               :class="['icon', item.name.toLowerCase()]"
               class="icon"
+              target="_blank"
             >
               <img :src="socialIcon(item.name)" class="icon-img" />
             </a>
