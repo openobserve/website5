@@ -2,21 +2,11 @@
 <template>
   <div class="input-group">
     <label :for="name" class="text-sm text-gray-200">{{ label }}</label>
-    <Field
-      :name="name"
-      :validateOnInput="true"
-      :rules="validationRules"
-      v-slot="{ field, errorMessage, meta }"
-    >
+    <Field :name="name" :validateOnInput="true" :rules="validationRules" v-slot="{ field, errorMessage, meta }">
       <div class="relative">
-        <input
-          v-bind="field"
-          :type="type"
-          :placeholder="placeholder"
-          :id="name"
+        <input v-bind="field" :type="type" :placeholder="placeholder" :id="name"
           class="w-full bg-[#23282C] text-white border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :class="{ 'border-red-500': errorMessage }"
-        />
+          :class="{ 'border-red-500': errorMessage }" />
         <span v-if="errorMessage" class="text-xs text-red-500 mt-1 block">
           {{ getErrorMessage(errorMessage, meta) }}
         </span>

@@ -52,8 +52,8 @@ const renderedAnswers = computed(() =>
 
         <!-- FAQ Answer -->
         <div class="transition-all duration-300 ease-in-out overflow-hidden px-4 w-full" :class="visibleAnswers[index]
-            ? 'max-h-screen opacity-100 mt-4'
-            : 'max-h-0 opacity-0'
+          ? 'max-h-screen opacity-100 mt-4'
+          : 'max-h-0 opacity-0'
           ">
           <div class="prose prose-invert max-w-none" v-html="renderedAnswers[index]"></div>
         </div>

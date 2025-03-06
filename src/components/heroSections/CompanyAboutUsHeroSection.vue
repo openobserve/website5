@@ -28,35 +28,23 @@ const formatSubtitle = (text) => {
 </script>
 
 <template>
-  <div
-    class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
+  <div class="relative flex flex-col justify-center items-center py-16 px-4 sm:px-8 lg:px-16 bg-no-repeat bg-cover"
     :style="{
       backgroundImage: 'url(/img/bg/gradient-bg/aboutusHerosectionbg)',
       backgroundSize: 'contain',
       backgroundPosition: 'center',
-    }"
-  >
-    <div
-      class="container mx-auto flex flex-col justify-center items-center text-center gap-8"
-    >
+    }">
+    <div class="container mx-auto flex flex-col justify-center items-center text-center gap-8">
       <div>
         <h1 class="text-5xl lg:text-7xl text-white font-bold text-center">
           {{ title }}
         </h1>
       </div>
       <div>
-        <Heading
-          :description="description"
-          align="CENTER"
-          v-html="formatSubtitle(description)"
-        />
+        <Heading :description="description" align="CENTER" v-html="formatSubtitle(description)" />
       </div>
       <div v-if="primaryButton" class="py-10">
-        <CustomButton
-          variant="primary"
-          class="w-full sm:w-auto"
-          :buttonLink="primaryButton?.link"
-        >
+        <CustomButton variant="primary" class="w-full sm:w-auto" :buttonLink="primaryButton?.link">
           {{ primaryButton?.text }}
         </CustomButton>
       </div>

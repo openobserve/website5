@@ -27,16 +27,14 @@ const schema = yup.object({
     .boolean()
     .oneOf([true], "You must accept the terms and conditions"),
 });
-const handleSubmit = (values) => {};
+const handleSubmit = (values) => { };
 </script>
 
 <template>
   <div class="w-full container mx-auto">
     <div class="justify-center grid grid-cols-1 lg:grid-cols-2 gap-5">
       <!-- static content -->
-      <div
-        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
-      >
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <!-- <h2 class="text-xl font-semibold text-white mb-8">Create a free account</h2>
         <BaseForm
           :schema="schema"
@@ -88,38 +86,21 @@ const handleSubmit = (values) => {};
             CREATE AN ACCOUNT
           </CustomButton>
         </BaseForm> -->
-        <h2
-          class="text-xl md:text-2xl font-semibold text-white text-left mb-4 md:mb-8"
-        >
+        <h2 class="text-xl md:text-2xl font-semibold text-white text-left mb-4 md:mb-8">
           Create a free account
         </h2>
         <div class="text-sm md:text-md font-medium text-white text-left mb-8">
           By using this service, you agree to OpenObserve's
-          <a
-            href="/policies/terms-of-service"
-            class="text-blue-500 underline text-sm"
-            target="_blank"
-          >
+          <a href="/policies/terms-of-service" class="text-blue-500 underline text-sm" target="_blank">
             Terms and Conditions
           </a>
         </div>
         <div class="space-y-4 mb-8 flex flex-col items-center justify-center">
-          <a
-            href="https://cloud.openobserve.ai/web/login"
-            class="w-full md:w-80"
-            target="_blank"
-          >
+          <a href="https://cloud.openobserve.ai/web/login" class="w-full md:w-80" target="_blank">
             <button
-              class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition"
-            >
-              <img
-                src="/img/icon/TryOOCloudIcon.webp"
-                alt="OpenObserve"
-                class="h-6 w-6 mr-3"
-              />
-              <span class="font-medium text-sm md:text-base"
-                >Try OpenObserve Cloud</span
-              >
+              class="flex justify-start gap-5 md:gap-10 w-full bg-gray-800 text-gray-200 rounded-lg p-2 md:p-3 shadow-md hover:bg-gray-700 transition">
+              <img src="/img/icon/TryOOCloudIcon.webp" alt="OpenObserve" class="h-6 w-6 mr-3" />
+              <span class="font-medium text-sm md:text-base">Try OpenObserve Cloud</span>
             </button>
           </a>
         </div>
@@ -208,9 +189,7 @@ const handleSubmit = (values) => {};
       </div>
 
       <!-- dynamic content -->
-      <div
-        class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50"
-      >
+      <div class="bg-[#23282c]/40 rounded-lg p-3 md:p-8 border-r border-gray-800/50">
         <div class="mb-6">
           <h4 class="text-white text-xl md:text-2xl font-medium mb-4 md:mb-8">
             {{ title }}
@@ -220,11 +199,7 @@ const handleSubmit = (values) => {};
         <!-- Features List loop -->
         <div class="flex-grow">
           <ul class="space-y-4 mb-8">
-            <li
-              v-for="(item, index) in items"
-              :key="index"
-              class="flex gap-3 text-gray-300"
-            >
+            <li v-for="(item, index) in items" :key="index" class="flex gap-3 text-gray-300">
               <span class="text-sm">{{ item.title }}</span>
             </li>
           </ul>
@@ -273,9 +248,11 @@ input[type="checkbox"]:checked {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }

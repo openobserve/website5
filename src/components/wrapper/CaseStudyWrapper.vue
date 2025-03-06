@@ -57,11 +57,7 @@ const redirectToBlog = (slug) => {
   <section>
     <CustomSection>
       <div>
-        <Heading
-          :title="heading?.title"
-          :description="heading?.subtitle"
-          align="CENTER"
-        />
+        <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
       </div>
 
       <!-- Desktop View -->
@@ -73,10 +69,7 @@ const redirectToBlog = (slug) => {
         /> -->
 
         <!-- When exactly two cards, use CentralCard component -->
-        <div
-          v-if="hasExactlyTwoCards"
-          class="flex justify-center container mx-auto h-full w-full"
-        >
+        <div v-if="hasExactlyTwoCards" class="flex justify-center container mx-auto h-full w-full">
           <CentralCard :cards="cards" @card-click="redirectToBlog" />
         </div>
 
@@ -87,22 +80,13 @@ const redirectToBlog = (slug) => {
         >
           <!-- Featured (first) card -->
           <div v-if="cards.length > 0" class="w-full">
-            <LeftSideCard
-              :card="cards[0]"
-              @click="redirectToBlog(cards[0].slug)"
-            />
+            <LeftSideCard :card="cards[0]" @click="redirectToBlog(cards[0].slug)" />
           </div>
 
           <!-- Remaining cards -->
-          <div
-            class="flex flex-col gap-3 justify-center items-center cursor-pointer w-full"
-          >
-            <RightSideCard
-              v-for="(card, index) in cards.slice(1)"
-              :key="card.slug || index"
-              :card="card"
-              @click="redirectToBlog(card.slug)"
-            />
+          <div class="flex flex-col gap-3 justify-center items-center cursor-pointer w-full">
+            <RightSideCard v-for="(card, index) in cards.slice(1)" :key="card.slug || index" :card="card"
+              @click="redirectToBlog(card.slug)" />
           </div>
         </div>
       </div>

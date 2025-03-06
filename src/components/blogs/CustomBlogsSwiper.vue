@@ -98,27 +98,14 @@ const shadowClass = computed(() => {
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
-        <swiper
-          class="blog-swiper"
-          :class="shadowClass"
-          :modules="swiperModules"
-          v-bind="swiperOptions"
-          @slideChange="updateShadow"
-        >
+        <swiper class="blog-swiper" :class="shadowClass" :modules="swiperModules" v-bind="swiperOptions"
+          @slideChange="updateShadow">
           <swiper-slide v-for="blog in sectionData" :key="blog.title">
-            <a
-              :key="blog.title"
-              :href="generateNavLink('blog', blog.slug)"
-              rel="noopener noreferrer"
-              :class="[
-                cardBgColor,
-                ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
-              ]"
-            >
-              <CustomBluredImage
-                :image="getImageUrl(blog.image) || ''"
-                :altText="blog.title"
-              />
+            <a :key="blog.title" :href="generateNavLink('blog', blog.slug)" rel="noopener noreferrer" :class="[
+              cardBgColor,
+              ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
+            ]">
+              <CustomBluredImage :image="getImageUrl(blog.image) || ''" :altText="blog.title" />
 
               <!-- Right Side - Content -->
               <div class="w-full p-6 flex flex-col">
@@ -126,9 +113,7 @@ const shadowClass = computed(() => {
                   <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
                     {{ blog.title }}
                   </h6>
-                  <p
-                    :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']"
-                  >
+                  <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
                     {{ blog.description }}
                   </p>
                 </div>
@@ -139,12 +124,8 @@ const shadowClass = computed(() => {
 
         <!-- Navigation Arrows (Hidden on Mobile) -->
         <div class="hidden md:block">
-          <div
-            class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
-          <div
-            class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
+          <div class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"></div>
+          <div class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"></div>
         </div>
       </div>
     </div>
@@ -157,31 +138,25 @@ const shadowClass = computed(() => {
 }
 
 .blog-swiper.show-both {
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%,
-    black 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%,
+      black 90%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .blog-swiper.hide-left {
-  mask-image: linear-gradient(
-    to right,
-    black 0%,
-    black 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  mask-image: linear-gradient(to right,
+      black 0%,
+      black 90%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .blog-swiper.hide-right {
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%,
-    black 100%
-  );
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%,
+      black 100%);
 }
 
 .blog-swiper .swiper-pagination-bullet {
@@ -214,6 +189,7 @@ const shadowClass = computed(() => {
 :deep(.swiper-button-disabled) {
   opacity: 0.35;
   cursor: not-allowed;
-  pointer-events: auto; /* Ensure it still intercepts clicks */
+  pointer-events: auto;
+  /* Ensure it still intercepts clicks */
 }
 </style>
