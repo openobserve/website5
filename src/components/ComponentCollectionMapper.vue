@@ -21,7 +21,7 @@ import CustomInterChange from "./core/CustomInterChange.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
-import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
+import CustomTabsWithImage from "./core/CustomTabsWithImage.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
 import CustomBanner from "./core/CustomBanner.vue";
@@ -97,7 +97,7 @@ const componentsMap = computed(() => ({
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": FeatureCardWrapper,
-  "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
+  "section-features.platform-tabs-wrapper": CustomTabsWithImage,
   "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
   "section-cta.banner": CustomBanner,
