@@ -140,26 +140,16 @@ onMounted(() => {
         <!-- Left Shadow -->
         <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
 
-        <div
-          ref="tabsContainer"
-          @scroll="checkScrollShadows"
-          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar"
-        >
-          <div
-            v-for="(tab, index) in items"
-            :key="slugify(tab.title)"
-            @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
-            :class="{
+        <div ref="tabsContainer" @scroll="checkScrollShadows"
+          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar">
+          <div v-for="(tab, index) in items" :key="slugify(tab.title)" @click="setActiveTab(index, slugify(tab.title))"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2" :class="{
               'text-white': activeTabIndex === index,
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
-            }"
-          >
+            }">
             <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
-            <span
-              v-if="activeTabIndex === index"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
-            ></span>
+            <span v-if="activeTabIndex === index"
+              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"></span>
           </div>
         </div>
 
@@ -171,12 +161,8 @@ onMounted(() => {
     <!-- Dynamic Content Section -->
     <div class="">
       <!-- Render all content from all tabs -->
-      <div
-        v-for="(tab, tabIndex) in items"
-        :key="slugify(tab.title)"
-        :ref="(el) => (contentRefs[tabIndex] = el)"
-        class="mb-8 md:mb-0"
-      >
+      <div v-for="(tab, tabIndex) in items" :key="slugify(tab.title)" :ref="(el) => (contentRefs[tabIndex] = el)"
+        class="mb-8 md:mb-0">
         <CustomInterChange :key="slugify(tab.title)" :items="items" />
       </div>
     </div>
@@ -192,8 +178,10 @@ onMounted(() => {
   height: 100%;
   width: 30px;
   background: linear-gradient(to right, rgb(12, 12, 12) 25%, transparent);
-  pointer-events: none; /* Prevent interaction */
-  z-index: 5; /* Ensure it is above text */
+  pointer-events: none;
+  /* Prevent interaction */
+  z-index: 5;
+  /* Ensure it is above text */
 }
 
 /* Right Shadow */
@@ -204,11 +192,13 @@ onMounted(() => {
   height: 100%;
   width: 30px;
   background: linear-gradient(to left, rgb(12, 12, 12) 25%, transparent);
-  pointer-events: none; /* Prevent interaction */
+  pointer-events: none;
+  /* Prevent interaction */
 }
 
 /* Ensure shadows are only visible on mobile */
 @media (min-width: 768px) {
+
   .left-shadow,
   .right-shadow {
     display: none;
@@ -226,8 +216,10 @@ onMounted(() => {
 .sticky-tabs {
   position: sticky;
   top: 65px;
-  z-index: 30; /* Higher than the background */
+  z-index: 30;
+  /* Higher than the background */
 }
+
 @media (max-width: 768px) {
   .sticky-tabs {
     top: 58px;
@@ -238,6 +230,7 @@ onMounted(() => {
 .scroll-smooth {
   scroll-behavior: smooth;
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -245,8 +238,10 @@ onMounted(() => {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Responsiveness adjustments for tabs on mobile */
@@ -259,11 +254,9 @@ onMounted(() => {
 
 .gradient-text {
   display: inline-block;
-  background: linear-gradient(
-    to left,
-    rgb(var(--blue-light)),
-    rgb(var(--blue-dark))
-  );
+  background: linear-gradient(to left,
+      rgb(var(--blue-light)),
+      rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

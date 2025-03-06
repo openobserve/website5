@@ -15,11 +15,7 @@ const props = defineProps({
 </script>
 <template>
   <CustomSection>
-    <Heading
-      :title="heading?.title"
-      :description="heading?.subtitle"
-      align="CENTER"
-    />
+    <Heading :title="heading?.title" :description="heading?.subtitle" align="CENTER" />
     <CustomTabs :items="items" client:load />
   </CustomSection>
   <div></div>

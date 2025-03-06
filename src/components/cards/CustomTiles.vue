@@ -23,25 +23,15 @@ const bgImages = [
 <template>
   <CustomSection>
     <Heading v-if="heading?.title" :title="heading?.title" align="CENTER" />
-    <div
-      class="pt-3 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center"
-    >
-      <div
-        class="w-full border border-[#313539] h-auto p-6 flex flex-col items-center rounded-lg gap-4 bg-no-repeat"
+    <div class="pt-3 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
+      <div class="w-full border border-[#313539] h-auto p-6 flex flex-col items-center rounded-lg gap-4 bg-no-repeat"
         :style="{
           backgroundImage: `url(${index === 0 || index > 1 ? bgImages[0] : bgImages[1]})`,
-        }"
-        v-for="(card, index) in items"
-        :key="index"
-        :card="card"
-        :index="index"
-      >
+        }" v-for="(card, index) in items" :key="index" :card="card" :index="index">
         <div class="rounded-full flex justify-center items-center mb-4">
           <CustomImage :image="card.image" cssClass="w-full h-auto" />
         </div>
-        <h3
-          class="title-color text-3xl font-semibold text-[#BEC0C2] text-center"
-        >
+        <h3 class="title-color text-3xl font-semibold text-[#BEC0C2] text-center">
           {{ card.title }}
         </h3>
         <p class="text-sm text-[#DCDCDF] text-center">

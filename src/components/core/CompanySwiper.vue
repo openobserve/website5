@@ -20,15 +20,9 @@ const repeatedData = computed(() => {
   <div class="py-10 container mx-auto">
     <div class="carousel-container">
       <div class="slide flex flex-row justify-center items-center">
-        <div
-          v-for="(item, index) in repeatedData"
-          :key="index"
-          class="flex-none h-10 md:h-14 grayscale brightness-75 hover:brightness-100 transition duration-200 hover:grayscale-0 mx-8"
-        >
-          <CustomImage
-            :image="item?.Image"
-            cssClass="w-auto h-full object-cover"
-          />
+        <div v-for="(item, index) in repeatedData" :key="index"
+          class="flex-none h-10 md:h-14 grayscale brightness-75 hover:brightness-100 transition duration-200 hover:grayscale-0 mx-8">
+          <CustomImage :image="item?.Image" cssClass="w-auto h-full object-cover" />
           <!-- :alt="item.altText" -->
         </div>
       </div>
@@ -57,17 +51,16 @@ const repeatedData = computed(() => {
   width: max-content;
   /* Adjust to fit the doubled content */
 }
+
 .carousel-container {
   position: relative;
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%,
-    black 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%,
+      black 90%,
+      rgba(0, 0, 0, 0) 100%);
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
   /* border-radius: 8px; */
 }
@@ -93,21 +86,17 @@ const repeatedData = computed(() => {
 
 .carousel-container::before {
   left: 0;
-  background: linear-gradient(
-    to right,
-    black 0%,
-    rgba(var(--gray-dark), 0) 100%
-  );
+  background: linear-gradient(to right,
+      black 0%,
+      rgba(var(--gray-dark), 0) 100%);
   width: 40px;
 }
 
 .carousel-container::after {
   right: 0;
-  background: linear-gradient(
-    to left,
-    rgba(var(--gray-dark), 1) 0%,
-    rgba(var(--gray-dark), 0) 100%
-  );
+  background: linear-gradient(to left,
+      rgba(var(--gray-dark), 1) 0%,
+      rgba(var(--gray-dark), 0) 100%);
   width: 6px;
 }
 

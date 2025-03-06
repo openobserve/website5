@@ -73,22 +73,13 @@ const truncateDescription = (text: string, wordLimit: number) => {
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
-        <swiper
-          class="blog-swiper"
-          :modules="swiperModules"
-          :v-bind="swiperOptions"
-        >
+        <swiper class="blog-swiper" :modules="swiperModules" :v-bind="swiperOptions">
           <swiper-slide v-for="blog in sectionData" :key="blog.slug">
-            <a
-              :href="`/blog/${blog?.slug}`"
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-            >
-              <div
-                :class="[
-                  cardBgColor,
-                  'h-full rounded-xl overflow-hidden transition-transform ',
-                ]"
-              >
+            <a :href="`/blog/${blog?.slug}`" :class="[linkColor, 'text-sm font-semibold hover:opacity-80']">
+              <div :class="[
+                cardBgColor,
+                'h-full rounded-xl overflow-hidden transition-transform ',
+              ]">
                 <!-- <div class="h-48 overflow-hidden">
                   <CustomImage
                     :image="blog.image || ''"
@@ -96,18 +87,13 @@ const truncateDescription = (text: string, wordLimit: number) => {
                     cssClass="w-full h-full object-cover"
                   />
                 </div> -->
-                <CustomBluredImage
-                  :image="blog.image || ''"
-                  :altText="blog.title"
-                />
+                <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
 
                 <div class="p-6 mb-3">
                   <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">
                     {{ blog.title }}
                   </h3>
-                  <p
-                    :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']"
-                  >
+                  <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']">
                     {{ blog.description }}
                   </p>
                 </div>
@@ -118,12 +104,8 @@ const truncateDescription = (text: string, wordLimit: number) => {
 
         <!-- Navigation Arrows (Hidden on Mobile) -->
         <div class="hidden md:block">
-          <div
-            class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
-          <div
-            class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
+          <div class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"></div>
+          <div class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"></div>
         </div>
       </div>
     </div>

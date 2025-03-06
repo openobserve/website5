@@ -22,13 +22,8 @@ const props = defineProps({
 <template>
   <div class="w-full h-full bg-black rounded-lg">
     <div
-      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
-    >
-      <CustomBluredImage
-        :image="getImageUrl(card.image) || ''"
-        :altText="card.title"
-        height="full"
-      />
+      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray">
+      <CustomBluredImage :image="getImageUrl(card.image) || ''" :altText="card.title" height="full" />
 
       <div class="flex flex-col h-full space-y-2">
         <h3 class="text-white text-lg lg:text-2xl font-bold">
@@ -37,12 +32,8 @@ const props = defineProps({
         <p class="text-white text-sm lg:text-base flex-1 line-clamp-2">
           {{ card?.description }}
         </p>
-        <a
-          :href="card.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-[#80B9FF] font-bold text-sm md:text-base lg:text-lg mt-auto"
-        >
+        <a :href="card.link" target="_blank" rel="noopener noreferrer"
+          class="text-[#80B9FF] font-bold text-sm md:text-base lg:text-lg mt-auto">
           {{ card?.btnTitle }}
         </a>
       </div>
@@ -74,14 +65,12 @@ const props = defineProps({
   position: absolute;
   inset: -2px;
   padding: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(203, 227, 255, 0.95) 0%,
-    rgba(185, 208, 249, 0.9) 25%,
-    rgba(170, 190, 249, 0.85) 50%,
-    rgba(173, 173, 255, 0.8) 75%,
-    rgba(163, 163, 254, 0.75) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(203, 227, 255, 0.95) 0%,
+      rgba(185, 208, 249, 0.9) 25%,
+      rgba(170, 190, 249, 0.85) 50%,
+      rgba(173, 173, 255, 0.8) 75%,
+      rgba(163, 163, 254, 0.75) 100%);
   border-radius: 8px;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -91,8 +80,10 @@ const props = defineProps({
   z-index: -1;
   opacity: 0.9;
 }
+
 .group {
-  background-color: transparent; /* Default background */
+  background-color: transparent;
+  /* Default background */
 }
 
 .group:hover {
