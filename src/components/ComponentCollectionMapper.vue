@@ -32,7 +32,7 @@ import GetDemoWrapper from "./wrapper/GetDemoWrapper.vue";
 import CompanyAboutUsHeroSection from "./heroSections/CompanyAboutUsHeroSection.vue";
 import CustomStoryWrapper from "./wrapper/CustomStoryWrapper.vue";
 import AboutCommunityWrapper from "./wrapper/AboutCommunityWrapper.vue";
-import CommunitySupportCardWrapper from "./wrapper/CommunitySupportCardWrapper.vue";
+import CommunitySupportCardWrapper   from "./wrapper/CommunitySupportCardWrapper.vue";
 import ContactUsHeroSection from "./heroSections/ContactUsHeroSection.vue";
 import CustomSeprater from "./core/CustomSeprater.vue";
 import PlatformSubTabsWrapper from "./core/PlatformSubTabsWrapper.vue";
