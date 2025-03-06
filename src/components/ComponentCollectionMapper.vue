@@ -26,7 +26,7 @@ import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
 import BannerWrapper from "./wrapper/BannerWrapper.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
-import CustomCardWrapper from "./cards/CustomCardWrapper.vue";
+import CustomCardWrapper from "./wrapper/CustomCardWrapper.vue";
 import VisitSandbox from "./core/VisitSandbox.vue";
 import GetDemoWrapper from "./wrapper/GetDemoWrapper.vue";
 import CompanyAboutUsHeroSection from "./heroSections/CompanyAboutUsHeroSection.vue";
