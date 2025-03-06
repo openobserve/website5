@@ -37,15 +37,9 @@ const props = defineProps({
         <Heading :title="heading?.title" :description="heading?.subtitle" />
       </div>
       <div class="flex justify-center w-full">
-        <div
-          class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto"
-        >
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto">
           <!-- Loop moved here -->
-          <FeatureCardWithIcon
-            v-for="(item, index) in data"
-            :key="index"
-            :card="item"
-          />
+          <FeatureCardWithIcon v-for="(item, index) in data" :key="index" :card="item" />
         </div>
       </div>
     </CustomSection>
@@ -53,7 +47,7 @@ const props = defineProps({
 </template>
 <style scoped>
 /* Selects the 6th item and moves it to the second column */
-.grid > *:nth-child(6) {
+.grid>*:nth-child(6) {
   grid-column-start: 2;
 }
 </style>
