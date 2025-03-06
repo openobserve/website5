@@ -129,13 +129,7 @@ onUnmounted(() => observer?.disconnect());
         :ref="(el) => (contentRefs[tabIndex] = el)"
         class="mb-8 md:mb-0"
       >
-        <CustomInterChange
-          :key="slugify(tab.title)"
-          :items="tab.items"
-          :title="tab.title"
-          :image="tab.image"
-          :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
-        />
+        <CustomInterChange :key="slugify(tab.title)" :items="items" />
       </div>
     </div>
   </section>

@@ -15,18 +15,19 @@ const props = defineProps({
     required: true,
   },
 });
-
 // Reactive state for modal visibility
 const showDialog = ref(false);
-
+const selectedImage = ref(""); // Store the clicked image URL
 // Toggle dialog visibility
-const openDialog = () => {
+const openDialog = (imageUrl) => {
+  selectedImage.value = imageUrl;
   showDialog.value = true;
   window.addEventListener("keydown", handleKeydown);
 };
 
 const closeDialog = () => {
   showDialog.value = false;
+  selectedImage.value = ""; // Clear selected image
   window.removeEventListener("keydown", handleKeydown);
 };
 
@@ -75,7 +76,7 @@ onUnmounted(() => {
           <!-- Foreground Image (Clickable) -->
           <div
             class="relative w-full h-auto rounded-lg shadow-md p-3 z-10 cursor-zoom-in"
-            @click="openDialog"
+            @click="openDialog(getImageUrl(item.image))"
           >
             <!-- <CustomImage
             :image="image"
@@ -123,7 +124,6 @@ onUnmounted(() => {
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
     @click="closeDialog"
   >
-    <!-- Close button should be inside this relative container -->
     <button
       class="absolute top-3 right-3 text-white cursor-pointer z-50"
       @click="closeDialog"
@@ -132,7 +132,7 @@ onUnmounted(() => {
     </button>
     <div class="relative p-8 md:p-[5rem] rounded-lg md:h-screen">
       <CustomImage
-        :src="props.items.image.url"
+        :image="selectedImage"
         class="w-full h-full rounded-lg object-contain"
         @click.stop
       />
