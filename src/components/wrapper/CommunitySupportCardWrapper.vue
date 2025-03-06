@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-import IconTitleCard from "./CommunitySupportCard.vue";
+import CommunitySupportCard from "../cards/CommunitySupportCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
@@ -28,7 +28,7 @@ const props = defineProps({
         :description="props.heading?.subtitle"
       />
       <div class="mt-10 w-full">
-        <IconTitleCard :cards="props?.items" />
+        <CommunitySupportCard :cards="props?.items" />
       </div>
       <Heading :description="props?.description" />
     </div>

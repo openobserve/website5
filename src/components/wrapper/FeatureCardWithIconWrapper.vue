@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
-import IconTitleCard from "./FeatureCardWithIcon.vue";
+import FeatureCardWithIcon from "../cards/FeatureCardWithIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 
@@ -41,7 +41,7 @@ const props = defineProps({
           class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-6 mx-auto"
         >
           <!-- Loop moved here -->
-          <IconTitleCard
+          <FeatureCardWithIcon
             v-for="(item, index) in data"
             :key="index"
             :card="item"

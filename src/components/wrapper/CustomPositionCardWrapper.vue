@@ -1,7 +1,7 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
-import CustomPositionCard from "./CustomPositionCard.vue";
+import CustomPositionCard from "../cards/CustomPositionCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import { defineProps } from "vue";
 const props = defineProps({
