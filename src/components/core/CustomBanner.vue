@@ -1,25 +1,41 @@
 <script setup>
 import { defineProps } from "vue";
 import CustomButton from "./CustomButton.vue";
-
+import Heading from "../core/Heading.vue";
+import CustomBanner from "../core/CustomBanner.vue";
 const props = defineProps({
-  bannerTitle: { type: String, required: true },
-  bannerDescription: { type: String, required: true },
+  title: {
+    type: String,
+    required: false,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  heading: {
+    type: Object,
+    required: false,
+  },
   primaryButton: {
     type: Object,
     required: true,
-    validator: (value) =>
-      value.hasOwnProperty("text") && value.hasOwnProperty("link"),
   },
   secondaryButton: {
     type: Object,
-    default: () => ({ text: "", link: "#" }),
-    validator: (value) =>
-      value.hasOwnProperty("text") && value.hasOwnProperty("link"),
+    default: () => ({}),
   },
-  getStartedText: { type: String, default: "Get Started" },
-  items: { type: Array, required: false },
-  featureTitle: { type: String, required: false },
+  bottomText: {
+    type: String,
+    required: false,
+  },
+  items: {
+    type: Array,
+    required: false,
+  },
+  featureTitle: {
+    type: String,
+    required: false,
+  },
   monthlyText: {
     type: String,
     required: false,
@@ -28,6 +44,14 @@ const props = defineProps({
 </script>
 
 <template>
+  <CustomSection v-if="heading?.title || heading?.subtitle">
+    <Heading
+      v-if="heading?.title || heading?.subtitle"
+      :title="heading?.title"
+      :description="heading?.subtitle"
+      align="CENTER"
+    />
+  </CustomSection>
   <section
     class="relative w-full bg-cover bg-center px-6 md:px-8 lg:px-12 py-10"
     :style="{ backgroundImage: 'url(/img/bg/gradient-bg/bannerBg.svg)' }"
@@ -40,10 +64,10 @@ const props = defineProps({
           <h1
             class="text-2xl md:text-3xl lg:text-4xl font-bold text-black text-center md:text-left"
           >
-            {{ bannerTitle }}
+            {{ title }}
           </h1>
           <p class="text-base text-black">
-            {{ bannerDescription }}
+            {{ description }}
           </p>
           <div class="flex justify-center md:justify-start">
             <CustomButton
@@ -92,7 +116,7 @@ const props = defineProps({
           </CustomButton>
 
           <p class="text-sm text-center max-w-[30vh]">
-            {{ getStartedText }}
+            {{ bottomText }}
           </p>
         </div>
       </div>

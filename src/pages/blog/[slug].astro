@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
+import CustomBanner from "../../components/core/CustomBanner.vue";
 import {
   getAllBlogs,
   getAuthorDetails,
@@ -57,7 +58,7 @@ const metaObj = {
     bannerData={BannerData?.data}
     authors={author}
   />
-  <BannerWrapper
+  <CustomBanner
     title={BannerData?.data?.title}
     description={BannerData?.data?.description}
     heading={BannerData?.data?.heading}

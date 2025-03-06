@@ -17,14 +17,14 @@ import FeatureCardWithIconWrapper from "./wrapper/FeatureCardWithIconWrapper.vue
 import UsecaseCardWithIconWrapper from "./wrapper/UsecaseCardWithIconWrapper.vue";
 import CustomTiels from "./cards/CustomTiles.vue";
 import CompanySwiper from "./core/CompanySwiper.vue";
-import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
+import CustomInterChange from "./core/CustomInterChange.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
 import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
-import BannerWrapper from "./wrapper/BannerWrapper.vue";
+import CustomBanner from "./core/CustomBanner.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
 import CustomCardWrapper from "./wrapper/CustomCardWrapper.vue";
 import VisitSandbox from "./core/VisitSandbox.vue";
@@ -91,7 +91,7 @@ const componentsMap = computed(() => ({
   "section-cards.clients": CompanySwiper,
   // "section-cards.case-studies": CaseStudyWrapper,
   "section-cards.blog": BlogsDataWrapper,
-  "section-features.home-features-list": HomeFeatureWrapper,
+  "section-features.home-features-list": CustomInterChange,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-cards.testimonials": pLevelpLevel,
   "section-separator.separator": CustomSeprater,
@@ -100,7 +100,7 @@ const componentsMap = computed(() => ({
   "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
   "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
-  "section-cta.banner": BannerWrapper,
+  "section-cta.banner": CustomBanner,
   "section-cta.plain-cta": GetDemoWrapper,
   "section-features.feature-list": PlatformSubTabsWrapper, //platform subpage (with bg image)
   "section-features.feature-sub-page-top-tabs": TabsWrapper, //solution sub page (without bg image )
