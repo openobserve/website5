@@ -133,9 +133,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="text-white">
+  <section class="text-white ">
     <!-- Tabs Section -->
-    <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
+    <div class="sticky-tabs flex justify-center  backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto">
         <!-- Left Shadow -->
         <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
@@ -163,7 +163,8 @@ onMounted(() => {
       <!-- Render all content from all tabs -->
       <div v-for="(tab, tabIndex) in items" :key="slugify(tab.title)" :ref="(el) => (contentRefs[tabIndex] = el)"
         class="mb-8 md:mb-0">
-        <CustomInterChange :key="slugify(tab.title)" :items="items" />
+        <CustomInterChange :key="slugify(tab.title)" :items="tab.items" :title="tab.title" :image="tab.image"
+          :direction="tabIndex % 2 === 0 ? 'left' : 'right'" />
       </div>
     </div>
   </section>
