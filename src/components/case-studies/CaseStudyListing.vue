@@ -51,13 +51,13 @@ const selectClient = (index) => {
             </p>
           </div>
           <!-- Button -->
-          <!-- <div class="gap-4 mt-3 lg:mt-0 w-full md:w-72 justify-center">
+          <div class="gap-4 mt-3 lg:mt-0 w-full md:w-72 justify-center">
             <CustomButton
               variant="secondary"
               buttonText="View Case Study"
-              buttonLink="/case-studies"
+              :buttonLink="currentItem?.link"
             />
-          </div> -->
+          </div>
         </div>
         <!-- case study image -->
         <div class="relative w-full lg:w-1/2 mt-4 md:mt-0">
