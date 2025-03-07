@@ -70,11 +70,11 @@ defineProps({
           class="w-full object-contain"
         />
       </div> -->
-      <div
-        class="flex items-center justify-center relative w-full h-[17vh] md:h-[60vh] bg-cover bg-center overflow-hidden bg-white">
-        <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div>
-        <img :src="bottomImage" class="absolute inset-0 w-full h-full object-center object-contain" />
-      </div>
+      <!-- <div
+        class="flex items-center justify-center  w-full  "> -->
+        <!-- <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div> -->
+        <img :src="bottomImage" class="object-center mx-auto object-cover max-h-[60vh] bg-white" />
+      <!-- </div> -->
     </div>
   </CustomSection>
 </template>
