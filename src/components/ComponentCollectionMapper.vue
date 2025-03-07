@@ -13,7 +13,7 @@ import FeatureCardWithIconWrapper from "./wrapper/FeatureCardWithIconWrapper.vue
 import UsecaseCardWithIconWrapper from "./wrapper/UsecaseCardWithIconWrapper.vue";
 import CustomTiels from "./cards/CustomTiles.vue";
 import CompanySwiper from "./core/CompanySwiper.vue";
-import CustomInterChange from "./core/CustomInterChange.vue";
+import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
 import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
@@ -87,7 +87,7 @@ const componentsMap = computed(() => ({
   "section-cards.clients": CompanySwiper,
   // "section-cards.case-studies": CaseStudyWrapper,
   "section-cards.blog": BlogsDataWrapper,
-  "section-features.home-features-list": CustomInterChange,
+  "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
   "section-cards.testimonials": pLevelpLevel,
   "section-separator.separator": CustomSeprater,
