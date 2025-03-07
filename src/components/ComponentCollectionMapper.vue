@@ -57,6 +57,7 @@ import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
 import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
+import CaseStudyListing from "./case-studies/CaseStudyListing.vue";
 
 const props = defineProps({
   data: {
@@ -139,6 +140,9 @@ const componentsMap = computed(() => ({
   "section-tabs.pricing-tabs": TierSwitcher,
   "section-features.key-feature-wrapper": KeyFeatureWrapper,
   "section-forms.download-contact-form": DemoForm,
+
+  //case-studies page
+  "section-cards.case-studies-section":CaseStudyListing
 }));
 
 const getComponentProps = (it) => {
