@@ -3,7 +3,7 @@ import { defineProps } from "vue";
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
-import CustomFeatureCardLandingPage from "../cards/CustomFeatureCardLandingPage.vue";
+import LandingCircularFrameCard from "../cards/LandingCircularFrameCard.vue";
 // Define props for dynamic data
 defineProps({
   heading: {
@@ -81,7 +81,7 @@ defineProps({
           ]">
             <div class="flex gap-4" v-for="(item, index) in items" :key="index" :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'
               ">
-              <CustomFeatureCardLandingPage :card="item" />
+              <LandingCircularFrameCard :card="item" />
             </div>
           </div>
         </div>
