@@ -11,11 +11,6 @@ const props = defineProps({
 
 // Define emit events
 const emit = defineEmits(["card-click"]);
-
-// Handle card click
-const handleCardClick = (slug) => {
-  emit("card-click", slug);
-};
 </script>
 
 <template>

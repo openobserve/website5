@@ -20,10 +20,6 @@ const props = defineProps({
   },
 });
 
-// Define methods
-function truncate(text, maxLength = 200) {
-  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
-}
 const dynamicComponent = props.items.link ? "a" : "div";
 </script>
 
