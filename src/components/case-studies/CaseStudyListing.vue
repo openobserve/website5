@@ -55,7 +55,7 @@ const selectClient = (index) => {
             <CustomButton
               variant="secondary"
               buttonText="View Case Study"
-              :buttonLink="currentItem?.link"
+              :buttonLink="`/case-studies/${currentItem?.link}`"
             />
           </div>
         </div>
