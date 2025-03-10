@@ -54,10 +54,6 @@ const onSubmit = handleSubmit(async (values) => {
 
   // Format message
   const finalMessage = `
-Company: ${values.company} </br>
-Job Title: ${values.jobTitle} </br>
-Deployment: ${values.deployment} </br>
-Data Volume: ${values.dataVolume} </br>
 Message: ${values.message}
   `.trim();
 
@@ -78,6 +74,10 @@ Message: ${values.message}
           senderPhone: values.phone,
           senderWebsite: "",
           senderMessage: finalMessage,
+          senderCompany: values.company,
+          senderJobTitle: values.jobTitle,
+          senderDeployment: values.deployment,
+          senderDataVolume: values.dataVolume,
         }),
       }
     );

@@ -49,8 +49,6 @@ const onSubmit = handleSubmit(async (values) => {
 
   // Combine fields into the message
   const finalMessage = `
-Company: ${values.company} <br/>
-Support Type: ${values.support} <br/>
 Message: ${values.message}
   `.trim();
 
@@ -71,6 +69,8 @@ Message: ${values.message}
           senderPhone: values.phone,
           senderWebsite: "",
           senderMessage: finalMessage,
+          senderCompany: values.company,
+          senderSupportType: values.support,
         }),
       }
     );
