@@ -1,5 +1,5 @@
 <script setup>
-import CustomRoundShape from "../core/CustomRoundShape.vue";
+import CircularFrame from "../core/CircularFrame.vue";
 
 const props = defineProps({
   card: {
@@ -32,7 +32,7 @@ const props = defineProps({
       <div class=" flex flex-col md:flex-row items-center md:items-start gap-6 ">
         <!-- Icon -->
         <div class=" h-14 w-14 flex-shrink-0">
-          <CustomRoundShape :imgSrc="card.image" iconSize="small" :borderColor="borderColor" size="small" />
+          <CircularFrame :imgSrc="card.image" iconSize="small" :borderColor="borderColor" size="small" />
         </div>
 
         <!-- Title & Description -->

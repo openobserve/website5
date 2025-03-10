@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import CustomRoundShape from "../core/CustomRoundShape.vue";
+import CircularFrame from "../core/CircularFrame.vue";
 
 // Define component props
 const props = defineProps({
@@ -32,7 +32,7 @@ const descriptionClasses = computed(() => `text-[12px] sm:text-[14px] md:text-[1
     <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-2">
       <!-- Icon -->
       <div class="w-14 h-14 flex-shrink-0">
-        <CustomRoundShape :imgSrc="card.image" iconSize="small" :borderColor="borderColor" size="small" />
+        <CircularFrame :imgSrc="card.image" iconSize="small" :borderColor="borderColor" size="small" />
       </div>
 
       <!-- Title & Description -->
