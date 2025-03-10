@@ -34,7 +34,7 @@ import CustomSeprater from "./core/CustomSeprater.vue";
 import PlatformSubTabsWrapper from "./core/PlatformSubTabsWrapper.vue";
 import SolutionSubpageHeroSection from "./heroSections/SolutionSubpageHeroSection.vue";
 import SolutionHeroSection from "./heroSections/SolutionHeroSection.vue";
-import CustomFeatureCardSubPage from "./cards/CustomFeatureCardSubpage.vue";
+import SubpageCircularFrameCard from "./cards/SubpageCircularFrameCard.vue";
 import CompanyJoinOOHeroSection from "./heroSections/CompanyJoinOOHeroSection.vue";
 import CustomOpenObserveCard from "./cards/CustomOpenObserveCard.vue";
 import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
@@ -108,7 +108,7 @@ const componentsMap = computed(() => ({
 
   "section-hero.solutions-hero-section": SolutionHeroSection, //SolutionPage hero section
   "section-hero.feature-solution-hero-section": SolutionSubpageHeroSection, //solution subpage hero section
-  "section-cards.feature-highlights": CustomFeatureCardSubPage,
+  "section-cards.feature-highlights": SubpageCircularFrameCard,
   "section-cta.call-to-action": VisitSandbox,
   "section-cards.features5": CustomCard,
   "section-cta.call-to-action": VisitSandbox,

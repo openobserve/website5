@@ -2,7 +2,7 @@
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
-import CustomFeatureCardLandingPage from "../cards/CustomFeatureCardLandingPage.vue";
+import LandingCircularFrameCard from "../cards/LandingCircularFrameCard.vue";
 
 const props = defineProps({
   heading: { type: Object, required: true },
@@ -58,7 +58,7 @@ const props = defineProps({
           <div :class="[`grid grid-cols-2 md:grid-cols-2 lg:grid-cols-${props.noOfGridColumn} gap-10 w-full`]">
             <div v-for="(item, index) in props.items" :key="index" class="flex gap-4"
               :class="layout === 'column' ? 'flex-col justify-start' : 'flex-row'">
-              <CustomFeatureCardLandingPage :card="item" />
+              <LandingCircularFrameCard :card="item" />
             </div>
           </div>
         </div>
