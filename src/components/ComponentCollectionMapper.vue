@@ -16,7 +16,7 @@ import CompanySwiper from "./core/CompanySwiper.vue";
 import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
-import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
+import CircularFrameCardWrapper from "./wrapper/CircularFrameCardWrapper.vue";
 import CustomTabsWithImage from "./core/CustomTabsWithImage.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
@@ -91,7 +91,7 @@ const componentsMap = computed(() => ({
   "section-cards.testimonials": pLevelpLevel,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
-  "section-cards.feature4": FeatureCardWrapper,
+  "section-cards.feature4": CircularFrameCardWrapper,
   "section-features.platform-tabs-wrapper": CustomTabsWithImage,
   "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
@@ -138,7 +138,7 @@ const componentsMap = computed(() => ({
   "section-forms.download-contact-form": DemoForm,
 
   //case-studies page
-  "section-cards.case-studies-section":CaseStudyListing
+  "section-cards.case-studies-section": CaseStudyListing
 }));
 
 const getComponentProps = (it) => {

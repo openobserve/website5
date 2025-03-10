@@ -1,5 +1,5 @@
 <script setup>
-import CustomFeatureCard from "../cards/CustomFeatureCard.vue";
+import CustomFeatureCard from "../cards/CircularFrameCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 const props = defineProps({
