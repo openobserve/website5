@@ -289,6 +289,11 @@
                     >Frequently Asked Questions</a
                   >
                 </li>
+                <li class="cursor-pointer">
+                  <a href="/case-studies" class="text-[#BEC0C2] text-base gradient-hover"
+                    >Case Studies and testimonials</a
+                  >
+                </li>
               </ul>
             </div>
             <!-- <div
