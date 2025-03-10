@@ -47,17 +47,11 @@ const props = defineProps({
 
 <template>
   <div
-    class="card-bg rounded-2xl p-8 flex flex-col h-full border border-[#2A2B2E] hover:border-[#3A3B3E] transition-colors"
-  >
+    class="card-bg rounded-2xl p-8 flex flex-col h-full border border-[#2A2B2E] hover:border-[#3A3B3E] transition-colors">
     <div class="flex flex-col items-center text-center">
       <!-- Icon -->
-      <div
-        class="w-12 h-12 mb-[4vh] flex items-center justify-center bg-[#2A2B2E] rounded-full"
-      >
-        <CustomImage
-          :image="card.image"
-          cssClass="w-6 h-6"
-        />
+      <div class="w-12 h-12 mb-[4vh] flex items-center justify-center bg-[#2A2B2E] rounded-full">
+        <CustomImage :image="card.image" cssClass="w-6 h-6" />
       </div>
 
       <div>
@@ -82,34 +76,17 @@ const props = defineProps({
       </div>
     </div>
 
+
     <div class="flex flex-row justify-center mt-5 space-x-2">
-      <div v-if="card?.primaryButton">
-        <CustomButton
-          variant="secondary"
-          :buttonText="card?.primaryButton?.text"
-          :buttonLink="card?.primaryButton?.link"
-        >
-          <CustomImage
-            cssClass="w-10 h-5"
-            v-if="card.primaryButton?.icon"
-            :image="card?.primaryButton?.icon"
-          />
-        </CustomButton>
-      </div>
-      <div v-if="card?.secondaryButton">
-        <CustomButton
-          variant="secondary"
-          :buttonText="card?.secondaryButton?.text"
-          :buttonLink="card?.secondaryButton?.link"
-        >
-          <CustomImage
-            cssClass="w-10 h-5"
-            v-if="card?.secondaryButton?.icon"
-            :image="card?.secondaryButton?.icon"
-          />
-        </CustomButton>
+      <div v-for="(button, type) in { primary: card?.primaryButton, secondary: card?.secondaryButton }" :key="type">
+        <div v-if="button">
+          <CustomButton variant="secondary" :buttonText="button.text" :buttonLink="button.link" :target="button.target">
+            <CustomImage v-if="button.icon" cssClass="w-10 h-5" :image="button.icon" />
+          </CustomButton>
+        </div>
       </div>
     </div>
+
   </div>
 </template>
 <style scoped>
