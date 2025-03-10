@@ -39,6 +39,16 @@ export async function getCaseStudies(params) {
 
   return caseStudies.slice(0, Math.min(3, caseStudies.length));
 }
+
+export async function getAllCaseStudies() {
+  const blogs = await getAllBlogs();
+  // Filter blogs where caseStudies is true
+  const caseStudies = blogs
+    .filter((blog) => blog.caseStudies === true)
+
+  return caseStudies;
+}
+
 export async function getBlogs(params) {
   const blogs = await getAllBlogs();
   // Filter blogs where caseStudies is true
