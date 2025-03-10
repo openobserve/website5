@@ -3,6 +3,7 @@ import { defineProps, ref, watch, defineEmits, onMounted, nextTick } from "vue";
 import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
+import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
 
@@ -12,13 +13,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  authors : {
+  authors: {
     type: Array,
-    required: true
+    required: true,
   },
   type: {
     type: String,
-  }
+  },
 });
 
 // Reactive variables
@@ -26,6 +27,8 @@ const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);
 const currentSection = ref("");
+const showPopup = ref(false);
+const popupImageSrc = ref("");
 
 /**
  * Remove frontmatter (metadata) from markdown content.
@@ -44,6 +47,7 @@ async function processMarkdown(markdownText) {
   htmlContent.value = marked(cleanedContent);
 
   await nextTick();
+  wrapImagesWithPopup();
   extractHeadingsFromHTML();
 }
 
@@ -118,8 +122,6 @@ async function addCopyButtons() {
   // Apply buttons to existing code blocks
   container.querySelectorAll("pre").forEach(addButtonToCodeBlock);
 
-
-
   // Observe for dynamically added code blocks
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -134,10 +136,40 @@ async function addCopyButtons() {
   observer.observe(container, { childList: true, subtree: true });
 }
 
-  /**
+/**
+ * Wrap images in a clickable container to trigger popup.
+ */
+async function wrapImagesWithPopup() {
+  await nextTick();
+  if (typeof window === "undefined") return;
+
+  const container = document.getElementById("blog-content");
+  if (!container) return;
+
+  container.querySelectorAll("img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openPopup(img.src));
+  });
+}
+function openPopup(src) {
+ popupImageSrc.value = src;
+  showPopup.value = true;
+  window.addEventListener("keydown", handleKeydown);
+}
+function closePopup() {
+  showPopup.value = false;
+  popupImageSrc.value = "";
+  window.removeEventListener("keydown", handleKeydown);
+}
+function handleKeydown(event) {
+  if (event.key === "Escape") {
+    closePopup();
+  }
+}
+/**
  * Wrap tables in a scrollable div.
  */
- async function wrapTablesWithScroll() {
+async function wrapTablesWithScroll() {
   await nextTick(); // Ensure DOM updates first
   if (typeof window === "undefined") return; // Avoid SSR issues
 
@@ -189,6 +221,7 @@ watch(
     extractHeadingsFromHTML();
     addCopyButtons();
     observeHeadings(); // Observe headings on content change
+    wrapImagesWithPopup();
     wrapTablesWithScroll();
   },
   { immediate: true }
@@ -201,6 +234,7 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
+  wrapImagesWithPopup();
 });
 </script>
 
@@ -211,18 +245,14 @@ onMounted(() => {
     >
       <!-- Rendered Markdown Content -->
       <div class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none">
-        <div
-          id="blog-content"
-          class=""
-        >
-        <div
+        <div id="blog-content" class="">
+          <div
             v-html="htmlContent"
-            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words 
-                   prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
+            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
           ></div>
         </div>
         <div class="py-3">
-          <SingleAuthorDetails :type=type :authors="authors" client:load />
+          <SingleAuthorDetails :type="type" :authors="authors" client:load />
         </div>
       </div>
       <!-- Table of Contents -->
@@ -231,6 +261,26 @@ onMounted(() => {
       </div>
     </div>
   </CustomSection>
+  <!-- Image Popup (Updated as per your CSS) -->
+  <div
+    v-if="showPopup"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closePopup"
+  >
+    <button
+      class="absolute top-3 right-3 text-white cursor-pointer z-50"
+      @click="closePopup"
+    >
+      ✖
+    </button>
+    <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
+      <CustomImage
+        :src="popupImageSrc"
+        class="w-full max-h-[90vh] object-contain"
+        @click.stop
+      />
+    </div>
+  </div>
 </template>
 <style scoped>
 .table-wrapper {
@@ -256,4 +306,3 @@ onMounted(() => {
   font-weight: bold;
 }
 </style>
-
