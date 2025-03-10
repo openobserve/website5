@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
+import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
+import {
+  getAllBlogs,
+  getAllCaseStudies,
+  getAuthorDetails,
+  getBlogsBySlug,
+  getCaseStudies,
+} from "@/utils/api/blogs";
+import { fetchBannerData } from "../../utils/api/globalApi";
+
+export async function getStaticPaths() {
+  const slugs = await getAllCaseStudies();
+  return slugs.map((it: any) => ({
+    params: { slug: it.slug },
+  }));
+}
+
+const { slug }: any = Astro.params;
+const SlugData = (await getBlogsBySlug(slug)) || {};
+const authorsSlugs = SlugData.authors || [];
+
+const author = await Promise.all(
+  authorsSlugs.map(async (authorSlug) => {
+    return await getAuthorDetails(authorSlug.slug);
+  })
+);
+const BannerData = await fetchBannerData();
+const loadcaseStudyData = await getCaseStudies();
+const metaObj = {
+  title: SlugData?.title,
+};
+---
+
+<Layout metaObj={metaObj}>
+  <BlogDetailsHeroSectionWrapper
+    type="blog"
+    title={SlugData?.title}
+    bottomImage={SlugData?.image?.url || SlugData?.image?.url}
+    client:load
+    suggestions={SlugData?.categories || []}
+    activity={[
+      author[0].name,
+      new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }).format(new Date(SlugData?.publishDate)),
+    ]}
+  />
+  <BlogDetailContentWrapper
+    :type="blog"
+    client:load
+    content={SlugData?.content}
+    authors={author}
+  />
+  <BannerWrapper
+    title={BannerData?.data?.title}
+    description={BannerData?.data?.description}
+    heading={BannerData?.data?.heading}
+    primaryButton={BannerData?.data?.primaryButton}
+    secondaryButton={BannerData?.data?.secondaryButton}
+    bottomText={BannerData?.data?.bottomText}
+    items={BannerData?.data?.items}
+    featureTitle={BannerData?.data?.featureTitle}
+    monthlyText={BannerData?.data?.monthlyText}
+    componentId={BannerData?.data?.componentId}
+    client:load
+  />
+
+  <!-- <div class="py-5">
+    <BlogsDataWrapper
+      items={loadcaseStudyData}
+      client:load
+      primaryButton={{
+        text: "See All Blogs",
+        link: "/blog",
+      }}
+    />
+  </div> -->
+</Layout>

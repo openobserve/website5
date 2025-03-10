@@ -23,7 +23,7 @@ const props = defineProps({
     required: true,
   },
 });
-const isMobile = computed(() => width.value < 640); // `sm` breakpoint
+
 </script>
 
 <template>

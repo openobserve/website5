@@ -1,69 +1,37 @@
 <template>
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50">
-    <div
-      class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2"
-    >
+    <div class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2">
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full">
-          <li
-            class="relative"
-            @mouseenter="onPlatformMenuHover"
-            @mouseleave="onPlatformMenuMouseLeave"
-          >
-            <a
-              href="/platform"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
-            >
+          <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
+            <a href="/platform" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Platform
             </a>
           </li>
-          <li
-            class="relative"
-            @mouseenter="onSolutionMenuHover"
-            @mouseleave="onSolutionMenuMouseLeave"
-          >
-            <a
-              href="/solutions"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
-            >
+          <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
+            <a href="/solutions" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Solutions
             </a>
           </li>
-          <li
-            class="relative"
-            @mouseenter="onResourcesMenuHover"
-            @mouseleave="onResourcesMenuMouseLeave"
-          >
-            <a
-              href="/resources"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
-            >
+          <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
+            <a href="/resources" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Resources
             </a>
           </li>
-          <li
-            class="relative"
-            @mouseenter="onCompanyMenuHover"
-            @mouseleave="onCompanyMenuMouseLeave"
-          >
-            <a
-              href="/about"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'"
-            >
+          <li class="relative" @mouseenter="onCompanyMenuHover" @mouseleave="onCompanyMenuMouseLeave">
+            <a href="/about" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+              :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Company
             </a>
           </li>
           <li class="relative">
-            <a
-              href="/downloads"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50"
-            >
+            <a href="/downloads"
+              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50">
               Downloads
             </a>
           </li>
@@ -81,33 +49,15 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <a
-          class="rounded-[4px] transition flex items-center border border-[#3d444d]"
-          href="https://short.openobserve.ai/community"
-          target="_blank"
-        >
-          <img
-            src="/img/icon/slackIcon.svg"
-            alt="Search Icon"
-            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
-          />
+        <a class="rounded-[4px] transition flex items-center border border-[#3d444d]"
+          href="https://short.openobserve.ai/community" target="_blank">
+          <img src="/img/icon/slackIcon.svg" alt="Search Icon"
+            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1" />
         </a>
         <!-- GitHub Stats Section -->
-        <GithubButton
-          href="https://github.com/openobserve/openobserve"
-          data-color-scheme="dark"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star openobserve/openobserve on GitHub"
-          class="pt-1.5"
-          >Star</GithubButton
-        >
-        <CustomButton
-          variant="secondary"
-          size="small"
-          buttonLink="https://cloud.openobserve.ai"
-          target="_blank"
-        >
+        <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="dark" data-size="large"
+          data-show-count="true" aria-label="Star openobserve/openobserve on GitHub" class="pt-1.5">Star</GithubButton>
+        <CustomButton variant="secondary" size="small" buttonLink="https://cloud.openobserve.ai" target="_blank">
           LOG IN
         </CustomButton>
         <CustomButton variant="primary" size="small" buttonLink="/demo">
@@ -116,49 +66,30 @@
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div
-      class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
-      v-if="isPlatformMenuOpen"
-      @mouseenter="onPlatformMenuHover"
-    >
+    <div class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
+      v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
           <a class="text-xl font-bold text-[#FFFFFF]">
             {{ items.platform.title }}
           </a>
-          <div
-            class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4"
-          >
-            <div
-              class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
-            >
+          <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
+            <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               <div v-for="(item, index) in items.platform.items" :key="index">
-                <SectionHeader
-                  :title="item.title"
-                  :items="item.items"
-                  :link="item.link"
-                />
+                <SectionHeader :title="item.title" :items="item.items" :link="item.link" />
               </div>
             </div>
             <div class="flex flex-col space-y-1 w-full md:w-1/3">
-              <a
-                :href="items?.platform?.keyFeature?.link"
-                class="text-[#FFFFFF] text-base font-semibold gradient-hover"
-              >
+              <a :href="items?.platform?.keyFeature?.link"
+                class="text-[#FFFFFF] text-base font-semibold gradient-hover">
                 {{ items.platform.keyFeature.title }}
               </a>
               <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
                 <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
                 <ul class="space-y-1 xl:space-y-2">
-                  <li
-                    v-for="(item, index) in items.platform.keyFeature.items"
-                    :key="index"
-                    class="text-[#BEC0C2] text-sm"
-                  >
-                    <a
-                      :href="`/key-features#${slugify(item.title)}`"
-                      :class="item.title ? 'gradient-hover' : ''"
-                    >
+                  <li v-for="(item, index) in items.platform.keyFeature.items" :key="index"
+                    class="text-[#BEC0C2] text-sm">
+                    <a :href="`/key-features#${slugify(item.title)}`" :class="item.title ? 'gradient-hover' : ''">
                       {{ item.title }}
                     </a>
                   </li>
@@ -168,26 +99,17 @@
           </div>
           <div class="flex flex-row gap-2 mt-6 w-4/5">
             <div class="w-[55%]">
-              <CustomHeaderButton
-                title="Full Stack Observability Platform"
-                linkTitle="View Platform"
-                link="/platform"
-              />
+              <CustomHeaderButton title="Full Stack Observability Platform" linkTitle="View Platform"
+                link="/platform" />
             </div>
-            <a
-              href="/pricing"
-              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer"
-              >Pricing</a
-            >
+            <a href="/pricing"
+              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer">Pricing</a>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div
-      class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] container mx-auto"
-      v-if="isSolutionMenuOpen"
-      @mouseenter="onSolutionMenuHover"
-    >
+    <div class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] container mx-auto"
+      v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4 p-4">
@@ -196,16 +118,8 @@
               <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4">
-                  <li
-                    v-for="(item, index) in items.solutions.useCases"
-                    :key="index"
-                    class="text-[#BEC0C2] text-sm"
-                  >
-                    <a
-                      :href="`/solutions/${item.link}`"
-                      :class="item.link ? 'gradient-hover' : ''"
-                      >{{ item.title }}</a
-                    >
+                  <li v-for="(item, index) in items.solutions.useCases" :key="index" class="text-[#BEC0C2] text-sm">
+                    <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
                   </li>
                 </ul>
               </div>
@@ -216,16 +130,9 @@
                 <h4 class="text-[#FFFFFF] text-base font-semibold">By Team</h4>
                 <div>
                   <ul class="flex flex-col space-y-4">
-                    <li
-                      v-for="(item, index) in items.solutions.byTeam"
-                      :key="index"
-                      class="text-[#BEC0C2] text-sm"
-                    >
-                      <a
-                        :href="`/solutions/${item.link}`"
-                        :class="item.link ? 'gradient-hover' : ''"
-                        >{{ item.title }}</a
-                      >
+                    <li v-for="(item, index) in items.solutions.byTeam" :key="index" class="text-[#BEC0C2] text-sm">
+                      <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title
+                      }}</a>
                     </li>
                   </ul>
                 </div>
@@ -240,21 +147,15 @@
           </div>
           <div class="flex justify-center">
             <div class="w-4/5 xl:w-[60%]">
-              <CustomHeaderButton
-                title="Full Stack Observability Solutions"
-                linkTitle="View Solutions"
-                link="/solutions"
-              />
+              <CustomHeaderButton title="Full Stack Observability Solutions" linkTitle="View Solutions"
+                link="/solutions" />
             </div>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div
-      class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] container mx-auto"
-      v-if="isResourcesMenuOpen"
-      @mouseenter="onResourcesMenuHover"
-    >
+    <div class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] container mx-auto"
+      v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
@@ -271,28 +172,19 @@
                 </li>
               </ul> -->
               <ul class="flex flex-col space-y-2">
-                <li class="cursor-pointer text-[#BEC0C2] text-bas gradient-hover">
-                  <a
-                    href="https://openobserve.ai/docs/"
-                    class="text-[#BEC0C2] text-base gradient-hover"
-                    target="_blank"
-                    >Documentation</a
-                  >
+                <li class="cursor-pointer text-[#BEC0C2] text-base gradient-hover">
+                  <a href="https://openobserve.ai/docs/" class="text-[#BEC0C2] text-sm gradient-hover"
+                    target="_blank">Documentation</a>
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/blog" class="text-[#BEC0C2] text-base gradient-hover"
-                    >Blog</a
-                  >
+                  <a href="/blog" class="text-[#BEC0C2] text-sm gradient-hover">Blog</a>
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/faqs" class="text-[#BEC0C2] text-base gradient-hover"
-                    >Frequently Asked Questions</a
-                  >
+                  <a href="/faqs" class="text-[#BEC0C2] text-sm gradient-hover">Frequently Asked Questions</a>
                 </li>
                 <li class="cursor-pointer">
-                  <a href="/case-studies" class="text-[#BEC0C2] text-base gradient-hover"
-                    >Case Studies and testimonials</a
-                  >
+                  <a href="/case-studies" class="text-[#BEC0C2] text-sm gradient-hover">Case Studies and
+                    testimonials</a>
                 </li>
               </ul>
             </div>
@@ -317,28 +209,17 @@
           </div>
           <div class="flex justify-center">
             <div class="w-full">
-              <CustomHeaderButton
-                title="Check out our resource library"
-                linkTitle="View Resources"
-                link="/resources"
-              />
+              <CustomHeaderButton title="Check out our resource library" linkTitle="View Resources" link="/resources" />
             </div>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div
-      class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto"
-      v-if="isCompanyMenuOpen"
-      @mouseenter="onCompanyMenuHover"
-    >
+    <div class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto" v-if="isCompanyMenuOpen"
+      @mouseenter="onCompanyMenuHover">
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
-          <li
-            v-for="(item, index) in items?.company?.items"
-            :key="index"
-            class="text-[#BEC0C2] text-sm"
-          >
+          <li v-for="(item, index) in items?.company?.items" :key="index" class="text-[#BEC0C2] text-sm">
             <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
               item.title
             }}</a>
@@ -365,20 +246,13 @@
         </ul>
       </CustomHoverHeader>
     </div> -->
-    <div
-      class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2"
-      v-if="isOpenSearch"
-      @click.stop
-    >
+    <div class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2" v-if="isOpenSearch"
+      @click.stop>
       <div
-        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
-      >
+        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer">
         <img src="/img/icon/search.svg" alt="Search Icon" class="" />
-        <input
-          type="text"
-          class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
-          placeholder="Search here"
-        />
+        <input type="text" class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
+          placeholder="Search here" />
         <button @click="isOpenSearch = false" class="text-white">
           <img src="/img/icon/close.svg" alt="Search Icon" class="" />
         </button>
@@ -520,11 +394,9 @@ onUnmounted(() => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(
-    to left,
-    rgb(var(--blue-light)),
-    rgb(var(--blue-dark))
-  );
+  background: linear-gradient(to left,
+      rgb(var(--blue-light)),
+      rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -535,10 +407,12 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;
 }
+
 /* 
 .glass-card {
   position: relative;

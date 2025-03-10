@@ -15,32 +15,13 @@
               class="cursor-pointer w-full h-full object-cover p-2.5"
             />
           </div> -->
-          <a
-            class="rounded-md transition flex items-center border -mt-0.5 border-[#3d444d]"
-            href="https://short.openobserve.ai/community"
-            target="_blank"
-          >
-            <img
-              src="/img/icon/slackIcon.svg"
-              alt="Slack Icon"
-              class="cursor-pointer w-5 h-5 object-cover p-1"
-            />
+          <a class="rounded-md transition flex items-center border -mt-0.5 border-[#3d444d]"
+            href="https://short.openobserve.ai/community" target="_blank">
+            <img src="/img/icon/slackIcon.svg" alt="Slack Icon" class="cursor-pointer w-5 h-5 object-cover p-1" />
           </a>
-          <GithubButton
-            href="https://github.com/openobserve/openobserve"
-            data-color-scheme="dark"
-            data-size="small"
-            data-show-count="false"
-            aria-label="Star openobserve/openobserve on GitHub"
-            class=""
-            >Star</GithubButton
-          >
-          <a
-            href="https://cloud.openobserve.ai"
-            class="text-white text-xs"
-            target="_blank"
-            >LOG IN</a
-          >
+          <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="dark" data-size="small"
+            data-show-count="false" aria-label="Star openobserve/openobserve on GitHub" class="">Star</GithubButton>
+          <a href="https://cloud.openobserve.ai" class="text-white text-xs" target="_blank">LOG IN</a>
           <!-- <CustomButton
             variant="tertiary"
             size="small"
@@ -49,34 +30,18 @@
             btn-class="p-0"
             >LOG IN</CustomButton
           > -->
-          <div
-            class="cursor-pointer h-7 w-7 flex items-center"
-            @click="onMenuClick"
-          >
-            <img
-              :src="
-                isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'
-              "
-              alt="Mobile View Menu Icon"
-              class=""
-            />
+          <div class="cursor-pointer h-7 w-7 flex items-center" @click="onMenuClick">
+            <img :src="isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'
+              " alt="Mobile View Menu Icon" class="" />
           </div>
         </div>
       </div>
-      <div
-        class="absolute top-full left-0 right-0 bg-[#23282C] rounded-lg p-3 w-full"
-        v-if="isOpenSearch"
-        @click.stop
-      >
+      <div class="absolute top-full left-0 right-0 bg-[#23282C] rounded-lg p-3 w-full" v-if="isOpenSearch" @click.stop>
         <div
-          class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
-        >
+          class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer">
           <img src="/img/icon/search.svg" alt="Search Icon" class="" />
-          <input
-            type="text"
-            class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-white"
-            placeholder="Search here"
-          />
+          <input type="text" class="w-full bg-transparent focus:outline-none text-white text-sm placeholder-white"
+            placeholder="Search here" />
           <button @click="isOpenSearch = false" class="text-white">
             <img src="/img/icon/close.svg" alt="close Icon" class="" />
           </button>
@@ -84,32 +49,17 @@
       </div>
       <div v-if="isMenuOpen" class="w-full h-screen bg-black">
         <!-- Main Menu -->
-        <div
-          v-if="!activeSubMenu"
-          class="w-full h-full flex flex-col items-center space-y-4 bg-black overflow-y-auto"
-        >
+        <div v-if="!activeSubMenu" class="w-full h-full flex flex-col items-center space-y-4 bg-black overflow-y-auto">
           <ul class="w-full flex flex-col space-y-4 p-4">
-            <li
-              v-for="(item, index) in navHeading"
-              :key="index"
-              class="flex flex-col space-y-4"
-            >
-              <div
-                class="flex flex-row items-center justify-between w-full cursor-pointer"
-                @click="onSubMenuClick(item)"
-              >
+            <li v-for="(item, index) in navHeading" :key="index" class="flex flex-col space-y-4">
+              <div class="flex flex-row items-center justify-between w-full cursor-pointer"
+                @click="onSubMenuClick(item)">
                 <h4 class="text-gray-300 text-lg md:text-xl font-semibold">
                   {{ item }}
                 </h4>
-                <img
-                  src="/img/icon/subMenuIcon.svg"
-                  alt="Arrow Icon"
-                  class="w-4 h-4"
-                />
+                <img src="/img/icon/subMenuIcon.svg" alt="Arrow Icon" class="w-4 h-4" />
               </div>
-              <div
-                class="w-full flex justify-center h-0.5"
-                style="
+              <div class="w-full flex justify-center h-0.5" style="
                   background: linear-gradient(
                     90deg,
                     rgba(1, 1, 1, 0) 0%,
@@ -117,72 +67,41 @@
                     #595d62 70%,
                     rgba(1, 1, 1, 0) 100%
                   );
-                "
-              ></div>
+                "></div>
             </li>
           </ul>
-          <div
-            class="flex flex-col justify-center w-full items-center space-y-4 pt-20 mx-auto px-10"
-          >
-            <CustomButton
-              class="w-full"
-              variant="secondary"
-              size="large"
-              buttonLink="/downloads"
-              >DOWNLOADS</CustomButton
-            >
-            <CustomButton
-              class="w-full"
-              variant="primary"
-              size="large"
-              buttonLink="/demo"
-              >GET DEMO</CustomButton
-            >
+          <div class="flex flex-col justify-center w-full items-center space-y-4 pt-20 mx-auto px-10">
+            <CustomButton class="w-full" variant="secondary" size="large" buttonLink="/downloads">DOWNLOADS
+            </CustomButton>
+            <CustomButton class="w-full" variant="primary" size="large" buttonLink="/demo">GET DEMO</CustomButton>
           </div>
         </div>
 
         <!-- Submenu Content -->
         <!-- <div style="background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg')" class="bg-cover bg-no-repeat top-1/2" ></div> -->
-        <div
-          v-if="activeSubMenu"
-          style="
+        <div v-if="activeSubMenu" style="
             background-image:
               url(&quot;/img/bg/gradient-bg/mobilenavBg1.svg&quot;),
               url(&quot;/img/bg/gradient-bg/mobilenavBg2.svg.svg&quot;);
             background-position: top, bottom;
             background-repeat: no-repeat, no-repeat;
             background-size: cover, cover;
-          "
-          class="h-[calc(100svh-60px)] w-full text-white overflow-y-auto"
-        >
+          " class="h-[calc(100svh-60px)] w-full text-white overflow-y-auto">
           <div class="flex items-center px-4 py-2">
             <button class="text-gray-300" @click="closeSubMenu">
-              <img
-                src="/img/icon/NavBack.svg"
-                alt="Back Icon"
-                class="w-5 h-5"
-              />
+              <img src="/img/icon/NavBack.svg" alt="Back Icon" class="w-5 h-5" />
             </button>
             <h4 class="text-[#BEC0C2] text-2xl font-semibold ml-2">
               {{ activeSubMenu }}
             </h4>
           </div>
           <div class="p-4 h-full">
-            <div
-              v-show="activeSubMenu === 'Platform'"
-              class="flex flex-col space-y-4"
-            >
+            <div v-show="activeSubMenu === 'Platform'" class="flex flex-col space-y-4">
               <div class="flex flex-col items-center justify-between space-y-4">
-                <CustomHeaderButton
-                  title="Full Stack Observability Platform"
-                  linkTitle="View Platform"
-                  link="/platform"
-                />
-                <a
-                  class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
-                  href="/pricing"
-                  >Pricing</a
-                >
+                <CustomHeaderButton title="Full Stack Observability Platform" linkTitle="View Platform"
+                  link="/platform" />
+                <a class="p-4 bg-black bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center cursor-pointer"
+                  href="/pricing">Pricing</a>
               </div>
               <div class="flex justify-center">
                 <h3 class="text-xl font-bold pb-2 text-[#FFFFFF]">
@@ -191,32 +110,20 @@
               </div>
               <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div v-for="(item, index) in items.platform.items" :key="index">
-                  <SectionHeader
-                    :title="item.title"
-                    :items="item.items"
-                    :link="item.link"
-                  />
+                  <SectionHeader :title="item.title" :items="item.items" :link="item.link" />
                 </div>
               </div>
               <div class="flex flex-col justify-center items-center space-y-1">
-                <a
-                  :href="items?.platform?.keyFeature?.link"
-                  class="text-[#FFFFFF] text-base font-semibold gradient-hover"
-                >
+                <a :href="items?.platform?.keyFeature?.link"
+                  class="text-[#FFFFFF] text-base font-semibold gradient-hover">
                   {{ items.platform.keyFeature.title }}
                 </a>
                 <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
                   <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
                   <ul class="space-y-1 xl:space-y-2">
-                    <li
-                      v-for="(item, index) in items.platform.keyFeature.items"
-                      :key="index"
-                      class="text-[#BEC0C2] text-sm"
-                    >
-                      <a
-                        :href="`/key-features#${slugify(item.title)}`"
-                        :class="item.title ? 'gradient-hover' : ''"
-                      >
+                    <li v-for="(item, index) in items.platform.keyFeature.items" :key="index"
+                      class="text-[#BEC0C2] text-sm">
+                      <a :href="`/key-features#${slugify(item.title)}`" :class="item.title ? 'gradient-hover' : ''">
                         {{ item.title }}
                       </a>
                     </li>
@@ -224,29 +131,17 @@
                 </div>
               </div>
             </div>
-            <div
-              v-show="activeSubMenu === 'Solutions'"
-              class="flex flex-col space-y-4"
-            >
-              <CustomHeaderButton
-                title="Full Stack Observability Solutions"
-                linkTitle="View Solutions"
-                link="/solutions"
-              />
+            <div v-show="activeSubMenu === 'Solutions'" class="flex flex-col space-y-4">
+              <CustomHeaderButton title="Full Stack Observability Solutions" linkTitle="View Solutions"
+                link="/solutions" />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
                 <div class="mt-3">
                   <ul class="grid grid-cols-1 gap-2">
-                    <li
-                      v-for="(item, index) in items.solutions.useCases"
-                      :key="index"
-                      class="text-theme-secondaryFont text-base"
-                    >
-                      <a
-                        :href="`/solutions/${item.link}`"
-                        :class="item?.link ? 'gradient-hover' : ''"
-                        >{{ item.title }}</a
-                      >
+                    <li v-for="(item, index) in items.solutions.useCases" :key="index"
+                      class="text-theme-secondaryFont text-base">
+                      <a :href="`/solutions/${item.link}`" :class="item?.link ? 'gradient-hover' : ''">{{ item.title
+                        }}</a>
                     </li>
                   </ul>
                 </div>
@@ -256,16 +151,10 @@
                   </h4>
                   <div>
                     <ul class="flex flex-col space-y-2">
-                      <li
-                        v-for="(item, index) in items.solutions.byTeam"
-                        :key="index"
-                        class="text-theme-secondaryFont text-base"
-                      >
-                        <a
-                          :href="`/solutions/${item.link}`"
-                          :class="item.link ? 'gradient-hover' : ''"
-                          >{{ item.title }}</a
-                        >
+                      <li v-for="(item, index) in items.solutions.byTeam" :key="index"
+                        class="text-theme-secondaryFont text-base">
+                        <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title
+                          }}</a>
                       </li>
                     </ul>
                   </div>
@@ -277,15 +166,9 @@
                 </div>
               </div>
             </div>
-            <div
-              v-show="activeSubMenu === 'Resources'"
-              class="flex flex-col space-y-4"
-            >
-              <CustomHeaderButton
-                title="Full Stack Observability Resources"
-                linkTitle="View Resources"
-                link="/resources"
-              />
+            <div v-show="activeSubMenu === 'Resources'" class="flex flex-col space-y-4">
+              <CustomHeaderButton title="Full Stack Observability Resources" linkTitle="View Resources"
+                link="/resources" />
               <div class="flex flex-col space-y-3">
                 <div>
                   <!-- <ul
@@ -301,27 +184,19 @@
                   </ul> -->
                   <ul class="flex flex-col space-y-2">
                     <li class="cursor-pointer">
-                      <a
-                        href="https://openobserve.ai/docs/"
-                        class="text-lg font-bold gradient-hover"
-                        target="_blank"
-                        >Documentation</a
-                      >
+                      <a href="https://openobserve.ai/docs/" class="text-theme-secondaryFont text-base gradient-hover"
+                        target="_blank">Documentation</a>
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/blog" class="text-lg font-bold gradient-hover"
-                        >Blog</a
-                      >
+                      <a href="/blog" class="text-theme-secondaryFont text-base gradient-hover">Blog</a>
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/faqs" class="text-lg font-bold gradient-hover"
-                        >Frequently Asked Questions</a
-                      >
+                      <a href="/faqs" class="text-theme-secondaryFont text-base gradient-hover">Frequently Asked
+                        Questions</a>
                     </li>
                     <li class="cursor-pointer">
-                      <a href="/case-studies" class="text-lg font-bold gradient-hover"
-                        >Case Studies and testimonials</a
-                      >
+                      <a href="/case-studies" class="text-theme-secondaryFont text-base gradient-hover">Case Studies and
+                        testimonials</a>
                     </li>
                   </ul>
                 </div>
@@ -343,21 +218,11 @@
                 </div> -->
               </div>
             </div>
-            <div
-              v-show="activeSubMenu === 'Company'"
-              class="flex flex-col space-y-4"
-            >
+            <div v-show="activeSubMenu === 'Company'" class="flex flex-col space-y-4">
               <ul class="flex flex-col space-y-3">
-                <li
-                  v-for="(item, index) in items?.company?.items"
-                  :key="index"
-                  class="text-theme-secondaryFont text-base"
-                >
-                  <a
-                    :href="item.link"
-                    :class="item.link ? 'gradient-hover' : ''"
-                    >{{ item.title }}</a
-                  >
+                <li v-for="(item, index) in items?.company?.items" :key="index"
+                  class="text-theme-secondaryFont text-base">
+                  <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
                 </li>
               </ul>
             </div>
@@ -430,6 +295,7 @@ onUnmounted(() => {
   border: 1px solid #313539;
   border-radius: 0.5rem;
 }
+
 .gradient-hover {
   display: inline-block;
 }
@@ -439,6 +305,7 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;

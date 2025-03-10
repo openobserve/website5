@@ -95,10 +95,7 @@ Message: ${values.message}
   }
 });
 
-const navigateToTerms = (e) => {
-  e.preventDefault();
-  window.location.assign("/policies/terms-of-service"); // Update with your terms page URL
-};
+
 </script>
 <!-- SampleForm.vue -->
 <template>
@@ -162,7 +159,7 @@ const navigateToTerms = (e) => {
             <option value="self-hosted">Self Hosted</option>
           </select>
           <span v-if="deployment.errorMessage.value" class="text-xs text-red-500">{{ deployment.errorMessage.value
-            }}</span>
+          }}</span>
         </div>
 
         <div>
@@ -172,13 +169,13 @@ const navigateToTerms = (e) => {
           <select id="dataVolume" v-model="dataVolume.value.value" name="dataVolume"
             class="w-full bg-[#23282C] text-gray-200 border border-[#43484C] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="" hidden disabled>Select Data Volume type</option>
-            <option value="small">
+            <option value="< 100GB/day">
               < 100GB/day</option>
-            <option value="medium">100GB - 1TB/day</option>
-            <option value="large">> 1TB/day</option>
+            <option value="100GB - 1TB/day">100GB - 1TB/day</option>
+            <option value="> 1TB/day">> 1TB/day</option>
           </select>
           <span v-if="dataVolume.errorMessage.value" class="text-xs text-red-500">{{ dataVolume.errorMessage.value
-            }}</span>
+          }}</span>
         </div>
 
         <!-- Message -->
