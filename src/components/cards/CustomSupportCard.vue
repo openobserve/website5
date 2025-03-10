@@ -79,39 +79,27 @@ const props = defineProps({
           </div>
         </div>
 
+
+
         <div class="flex flex-row justify-center mt-5 space-x-2">
-          <div v-if="item?.primaryButton">
-            <CustomButton variant="secondary" :buttonText="item?.primaryButton?.text"
-              :buttonLink="item?.primaryButton?.link">
-              <CustomImage cssClass="w-10 h-5" v-if="item.primaryButton?.icon" :image="item?.primaryButton?.icon" />
+          <div v-if="card?.primaryButton">
+            <CustomButton variant="secondary" :buttonText="card?.primaryButton?.text"
+              :buttonLink="card?.primaryButton?.link" :target="card?.primaryButton?.target">
+              <CustomImage cssClass="w-10 h-5" v-if="card.primaryButton?.icon" :image="card?.primaryButton?.icon" />
             </CustomButton>
           </div>
-          <div v-if="item?.secondaryButton">
-            <CustomButton variant="secondary" :buttonText="item?.secondaryButton?.text"
-              :buttonLink="item?.secondaryButton?.link">
-              <CustomImage cssClass="w-10 h-5" v-if="item?.secondaryButton?.icon"
-                :image="item?.secondaryButton?.icon" />
+          <div v-if="card?.secondaryButton">
+            <CustomButton variant="secondary" :buttonText="card?.secondaryButton?.text"
+              :buttonLink="card?.secondaryButton?.link" :target="card?.secondaryButton?.target">
+              <CustomImage cssClass="w-10 h-5" v-if="card?.secondaryButton?.icon"
+                :image="card?.secondaryButton?.icon" />
             </CustomButton>
           </div>
         </div>
       </div>
     </div>
+  </CustomSection>
 
-    <div class="flex flex-row justify-center mt-5 space-x-2">
-      <div v-if="card?.primaryButton">
-        <CustomButton variant="secondary" :buttonText="card?.primaryButton?.text"
-          :buttonLink="card?.primaryButton?.link" :target="card?.primaryButton?.target">
-          <CustomImage cssClass="w-10 h-5" v-if="card.primaryButton?.icon" :image="card?.primaryButton?.icon" />
-        </CustomButton>
-      </div>
-      <div v-if="card?.secondaryButton">
-        <CustomButton variant="secondary" :buttonText="card?.secondaryButton?.text"
-          :buttonLink="card?.secondaryButton?.link" :target="card?.secondaryButton?.target">
-          <CustomImage cssClass="w-10 h-5" v-if="card?.secondaryButton?.icon" :image="card?.secondaryButton?.icon" />
-        </CustomButton>
-      </div>
-    </div>
-  </div>
 </template>
 <style scoped>
 .car-bg {
