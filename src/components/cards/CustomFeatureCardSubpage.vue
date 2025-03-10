@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import CustomRoundShapeSubPage from "../core/CustomRoundShapeSubPage.vue";
+import SubPageCircularFrame from "../core/SubPageCircularFrame.vue";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
@@ -33,7 +33,7 @@ const swiperOptions = {
       <!-- Desktop Layout (Flexbox) -->
       <div class="relative hidden lg:flex flex-row w-full justify-center mt-10 px-3 gap-4">
         <div v-for="(item, index) in items" :key="index" class="flex flex-row gap-2">
-          <CustomRoundShapeSubPage :imgSrc="item.image" iconSize="small" size="small" class="shrink-0" />
+          <SubPageCircularFrame :imgSrc="item.image" iconSize="small" size="small" class="shrink-0" />
           <div class="flex flex-col items-start">
             <h2 class="font-semibold text-2xl mb-2 text-white">
               {{ item.title }}
