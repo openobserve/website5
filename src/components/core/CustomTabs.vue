@@ -13,6 +13,9 @@ const props = defineProps({
 
 const activeTabIndex = ref(0);
 const contentRefs = ref([]);
+const tabsContainer = ref(null);
+const showLeftShadow = ref(false);
+const showRightShadow = ref(false);
 
 // Method to set the active tab by index and update the URL hash
 const setActiveTab = (index, slug) => {
@@ -25,6 +28,44 @@ const setActiveTab = (index, slug) => {
       block: "start",
     });
   }
+
+  // Ensure the selected tab scrolls into view inside the tab container
+  // scrollActiveTabIntoView();
+};
+
+// Function to scroll active tab into view horizontally
+const scrollActiveTabIntoView = () => {
+  nextTick(() => {
+    const tabElement = tabsContainer.value?.children[activeTabIndex.value];
+    if (tabElement) {
+      // Get the tab container's dimensions
+      const container = tabsContainer.value;
+      const containerWidth = container.offsetWidth;
+      const containerScrollLeft = container.scrollLeft;
+
+      // Get the tab's position
+      const tabOffsetLeft = tabElement.offsetLeft;
+      const tabWidth = tabElement.offsetWidth;
+
+      // Check if tab is partially or fully out of view
+      if (tabOffsetLeft < containerScrollLeft) {
+        // Tab is off the left side
+        container.scrollTo({
+          left: tabOffsetLeft - 20, // Add some padding
+          behavior: "smooth",
+        });
+      } else if (tabOffsetLeft + tabWidth > containerScrollLeft + containerWidth) {
+        // Tab is off the right side
+        container.scrollTo({
+          left: tabOffsetLeft + tabWidth - containerWidth + 20, // Add some padding
+          behavior: "smooth",
+        });
+      }
+
+      // Update shadows after scrolling
+      checkScrollShadows();
+    }
+  });
 };
 
 // New function to handle scroll-based tab activation
@@ -42,11 +83,14 @@ const handleScroll = () => {
     return scrollPosition >= offsetTop && scrollPosition <= offsetBottom;
   });
 
-  // Update active tab if a valid section is found
+  // Update active tab if a valid section is found and it's different from current
   if (activeIndex !== -1 && activeIndex !== activeTabIndex.value) {
     const newSlug = slugify(props.items[activeIndex].title);
     activeTabIndex.value = activeIndex;
     window.history.replaceState(null, "", `#${newSlug}`);
+
+    // Ensure the newly active tab is visible
+    scrollActiveTabIntoView();
   }
 };
 
@@ -64,13 +108,26 @@ const throttle = (func, limit) => {
 
 const throttledScrollHandler = throttle(handleScroll, 100);
 
+// Add this method to check scroll position
+const checkScrollShadows = () => {
+  if (tabsContainer.value) {
+    const container = tabsContainer.value;
+
+    // Show left shadow only when scrolled to the right
+    showLeftShadow.value = container.scrollLeft > 0;
+
+    // Show right shadow only when there's more content to scroll to the right
+    showRightShadow.value =
+      container.scrollWidth > container.clientWidth &&
+      container.scrollLeft < container.scrollWidth - container.clientWidth - 1; // Added small buffer
+  }
+};
+
 // Handle direct navigation via hash links
 onMounted(() => {
   const hash = window.location.hash.replace("#", ""); // Get the current hash
   if (hash) {
-    const tabIndex = props.items.findIndex(
-      (tab) => slugify(tab.title) === hash
-    );
+    const tabIndex = props.items.findIndex((tab) => slugify(tab.title) === hash);
     if (tabIndex !== -1) {
       nextTick(() => setActiveTab(tabIndex, hash));
     }
@@ -95,50 +152,32 @@ watch(
   () => window.location.hash,
   (newHash) => {
     const hash = newHash.replace("#", "");
-    const tabIndex = props.items.findIndex(
-      (tab) => slugify(tab.title) === hash
-    );
+    const tabIndex = props.items.findIndex((tab) => slugify(tab.title) === hash);
     if (tabIndex !== -1) {
       setActiveTab(tabIndex, hash);
     }
   }
 );
 
+// Watch active tab index changes to ensure the tab is scrolled into view
+watch(
+  () => activeTabIndex.value,
+  () => {
+    scrollActiveTabIntoView();
+  }
+);
+
 // Initialize contentRefs with the correct number of refs
 contentRefs.value = new Array(props.items.length).fill(null);
-
-// Add these new refs
-const tabsContainer = ref(null);
-const showLeftShadow = ref(false);
-const showRightShadow = ref(false);
-
-// Add this new method to check scroll position
-const checkScrollShadows = () => {
-  if (tabsContainer.value) {
-    const container = tabsContainer.value;
-    showLeftShadow.value = container.scrollLeft > 0;
-    showRightShadow.value =
-      container.scrollWidth > container.clientWidth &&
-      container.scrollLeft < container.scrollWidth - container.clientWidth;
-  }
-};
-
-// Add to onMounted
-onMounted(() => {
-  // ... existing onMounted code ...
-
-  // Initial check for shadows
-  checkScrollShadows();
-});
 </script>
 
 <template>
-  <section class="text-white ">
+  <section class="text-white">
     <!-- Tabs Section -->
-    <div class="sticky-tabs flex justify-center  backdrop-blur-3xl">
-      <div class="relative max-w-full mx-auto">
+    <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
+      <div class="relative max-w-full mx-auto flex flex-row">
         <!-- Left Shadow -->
-        <!-- <div v-if="showLeftShadow" class="left-shadow"></div> -->
+        <div v-if="showLeftShadow" class="absolute left-shadow"></div>
 
         <div
           ref="tabsContainer"
@@ -164,7 +203,7 @@ onMounted(() => {
         </div>
 
         <!-- Right Shadow -->
-        <!-- <div v-if="showRightShadow" class="right-shadow"></div> -->
+        <div v-if="showRightShadow" class="right-shadow"></div>
       </div>
     </div>
 
@@ -211,15 +250,16 @@ onMounted(() => {
   width: 30px;
   background: linear-gradient(to left, rgb(12, 12, 12) 25%, transparent);
   pointer-events: none; /* Prevent interaction */
+  z-index: 5; /* Match left shadow z-index */
 }
 
 /* Ensure shadows are only visible on mobile */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .left-shadow,
   .right-shadow {
     display: none;
   }
-}
+} */
 
 /* Update the existing sticky-tabs style */
 .sticky-tabs {
@@ -229,11 +269,6 @@ onMounted(() => {
   width: 100%;
 }
 
-.sticky-tabs {
-  position: sticky;
-  top: 65px;
-  z-index: 30; /* Higher than the background */
-}
 @media (max-width: 768px) {
   .sticky-tabs {
     top: 58px;
@@ -265,11 +300,7 @@ onMounted(() => {
 
 .gradient-text {
   display: inline-block;
-  background: linear-gradient(
-    to left,
-    rgb(var(--blue-light)),
-    rgb(var(--blue-dark))
-  );
+  background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
