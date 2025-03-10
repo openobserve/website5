@@ -48,7 +48,7 @@ const hasExactlyTwoCards = computed(() => cards.value.length === 2);
 // Redirect function for clicking a card
 const redirectToBlog = (slug) => {
   if (typeof window !== "undefined") {
-    window.location.assign(`/blog/${slug}`); // Redirects to the blog's page
+    window.location.assign(`/case-studies/${slug}`); // Redirects to the blog's page
   }
 };
 </script>

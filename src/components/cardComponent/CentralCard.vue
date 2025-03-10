@@ -23,7 +23,8 @@ const handleCardClick = (slug) => {
     <div
       v-for="(card, index) in cards"
       :key="index"
-      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray"
+      class="group custom-hover flex flex-col rounded-lg h-full bg-center p-3 md:p-4 space-y-3 transition-all duration-300 bg-gradient-gray cursor-pointer"
+      @click="handleCardClick(card.slug)"
     >
       <CustomBluredImage
         :image="card.image || ''"

@@ -130,6 +130,7 @@ const componentsMap = computed(() => ({
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,
   "section-features.observability-space": ObservablititySuiteWrapper,
+  "section-cards.case-studies":CaseStudyWrapper,
   //download page
   "section-tabs.download-tabs": SectionSwitcher,
   "section-table.plans-feature-table": CustomComparisonTable,
