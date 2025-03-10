@@ -3,6 +3,7 @@ import { defineProps, ref, watch, defineEmits, onMounted, nextTick } from "vue";
 import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
+import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
 import CustomBanner from "../core/CustomBanner.vue";
@@ -32,6 +33,8 @@ const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);
 const currentSection = ref("");
+const showPopup = ref(false);
+const popupImageSrc = ref("");
 
 /**
  * Remove frontmatter (metadata) from markdown content.
@@ -141,6 +144,36 @@ async function addCopyButtons() {
 }
 
 /**
+ * Wrap images in a clickable container to trigger popup.
+ */
+async function wrapImagesWithPopup() {
+  await nextTick();
+  if (typeof window === "undefined") return;
+
+  const container = document.getElementById("blog-content");
+  if (!container) return;
+
+  container.querySelectorAll("img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openPopup(img.src));
+  });
+}
+function openPopup(src) {
+ popupImageSrc.value = src;
+  showPopup.value = true;
+  window.addEventListener("keydown", handleKeydown);
+}
+function closePopup() {
+  showPopup.value = false;
+  popupImageSrc.value = "";
+  window.removeEventListener("keydown", handleKeydown);
+}
+function handleKeydown(event) {
+  if (event.key === "Escape") {
+    closePopup();
+  }
+}
+/**
  * Wrap tables in a scrollable div.
  */
 async function wrapTablesWithScroll() {
@@ -224,6 +257,7 @@ watch(
     extractHeadingsFromHTML();
     addCopyButtons();
     observeHeadings(); // Observe headings on content change
+    wrapImagesWithPopup();
     wrapTablesWithScroll();
   },
   { immediate: true }
@@ -236,6 +270,7 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
+  wrapImagesWithPopup();
   splitContent();
 });
 </script>
@@ -288,6 +323,26 @@ onMounted(() => {
       </div>
     </div>
   </CustomSection>
+  <!-- Image Popup (Updated as per your CSS) -->
+  <div
+    v-if="showPopup"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closePopup"
+  >
+    <button
+      class="absolute top-3 right-3 text-white cursor-pointer z-50"
+      @click="closePopup"
+    >
+      ✖
+    </button>
+    <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
+      <CustomImage
+        :src="popupImageSrc"
+        class="w-full max-h-[90vh] object-contain"
+        @click.stop
+      />
+    </div>
+  </div>
 </template>
 <style scoped>
 .table-wrapper {
