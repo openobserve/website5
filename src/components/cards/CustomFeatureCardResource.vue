@@ -25,12 +25,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <!-- Layout changes based on screen size -->
-    <a :href="card.link" target="_blank">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+  <a :href="card.link" target="_blank">
+    <div
+      class="container mx-auto border border-transparent hover:border hover:border-[#838484] transition-all duration-150 p-3 rounded-lg">
+      <!-- Layout changes based on screen size -->
+      <div class=" flex flex-col md:flex-row items-center md:items-start gap-6 ">
         <!-- Icon -->
-        <div class="h-14 w-14 flex-shrink-0">
+        <div class=" h-14 w-14 flex-shrink-0">
           <CustomRoundShape :imgSrc="card.image" iconSize="small" :borderColor="borderColor" size="small" />
         </div>
 
@@ -44,6 +45,6 @@ const props = defineProps({
           </p>
         </div>
       </div>
-    </a>
-  </div>
+    </div>
+  </a>
 </template>
