@@ -1,13 +1,12 @@
 <script setup>
-import { onMounted, ref, watch, onUnmounted, nextTick, watchEffect } from "vue";
+import { onMounted, ref, watch, onUnmounted } from "vue";
 import CustomInterChange from "./CustomInterChange.vue";
 import { slugify } from "../../utils/slugify";
 
-// Props to receive dynamic data from the parent
 const props = defineProps({
   items: {
     type: Array,
-    required: true, // Tabs header
+    required: true,
   },
 });
 
@@ -16,25 +15,24 @@ const contentRefs = ref([]);
 const tabsContainer = ref(null);
 const showLeftShadow = ref(false);
 const showRightShadow = ref(false);
-let observer = null; // To store Intersection Observer instance
+let observer = null;
 
-// Method to set the active tab by index and update the URL hash
 const setActiveTab = (index, slug) => {
-  if (activeTabIndex.value === index) return; // Prevent redundant updates
+  if (activeTabIndex.value === index) return;
 
   activeTabIndex.value = index;
   window.history.pushState(null, "", `#${slug}`);
 
-  // Ensure the selected tab scrolls into view inside the tab container
-  nextTick(() => {
-    const tabElement = tabsContainer.value?.children[index];
-    if (tabElement) {
-      tabElement.scrollIntoView({ behavior: "smooth", inline: "center" });
-    }
+  tabsContainer.value?.children[index]?.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "center",
   });
+
+  checkScrollShadows();
+  setTimeout(() => setupIntersectionObserver(), 100);
 };
 
-// Function to check scroll shadows in tab container
 const checkScrollShadows = () => {
   if (tabsContainer.value) {
     const container = tabsContainer.value;
@@ -45,68 +43,48 @@ const checkScrollShadows = () => {
   }
 };
 
-// Setup Intersection Observer to detect visible sections
 const setupIntersectionObserver = () => {
-  if (observer) observer.disconnect(); // Cleanup previous observer if any
-
   observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = contentRefs.value.findIndex((el) => el === entry.target);
-          if (index !== -1) {
-            setActiveTab(index, slugify(props.items[index].title));
-          }
+      const visibleItems = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visibleItems.length) {
+        const index = contentRefs.value.findIndex((el) => el === visibleItems[0].target);
+        if (index !== -1 && index !== activeTabIndex.value) {
+          setActiveTab(index, slugify(props.items[index].title));
         }
-      });
+      }
     },
-    {
-      root: null, // Observe in viewport
-      // root: document.querySelector("#scrollArea"),
-      rootMargin: "0px 0px -50% 30px", // Trigger when 50% of the element is visible
-      threshold: 1.0,
-    }
+    { 
+      root: null,
+      rootMargin: "-10% 0px -40% 0px", 
+      threshold: [0.4]
+     }
   );
 
-  // Observe each content section
-  contentRefs.value.forEach((el) => {
-    if (el) observer.observe(el);
-  });
+  contentRefs.value.forEach((el) => el && observer.observe(el));
 };
-
-// Function to scroll the first visible tab into view
-// const scrollToFirstVisibleTab = () => {
-//   const firstVisibleIndex = contentRefs.value.findIndex((el) => {
-//     return el && el.getBoundingClientRect().top >= 0; // Check if the element is visible
-//   });
-//   console.log("firstVisibleIndexxxxxxxxxxxxxx",firstVisibleIndex);
-
-//   if (firstVisibleIndex !== -1) {
-//     setActiveTab(firstVisibleIndex, slugify(props.items[firstVisibleIndex].title));
-//   }
-// };
 
 onMounted(() => {
   checkScrollShadows();
-  setupIntersectionObserver();
-  // scrollToFirstVisibleTab(); // Scroll to the first visible tab on mount
+  setTimeout(() => setupIntersectionObserver(), 100);
 });
 
-watch(props.items, () => {
-  setupIntersectionObserver();
-});
+onUnmounted(() => observer?.disconnect());
 
-onUnmounted(() => {
-  if (observer) observer.disconnect();
-});
+watch(
+  () => props.items,
+  () => setTimeout(() => setupIntersectionObserver(), 100),
+  { deep: true }
+);
 </script>
 
 <template>
   <section class="text-white">
-    <!-- Tabs Section -->
     <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto flex flex-row">
-        <!-- Left Shadow -->
         <div v-if="showLeftShadow" class="absolute left-shadow"></div>
 
         <div
@@ -132,14 +110,11 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <!-- Right Shadow -->
         <div v-if="showRightShadow" class="right-shadow"></div>
       </div>
     </div>
 
-    <!-- Dynamic Content Section -->
-    <div class="">
-      <!-- Render all content from all tabs -->
+    <div>
       <div
         v-for="(tab, tabIndex) in items"
         :key="slugify(tab.title)"
@@ -159,7 +134,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Left Shadow - Ensure it's above text */
 .left-shadow {
   position: absolute;
   left: 0;
@@ -168,12 +142,9 @@ onUnmounted(() => {
   width: 30px;
   background: linear-gradient(to right, rgb(12, 12, 12) 25%, transparent);
   pointer-events: none;
-  /* Prevent interaction */
   z-index: 5;
-  /* Ensure it is above text */
 }
 
-/* Right Shadow */
 .right-shadow {
   position: absolute;
   right: 0;
@@ -182,20 +153,9 @@ onUnmounted(() => {
   width: 30px;
   background: linear-gradient(to left, rgb(12, 12, 12) 25%, transparent);
   pointer-events: none;
-  /* Prevent interaction */
   z-index: 5;
-  /* Match left shadow z-index */
 }
 
-/* Ensure shadows are only visible on mobile */
-/* @media (min-width: 768px) {
-  .left-shadow,
-  .right-shadow {
-    display: none;
-  }
-} */
-
-/* Update the existing sticky-tabs style */
 .sticky-tabs {
   position: sticky;
   top: 65px;
@@ -209,30 +169,17 @@ onUnmounted(() => {
   }
 }
 
-/* Ensures smooth scrolling for tabs on mobile */
 .scroll-smooth {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
-}
-
-/* Responsiveness adjustments for tabs on mobile */
-@media (max-width: 768px) {
-  .tabs {
-    font-size: 1rem;
-    top: 58px;
-  }
 }
 
 .gradient-text {
