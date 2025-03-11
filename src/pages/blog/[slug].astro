@@ -9,6 +9,7 @@ import {
   getCaseStudies,
 } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
+import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 export async function getStaticPaths() {
   const slugs = await getAllBlogs();
   return slugs.map((it: any) => ({
@@ -56,7 +57,7 @@ const metaObj = {
     bannerData={BannerData?.data}
     authors={author}
   />
-  <!-- <BannerWrapper
+  <BannerWrapper
     title={BannerData?.data?.title}
     description={BannerData?.data?.description}
     heading={BannerData?.data?.heading}
@@ -68,7 +69,7 @@ const metaObj = {
     monthlyText={BannerData?.data?.monthlyText}
     componentId={BannerData?.data?.componentId}
     client:load
-  /> -->
+  />
 
   <!-- <div class="py-5">
     <BlogsDataWrapper
