@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch, onUnmounted, nextTick } from "vue";
+import { onMounted, ref, watch, onUnmounted, nextTick, watchEffect } from "vue";
 import CustomInterChange from "./CustomInterChange.vue";
 import { slugify } from "../../utils/slugify";
 
@@ -16,159 +16,89 @@ const contentRefs = ref([]);
 const tabsContainer = ref(null);
 const showLeftShadow = ref(false);
 const showRightShadow = ref(false);
+let observer = null; // To store Intersection Observer instance
 
 // Method to set the active tab by index and update the URL hash
 const setActiveTab = (index, slug) => {
-  activeTabIndex.value = index;
-  window.history.pushState(null, "", `#${slug}`); // Update URL hash without reloading
+  if (activeTabIndex.value === index) return; // Prevent redundant updates
 
-  if (contentRefs.value[index]) {
-    contentRefs.value[index].scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
+  activeTabIndex.value = index;
+  window.history.pushState(null, "", `#${slug}`);
 
   // Ensure the selected tab scrolls into view inside the tab container
-  // scrollActiveTabIntoView();
-};
-
-// Function to scroll active tab into view horizontally
-const scrollActiveTabIntoView = () => {
   nextTick(() => {
-    const tabElement = tabsContainer.value?.children[activeTabIndex.value];
+    const tabElement = tabsContainer.value?.children[index];
     if (tabElement) {
-      // Get the tab container's dimensions
-      const container = tabsContainer.value;
-      const containerWidth = container.offsetWidth;
-      const containerScrollLeft = container.scrollLeft;
-
-      // Get the tab's position
-      const tabOffsetLeft = tabElement.offsetLeft;
-      const tabWidth = tabElement.offsetWidth;
-
-      // Check if tab is partially or fully out of view
-      if (tabOffsetLeft < containerScrollLeft) {
-        // Tab is off the left side
-        container.scrollTo({
-          left: tabOffsetLeft - 20, // Add some padding
-          behavior: "smooth",
-        });
-      } else if (tabOffsetLeft + tabWidth > containerScrollLeft + containerWidth) {
-        // Tab is off the right side
-        container.scrollTo({
-          left: tabOffsetLeft + tabWidth - containerWidth + 20, // Add some padding
-          behavior: "smooth",
-        });
-      }
-
-      // Update shadows after scrolling
-      checkScrollShadows();
+      tabElement.scrollIntoView({ behavior: "smooth", inline: "center" });
     }
   });
 };
 
-// New function to handle scroll-based tab activation
-const handleScroll = () => {
-  const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-  // Find the content section currently in view
-  let activeIndex = contentRefs.value.findIndex((ref, index) => {
-    if (!ref) return false;
-
-    const rect = ref.getBoundingClientRect();
-    const offsetTop = rect.top + window.pageYOffset;
-    const offsetBottom = offsetTop + rect.height;
-
-    return scrollPosition >= offsetTop && scrollPosition <= offsetBottom;
-  });
-
-  // Update active tab if a valid section is found and it's different from current
-  if (activeIndex !== -1 && activeIndex !== activeTabIndex.value) {
-    const newSlug = slugify(props.items[activeIndex].title);
-    activeTabIndex.value = activeIndex;
-    window.history.replaceState(null, "", `#${newSlug}`);
-
-    // Ensure the newly active tab is visible
-    scrollActiveTabIntoView();
-  }
-};
-
-// Add throttling to prevent too frequent scroll updates
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function (...args) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
-
-const throttledScrollHandler = throttle(handleScroll, 100);
-
-// Add this method to check scroll position
+// Function to check scroll shadows in tab container
 const checkScrollShadows = () => {
   if (tabsContainer.value) {
     const container = tabsContainer.value;
-
-    // Show left shadow only when scrolled to the right
     showLeftShadow.value = container.scrollLeft > 0;
-
-    // Show right shadow only when there's more content to scroll to the right
     showRightShadow.value =
       container.scrollWidth > container.clientWidth &&
-      container.scrollLeft < container.scrollWidth - container.clientWidth - 1; // Added small buffer
+      container.scrollLeft < container.scrollWidth - container.clientWidth - 1;
   }
 };
 
-// Handle direct navigation via hash links
-onMounted(() => {
-  const hash = window.location.hash.replace("#", ""); // Get the current hash
-  if (hash) {
-    const tabIndex = props.items.findIndex((tab) => slugify(tab.title) === hash);
-    if (tabIndex !== -1) {
-      nextTick(() => setActiveTab(tabIndex, hash));
-    }
-  }
+// Setup Intersection Observer to detect visible sections
+const setupIntersectionObserver = () => {
+  if (observer) observer.disconnect(); // Cleanup previous observer if any
 
-  // Initial check for shadows AFTER the DOM is ready
-  nextTick(() => {
-    checkScrollShadows();
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = contentRefs.value.findIndex((el) => el === entry.target);
+          if (index !== -1) {
+            setActiveTab(index, slugify(props.items[index].title));
+          }
+        }
+      });
+    },
+    {
+      root: null, // Observe in viewport
+      // root: document.querySelector("#scrollArea"),
+      rootMargin: "0px 0px -50% 30px", // Trigger when 50% of the element is visible
+      threshold: 1.0,
+    }
+  );
+
+  // Observe each content section
+  contentRefs.value.forEach((el) => {
+    if (el) observer.observe(el);
   });
+};
 
-  // Add scroll event listener
-  window.addEventListener("scroll", throttledScrollHandler);
+// Function to scroll the first visible tab into view
+// const scrollToFirstVisibleTab = () => {
+//   const firstVisibleIndex = contentRefs.value.findIndex((el) => {
+//     return el && el.getBoundingClientRect().top >= 0; // Check if the element is visible
+//   });
+//   console.log("firstVisibleIndexxxxxxxxxxxxxx",firstVisibleIndex);
+
+//   if (firstVisibleIndex !== -1) {
+//     setActiveTab(firstVisibleIndex, slugify(props.items[firstVisibleIndex].title));
+//   }
+// };
+
+onMounted(() => {
+  checkScrollShadows();
+  setupIntersectionObserver();
+  // scrollToFirstVisibleTab(); // Scroll to the first visible tab on mount
 });
 
-// Clean up scroll listener
+watch(props.items, () => {
+  setupIntersectionObserver();
+});
+
 onUnmounted(() => {
-  window.removeEventListener("scroll", throttledScrollHandler);
+  if (observer) observer.disconnect();
 });
-
-// Watch for hash changes to support manual hash navigation
-watch(
-  () => window.location.hash,
-  (newHash) => {
-    const hash = newHash.replace("#", "");
-    const tabIndex = props.items.findIndex((tab) => slugify(tab.title) === hash);
-    if (tabIndex !== -1) {
-      setActiveTab(tabIndex, hash);
-    }
-  }
-);
-
-// Watch active tab index changes to ensure the tab is scrolled into view
-watch(
-  () => activeTabIndex.value,
-  () => {
-    scrollActiveTabIntoView();
-  }
-);
-
-// Initialize contentRefs with the correct number of refs
-contentRefs.value = new Array(props.items.length).fill(null);
 </script>
 
 <template>
@@ -237,8 +167,10 @@ contentRefs.value = new Array(props.items.length).fill(null);
   height: 100%;
   width: 30px;
   background: linear-gradient(to right, rgb(12, 12, 12) 25%, transparent);
-  pointer-events: none; /* Prevent interaction */
-  z-index: 5; /* Ensure it is above text */
+  pointer-events: none;
+  /* Prevent interaction */
+  z-index: 5;
+  /* Ensure it is above text */
 }
 
 /* Right Shadow */
@@ -249,8 +181,10 @@ contentRefs.value = new Array(props.items.length).fill(null);
   height: 100%;
   width: 30px;
   background: linear-gradient(to left, rgb(12, 12, 12) 25%, transparent);
-  pointer-events: none; /* Prevent interaction */
-  z-index: 5; /* Match left shadow z-index */
+  pointer-events: none;
+  /* Prevent interaction */
+  z-index: 5;
+  /* Match left shadow z-index */
 }
 
 /* Ensure shadows are only visible on mobile */
@@ -279,6 +213,7 @@ contentRefs.value = new Array(props.items.length).fill(null);
 .scroll-smooth {
   scroll-behavior: smooth;
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -286,8 +221,10 @@ contentRefs.value = new Array(props.items.length).fill(null);
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Responsiveness adjustments for tabs on mobile */
