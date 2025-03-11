@@ -270,6 +270,7 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
+  splitContent();
   wrapImagesWithPopup();
   splitContent();
 });
