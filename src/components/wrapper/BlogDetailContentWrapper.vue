@@ -5,6 +5,9 @@ import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
+import CustomBanner from "../core/CustomBanner.vue";
+import BannerWrapper from "./BannerWrapper.vue";
+import BlogCtaBanner from "./BlogCtaBanner.vue";
 
 // Define props
 const props = defineProps({
@@ -12,13 +15,16 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  authors : {
+  authors: {
     type: Array,
-    required: true
+    required: true,
   },
   type: {
     type: String,
-  }
+  },
+  bannerData: {
+    type: Object,
+  },
 });
 
 // Reactive variables
@@ -34,18 +40,20 @@ function removeFrontmatter(content) {
   return content.replace(/^(---|\+\+\+)[\s\S]+?\1/, "").trim();
 }
 
-/**
- * Convert Markdown to HTML.
- */
+// /**
+//  * Convert Markdown to HTML.
+//  */
 async function processMarkdown(markdownText) {
   if (!markdownText) return;
 
   const cleanedContent = removeFrontmatter(markdownText);
   htmlContent.value = marked(cleanedContent);
 
-  await nextTick();
-  extractHeadingsFromHTML();
+  // await nextTick();
+  // extractHeadingsFromHTML();
 }
+
+const contentSections = ref([]); // Stores split content sections
 
 /**
  * Extract headings & assign IDs after HTML is rendered.
@@ -118,8 +126,6 @@ async function addCopyButtons() {
   // Apply buttons to existing code blocks
   container.querySelectorAll("pre").forEach(addButtonToCodeBlock);
 
-
-
   // Observe for dynamically added code blocks
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -134,10 +140,10 @@ async function addCopyButtons() {
   observer.observe(container, { childList: true, subtree: true });
 }
 
-  /**
+/**
  * Wrap tables in a scrollable div.
  */
- async function wrapTablesWithScroll() {
+async function wrapTablesWithScroll() {
   await nextTick(); // Ensure DOM updates first
   if (typeof window === "undefined") return; // Avoid SSR issues
 
@@ -180,6 +186,35 @@ function observeHeadings() {
   headingElements.forEach((heading) => observer.observe(heading));
 }
 
+function splitContent() {
+  if (typeof document === "undefined") return; // Prevent SSR issues
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = htmlContent.value;
+  const children = Array.from(tempDiv.childNodes);
+  const splitPoint = 5; // Adjust this based on your needs
+  let chunk = [];
+  let paragraphCount = 0;
+  contentSections.value = [];
+
+  children.forEach((node) => {
+    if (node.nodeName === "H2") paragraphCount++;
+
+    if (paragraphCount === splitPoint) {
+      contentSections.value.push(chunk);
+      contentSections.value.push("CUSTOM_COMPONENT"); // Placeholder for Vue component
+      chunk = [];
+      paragraphCount++;
+    }
+    chunk.push(node.outerHTML);
+  });
+
+  if (chunk.length) {
+    contentSections.value.push(chunk);
+  }
+
+}
+
 // Watch for content changes
 watch(
   () => props.content,
@@ -201,6 +236,7 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
+  splitContent();
 });
 </script>
 
@@ -210,19 +246,40 @@ onMounted(() => {
       class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
     >
       <!-- Rendered Markdown Content -->
-      <div class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none">
-        <div
-          id="blog-content"
-          class=""
-        >
-        <div
+      <div
+        class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
+      >
+        <div id="blog-content" class="">
+          <template v-for="(section, index) in contentSections" :key="index">
+            <div v-if="section === 'CUSTOM_COMPONENT'" class="py-4">
+              <BlogCtaBanner
+                :banner-title="bannerData?.title"
+                :bannerDescription="bannerData?.description"
+                :heading="bannerData?.heading"
+                :primaryButton="bannerData?.primaryButton"
+                :secondaryButton="bannerData?.secondaryButton"
+                :getStartedText="bannerData?.bottomText"
+                :items="bannerData?.items"
+                :featureTitle="bannerData?.featureTitle"
+                :monthlyText="bannerData?.monthlyText"
+                :componentId="bannerData?.componentId"
+                client:load
+              />
+            </div>
+            <div
+              v-else
+              v-html="section.join('')"
+              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
+            ></div>
+          </template>
+          <!-- <div
             v-html="htmlContent"
             class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words 
                    prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
-          ></div>
+          ></div> -->
         </div>
         <div class="py-3">
-          <SingleAuthorDetails :type=type :authors="authors" client:load />
+          <SingleAuthorDetails :type="type" :authors="authors" client:load />
         </div>
       </div>
       <!-- Table of Contents -->
@@ -256,4 +313,3 @@ onMounted(() => {
   font-weight: bold;
 }
 </style>
-

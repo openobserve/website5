@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
-import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 import {
   getAllBlogs,
   getAuthorDetails,
@@ -54,9 +53,10 @@ const metaObj = {
     :type="blog"
     client:load
     content={SlugData?.content}
+    bannerData={BannerData?.data}
     authors={author}
   />
-  <BannerWrapper
+  <!-- <BannerWrapper
     title={BannerData?.data?.title}
     description={BannerData?.data?.description}
     heading={BannerData?.data?.heading}
@@ -68,7 +68,7 @@ const metaObj = {
     monthlyText={BannerData?.data?.monthlyText}
     componentId={BannerData?.data?.componentId}
     client:load
-  />
+  /> -->
 
   <!-- <div class="py-5">
     <BlogsDataWrapper
