@@ -94,7 +94,7 @@ const onClick = (event) => {
 <template>
   <component
     :is="buttonLink ? 'a' : 'button'"
-    :class="[containerClass, buttonSize, buttonVariant]"
+    :class="[containerClass, buttonSize, buttonVariant,btnClass]"
     @click="onClick"
     :disabled="disabled || loading"
     :href="buttonLink"
