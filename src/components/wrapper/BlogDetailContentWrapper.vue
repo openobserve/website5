@@ -224,7 +224,8 @@ function splitContent() {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = htmlContent.value;
   const children = Array.from(tempDiv.childNodes);
-  const splitPoint = 5; // Adjust this based on your needs
+  const h2TagsLength = children.filter((node) => node.nodeName === "H2").length;
+  const splitPoint = Math.min(h2TagsLength, 4); // Adjust this based on your needs
   let chunk = [];
   let paragraphCount = 0;
   contentSections.value = [];
