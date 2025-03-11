@@ -159,7 +159,7 @@ async function wrapImagesWithPopup() {
   });
 }
 function openPopup(src) {
- popupImageSrc.value = src;
+  popupImageSrc.value = src;
   showPopup.value = true;
   window.addEventListener("keydown", handleKeydown);
 }
@@ -245,7 +245,6 @@ function splitContent() {
   if (chunk.length) {
     contentSections.value.push(chunk);
   }
-
 }
 
 // Watch for content changes
@@ -270,7 +269,6 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
-  splitContent();
   wrapImagesWithPopup();
   splitContent();
 });
@@ -308,11 +306,6 @@ onMounted(() => {
               class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
             ></div>
           </template>
-          <!-- <div
-            v-html="htmlContent"
-            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words 
-                   prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
-          ></div> -->
         </div>
         <div class="py-3">
           <SingleAuthorDetails :type="type" :authors="authors" client:load />
