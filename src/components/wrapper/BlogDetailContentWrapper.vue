@@ -51,7 +51,6 @@ async function processMarkdown(markdownText) {
 
   const cleanedContent = removeFrontmatter(markdownText);
   htmlContent.value = marked(cleanedContent);
-
   // await nextTick();
   // extractHeadingsFromHTML();
 }
@@ -279,7 +278,6 @@ onMounted(() => {
     <div
       class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
     >
-      <!-- Rendered Markdown Content -->
       <div
         class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
       >
