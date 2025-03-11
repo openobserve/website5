@@ -58,6 +58,7 @@ import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
 import CaseStudyWrapper from "./wrapper/CaseStudyWrapper.vue";
 import CaseStudyListing from "./case-studies/CaseStudyListing.vue";
+import ClientTestimonials from "./testimonials/ClientTestimonials.vue";
 
 const props = defineProps({
   data: {
@@ -142,7 +143,9 @@ const componentsMap = computed(() => ({
   "section-forms.download-contact-form": DemoForm,
 
   //case-studies page
-  "section-cards.case-studies-section":CaseStudyListing
+  "section-cards.case-studies-section":CaseStudyListing,
+  "section-cards.clients-testimonials" : ClientTestimonials
+  
 }));
 
 const getComponentProps = (it) => {
