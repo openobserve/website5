@@ -4,6 +4,11 @@ import Heading from "../core/Heading.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 import CustomSection from "../core/CustomSection.vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination, Navigation } from "swiper/modules";
 
 const props = defineProps({
   items: {
@@ -12,94 +17,112 @@ const props = defineProps({
   },
 });
 
-// Track selected client
-const selectedIndex = ref(0);
-const currentItem = computed(() => props.items[selectedIndex.value]);
+const swiperModules = [Pagination, Navigation];
+const swiperOptions = {
+  slidesPerView: 1, // Ensures cards are wider on mobile
+  spaceBetween: 16,
+  pagination: {
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+};
+const currentIndex = ref(0);
+const slidesPerView = ref(1);
 
-// Function to update selected client
-const selectClient = (index) => {
-  selectedIndex.value = index;
+const updateShadow = (swiper) => {
+  currentIndex.value = swiper.activeIndex;
+  slidesPerView.value = swiper.params.slidesPerView; // Get slidesPerView dynamically
 };
 </script>
 
 <template>
-  <CustomSection>
-    <div
-      class="relative flex flex-col glass-card bg-opacity-80 backdrop-blur-lg shadow-lg p-6 z-10"
+  <div class="relative">
+    <Swiper
+      class="blog-swiper"
+      :class="shadowClass"
+      :modules="swiperModules"
+      v-bind="swiperOptions"
+      @slideChange="updateShadow"
     >
-      <!-- case study's main title and subtitle -->
-      <div class="line-clamp-3">
-        <Heading
-          :title="currentItem.heading?.title"
-          :description="currentItem.heading?.subtitle"
-          align="CENTER"
-        />
-      </div>
-      <div class="flex flex-col-reverse lg:flex-row gap-3 lg:gap-6">
-        <div class="flex flex-col w-full lg:w-1/2 gap-2 lg:gap-4">
-          <!-- title decsription of the items in items -->
+      <SwiperSlide v-for="(item, index) in items" :key="index">
+        <CustomSection>
           <div
-            v-for="item in currentItem.items"
-            :key="item.id"
-            class="rounded-2xl px-3 lg:px-4 py-2 lg:py-3 bg-dark-glass"
+            class="relative flex flex-col glass-card bg-opacity-80 backdrop-blur-lg shadow-lg p-10 z-10 text-white"
           >
-            <h3 class="text-sm lg:text-lg text-white font-medium mb-2">
-              {{ item?.title }}
-            </h3>
-            <p class="text-xs lg:text-base font-light text-white">
-              {{ item?.description }}
-            </p>
+            <div>
+              <Heading
+                :title="item.heading?.title"
+                :description="item.heading?.subtitle"
+                align="CENTER"
+              />
+            </div>
+            <div class="flex flex-row">
+              <div class="flex flex-col-reverse lg:flex-row gap-5 w-full">
+                <div class="w-full lg:w-1/2">
+                  <div class="flex flex-col gap-2 lg:gap-4">
+                    <div
+                      v-for="item in item.items"
+                      :key="item.title"
+                      class="rounded-2xl px-3 lg:px-4 py-2 lg:py-3 bg-dark-glass"
+                    >
+                      <h3
+                        class="text-sm lg:text-lg text-white font-medium mb-2"
+                      >
+                        {{ item?.title }}
+                      </h3>
+                      <p class="text-xs lg:text-base font-light text-white">
+                        {{ item?.description }}
+                      </p>
+                    </div>
+                    <div
+                      class="gap-4 mt-3 lg:mt-0 w-full md:w-72 justify-center"
+                    >
+                      <CustomButton
+                        variant="secondary"
+                        buttonText="View Case Study"
+                        :buttonLink="`/case-studies/${item?.link}`"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full lg:w-1/2 relative h-72 lg:h-auto">
+                  <div
+                    class="absolute inset-0 bg-cover bg-center rounded-lg bg-[url('/img/placeholder/case-study-placeholder-image.png')] z-0"
+                  ></div>
+                  <CustomImage
+                    :image="item?.clientLogo?.url"
+                    class="p-3 absolute z-10 w-1/2 h-full flex justify-center transform translate-x-1/2"
+                  />
+                </div>
+              </div>
+              <div class="hidden md:block">
+                <div
+                  class="swiper-button-prev absolute -translate-x-1/4 top-1/2 transform -translate-y-1/2 z-20"
+                ></div>
+                <div
+                  class="swiper-button-next absolute translate-x-1/4 top-1/2 transform -translate-y-1/2 z-20"
+                ></div>
+              </div>
+            </div>
           </div>
-          <!-- Button -->
-          <div class="gap-4 mt-3 lg:mt-0 w-full md:w-72 justify-center">
-            <CustomButton
-              variant="secondary"
-              buttonText="View Case Study"
-              :buttonLink="`/case-studies/${currentItem?.link}`"
-            />
-          </div>
-        </div>
-        <!-- case study image -->
-        <div class="relative w-full lg:w-1/2 mt-4 md:mt-0">
-          <div class="absolute inset-0 bg-cover bg-center rounded-lg image-bg z-0"></div>
-          <div class="relative z-10">
-            <CustomImage :image="currentItem?.image?.formats?.medium" class="p-3" />
-          </div>
-        </div>
-      </div>
-      <!-- Client logos -->
-      <div class="flex flex-row">
-        <div class="hidden lg:block w-1/2"></div>
-        <div
-          class="flex flex-row space-x-10 mt-3 lg:mt-6 w-full lg:w-1/2 h-16  overflow-hidden"
-        >
-          <div
-            v-for="(item, index) in items"
-            :key="item.id"
-            class="relative flex-none justify-center cursor-pointer transition-all duration-300"
-             :class="selectedIndex === index ? 'brightness-200 glow-effect' : 'brightness-75'"
-            @click="selectClient(index)"
-          >
-            <CustomImage
-              :image="item?.clientLogo?.url"
-              cssClass=" w-full h-10 transition-transform transform"
-            />
-            <!-- Gradient Underline -->
-            <div
-              class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gray-500 to-transparent"
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </CustomSection>
+        </CustomSection>
+      </SwiperSlide>
+    </Swiper>
+  </div>
 </template>
 
 <style scoped>
 .glass-card {
   border-radius: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(180deg, rgba(1, 1, 1, 0.48) 30%, rgba(1, 1, 1, 0.8) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(1, 1, 1, 0.48) 30%,
+    rgba(1, 1, 1, 0.8) 100%
+  );
 }
 .bg-dark-glass {
   background: linear-gradient(
@@ -129,10 +152,13 @@ const selectClient = (index) => {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(64, 113, 212, 1) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(64, 113, 212, 1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
   opacity: 0.8;
   filter: blur(10px);
-  
 }
 
 .glow-effect:hover::before {
@@ -141,5 +167,70 @@ const selectClient = (index) => {
 
 .glow-effect {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.blog-swiper {
+  padding-bottom: 40px !important;
+}
+
+.blog-swiper.show-both {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.blog-swiper.hide-left {
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.blog-swiper.hide-right {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 100%
+  );
+}
+
+.blog-swiper .swiper-pagination-bullet {
+  background: #4b5563;
+  opacity: 1;
+}
+
+.blog-swiper .swiper-pagination-bullet-active {
+  background: #3b82f6;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+/* Navigation Arrows Styles (Hidden on Mobile) */
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+:deep(.swiper-button-next::after),
+:deep(.swiper-button-prev::after) {
+  font-size: 20px;
+}
+
+:deep(.swiper-button-disabled) {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: auto; /* Ensure it still intercepts clicks */
 }
 </style>
