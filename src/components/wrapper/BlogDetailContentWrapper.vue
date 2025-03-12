@@ -152,10 +152,7 @@ async function wrapImagesWithPopup() {
   const container = document.getElementById("blog-content");
   if (!container) return;
 
-  container.querySelectorAll("img").forEach((img) => {
-    // Check if the image is inside an element with the "copy-button" class
-    if (img.closest(".copy-button")) return;
-    
+  container.querySelectorAll("img:not(.copy-button img)").forEach((img) => {
     img.style.cursor = "zoom-in";
     img.addEventListener("click", () => openPopup(img.src));
   });
