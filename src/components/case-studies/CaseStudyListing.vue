@@ -17,15 +17,6 @@ const props = defineProps({
   },
 });
 
-// Track selected client
-// const selectedIndex = ref(0);
-// const currentItem = computed(() => props.items[selectedIndex.value]);
-
-// // Function to update selected client
-// const selectClient = (index) => {
-//   selectedIndex.value = index;
-// };
-
 const swiperModules = [Pagination, Navigation];
 const swiperOptions = {
   slidesPerView: 1, // Ensures cards are wider on mobile
@@ -37,20 +28,6 @@ const swiperOptions = {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // breakpoints: {
-  //   640: {
-  //     slidesPerView: 1.5, // Slightly larger cards on small tablets
-  //     spaceBetween: 20,
-  //   },
-  //   768: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 24,
-  //   },
-  //   1024: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 30,
-  //   },
-  // },
 };
 const currentIndex = ref(0);
 const slidesPerView = ref(1);
