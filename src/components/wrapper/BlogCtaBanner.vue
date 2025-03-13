@@ -34,9 +34,9 @@ const props = defineProps({
     id="bannerComponent"
   >
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
         <!-- Column 1: Title & Primary Button -->
-        <div class="text-center md:text-left space-y-1.5">
+        <!-- <div class="text-center md:text-left space-y-1.5">
           <h1
             class="text-lg font-bold text-black text-center md:text-left"
           >
@@ -55,7 +55,7 @@ const props = defineProps({
               {{ primaryButton.text }}
             </CustomButton>
           </div>
-        </div>
+        </div> -->
 
         <!-- Column 2: Features List -->
         <div class="md:text-left space-y-2">
@@ -65,13 +65,13 @@ const props = defineProps({
             {{ featureTitle }}
           </h2>
           <p class="text-sm text-black">{{ monthlyText }}:</p>
-          <ul class="space-y-1">
+          <ul class="space-y-1 grid grid-cols-2 gap-2">
             <li
               v-for="(feature, index) in items"
               :key="index"
-              class="flex items-x gap-1 text-xs text-black"
+              class="flex items-center gap-1 text-xs text-black"
             >
-              <img src="/img/icon/RightTick.svg" alt="icon" class="w-3 h-3" />
+              <img src="/img/icon/RightTick.svg" alt="icon" class="w-4 h-4" />
               <span>{{ feature.title }}</span>
             </li>
           </ul>
@@ -93,7 +93,7 @@ const props = defineProps({
             {{ secondaryButton.text }}
           </CustomButton>
 
-          <p class="text-sm text-center max-w-[30vh]">
+          <p class="text-sm text-center">
             {{ getStartedText }}
           </p>
         </div>
