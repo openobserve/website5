@@ -3,8 +3,12 @@ import { defineProps, ref, watch, defineEmits, onMounted, nextTick } from "vue";
 import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";
+import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
+import CustomBanner from "../core/CustomBanner.vue";
+import BannerWrapper from "./BannerWrapper.vue";
+import BlogCtaBanner from "./BlogCtaBanner.vue";
 
 // Define props
 const props = defineProps({
@@ -12,13 +16,16 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  authors : {
+  authors: {
     type: Array,
-    required: true
+    required: true,
   },
   type: {
     type: String,
-  }
+  },
+  bannerData: {
+    type: Object,
+  },
 });
 
 // Reactive variables
@@ -26,6 +33,8 @@ const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);
 const currentSection = ref("");
+const showPopup = ref(false);
+const popupImageSrc = ref("");
 
 /**
  * Remove frontmatter (metadata) from markdown content.
@@ -34,18 +43,19 @@ function removeFrontmatter(content) {
   return content.replace(/^(---|\+\+\+)[\s\S]+?\1/, "").trim();
 }
 
-/**
- * Convert Markdown to HTML.
- */
+// /**
+//  * Convert Markdown to HTML.
+//  */
 async function processMarkdown(markdownText) {
   if (!markdownText) return;
 
   const cleanedContent = removeFrontmatter(markdownText);
   htmlContent.value = marked(cleanedContent);
-
-  await nextTick();
-  extractHeadingsFromHTML();
+  // await nextTick();
+  // extractHeadingsFromHTML();
 }
+
+const contentSections = ref([]); // Stores split content sections
 
 /**
  * Extract headings & assign IDs after HTML is rendered.
@@ -118,8 +128,6 @@ async function addCopyButtons() {
   // Apply buttons to existing code blocks
   container.querySelectorAll("pre").forEach(addButtonToCodeBlock);
 
-
-
   // Observe for dynamically added code blocks
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -134,10 +142,40 @@ async function addCopyButtons() {
   observer.observe(container, { childList: true, subtree: true });
 }
 
-  /**
+/**
+ * Wrap images in a clickable container to trigger popup.
+ */
+async function wrapImagesWithPopup() {
+  await nextTick();
+  if (typeof window === "undefined") return;
+
+  const container = document.getElementById("blog-content");
+  if (!container) return;
+
+  container.querySelectorAll("img:not(.copy-button img)").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openPopup(img.src));
+  });
+}
+function openPopup(src) {
+  popupImageSrc.value = src;
+  showPopup.value = true;
+  window.addEventListener("keydown", handleKeydown);
+}
+function closePopup() {
+  showPopup.value = false;
+  popupImageSrc.value = "";
+  window.removeEventListener("keydown", handleKeydown);
+}
+function handleKeydown(event) {
+  if (event.key === "Escape") {
+    closePopup();
+  }
+}
+/**
  * Wrap tables in a scrollable div.
  */
- async function wrapTablesWithScroll() {
+async function wrapTablesWithScroll() {
   await nextTick(); // Ensure DOM updates first
   if (typeof window === "undefined") return; // Avoid SSR issues
 
@@ -155,6 +193,7 @@ async function addCopyButtons() {
   });
 }
 function observeHeadings() {
+  // console.log("Observe Headings");
   if (typeof window === "undefined") return;
 
   const options = {
@@ -168,6 +207,7 @@ function observeHeadings() {
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio); // Sort by most visible
 
+    console.log(visibleSections, "Visible Sections");
     if (visibleSections.length > 0) {
       currentSection.value = visibleSections[0].target.id;
     }
@@ -180,6 +220,35 @@ function observeHeadings() {
   headingElements.forEach((heading) => observer.observe(heading));
 }
 
+function splitContent() {
+  if (typeof document === "undefined") return; // Prevent SSR issues
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = htmlContent.value;
+  const children = Array.from(tempDiv.childNodes);
+  const h2TagsLength = children.filter((node) => node.nodeName === "H2").length;
+  const splitPoint = Math.min(h2TagsLength, 4); // Adjust this based on your needs
+  let chunk = [];
+  let paragraphCount = 0;
+  contentSections.value = [];
+
+  children.forEach((node) => {
+    if (node.nodeName === "H2") paragraphCount++;
+
+    if (paragraphCount === splitPoint) {
+      contentSections.value.push(chunk);
+      contentSections.value.push("CUSTOM_COMPONENT"); // Placeholder for Vue component
+      chunk = [];
+      paragraphCount++;
+    }
+    chunk.push(node.outerHTML);
+  });
+
+  if (chunk.length) {
+    contentSections.value.push(chunk);
+  }
+}
+
 // Watch for content changes
 watch(
   () => props.content,
@@ -188,11 +257,18 @@ watch(
     await nextTick();
     extractHeadingsFromHTML();
     addCopyButtons();
-    observeHeadings(); // Observe headings on content change
+    // observeHeadings(); // Observe headings on content change
+    wrapImagesWithPopup();
     wrapTablesWithScroll();
   },
   { immediate: true }
 );
+
+watch(() => {
+  return headings.value;
+}, () => {
+  observeHeadings();
+});
 
 // Run once when the component mounts
 onMounted(() => {
@@ -201,6 +277,8 @@ onMounted(() => {
   addCopyButtons();
   observeHeadings(); // Observe headings after mount
   wrapTablesWithScroll();
+  wrapImagesWithPopup();
+  splitContent();
 });
 </script>
 
@@ -209,20 +287,35 @@ onMounted(() => {
     <div
       class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
     >
-      <!-- Rendered Markdown Content -->
-      <div class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none">
-        <div
-          id="blog-content"
-          class=""
-        >
-        <div
-            v-html="htmlContent"
-            class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words 
-                   prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
-          ></div>
+      <div
+        class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
+      >
+        <div id="blog-content" class="">
+          <template v-for="(section, index) in contentSections" :key="index">
+            <div v-if="section === 'CUSTOM_COMPONENT'" class="py-4">
+              <BlogCtaBanner
+                :banner-title="bannerData?.title"
+                :bannerDescription="bannerData?.description"
+                :heading="bannerData?.heading"
+                :primaryButton="bannerData?.primaryButton"
+                :secondaryButton="bannerData?.secondaryButton"
+                :getStartedText="bannerData?.bottomText"
+                :items="bannerData?.items"
+                :featureTitle="bannerData?.featureTitle"
+                :monthlyText="bannerData?.monthlyText"
+                :componentId="bannerData?.componentId"
+                client:load
+              />
+            </div>
+            <div
+              v-else
+              v-html="section.join('')"
+              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2"
+            ></div>
+          </template>
         </div>
         <div class="py-3">
-          <SingleAuthorDetails :type=type :authors="authors" client:load />
+          <SingleAuthorDetails :type="type" :authors="authors" client:load />
         </div>
       </div>
       <!-- Table of Contents -->
@@ -231,6 +324,26 @@ onMounted(() => {
       </div>
     </div>
   </CustomSection>
+  <!-- Image Popup (Updated as per your CSS) -->
+  <div
+    v-if="showPopup"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closePopup"
+  >
+    <button
+      class="absolute top-3 right-3 text-white cursor-pointer z-50"
+      @click="closePopup"
+    >
+      ✖
+    </button>
+    <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
+      <CustomImage
+        :src="popupImageSrc"
+        class="w-full max-h-[90vh] object-contain"
+        @click.stop
+      />
+    </div>
+  </div>
 </template>
 <style scoped>
 .table-wrapper {
@@ -255,5 +368,23 @@ onMounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
 }
-</style>
 
+.prose-pre::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.prose-pre::-webkit-scrollbar-track {
+  background: #0457dd;
+  border-radius: 4px;
+}
+
+.prose-pre::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+}
+
+.prose-pre::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+</style>

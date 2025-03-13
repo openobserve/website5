@@ -14,6 +14,7 @@
           :class="{
             'text-blue-400': currentSection === heading.id,
             'text-white': currentSection !== heading.id,
+            'pl-3': heading.level === 3 || heading.level === 4, // Add left padding for h3, h4
           }"
           @click="setActiveSection(heading.id)"
         >
