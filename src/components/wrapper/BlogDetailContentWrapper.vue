@@ -193,6 +193,7 @@ async function wrapTablesWithScroll() {
   });
 }
 function observeHeadings() {
+  // console.log("Observe Headings");
   if (typeof window === "undefined") return;
 
   const options = {
@@ -256,12 +257,18 @@ watch(
     await nextTick();
     extractHeadingsFromHTML();
     addCopyButtons();
-    observeHeadings(); // Observe headings on content change
+    // observeHeadings(); // Observe headings on content change
     wrapImagesWithPopup();
     wrapTablesWithScroll();
   },
   { immediate: true }
 );
+
+watch(() => {
+  return headings.value;
+}, () => {
+  observeHeadings();
+});
 
 // Run once when the component mounts
 onMounted(() => {
@@ -360,5 +367,24 @@ onMounted(() => {
 .table-wrapper th {
   background-color: rgba(255, 255, 255, 0.1);
   font-weight: bold;
+}
+
+.prose-pre::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.prose-pre::-webkit-scrollbar-track {
+  background: #0457dd;
+  border-radius: 4px;
+}
+
+.prose-pre::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+}
+
+.prose-pre::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
 </style>
