@@ -66,7 +66,7 @@ Message: ${values.message}
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
-          senderPhone: values.phone,
+          senderMobile: values.phone,
           senderWebsite: "",
           senderMessage: finalMessage,
           senderCompany: values.company,

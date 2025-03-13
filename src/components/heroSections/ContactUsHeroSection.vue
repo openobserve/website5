@@ -25,6 +25,7 @@ const schema = yup.object({
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
     .required("Phone number is required"),
+  website: yup.string().optional(),
   message: yup.string().required("Message is required"),
   terms: yup
     .boolean()
@@ -40,7 +41,7 @@ const email = useField("email");
 const phone = useField("phone");
 const message = useField("message");
 const terms = useField("terms");
-
+const website = useField("website");
 const loading = ref(false);
 const error = ref(null);
 
@@ -63,8 +64,8 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
-          senderPhone: values.phone,
-          senderWebsite: "",
+          senderMobile: values.phone,
+          senderWebsite: values.website,
           senderMessage: values.message,
         }),
       }
@@ -173,7 +174,20 @@ const onSubmit = handleSubmit(async (values) => {
                   >{{ phone.errorMessage.value }}</span
                 >
               </div>
-
+              <div>
+                <label
+                  for="website"
+                  class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+                >
+                  Website
+                </label>
+                <CustomInput
+                  v-model="website.value.value"
+                  name="website"
+                  type="text"
+                  placeholder="Enter here"
+                />
+              </div>
               <!-- Message -->
               <div>
                 <label
