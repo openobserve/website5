@@ -14,6 +14,7 @@ const schema = yup.object({
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
     .required("Phone number is required"),
+  website: yup.string().optional(),
   jobTitle: yup.string().required("Job title is required"),
   deployment: yup.string().required("Please select deployment interest"),
   dataVolume: yup.string().required("Please select expected data volume"),
@@ -43,6 +44,7 @@ const deployment = useField("deployment");
 const dataVolume = useField("dataVolume");
 const message = useField("message");
 const terms = useField("terms");
+const website = useField("website");
 
 const loading = ref(false);
 const error = ref(null);
@@ -54,10 +56,6 @@ const onSubmit = handleSubmit(async (values) => {
 
   // Format message
   const finalMessage = `
-Company: ${values.company} </br>
-Job Title: ${values.jobTitle} </br>
-Deployment: ${values.deployment} </br>
-Data Volume: ${values.dataVolume} </br>
 Message: ${values.message}
   `.trim();
 
@@ -75,9 +73,14 @@ Message: ${values.message}
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
-          senderPhone: values.phone,
-          senderWebsite: "",
-          senderMessage: finalMessage,
+          senderMobile: values.phone,
+          senderWebsite: values.website,
+          senderMessage: values.message,
+          senderCompany: values.company,
+          senderJobTitle: values.jobTitle,
+          senderDeployment: values.deployment,
+          senderDataVolume: values.dataVolume,
+          formType: "demo"
         }),
       }
     );
@@ -139,7 +142,20 @@ Message: ${values.message}
             phone.errorMessage.value
           }}</span>
         </div>
-
+        <div>
+          <label
+            for="website"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
+            Website
+          </label>
+          <CustomInput
+            v-model="website.value.value"
+            name="website"
+            type="text"
+            placeholder="Enter here"
+          />
+        </div>
         <div>
           <label for="jobTitle" class="text-gray-200 font-medium cursor-pointer">
             Job Title <span class="text-red-500">*</span>

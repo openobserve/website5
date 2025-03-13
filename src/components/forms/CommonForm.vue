@@ -10,6 +10,7 @@ const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   help: yup.string().required("Message is required"),
+  website: yup.string().optional(),
   terms: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions")
@@ -23,6 +24,7 @@ const name = useField("name");
 const email = useField("email");
 const help = useField("help");
 const terms = useField("terms");
+const website = useField("website");
 
 const loading = ref(false);
 const error = ref(null);
@@ -31,7 +33,6 @@ const error = ref(null);
 const onSubmit = handleSubmit(async (values) => {
   loading.value = true;
   error.value = null;
-
   try {
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
@@ -46,7 +47,7 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
-          senderWebsite: "",
+          senderWebsite: values.website,
           senderMobile: "",
           senderMessage: values.help,
         }),
@@ -110,7 +111,20 @@ const navigateToTerms = (e) => {
             email.errorMessage.value
           }}</span>
         </div>
-
+         <div>
+          <label
+            for="website"
+            class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+          >
+            Website
+          </label>
+          <CustomInput
+            v-model="website.value.value"
+            name="website"
+            type="text"
+            placeholder="Enter here"
+          />
+        </div>
         <div class="input-group">
           <label
             for="message"

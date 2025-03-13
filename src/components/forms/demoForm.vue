@@ -19,6 +19,7 @@ const schema = yup.object({
   email: yup.string().email("Invalid email").required("Email is required"),
   phone: yup.string().matches(/^\d+$/, "Phone number must be digits only"),
   help: yup.string().required("Message is required"),
+  website: yup.string().optional(),
   terms: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions")
@@ -33,6 +34,7 @@ const email = useField("email");
 const phone = useField("phone");
 const help = useField("help");
 const terms = useField("terms");
+const website = useField("website");
 
 const loading = ref(false);
 const error = ref(null);
@@ -50,9 +52,8 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
-          senderPhone: values.phone,
-          senderWebsite: "",
-          senderMobile: "",
+          senderWebsite: values.website,
+          senderMobile: values.phone,
           senderMessage: values.help,
         }),
       }
@@ -144,7 +145,20 @@ const onContactInput = (event) => {
               >{{ phone.errorMessage.value }}</span
             >
           </div>
-
+          <div>
+            <label
+              for="website"
+              class="text-gray-200 font-medium cursor-pointer text-sm md:text-base"
+            >
+              Website
+            </label>
+            <CustomInput
+              v-model="website.value.value"
+              name="website"
+              type="text"
+              placeholder="Enter here"
+            />
+          </div>
           <!-- Message Field -->
           <div>
             <label
