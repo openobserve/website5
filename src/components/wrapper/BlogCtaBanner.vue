@@ -65,7 +65,7 @@ const props = defineProps({
             {{ featureTitle }}
           </h2>
           <p class="text-sm text-black">{{ monthlyText }}:</p>
-          <ul class="space-y-1 grid grid-cols-2 gap-2">
+          <ul class="grid grid-cols-2 gap-1.5">
             <li
               v-for="(feature, index) in items"
               :key="index"
