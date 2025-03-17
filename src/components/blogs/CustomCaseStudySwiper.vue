@@ -39,6 +39,7 @@ const swiperOptions = {
   spaceBetween: 16,
   pagination: {
     clickable: true,
+    // el: ".swiper-pagination-bullet",
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -69,7 +70,7 @@ const truncateDescription = (text: string, wordLimit: number) => {
 </script>
 
 <template>
-  <div class="py-8 relative">
+  <div class="relative">
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
@@ -173,4 +174,13 @@ const truncateDescription = (text: string, wordLimit: number) => {
   opacity: 0.35;
   cursor: not-allowed;
 }
+/* 
+:deep(.swiper-pagination-bullet) {
+  background: #fdfd06 !important;
+  opacity: 1 !important;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  background: #3b82f6 !important;
+} */
 </style>

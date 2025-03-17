@@ -51,12 +51,15 @@ export async function getAllCaseStudies() {
 
 export async function getBlogs(params) {
   const blogs = await getAllBlogs();
-  // Filter blogs where caseStudies is true
-  const caseStudies = blogs.sort(
+  // Filter out case studies from blogs
+  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+
+  // Sort blogs by publishDate in descending order
+  const sortedBlogs = filteredBlogs.sort(
     (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
   );
 
-  return caseStudies.slice(0, Math.min(3, caseStudies.length));
+  return sortedBlogs.slice(0, Math.min(3, sortedBlogs.length));
 }
 
 export async function getAllAuthors() {
