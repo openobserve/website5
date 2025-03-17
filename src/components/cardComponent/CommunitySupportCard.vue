@@ -13,10 +13,13 @@ const props = defineProps({
 
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-    <div
+    <a
       v-for="(item, index) in cards"
       :key="index"
-      class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray transition-all duration-100 hover:shadow-2xl cardShadow"
+      :href="item.link"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="rounded-2xl w-full p-[0.0625rem] shadow-md bg-gradient-gray transition-all duration-100 hover:shadow-2xl cardShadow block"
     >
       <!-- Content Layer -->
       <div
@@ -31,7 +34,7 @@ const props = defineProps({
           {{ item.title }}
         </h3>
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
