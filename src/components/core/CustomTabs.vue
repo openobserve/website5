@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch, onUnmounted } from "vue";
+import { onMounted, ref, watch, onUnmounted, nextTick } from "vue";
 import CustomInterChange from "./CustomInterChange.vue";
 import { slugify } from "../../utils/slugify";
 
@@ -21,16 +21,16 @@ const setActiveTab = (index, slug) => {
   if (activeTabIndex.value === index) return;
 
   activeTabIndex.value = index;
-  window.history.pushState(null, "", `#${slug}`);
+  window.history.pushState(null, "", "#" + slug);
 
-  tabsContainer.value?.children[index]?.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest",
-    inline: "center",
+  nextTick(() => {
+    tabsContainer.value?.children[index]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+    checkScrollShadows();
   });
-
-  checkScrollShadows();
-  setTimeout(() => setupIntersectionObserver(), 100);
 };
 
 const checkScrollShadows = () => {
@@ -57,11 +57,11 @@ const setupIntersectionObserver = () => {
         }
       }
     },
-    { 
+    {
       root: null,
-      rootMargin: "-10% 0px -40% 0px", 
-      threshold: [0.4]
-     }
+      rootMargin: "-10% 0px -40% 0px",
+      threshold: [0.4],
+    }
   );
 
   contentRefs.value.forEach((el) => el && observer.observe(el));
@@ -102,7 +102,7 @@ watch(
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
             }"
           >
-            <a :href="`#${slugify(tab.title)}`">{{ tab.title }}</a>
+            <a :href="'#' + slugify(tab.title)">{{ tab.title }}</a>
             <span
               v-if="activeTabIndex === index"
               class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
@@ -189,3 +189,4 @@ watch(
   -webkit-text-fill-color: transparent;
 }
 </style>
+
