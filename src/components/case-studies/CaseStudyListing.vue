@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation , Autoplay } from "swiper/modules";
 
 const props = defineProps({
   items: {
@@ -17,7 +17,7 @@ const props = defineProps({
   },
 });
 
-const swiperModules = [Pagination, Navigation];
+const swiperModules = [Pagination, Navigation, Autoplay];
 const swiperOptions = {
   slidesPerView: 1, // Ensures cards are wider on mobile
   spaceBetween: 16,
@@ -27,6 +27,10 @@ const swiperOptions = {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 5000, // 2 seconds
+    disableOnInteraction: false, // Ensures autoplay continues after interaction
   },
 };
 const currentIndex = ref(0);
