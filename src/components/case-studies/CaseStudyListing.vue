@@ -29,8 +29,8 @@ const swiperOptions = {
     prevEl: ".swiper-button-prev",
   },
   autoplay: {
-    delay: 5000, // 2 seconds
-    disableOnInteraction: false, // Ensures autoplay continues after interaction
+    delay: 5000, // 5 seconds
+    pauseOnMouseEnter: true,
   },
 };
 const currentIndex = ref(0);
