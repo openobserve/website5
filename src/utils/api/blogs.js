@@ -89,7 +89,7 @@ export async function getBlogsByAuthor(author) {
 export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
    // Filter out case studies
-   const filteredBlogs = blogs.filter((blog) => blog.caseStudies !== true);
+   const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
 
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
