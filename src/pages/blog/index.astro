@@ -22,7 +22,7 @@ const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
-const allBlogsData = await getAllBlogs();
+const allBlogsData = (await getAllBlogs()).filter((blog) => blog.caseStudies !== true);
 const suggestionData = await getAllCategories();
 
 const loadcaseStudyData = await getCaseStudies();
