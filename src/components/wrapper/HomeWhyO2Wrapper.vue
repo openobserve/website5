@@ -26,11 +26,11 @@ const props = defineProps({
         align="CENTER"
       />
       <div class="relative">
-        <img
+        <!-- <img
           src="/img/bg/gradient-bg/cardBg1.svg"
           class="absolute -left-80 -top-44 w-full xl:w-[50%]"
           alt="Background SVG"
-        />
+        /> -->
 
         <div
           :class="[

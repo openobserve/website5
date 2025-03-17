@@ -31,7 +31,7 @@ const props = defineProps({
   <div class="">
     <div class="relative bg-cover bg-no-repeat overflow-visible">
       <!-- Background Images -->
-      <img
+      <!-- <img
         src="/img/bg/gradient-bg/FeatureCard-Ellipse-136.svg"
         alt="Image"
         class="absolute bottom-[-40vh] right-[105vh] opcacity-30 object-contain"
@@ -45,7 +45,7 @@ const props = defineProps({
         src="/img/bg/gradient-bg/Feature-Card-Ellipse-40.svg"
         alt="Image"
         class="absolute top-0 right-0 object-contain"
-      />
+      /> -->
 
       <!-- Main Content -->
       <CustomSection>
