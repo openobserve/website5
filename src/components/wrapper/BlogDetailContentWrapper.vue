@@ -369,22 +369,5 @@ onMounted(() => {
   font-weight: bold;
 }
 
-.prose-pre::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
 
-.prose-pre::-webkit-scrollbar-track {
-  background: #0457dd;
-  border-radius: 4px;
-}
-
-.prose-pre::-webkit-scrollbar-thumb {
-  background: #64748b;
-  border-radius: 4px;
-}
-
-.prose-pre::-webkit-scrollbar-thumb:hover {
-  background: #475569;
-}
 </style>
