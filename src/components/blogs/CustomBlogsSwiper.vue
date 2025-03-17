@@ -94,7 +94,7 @@ const shadowClass = computed(() => {
 </script>
 
 <template>
-  <div class="py-8 relative">
+  <div class="py-2 md:py-4 lg:py-8 relative">
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
