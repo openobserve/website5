@@ -144,8 +144,9 @@ const componentsMap = computed(() => ({
 
   //case-studies page
   "section-cards.case-studies-section":CaseStudyListing,
-  "section-cards.clients-testimonials" : ClientTestimonials
+  "section-cards.clients-testimonials" : ClientTestimonials,
   
+  "section-cards.case-studies":CaseStudyWrapper,
 }));
 
 const getComponentProps = (it) => {
