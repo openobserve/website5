@@ -17,6 +17,17 @@ const showLeftShadow = ref(false);
 const showRightShadow = ref(false);
 let observer = null;
 
+const checkScrollShadows = () => {
+  if (tabsContainer.value) {
+    const container = tabsContainer.value;
+    showLeftShadow.value = container.scrollLeft > 0;
+    showRightShadow.value =
+      container.scrollWidth > container.clientWidth &&
+      container.scrollLeft < container.scrollWidth - container.clientWidth - 1;
+  }
+};
+
+
 const setActiveTab = (index, slug) => {
   if (activeTabIndex.value === index) return;
 
@@ -33,16 +44,6 @@ const setActiveTab = (index, slug) => {
   });
 };
 
-const checkScrollShadows = () => {
-  if (tabsContainer.value) {
-    const container = tabsContainer.value;
-    showLeftShadow.value = container.scrollLeft > 0;
-    showRightShadow.value =
-      container.scrollWidth > container.clientWidth &&
-      container.scrollLeft < container.scrollWidth - container.clientWidth - 1;
-  }
-};
-
 const setupIntersectionObserver = () => {
   observer = new IntersectionObserver(
     (entries) => {
@@ -51,9 +52,13 @@ const setupIntersectionObserver = () => {
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
       if (visibleItems.length) {
-        const index = contentRefs.value.findIndex((el) => el === visibleItems[0].target);
-        if (index !== -1 && index !== activeTabIndex.value) {
-          setActiveTab(index, slugify(props.items[index].title));
+        const firstVisibleIndex = contentRefs.value.findIndex(
+          (el) => el === visibleItems[0].target
+        );
+        if (firstVisibleIndex !== -1 && firstVisibleIndex !== activeTabIndex.value) {
+          requestAnimationFrame(() => {
+            setActiveTab(firstVisibleIndex, slugify(props.items[firstVisibleIndex].title));
+          });
         }
       }
     },
@@ -189,4 +194,3 @@ watch(
   -webkit-text-fill-color: transparent;
 }
 </style>
-

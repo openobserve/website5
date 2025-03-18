@@ -24,7 +24,7 @@ const renderMarkdown = (markdown) => {
 
 <template>
   <div
-    class="w-full bg-[url('/img/bg/gradient-bg/faqBg2.svg')] bg-cover bg-center bg-no-repeat h-full"
+    class="w-full bg-[url('/img/bg/gradient-bg/faqBg.svg')] bg-cover bg-center bg-no-repeat h-full"
   >
     <!-- FAQ Items -->
     <div class="space-y-4 my-5 w-full">
