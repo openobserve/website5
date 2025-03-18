@@ -17,6 +17,7 @@ const showLeftShadow = ref(false);
 const showRightShadow = ref(false);
 let observer = null;
 
+//shadow function on both sides
 const checkScrollShadows = () => {
   if (tabsContainer.value) {
     const container = tabsContainer.value;
@@ -27,40 +28,26 @@ const checkScrollShadows = () => {
   }
 };
 
-
 const setActiveTab = (index, slug) => {
-  if (activeTabIndex.value === index) return;
+  if (activeTabIndex.value === index) {
+    return;
+  }
 
   activeTabIndex.value = index;
-  window.history.pushState(null, "", "#" + slug);
-
   nextTick(() => {
     const tabElement = tabsContainer.value?.children[index];
-
-    if (tabElement) {
-      const container = tabsContainer.value;
-      const containerRect = container.getBoundingClientRect();
-      const tabRect = tabElement.getBoundingClientRect();
-
-      // Check if the tab is already fully visible before scrolling
-      if (
-        tabRect.left >= containerRect.left &&
-        tabRect.right <= containerRect.right
-      ) {
-        return;
-      }
-
-      tabElement.scrollIntoView({
+    const container = tabsContainer.value;
+    if (container) {
+      container.scrollTo({
+        left:
+          tabElement.offsetLeft - container.offsetWidth / 2 + tabElement.offsetWidth / 2,
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       });
     }
 
     checkScrollShadows();
   });
 };
-
 
 const setupIntersectionObserver = () => {
   observer = new IntersectionObserver(
@@ -75,13 +62,16 @@ const setupIntersectionObserver = () => {
         );
         if (firstVisibleIndex !== -1 && firstVisibleIndex !== activeTabIndex.value) {
           requestAnimationFrame(() => {
-            setActiveTab(firstVisibleIndex, slugify(props.items[firstVisibleIndex].title));
+            setActiveTab(
+              firstVisibleIndex,
+              slugify(props.items[firstVisibleIndex].title)
+            );
           });
         }
       }
     },
     {
-      root: null,
+      root: document.querySelector("tabScrolling"),
       rootMargin: "-10% 0px -40% 0px",
       threshold: [0.4],
     }
@@ -92,34 +82,39 @@ const setupIntersectionObserver = () => {
 
 onMounted(() => {
   checkScrollShadows();
-  setTimeout(() => setupIntersectionObserver(), 100);
+  setupIntersectionObserver();
 });
 
 onUnmounted(() => observer?.disconnect());
 
-watch(
-  () => props.items,
-  () => setTimeout(() => setupIntersectionObserver(), 100),
-  { deep: true }
-);
 </script>
 
 <template>
-  <section class="text-white">
+  <section class="text-white" id="tabScrolling">
     <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto flex flex-row">
         <div v-if="showLeftShadow" class="absolute left-shadow"></div>
 
-        <div ref="tabsContainer" @scroll="checkScrollShadows"
-          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar">
-          <div v-for="(tab, index) in items" :key="slugify(tab.title)" @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2" :class="{
+        <div
+          ref="tabsContainer"
+          @scroll="checkScrollShadows"
+          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar"
+        >
+          <div
+            v-for="(tab, index) in items"
+            :key="slugify(tab.title)"
+            @click="setActiveTab(index, slugify(tab.title))"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
+            :class="{
               'text-white': activeTabIndex === index,
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
-            }">
+            }"
+          >
             <a :href="'#' + slugify(tab.title)">{{ tab.title }}</a>
-            <span v-if="activeTabIndex === index"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"></span>
+            <span
+              v-if="activeTabIndex === index"
+              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
+            ></span>
           </div>
         </div>
 
@@ -128,10 +123,19 @@ watch(
     </div>
 
     <div>
-      <div v-for="(tab, tabIndex) in items" :key="slugify(tab.title)" :ref="(el) => (contentRefs[tabIndex] = el)"
-        class="mb-8 md:mb-0">
-        <CustomInterChange :key="slugify(tab.title)" :items="tab.items" :title="tab.title" :image="tab.image"
-          :direction="tabIndex % 2 === 0 ? 'left' : 'right'" />
+      <div
+        v-for="(tab, tabIndex) in items"
+        :key="slugify(tab.title)"
+        :ref="(el) => (contentRefs[tabIndex] = el)"
+        class="mb-8 md:mb-0"
+      >
+        <CustomInterChange
+          :key="slugify(tab.title)"
+          :items="tab.items"
+          :title="tab.title"
+          :image="tab.image"
+          :direction="tabIndex % 2 === 0 ? 'left' : 'right'"
+        />
       </div>
     </div>
   </section>
