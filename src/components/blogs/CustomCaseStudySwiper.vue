@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -33,13 +34,30 @@ const props = defineProps({
   },
 });
 
+const isMobile = ref(false);
+
+// Detect screen size on mount
+const updateScreenSize = () => {
+  isMobile.value = window.innerWidth < 768;
+};
+
+onMounted(() => {
+  updateScreenSize();
+  window.addEventListener("resize", updateScreenSize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateScreenSize);
+});
+
 const swiperModules = [Pagination, Navigation];
-const swiperOptions = {
-  slidesPerView: 1.2, // Ensures cards are wider on mobile
+
+const swiperOptions = ref({
+  slidesPerView: 1.2,
   spaceBetween: 16,
   pagination: {
     clickable: true,
-    // el: ".swiper-pagination-bullet",
+    el: ".swiper-pagination",
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -47,7 +65,7 @@ const swiperOptions = {
   },
   breakpoints: {
     640: {
-      slidesPerView: 1.5, // Slightly larger cards on small tablets
+      slidesPerView: 1.5,
       spaceBetween: 20,
     },
     768: {
@@ -74,41 +92,16 @@ const truncateDescription = (text: string, wordLimit: number) => {
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
-        <swiper
-          class="blog-swiper"
-          :modules="swiperModules"
-          :v-bind="swiperOptions"
-        >
+        <swiper class="blog-swiper" :modules="swiperModules" v-bind="swiperOptions">
           <swiper-slide v-for="blog in sectionData" :key="blog.slug">
-            <a
-              :href="`/blog/${blog?.slug}`"
-              :class="[linkColor, 'text-sm font-semibold hover:opacity-80']"
-            >
-              <div
-                :class="[
-                  cardBgColor,
-                  'h-full rounded-xl overflow-hidden transition-transform ',
-                ]"
-              >
-                <!-- <div class="h-48 overflow-hidden">
-                  <CustomImage
-                    :image="blog.image || ''"
-                    :altText="blog.title"
-                    cssClass="w-full h-full object-cover"
-                  />
-                </div> -->
-                <CustomBluredImage
-                  :image="blog.image || ''"
-                  :altText="blog.title"
-                />
-
+            <a :href="`/blog/${blog?.slug}`" :class="[linkColor, 'text-sm font-semibold hover:opacity-80']">
+              <div :class="[cardBgColor, 'h-full rounded-xl overflow-hidden transition-transform ']">
+                <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
                 <div class="p-6 mb-3">
                   <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">
                     {{ blog.title }}
                   </h3>
-                  <p
-                    :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']"
-                  >
+                  <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']">
                     {{ blog.description }}
                   </p>
                 </div>
@@ -117,14 +110,13 @@ const truncateDescription = (text: string, wordLimit: number) => {
           </swiper-slide>
         </swiper>
 
+        <!-- Pagination (only visible on mobile) -->
+        <div v-show="isMobile" class="swiper-pagination"></div>
+
         <!-- Navigation Arrows (Hidden on Mobile) -->
         <div class="hidden md:block">
-          <div
-            class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
-          <div
-            class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"
-          ></div>
+          <div class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-20"></div>
+          <div class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-20"></div>
         </div>
       </div>
     </div>
@@ -134,13 +126,6 @@ const truncateDescription = (text: string, wordLimit: number) => {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
-  /* mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%,
-    black 90%,
-    rgba(0, 0, 0, 0) 100%
-  ); */
 }
 
 .blog-swiper .swiper-pagination-bullet {
@@ -152,35 +137,11 @@ const truncateDescription = (text: string, wordLimit: number) => {
   background: #3b82f6;
 }
 
-.swiper-slide {
-  height: auto;
+/* Hide navigation on mobile */
+@media (max-width: 767px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
 }
-
-/* Navigation Arrows Styles (Hidden on Mobile) */
-:deep(.swiper-button-next),
-:deep(.swiper-button-prev) {
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-:deep(.swiper-button-next::after),
-:deep(.swiper-button-prev::after) {
-  font-size: 20px;
-}
-
-:deep(.swiper-button-disabled) {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-/* 
-:deep(.swiper-pagination-bullet) {
-  background: #fdfd06 !important;
-  opacity: 1 !important;
-}
-
-:deep(.swiper-pagination-bullet-active) {
-  background: #3b82f6 !important;
-} */
 </style>
