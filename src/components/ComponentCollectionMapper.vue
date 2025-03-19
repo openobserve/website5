@@ -48,7 +48,7 @@ import EnterpriceSupportForm from "./forms/EnterpriceSupportForm.vue";
 import SectionSwitcher from "./cloud-selfHostedSection/SectionSwitcher.vue";
 import CustomComparisonTable from "./core/CustomComparisonTable.vue";
 import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
-import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
+import TestimonialWrapper from "./wrapper/TestimonialWrapper.vue";
 import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
@@ -89,7 +89,7 @@ const componentsMap = computed(() => ({
   "section-cards.blog": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
-  "section-cards.testimonials": pLevelpLevel,
+  "section-cards.testimonials": TestimonialWrapper,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
   "section-cards.feature4": CircularFrameCardWrapper,

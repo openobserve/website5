@@ -74,7 +74,9 @@ export async function getAllCategories() {
 
 export async function getAllBlogs() {
   const blogs = await fetchBlogs();
-  return blogs;
+     // Filter out case studies
+     const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  return filteredBlogs;
 }
 
 export async function getBlogsBySlug(slug) {
