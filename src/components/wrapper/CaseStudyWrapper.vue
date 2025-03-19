@@ -110,13 +110,13 @@ const redirectToBlog = (slug) => {
 
       <!-- Mobile View -->
       <div class="block md:hidden">
-        <div class="flex flex-col space-y-3 mt-5">
+        <div class="flex flex-col">
           <CustomBlogsSwiper :sectionData="cards" />
         </div>
       </div>
 
       <div
-        class="flex justify-center mt-6 mb-5"
+        class="flex justify-center"
         v-if="primaryButton && primaryButton.text && primaryButton.link"
       >
         <CustomButton
