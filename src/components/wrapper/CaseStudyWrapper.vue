@@ -8,6 +8,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
 import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
+import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
 
 // Define the props for this component
 const props = defineProps({
@@ -65,12 +66,12 @@ const redirectToBlog = (slug) => {
       </div>
 
       <!-- Desktop View -->
-      <div class="hidden md:block pt-[6vh] py-6 relative">
-        <CustomImage
+      <div class="hidden md:block pt-[4vh] py-6 relative">
+        <!-- <CustomImage
           image="/img/bg/gradient-bg/Ellipse-141.svg"
           altText="Background decoration"
           cssClass="absolute opacity-30 object-contain -z-10"
-        />
+        /> -->
 
         <!-- When exactly two cards, use CentralCard component -->
         <div
@@ -110,7 +111,7 @@ const redirectToBlog = (slug) => {
       <!-- Mobile View -->
       <div class="block md:hidden">
         <div class="flex flex-col space-y-3 mt-5">
-          <CustomCaseStudySwiper :sectionData="cards" />
+          <CustomBlogsSwiper :sectionData="cards" />
         </div>
       </div>
 

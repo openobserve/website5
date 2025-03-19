@@ -77,7 +77,7 @@ const swiperOptions = ref({
       spaceBetween: 30,
     },
   },
-};
+});
 
 const truncateDescription = (text: string, wordLimit: number) => {
   const words = text.split(" ");
@@ -97,7 +97,7 @@ const truncateDescription = (text: string, wordLimit: number) => {
             <a :href="`/blog/${blog?.slug}`" :class="[linkColor, 'text-sm font-semibold hover:opacity-80']">
               <div :class="[cardBgColor, 'h-full rounded-xl overflow-hidden transition-transform ']">
                 <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
-                <div class="p-6 mb-3">
+                <div class="p-4 mb-3">
                   <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">
                     {{ blog.title }}
                   </h3>
@@ -128,6 +128,15 @@ const truncateDescription = (text: string, wordLimit: number) => {
   padding-bottom: 40px !important;
 }
 
+.swiper-slide {
+  height: auto;
+}
+.swiper-pagination{
+  display: flex !important;
+  justify-content: center;
+  bottom: 10px;
+  position: absolute !important;
+}
 .blog-swiper .swiper-pagination-bullet {
   background: #4b5563;
   opacity: 1;

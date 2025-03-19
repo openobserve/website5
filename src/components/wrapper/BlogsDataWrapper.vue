@@ -5,7 +5,6 @@ import LeftSideCard from "../../components/cardComponent/LeftSideCard.vue";
 import RightSideCard from "../../components/cardComponent/RightSideCard.vue";
 import CentralCard from "../cardComponent/CentralCard.vue"; // Import the new component
 import CustomButton from "../core/CustomButton.vue";
-import CaseStudyMobileWrapper from "./CaseStudyMobileWrapper.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
 import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
@@ -85,7 +84,7 @@ const redirectToBlog = (slug) => {
         <!-- Original layout for more than two cards -->
         <div
           v-else
-          class="flex flex-row gap-3 justify-center container mx-auto h-full w-full cursor-pointer"
+          class="flex flex-row gap-3 container mx-auto h-full w-full cursor-pointer"
         >
           <!-- Featured (first) card -->
           <div v-if="cards.length > 0" class="w-full">
@@ -112,7 +111,7 @@ const redirectToBlog = (slug) => {
       <!-- Mobile View -->
       <div class="block md:hidden">
         <div class="flex flex-col">
-          <CustomCaseStudySwiper :sectionData="cards" />
+          <CustomBlogsSwiper :sectionData="cards" />
         </div>
       </div>
 
