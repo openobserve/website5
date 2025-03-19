@@ -5,27 +5,27 @@
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full">
-          <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
+          <li class="relative" @mouseenter="handleMenuHover('platform')" @mouseleave="handleMenuLeave('platform')">
             <a href="/platform" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="activeMenu === 'platform' ? 'bg-gray-600/50' : 'bg-transparent'">
               Platform
             </a>
           </li>
-          <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
+          <li class="relative" @mouseenter="handleMenuHover('solution')" @mouseleave="handleMenuLeave('solution')">
             <a href="/solutions" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="activeMenu === 'solution' ? 'bg-gray-600/50' : 'bg-transparent'">
               Solutions
             </a>
           </li>
-          <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
+          <li class="relative" @mouseenter="handleMenuHover('resources')" @mouseleave="handleMenuLeave('resources')">
             <a href="/resources" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="activeMenu === 'resources' ? 'bg-gray-600/50' : 'bg-transparent'">
               Resources
             </a>
           </li>
-          <li class="relative" @mouseenter="onCompanyMenuHover" @mouseleave="onCompanyMenuMouseLeave">
+          <li class="relative" @mouseenter="handleMenuHover('company')" @mouseleave="handleMenuLeave('company')">
             <a href="/about" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
-              :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="activeMenu === 'company' ? 'bg-gray-600/50' : 'bg-transparent'">
               Company
             </a>
           </li>
@@ -67,8 +67,8 @@
     </div>
     <!-- Dropdown Menus -->
     <div class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
-      v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
-      <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
+      v-if="activeMenu === 'platform'" @mouseenter="handleMenuHover('platform')">
+      <CustomHoverHeader @mouseleave="handleMenuLeave('platform')">
         <div>
           <a class="text-xl font-bold text-[#FFFFFF]">
             {{ items.platform.title }}
@@ -109,8 +109,8 @@
       </CustomHoverHeader>
     </div>
     <div class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] container mx-auto"
-      v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
-      <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
+      v-if="activeMenu === 'solution'" @mouseenter="handleMenuHover('solution')">
+      <CustomHoverHeader @mouseleave="handleMenuLeave('solution')">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4 p-4">
             <!-- Use Case Column -->
@@ -155,8 +155,8 @@
       </CustomHoverHeader>
     </div>
     <div class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] container mx-auto"
-      v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
-      <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
+      v-if="activeMenu === 'resources'" @mouseenter="handleMenuHover('resources')">
+      <CustomHoverHeader @mouseleave="handleMenuLeave('resources')">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
             <div>
@@ -215,9 +215,9 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto" v-if="isCompanyMenuOpen"
-      @mouseenter="onCompanyMenuHover">
-      <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
+    <div class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto" v-if="activeMenu === 'company'"
+      @mouseenter="handleMenuHover('company')">
+      <CustomHoverHeader @mouseleave="handleMenuLeave('company')">
         <ul class="flex flex-col space-y-2">
           <li v-for="(item, index) in items?.company?.items" :key="index" class="text-[#BEC0C2] text-sm">
             <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
@@ -270,6 +270,7 @@ import SectionHeader from "./SectionHeader.vue";
 import { defineProps, ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
 import { slugify } from "@/utils/slugify";
+
 defineProps({
   items: {
     type: Object,
@@ -277,97 +278,29 @@ defineProps({
   },
 });
 
-const isPlatformMenuOpen = ref(false);
-const isSolutionMenuOpen = ref(false);
-const isResourcesMenuOpen = ref(false);
-const isCompanyMenuOpen = ref(false);
+// Single state for active menu
+const activeMenu = ref(null);
 const isOpenSearch = ref(false);
-const searchWrapper = ref(null); // Reference to the search bar wrapper
-const platformMenuTimeout = ref(null);
-const solutionMenuTimeout = ref(null);
-const resourcesMenuTimeout = ref(null);
-const companyMenuTimeout = ref(null);
+const searchWrapper = ref(null);
 
-const onPlatformMenuHover = () => {
-  clearTimeout(platformMenuTimeout.value);
-  isPlatformMenuOpen.value = true;
+// Single timeout reference for all menus
+const menuTimeout = ref(null);
 
-  // Close other menus immediately
-  isSolutionMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
+// Unified menu hover handler
+const handleMenuHover = (menuName) => {
+  clearTimeout(menuTimeout.value);
+  activeMenu.value = menuName;
 };
 
-const onPlatformMenuMouseLeave = () => {
-  platformMenuTimeout.value = setTimeout(() => {
-    isPlatformMenuOpen.value = false;
+// Unified menu leave handler
+const handleMenuLeave = (menuName) => {
+  menuTimeout.value = setTimeout(() => {
+    // Only close if the currently active menu is the one being left
+    if (activeMenu.value === menuName) {
+      activeMenu.value = null;
+    }
   }, 300);
 };
-
-const onSolutionMenuHover = () => {
-  clearTimeout(solutionMenuTimeout.value);
-  isSolutionMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
-};
-
-const onSolutionMenuMouseLeave = () => {
-  solutionMenuTimeout.value = setTimeout(() => {
-    isSolutionMenuOpen.value = false;
-  }, 500);
-};
-
-const onResourcesMenuHover = () => {
-  clearTimeout(resourcesMenuTimeout.value);
-  isResourcesMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isSolutionMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
-};
-
-const onResourcesMenuMouseLeave = () => {
-  resourcesMenuTimeout.value = setTimeout(() => {
-    isResourcesMenuOpen.value = false;
-  }, 500);
-};
-
-const onCompanyMenuHover = () => {
-  clearTimeout(companyMenuTimeout.value);
-  isCompanyMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isSolutionMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-};
-
-const onCompanyMenuMouseLeave = () => {
-  companyMenuTimeout.value = setTimeout(() => {
-    isCompanyMenuOpen.value = false;
-  }, 500);
-};
-
-// const onCommunityMenuHover = () => {
-//   clearTimeout(communityMenuTimeout.value);
-//   isCommunityMenuOpen.value = true;
-
-//   // Close other menus immediately
-//   isPlatformMenuOpen.value = false;
-//   isSolutionMenuOpen.value = false;
-//   isResourcesMenuOpen.value = false;
-
-// };
-
-// const onCommunityMenuMouseLeave = () => {
-//   communityMenuTimeout.value = setTimeout(() => {
-//     isCommunityMenuOpen.value = false;
-//   }, 500);
-// };
 
 const onSearchClick = () => {
   isOpenSearch.value = !isOpenSearch.value;
@@ -379,6 +312,7 @@ const handleClickOutside = (event) => {
     isOpenSearch.value = false;
   }
 };
+
 // Attach and detach the event listener
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
