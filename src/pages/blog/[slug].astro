@@ -10,7 +10,6 @@ import {
   getCaseStudies,
 } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
-import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
   return slugs.map((it: any) => ({

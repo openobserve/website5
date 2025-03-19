@@ -6,8 +6,6 @@ import CustomSection from "../core/CustomSection.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
-import CustomBanner from "../core/CustomBanner.vue";
-import BannerWrapper from "./BannerWrapper.vue";
 import BlogCtaBanner from "./BlogCtaBanner.vue";
 
 // Define props

@@ -40,7 +40,9 @@ const setActiveTab = (index, slug) => {
     if (container) {
       container.scrollTo({
         left:
-          tabElement.offsetLeft - container.offsetWidth / 2 + tabElement.offsetWidth / 2,
+          tabElement.offsetLeft -
+          container.offsetWidth / 2 +
+          tabElement.offsetWidth / 2,
         behavior: "smooth",
       });
     }
@@ -60,11 +62,14 @@ const setupIntersectionObserver = () => {
         const firstVisibleIndex = contentRefs.value.findIndex(
           (el) => el === visibleItems[0].target
         );
-        if (firstVisibleIndex !== -1 && firstVisibleIndex !== activeTabIndex.value) {
+        if (
+          firstVisibleIndex !== -1 &&
+          firstVisibleIndex !== activeTabIndex.value
+        ) {
           requestAnimationFrame(() => {
             setActiveTab(
               firstVisibleIndex,
-              slugify(props.items[firstVisibleIndex].title)
+              slugify(props?.items[firstVisibleIndex]?.title)
             );
           });
         }
@@ -86,24 +91,33 @@ onMounted(() => {
 });
 
 onUnmounted(() => observer?.disconnect());
-
 </script>
 
 <template>
+  <!-- <div class="text-white">
+    {{  JSON.stringify(items) }}
+  </div> -->
   <section class="text-white" id="tabScrolling">
     <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto flex flex-row">
         <div v-if="showLeftShadow" class="absolute left-shadow"></div>
 
-        <div ref="tabsContainer" @scroll="checkScrollShadows"
-          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar">
-          <div v-for="(tab, index) in items" :key="slugify(tab.title)" @click="setActiveTab(index, slugify(tab.title))"
-            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2" :class="{
+        <div
+          ref="tabsContainer"
+          @scroll="checkScrollShadows"
+          class="flex overflow-x-auto gap-5 lg:gap-6 scroll-smooth hide-scrollbar"
+        >
+          <div
+            v-for="(tab, index) in items"
+            :key="slugify(tab?.title)"
+            @click="setActiveTab(index, slugify(tab?.title))"
+            class="relative cursor-pointer text-sm md:text-base lg:text-xl font-medium whitespace-nowrap py-2"
+            :class="{
               'text-white': activeTabIndex === index,
               'text-gray-200 hover:text-gray-300': activeTabIndex !== index,
             }"
           >
-            <a :href="'#' + slugify(tab.title)">{{ tab.title }}</a>
+            <a :href="'#' + slugify(tab?.title)">{{ tab.title }}</a>
             <span
               v-if="activeTabIndex === index"
               class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-text transition-all"
@@ -118,11 +132,12 @@ onUnmounted(() => observer?.disconnect());
     <div>
       <div
         v-for="(tab, tabIndex) in items"
-        :key="slugify(tab.title)"
+        :key="slugify(tab?.title)"
         :ref="(el) => (contentRefs[tabIndex] = el)"
         class="mb-8 md:mb-0"
       >
-        <CustomInterChange :key="slugify(tab.title)" :items="items" />
+        <CustomInterChange :key="slugify(tab?.title)"  :items="tab.items" :title="tab.title" :image="tab.image"
+        :direction="tabIndex % 2 === 0 ? 'left' : 'right'" />
       </div>
     </div>
   </section>
@@ -179,7 +194,11 @@ onUnmounted(() => observer?.disconnect());
 
 .gradient-text {
   display: inline-block;
-  background: linear-gradient(to left, rgb(var(--blue-light)), rgb(var(--blue-dark)));
+  background: linear-gradient(
+    to left,
+    rgb(var(--blue-light)),
+    rgb(var(--blue-dark))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
