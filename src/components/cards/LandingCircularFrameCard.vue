@@ -1,6 +1,6 @@
 <script setup>
 // import CustomRoundShape from "../core/CustomRoundShape.vue";
-import CustomRoundShapeLandingPage from "../core/CustomRoundShapeLandingPage.vue";
+import LandingCircularFrame from "../core/LandingCircularFrame.vue";
 
 const props = defineProps({
   card: {
@@ -12,16 +12,10 @@ const props = defineProps({
 
 <template>
   <div class="h-14">
-    <CustomRoundShapeLandingPage
-      :imgSrc="card.image"
-      iconSize="small"
-      size="small"
-    />
+    <LandingCircularFrame :imgSrc="card.image" iconSize="small" size="small" />
   </div>
   <div class="flex flex-col gap-2">
-    <h2
-      class="font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 text-[#14181B]"
-    >
+    <h2 class="font-semibold text-[16px] sm:text-[18px] md:text-[20px] m-0 text-[#14181B]">
       {{ card.title }}
     </h2>
     <p class="text-[12px] sm:text-[14px] md:text-[16px] m-0 text-[#23282C]">

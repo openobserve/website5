@@ -76,7 +76,6 @@ export async function getAllBlogs() {
   const blogs = await fetchBlogs();
   return blogs;
 }
-
 export async function getBlogsBySlug(slug) {
   const blogs = await getAllBlogs();
   return blogs.filter((blog) => blog.slug === slug)[0];

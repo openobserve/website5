@@ -46,19 +46,10 @@ const props = defineProps<{
           </h4>
 
           <!-- Features List -->
-          <ul
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-[70%]"
-          >
-            <li
-              v-for="(feature, featureIndex) in tiers.enterpriseFeatures"
-              :key="featureIndex"
-              class="flex items-center gap-3 text-gray-300"
-            >
-              <img
-                src="/img/icon/RightTick.svg"
-                alt="icon"
-                class="w-4 md:w-5 h-4 md:h-5"
-              />
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-[70%]">
+            <li v-for="(feature, featureIndex) in tiers.enterpriseFeatures" :key="featureIndex"
+              class="flex items-center gap-3 text-gray-300">
+              <img src="/img/icon/RightTick.svg" alt="icon" class="w-4 md:w-5 h-4 md:h-5" />
               <span class="text-sm text-left">{{ feature.title }}</span>
             </li>
           </ul>
@@ -69,13 +60,8 @@ const props = defineProps<{
 
           <!-- Action Button -->
           <div class="mt-6">
-            <CustomButton
-              v-if="tiers?.demoButton?.link"
-              variant="primary"
-              :button-link="tiers.demoButton.link"
-              class="transition-all duration-200"
-              :target="tiers.demoButton.target"
-            >
+            <CustomButton v-if="tiers?.demoButton?.link" variant="primary" :button-link="tiers.demoButton.link"
+              class="transition-all duration-200" :target="tiers.demoButton.target">
               {{ tiers.demoButton.text }}
             </CustomButton>
           </div>
@@ -91,32 +77,18 @@ const props = defineProps<{
           </h4>
 
           <!-- Enterprise Features List -->
-          <ul
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-[70%]"
-          >
-            <li
-              v-for="(feature, featureIndex) in tiers.features"
-              :key="featureIndex"
-              class="flex items-center gap-3 text-gray-300"
-            >
-              <img
-                src="/img/icon/RightTick.svg"
-                alt="icon"
-                class="w-4 md:w-5 h-4 md:h-5"
-              />
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-[70%]">
+            <li v-for="(feature, featureIndex) in tiers.features" :key="featureIndex"
+              class="flex items-center gap-3 text-gray-300">
+              <img src="/img/icon/RightTick.svg" alt="icon" class="w-4 md:w-5 h-4 md:h-5" />
               <span class="text-sm">{{ feature.title }}</span>
             </li>
           </ul>
 
           <!-- Action Button -->
           <div class="mt-6">
-            <CustomButton
-              v-if="tiers?.primaryButton?.link"
-              variant="secondary"
-              :button-link="tiers.primaryButton.link"
-              class="transition-all duration-200"
-              :target="tiers.primaryButton.target"
-            >
+            <CustomButton v-if="tiers?.primaryButton?.link" variant="secondary" :button-link="tiers.primaryButton.link"
+              class="transition-all duration-200" :target="tiers.primaryButton.target">
               {{ tiers.primaryButton.text }}
             </CustomButton>
           </div>
@@ -128,13 +100,11 @@ const props = defineProps<{
 
 <style scoped>
 .t-color {
-  background: linear-gradient(
-    264deg,
-    #ff9876 -14.95%,
-    #e2a037 33.11%,
-    #ff7a51 107.25%,
-    #8e2705 121.85%
-  );
+  background: linear-gradient(264deg,
+      #ff9876 -14.95%,
+      #e2a037 33.11%,
+      #ff7a51 107.25%,
+      #8e2705 121.85%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -1,11 +1,7 @@
 <template>
   <div>
-    <component
-      v-for="(it, index) in data"
-      :key="index"
-      :is="componentsMap[it.__component]"
-      v-bind="getComponentProps(it)"
-    />
+    <component v-for="(it, index) in data" :key="index" :is="componentsMap[it.__component]"
+      v-bind="getComponentProps(it)" />
   </div>
 </template>
 
@@ -13,38 +9,38 @@
 import { computed } from "vue";
 import HomeHeroSection from "./heroSections/HomeHeroSection.vue";
 import FaqWrapper from "./FAQComponent/FaqWrapper.vue";
-import FeatureCardWithIconWrapper from "./cardComponent/FeatureCardWithIconWrapper.vue";
-import UsecaseCardWithIconWrapper from "./cardComponent/UsecaseCardWithIconWrapper.vue";
-import TopCompaniesWrapper from "./wrapper/TopCompaniesWrapper.vue";
+import FeatureCardWithIconWrapper from "./wrapper/FeatureCardWithIconWrapper.vue";
+import UsecaseCardWithIconWrapper from "./wrapper/UsecaseCardWithIconWrapper.vue";
+import CustomTiels from "./cards/CustomTiles.vue";
 import CompanySwiper from "./core/CompanySwiper.vue";
 import HomeFeatureWrapper from "./wrapper/HomeFeatureWrapper.vue";
 import HomeWhyO2Wrapper from "./wrapper/HomeWhyO2Wrapper.vue";
 import FeatureHeroSection from "./heroSections/FeatureHeroSection.vue";
-import FeatureCardWrapper from "./wrapper/FeatureCardWrapper.vue";
-import TabsWithImageWrapper from "./wrapper/TabsWithImageWrapper.vue";
+import CircularFrameCardWrapper from "./wrapper/CircularFrameCardWrapper.vue";
+import CustomTabsWithImage from "./core/CustomTabsWithImage.vue";
 import TabsWrapper from "./wrapper/TabsWrapper.vue";
 import BlogsDataWrapper from "./wrapper/BlogsDataWrapper.vue";
-import BannerWrapper from "./wrapper/BannerWrapper.vue";
+import CustomBanner from "./core/CustomBanner.vue";
 import PlatformLogsHeroSection from "./heroSections/PlatformLogsHeroSection.vue";
-import CustomCardWrapper from "./cards/CustomCardWrapper.vue";
+import CustomCard from "./cards/CustomCard.vue";
 import VisitSandbox from "./core/VisitSandbox.vue";
 import GetDemoWrapper from "./wrapper/GetDemoWrapper.vue";
 import CompanyAboutUsHeroSection from "./heroSections/CompanyAboutUsHeroSection.vue";
 import CustomStoryWrapper from "./wrapper/CustomStoryWrapper.vue";
 import AboutCommunityWrapper from "./wrapper/AboutCommunityWrapper.vue";
-import CommunitySupportCardWrapper from "./cardComponent/CommunitySupportCardWrapper.vue";
+import CommunitySupportCardWrapper from "./wrapper/CommunitySupportCardWrapper.vue";
 import ContactUsHeroSection from "./heroSections/ContactUsHeroSection.vue";
 import CustomSeprater from "./core/CustomSeprater.vue";
 import PlatformSubTabsWrapper from "./core/PlatformSubTabsWrapper.vue";
 import SolutionSubpageHeroSection from "./heroSections/SolutionSubpageHeroSection.vue";
 import SolutionHeroSection from "./heroSections/SolutionHeroSection.vue";
-import CustomFeatureCardSubPage from "./cards/CustomFeatureCardSubpage.vue";
+import SubpageCircularFrameCard from "./cards/SubpageCircularFrameCard.vue";
 import CompanyJoinOOHeroSection from "./heroSections/CompanyJoinOOHeroSection.vue";
 import CustomOpenObserveCard from "./cards/CustomOpenObserveCard.vue";
 import ResourceHeroSection from "./heroSections/ResourceHeroSection.vue";
 import ResourceCardsWrapper from "./wrapper/ResourceCardsWrapper.vue";
 import BlogsWrapper from "./wrapper/BlogsWrapper.vue";
-import SupportCardWrapper from "./wrapper/SupportCardWrapper.vue";
+import CustomSupportCard from "./cards/CustomSupportCard.vue";
 import ResourceFaqWrapper from "./FAQComponent/ResourceFaqWrapper.vue";
 import CommonFormWrapper from "./wrapper/CommonFormWrapper.vue";
 import ObservablititySuiteWrapper from "./wrapper/ObservablititySuiteWrapper.vue";
@@ -52,7 +48,7 @@ import EnterpriceSupportForm from "./forms/EnterpriceSupportForm.vue";
 import SectionSwitcher from "./cloud-selfHostedSection/SectionSwitcher.vue";
 import CustomComparisonTable from "./core/CustomComparisonTable.vue";
 import TierSwitcher from "./cloud-selfHostedTier/TierSwitcher.vue";
-import pLevelpLevel from "./wrapper/pLevelpLevel.vue";
+import TestimonialWrapper from "./wrapper/TestimonialWrapper.vue";
 import KeyFeatureWrapper from "./wrapper/KeyFeatureWrapper.vue";
 import DemoForm from "./forms/demoForm.vue";
 import DemoPageWrapper from "./wrapper/DemoPageWrapper.vue";
@@ -87,20 +83,20 @@ const componentsMap = computed(() => ({
   "section-hero.homepage-hero": HomeHeroSection,
   "section-cards.features1": FeatureCardWithIconWrapper,
   "section-cards.features2": UsecaseCardWithIconWrapper,
-  "section-cards.stats": TopCompaniesWrapper,
+  "section-cards.stats": CustomTiels,
   "section-cards.clients": CompanySwiper,
   // "section-cards.case-studies": CaseStudyWrapper,
   "section-cards.blog": BlogsDataWrapper,
   "section-features.home-features-list": HomeFeatureWrapper,
   "section-cards.features3": HomeWhyO2Wrapper,
-  "section-cards.testimonials": pLevelpLevel,
+  "section-cards.testimonials": TestimonialWrapper,
   "section-separator.separator": CustomSeprater,
   "section-hero.feature-hero-section": FeatureHeroSection,
-  "section-cards.feature4": FeatureCardWrapper,
-  "section-features.platform-tabs-wrapper": TabsWithImageWrapper,
+  "section-cards.feature4": CircularFrameCardWrapper,
+  "section-features.platform-tabs-wrapper": CustomTabsWithImage,
   "section-forms.contact": CommonFormWrapper,
   "section-features.tabs-features": TabsWrapper,
-  "section-cta.banner": BannerWrapper,
+  "section-cta.banner": CustomBanner,
   "section-cta.plain-cta": GetDemoWrapper,
   "section-features.feature-list": PlatformSubTabsWrapper, //platform subpage (with bg image)
   "section-features.feature-sub-page-top-tabs": TabsWrapper, //solution sub page (without bg image )
@@ -112,9 +108,9 @@ const componentsMap = computed(() => ({
 
   "section-hero.solutions-hero-section": SolutionHeroSection, //SolutionPage hero section
   "section-hero.feature-solution-hero-section": SolutionSubpageHeroSection, //solution subpage hero section
-  "section-cards.feature-highlights": CustomFeatureCardSubPage,
+  "section-cards.feature-highlights": SubpageCircularFrameCard,
   "section-cta.call-to-action": VisitSandbox,
-  "section-cards.features5": CustomCardWrapper,
+  "section-cards.features5": CustomCard,
   "section-cta.call-to-action": VisitSandbox,
   "section-hero.company-hero-section": CompanyAboutUsHeroSection,
   "section-features.info-right-feature": CustomStoryWrapper,
@@ -126,7 +122,7 @@ const componentsMap = computed(() => ({
   "section-cards.resource-feature-highlight": ResourceCardsWrapper,
   "section-cards.resources-blogs": BlogsWrapper,
   // "section-cards.blog-with-categories":
-  "section-cards.resource-support-card": SupportCardWrapper,
+  "section-cards.resource-support-card": CustomSupportCard,
   "section-hero.company-why-o2-hero-section": CompanyJoinOOHeroSection,
   "section-cards.why-customer-love-us": CustomOpenObserveCard,
   "section-faqs.fa-qs-page-section": ResourceFaqWrapper,

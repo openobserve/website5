@@ -6,8 +6,6 @@ import CustomSection from "../core/CustomSection.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
-import CustomBanner from "../core/CustomBanner.vue";
-import BannerWrapper from "./BannerWrapper.vue";
 import BlogCtaBanner from "./BlogCtaBanner.vue";
 
 // Define props
@@ -193,7 +191,6 @@ async function wrapTablesWithScroll() {
   });
 }
 function observeHeadings() {
-  // console.log("Observe Headings");
   if (typeof window === "undefined") return;
 
   const options = {
@@ -207,7 +204,6 @@ function observeHeadings() {
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio); // Sort by most visible
 
-    console.log(visibleSections, "Visible Sections");
     if (visibleSections.length > 0) {
       currentSection.value = visibleSections[0].target.id;
     }

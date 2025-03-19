@@ -1,26 +1,14 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
-import { generateNavLink } from "../../utils/redirection";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { getImageUrl } from "@/utils/GetImageUrl";
-
-interface BlogSectionData {
-  title: string;
-  description: string;
-  image: {
-    url: string;
-  };
-  slug: string;
-}
 
 const props = defineProps({
   sectionData: {
-    type: Array as () => BlogSectionData[],
+    type: Array,
     required: true,
   },
   titleTextColor: {
@@ -51,6 +39,7 @@ const swiperOptions = {
   spaceBetween: 16,
   pagination: {
     clickable: true,
+    // el: ".swiper-pagination-bullet",
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -71,49 +60,41 @@ const swiperOptions = {
     },
   },
 };
-const currentIndex = ref(0);
-const slidesPerView = ref(1);
 
-const totalSlides = computed(() => props.sectionData.length);
-
-const updateShadow = (swiper: any) => {
-  currentIndex.value = swiper.activeIndex;
-  slidesPerView.value = swiper.params.slidesPerView; // Get slidesPerView dynamically
+const truncateDescription = (text: string, wordLimit: number) => {
+  const words = text.split(" ");
+  return words.length > wordLimit
+    ? words.slice(0, wordLimit).join(" ") + "..."
+    : text;
 };
-
-const shadowClass = computed(() => {
-  if (totalSlides.value <= 1) return ""; // No shadows if only 1 blog
-
-  const lastVisibleIndex = totalSlides.value - slidesPerView.value;
-
-  if (currentIndex.value === 0) return "hide-left"; // Hide left shadow at first slide
-  if (currentIndex.value >= lastVisibleIndex) return "hide-right"; // Hide right shadow at last visible slide
-
-  return "show-both"; // Show both shadows in the middle
-});
 </script>
 
 <template>
-  <div class="py-2 md:py-4 lg:py-8 relative">
+  <div class="relative">
     <div class="container mx-auto">
       <div class="relative">
         <!-- Swiper -->
-        <swiper class="blog-swiper" :class="shadowClass" :modules="swiperModules" v-bind="swiperOptions"
-          @slideChange="updateShadow">
-          <swiper-slide v-for="blog in sectionData" :key="blog.title">
-            <a :key="blog.title" :href="generateNavLink('blog', blog.slug)" rel="noopener noreferrer" :class="[
-              cardBgColor,
-              ' rounded-xl overflow-hidden cardShadow  transition-all duration-300 hover:shadow-2xl',
-            ]">
-              <CustomBluredImage :image="getImageUrl(blog.image) || ''" :altText="blog.title" />
+        <swiper class="blog-swiper" :modules="swiperModules" :v-bind="swiperOptions">
+          <swiper-slide v-for="blog in sectionData" :key="blog.slug">
+            <a :href="`/blog/${blog?.slug}`" :class="[linkColor, 'text-sm font-semibold hover:opacity-80']">
+              <div :class="[
+                cardBgColor,
+                'h-full rounded-xl overflow-hidden transition-transform ',
+              ]">
+                <!-- <div class="h-48 overflow-hidden">
+                  <CustomImage
+                    :image="blog.image || ''"
+                    :altText="blog.title"
+                    cssClass="w-full h-full object-cover"
+                  />
+                </div> -->
+                <CustomBluredImage :image="blog.image || ''" :altText="blog.title" />
 
-              <!-- Right Side - Content -->
-              <div class="w-full p-6 flex flex-col">
-                <div>
-                  <h6 :class="[titleTextColor, 'text-md font-bold mb-3']">
+                <div class="p-6 mb-3">
+                  <h3 :class="[titleTextColor, 'text-xl font-bold mb-2']">
                     {{ blog.title }}
-                  </h6>
-                  <p :class="[descriptionTextColor, 'mb-2 text-sm line-clamp-2']">
+                  </h3>
+                  <p :class="[descriptionTextColor, 'mb-4 text-sm line-clamp-2']">
                     {{ blog.description }}
                   </p>
                 </div>
@@ -135,28 +116,13 @@ const shadowClass = computed(() => {
 <style scoped>
 .blog-swiper {
   padding-bottom: 40px !important;
-}
-
-.blog-swiper.show-both {
-  mask-image: linear-gradient(to right,
-      rgba(0, 0, 0, 0) 0%,
-      black 10%,
-      black 90%,
-      rgba(0, 0, 0, 0) 100%);
-}
-
-.blog-swiper.hide-left {
-  mask-image: linear-gradient(to right,
-      black 0%,
-      black 90%,
-      rgba(0, 0, 0, 0) 100%);
-}
-
-.blog-swiper.hide-right {
-  mask-image: linear-gradient(to right,
-      rgba(0, 0, 0, 0) 0%,
-      black 10%,
-      black 100%);
+  /* mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0) 100%
+  ); */
 }
 
 .blog-swiper .swiper-pagination-bullet {
@@ -189,7 +155,14 @@ const shadowClass = computed(() => {
 :deep(.swiper-button-disabled) {
   opacity: 0.35;
   cursor: not-allowed;
-  pointer-events: auto;
-  /* Ensure it still intercepts clicks */
 }
+/* 
+:deep(.swiper-pagination-bullet) {
+  background: #fdfd06 !important;
+  opacity: 1 !important;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  background: #3b82f6 !important;
+} */
 </style>

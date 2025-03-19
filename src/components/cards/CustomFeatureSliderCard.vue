@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import CustomRoundShapeLandingPage from "../core/CustomRoundShapeLandingPage.vue";
+import LandingCircularFrame from "../core/LandingCircularFrame.vue";
 
 // Props to receive card data and optional styling
 const props = defineProps({
@@ -34,23 +34,11 @@ const swiperOptions = {
 
 <template>
   <div>
-    <swiper
-      class="testimonial-swiper w-full"
-      :modules="swiperModules"
-      v-bind="swiperOptions"
-    >
-      <swiper-slide
-        v-for="(item, index) in cards"
-        :key="index"
-        class="!w-full px-2"
-      >
+    <swiper class="testimonial-swiper w-full" :modules="swiperModules" v-bind="swiperOptions">
+      <swiper-slide v-for="(item, index) in cards" :key="index" class="!w-full px-2">
         <div class="rounded-lg flex flex-row space-x-2 items-start">
           <div class="h-14">
-            <CustomRoundShapeLandingPage
-              :imgSrc="item.image"
-              iconSize="small"
-              size="small"
-            />
+            <LandingCircularFrame :imgSrc="item.image" iconSize="small" size="small" />
           </div>
           <div class="flex flex-col space-y-1">
             <h2 class="font-semibold text-base" :class="titleTextColor">

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import BlogDetailsHeroSectionWrapper from "../../components/wrapper/BlogDetailsHeroSectionWrapper.vue";
 import BlogDetailContentWrapper from "../../components/wrapper/BlogDetailContentWrapper.vue";
+import CustomBanner from "../../components/core/CustomBanner.vue";
 import {
   getAllBlogs,
   getAuthorDetails,
@@ -9,7 +10,6 @@ import {
   getCaseStudies,
 } from "@/utils/api/blogs";
 import { fetchBannerData } from "../../utils/api/globalApi";
-import BannerWrapper from "../../components/wrapper/BannerWrapper.vue";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
   return slugs.map((it: any) => ({
@@ -57,7 +57,7 @@ const metaObj = {
     bannerData={BannerData?.data}
     authors={author}
   />
-  <BannerWrapper
+  <CustomBanner
     title={BannerData?.data?.title}
     description={BannerData?.data?.description}
     heading={BannerData?.data?.heading}

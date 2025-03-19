@@ -40,17 +40,11 @@ const data = {
 
 <template>
   <div class="w-full md:w-1/2 p-2">
-    <p
-      class="text-white mb-6 text-sm md:text-lg lg:text-xl text-center md:text-start"
-    >
+    <p class="text-white mb-6 text-sm md:text-lg lg:text-xl text-center md:text-start">
       {{ data?.description }}
     </p>
     <ul class="w-full space-y-3 md:space-y-6">
-      <li
-        v-for="(feature, index) in data?.keyFeatures"
-        :key="index"
-        class="w-full flex flex-row items-center gap-2"
-      >
+      <li v-for="(feature, index) in data?.keyFeatures" :key="index" class="w-full flex flex-row items-center gap-2">
         <img src="/img/icon/RightTick.svg" alt="icon" class="w-7 h-7" />
         <div class="flex flex-col space-y-1">
           <span class="text-white font-medium">{{ feature.title }}</span>
@@ -60,9 +54,7 @@ const data = {
         </div>
       </li>
     </ul>
-    <h3
-      class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start"
-    >
+    <h3 class="font-semibold text-white py-6 text-md md:text-lg lg:text-xl text-center md:text-start">
       {{ data?.footerdescription }}
     </h3>
   </div>
