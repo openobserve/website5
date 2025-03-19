@@ -7,7 +7,6 @@ import CentralCard from "../../components/cardComponent/CentralCard.vue"; // Imp
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
-import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
 import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
 
 // Define the props for this component

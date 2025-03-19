@@ -8,7 +8,6 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
 import CustomBlogsSwiper from "../blogs/CustomBlogsSwiper.vue";
-import CustomCaseStudySwiper from "../blogs/CustomCaseStudySwiper.vue";
 
 // Define the props for this component
 const props = defineProps({
