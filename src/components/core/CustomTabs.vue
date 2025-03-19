@@ -94,9 +94,6 @@ onUnmounted(() => observer?.disconnect());
 </script>
 
 <template>
-  <!-- <div class="text-white">
-    {{  JSON.stringify(items) }}
-  </div> -->
   <section class="text-white" id="tabScrolling">
     <div class="sticky-tabs flex justify-center backdrop-blur-3xl">
       <div class="relative max-w-full mx-auto flex flex-row">

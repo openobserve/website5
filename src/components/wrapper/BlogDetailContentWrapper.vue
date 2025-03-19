@@ -191,7 +191,6 @@ async function wrapTablesWithScroll() {
   });
 }
 function observeHeadings() {
-  // console.log("Observe Headings");
   if (typeof window === "undefined") return;
 
   const options = {
@@ -205,7 +204,6 @@ function observeHeadings() {
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio); // Sort by most visible
 
-    console.log(visibleSections, "Visible Sections");
     if (visibleSections.length > 0) {
       currentSection.value = visibleSections[0].target.id;
     }
