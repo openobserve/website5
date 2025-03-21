@@ -10,6 +10,7 @@ import {
   getResourceAuthors,
   getResourceBlogsByAuthor,
   getAllResourceCategories,
+  itemsPerPage,
 } from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
@@ -24,7 +25,6 @@ export async function getStaticPaths() {
 const { author } = Astro.params;
 const blogsData = (await getResourceBlogsByAuthor(author)) || [];
 const suggestionData = (await getAllResourceCategories()) || [];
-const loadcaseStudyData = (await getCaseStudies()) || [];
 
 const cardHeader = {
   title: "Additional Learning Resources",
@@ -43,6 +43,7 @@ const metaObj = {
   title:
     "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
+const shouldPaginate = blogsData.length > 50;
 ---
 
 <Layout>
@@ -70,7 +71,11 @@ const metaObj = {
     blogsData={blogsData}
     currentPage={1}
     client:load
-  />
+    subType="author"
+    identifier={author}
+    shouldPaginate={shouldPaginate}
+    />
+    <!-- {...paginationProps} -->
 
   <!-- <TilesWithTitleWrapper
     title={cardHeader.title}

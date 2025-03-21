@@ -7,6 +7,7 @@ import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import {
   getAllBlogs,
   getAllCategories,
+  getBlogsByCategory,
   getCaseStudies,
   itemsPerPage,
 } from "@/utils/api/blogs";
@@ -37,13 +38,15 @@ export async function getStaticPaths() {
 // 🚀 Get Category Slug from URL
 const { tag } = Astro.params;
 const { category, blogs } = Astro.props;
-let blogsData = [];
-if (category) {
-  blogsData = blogs.filter((blog) =>
-    blog.categories.some((cat) => cat.id === category.id)
-  );
-} else {
-}
+const blogsData = (await getBlogsByCategory(tag)).filter(
+  (blog) => !blog.caseStudies
+);
+// if (category) {
+//   blogsData = blogs.filter((blog) =>
+//     blog.categories.some((cat) => cat.id === category.id)
+//   ).filter((blog) => !blog.caseStudies);
+// } else {
+// }
 
 // ✅ Fetch Additional Data
 const suggestionData = await getAllCategories();
@@ -53,12 +56,6 @@ const allBlogsData = await getAllBlogs();
 const count = await getTotalCounts();
 
 const shouldPaginate = blogsData.length > 50;
-
-const paginationProps = shouldPaginate
-  ? {
-      totalItems: blogsData.length,
-    }
-  : {};
 
 // 🔹 Additional Card Data
 const cardHeader = {
@@ -100,8 +97,11 @@ const metaObj = {
       type="blog"
       blogsData={blogsData}
       client:load
-      {...paginationProps}
-    />
+      subType="tag"
+      identifier={category?.slug ?? tag}
+      shouldPaginate={blogsData?.length > itemsPerPage}
+      />
+      <!-- {...paginationProps} -->
 
     <!-- <div>
       <BlogPagination

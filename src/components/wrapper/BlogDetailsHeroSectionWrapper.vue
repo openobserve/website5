@@ -3,7 +3,7 @@ import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { generateAuthorLink } from "@/utils/redirection";
 // Define props for the component
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -17,8 +17,16 @@ defineProps({
   content: {
     type: String || null,
   },
-  activity: {
-    type: Array,
+  // activity: {
+  //   type: Array,
+  //   required: false,
+  // },
+  author: {
+    type: Object,
+    required: false,
+  },
+  publishDate: {
+    type: String,
     required: false,
   },
   type: {
@@ -69,7 +77,9 @@ defineProps({
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
         {{ title }}
       </h1>
-      <div class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6">
+      <div
+        class="flex items-center justify-start w-full py-6 flex-col md:flex-row md:px-6"
+      >
         <!-- Suggestions -->
         <CustomSuggestions :suggestions="suggestions" :type="type"
           class="flex flex-wrap gap-4 justify-center " />
@@ -100,8 +110,11 @@ defineProps({
       </div> -->
       <!-- <div
         class="flex items-center justify-center  w-full  "> -->
-        <!-- <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div> -->
-        <img :src="bottomImage" class="object-center mx-auto object-cover max-h-[60vh] bg-white" />
+      <!-- <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div> -->
+      <img
+        :src="bottomImage"
+        class="object-center mx-auto object-cover max-h-[60vh] bg-white"
+      />
       <!-- </div> -->
     </div>
   </CustomSection>

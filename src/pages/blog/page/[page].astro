@@ -39,7 +39,7 @@ if (isNaN(currentPage) || currentPage < 1) {
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
 // Fetch categories for suggestions
 const suggestionData = await getAllCategories();
-const allBlogsData = await getAllBlogs();
+const allBlogsData = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
 
 // Fetch case studies
 const caseStudyData = await getCaseStudies();
@@ -124,6 +124,7 @@ const metaObj = {
     allBlogData={allBlogsData}
     currentPage={currentPage}
     totalItems={count.blogsCount}
+    shouldPaginate={allBlogsData.length > itemsPerPage}
     client:load
   />
 

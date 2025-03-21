@@ -15,6 +15,7 @@ import {
   getAuthorDetails,
   getBlogsByAuthor,
   getCaseStudies,
+  itemsPerPage,
 } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
@@ -43,6 +44,14 @@ const metaObj = {
   title:
     "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
+
+const shouldPaginate = blogsData.length > itemsPerPage;
+
+const paginationProps = shouldPaginate
+  ? {
+      totalItems: blogsData.length,
+    }
+  : {};
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
@@ -57,7 +66,10 @@ const metaObj = {
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
         type="blog"
         client:load
       />
@@ -68,7 +80,11 @@ const metaObj = {
       blogsData={blogsData}
       totalItems={count.blogsCount}
       client:load
-    />
+      subType="author"
+      identifier={author ?? auth.slug}
+      shouldPaginate={shouldPaginate}
+      />  
+      <!-- {...paginationProps} -->
 
     <!-- 
   <TilesWithTitleWrapper

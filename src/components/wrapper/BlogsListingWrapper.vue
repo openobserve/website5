@@ -46,14 +46,16 @@
       />
     </div>
 
-    <template v-if="totalItems !== undefined">
+    <template v-if="shouldPaginate">
       <BlogPagination
         v-show="!searchItem.trim()"
         :totalItems="totalItems"
         :itemsPerPage="itemsPerPage"
         :currentPage="currentPage"
-        client:load
         :type="type"
+        :subType="subType"
+        :identifier="identifier"
+        client:load
       />
     </template>
   </section>
@@ -72,7 +74,10 @@ const props = defineProps({
   currentPage: { type: Number, required: false },
   totalItems: { type: Number, required: false },
   type: { type: String, required: true },
+  subType: { type: String, required: false },
+  identifier: { type: String, required: false },
   searchBar: { type: Boolean, required: false },
+  shouldPaginate: { type: Boolean, required: false },
 });
 
 const searchItem = ref(""); // type in the search box
