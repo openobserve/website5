@@ -83,7 +83,8 @@ export async function getBlogsBySlug(slug) {
 
 export async function getBlogsByAuthor(author) {
   const blogs = await getAllBlogs();
-  return blogs.filter((blog) =>
+  const newBlogs = blogs.filter((blog) => !blog.caseStudies);
+  return newBlogs.filter((blog) =>
     blog.authors.some((auth) => auth.slug === author)
   );
 }

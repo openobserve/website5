@@ -9,7 +9,7 @@ async function fetchBlogsByCategories(pageData) {
   const blogs = [];
 
   for (const category of categories) {
-    const categoryBlogs = await getBlogsByCategory(category.slug);
+    const categoryBlogs = (await getBlogsByCategory(category.slug))?.filter(blog => !blog.caseStudies);
     if (categoryBlogs.length > 0) {
       blogs.push(...categoryBlogs);
     }

@@ -20,6 +20,14 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  subType: {
+    type: String,
+    required: false,
+  },
+  identifier: {
+    type: String,
+    required: false,
+  },
 });
 const currentPageRef = ref(props.currentPage);
 const totalPages = computed(() =>
@@ -53,7 +61,7 @@ onMounted(() => {
     <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg disabled:opacity-50 hover:bg-blue-50"
       :class="{ 'opacity-50 pointer-events-none': currentPage === 1 }"
-      :href="generatePageNavLink(type, currentPage - 1)"
+      :href="generatePageNavLink(type, subType, identifier, currentPage - 1)"
     >
       Previous
     </a>
@@ -63,7 +71,7 @@ onMounted(() => {
       <a
         v-for="page in displayedPages"
         :key="page"
-        :href="generatePageNavLink(type, page)"
+        :href="generatePageNavLink(type, subType, identifier, page)"
         :class="[
           'px-4 py-2 mx-1 rounded-lg',
           page === currentPage
@@ -78,7 +86,7 @@ onMounted(() => {
     <!-- Next Button -->
     <a
       class="px-4 py-2 mx-2 border border-blue-400 text-blue-400 rounded-lg"
-      :href="generatePageNavLink(type, currentPage + 1)"
+      :href="generatePageNavLink(type, subType, identifier, currentPage + 1)"
       :class="{ 'opacity-50 pointer-events-none': currentPage === totalPages }"
     >
       Next

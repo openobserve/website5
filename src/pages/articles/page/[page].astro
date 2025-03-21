@@ -81,6 +81,7 @@ const metaObj = {
     blogsData={blogsData}
     currentPage={currentPage}
     totalItems={count.blogsCount}
+    shouldPaginate={blogsData?.length > itemsPerPage}
     client:load
   />
 

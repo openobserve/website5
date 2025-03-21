@@ -2,9 +2,10 @@
 import { defineProps } from "vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
+import { generateAuthorLink } from "@/utils/redirection";
 
 // Define props for the component
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -18,33 +19,64 @@ defineProps({
   content: {
     type: String || null,
   },
-  activity: {
-    type: Array,
+  // activity: {
+  //   type: Array,
+  //   required: false,
+  // },
+  author: {
+    type: Object,
+    required: false,
+  },
+  publishDate: {
+    type: String,
     required: false,
   },
   type: {
     type: String,
     default: "blog",
-  }
+  },
 });
 </script>
 
 <template>
   <CustomSection class="pt-10">
     <div>
-      <div class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4">
-        <template v-for="(item, index) in activity" :key="`item-${index}`">
-          <span class="px-2">{{ item }}</span>
-          <span class="hidden md:block" v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
+      <div
+        class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4"
+      >
+        <template>
+          <div class="flex">
+            <span v-if="author" class="px-2">
+              <a
+                v-if="author.slug"
+                :href="generateAuthorLink(type, author.slug)"
+                class="text-white hover:underline"
+                >{{ author.name }}</a
+              >
+              <span v-else>{{ author.name }}</span>
+            </span>
+
+            <span class="hidden md:block" v-if="author && publishDate">|</span>
+
+            <span v-if="publishDate" class="px-2">{{ publishDate }}</span>
+          </div>
         </template>
       </div>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white"
+      >
         {{ title }}
       </h1>
-      <div class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6">
+      <div
+        class="flex items-center justify-start w-full py-6 flex-col md:flex-row md:px-6"
+      >
         <!-- Suggestions -->
-        <CustomSuggestions :suggestions="suggestions" @selectSuggestion="selectSuggestion" :type="type"
-          class="flex flex-wrap gap-4 justify-center " />
+        <CustomSuggestions
+          :suggestions="suggestions"
+          @selectSuggestion="selectSuggestion"
+          :type="type"
+          class="flex flex-wrap gap-4 justify-center"
+        />
         <!-- Icons Container -->
         <!-- <div class="flex items-center gap-4 mt-4 md:mt-0 justify-center md:justify-end">
           <span class="text-white text-sm">Share:</span>
@@ -72,8 +104,11 @@ defineProps({
       </div> -->
       <!-- <div
         class="flex items-center justify-center  w-full  "> -->
-        <!-- <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div> -->
-        <img :src="bottomImage" class="object-center mx-auto object-cover max-h-[60vh] bg-white" />
+      <!-- <div class="absolute inset-0 blur-3xl" :style="'background-image: url(' + bottomImage + ');'"></div> -->
+      <img
+        :src="bottomImage"
+        class="object-center mx-auto object-cover max-h-[60vh] bg-white"
+      />
       <!-- </div> -->
     </div>
   </CustomSection>

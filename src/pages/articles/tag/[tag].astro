@@ -88,7 +88,10 @@ const metaObj = {
 
   <div class="py-3 md:py-6">
     <CustomSuggestionsWrapper
-      suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+      suggestions={suggestionData.slice(
+        0,
+        Math.min(15, suggestionData.length)
+      ) || []}
       type="articles"
       client:load
     />
@@ -99,8 +102,11 @@ const metaObj = {
     blogsData={blogsData}
     currentPage={1}
     client:load
-    {...paginationProps}
-  />
+    subType="tag"
+    identifier={category?.slug ?? tag}
+    shouldPaginate={shouldPaginate}
+    />
+    <!-- {...paginationProps} -->
 
   <!-- <TilesWithTitleWrapper
     title={cardHeader.title}
