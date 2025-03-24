@@ -1,0 +1,94 @@
+---
+import {
+  getAllBlogs,
+  getAllCategories,
+  getBlogsByCategory,
+  itemsPerPage,
+  getBlogsByTag,
+} from "@/utils/api/blogs";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
+
+// 🚀 Fetch All Categories and Blogs
+// export async function getStaticPaths() {
+//   // Map each category to its related blogs
+//   const categories = await getAllCategories();
+//   const blogs = await getAllBlogs();
+//   const categoryMap = categories?.map((category) => ({
+//     params: { tag: category.slug }, // Correct attribute access for category
+//     props: {
+//       category,
+//       blogs: blogs.filter((blog) =>
+//         blog.categories.some(
+//           (cat) => cat.id === category.id // Ensure correct comparison
+//         )
+//       ),
+//     },
+//   }));
+
+//   return categoryMap;
+// }
+
+// 🚀 Generate Static Paths for each category
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+
+  return categories.map((category) => ({
+    params: { tag: category.slug },
+  }));
+}
+
+// Get current category
+const { tag } = Astro.params;
+const categories = await getAllCategories();
+const totalBlogs = await getAllBlogs();
+
+const category = categories.find((cat) => cat.slug === tag);
+const filteredBlogs = category
+  ? totalBlogs.filter((blog) =>
+      blog.categories.some((cat) => cat.id === category.id)
+    )
+  : [];
+
+const blogsData = filteredBlogs.slice(0, itemsPerPage);
+const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
+
+// ✅ Fetch Additional Data
+const suggestionData = await getAllCategories();
+
+const metaObj = {
+  title:
+    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <ResourceHeroSection
+    title="Blog"
+    description={`Post by the category: ${tag}`}
+  />
+
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
+    <div class="py-3 md:py-6">
+      <CustomSuggestionsWrapper
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
+        type="blog"
+        client:load
+      />
+    </div>
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogsData}
+      client:load
+      subType="tag"
+      totalItems={filteredBlogs.length}
+      identifier={tag}
+      shouldPaginate={totalPages > 1}
+    />
+  </section>
+</Layout>

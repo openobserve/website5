@@ -1,13 +1,6 @@
 ---
 // Imports
-import Layout from "../../../layouts/Layout.astro";
-import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
-import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
-import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import { slugify } from "../../../utils/slugify";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
 import {
   getAllAuthors,
   getAllBlogs,
@@ -19,6 +12,8 @@ import {
 } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
@@ -36,8 +31,6 @@ const auth = await getAuthorDetails(author);
 
 // ✅ Fetch other required data
 const suggestionData = await getAllCategories();
-const loadcaseStudyData = await getCaseStudies();
-const allBlogsData = await getAllBlogs();
 const count = await getTotalCounts();
 
 const metaObj = {
@@ -47,11 +40,6 @@ const metaObj = {
 
 const shouldPaginate = blogsData.length > itemsPerPage;
 
-const paginationProps = shouldPaginate
-  ? {
-      totalItems: blogsData.length,
-    }
-  : {};
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
@@ -80,11 +68,9 @@ const paginationProps = shouldPaginate
       blogsData={blogsData}
       totalItems={count.blogsCount}
       client:load
-      subType="author"
-      identifier={author ?? auth.slug}
       shouldPaginate={shouldPaginate}
-      />  
-      <!-- {...paginationProps} -->
+    />
+    <!-- {...paginationProps} -->
 
     <!-- 
   <TilesWithTitleWrapper

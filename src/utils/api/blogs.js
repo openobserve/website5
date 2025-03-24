@@ -1,6 +1,6 @@
 import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
 
-export const itemsPerPage = 50;
+export const itemsPerPage = 5;
 
 export async function getAuthorDetails(author) {
   const authors = await getAllAuthors();
@@ -43,8 +43,7 @@ export async function getCaseStudies(params) {
 export async function getAllCaseStudies() {
   const blogs = await getAllBlogs();
   // Filter blogs where caseStudies is true
-  const caseStudies = blogs
-    .filter((blog) => blog.caseStudies === true)
+  const caseStudies = blogs.filter((blog) => blog.caseStudies === true);
 
   return caseStudies;
 }
@@ -91,8 +90,52 @@ export async function getBlogsByAuthor(author) {
 
 export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
-   // Filter out case studies
-   const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  // Filter out case studies
+  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return filteredBlogs.slice(start, end);
+}
+
+export async function getBlogsByPaginationAndCategory(
+  page,
+  pageSize,
+  categorySlug = null
+) {
+  const blogs = await getAllBlogs();
+
+  // Filter out case studies
+  let filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+
+  // If categorySlug is provided, filter blogs by that category
+  if (categorySlug) {
+    filteredBlogs = filteredBlogs.filter((blog) =>
+      blog.categories.some((cat) => cat.slug === categorySlug)
+    );
+  }
+
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return filteredBlogs.slice(start, end);
+}
+
+export async function getBlogsByPaginationAndAuthor(
+  page,
+  pageSize,
+  authorSlug = null
+) {
+  const blogs = await getAllBlogs();
+
+  // Filter out case studies
+  let filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+
+  // If categorySlug is provided, filter blogs by that category
+  if (authorSlug) {
+    filteredBlogs = filteredBlogs.filter((blog) =>
+      blog.categories.some((cat) => cat.slug === authorSlug)
+    );
+  }
 
   const start = (page - 1) * pageSize;
   const end = start + pageSize;

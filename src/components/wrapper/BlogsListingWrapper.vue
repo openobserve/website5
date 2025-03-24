@@ -46,7 +46,7 @@
       />
     </div>
 
-    <template v-if="shouldPaginate">
+    <template>
       <BlogPagination
         v-show="!searchItem.trim()"
         :totalItems="totalItems"
@@ -79,7 +79,7 @@ const props = defineProps({
   searchBar: { type: Boolean, required: false },
   shouldPaginate: { type: Boolean, required: false },
 });
-
+console.log("Props", props.shouldPaginate);
 const searchItem = ref(""); // type in the search box
 const filteredBlogsData = ref(props?.blogsData);
 watch(searchItem, async (newValue) => {
