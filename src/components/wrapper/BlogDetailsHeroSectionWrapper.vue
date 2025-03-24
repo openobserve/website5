@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
-
+import { generateAuthorLink } from "@/utils/redirection";
 // Define props for the component
 defineProps({
   title: {
@@ -25,19 +25,48 @@ defineProps({
   type: {
     type: String,
     default: "blog",
-  }
+  },
+  author: {
+    type: Object,
+    required: false,
+  },
+  publishDate: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
 <template>
   <CustomSection class="pt-10">
     <div>
-      <div class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4">
+      <div
+         class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4"
+       >
+         <template>
+           <div class="flex">
+             <span v-if="author" class="px-2">
+               <a
+                 v-if="author.slug"
+                 :href="generateAuthorLink(type, author.slug)"
+                 class="text-white hover:underline"
+                 >{{ author.name }}</a
+               >
+               <span v-else>{{ author.name }}</span>
+             </span>
+ 
+             <span class="hidden md:block" v-if="author && publishDate">|</span>
+ 
+             <span v-if="publishDate" class="px-2">{{ publishDate }}</span>
+           </div>
+         </template>
+       </div>
+      <!-- <div class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4">
         <template v-for="(item, index) in activity" :key="`item-${index}`">
           <span class="px-2">{{ item }}</span>
           <span class="hidden md:block" v-if="index !== activity.length - 1" :key="`sep-${index}`">|</span>
         </template>
-      </div>
+      </div> -->
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
         {{ title }}
       </h1>
