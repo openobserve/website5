@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CommunitySupportCard from "../cards/CommunitySupportCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";

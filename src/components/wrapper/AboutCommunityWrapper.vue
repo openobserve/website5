@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomStory from "../core/CustomStory.vue";
 import CustomSectionBackground from "../core/CustomSectionBackground.vue";
 const props = defineProps({

@@ -65,7 +65,6 @@ const metaObj = {
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestions
-        @selectSuggestion="selectSuggestion"
         suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
         type="articles"
         client:load

@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, computed, onUnmounted } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import VueTyping from "@dmncodes/vue-typing";
 import CustomButton from "../core/CustomButton.vue";
 import DockerCode from "../core/DockerCode.vue";
@@ -10,7 +10,7 @@ const props = defineProps({
   description: { type: String, required: true },
   primaryButton: { type: Object, required: true },
   secondaryButton: { type: Object, default: () => ({}) },
-  backgroundVideo: { type: String, required: false },
+  backgroundVideo: { type: Object, required: false },
 });
 
 // Computed: Convert <br> separated title into an array for VueTyping

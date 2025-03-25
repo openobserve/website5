@@ -2,7 +2,7 @@
 
 const props = defineProps({
   image: {
-    type: Object,
+    type: [Object, String],
     required: false,
     default: () => null,
   },

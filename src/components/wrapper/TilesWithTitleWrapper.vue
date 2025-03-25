@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomSection from "../core/CustomSection.vue";
 import Heading from "../core/Heading.vue";
 import CustomTilesWithTitle from "../cards/CustomTilesWithTitle.vue";

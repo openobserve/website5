@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import GetDemoHeroSection from "../../components/heroSections/GetDemoHeroSection.vue";
 import DemoPageFormWrapper from "../../components/wrapper/DemoPageFormWrapper.vue";
 

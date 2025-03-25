@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomSuggestions from "./CustomSuggestionsWrapper.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { generateAuthorLink } from "@/utils/redirection";
@@ -72,7 +71,7 @@ defineProps({
       </h1>
       <div class="flex items-center justify-start  w-full py-6 flex-col md:flex-row md:px-6">
         <!-- Suggestions -->
-        <CustomSuggestions :suggestions="suggestions" @selectSuggestion="selectSuggestion" :type="type"
+        <CustomSuggestions :suggestions="suggestions" :type="type"
           class="flex flex-wrap gap-4 justify-center " />
         <!-- Icons Container -->
         <!-- <div class="flex items-center gap-4 mt-4 md:mt-0 justify-center md:justify-end">

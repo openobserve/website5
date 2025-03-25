@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomFeatureSliderCard from "../cards/CustomFeatureSliderCard.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";

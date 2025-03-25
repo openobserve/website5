@@ -1,7 +1,7 @@
 <script setup>
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 import CustomInput from "./CustomInput.vue";
 import CustomButton from "../core/CustomButton.vue";
 
