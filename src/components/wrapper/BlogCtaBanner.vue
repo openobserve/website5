@@ -59,11 +59,11 @@ const props = defineProps({
 
         <!-- Column 2: Features List -->
         <div class="md:text-left space-y-2">
-          <h2
+          <h1
             class="text-lg font-semibold text-black text-center md:text-left"
           >
             {{ featureTitle }}
-          </h2>
+          </h1>
           <p class="text-sm text-black">{{ monthlyText }}:</p>
           <ul class="grid grid-cols-2 gap-1.5">
             <li
