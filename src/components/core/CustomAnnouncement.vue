@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomImage from "./CustomImage.vue";
 
 // Props definition

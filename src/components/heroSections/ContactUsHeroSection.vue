@@ -2,7 +2,6 @@
 import CustomButton from "../core/CustomButton.vue";
 import Heading from "../core/Heading.vue";
 import CustomInput from "../forms/CustomInput.vue";
-import { defineProps } from "vue";
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
 import { ref } from "vue";

@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomButton from "./CustomButton.vue";
 import Heading from "../core/Heading.vue";
 import CustomSection from "./CustomSection.vue";

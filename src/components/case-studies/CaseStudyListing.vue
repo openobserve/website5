@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, computed } from "vue";
+import { ref } from "vue";
 import Heading from "../core/Heading.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";

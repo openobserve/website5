@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomBluredImage from "../core/CustomBluredImage.vue";
 import { getImageUrl } from "@/utils/GetImageUrl";
 

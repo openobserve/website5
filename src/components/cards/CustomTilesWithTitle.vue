@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({

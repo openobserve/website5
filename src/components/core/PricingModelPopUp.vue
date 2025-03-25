@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, defineProps } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import CustomButton from "./CustomButton.vue";
 
 const props = defineProps({
