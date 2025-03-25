@@ -1,6 +1,6 @@
 import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
 
-export const itemsPerPage = 5;
+export const itemsPerPage = 10;
 
 export async function getAuthorDetails(author) {
   const authors = await getAllAuthors();

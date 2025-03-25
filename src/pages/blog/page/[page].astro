@@ -10,16 +10,15 @@ import {
   getBlogsByPagination,
   getCaseStudies,
   getAllBlogs,
+itemsPerPage,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
-
-const itemsPerPage = 50;
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
   const totalBlogs = (await getTotalCounts()).blogsCount;
 
-  const totalPages = Math.ceil(totalBlogs / 50);
+  const totalPages = Math.ceil(totalBlogs / itemsPerPage);
 
   return Array.from({ length: totalPages }, (_, index) => ({
     params: { page: (index + 1).toString() },
@@ -41,23 +40,7 @@ const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
 const suggestionData = await getAllCategories();
 const allBlogsData = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
 
-// Fetch case studies
-const caseStudyData = await getCaseStudies();
-
 const count = await getTotalCounts();
-
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
 
 const metaObj = {
   title:

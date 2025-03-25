@@ -90,22 +90,4 @@ watch(searchItem, async (newValue) => {
   );
 });
 
-const handleClickOutside = (event) => {
-  if (!event.target.closest(".search-container")) {
-    // Don't clear search query when clicking outside
-  }
-};
-
-// onMounted(async () => {
-//   document.addEventListener("click", handleClickOutside);
-//   // Initialize with blogsData prop
-//   if (props.blogsData && props.blogsData.length > 0) {
-//     allBlogsData.value = props.blogsData;
-//   }
-// });
-
-// onUnmounted(() => {
-//   document.removeEventListener("click", handleClickOutside);
-//   clearTimeout(searchTimeout);
-// });
 </script>

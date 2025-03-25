@@ -11,6 +11,7 @@ import {
   getAllCategories,
   getBlogsByPagination,
   getCaseStudies,
+itemsPerPage,
 } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
@@ -18,7 +19,6 @@ import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrap
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
-const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
@@ -28,19 +28,6 @@ const suggestionData = await getAllCategories();
 const loadcaseStudyData = await getCaseStudies();
 
 const count = await getTotalCounts();
-
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
 
 const metaObj = {
   title: "OpenObserve Blog | Observability News & Best Practices",
