@@ -6,12 +6,10 @@ import { getTotalCounts } from "@/utils/cache";
 import {
   getAllCategories,
   getBlogsByPagination,
-  getCaseStudies,
   getAllBlogs,
-  ITEMS_PER_PAGE,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
-import { enablePagination } from "@/utils/enablePagination";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
@@ -39,7 +37,6 @@ const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 const suggestionData = await getAllCategories();
 const allBlogsData = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
 const count = await getTotalCounts();
-const shouldPaginate = enablePagination(allBlogsData);
 
 const metaObj = {
   title:

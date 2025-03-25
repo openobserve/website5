@@ -6,10 +6,10 @@ import {
   getAllBlogs,
   getAllCategories,
   getBlogsByPagination,
-  ITEMS_PER_PAGE,
 } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;

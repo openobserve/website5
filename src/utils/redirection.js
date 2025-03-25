@@ -16,11 +16,12 @@ export const generateAuthorLink = (type, name) => {
 
 export const generatePageNavLink = (type, subType, identifier, currentPage) => {
   const pageSegment = currentPage > 1 ? `/page/${currentPage}` : "";
+  const pageType = type === "blog" ? "blog" : "articles";
 
   if (subType === "author" && identifier) {
-    return `/blog/author/${identifier}${pageSegment}`;
+    return `/${pageType}/author/${identifier}${pageSegment}`;
   } else if (subType === "tag" && identifier) {
-    return `/blog/tag/${identifier}${pageSegment}`;
+    return `/${pageType}/tag/${identifier}${pageSegment}`;
   } else if (type === "blog") {
     return `/blog${pageSegment}`;
   } else if (type === "articles") {

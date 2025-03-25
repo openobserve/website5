@@ -19,9 +19,6 @@ export async function getStaticPaths() {
 
 // Get current category
 const { tag } = Astro.params;
-
-// ✅ Fetch Additional Data
-
 const currentPage = 1;
 const suggestionData = await getAllCategories();
 

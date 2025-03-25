@@ -1,47 +1,48 @@
 ---
 import {
-  getAllBlogs,
-  getAllCategories,
-  getAllAuthors,
-  getAuthorDetails,
-  getBlogsByPaginationAndAuthor,
-} from "@/utils/api/blogs";
+  getAllResourceCategories,
+  getResourcesByPaginationAndCategory,
+} from "@/utils/api/resources";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
 import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
 
 export async function getStaticPaths() {
-  const authors = await getAllAuthors();
+  const categories = await getAllResourceCategories();
   let paths = [];
 
-  for (const author of authors) {
-    const { totalPages } = await getBlogsByPaginationAndAuthor(1, author.slug);
+  for (const category of categories) {
+    const { totalPages } = await getResourcesByPaginationAndCategory(
+      1,
+      category.slug
+    );
 
     if (totalPages > 1) {
       for (let page = 2; page <= totalPages; page++) {
         paths.push({
-          params: { author: author.slug, page: page.toString() },
+          params: { tag: category.slug, page: page.toString() },
         });
       }
     }
   }
+
   return paths;
 }
 
 // Get the current page from Astro props
-const { page, author } = Astro.params;
+const { page, tag } = Astro.params;
 const currentPage = parseInt(page);
-const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
-  currentPage,
-  author
-);
-const suggestionData = await getAllCategories();
-const auth = await getAuthorDetails(author);
 
+const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
+  currentPage,
+  tag
+);
+
+const suggestionData = await getAllResourceCategories();
 const metaObj = {
   title:
-    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
 ---
 
@@ -49,7 +50,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    description={`Post by the author: ${auth.name}`}
+    description={`Post by the category: ${tag}`}
   />
 
   <!-- <BlogsDataWrapper data={loadcaseStudyData || []} client:load /> -->
@@ -71,23 +72,11 @@ const metaObj = {
       type="blog"
       blogsData={blogs}
       client:load
-      subType="author"
-      identifier={author}
+      subType="tag"
+      identifier={tag}
       currentPage={currentPage}
       totalItems={totalBlogs}
     />
-    <!-- {...paginationProps} -->
-
-    <!-- <div>
-      <BlogPagination
-        totalItems={count.blogsCount} 
-        itemsPerPage={itemsPerPage}
-        currentPage={1}
-        client:load
-        type="blog"
-      />
-    </div> -->
-
     <!-- 
   <TilesWithTitleWrapper
     title={cardHeader.title}

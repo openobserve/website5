@@ -65,7 +65,7 @@
 import { computed, ref, watch } from "vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { ITEMS_PER_PAGE } from "@/utils/api/blogs";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import { handleBlogSearch } from "@/utils/searchBar";
 
 const props = defineProps({
