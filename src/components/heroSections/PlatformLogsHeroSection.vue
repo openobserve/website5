@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 

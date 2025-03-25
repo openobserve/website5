@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps, defineEmits } from "vue";
 
 const emit = defineEmits(["click"]); // Define emit for click event
 

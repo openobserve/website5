@@ -235,7 +235,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
 import SectionHeader from "./SectionHeader.vue";

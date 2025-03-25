@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, watch, defineEmits, onMounted, nextTick } from "vue";
+import { ref, watch, onMounted, nextTick } from "vue";
 import { marked } from "marked";
 import TableOfContents from "./BlogDetailsTableOfContent.vue";
 import CustomSection from "../core/CustomSection.vue";

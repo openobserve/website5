@@ -74,7 +74,7 @@ const props = defineProps({
     required: false,
   },
   bannerData: {
-    type: Array,
+    type: Object,
     required: false,
   },
 });

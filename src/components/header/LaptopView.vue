@@ -267,7 +267,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomHoverHeader from "./CustomHoverHeader.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
 import SectionHeader from "./SectionHeader.vue";
-import { defineProps, ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
 import { slugify } from "@/utils/slugify";
 defineProps({
