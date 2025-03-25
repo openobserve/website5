@@ -32,10 +32,9 @@ const props = defineProps({
 
 const currentPageRef = ref(props.currentPage); // current page
 const totalPages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage)); // total number of pages
-
 const numberRange = computed(() => {
   let current = currentPageRef.value, // Current page
-    last = totalPages.value - 1, // Last page
+    last = totalPages.value > 1 ? totalPages.value - 1 : 1, // Last page
     delta = 1, // Pages around the current page
     left = Math.max(1, current - delta),
     right = Math.min(last, current + delta + 1),
@@ -75,6 +74,7 @@ const numberRange = computed(() => {
 
   return rangeWithDots;
 });
+
 
 // Update local state when prop changes
 onMounted(() => {

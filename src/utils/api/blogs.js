@@ -1,6 +1,6 @@
 import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
 
-export const itemsPerPage = 10;
+export const ITEMS_PER_PAGE = 8;
 
 export async function getAuthorDetails(author) {
   const authors = await getAllAuthors();
@@ -98,46 +98,64 @@ export async function getBlogsByPagination(page, pageSize) {
   return filteredBlogs.slice(start, end);
 }
 
+const filterBlogsWithoutCaseStudies = (blogs) => {
+  return blogs.filter((blog) => !blog.caseStudies);
+};
+
+const filterBlogsByCategory = (blogs, categorySlug) => {
+  return blogs.filter((blog) =>
+    blog.categories.some((cat) => cat.slug === categorySlug)
+  );
+};
+
+const filterBlogsByAuthor = (blogs, categorySlug) => {
+  return blogs.filter((blog) =>
+    blog.authors.some((cat) => cat.slug === categorySlug)
+  );
+};
+const paginate = (filteredBlogs, page, pageSize) => {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return filteredBlogs.slice(start, end);
+};
+
 export async function getBlogsByPaginationAndCategory(
   page,
-  pageSize,
   categorySlug = null
 ) {
   const blogs = await getAllBlogs();
 
-  // Filter out case studies
-  let filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  let filteredBlogs = filterBlogsWithoutCaseStudies(blogs);
 
-  // If categorySlug is provided, filter blogs by that category
   if (categorySlug) {
-    filteredBlogs = filteredBlogs.filter((blog) =>
-      blog.categories.some((cat) => cat.slug === categorySlug)
-    );
+    filteredBlogs = filterBlogsByCategory(filteredBlogs, categorySlug);
   }
 
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  return filteredBlogs.slice(start, end);
+  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  return {
+    blogs: paginatedBlogs,
+    totalBlogs: filteredBlogs.length,
+    totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
+  };
 }
 
 export async function getBlogsByPaginationAndAuthor(
   page,
-  pageSize,
   authorSlug = null
 ) {
   const blogs = await getAllBlogs();
 
-  // Filter out case studies
-  let filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
-
-  // If categorySlug is provided, filter blogs by that category
+  let filteredBlogs = filterBlogsWithoutCaseStudies(blogs)
   if (authorSlug) {
-    filteredBlogs = filteredBlogs.filter((blog) =>
-      blog.categories.some((cat) => cat.slug === authorSlug)
-    );
+    filteredBlogs = filterBlogsByAuthor(filteredBlogs, authorSlug)
   }
 
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  return filteredBlogs.slice(start, end);
+  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  return {
+    blogs: paginatedBlogs,
+    totalBlogs: filteredBlogs.length,
+    totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
+  };
 }

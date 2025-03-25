@@ -1,17 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
-import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
-import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import CaseStudyWrapper from "../../components/wrapper/CaseStudyWrapper.vue";
-import BlogPagination from "../../components/blogs/BlogPagination.vue";
 import {
   getAllBlogs,
   getAllCategories,
   getBlogsByPagination,
-  getCaseStudies,
-itemsPerPage,
+  ITEMS_PER_PAGE,
 } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
@@ -21,12 +16,9 @@ const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
 
 // Fetch blogs data with the current page
-const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 const allBlogsData = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
 const suggestionData = await getAllCategories();
-
-const loadcaseStudyData = await getCaseStudies();
-
 const count = await getTotalCounts();
 
 const metaObj = {
@@ -42,8 +34,6 @@ const metaObj = {
     description="Explore latest insights and updates"
   />
   <!-- <CaseStudyWrapper data={loadcaseStudyData} client:load /> -->
-
-  <!-- categories section -->
 
   <!-- CustomSuggestions Section -->
   <div class="py-3 md:py-6">
@@ -66,18 +56,7 @@ const metaObj = {
       totalItems={count.blogsCount}
       type="blog"
       currentPage={currentPage}
-      shouldPaginate={page?.length > 1}
       client:load
     />
   </div>
-
-  <!-- <div>
-      <BlogPagination
-        totalItems={count.blogsCount}
-        itemsPerPage={itemsPerPage}
-        currentPage={currentPage}
-        client:load
-        type="blog"
-      />
-    </div> -->
 </Layout>

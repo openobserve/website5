@@ -2,8 +2,6 @@
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import {
   getAllResourceBlogs,
   getAllResourceCategories,
@@ -33,6 +31,7 @@ export async function getStaticPaths() {
 
 // 🚀 Get Category Slug from URL
 const { tag } = Astro.params;
+const currentPage = 1;
 const { category, blogs } = Astro.props;
 let blogsData = [];
 if (category) {
@@ -47,24 +46,7 @@ const suggestionData = await getAllResourceCategories();
 
 const loadcaseStudyData = await getCaseStudies();
 
-const shouldPaginate = blogsData.length > 50;
-
-const paginationProps = shouldPaginate
-  ? {
-      totalItems: blogsData.length,
-    }
-  : {};
-
-// 🔹 Additional Card Data
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  { icon: "/resources/64pxComponent.svg", title: "Case Studies" },
-];
+const shouldPaginate = currentPage >= 1;
 
 const metaObj = {
   title:

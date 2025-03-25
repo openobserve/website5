@@ -46,11 +46,11 @@
       />
     </div>
 
-    <template>
+    <template v-if="shouldPaginate">
       <BlogPagination
         v-show="!searchItem.trim()"
         :totalItems="totalItems"
-        :itemsPerPage="itemsPerPage"
+        :itemsPerPage="ITEMS_PER_PAGE"
         :currentPage="currentPage"
         :type="type"
         :subType="subType"
@@ -62,10 +62,10 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { itemsPerPage } from "@/utils/api/blogs";
+import { ITEMS_PER_PAGE } from "@/utils/api/blogs";
 import { handleBlogSearch } from "@/utils/searchBar";
 
 const props = defineProps({
@@ -77,9 +77,7 @@ const props = defineProps({
   subType: { type: String, required: false },
   identifier: { type: String, required: false },
   searchBar: { type: Boolean, required: false },
-  shouldPaginate: { type: Boolean, required: false },
 });
-console.log("Props", props.shouldPaginate);
 const searchItem = ref(""); // type in the search box
 const filteredBlogsData = ref(props?.blogsData);
 watch(searchItem, async (newValue) => {
@@ -90,4 +88,7 @@ watch(searchItem, async (newValue) => {
   );
 });
 
+const shouldPaginate = computed(() => {
+  return props?.totalItems > ITEMS_PER_PAGE;
+});
 </script>

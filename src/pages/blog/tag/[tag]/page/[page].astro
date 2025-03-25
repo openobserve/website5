@@ -1,10 +1,7 @@
 ---
 import {
-  getAllBlogs,
   getAllCategories,
-  itemsPerPage,
-  getAllAuthors,
-  getBlogsByPaginationAndAuthor,
+  getBlogsByPaginationAndCategory,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
@@ -13,47 +10,35 @@ import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
 
 export async function getStaticPaths() {
   const categories = await getAllCategories();
-  const totalBlogs = await getAllBlogs();
   let paths = [];
 
   for (const category of categories) {
-    const categoriesBlogs = totalBlogs.filter((blog) =>
-      blog.categories.some((it) => it.id === category.id)
+    const { totalPages } = await getBlogsByPaginationAndCategory(
+      1,
+      category.slug
     );
-    const totalPages = Math.ceil(categoriesBlogs.length / itemsPerPage);
 
-    for (let page = 2; page <= totalPages; page++) {
-      paths.push({
-        params: { tag: category.slug, page: page.toString() },
-      });
+    if (totalPages > 1) {
+      for (let page = 2; page <= totalPages; page++) {
+        paths.push({
+          params: { tag: category.slug, page: page.toString() },
+        });
+      }
     }
   }
-  
+
   return paths;
 }
 
 // Get the current page from Astro props
 const { page, tag } = Astro.params;
 const currentPage = parseInt(page);
-console.log(page, tag, "page, tag ====>>");
-console.log("currentPage=====", currentPage);
-if (isNaN(currentPage) || currentPage < 1) {
-  throw Astro.redirect("/404");
-}
 
-// Fetch paginated blogs for the current page
-const blogsData = (
-  await getBlogsByPaginationAndAuthor(currentPage, itemsPerPage, tag)
-).filter((blog) => !blog.caseStudies);
+const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+  currentPage,
+  tag
+);
 
-
-
-// if (category) {
-//   blogsData = blogs.filter((blog) =>
-//     blog.categories.some((cat) => cat.id === category.id)
-//   ).filter((blog) => !blog.caseStudies);
-// } else {
-// }
 const suggestionData = await getAllCategories();
 const metaObj = {
   title:
@@ -85,26 +70,13 @@ const metaObj = {
 
     <BlogsListingWrapper
       type="blog"
-      blogsData={blogsData}
+      blogsData={blogs}
       client:load
       subType="tag"
       identifier={tag}
-      totalItems={blogsData.length}
-      shouldPaginate={page.length > 1}
+      currentPage={currentPage}
+      totalItems={totalBlogs}
     />
-    <!-- shouldPaginate={page?.length > 1} -->
-    <!-- {...paginationProps} -->
-
-    <!-- <div>
-      <BlogPagination
-        totalItems={count.blogsCount} 
-        itemsPerPage={itemsPerPage}
-        currentPage={1}
-        client:load
-        type="blog"
-      />
-    </div> -->
-
     <!-- 
   <TilesWithTitleWrapper
     title={cardHeader.title}

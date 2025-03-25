@@ -103,7 +103,7 @@ const metaObj = {
     allBlogData={allArticlesData}
     currentPage={currentPage}
     totalItems={count.blogsCount}
-    shouldPaginate={allArticlesData.length > itemsPerPage}
+    shouldPaginate={currentPage >= 1}
     client:load
   />
   <!-- <TilesWithTitleWrapper

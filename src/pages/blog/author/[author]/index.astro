@@ -1,16 +1,11 @@
 ---
-// Imports
 import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
 import {
   getAllAuthors,
-  getAllBlogs,
   getAllCategories,
   getAuthorDetails,
-  getBlogsByAuthor,
-  getCaseStudies,
-  itemsPerPage,
+  getBlogsByPaginationAndAuthor,
 } from "@/utils/api/blogs";
-import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
@@ -25,21 +20,22 @@ export async function getStaticPaths() {
 
 // 🚀 Step 2: Get `categorySlug` from URL
 const { author } = Astro.params;
-// 🚀 Step 3: Fetch blogs based on category
-const blogsData = await getBlogsByAuthor(author);
+const currentPage = 1;
+const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+  currentPage,
+  author
+);
+
+
 const auth = await getAuthorDetails(author);
 
 // ✅ Fetch other required data
 const suggestionData = await getAllCategories();
-const count = await getTotalCounts();
 
 const metaObj = {
   title:
     "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
-
-const shouldPaginate = blogsData.length > itemsPerPage;
-
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
@@ -65,13 +61,12 @@ const shouldPaginate = blogsData.length > itemsPerPage;
 
     <BlogsListingWrapper
       type="blog"
-      blogsData={blogsData}
-      totalItems={count.blogsCount}
+      blogsData={blogs}
+      totalItems={totalBlogs}
       client:load
-      shouldPaginate={shouldPaginate}
+      subType="author"
+      identifier={author}
     />
-    <!-- {...paginationProps} -->
-
     <!-- 
   <TilesWithTitleWrapper
     title={cardHeader.title}

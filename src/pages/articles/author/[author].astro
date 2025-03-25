@@ -18,11 +18,12 @@ import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrap
 export async function getStaticPaths() {
   const authors = (await getResourceAuthors()) || [];
   return authors.map((author) => ({
-    params: { author: author.slug },
+    params: { author: author.slug, page: "1" },
   }));
 }
 
-const { author } = Astro.params;
+const { author , page} = Astro.params;
+const currentPage = page ? parseInt(page) : 1;
 const blogsData = (await getResourceBlogsByAuthor(author)) || [];
 const suggestionData = (await getAllResourceCategories()) || [];
 
@@ -43,7 +44,7 @@ const metaObj = {
   title:
     "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
-const shouldPaginate = blogsData.length > 50;
+const shouldPaginate = currentPage >= 1;
 ---
 
 <Layout>

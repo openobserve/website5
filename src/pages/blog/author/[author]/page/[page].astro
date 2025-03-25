@@ -2,9 +2,10 @@
 import {
   getAllBlogs,
   getAllCategories,
-  itemsPerPage,
+  ITEMS_PER_PAGE,
   getAllAuthors,
-  getBlogsByPaginationAndAuthor
+  getAuthorDetails,
+  getBlogsByPaginationAndAuthor,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
@@ -13,47 +14,32 @@ import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
-  const totalBlogs = await getAllBlogs();
-
   let paths = [];
 
   for (const author of authors) {
-    const authorsBlogs = totalBlogs.filter((blog) =>
-      blog.categories.some((it) => it.id === author.id)
-    );
+    const { totalPages } = await getBlogsByPaginationAndAuthor(1, author.slug);
 
-    const totalPages = Math.ceil(authorsBlogs.length / itemsPerPage);
-
-    for (let page = 1; page <= totalPages; page++) {
-      paths.push({
-        params: { author: author.slug, page: page.toString() },
-      });
+    if (totalPages > 1) {
+      for (let page = 2; page <= totalPages; page++) {
+        paths.push({
+          params: { author: author.slug, page: page.toString() },
+        });
+      }
     }
   }
-
   return paths;
 }
 
 // Get the current page from Astro props
 const { page, author } = Astro.params;
 const currentPage = parseInt(page);
-
-if (isNaN(currentPage) || currentPage < 1) {
-  throw Astro.redirect("/404");
-}
-
-// Fetch paginated blogs for the current page
-const blogsData = (
-  await getBlogsByPaginationAndAuthor(currentPage, itemsPerPage, author)
-).filter((blog) => !blog.caseStudies);
-
-// if (category) {
-//   blogsData = blogs.filter((blog) =>
-//     blog.categories.some((cat) => cat.id === category.id)
-//   ).filter((blog) => !blog.caseStudies);
-// } else {
-// }
+const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+  currentPage,
+  author
+);
 const suggestionData = await getAllCategories();
+const auth = await getAuthorDetails(author);
+
 const metaObj = {
   title:
     "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
@@ -64,7 +50,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    description={`Post by the author: ${author}`}
+    description={`Post by the author: ${auth.name}`}
   />
 
   <!-- <BlogsDataWrapper data={loadcaseStudyData || []} client:load /> -->
@@ -84,11 +70,12 @@ const metaObj = {
 
     <BlogsListingWrapper
       type="blog"
-      blogsData={blogsData}
+      blogsData={blogs}
       client:load
       subType="author"
       identifier={author}
-      shouldPaginate={blogsData?.length > 10}
+      currentPage={currentPage}
+      totalItems={totalBlogs}
     />
     <!-- {...paginationProps} -->
 
