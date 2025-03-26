@@ -43,6 +43,11 @@ export async function getAuthorDetails(author) {
   return authors.filter((auth) => auth.slug === author)[0];
 }
 
+export async function getCategoryDetails(tag) {
+  const categories = await fetchResourceCategories();
+  return categories.filter((it) => it.slug === tag)[0];
+}
+
 export async function getResourceBlogsByCategory(category) {
   const resourceBlogs = await getAllResourceBlogs();
   return resourceBlogs.filter((blog) =>

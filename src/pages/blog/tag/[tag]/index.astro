@@ -2,6 +2,7 @@
 import {
   getAllCategories,
   getBlogsByPaginationAndCategory,
+  getBlogsCategoryDetails,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
@@ -24,19 +25,21 @@ const suggestionData = await getAllCategories();
 
 const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
   currentPage,
-  tag,
+  tag
 );
 
 const metaObj = {
   title:
     "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
+
+const category = await getBlogsCategoryDetails(tag);
 ---
 
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Blog"
-    description={`Post by the category: ${tag}`}
+    description={`Post by the category: ${category?.name}`}
   />
 
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">

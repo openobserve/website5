@@ -6,6 +6,12 @@ export async function getAuthorDetails(author) {
   return authors.filter((auth) => auth.slug === author)[0];
 }
 
+export async function getBlogsCategoryDetails(tag) {
+  const tags = await fetchCategories();
+  return tags.filter((it) => it.slug === tag)[0];
+}
+
+
 export async function getBlogsByCategory(category) {
   const blogs = await getAllBlogs();
 

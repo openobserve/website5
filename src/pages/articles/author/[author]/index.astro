@@ -30,11 +30,11 @@ const authorDetails = await getAuthorDetails(author);
 
 const metaObj = {
   title:
-    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+    "Author | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <ResourceHeroSection
   title="Resources"
   description={`Showing posts by author: ${authorDetails?.name}`}

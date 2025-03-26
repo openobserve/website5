@@ -2,6 +2,7 @@
 import {
   getAllResourceCategories,
   getResourcesByPaginationAndCategory,
+  getCategoryDetails
 } from "@/utils/api/resources";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
@@ -30,13 +31,15 @@ const metaObj = {
   title:
     "Tag | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
+
+const category = await getCategoryDetails(tag);
 ---
 
 <!-- ✅ Render Category-Based Blogs -->
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title="Resources"
-    description={`Showing posts for category: ${tag}`}
+    description={`Showing posts for category: ${category?.name}`}
   />
   <div class="py-3 md:py-6">
     <CustomSuggestionsWrapper
