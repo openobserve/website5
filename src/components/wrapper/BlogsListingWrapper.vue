@@ -46,24 +46,26 @@
       />
     </div>
 
-    <template v-if="totalItems !== undefined">
+    <template v-if="shouldPaginate">
       <BlogPagination
         v-show="!searchItem.trim()"
         :totalItems="totalItems"
-        :itemsPerPage="itemsPerPage"
+        :itemsPerPage="ITEMS_PER_PAGE"
         :currentPage="currentPage"
-        client:load
         :type="type"
+        :subType="subType"
+        :identifier="identifier"
+        client:load
       />
     </template>
   </section>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import BlogListing from "../blogs/BlogListing.vue";
 import BlogPagination from "../blogs/BlogPagination.vue";
-import { itemsPerPage } from "@/utils/api/blogs";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import { handleBlogSearch } from "@/utils/searchBar";
 
 const props = defineProps({
@@ -72,9 +74,10 @@ const props = defineProps({
   currentPage: { type: Number, required: false },
   totalItems: { type: Number, required: false },
   type: { type: String, required: true },
+  subType: { type: String, required: false },
+  identifier: { type: String, required: false },
   searchBar: { type: Boolean, required: false },
 });
-
 const searchItem = ref(""); // type in the search box
 const filteredBlogsData = ref(props?.blogsData);
 watch(searchItem, async (newValue) => {
@@ -85,22 +88,7 @@ watch(searchItem, async (newValue) => {
   );
 });
 
-const handleClickOutside = (event) => {
-  if (!event.target.closest(".search-container")) {
-    // Don't clear search query when clicking outside
-  }
-};
-
-// onMounted(async () => {
-//   document.addEventListener("click", handleClickOutside);
-//   // Initialize with blogsData prop
-//   if (props.blogsData && props.blogsData.length > 0) {
-//     allBlogsData.value = props.blogsData;
-//   }
-// });
-
-// onUnmounted(() => {
-//   document.removeEventListener("click", handleClickOutside);
-//   clearTimeout(searchTimeout);
-// });
+const shouldPaginate = computed(() => {
+  return props?.totalItems > ITEMS_PER_PAGE;
+});
 </script>

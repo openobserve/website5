@@ -1,13 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ResourceHeroSection from "../../components/heroSections/ResourceHeroSection.vue";
-import BlogsWrapper from "../../components/wrapper/BlogsWrapper.vue";
-import CaseStudyGlassCardWrapper from "../../components/wrapper/CaseStudyGlassCardWrapper.vue";
-import TilesWithTitleWrapper from "../../components/wrapper/TilesWithTitleWrapper.vue";
 import BlogsListingWrapper from "../../components/wrapper/BlogsListingWrapper.vue";
-import BlogsDataWrapper from "../../components/wrapper/BlogsDataWrapper.vue";
 import CustomSuggestions from "@/components/wrapper/CustomSuggestionsWrapper.vue";
-import BlogPagination from "../../components/blogs/BlogPagination.vue";
 import {
   getAllResourceBlogs,
   getAllResourceCategories,
@@ -15,35 +10,20 @@ import {
 } from "@/utils/api/resources";
 import { getCaseStudies } from "@/utils/api/blogs";
 import { getTotalCounts } from "@/utils/cache";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
-const itemsPerPage = 50;
 
 // Fetch blogs data with the current page
-const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getResourceBlogsByPagination(
+  currentPage,
+  ITEMS_PER_PAGE
+);
 const allArticlesData = await getAllResourceBlogs();
-
 const suggestionData = await getAllResourceCategories();
-
-const loadcaseStudyData = await getCaseStudies();
-
 const count = await getTotalCounts();
-
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
-
 const metaObj = {
   title:
     "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
@@ -55,17 +35,14 @@ const metaObj = {
     title="Resources"
     description="Explore latest insights and updates"
   />
-  <!-- <BlogsDataWrapper
-    data={loadcaseStudyData}
-    title="Blog Posts"
-    subtitle="Latest articles and updates"
-    client:load
-  /> -->
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestions
-        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
         type="articles"
         client:load
       />
@@ -105,9 +82,4 @@ const metaObj = {
     totalItems={count.blogsCount}
     client:load
   />
-  <!-- <TilesWithTitleWrapper
-    title={cardHeader.title}
-    subtitle={cardHeader.description}
-    items={cardData}
-  /> -->
 </Layout>

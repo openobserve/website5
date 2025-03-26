@@ -1,0 +1,70 @@
+---
+import {
+  getAllResourceCategories,
+  getResourcesByPaginationAndCategory,
+  getCategoryDetails
+} from "@/utils/api/resources";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
+
+// 🚀 Fetch All Categories and Blogs
+export async function getStaticPaths() {
+  const categories = await getAllResourceCategories();
+
+  return categories.map((category) => ({
+    params: { tag: category.slug },
+  }));
+}
+
+// 🚀 Get Category Slug from URL
+const { tag } = Astro.params;
+const currentPage = 1;
+// ✅ Fetch Additional Data
+const suggestionData = await getAllResourceCategories();
+const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
+  currentPage,
+  tag
+);
+const metaObj = {
+  title:
+    "Tag | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+
+const category = await getCategoryDetails(tag);
+---
+
+<!-- ✅ Render Category-Based Blogs -->
+<Layout metaObj={metaObj}>
+  <ResourceHeroSection
+    title="Resources"
+    description={`Showing posts for category: ${category?.name}`}
+  />
+  <div class="py-3 md:py-6">
+    <CustomSuggestionsWrapper
+      suggestions={suggestionData.slice(
+        0,
+        Math.min(15, suggestionData.length)
+      ) || []}
+      type="articles"
+      client:load
+    />
+  </div>
+
+  <BlogsListingWrapper
+    type="articles"
+    blogsData={blogs}
+    currentPage={currentPage}
+    client:load
+    subType="tag"
+    identifier={tag}
+    totalItems={totalBlogs}
+  />
+
+  <!-- <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  /> -->
+</Layout>

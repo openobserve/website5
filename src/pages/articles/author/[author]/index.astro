@@ -1,0 +1,67 @@
+---
+import {
+  getResourceAuthors,
+  getResourceBlogsByAuthor,
+  getAllResourceCategories,
+  getResourcesByPaginationAndAuthor,
+  getAuthorDetails,
+} from "@/utils/api/resources";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
+
+export async function getStaticPaths() {
+  const authors = (await getResourceAuthors()) || [];
+  return authors.map((author) => ({
+    params: { author: author.slug },
+  }));
+}
+
+const { author } = Astro.params;
+const currentPage = 1;
+const { blogs, totalBlogs } = await getResourcesByPaginationAndAuthor(
+  currentPage,
+  author
+);
+
+const suggestionData = (await getAllResourceCategories()) || [];
+const authorDetails = await getAuthorDetails(author);
+
+const metaObj = {
+  title:
+    "Author | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <ResourceHeroSection
+  title="Resources"
+  description={`Showing posts by author: ${authorDetails?.name}`}
+  />
+  <div class="py-3 md:py-6">
+    <CustomSuggestionsWrapper
+      suggestions={suggestionData.slice(
+        0,
+        Math.min(15, suggestionData.length)
+      ) || []}
+      type="articles"
+      client:load
+    />
+  </div>
+
+  <BlogsListingWrapper
+    type="articles"
+    blogsData={blogs}
+    currentPage={currentPage}
+    totalItems={totalBlogs}
+    client:load
+    subType="author"
+    identifier={author}
+  />
+  <!-- <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  /> -->
+</Layout>

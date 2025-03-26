@@ -1,0 +1,90 @@
+---
+import {
+  getAllCategories,
+  getBlogsByPaginationAndCategory,
+  getBlogsCategoryDetails,
+} from "@/utils/api/blogs";
+import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
+
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  let paths = [];
+
+  for (const category of categories) {
+    const { totalPages } = await getBlogsByPaginationAndCategory(
+      1,
+      category.slug
+    );
+
+    if (totalPages > 1) {
+      for (let page = 2; page <= totalPages; page++) {
+        paths.push({
+          params: { tag: category.slug, page: page.toString() },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+// Get the current page from Astro props
+const { page, tag } = Astro.params;
+const currentPage = parseInt(page);
+
+const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+  currentPage,
+  tag
+);
+
+const suggestionData = await getAllCategories();
+const category = await getBlogsCategoryDetails(tag);
+
+const metaObj = {
+  title:
+    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<!-- ✅ Render Category-Based Blogs -->
+<Layout metaObj={metaObj}>
+  <ResourceHeroSection
+    title="Blog"
+    description={`Post by the category: ${category?.name}`}
+  />
+
+  <!-- <BlogsDataWrapper data={loadcaseStudyData || []} client:load /> -->
+
+  <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
+    <!-- CustomSuggestions Section -->
+    <div class="py-3 md:py-6">
+      <CustomSuggestionsWrapper
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
+        type="blog"
+        client:load
+      />
+    </div>
+
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogs}
+      client:load
+      subType="tag"
+      identifier={tag}
+      currentPage={currentPage}
+      totalItems={totalBlogs}
+    />
+    <!-- 
+  <TilesWithTitleWrapper
+    title={cardHeader.title}
+    subtitle={cardHeader.description}
+    items={cardData}
+  /> -->
+  </section>
+</Layout>

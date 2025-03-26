@@ -2,24 +2,20 @@
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
 import {
   getAllCategories,
   getBlogsByPagination,
-  getCaseStudies,
   getAllBlogs,
 } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
-
-const itemsPerPage = 50;
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
   const totalBlogs = (await getTotalCounts()).blogsCount;
 
-  const totalPages = Math.ceil(totalBlogs / 50);
+  const totalPages = Math.ceil(totalBlogs / ITEMS_PER_PAGE);
 
   return Array.from({ length: totalPages }, (_, index) => ({
     params: { page: (index + 1).toString() },
@@ -36,28 +32,11 @@ if (isNaN(currentPage) || currentPage < 1) {
 }
 
 // Fetch paginated blogs for the current page
-const blogsData = await getBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 // Fetch categories for suggestions
 const suggestionData = await getAllCategories();
-const allBlogsData = await getAllBlogs();
-
-// Fetch case studies
-const caseStudyData = await getCaseStudies();
-
+const allBlogsData = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
 const count = await getTotalCounts();
-
-const cardHeader = {
-  title: "Additional Learning Resources",
-  description:
-    "Stay ahead of the curve and optimize your observability strategy with our learning resources.",
-};
-
-const cardData = [
-  {
-    icon: "/resources/64pxComponent.svg",
-    title: "Case Studies",
-  },
-];
 
 const metaObj = {
   title:
@@ -71,19 +50,15 @@ const metaObj = {
     title="Blog"
     description="Explore latest insights and updates"
   />
-
-  <!-- {
-    caseStudyData?.length > 0 && (
-      <BlogsDataWrapper data={caseStudyData || []} client:load />
-    )
-  }-->
-  }-->
   <!-- categories section -->
   <section class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-11">
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
         type="blog"
         client:load
       />

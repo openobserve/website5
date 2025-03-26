@@ -1,23 +1,14 @@
 ---
-// Imports
-import Layout from "../../../layouts/Layout.astro";
-import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
-import BlogsWrapper from "../../../components/wrapper/BlogsWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
-import BlogPagination from "../../../components/blogs/BlogPagination.vue";
-import { slugify } from "../../../utils/slugify";
+import ResourceHeroSection from "@/components/heroSections/ResourceHeroSection.vue";
 import {
   getAllAuthors,
-  getAllBlogs,
   getAllCategories,
   getAuthorDetails,
-  getBlogsByAuthor,
-  getCaseStudies,
+  getBlogsByPaginationAndAuthor,
 } from "@/utils/api/blogs";
-import { getTotalCounts } from "@/utils/cache";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/wrapper/BlogsListingWrapper.vue";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
@@ -29,15 +20,17 @@ export async function getStaticPaths() {
 
 // 🚀 Step 2: Get `categorySlug` from URL
 const { author } = Astro.params;
-// 🚀 Step 3: Fetch blogs based on category
-const blogsData = await getBlogsByAuthor(author);
+const currentPage = 1;
+const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+  currentPage,
+  author
+);
+
+
 const auth = await getAuthorDetails(author);
 
 // ✅ Fetch other required data
 const suggestionData = await getAllCategories();
-const loadcaseStudyData = await getCaseStudies();
-const allBlogsData = await getAllBlogs();
-const count = await getTotalCounts();
 
 const metaObj = {
   title:
@@ -49,7 +42,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <ResourceHeroSection
     title={"Author"}
-    description={`Post by the author: ${auth.name}`}
+    description={`Post by the author: ${auth?.name}`}
   />
 
   <!-- <BlogsDataWrapper data={loadcaseStudyData} client:load /> -->
@@ -57,7 +50,10 @@ const metaObj = {
     <!-- CustomSuggestions Section -->
     <div class="py-3 md:py-6">
       <CustomSuggestionsWrapper
-        suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+        suggestions={suggestionData.slice(
+          0,
+          Math.min(15, suggestionData.length)
+        ) || []}
         type="blog"
         client:load
       />
@@ -65,11 +61,12 @@ const metaObj = {
 
     <BlogsListingWrapper
       type="blog"
-      blogsData={blogsData}
-      totalItems={count.blogsCount}
+      blogsData={blogs}
+      totalItems={totalBlogs}
       client:load
+      subType="author"
+      identifier={author}
     />
-
     <!-- 
   <TilesWithTitleWrapper
     title={cardHeader.title}

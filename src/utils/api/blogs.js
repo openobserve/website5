@@ -1,11 +1,16 @@
 import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
-
-export const itemsPerPage = 50;
+import { ITEMS_PER_PAGE } from "./constant";
 
 export async function getAuthorDetails(author) {
   const authors = await getAllAuthors();
   return authors.filter((auth) => auth.slug === author)[0];
 }
+
+export async function getBlogsCategoryDetails(tag) {
+  const tags = await fetchCategories();
+  return tags.filter((it) => it.slug === tag)[0];
+}
+
 
 export async function getBlogsByCategory(category) {
   const blogs = await getAllBlogs();
@@ -43,8 +48,7 @@ export async function getCaseStudies(params) {
 export async function getAllCaseStudies() {
   const blogs = await getAllBlogs();
   // Filter blogs where caseStudies is true
-  const caseStudies = blogs
-    .filter((blog) => blog.caseStudies === true)
+  const caseStudies = blogs.filter((blog) => blog.caseStudies === true);
 
   return caseStudies;
 }
@@ -83,17 +87,80 @@ export async function getBlogsBySlug(slug) {
 
 export async function getBlogsByAuthor(author) {
   const blogs = await getAllBlogs();
-  return blogs.filter((blog) =>
+  const newBlogs = blogs.filter((blog) => !blog.caseStudies);
+  return newBlogs.filter((blog) =>
     blog.authors.some((auth) => auth.slug === author)
   );
 }
 
 export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
-   // Filter out case studies
-   const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  // Filter out case studies
+  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
 
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
   return filteredBlogs.slice(start, end);
+}
+
+const filterBlogsWithoutCaseStudies = (blogs) => {
+  return blogs.filter((blog) => !blog.caseStudies);
+};
+
+const filterBlogsByCategory = (blogs, categorySlug) => {
+  return blogs.filter((blog) =>
+    blog.categories.some((cat) => cat.slug === categorySlug)
+  );
+};
+
+const filterBlogsByAuthor = (blogs, categorySlug) => {
+  return blogs.filter((blog) =>
+    blog.authors.some((cat) => cat.slug === categorySlug)
+  );
+};
+const paginate = (filteredBlogs, page, pageSize) => {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return filteredBlogs.slice(start, end);
+};
+
+export async function getBlogsByPaginationAndCategory(
+  page,
+  categorySlug = null
+) {
+  const blogs = await getAllBlogs();
+
+  let filteredBlogs = filterBlogsWithoutCaseStudies(blogs);
+
+  if (categorySlug) {
+    filteredBlogs = filterBlogsByCategory(filteredBlogs, categorySlug);
+  }
+
+  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  return {
+    blogs: paginatedBlogs,
+    totalBlogs: filteredBlogs.length,
+    totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
+  };
+}
+
+export async function getBlogsByPaginationAndAuthor(
+  page,
+  authorSlug = null
+) {
+  const blogs = await getAllBlogs();
+
+  let filteredBlogs = filterBlogsWithoutCaseStudies(blogs)
+  if (authorSlug) {
+    filteredBlogs = filterBlogsByAuthor(filteredBlogs, authorSlug)
+  }
+
+  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  return {
+    blogs: paginatedBlogs,
+    totalBlogs: filteredBlogs.length,
+    totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
+  };
 }

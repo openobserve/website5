@@ -2,23 +2,20 @@
 import Layout from "../../../layouts/Layout.astro";
 import ResourceHeroSection from "../../../components/heroSections/ResourceHeroSection.vue";
 import BlogsListingWrapper from "../../../components/wrapper/BlogsListingWrapper.vue";
-import TilesWithTitleWrapper from "../../../components/wrapper/TilesWithTitleWrapper.vue";
-import BlogsDataWrapper from "../../../components/wrapper/BlogsDataWrapper.vue";
 import { getTotalCounts } from "@/utils/cache";
 import {
+  getAllResourceBlogs,
   getAllResourceCategories,
   getResourceBlogsByPagination,
 } from "@/utils/api/resources";
-import { getCaseStudies } from "@/utils/api/blogs";
 import CustomSuggestionsWrapper from "@/components/wrapper/CustomSuggestionsWrapper.vue";
-
-const itemsPerPage = 50;
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
-  const totalBlogs = (await getTotalCounts()).blogsCount;
+  const totalBlogs = (await getTotalCounts()).resourceBlogsCount;
 
-  const totalPages = Math.ceil(totalBlogs / 50);
+  const totalPages = Math.ceil(totalBlogs / ITEMS_PER_PAGE);
 
   return Array.from({ length: totalPages }, (_, index) => ({
     params: { page: (index + 1).toString() },
@@ -35,13 +32,13 @@ if (isNaN(currentPage) || currentPage < 1) {
 }
 
 // Fetch paginated blogs for the current page
-const blogsData = await getResourceBlogsByPagination(currentPage, itemsPerPage);
+const blogsData = await getResourceBlogsByPagination(
+  currentPage,
+  ITEMS_PER_PAGE
+);
+const allArticles = await getAllResourceBlogs();
 // Fetch categories for suggestions
 const suggestionData = await getAllResourceCategories();
-
-// Fetch case studies
-const caseStudyData = await getCaseStudies();
-
 const count = await getTotalCounts();
 
 const metaObj = {
@@ -56,29 +53,21 @@ const metaObj = {
     title="Resources"
     description="Explore latest insights and updates"
   />
-
-  <!-- {
-    caseStudyData?.length > 0 && (
-      <BlogsDataWrapper
-        data={caseStudyData || []}
-        title="Case Studies"
-        subtitle="Learn from real-world implementations"
-        client:load
-      />
-    )
-  } -->
   <div class="py-3 md:py-6">
     <CustomSuggestionsWrapper
-      suggestions={suggestionData.slice(0, Math.min(15, suggestionData.length)) || []}
+      suggestions={suggestionData.slice(
+        0,
+        Math.min(15, suggestionData.length)
+      ) || []}
       type="articles"
       client:load
     />
   </div>
-  a
   <BlogsListingWrapper
     searchBar
     type="articles"
     blogsData={blogsData}
+    allBlogData={allArticles}
     currentPage={currentPage}
     totalItems={count.blogsCount}
     client:load
