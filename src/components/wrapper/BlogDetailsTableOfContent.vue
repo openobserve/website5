@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 h-[calc(100vh-100px)] overflow-y-auto scrollbar"
+    class="sticky top-20 bg-no-repeat bg-center bg-cover rounded-xl p-4 md:h-[calc(100vh-100px)] overflow-y-auto scrollbar"
     style="
       background-image: url(&quot;/img/bg/gradient-bg/BlogTableOfContentGlassBg.svg&quot;);
     "
