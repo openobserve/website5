@@ -43,7 +43,7 @@ const props = defineProps({
         class="flex flex-col md:flex-row justify-center items-center text-white text-sm py-4"
       >
         <template>
-          <div class="flex">
+          <div class="flex flex-col md:flex-row justify-center items-center">
             <span v-if="author" class="px-2">
               <template v-for="(it, index) in author" :key="index">
                 <a
