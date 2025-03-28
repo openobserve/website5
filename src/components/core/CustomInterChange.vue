@@ -73,7 +73,7 @@ onUnmounted(() => {
           :image="image"
           cssClass="w-full h-auto rounded-lg shadow-md"
         /> -->
-        <CustomImage :image="getImageUrl(image) || ''" :altText="title" height="full"
+        <CustomImage :image="image || ''" :altText="title" 
           class="w-full h-auto rounded-lg shadow-md" />
       </div>
     </div>
