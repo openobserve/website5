@@ -168,10 +168,12 @@ const BannerData = await fetchBannerData();
       defer
       async
       data-domain="openobserve.ai"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3383ZJ2HH7" is:inline
-    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3383ZJ2HH7"
+      is:inline></script>
     <script is:inline>
-      const dataLayer = window.dataLayer;
+      window.dataLayer = window.dataLayer || []; // Ensure it's initialized
       function gtag(...args) {
         dataLayer.push(args);
       }
