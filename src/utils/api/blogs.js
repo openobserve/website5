@@ -97,10 +97,14 @@ export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
   // Filter out case studies
   const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  // Sort blogs by publishDate in descending order
+  const sortedBlogs = filteredBlogs.sort(
+    (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
+  );
 
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
-  return filteredBlogs.slice(start, end);
+  return sortedBlogs.slice(start, end);
 }
 
 const filterBlogsWithoutCaseStudies = (blogs) => {
