@@ -1,0 +1,400 @@
+{
+  "data": {
+    "id": 1,
+    "navItems": [
+      {
+        "id": 1,
+        "title": "Platform",
+        "link": "/platform"
+      },
+      {
+        "id": 2,
+        "title": "Solutions",
+        "link": "/solutions"
+      },
+      {
+        "id": 3,
+        "title": "Company",
+        "link": "/company"
+      },
+      {
+        "id": 4,
+        "title": "Resources",
+        "link": "/resources"
+      }
+    ],
+    "platform": {
+      "id": 1,
+      "title": "Observability Suite",
+      "items": [
+        {
+          "id": 1,
+          "title": "Logs",
+          "link": "logs",
+          "items": [
+            {
+              "id": 1,
+              "title": "Real-time Analytics",
+              "link": null
+            },
+            {
+              "id": 2,
+              "title": "Powerful Search",
+              "link": null
+            },
+            {
+              "id": 3,
+              "title": "Log Processing",
+              "link": null
+            },
+            {
+              "id": 4,
+              "title": "Optimized Storage",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Metrics",
+          "link": "metrics",
+          "items": [
+            {
+              "id": 5,
+              "title": "Metrics Collection & Analysis",
+              "link": null
+            },
+            {
+              "id": 6,
+              "title": "Prometheus Integration",
+              "link": null
+            },
+            {
+              "id": 7,
+              "title": "Metrics Processing",
+              "link": null
+            },
+            {
+              "id": 8,
+              "title": "Optimized Storage",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Traces",
+          "link": "traces",
+          "items": [
+            {
+              "id": 9,
+              "title": "Trace Collection",
+              "link": null
+            },
+            {
+              "id": 10,
+              "title": "Service Analysis",
+              "link": null
+            },
+            {
+              "id": 11,
+              "title": "Trace Analysis",
+              "link": null
+            },
+            {
+              "id": 12,
+              "title": "Optimized Storage",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Frontend Monitoring",
+          "link": "frontend-monitoring",
+          "items": [
+            {
+              "id": 13,
+              "title": "User Experience Monitoring",
+              "link": null
+            },
+            {
+              "id": 14,
+              "title": "Error Tracking",
+              "link": null
+            },
+            {
+              "id": 15,
+              "title": "Performance Analysis",
+              "link": null
+            },
+            {
+              "id": 16,
+              "title": "Quick Implementation",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Pipelines",
+          "link": "pipelines",
+          "items": [
+            {
+              "id": 17,
+              "title": "Pipeline Types",
+              "link": null
+            },
+            {
+              "id": 18,
+              "title": "Data Transformation",
+              "link": null
+            },
+            {
+              "id": 19,
+              "title": "Data Enrichment",
+              "link": null
+            },
+            {
+              "id": 20,
+              "title": "Pipeline Components",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Alerts",
+          "link": "alerts",
+          "items": [
+            {
+              "id": 21,
+              "title": "Alert Types",
+              "link": null
+            },
+            {
+              "id": 22,
+              "title": "Alert Configuration",
+              "link": null
+            },
+            {
+              "id": 23,
+              "title": "Notifications",
+              "link": null
+            },
+            {
+              "id": 24,
+              "title": "Alert Controls",
+              "link": null
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Visualization & Dashboards",
+          "link": "visualization-and-dashboards",
+          "items": [
+            {
+              "id": 25,
+              "title": "Real-Time Monitoring",
+              "link": null
+            },
+            {
+              "id": 26,
+              "title": "Customizable Views",
+              "link": null
+            },
+            {
+              "id": 27,
+              "title": "Advanced Query Capabilities",
+              "link": null
+            },
+            {
+              "id": 28,
+              "title": "Seamless Collaboration",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "keyFeature": {
+        "id": 1,
+        "title": "Key Features",
+        "link": "/key-features",
+        "items": [
+          {
+            "id": 29,
+            "title": "140x Lower Storage Costs",
+            "link": null
+          },
+          {
+            "id": 30,
+            "title": "Advanced Multilingual GUI",
+            "link": null
+          },
+          {
+            "id": 31,
+            "title": "Built-in Authentication",
+            "link": null
+          },
+          {
+            "id": 32,
+            "title": "Dynamic Schema Evolution",
+            "link": null
+          },
+          {
+            "id": 33,
+            "title": "Federated Search",
+            "link": null
+          },
+          {
+            "id": 34,
+            "title": "High Availability (HA) and Clustering",
+            "link": null
+          },
+          {
+            "id": 35,
+            "title": "Multi-tenancy with Organization-level Isolation",
+            "link": null
+          },
+          {
+            "id": 36,
+            "title": "Report Generation and Scheduling",
+            "link": null
+          },
+          {
+            "id": 37,
+            "title": "SQL, PromQL, and VRL Support",
+            "link": null
+          },
+          {
+            "id": 38,
+            "title": "Role-Based Access Control (RBAC)",
+            "link": null
+          },
+          {
+            "id": 39,
+            "title": "Single Sign-On (SSO)",
+            "link": null
+          },
+          {
+            "id": 40,
+            "title": "Workload Management (QoS)",
+            "link": null
+          }
+        ]
+      }
+    },
+    "solutions": {
+      "id": 1,
+      "useCases": [
+        {
+          "id": 41,
+          "title": "AWS Monitoring",
+          "link": "aws-monitoring"
+        },
+        {
+          "id": 42,
+          "title": "Azure Monitoring",
+          "link": "azure-monitoring"
+        },
+        {
+          "id": 43,
+          "title": "GCP Monitoring",
+          "link": "gcp-monitoring"
+        },
+        {
+          "id": 44,
+          "title": "Kubernetes Observability",
+          "link": "kubernetes-observability"
+        },
+        {
+          "id": 45,
+          "title": "Database Monitoring",
+          "link": "database-monitoring"
+        },
+        {
+          "id": 46,
+          "title": "OpenTelemetry",
+          "link": "opentelemetry"
+        }
+      ],
+      "byTeam": [
+        {
+          "id": 47,
+          "title": "DevOps & SRE",
+          "link": "devops-sre"
+        },
+        {
+          "id": 48,
+          "title": "Development Teams",
+          "link": "development-teams"
+        }
+      ]
+    },
+    "company": {
+      "id": 1,
+      "items": [
+        {
+          "id": 49,
+          "title": "About Us",
+          "link": "/about"
+        },
+        {
+          "id": 50,
+          "title": "Careers",
+          "link": "/careers"
+        },
+        {
+          "id": 51,
+          "title": "Why OpenObserve?",
+          "link": "/why-choose-us"
+        },
+        {
+          "id": 52,
+          "title": "Contact Us",
+          "link": "/contactus"
+        }
+      ]
+    },
+    "resources": {
+      "id": 1,
+      "item1": [
+        {
+          "id": 53,
+          "title": "Documentation",
+          "link": "https://openobserve.ai/docs/"
+        },
+        {
+          "id": 54,
+          "title": "Blog",
+          "link": "/blog"
+        }
+      ],
+      "item2": [
+        {
+          "id": 1,
+          "title": "Support",
+          "items": [
+            {
+              "id": 55,
+              "title": "Frequently Asked Questions",
+              "link": "/faqs"
+            },
+            {
+              "id": 56,
+              "title": "Community Support",
+              "link": "/community-support"
+            },
+            {
+              "id": 57,
+              "title": "Enterprise Support",
+              "link": "/enterprise-support"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

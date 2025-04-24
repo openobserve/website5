@@ -1,3 +1,9 @@
+---
+import Navbar from "@/components/navigation/Navbar.vue";
+import "@/styles/global.css";
+import navData from "@/content/navbar.json";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,6 +14,7 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Navbar data={navData} />
 		<slot />
 	</body>
 </html>
