@@ -5,13 +5,9 @@
     "**/*"
   ],
   "exclude": [
-    "dist",
+    "dist"
   ],
   "compilerOptions": {
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "jsx": "preserve"
   }
 }
