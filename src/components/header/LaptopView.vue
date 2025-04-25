@@ -262,11 +262,11 @@
 </template>
 
 <script setup>
-import Logo from "../core/Logo.vue";
-import CustomButton from "../core/CustomButton.vue";
-import CustomHoverHeader from "./CustomHoverHeader.vue";
-import CustomHeaderButton from "./CustomHeaderButton.vue";
-import SectionHeader from "./SectionHeader.vue";
+import Logo from "@/components/core/Logo.vue";
+import CustomButton from "@/components/core/CustomButton.vue";
+import CustomHoverHeader from "@/components/header/CustomHoverHeader.vue";
+import CustomHeaderButton from "@/components/header/CustomHeaderButton.vue";
+import SectionHeader from "@/components/header/SectionHeader.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
 import { slugify } from "@/utils/slugify";
@@ -291,31 +291,23 @@ const companyMenuTimeout = ref(null);
 const onPlatformMenuHover = () => {
   clearTimeout(platformMenuTimeout.value);
   isPlatformMenuOpen.value = true;
-
-  // Close other menus immediately
-  isSolutionMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
 };
 
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
+    if (!isPlatformMenuOpen.value) return;
     isPlatformMenuOpen.value = false;
-  }, 300);
+  }, 500); // Increased delay for smoother experience
 };
 
 const onSolutionMenuHover = () => {
   clearTimeout(solutionMenuTimeout.value);
   isSolutionMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
 };
 
 const onSolutionMenuMouseLeave = () => {
   solutionMenuTimeout.value = setTimeout(() => {
+    if (!isSolutionMenuOpen.value) return;
     isSolutionMenuOpen.value = false;
   }, 500);
 };
@@ -323,15 +315,11 @@ const onSolutionMenuMouseLeave = () => {
 const onResourcesMenuHover = () => {
   clearTimeout(resourcesMenuTimeout.value);
   isResourcesMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isSolutionMenuOpen.value = false;
-  isCompanyMenuOpen.value = false;
 };
 
 const onResourcesMenuMouseLeave = () => {
   resourcesMenuTimeout.value = setTimeout(() => {
+    if (!isResourcesMenuOpen.value) return;
     isResourcesMenuOpen.value = false;
   }, 500);
 };
@@ -339,35 +327,14 @@ const onResourcesMenuMouseLeave = () => {
 const onCompanyMenuHover = () => {
   clearTimeout(companyMenuTimeout.value);
   isCompanyMenuOpen.value = true;
-
-  // Close other menus immediately
-  isPlatformMenuOpen.value = false;
-  isSolutionMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
 };
 
 const onCompanyMenuMouseLeave = () => {
   companyMenuTimeout.value = setTimeout(() => {
+    if (!isCompanyMenuOpen.value) return;
     isCompanyMenuOpen.value = false;
   }, 500);
 };
-
-// const onCommunityMenuHover = () => {
-//   clearTimeout(communityMenuTimeout.value);
-//   isCommunityMenuOpen.value = true;
-
-//   // Close other menus immediately
-//   isPlatformMenuOpen.value = false;
-//   isSolutionMenuOpen.value = false;
-//   isResourcesMenuOpen.value = false;
-
-// };
-
-// const onCommunityMenuMouseLeave = () => {
-//   communityMenuTimeout.value = setTimeout(() => {
-//     isCommunityMenuOpen.value = false;
-//   }, 500);
-// };
 
 const onSearchClick = () => {
   isOpenSearch.value = !isOpenSearch.value;
