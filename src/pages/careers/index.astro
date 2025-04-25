@@ -1,0 +1,10 @@
+---
+// src/pages/careers.astro
+import Layout from "@/layouts/Layout.astro";
+import CareersPage from "@/components/CareerComponent.vue";
+import careersData from "@/content/careers.json";
+---
+
+<Layout title="Careers at OpenObserve - Join Our Team">
+  <CareersPage data={careersData?.careersData} client:load />
+</Layout>
