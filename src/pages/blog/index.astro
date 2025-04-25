@@ -1,0 +1,34 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  getAllBlogs,
+  getAllCategories,
+  getBlogsByPagination,
+} from "@/utils/api/blog";
+import { getTotalCounts } from "@/utils/cache";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+// Get the current page from URL parameters
+const { page } = Astro.params;
+const currentPage = page ? parseInt(page) : 1;
+
+// Fetch blogs data with the current page
+const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
+const allBlogsData = (await getAllBlogs()).filter(
+  (blog: any) => !blog.caseStudies
+);
+const suggestionData = await getAllCategories();
+const count = await getTotalCounts();
+
+const metaObj = {
+  title: "OpenObserve Blog | Observability News & Best Practices",
+  description:
+    "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <div class="py-3 md:py-6">
+     <BlogCategoryListing categories={suggestionData.slice(0, Math.min(5, suggestionData.length))} allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))} type="blog" client:load/>
+  </div>
+</Layout>
