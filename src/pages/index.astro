@@ -1,13 +1,9 @@
 ---
-import HomeHeroSection from '@/components/HomeHeroSection.vue';
-import homepageData from '@/content/homepage.json';
-import Layout from '../layouts/Layout.astro';
-import HomeSection2 from '@/components/HomeSection2.vue';
-import ObservabilityArchitecture from '@/components/ObservabilityArchitecture.vue';
+import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
+import Layout from "@/layouts/Layout.astro";
+import data from "@/content/homepage.json"; 
 ---
 
 <Layout>
-    <HomeHeroSection />
-    <HomeSection2 data={homepageData.featureHighlights}/>
-    <!-- <ObservabilityArchitecture data={homepageData.observabilityArchitecture} /> -->
+  <HomeHerosection data={data?.body[0]}/>
 </Layout>
