@@ -1,6 +1,6 @@
 <script setup>
 import GithubButton from "vue-github-button";
-import TextGradient from "../HeaderComponents/TextWithGradient.vue";
+import TextGradient from "@/components/core/TextWithGradient.vue";
 import { computed } from "vue";
 const props = defineProps({
   footerData: {

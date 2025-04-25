@@ -4,6 +4,7 @@ import "@/styles/global.css";
 import navData from "@/content/navbar.json";
 import FooterData from "@/content/footer.json";
 import Footer from "@/components/footer/Footer.vue";
+import Header from "@/components/header/Header.vue";
 ---
 
 <!doctype html>
@@ -16,7 +17,7 @@ import Footer from "@/components/footer/Footer.vue";
     <title>Astro Basics</title>
   </head>
   <body>
-    <Navbar data={navData} />
+    <Header  client:load />
     <slot />
     <Footer
       footerData={FooterData?.data?.footerData}
