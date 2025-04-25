@@ -318,5 +318,4 @@ const onClick = (event) => {
   display: inline-block;
 }
 
-
 </style>
