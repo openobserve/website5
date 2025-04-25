@@ -1,6 +1,10 @@
 <template>
-  <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div class="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+  <header
+    class="sticky top-0 z-50 w-full border-b bg-authpage backdrop-blur supports-[backdrop-filter]:"
+  >
+    <div
+      class="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8"
+    >
       <div class="flex items-center gap-6">
         <a href="/" class="flex items-center">
           <img
@@ -25,7 +29,9 @@
       </div>
 
       <div class="flex items-center gap-4">
-        <div class="hidden md:flex items-center gap-2 border rounded-full px-3 py-1">
+        <div
+          class="hidden md:flex items-center gap-2 border rounded-full px-3 py-1"
+        >
           <svg
             class="h-4 w-4 text-primary-blue"
             viewBox="0 0 24 24"
@@ -44,7 +50,9 @@
         <button class="hidden md:inline-flex border rounded px-4 py-1 text-sm">
           Log in
         </button>
-        <button class="bg-primary-purple hover:bg-dark-purple text-white px-4 py-1 rounded text-sm">
+        <button
+          class="bg-primary-purple hover:bg-dark-purple text-white px-4 py-1 rounded text-sm"
+        >
           Get Demo
         </button>
       </div>
@@ -53,15 +61,15 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps({
-  data : {
+  data: {
     type: Object,
-  }
-})
+  },
+});
 
 const navItems = computed(() => {
-  return props?.data?.data?.navItems
+  return props?.data?.data?.navItems;
 });
 </script>

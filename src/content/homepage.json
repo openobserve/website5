@@ -1,76 +1,25 @@
 {
-    "featureHighlights": [
-      {
-        "title": "Lightning Fast",
-        "description": "Built with Rust for exceptional performance and resource efficiency",
-        "link": "#performance-section",
-        "color": "text-primary-blue",
-        "bg": "bg-primary-blue/10",
-        "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-      },
-      {
-        "title": "Cost Effective",
-        "description": "140x lower cost compared to other solutions with efficient storage",
-        "link": "#efficiency-section",
-        "color": "text-vibrant-red",
-        "bg": "bg-vibrant-red/10",
-        "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />"
-      },
-      {
-        "title": "Open Source",
-        "description": "Fully open source with a vibrant community and regular updates",
-        "link": "#scalability-section",
-        "color": "text-primary-green",
-        "bg": "bg-primary-green/10",
-        "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4\" />"
+  "body": [
+    {
+      "badge": "140x Lower Cost",
+      "title": "Modern observability for modern apps",
+      "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+      "ctaText": "Get Started For Free",
+      "trustedText": "Trusted by thousands of developers worldwide",
+      "logos": [
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png",
+        "/abstract-corporate-logo.png"
+      ],
+      "video": {
+        "thumbnail": "/images/video-thumb.jpg",
+        "label": "See OpenObserve in action"
       }
-    ],
-  "observabilityArchitecture": {
-  "title": "Modern Observability Architecture",
-  "description": "A unified platform for collecting, processing, and analyzing all your observability data",
-  "features": [
-    {
-      "section": "Data Sources",
-      "icon": "/datasource-icon.svg",
-      "items": ["Applications", "Infrastructure", "Cloud Services", "Kubernetes", "Databases"]
-    },
-    {
-      "section": "OpenObserve Platform",
-      "icon": "/openobserve-icon.svg",
-      "items": ["Centralized logging", "Performance data", "Request flows", "Notifications", "140x more efficient columnar storage"]
-    },
-    {
-      "section": "Insights & Actions",
-      "icon": "/insights-icon.svg",
-      "items": ["Custom Dashboards", "Anomaly Detection", "Incident Response", "Performance Optimization", "Cost Management"]
     }
-  ],
-  "integrationFeature": {
-    "title": "Powerful Integrations",
-    "description": "Connect with your favorite tools effortlessly.",
-    "integrations": [
-      {
-        "icon": "/cloud-native.svg",
-        "name": "Cloud Native",
-        "description": "Built for the cloud from the ground up."
-      },
-      {
-        "icon": "/api-first.svg",
-        "name": "API-First",
-        "description": "Integrate anywhere with full API support."
-      },
-      {
-        "icon": "/open-standards.svg",
-        "name": "Open Standards",
-        "description": "Built on widely adopted open formats."
-      },
-      {
-        "icon": "/open-source.svg",
-        "name": "Open Source",
-        "description": "Fully open source and community-driven."
-      }
-    ]
-  }
+  ]
 }
-}
-  
