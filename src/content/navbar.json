@@ -1,28 +1,10 @@
 {
   "data": {
     "id": 1,
-    "navItems": [
-      {
-        "id": 1,
-        "title": "Platform",
-        "link": "/platform"
-      },
-      {
-        "id": 2,
-        "title": "Solutions",
-        "link": "/solutions"
-      },
-      {
-        "id": 3,
-        "title": "Company",
-        "link": "/company"
-      },
-      {
-        "id": 4,
-        "title": "Resources",
-        "link": "/resources"
-      }
-    ],
+    "documentId": "ncqqmdreh4bstzmmoe3a3bcw",
+    "createdAt": "2025-02-27T06:26:58.776Z",
+    "updatedAt": "2025-03-10T04:51:42.218Z",
+    "publishedAt": null,
     "platform": {
       "id": 1,
       "title": "Observability Suite",
