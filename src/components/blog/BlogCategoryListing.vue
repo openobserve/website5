@@ -6,7 +6,7 @@
         v-for="category in categories"
         :key="category.name"
         :class="[
-          'px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors cursor-pointer capitalize',
+          'px-4 py-3 text-sm lg:text-base font-medium whitespace-nowrap transition-colors cursor-pointer capitalize',
           activeCategory === category.name
             ? 'text-primary-purple border-b-2 border-primary-purple'
             : 'text-primary-gray hover:text-primary-purple',
@@ -29,7 +29,7 @@
         <span
           v-for="tag in allTags"
           :key="tag.name"
-          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors"
+          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
         >
           {{ tag.name }}
         </span>
