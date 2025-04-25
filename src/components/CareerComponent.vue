@@ -1,7 +1,4 @@
 <template>
-  <!-- Include Tailwind CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-
   <section class="w-full">
     <!-- Hero Section -->
     <div class="bg-gradient-to-r from-blue-500 to-blue-400 text-white py-16 px-4 text-center">
@@ -38,7 +35,7 @@
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">{{ data.globalTeam.title }}</h2>
         <p class="text-center text-gray-300 mb-12 max-w-3xl mx-auto">{{ data.globalTeam.description }}</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="(feature, index) in data.globalTeam.features" :key="index" class="text-center">
             <div class="flex justify-center mb-4">
               <div class="w-12 h-12 flex items-center justify-center">
@@ -57,7 +54,7 @@
             </div>
             <div class="absolute inset-0 flex items-center justify-center">
               <div v-for="(dot, index) in data.globalTeam.mapDots" :key="index" class="w-3 h-3 rounded-full absolute"
-                :style="{ backgroundColor: dot.color, left: dot.x + '%', top: dot.y + '%' }">
+                :class="dot.color" :style="{ left: dot.x + '%', top: dot.y + '%' }">
               </div>
             </div>
           </div>
@@ -70,7 +67,7 @@
       <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">{{ data.testimonials.title }}</h2>
       <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ data.testimonials.description }}</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div v-for="(testimonial, index) in data.testimonials.items" :key="index"
           class="bg-gray-900 text-white p-6 rounded-lg">
           <p class="italic mb-6">"{{ testimonial.quote }}"</p>
@@ -92,7 +89,7 @@
     <div class="max-w-6xl mx-auto py-12 px-4">
       <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ data.technology.description }}</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <div v-for="(feature, index) in data.technology.features" :key="index" class="flex items-start mb-8">
             <div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full mr-4">
@@ -104,7 +101,7 @@
           </div>
         </div>
         <div class="bg-gray-100 p-6 rounded-lg">
-          <ul class="list-none p-0 m-0 flex flex-col gap-2">
+          <ul class="space-y-2">
             <li v-for="(tech, index) in data.technology.techList" :key="index" class="flex items-center">
               <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               {{ tech }}
@@ -112,7 +109,7 @@
           </ul>
           <div class="mt-6 flex flex-wrap gap-2">
             <span v-for="(tag, index) in data.technology.techTags" :key="index"
-              class="px-4 py-2 rounded-lg text-xs font-medium" :style="{ backgroundColor: tag.color }">
+              class="px-3 py-1 rounded-full text-xs font-medium" :class="tag.color">
               {{ tag.name }}
             </span>
           </div>
@@ -206,12 +203,4 @@ interface CareersPageData {
 const props = defineProps<{
   data: CareersPageData;
 }>();
-
-function hoverButton(event: MouseEvent) {
-  (event.target as HTMLElement).style.backgroundColor = '#e5e7eb';
-}
-
-function unhoverButton(event: MouseEvent) {
-  (event.target as HTMLElement).style.backgroundColor = '';
-}
 </script>
