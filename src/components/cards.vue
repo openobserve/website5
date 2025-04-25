@@ -12,7 +12,7 @@
   </script>
   
 <template>
-    <div class="bg-light-gray rounded-xl border p-6 shadow-sm">
+    <div class="bg-light-gray rounded-xl border p-6 shadow-xs">
       <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full" :class="bg">
         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="color" v-html="icon" />
       </div>
@@ -21,7 +21,7 @@
       <div class="mt-4">
         <a
           :href="link"
-          class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white h-8 px-3 py-2"
+          class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white h-8 px-3 py-2"
           :class="[color.replace('text-', 'bg-'), color.replace('text-', 'hover:bg-') + '/90']"
         >
           Prove it
