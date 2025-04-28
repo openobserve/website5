@@ -198,7 +198,74 @@
             }
           ]
         }
-      ]
+      ],
+      "keyFeature": {
+        "id": 1,
+        "title": "Key Features",
+        "link": "/key-features",
+        "items": [
+          {
+            "id": 29,
+            "title": "140x Lower Storage Costs",
+            "link": null
+          },
+          {
+            "id": 30,
+            "title": "Advanced Multilingual GUI",
+            "link": null
+          },
+          {
+            "id": 31,
+            "title": "Built-in Authentication",
+            "link": null
+          },
+          {
+            "id": 32,
+            "title": "Dynamic Schema Evolution",
+            "link": null
+          },
+          {
+            "id": 33,
+            "title": "Federated Search",
+            "link": null
+          },
+          {
+            "id": 34,
+            "title": "High Availability (HA) and Clustering",
+            "link": null
+          },
+          {
+            "id": 35,
+            "title": "Multi-tenancy with Organization-level Isolation",
+            "link": null
+          },
+          {
+            "id": 36,
+            "title": "Report Generation and Scheduling",
+            "link": null
+          },
+          {
+            "id": 37,
+            "title": "SQL, PromQL, and VRL Support",
+            "link": null
+          },
+          {
+            "id": 38,
+            "title": "Role-Based Access Control (RBAC)",
+            "link": null
+          },
+          {
+            "id": 39,
+            "title": "Single Sign-On (SSO)",
+            "link": null
+          },
+          {
+            "id": 40,
+            "title": "Workload Management (QoS)",
+            "link": null
+          }
+        ]
+      }
     },
     "solutions": {
       "id": 1,
@@ -254,6 +321,11 @@
           "id": 50,
           "title": "Careers",
           "link": "/careers"
+        },
+        {
+          "id": 51,
+          "title": "Why OpenObserve?",
+          "link": "/why-choose-us"
         },
         {
           "id": 52,
