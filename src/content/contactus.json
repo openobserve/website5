@@ -1,0 +1,96 @@
+{
+  "body": [
+    {
+      "id": "hero-section",
+      "type": "hero",
+      "title": "Get in Touch",
+      "subtitle": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform.",
+      "backgroundGradient": {
+        "from": "#4F46E5",
+        "to": "#06B6D4"
+      }
+    },
+    {
+      "id": "contact-form",
+      "type": "contactForm",
+      "title": "",
+      "subtitle": "",
+      "fields": {
+        "name": "Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "website": "Website",
+        "message": "How Can We Help You?"
+      },
+      "submitButton": {
+        "text": "Send Message"
+      },
+      "privacyText": "By submitting this form, you agree to our",
+      "privacyLink": {
+        "text": "Privacy Policy",
+        "url": "/privacy"
+      }
+    },
+    {
+      "id": "community-support",
+      "type": "communitySupport",
+      "title": "Community Support",
+      "options": [
+        {
+          "id": "slack",
+          "title": "Join our Slack Community",
+          "description": "Connect with other OpenObserve users, get help, and share your experiences in our active Slack community.",
+          "icon": "message-square",
+          "linkText": "Join Slack",
+          "linkUrl": "https://slack.openobserve.ai"
+        },
+        {
+          "id": "github",
+          "title": "GitHub Discussions",
+          "description": "Ask questions, report issues, and contribute to the development of OpenObserve through GitHub Discussions.",
+          "icon": "github",
+          "linkText": "View Discussions",
+          "linkUrl": "https://github.com/openobserve/openobserve/discussions"
+        }
+      ]
+    },
+    {
+      "id": "blog-section",
+      "type": "blogSection",
+      "title": "Latest from Our Blog",
+      "viewAllLink": {
+        "text": "View all posts",
+        "url": "/blog"
+      },
+      "posts": [
+        {
+          "id": "post-1",
+          "title": "Introducing OpenObserve v0.5.0 with Enhanced Performance",
+          "date": "April 12, 2023",
+          "author": "OpenObserve Team",
+          "excerpt": "We're excited to announce the release of OpenObserve v0.5.0 with significant performance improvements and new features.",
+          "image": "/images/blog/dashboard-analytics.jpg",
+          "readMoreLink": "/blog/introducing-v0-5-0"
+        },
+        {
+          "id": "post-2",
+          "title": "How to Set Up Distributed Tracing with OpenObserve",
+          "date": "April 5, 2023",
+          "author": "Jane Smith",
+          "excerpt": "Learn how to implement distributed tracing in your microservices architecture using OpenObserve.",
+          "image": "/images/blog/distributed-tracing.jpg",
+          "readMoreLink": "/blog/distributed-tracing"
+        },
+        {
+          "id": "post-3",
+          "title": "Optimizing Log Storage Costs with OpenObserve",
+          "date": "March 28, 2023",
+          "author": "John Doe",
+          "excerpt": "Discover strategies to reduce your observability costs while maintaining comprehensive visibility into your systems.",
+          "image": "/images/blog/cost-optimization.jpg",
+          "readMoreLink": "/blog/optimizing-log-storage-costs"
+        }
+      ]
+    }
+  ]
+}
