@@ -126,6 +126,7 @@ const onClick = (event) => {
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
   background-color: var(--color-primary-blue);
+  background-color: var(--color-primary-blue);
   /* Creates a 2px border that matches the button color initially */
   border: 1px solid transparent;
 }
