@@ -66,7 +66,7 @@
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/4 container mx-auto"
+    <div class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/5 container mx-auto"
       v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
@@ -74,28 +74,12 @@
             {{ items.platform.title }}
           </a>
           <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
-            <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            <div class="w-full md:w-2/2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               <div v-for="(item, index) in items.platform.items" :key="index">
                 <SectionHeader :title="item.title" :items="item.items" :link="item.link" />
               </div>
             </div>
-            <div class="flex flex-col space-y-1 w-full md:w-1/3">
-              <a :href="items?.platform?.keyFeature?.link"
-                class="text-[#FFFFFF] text-base font-semibold gradient-hover">
-                {{ items.platform.keyFeature.title }}
-              </a>
-              <div class="w-full bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                <!-- <SectionHeader :items="items.platform.keyFeature.items" /> -->
-                <ul class="space-y-1 xl:space-y-2">
-                  <li v-for="(item, index) in items.platform.keyFeature.items" :key="index"
-                    class="text-[#BEC0C2] text-sm">
-                    <a :href="`/key-features#${slugify(item.title)}`" :class="item.title ? 'gradient-hover' : ''">
-                      {{ item.title }}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            
           </div>
           <div class="flex flex-row gap-2 mt-6 w-4/5">
             <div class="w-[55%]">
@@ -112,7 +96,7 @@
       v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
-          <div class="flex flex-row w-full space-x-4 p-4">
+          <div class="flex flex-row w-full space-x-4">
             <!-- Use Case Column -->
             <div class="flex flex-col space-y-3 w-2/3">
               <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
