@@ -107,16 +107,25 @@
       "description": "We're building cutting-edge technology that solves real problems in observability. Here's what you'll work with:",
       "features": [
         {
+          "title": "Modern Stack",
           "description": "Our platform is built with Rust, Go, and TypeScript, leveraging the best tools for performance, reliability, and developer experience.",
-          "icon": "i-lucide-code"
+          "iconClass": "fas fa-code",
+          "iconColor": "text-purple-600",
+          "iconBgClass": "bg-purple-100"
         },
         {
+          "title": "Cloud Native",
           "description": "We embrace Kubernetes, containerization, and cloud-native principles to build scalable, resilient systems.",
-          "icon": "i-lucide-layers"
+          "iconClass": "fas fa-globe",
+          "iconColor": "text-blue-600",
+          "iconBgClass": "bg-blue-100"
         },
         {
+          "title": "Open Source",
           "description": "We believe in the power of open source and contribute back to the community that supports us.",
-          "icon": "i-lucide-github"
+          "iconClass": "fas fa-rocket",
+          "iconColor": "text-green-600",
+          "iconBgClass": "bg-green-100"
         }
       ],
       "techList": [
