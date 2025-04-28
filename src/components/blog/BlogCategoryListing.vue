@@ -36,21 +36,11 @@
       </div>
     </div>
 
-    <!-- Full-width search bar -->
-    <div class="relative w-full ">
-      <SearchIcon class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-gray h-5 w-5" />
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search articles..."
-        class="pl-10 w-full border border-primary-gray/20 focus:ring-2 focus:ring-primary-purple focus:outline-none py-3 rounded-md text-base"
-      />
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { FilterIcon, SearchIcon } from "lucide-vue-next";
+import { FilterIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const props = defineProps<{
@@ -66,7 +56,6 @@ const props = defineProps<{
 }>();
 
 const activeCategory = ref(props?.categories?.[0]?.name || "");
-const searchQuery = ref("");
 
 function setActiveCategory(category: string) {
   activeCategory.value = category;

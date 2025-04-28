@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <a
-      v-for="blog in allBlogs"
+      v-for="blog in sectionData"
       :key="blog.slug"
       :href="`/blog/${blog.slug}`"
       class="group"
@@ -60,11 +60,8 @@ import type { Blog } from '@/types/blog';
 import { generateAuthorLink } from '@/utils/redirection';
 
 defineProps<{
-  allBlogs: Blog[];
+  sectionData: Blog[];
   type: string;
-  totalItems: number;
-  blogsData: Blog[];
-  currentPage: number;
 }>();
 
 const getImageUrl = ({ image }: Blog) =>
