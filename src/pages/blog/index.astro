@@ -8,6 +8,7 @@ import {
 import { getTotalCounts } from "@/utils/cache";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import BlogListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
@@ -29,6 +30,20 @@ const metaObj = {
 
 <Layout metaObj={metaObj}>
   <div class="py-3 md:py-6">
-     <BlogCategoryListing categories={suggestionData.slice(0, Math.min(5, suggestionData.length))} allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))} type="blog" client:load/>
+    <BlogCategoryListing
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
+      type="blog"
+      client:load
+    />
+    <BlogListingWrapper
+      searchBar
+      allBlogs={allBlogsData}
+      type="blog"
+      totalItems={count.blogsCount}
+      currentPage={currentPage}
+      blogsData={blogsData}
+      client:load
+    />
   </div>
 </Layout>
