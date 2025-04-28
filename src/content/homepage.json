@@ -26,6 +26,28 @@
     "title": " OpenObserve",
     "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost"
   },
+  "buttonHeroSection": {
+    "title": " OpenObserve",
+    "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+    "buttonText": "Get Started For Free",
+    "buttonLink": "#get-started"
+  },
+  "ctaBanner": {
+    "title": " OpenObserve",
+    "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+    "buttons": [
+      {
+        "text": "Get Started For Free",
+        "link": "#get-started",
+        "variant": "primary"
+      },
+      {
+        "text": "Learn More",
+        "link": "#learn-more",
+        "variant": "secondary"
+      }
+    ]
+  },
   "featureHighlights": [
     {
       "title": "Lightning Fast",
@@ -54,5 +76,35 @@
       "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4\" />",
       "theme": "theme-green"
     }
-  ]
+  ],
+  "theOpenEthos": {
+    "title": "The \"open\" ethos",
+    "description": "Our commitment to openness drives everything we do",
+    "cardsData": [
+      {
+        "title": "Lightning Fast",
+        "description": "Built with Rust for exceptional performance and resource efficiency",
+        "color": "text-primary-blue",
+        "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+        "theme": "theme-blue",
+        "items": [
+          "High throughput",
+          "Low latency",
+          "Optimized for modern hardware"
+        ]
+      },
+      {
+        "title": "Lightning Fast",
+        "description": "Built with Rust for exceptional performance and resource efficiency",
+        "color": "text-primary-blue",
+        "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+        "theme": "theme-blue",
+        "items": [
+          "High throughput",
+          "Low latency",
+          "Optimized for modern hardware"
+        ]
+      }
+    ]
+  }
 }
