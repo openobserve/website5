@@ -22,6 +22,10 @@
       }
     }
   ],
+  "herosection":{
+    "title":" OpenObserve",
+    "description":" Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost"
+  },
   "featureHighlights": [
     {
       "title": "Lightning Fast",
