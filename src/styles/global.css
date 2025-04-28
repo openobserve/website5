@@ -26,6 +26,7 @@
   --color-popover-foreground: hsl(var(--popover-foreground));
 
   --color-card: hsl(var(--card));
+  --color-hover-card: hsl(var(--hover-card));
   --color-card-foreground: hsl(var(--card-foreground));
 
   --color-vibrant-red: #f45b49;
@@ -62,27 +63,31 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
-.lightning_fast {
-  --color-primary-blue:  rgba(47, 71, 229);
-  
+.theme-blue {
+  --color-primary-blue: rgba(47, 71, 229);
   color: var(--color-primary-blue);
-  background-color: rgba(47, 71, 229, 0.4);
+  --color-card: rgba(47, 71, 229, 0.2);
+  --color-hover-card: rgba(30,64,175)
 }
-.cost_effective {
+.theme-red {
   --color-primary-blue: rgba(244, 91, 73);
   color: var(--color-primary-blue);
-  background-color: rgba(244, 91, 73, 0.4);
+  --color-card: rgba(244, 91, 73, 0.2);
+  --color-hover-card: rgba(220,38,38)
 }
-.open_source {
+.theme-green {
   --color-primary-blue: rgba(39, 192, 100);
   color: var(--color-primary-blue);
-  background-color: rgba(39, 192, 100, 0.4);
+  --color-card: rgba(39, 192, 100, 0.2);
+  --color-hover-card: rgba(22,163,74);
 }
+
 @layer base {
   :root {
     --background: 0 100% 50%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
+    ---hover-card:0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;

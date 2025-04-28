@@ -17,7 +17,7 @@ const props = defineProps({
 
 <template>
 
-  <div class="w-full bg-gradient-to-r from-indigo-400 via-blue-400 to-sky-500 py-20 px-5">
+  <div class="w-full bg-gradient-to-r from-indigo-400 to-blue-400 py-20 px-5">
     <div
       class="max-w-full mx-auto flex flex-col"
       :class="{
@@ -26,7 +26,7 @@ const props = defineProps({
         'items-end text-right': align === 'right'
       }"
     >
-      <h1 class="text-4xl font-bold text-white mb-4">
+      <h1 class="text-5xl font-bold text-white mb-4">
         {{ title }}
       </h1>
       <p class="text-white text-lg">

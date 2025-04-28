@@ -1,5 +1,7 @@
 <script setup>
 
+
+
 const emit = defineEmits(["click"]); // Define emit for click event
 
 const props = defineProps({
@@ -27,9 +29,9 @@ const props = defineProps({
     default: null,
   },
   btnClass: {
-    type: String,
-    default: "",
-  },
+      type: [String, Array],  // Can accept both String or Array of strings
+      default: () => []        // Default is an empty array
+    },
   disabled: {
     type: Boolean,
     default: false,
@@ -121,7 +123,7 @@ const onClick = (event) => {
 
 .primary-button:hover {
   /* Only change the border gradient on hover */
-  background-color: #0077ff;
+  background-color: var(--color-hover-card);
 }
 .primary-button:active {
   background-image:
