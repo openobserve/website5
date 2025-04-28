@@ -84,11 +84,6 @@
             "link": "/solutions/opentelemetry"
           },
           {
-            "id": 14,
-            "text": "DevOps & SRE",
-            "link": "/solutions/devops-sre"
-          },
-          {
             "id": 15,
             "text": "Development Teams",
             "link": "/solutions/development-teams"
@@ -113,11 +108,6 @@
             "id": 18,
             "text": "Contact Us",
             "link": "/contactus"
-          },
-          {
-            "id": 19,
-            "text": "Why OpenObserve?",
-            "link": "/why-choose-us"
           }
         ]
       },
