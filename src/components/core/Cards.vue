@@ -9,6 +9,7 @@ const props = defineProps<{
     icon: string;
     buttonText?: string;
     buttonLink?: string;
+    theme?: string;
   }[];
 }>();
 </script>
@@ -23,7 +24,10 @@ const props = defineProps<{
       >
         <!-- Icon -->
         <div
-          :class="['p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 ', item.title.replace(/\s+/g, '_').toLocaleLowerCase() || 'bg-blue-400/80 text-white']"
+          :class="[
+            'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card text-white ',
+            item.theme,
+          ]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +55,8 @@ const props = defineProps<{
             size="small"
             :buttonText="item.buttonText"
             :buttonLink="item.buttonLink"
-            :btn-class="item.title.replace(/\s+/g, '_').toLocaleLowerCase()"
-          />
+            :btn-class="[item.theme]"
+            />
         </div>
       </div>
     </div>
