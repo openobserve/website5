@@ -62,7 +62,22 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
+.lightning_fast {
+  --color-vibrant-red:  #2f47e5;
+  color: var(--color-vibrant-red);
+  /* background-color: var(--color-vibrant-red); */
 
+}
+.cost_effective {
+  --color-vibrant-red: #f45b49;
+  color: var(--color-vibrant-red);
+  /* background-color: var(--color-vibrant-red); */
+}
+.open_source {
+  --color-vibrant-red: #27c064;
+  color: var(--color-vibrant-red);
+  /* background-color: var(--color-vibrant-red); */
+}
 @layer base {
   :root {
     --background: 0 100% 50%;

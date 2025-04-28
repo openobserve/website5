@@ -2,8 +2,10 @@
 import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/homepage.json"; 
+import Cards from "@/components/core/Cards.vue";
 ---
 
 <Layout>
   <HomeHerosection data={data?.body[0]}/>
+  <Cards data={data.featureHighlights}/>
 </Layout>
