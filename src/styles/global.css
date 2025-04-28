@@ -63,20 +63,20 @@
   }
 }
 .lightning_fast {
-  --color-vibrant-red:  #2f47e5;
+  --color-vibrant-red:  rgba(47, 71, 229);
+  
   color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
-
+  background-color: rgba(47, 71, 229, 0.4);
 }
 .cost_effective {
-  --color-vibrant-red: #f45b49;
+  --color-vibrant-red: rgba(244, 91, 73);
   color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
+  background-color: rgba(244, 91, 73, 0.4);
 }
 .open_source {
-  --color-vibrant-red: #27c064;
+  --color-vibrant-red: rgba(39, 192, 100);
   color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
+  background-color: rgba(39, 192, 100, 0.4);
 }
 @layer base {
   :root {
