@@ -63,19 +63,19 @@
   }
 }
 .lightning_fast {
-  --color-vibrant-red:  rgba(47, 71, 229);
+  --color-primary-blue:  rgba(47, 71, 229);
   
-  color: var(--color-vibrant-red);
+  color: var(--color-primary-blue);
   background-color: rgba(47, 71, 229, 0.4);
 }
 .cost_effective {
-  --color-vibrant-red: rgba(244, 91, 73);
-  color: var(--color-vibrant-red);
+  --color-primary-blue: rgba(244, 91, 73);
+  color: var(--color-primary-blue);
   background-color: rgba(244, 91, 73, 0.4);
 }
 .open_source {
-  --color-vibrant-red: rgba(39, 192, 100);
-  color: var(--color-vibrant-red);
+  --color-primary-blue: rgba(39, 192, 100);
+  color: var(--color-primary-blue);
   background-color: rgba(39, 192, 100, 0.4);
 }
 @layer base {

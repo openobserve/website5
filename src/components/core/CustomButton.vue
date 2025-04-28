@@ -10,6 +10,7 @@ const props = defineProps({
       [
         "primary",
         "secondary",
+        "outline"
       ].includes(value),
   },
   size: {
@@ -63,6 +64,7 @@ const buttonSize = sizes[props.size];
 const variants = {
   primary: "primary-button",
   secondary: "secondary-button",
+  outline: "outline-button",
 };
 
 const containerClass =
@@ -102,6 +104,7 @@ const onClick = (event) => {
 </template>
 
 <style scoped>
+
 .primary-button {
   position: relative;
   border: none;
@@ -112,7 +115,7 @@ const onClick = (event) => {
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
-  background-color: var(--color-vibrant-red);
+  background-color: var(--color-primary-blue);
   /* Creates a 2px border that matches the button color initially */
   border: 1px solid transparent;
 }
@@ -121,8 +124,6 @@ const onClick = (event) => {
   /* Only change the border gradient on hover */
   background-color: #0077ff;
 }
-
-/* Active state */
 .primary-button:active {
   background-image:
     linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
@@ -133,16 +134,12 @@ const onClick = (event) => {
   /* Slightly reduced shadow when pressed */
   box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
 }
-
-/* Focus state for accessibility */
 .primary-button:focus {
   outline: none;
   box-shadow:
     0 0 0 3px rgba(0, 136, 255, 0.3),
     0 0 10px rgba(0, 136, 255, 0.4);
 }
-
-/* Disabled state */
 .primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -154,26 +151,23 @@ const onClick = (event) => {
 
 .secondary-button {
   position: relative;
-  color: black;
+  border: none;
+  color: #2563eb ;
   cursor: pointer;
-  border-radius: 100px;
-  background: transparent;
-  /* Transparent background */
-  border: 1px solid black;
-  /* White border */
+  border-radius: 12px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.3s ease;
+  background-color: white;
   transition: all;
+  border: 1px solid transparent;
 }
-
-/* Hover state */
 .secondary-button:hover{
-  border: 1px solid white;
   /* Transparent border to show gradient */
   background-color: rgb(37,99,235);
   color: white;
 
 }
-
-/* Disabled state */
 .secondary-button:disabled{
   opacity: 0.6;
   cursor: not-allowed;
@@ -183,19 +177,34 @@ const onClick = (event) => {
   box-shadow: none;
 }
 
-/* Icon and text */
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-  /* Space between icon and text */
-  font-size: 1.2em;
+.outline-button {
+  position: relative;
+  color: black;
+  cursor: pointer;
+  border-radius: 100px;
+  background: transparent;
+  /* Transparent background */
+  border: 1px solid black;
+  /* White border */
+  transition: all;
+}
+.outline-button:hover{
+  border: 1px solid white;
+  /* Transparent border to show gradient */
+  background-color: rgb(37,99,235);
+  color: white;
+
+}
+.outline-button:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: #cccccc;
+  /* Light gray border for disabled state */
+  background: transparent;
+  box-shadow: none;
 }
 
-.text {
-  display: inline-block;
-}
+
 
 /* Icon and text */
 .icon {
