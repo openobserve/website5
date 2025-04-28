@@ -26,10 +26,10 @@ const props = defineProps({
         'items-end text-right': align === 'right'
       }"
     >
-      <h1 class="text-5xl font-bold text-white mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
         {{ title }}
       </h1>
-      <p class="text-white text-lg">
+      <p class="text-white text-lg md:text-xl">
         {{ description }}
       </p>
     </div>

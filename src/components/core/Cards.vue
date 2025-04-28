@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CustomButton from "./CustomButton.vue";
 import CustomSection from "./CustomSection.vue";
+import { Check } from 'lucide-vue-next';
 
 const props = defineProps<{
   data: {
@@ -10,6 +11,7 @@ const props = defineProps<{
     buttonText?: string;
     buttonLink?: string;
     theme?: string;
+    items?: string[];
   }[];
 }>();
 </script>
@@ -49,13 +51,22 @@ const props = defineProps<{
           {{ item.description }}
         </p>
 
+        <!-- Array of Items with Lucide Check Icons -->
+        <!-- Example of usage in the json data: "items": ["High throughput", "Low latency", "Optimized for modern hardware"] -->
+        <ul v-if="item.items" class="space-y-2 text-gray-600 dark:text-gray-400 text-sm mt-auto mb-3">
+          <li v-for="(listItem, listIndex) in item.items" :key="listIndex" class="flex items-start">
+            <Check class="h-5 w-5 mr-2 bg-green-500/20 rounded-full p-1 flex-shrink-0 text-green-500" />
+            <span>{{ listItem }}</span>
+          </li>
+        </ul>
+
         <!-- Optional Arrow Link -->
         <div v-if="item.buttonLink" class="mt-auto w-1/2">
           <CustomButton
             size="small"
             :buttonText="item.buttonText"
             :buttonLink="item.buttonLink"
-            :btn-class="[item.theme]"
+            :btn-class="item.theme"
             />
         </div>
       </div>
