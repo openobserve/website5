@@ -1,40 +1,53 @@
 <template>
-  <div class="max-w-6xl mx-auto py-12 px-4">
-    <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ description }}</p>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <div v-for="(feature, index) in features" :key="index" class="flex items-start mb-8">
-          <div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full mr-4">
-            <i class="text-2xl" :class="feature.icon"></i>
-          </div>
-          <div>
-            <p class="text-gray-600">{{ feature.description }}</p>
+  <section class="w-full py-12 md:py-24 bg-white">
+    <div class="container px-4 md:px-6 mx-auto">
+      <div class="flex flex-col items-center space-y-4 text-center mb-10">
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Our Tech</h2>
+        <p class="mx-auto max-w-[700px] text-gray-500">
+          {{ description }}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-6">
+          <div v-for="(feature, index) in features" :key="index" class="flex items-start space-x-4">
+            <div class="p-2 rounded-full mt-1" :class="feature.iconBgClass">
+              <i class="h-5 w-5" :class="[feature.iconClass, feature.iconColor]"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">{{ feature.title }}</h3>
+              <p class="text-gray-500">
+                {{ feature.description }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="bg-gray-100 p-6 rounded-lg">
-        <ul class="space-y-2">
-          <li v-for="(tech, index) in techList" :key="index" class="flex items-center">
-            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-            {{ tech }}
-          </li>
-        </ul>
-        <div class="mt-6 flex flex-wrap gap-2">
-          <span v-for="(tag, index) in techTags" :key="index" class="px-3 py-1 rounded-full text-xs font-medium"
-            :class="tag.color">
-            {{ tag.name }}
-          </span>
+        <div class="bg-gray-100 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Tech We Use</h3>
+          <div class="flex flex-wrap gap-2">
+            <span v-for="(tech, index) in techTags" :key="index"
+              class="px-3 py-1 rounded-full text-sm font-medium text-white" :class="tech.color">
+              {{ tech.name }}
+            </span>
+          </div>
+          <div class="mt-6">
+            <h4 class="font-bold mb-2">Engineering Principles</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-500">
+              <li v-for="(principle, index) in techList" :key="index">{{ principle }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 interface TechFeature {
+  title: string;
   description: string;
-  icon: string;
+  iconClass: string;
+  iconColor: string;
+  iconBgClass: string;
 }
 
 interface TechTag {
@@ -45,7 +58,7 @@ interface TechTag {
 defineProps<{
   description: string;
   features: TechFeature[];
-  techList: string[];
   techTags: TechTag[];
+  techList: string[];
 }>();
 </script>
