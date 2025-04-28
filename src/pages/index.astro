@@ -3,9 +3,11 @@ import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/homepage.json"; 
 import Cards from "@/components/core/Cards.vue";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 ---
 
 <Layout>
   <HomeHerosection data={data?.body[0]}/>
-  <Cards data={data.featureHighlights}/>
+  <CommonHeroSection title={data?.herosection?.title} description={data?.herosection?.description} align="center"/>
+  <Cards data={data.featureHighlights} />
 </Layout>
