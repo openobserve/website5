@@ -1,0 +1,65 @@
+---
+import {
+  getAllCategories,
+  getBlogsByPaginationAndCategory,
+  getBlogsCategoryDetails,
+} from "@/utils/api/blog";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
+
+// 🚀 Generate Static Paths for each category
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+
+  return categories.map((category) => ({
+    params: { tag: category.slug },
+  }));
+}
+
+// Get current category
+const { tag } = Astro.params;
+const currentPage = 1;
+const suggestionData = await getAllCategories();
+
+const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+  currentPage,
+  tag
+);
+
+const metaObj = {
+  title:
+    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+
+const category = await getBlogsCategoryDetails(tag);
+---
+
+<Layout metaObj={metaObj}>
+  <!-- <ResourceHeroSection
+    title="Blog"
+    description={`Post by the category: ${category?.name}`}
+  /> -->
+  <CustomSection sectionClass="">
+    <BlogCategoryListing
+      categories={suggestionData.slice(
+        0,
+        Math.min(5, suggestionData.length)
+      ) || []}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
+        []}
+      type="blog"
+      client:load
+    />
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogs}
+      client:load
+      subType="tag"
+      totalItems={totalBlogs}
+      identifier={tag}
+      currentPage={currentPage}
+    />
+  </CustomSection>
+</Layout>
