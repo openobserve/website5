@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-4xl -mt-24 mb-16">
+  <div class="container mx-auto px-4 py-12 md:py-16 max-w-4xl -mt-24 mb-16">
     <div class="bg-light-gray dark:bg-card rounded-lg shadow-lg p-6 md:p-8">
       <template v-if="status.submitted">
         <div class="text-center py-8">

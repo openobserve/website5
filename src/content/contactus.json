@@ -4,11 +4,7 @@
       "id": "hero-section",
       "type": "hero",
       "title": "Get in Touch",
-      "subtitle": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform.",
-      "backgroundGradient": {
-        "from": "#4F46E5",
-        "to": "#06B6D4"
-      }
+      "subtitle": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform."
     },
     {
       "id": "contact-form",
