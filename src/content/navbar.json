@@ -236,11 +236,6 @@
       ],
       "byTeam": [
         {
-          "id": 47,
-          "title": "DevOps & SRE",
-          "link": "devops-sre"
-        },
-        {
           "id": 48,
           "title": "Development Teams",
           "link": "development-teams"
@@ -259,11 +254,6 @@
           "id": 50,
           "title": "Careers",
           "link": "/careers"
-        },
-        {
-          "id": 51,
-          "title": "Why OpenObserve?",
-          "link": "/why-choose-us"
         },
         {
           "id": 52,
