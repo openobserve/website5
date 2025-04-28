@@ -16,7 +16,7 @@ import Header from "@/components/header/Header.vue";
     <title>Astro Basics</title>
   </head>
   <body>
-    <Header navData={navData} client:only />
+    <Header navData={navData?.data} client:only />
     <slot />
     <Footer
       footerData={FooterData?.data?.footerData}
