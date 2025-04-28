@@ -291,49 +291,61 @@ const companyMenuTimeout = ref(null);
 const onPlatformMenuHover = () => {
   clearTimeout(platformMenuTimeout.value);
   isPlatformMenuOpen.value = true;
+  isSolutionMenuOpen.value = false;
+  isResourcesMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onPlatformMenuMouseLeave = () => {
   platformMenuTimeout.value = setTimeout(() => {
     if (!isPlatformMenuOpen.value) return;
     isPlatformMenuOpen.value = false;
-  }, 500); // Increased delay for smoother experience
+  }, 300); // Increased delay for smoother experience
 };
 
 const onSolutionMenuHover = () => {
   clearTimeout(solutionMenuTimeout.value);
   isSolutionMenuOpen.value = true;
+  isPlatformMenuOpen.value = false;
+  isResourcesMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onSolutionMenuMouseLeave = () => {
   solutionMenuTimeout.value = setTimeout(() => {
     if (!isSolutionMenuOpen.value) return;
     isSolutionMenuOpen.value = false;
-  }, 500);
+  }, 300);
 };
 
 const onResourcesMenuHover = () => {
   clearTimeout(resourcesMenuTimeout.value);
   isResourcesMenuOpen.value = true;
+  isPlatformMenuOpen.value = false;
+  isSolutionMenuOpen.value = false;
+  isCompanyMenuOpen.value = false;
 };
 
 const onResourcesMenuMouseLeave = () => {
   resourcesMenuTimeout.value = setTimeout(() => {
     if (!isResourcesMenuOpen.value) return;
     isResourcesMenuOpen.value = false;
-  }, 500);
+  }, 300);
 };
 
 const onCompanyMenuHover = () => {
   clearTimeout(companyMenuTimeout.value);
   isCompanyMenuOpen.value = true;
+  isPlatformMenuOpen.value = false;
+  isSolutionMenuOpen.value = false;
+  isResourcesMenuOpen.value = false;
 };
 
 const onCompanyMenuMouseLeave = () => {
   companyMenuTimeout.value = setTimeout(() => {
     if (!isCompanyMenuOpen.value) return;
     isCompanyMenuOpen.value = false;
-  }, 500);
+  }, 300);
 };
 
 const onSearchClick = () => {
