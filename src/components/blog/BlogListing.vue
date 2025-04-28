@@ -38,7 +38,7 @@
           >
             {{ blog?.title }}
           </h2>
-          <p class="text-primary-gray mb-4 flex-grow text-base">{{ blog?.description }}</p>
+          <p class="text-primary-gray mb-4 flex-grow text-base line-clamp-3">{{ blog?.description }}</p>
           <!-- <div class="flex flex-wrap gap-2 mb-2">
             <a 
               v-for="tag in blog?.categories"

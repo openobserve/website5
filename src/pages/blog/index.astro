@@ -9,6 +9,7 @@ import { getTotalCounts } from "@/utils/cache";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import BlogListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import CustomSection from  "@/components/core/CustomSection.vue"
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
@@ -29,7 +30,7 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <div class="py-3 md:py-6">
+  <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
@@ -45,5 +46,5 @@ const metaObj = {
       blogsData={blogsData}
       client:load
     />
-  </div>
+  </CustomSection>
 </Layout>
