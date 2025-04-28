@@ -1,0 +1,14 @@
+---
+// Import the content and types
+import homepageContent from "@/content/contactus.json";
+import type { HomepageContent } from "@/types/Contactus";
+import DynamicBlock from "@/components/contactus/DynamicBlock.vue";
+import Layout from "@/layouts/Layout.astro";
+
+// Type-check the imported content
+const content = homepageContent as HomepageContent;
+---
+
+<Layout>
+  {content.body.map((block) => <DynamicBlock block={block} client:load />)}
+</Layout>
