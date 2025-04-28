@@ -154,58 +154,24 @@ const onClick = (event) => {
 
 .secondary-button {
   position: relative;
-  color: white;
+  color: black;
   cursor: pointer;
   border-radius: 100px;
   background: transparent;
   /* Transparent background */
-  border: 2px solid white;
+  border: 1px solid black;
   /* White border */
-  transition: all 0.3s ease;
+  transition: all;
 }
 
 /* Hover state */
 .secondary-button:hover{
-  border: 2px solid transparent;
+  border: 1px solid white;
   /* Transparent border to show gradient */
-  background-image:
-    linear-gradient(272deg,
-      rgba(0, 139, 255, 0.8) 4.81%,
-      rgba(53, 160, 252, 0.8) 39.26%,
-      rgba(153, 202, 233, 0.8) 94.28%),
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(128, 200, 255, 0.9) 20%,
-      rgba(64, 169, 255, 0.85) 40%,
-      rgba(0, 136, 255, 0.8) 60%,
-      rgba(0, 106, 255, 0.75) 80%,
-      rgba(0, 68, 255, 0.7) 100%);
-  /* Gradient background */
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  box-shadow:
-    0 0 15px rgba(0, 136, 255, 0.4),
-    0 0 20px rgba(0, 106, 255, 0.2);
-  /* Glow effect */
-}
+  background-color: rgb(37,99,235);
+  color: white;
 
-/* Active state */
-.secondary-button:active{
-  background-image:
-    linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(64, 169, 255, 0.7) 40%,
-      rgba(0, 106, 255, 0.6) 100%);
-  box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
-  /* Subtle shadow */
 }
-
-/* Focus state for accessibility */
-/* .secondary-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.3), 0 0 10px rgba(0, 136, 255, 0.4);
-} */
 
 /* Disabled state */
 .secondary-button:disabled{
@@ -245,19 +211,5 @@ const onClick = (event) => {
   display: inline-block;
 }
 
-/* Gradient border animation */
-@keyframes gradientBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 </style>
