@@ -14,13 +14,10 @@ const props = defineProps({
     type: String as () => 'left' | 'center' | 'right',
     default: 'left',
   },
-  buttonText: {
-    type: String,
+  buttons: {
+    type: Array as () => Array<{ text: string; link: string; variant: string }>,
     required: false,
-  },
-  buttonLink: {
-    type: String,
-    required: false,
+    default: () => [],
   },
 });
 </script>
@@ -42,15 +39,17 @@ const props = defineProps({
       <p class="text-white text-lg md:text-xl">
         {{ description }}
       </p>
-      <!-- Button -->
-      <div v-if="buttonText && buttonLink">
-      <CustomButton
-      variant="secondary"
-        size="medium"
-        :buttonText="buttonText"
-        :buttonLink="buttonLink"
-        btn-class="bg-white text-indigo-500 mt-6"
-      />
+      <!-- Buttons -->
+      <div v-if="buttons.length">
+        <CustomButton
+          v-for="(button, index) in buttons"
+          :key="index"
+          :variant="button.variant"
+          size="medium"
+          :buttonText="button.text"
+          :buttonLink="button.link"
+          btn-class="bg-white text-indigo-500 mt-6"
+        />
       </div>
     </div>
   </div>

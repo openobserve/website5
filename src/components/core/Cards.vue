@@ -18,7 +18,7 @@ const props = defineProps<{
 
 <template>
   <CustomSection>
-    <div class="grid gap-8 lg:grid-cols-3">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="(item, index) in props.data"
         :key="index"
