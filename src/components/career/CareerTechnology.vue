@@ -11,7 +11,7 @@
         <div class="space-y-6">
           <div v-for="(feature, index) in features" :key="index" class="flex items-start space-x-4">
             <div class="p-2 rounded-full mt-1" :class="feature.iconBgClass">
-              <i class="h-5 w-5" :class="[feature.iconClass, feature.iconColor]"></i>
+              <component :is="getIconComponent(feature.iconClass)" class="h-5 w-5" :class="feature.iconColor" />
             </div>
             <div>
               <h3 class="text-xl font-bold">{{ feature.title }}</h3>
@@ -42,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+import { Code, Globe, Rocket } from 'lucide-vue-next';
 interface TechFeature {
   title: string;
   description: string;
@@ -61,4 +62,14 @@ defineProps<{
   techTags: TechTag[];
   techList: string[];
 }>();
+
+// Helper function to map iconClass to the corresponding component
+function getIconComponent(iconClass: string) {
+  const iconMap: Record<string, any> = {
+    Code,
+    Globe,
+    Rocket,
+  };
+  return iconMap[iconClass] || null;
+}
 </script>
