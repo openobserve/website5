@@ -109,21 +109,21 @@
         {
           "title": "Modern Stack",
           "description": "Our platform is built with Rust, Go, and TypeScript, leveraging the best tools for performance, reliability, and developer experience.",
-          "iconClass": "fas fa-code",
+          "iconClass": "Code",
           "iconColor": "text-purple-600",
           "iconBgClass": "bg-purple-100"
         },
         {
           "title": "Cloud Native",
           "description": "We embrace Kubernetes, containerization, and cloud-native principles to build scalable, resilient systems.",
-          "iconClass": "fas fa-globe",
+          "iconClass": "Globe",
           "iconColor": "text-blue-600",
           "iconBgClass": "bg-blue-100"
         },
         {
           "title": "Open Source",
           "description": "We believe in the power of open source and contribute back to the community that supports us.",
-          "iconClass": "fas fa-rocket",
+          "iconClass": "Rocket",
           "iconColor": "text-green-600",
           "iconBgClass": "bg-green-100"
         }
