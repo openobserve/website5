@@ -43,7 +43,7 @@
             </ul>
 
             <!-- Description -->
-            <p class="text- text-muted-foreground mb-6 line-clamp-3">
+            <p class="mt-auto text-muted-foreground mb-6 line-clamp-3">
               {{ story.description }}
             </p>
           </div>
