@@ -1,0 +1,51 @@
+{
+  "successStories": {
+    "sectionTitle": "Success Stories",
+    "sectionDescription": "See how organizations are transforming their observability with OpenObserve.",
+    "stories": [
+      {
+        "id": 1,
+        "tags": ["Technology", "Microservices"],
+        "logo": "/img/icon/slackIcon.svg",
+        "logoAlt": "TechCorp Logo",
+        "title": "How TechCorp Reduced Observability Costs by 80%",
+        "benefits": [
+          "80% reduction in observability infrastructure costs",
+          "Improved MTTR from hours to minutes",
+          "Consolidated 5 monitoring tools into one platform"
+        ],
+        "description": "TechCorp, a leading SaaS provider with over 200 microservices, was struggling with rising observability costs and fragmented tooling. After evaluating several solutions, they chose OpenObserve for its cost efficiency and comprehensive feature set.",
+        "buttonText": "Read Full Story"
+      },
+      {
+        "id": 2,
+        "tags": ["Financial Services", "Cloud Migration"],
+        "logo": "/img/icon/slackIcon.svg",
+        "logoAlt": "FinanceApp Logo",
+        "title": "FinanceApp's Journey to Cloud-Native Observability",
+        "benefits": [
+          "Scaled monitoring to handle 10x traffic growth",
+          "Reduced infrastructure costs by 65%",
+          "Achieved 99.99% uptime for critical services"
+        ],
+        "description": "When FinanceApp began their cloud migration journey, they needed a scalable observability solution that could handle their growing transaction volume while maintaining strict security and compliance requirements. OpenObserve provided the perfect balance of performance and cost-efficiency.",
+        "buttonText": "Read Full Story"
+      },
+      {
+        "id": 3,
+        "tags": ["E-Commerce", "Peak Season"],
+        "logo": "/img/icon/slackIcon.svg",
+        "logoAlt": "ShopNow Logo",
+        "title": "How ShopNow Survived Black Friday with OpenObserve",
+        "benefits": [
+          "Handled 300% increase in traffic without downtime",
+          "Identified and fixed bottlenecks in real-time",
+          "Saved an estimated $2M in potential lost sales"
+        ],
+        "description": "For e-commerce giant ShopNow, the holiday shopping season represents over 40% of their annual revenue. When their previous monitoring solution failed during a crucial sales period, they turned to OpenObserve to ensure they would never face the same issue again.",
+        "buttonText": "Read Full Story"
+      }
+    ],
+    "viewAllText": "View All Success Stories"
+  }
+}
