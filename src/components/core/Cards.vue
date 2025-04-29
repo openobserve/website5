@@ -19,30 +19,19 @@ const props = defineProps<{
 <template>
   <CustomSection>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <div
-        v-for="(item, index) in props.data"
-        :key="index"
-        class="rounded-xl p-6 flex flex-col items-left text-left border border-gray-300"
-      >
+      <div v-for="(item, index) in props.data" :key="index"
+        class="rounded-xl p-6 flex flex-col items-left text-left border border-gray-300">
         <!-- Icon -->
-        <div
-          :class="[
-            'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card text-white ',
-            item.theme,
-          ]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-10 w-10"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            v-html="item.icon"
-          />
+        <div :class="[
+          'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card',
+          item.theme,
+        ]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" v-html="item.icon" />
         </div>
 
         <!-- Title -->
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+        <h3 class="text-lg font-semibold text-gray-800">
           {{ item.title }}
         </h3>
 
@@ -62,12 +51,8 @@ const props = defineProps<{
 
         <!-- Optional Arrow Link -->
         <div v-if="item.buttonLink" class="mt-auto w-1/2">
-          <CustomButton
-            size="small"
-            :buttonText="item.buttonText"
-            :buttonLink="item.buttonLink"
-            :btn-class="item.theme"
-            />
+          <CustomButton size="small" :buttonText="item.buttonText" :buttonLink="item.buttonLink"
+            :btn-class="item.theme" />
         </div>
       </div>
     </div>
