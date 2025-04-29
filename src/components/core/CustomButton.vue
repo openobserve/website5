@@ -156,8 +156,7 @@ const onClick = (event) => {
 }
 .secondary-button:hover{
   /* Transparent border to show gradient */
-  background-color:#5764d9;
-  color: white;
+  background-color:#f3f4f6;
 
 }
 .secondary-button:disabled{
@@ -195,6 +194,7 @@ const onClick = (event) => {
   box-shadow: none;
 }
 
+
 .tertiary-button {
   position: relative;
   color: white;
@@ -207,9 +207,7 @@ const onClick = (event) => {
   transition: all;
 }
 .tertiary-button:hover{
-  border: 1px solid black;
-  /* Transparent border to show gradient */
-  color: black;
+  background: rgba(255, 255, 255, 0.1); 
 
 }
 .tertiary-button:disabled{
@@ -262,7 +260,7 @@ const onClick = (event) => {
   transition: all 0.3s ease;
   background-color: black;
   /* Creates a 2px border that matches the button color initially */
-  border: 1px solid transparent;
+  border: 1px solid #6B76E3 ;
 }
 
 .black-primary-button:hover {
