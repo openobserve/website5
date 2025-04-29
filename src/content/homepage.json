@@ -109,7 +109,7 @@
   },
   "customInterchange": [
     {
-      "heading":{
+      "heading": {
         "title": "Explore Features",
         "description": "Description for explore features"
       },
@@ -125,7 +125,7 @@
       "direction": "left"
     },
     {
-      "heading":{
+      "heading": {
         "title": "Explore Features",
         "description": "Description for explore features"
       },
@@ -140,5 +140,17 @@
       ],
       "direction": "right"
     }
-  ]
+  ],
+  "ourStory": {
+    "title": "Our Story",
+    "paragraphs": "OpenObserve was born from a simple yet powerful idea: observability should be accessible, efficient, and affordable for everyone.<br><br>Founded in 2022 by a team of engineers who experienced firsthand the challenges of managing observability at scale, we set out to build a solution that would dramatically reduce the cost and complexity of monitoring modern applications.<br><br>Our journey began with a clear mission: to create an open-source observability platform that delivers enterprise-grade features without the enterprise-grade price tag. Today, OpenObserve helps organizations of all sizes gain deeper insights into their systems while using up to 10x less storage and computing resources.",
+    "image": {
+      "src": "/img/logo.svg",
+      "alt": "OpenObserve founding team"
+    },
+    "link": {
+      "text": "Read our full journey",
+      "url": "/blog/our-journey"
+    }
+  }
 }
