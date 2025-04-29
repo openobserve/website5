@@ -12,7 +12,11 @@ const props = defineProps({
       [
         "primary",
         "secondary",
-        "outline"
+        "outline",
+        "tertiary",
+        "orange",
+        "black-primary",
+        "black-secondary",
       ].includes(value),
   },
   size: {
@@ -67,6 +71,10 @@ const variants = {
   primary: "primary-button",
   secondary: "secondary-button",
   outline: "outline-button",
+  tertiary: "tertiary-button",
+  orange: "orange-button",
+  "black-primary": "black-primary-button",
+  "black-secondary": "black-secondary-button",
 };
 
 const containerClass =
@@ -122,24 +130,7 @@ const onClick = (event) => {
 }
 
 .primary-button:hover {
-  /* Only change the border gradient on hover */
   background-color: var(--color-hover-card);
-}
-.primary-button:active {
-  background-image:
-    linear-gradient(180deg, #0088ff 0%, #0077ff 100%),
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(64, 169, 255, 0.7) 40%,
-      rgba(0, 106, 255, 0.6) 100%);
-  /* Slightly reduced shadow when pressed */
-  box-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
-}
-.primary-button:focus {
-  outline: none;
-  box-shadow:
-    0 0 0 3px rgba(0, 136, 255, 0.3),
-    0 0 10px rgba(0, 136, 255, 0.4);
 }
 .primary-button:disabled {
   opacity: 0.6;
@@ -153,19 +144,18 @@ const onClick = (event) => {
 .secondary-button {
   position: relative;
   border: none;
-  color: #2563eb ;
+  color: #5764d9 ;
   cursor: pointer;
   border-radius: 12px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
   background-color: white;
-  transition: all;
   border: 1px solid transparent;
 }
 .secondary-button:hover{
   /* Transparent border to show gradient */
-  background-color: rgb(37,99,235);
+  background-color:#5764d9;
   color: white;
 
 }
@@ -182,17 +172,16 @@ const onClick = (event) => {
   position: relative;
   color: black;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 12px;
   background: transparent;
   /* Transparent background */
   border: 1px solid black;
   /* White border */
-  transition: all;
+  transition: all 0.3s ease;
 }
 .outline-button:hover{
   border: 1px solid white;
   /* Transparent border to show gradient */
-  background-color: rgb(37,99,235);
   color: white;
 
 }
@@ -205,7 +194,116 @@ const onClick = (event) => {
   box-shadow: none;
 }
 
+.tertiary-button {
+  position: relative;
+  color: white;
+  cursor: pointer;
+  border-radius: 12px;
+  background: transparent;
+  /* Transparent background */
+  border: 1px solid white;
+  /* White border */
+  transition: all;
+}
+.tertiary-button:hover{
+  border: 1px solid black;
+  /* Transparent border to show gradient */
+  color: black;
 
+}
+.tertiary-button:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: #cccccc;
+  /* Light gray border for disabled state */
+  background: transparent;
+  box-shadow: none;
+}
+
+
+.orange-button {
+  position: relative;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.3s ease;
+  background-color: #F45B49;
+  /* Creates a 2px border that matches the button color initially */
+  border: 1px solid transparent;
+}
+
+.orange-button:hover {
+  /* Only change the border gradient on hover */
+  background-color:#DE5444;
+}
+.orange-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-image:
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  box-shadow: none;
+}
+
+.black-primary-button {
+  position: relative;
+  border: none;
+  color: #6B76E3;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.3s ease;
+  background-color: black;
+  /* Creates a 2px border that matches the button color initially */
+  border: 1px solid transparent;
+}
+
+.black-primary-button:hover {
+  background-color: #1e1d1d;
+  color:white
+}
+.black-primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-image:
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  box-shadow: none;
+}
+
+.black-secondary-button {
+  position: relative;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.3s ease;
+  background-color: black;
+  /* Creates a 2px border that matches the button color initially */
+  border: 1px solid transparent;
+}
+
+.black-secondary-button:hover {
+  background-color: #1e1d1d;
+  color:#6B76E3
+}
+.black-secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-image:
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
+  box-shadow: none;
+}
 
 /* Icon and text */
 .icon {

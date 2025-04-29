@@ -31,7 +31,7 @@
 
   --color-vibrant-red: #f45b49;
   --color-primary-purple: #6b76e3;
-  --color-primary-blue: #45a4f3;
+  --color-primary-blue: #6B76E3;
   --color-primary-green: #5aca7a;
   --color-primary-black: #121212;
   --color-primary-gray: #6e7280;
@@ -87,7 +87,7 @@
     --background: 0 100% 50%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    ---hover-card:0 0% 100%;
+    --hover-card: 233 53% 53%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;

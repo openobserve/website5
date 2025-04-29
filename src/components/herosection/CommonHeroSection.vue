@@ -27,7 +27,7 @@ const props = defineProps({
 
 <template>
 
-  <div class="w-full bg-gradient-to-r from-indigo-400 to-blue-400 py-20 px-5">
+  <div class="w-full bg-gradient-to-r from-[#6A76E3] to-[#45A4F3] py-20 px-5">
     <div
       class="max-w-full mx-auto flex flex-col"
       :class="{

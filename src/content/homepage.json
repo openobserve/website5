@@ -39,12 +39,12 @@
       {
         "text": "Get Started For Free",
         "link": "#get-started",
-        "variant": "primary"
+        "variant": "secondary"
       },
       {
         "text": "Learn More",
         "link": "#learn-more",
-        "variant": "secondary"
+        "variant": "tertiary"
       }
     ]
   },
