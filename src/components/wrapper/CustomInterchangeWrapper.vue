@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <CustomSection>
-      <div v-for="(card, index) in interchangeCard" :key="index" class="py-4">
+      <div v-for="(card, index) in interchangeCard" :key="index">
         <CustomInterchange
           :heading="card.heading"
           :cardData="card.cardData"
