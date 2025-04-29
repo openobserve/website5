@@ -87,19 +87,19 @@
           "quote": "Working at OpenObserve has been the highlight of my career. The problems we solve, the engineering culture, and the constantly growing team of brilliant colleagues.",
           "name": "Jamie Smith",
           "role": "Senior Software Engineer",
-          "avatar": "/images/avatars/jamie.jpg"
+          "avatar": "/img/icon/slackIcon.svg"
         },
         {
           "quote": "The culture at OpenObserve is truly special. There's a perfect balance of autonomy and accountability. I feel empowered about our wellbeing and growth.",
           "name": "Raj Patel",
           "role": "Product Manager",
-          "avatar": "/images/avatars/raj.jpg"
+          "avatar": "/img/icon/slackIcon.svg"
         },
         {
           "quote": "As a remote employee, I was worried about missing out on the connection and camaraderie. But the art of building strong relationships is cultivated at the core of this company.",
           "name": "Elena Lopez",
           "role": "DevOps Engineer",
-          "avatar": "/images/avatars/elena.jpg"
+          "avatar": "/img/icon/slackIcon.svg"
         }
       ]
     },
