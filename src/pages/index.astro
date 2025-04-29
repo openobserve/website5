@@ -1,11 +1,34 @@
 ---
 import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
+import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/homepage.json"; 
 import Cards from "@/components/core/Cards.vue";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import CTA from "@/components/core/CTA.vue";
+import CustomInterchange2 from "@/components/core/CustomInterchange2.vue";
 ---
 
 <Layout>
   <HomeHerosection data={data?.body[0]}/>
-  <Cards data={data.featureHighlights}/>
+  <CommonHeroSection title={data?.herosection?.title} description={data?.herosection?.description} align="center"/>
+  <Cards data={data?.featureHighlights} />
+  <CommonHeroSection title={data?.buttonHeroSection?.title} description={data?.buttonHeroSection?.description} buttonText={data?.buttonHeroSection?.buttonText} buttonLink={data?.buttonHeroSection?.buttonLink} align="center"/>
+  <CardWrapper 
+    title={data?.theOpenEthos?.title} 
+    description={data?.theOpenEthos?.description} 
+    cardsData={data?.theOpenEthos?.cardsData} 
+  />
+  {data?.customInterchange?.map((block, index) => (
+    <CustomInterchange2 
+      key={index}
+      heading={block.heading} 
+      image={block.image} 
+      items={block.items} 
+      direction={block.direction} 
+    />
+  ))}
+  <CTA title={data?.ctaBanner?.title} 
+  description={data?.ctaBanner?.description} 
+  buttons={data?.ctaBanner?.buttons}  />
 </Layout>

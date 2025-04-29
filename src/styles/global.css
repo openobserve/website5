@@ -26,11 +26,12 @@
   --color-popover-foreground: hsl(var(--popover-foreground));
 
   --color-card: hsl(var(--card));
+  --color-hover-card: hsl(var(--hover-card));
   --color-card-foreground: hsl(var(--card-foreground));
 
   --color-vibrant-red: #f45b49;
   --color-primary-purple: #6b76e3;
-  --color-primary-blue: #45a4f3;
+  --color-primary-blue: #6B76E3;
   --color-primary-green: #5aca7a;
   --color-primary-black: #121212;
   --color-primary-gray: #6e7280;
@@ -62,27 +63,31 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
-.lightning_fast {
-  --color-vibrant-red:  #2f47e5;
-  color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
+.theme-blue {
+  --color-primary-blue: rgba(47, 71, 229);
+  color: var(--color-primary-blue);
+  --color-card: rgba(47, 71, 229, 0.2);
+  --color-hover-card: rgba(30,64,175)
+}
+.theme-red {
+  --color-primary-blue: rgba(244, 91, 73);
+  color: var(--color-primary-blue);
+  --color-card: rgba(244, 91, 73, 0.2);
+  --color-hover-card: rgba(220,38,38)
+}
+.theme-green {
+  --color-primary-blue: rgba(39, 192, 100);
+  color: var(--color-primary-blue);
+  --color-card: rgba(39, 192, 100, 0.2);
+  --color-hover-card: rgba(22,163,74);
+}
 
-}
-.cost_effective {
-  --color-vibrant-red: #f45b49;
-  color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
-}
-.open_source {
-  --color-vibrant-red: #27c064;
-  color: var(--color-vibrant-red);
-  /* background-color: var(--color-vibrant-red); */
-}
 @layer base {
   :root {
     --background: 0 100% 50%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
+    --hover-card: 233 53% 53%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
