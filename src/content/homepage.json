@@ -106,5 +106,39 @@
         ]
       }
     ]
-  }
+  },
+  "customInterchange": [
+    {
+      "heading":{
+        "title": "Explore Features",
+        "description": "Description for explore features"
+      },
+      "image": {
+        "url": "/images/custom-interchange.jpg",
+        "alt": "Custom Interchange Image"
+      },
+      "items": [
+        { "title": "Feature 1", "description": "Description for feature 1" },
+        { "title": "Feature 2", "description": "Description for feature 2" },
+        { "title": "Feature 3", "description": "Description for feature 3" }
+      ],
+      "direction": "left"
+    },
+    {
+      "heading":{
+        "title": "Explore Features",
+        "description": "Description for explore features"
+      },
+      "image": {
+        "url": "/images/custom-interchange.jpg",
+        "alt": "Custom Interchange Image"
+      },
+      "items": [
+        { "title": "Feature 1", "description": "Description for feature 1" },
+        { "title": "Feature 2", "description": "Description for feature 2" },
+        { "title": "Feature 3", "description": "Description for feature 3" }
+      ],
+      "direction": "right"
+    }
+  ]
 }
