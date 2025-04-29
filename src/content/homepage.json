@@ -192,5 +192,9 @@
       "text": "Read our full journey",
       "url": "/blog/our-journey"
     }
+  },
+  "ourCommitment": {
+    "title": "Our Commitment to Open Source",
+    "paragraphs": "At OpenObserve, we believe that open source is the foundation of innovation in technology. Our commitment to open source goes beyond just making our code available—it's about fostering a collaborative ecosystem where everyone benefits from shared knowledge and collective improvement.<br><br>We've built our platform on open source principles because we believe observability tools should be transparent, customizable, and community-driven. By making our core technology open source, we ensure that users have complete visibility into how their observability platform works, with the freedom to inspect, modify, and extend it to meet their specific needs.<br><br>Our open source approach also means we're accountable to our community. We actively welcome contributions from developers around the world, incorporating diverse perspectives that make our platform more robust, secure, and innovative. This collaborative development model has allowed us to build features and capabilities that truly address real-world observability challenges.<br><br>We're committed to maintaining a healthy balance between open source sustainability and commercial viability. While our core platform remains free and open source, we offer enterprise features and support services that fund our continued development and growth. This model ensures that OpenObserve remains accessible to everyone while continuing to evolve with the needs of our users."
   }
 }
