@@ -6,6 +6,7 @@ import {
   getBlogsBySlug,
 } from "@/utils/api/blog";
 import BlogcontentWrapper from "@/components/blog/BlogcontentWrapper.vue";
+import BlogDetailsHeroSection from "@/components/blog/BlogDetailsHeroSection.vue";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
   return slugs.map((it: any) => ({
@@ -42,6 +43,20 @@ const metaObj = {
       day: "2-digit",
     }).format(new Date(SlugData?.publishDate))}
   /> -->
+  <BlogDetailsHeroSection
+    type="blog"
+    title={SlugData?.title}
+    blogImage={SlugData?.image?.url || SlugData?.image?.url}
+    tags={SlugData?.categories || []}
+    author={author}
+    publishDate={new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(new Date(SlugData?.publishDate))}
+    client:load
+  />
   <BlogcontentWrapper
     :type="blog"
     client:load

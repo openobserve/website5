@@ -5,6 +5,7 @@ import CustomSection from "../core/CustomSection.vue";
 import CustomImage from "../core/CustomImage.vue";
 import { slugify } from "@/utils/slugify";
 import BlogTableofContent from "./BlogTableofContent.vue";
+import SingleAuthorDetails from "./SingleAuthorDetails.vue";
 // import SingleAuthorDetails from "../blogs/SingleAuthorDetails.vue";
 
 // Define props
@@ -283,7 +284,7 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div
-      class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10"
+      class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10 max-w-7xl"
     >
       <div
         class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
@@ -318,7 +319,7 @@ onMounted(() => {
           </template>
         </div>
         <div class="py-3">
-          <SingleAuthorDetails :type="type" :authors="authors" client:load />
+          <SingleAuthorDetails :type="type" :author="authors" client:load />
         </div>
       </div>
       <!-- Table of Contents -->

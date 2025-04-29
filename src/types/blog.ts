@@ -22,3 +22,21 @@ export interface Blog {
   }[];
   publishDate: string;
 }
+
+export type Author = {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  name: string;
+  bio: string;
+  image: {
+    url: string;
+  };
+  slug: string;
+  youtubeUrl?: string | null;
+  linkedInUrl?: string | null;
+  twitterUrl?: string | null;
+  instagramUrl?: string | null;
+};
