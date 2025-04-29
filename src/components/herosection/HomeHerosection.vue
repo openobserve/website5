@@ -20,8 +20,8 @@ defineProps<{ data: HeroData }>();
 </script>
 
 <template>
-  <section class="relative overflow-hidden py-20 md:py-32">
-    <div class="absolute inset-0 bg-primary-black -z-10"></div>
+  <section class="relative overflow-hidden py-20 md:py-32 -z-10">
+    <div class="absolute inset-0 bg-primary-black "></div>
     <div
       class="absolute inset-0 opacity-20 -z-10 bg-[radial-gradient(#444_1px,transparent_1px)] [background-size:16px_16px]"
     ></div>
