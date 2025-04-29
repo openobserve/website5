@@ -29,20 +29,6 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <!-- <BlogDetailsHeroSectionWrapper
-    type="blog"
-    title={SlugData?.title}
-    bottomImage={SlugData?.image?.url || SlugData?.image?.url}
-    client:load
-    suggestions={SlugData?.categories || []}
-    author={author}
-    publishDate={new Intl.DateTimeFormat("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "2-digit",
-    }).format(new Date(SlugData?.publishDate))}
-  /> -->
   <BlogDetailsHeroSection
     type="blog"
     title={SlugData?.title}
@@ -55,6 +41,7 @@ const metaObj = {
       month: "long",
       day: "2-digit",
     }).format(new Date(SlugData?.publishDate))}
+    content={SlugData?.content}
     client:load
   />
   <BlogcontentWrapper

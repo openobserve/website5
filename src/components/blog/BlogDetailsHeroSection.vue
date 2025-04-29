@@ -5,7 +5,7 @@
       class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
     ></div>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto flex flex-col">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
           <a
@@ -44,7 +44,7 @@
                     v-if="it.image?.url"
                     :src="it.image.url"
                     :alt="it.name"
-                    class="h-full w-full object-cover"
+                    class="h-full w-full"
                   />
                   <span v-else>
                     {{ getInitials(it.name) }}
@@ -55,12 +55,11 @@
 
             <!-- Names Section -->
             <div class="flex flex-wrap items-center gap-0.5 text-white">
-              <template
-                v-for="(it, index) in author"
-                :key="`name-${it.name}`"
-              >
+              <template v-for="(it, index) in author" :key="`name-${it.name}`">
                 <span class="font-medium">{{ it.name }}</span>
-                <span v-if="index < author.length - 1" class="text-white/70 text-xs"
+                <span
+                  v-if="index < author.length - 1"
+                  class="text-white/70 text-xs"
                   >,</span
                 >
               </template>
@@ -95,6 +94,16 @@
             </a>
           </div> -->
         </div>
+        <div class="flex flex-row space-x-4">
+          <div class="flex items-center text-white text-base mt-4">
+            <Calendar class="h-4 w-4 mr-1" />
+            <span>{{ publishDate }}</span>
+          </div>
+          <div class="flex items-center text-white text-base mt-4">
+            <Clock class="h-4 w-4 mr-1" />
+            <span>{{ calculateReadingTime(content) }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -108,6 +117,7 @@
 </template>
 
 <script setup lang="ts">
+import { calculateReadingTime } from "@/utils/calculateReadingTime";
 import { Calendar, Clock, Link } from "lucide-vue-next";
 
 defineProps<{
@@ -129,11 +139,10 @@ defineProps<{
   content: string;
 }>();
 
-
 function getInitials(name: string) {
   return name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('');
+    .join("");
 }
 </script>
