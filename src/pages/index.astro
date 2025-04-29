@@ -6,29 +6,24 @@ import data from "@/content/homepage.json";
 import Cards from "@/components/core/Cards.vue";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import CTA from "@/components/core/CTA.vue";
-import CustomInterchange2 from "@/components/core/CustomInterchange2.vue";
+import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
 ---
 
 <Layout>
   <HomeHerosection data={data?.body[0]}/>
-  <CommonHeroSection title={data?.herosection?.title} description={data?.herosection?.description} align="center"/>
-  <Cards data={data?.featureHighlights} />
-  <CommonHeroSection title={data?.buttonHeroSection?.title} description={data?.buttonHeroSection?.description} buttonText={data?.buttonHeroSection?.buttonText} buttonLink={data?.buttonHeroSection?.buttonLink} align="center"/>
+  <CommonHeroSection title={data?.body[1]?.title} description={data?.body[1]?.description} align="center"/>
+  <Cards data={data?.body[4]?.items} />
+  <CommonHeroSection title={data?.body[2]?.title} description={data?.body[2]?.description} buttonText={data?.body[2]?.buttonText} buttonLink={data?.body[2]?.buttonLink} align="center"/>
   <CardWrapper 
-    title={data?.theOpenEthos?.title} 
-    description={data?.theOpenEthos?.description} 
-    cardsData={data?.theOpenEthos?.cardsData} 
+    title={data.body[5]?.title || ''} 
+    description={data.body[5]?.description || ''} 
+    cardsData={data.body[5]?.cardsData || []} 
   />
-  {data?.customInterchange?.map((block, index) => (
-    <CustomInterchange2 
-      key={index}
-      heading={block.heading} 
-      image={block.image} 
-      items={block.items} 
-      direction={block.direction} 
+ 
+    <CustomInterchangeWrapper
+     interchangeCard={data?.body[6]?.items}       
     />
-  ))}
-  <CTA title={data?.ctaBanner?.title} 
-  description={data?.ctaBanner?.description} 
-  buttons={data?.ctaBanner?.buttons}  />
+  <CTA title={data?.body[3]?.title} 
+  description={data?.body[3]?.description} 
+  buttons={data?.body[3]?.buttons}  />
 </Layout>
