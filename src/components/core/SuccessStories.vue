@@ -14,21 +14,14 @@
 
       <div class="mx-auto grid gap-8 py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Success Story Cards -->
-        <div
-          v-for="(story, storyIndex) in successStories.stories"
-          :key="story.id"
-          class="flex flex-col h-full justify-between rounded-lg border bg-card p-6 shadow-sm max-w-[320px] w-full mx-auto"
-        >
+        <div v-for="(story, storyIndex) in successStories.stories" :key="story.id"
+          class="flex flex-col h-full justify-between rounded-lg border bg-card p-6 shadow-sm w-full mx-auto">
           <!-- Card Content -->
           <div class="flex flex-col flex-grow">
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                v-for="(tag, tagIndex) in story.tags"
-                :key="tagIndex"
-                :class="getTagColorByName(tag)"
-                class="rounded-full px-3 py-1 text-xs"
-              >
+              <span v-for="(tag, tagIndex) in story.tags" :key="tagIndex" :class="getTagColorByName(tag)"
+                class="rounded-full px-3 py-1 text-xs">
                 {{ tag }}
               </span>
             </div>
@@ -43,18 +36,14 @@
 
             <!-- Benefits List -->
             <ul class="mb-4 space-y-2">
-              <li
-                v-for="(benefit, index) in story.benefits"
-                :key="index"
-                class="flex items-start gap-2"
-              >
+              <li v-for="(benefit, index) in story.benefits" :key="index" class="flex items-start gap-2">
                 <CheckCircle class="h-5 w-5 text-primary-green mt-0.5 flex-shrink-0" />
                 <span class="text-sm">{{ benefit }}</span>
               </li>
             </ul>
 
             <!-- Description -->
-            <p class="text-sm text-muted-foreground mb-6 line-clamp-3">
+            <p class="text- text-muted-foreground mb-6 line-clamp-3">
               {{ story.description }}
             </p>
           </div>
@@ -62,8 +51,7 @@
           <!-- Button -->
           <div class="pt-4">
             <button
-              class="inline-flex items-center justify-center rounded-md bg-primary-purple px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-dark-purple cursor-pointer"
-            >
+              class="inline-flex items-center justify-center rounded-md bg-primary-purple px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-dark-purple cursor-pointer">
               {{ story.buttonText }}
             </button>
           </div>
@@ -73,8 +61,7 @@
       <!-- View All Button -->
       <div class="mt-8 flex justify-center">
         <button
-          class="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-        >
+          class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer">
           {{ successStories.viewAllText }}
           <ArrowRight class="ml-2 h-4 w-4" />
         </button>
