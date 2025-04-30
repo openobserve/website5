@@ -1,0 +1,103 @@
+{
+  "data": {
+    "body": [
+      {
+        "__component": "section-solutions.solutions",
+        "title": "Our Solutions",
+        "items": [
+          {
+            "id": 1,
+            "title": "Infrastructure Monitoring",
+            "description": "Comprehensive visibility into your infrastructure performance, health, and resource utilization.",
+            "color": "primary-purple",
+            "features": [
+              "Server metrics and health monitoring",
+              "Container and Kubernetes observability",
+              "Cloud resource optimization",
+              "Real-time infrastructure alerts"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          },
+          {
+            "id": 2,
+            "title": "Application Performance",
+            "description": "Monitor and optimize your application performance with detailed insights and tracing.",
+            "color": "primary-blue",
+            "features": [
+              "End-to-end request tracing",
+              "Error tracking and analysis",
+              "Performance bottleneck identification",
+              "User experience monitoring"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          },
+          {
+            "id": 3,
+            "title": "Security & Compliance",
+            "description": "Enhance your security posture with advanced monitoring and compliance capabilities.",
+            "color": "primary-green",
+            "features": [
+              "Security event monitoring",
+              "Latency analysis",
+              "Compliance reporting and auditing",
+              "Threat detection and response"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          },
+          {
+            "id": 4,
+            "title": "Kubernetes Observability",
+            "description": "Complete visibility into your Kubernetes clusters with metrics, logs, and distributed tracing.",
+            "color": "vibrant-red",
+            "features": [
+              "Pod and node monitoring",
+              "Cluster health dashboards",
+              "Container log aggregation",
+              "Kubernetes events tracking"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          },
+          {
+            "id": 5,
+            "title": "Multi-Cloud Monitoring",
+            "description": "Unified observability across AWS, GCP, Azure and other cloud providers in a single platform.",
+            "color": "primary-purple",
+            "features": [
+              "Cross-cloud resource visibility",
+              "Cost optimization insights",
+              "Cloud service performance metrics",
+              "Hybrid cloud monitoring"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          },
+          {
+            "id": 6,
+            "title": "DevOps Insights",
+            "description": "Accelerate your CI/CD pipeline with integrated observability for DevOps teams.",
+            "color": "purple-600",
+            "features": [
+              "Deployment tracking and correlation",
+              "CI/CD pipeline observability",
+              "Release impact analysis",
+              "Automated incident response"
+            ],
+            "image": {
+              "url": "/img/logo.svg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {}
+}
