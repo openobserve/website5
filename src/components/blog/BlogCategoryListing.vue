@@ -3,7 +3,7 @@
   <div class="border-b border-border mb-8">
     <div class="flex overflow-x-auto scrollbar-hide space-x-1 sm:space-x-2">
       <button
-        v-for="category in categories"
+        v-for="category in categoriesWithAll"
         :key="category.name"
         :class="[
           'px-4 py-3 text-sm lg:text-base font-medium whitespace-nowrap transition-colors cursor-pointer capitalize',
@@ -11,8 +11,8 @@
             ? 'text-primary-purple border-b-2 border-primary-purple'
             : 'text-primary-gray hover:text-primary-purple',
         ]"
+        @click="setActiveCategory(category.name)"
       >
-        <!-- @click="setActiveCategory(category)" -->
         {{ category.name }}
       </button>
     </div>
@@ -35,13 +35,12 @@
         </span>
       </div>
     </div>
-
   </div>
 </template>
 
 <script setup lang="ts">
 import { FilterIcon } from "lucide-vue-next";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps<{
   categories: {
@@ -55,7 +54,12 @@ const props = defineProps<{
   type: "blog" | "resources";
 }>();
 
-const activeCategory = ref(props?.categories?.[0]?.name || "");
+const activeCategory = ref("ALL");
+
+const categoriesWithAll = computed(() => [
+  { name: "ALL", slug: "all" },
+  ...props.categories,
+]);
 
 function setActiveCategory(category: string) {
   activeCategory.value = category;
