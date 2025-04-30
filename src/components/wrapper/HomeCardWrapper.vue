@@ -29,6 +29,7 @@ const props = defineProps<{
       :theme="card.theme"
       :items="card.items"
     />
+   
   </div>
 </CustomSection>
 </template>

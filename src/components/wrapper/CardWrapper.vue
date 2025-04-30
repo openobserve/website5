@@ -2,6 +2,7 @@
 import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
+import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 
 const props = defineProps({
   title: {
@@ -16,6 +17,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  cardsData2: {
+    type: Array,
+    required: true,
+  }
 });
 </script>
 <template>
@@ -34,6 +39,17 @@ const props = defineProps({
       :buttonLink="card.buttonLink"
       :theme="card.theme"
       :items="card.items" />
+      <div>
+      <CardWithSideIcon
+      v-for="(card, index) in props.cardsData2"
+      :key="index"
+      :title="card.title"
+      :description="card.description"
+      :icon="card.icon"
+      :theme="card.theme"
+      :items="card.items"
+    />
+  </div>
       </div>
   </div>
   </CustomSection>
