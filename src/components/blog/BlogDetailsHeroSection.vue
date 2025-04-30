@@ -1,11 +1,10 @@
 <template>
-  <header class="relative py-12 md:py-16 mb-6 overflow-hidden">
+  <section class="relative py-12 md:py-16 mb-6 overflow-hidden">
     <!-- Gradient background -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
-    ></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"></div>
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
-      <div class="max-w-7xl mx-auto flex flex-col">
+      <article class="max-w-7xl mx-auto">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
           <a
@@ -19,135 +18,112 @@
         </div>
 
         <!-- Title -->
-        <h1
-          class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
-        >
-          {{ title }}
-        </h1>
+        <header>
+          <h1 class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
+            {{ title }}
+          </h1>
+        </header>
 
-        <!-- Author info and social share -->
-        <div
-          class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
-        >
-          <div class="flex flex-wrap items-center gap-4">
-            <!-- Avatars Section -->
+        <!-- Author Info & Social Sharing -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <!-- Author Info -->
+          <div class="flex items-center flex-wrap gap-4">
+            <!-- Avatars -->
             <div class="flex -space-x-3">
               <div
-                v-for="(it, index) in author"
+                v-for="it in author"
                 :key="it.name"
                 class="relative rounded-full border-2 border-white/80"
               >
-                <div
-                  class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-                >
+                <div class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold">
                   <img
                     v-if="it.image?.url"
                     :src="it.image.url"
                     :alt="it.name"
-                    class="h-full w-full"
+                    class="h-full w-full object-cover"
                   />
-                  <span v-else>
-                    {{ getInitials(it.name) }}
-                  </span>
+                  <span v-else>{{ getInitials(it.name) }}</span>
                 </div>
               </div>
             </div>
 
-            <!-- Names Section -->
-            <div class="flex flex-wrap items-center gap-0.5 text-white">
+            <!-- Author Names -->
+            <address class="not-italic text-white flex flex-wrap items-center gap-1">
               <template v-for="(it, index) in author" :key="`name-${it.name}`">
                 <span class="font-medium">{{ it.name }}</span>
-                <span
-                  v-if="index < author.length - 1"
-                  class="text-white/70 text-xs"
-                  >,</span
-                >
+                <span v-if="index < author.length - 1" class="text-white/70 text-xs">,</span>
               </template>
-            </div>
+            </address>
           </div>
 
-          <!-- Social Share Buttons -->
-          <div class="flex gap-2 items-center r">
+          <!-- Social Icons -->
+          <nav class="flex gap-2 items-center">
             <a
-              :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                title
-              )}&url=${encodeURIComponent(shareUrl)}`"
+              :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`"
               target="_blank"
               rel="noopener"
-              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
+              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
+              aria-label="Share on Twitter"
             >
-              <img
-                src="/img/icon/twittericon-for-blog.svg"
-                alt="Twitter Icon"
-                class="h-5 w-5"
-              />
+              <img src="/img/icon/twittericon-for-blog.svg" alt="Twitter Icon" class="h-5 w-5" />
             </a>
 
             <a
-              :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                shareUrl
-              )}`"
+              :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`"
               target="_blank"
               rel="noopener"
-              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
+              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
+              aria-label="Share on LinkedIn"
             >
-              <img
-                src="/img/icon/linkdinicon-for-blog.svg"
-                alt="LinkedIn Icon"
-                class="h-5 w-5"
-              />
+              <img src="/img/icon/linkdinicon-for-blog.svg" alt="LinkedIn Icon" class="h-5 w-5" />
             </a>
 
             <a
-              :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                shareUrl
-              )}`"
+              :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`"
               target="_blank"
               rel="noopener"
-              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
+              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
+              aria-label="Share on Facebook"
             >
-              <img
-                src="/img/icon/facebookicon-for-blog.svg"
-                alt="Facebook Icon"
-                class="h-5 w-5"
-              />
+              <img src="/img/icon/facebookicon-for-blog.svg" alt="Facebook Icon" class="h-5 w-5" />
             </a>
 
-            <a
+            <button
               @click="copyToClipboard"
-              role="button"
-              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center cursor-pointer"
+              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
               :title="copied ? 'Copied!' : 'Copy link'"
+              aria-label="Copy link"
             >
-              <img
-                src="/img/icon/linkicon-for-blog.svg"
-                alt="Copy Icon"
-                class="h-5 w-5"
-              />
-            </a>
-          </div>
+              <img src="/img/icon/linkicon-for-blog.svg" alt="Copy Icon" class="h-5 w-5" />
+            </button>
+          </nav>
         </div>
-        <div class="flex flex-row space-x-4">
-          <div class="flex items-center text-white text-sm mt-4">
+
+        <!-- Publish Date and Read Time -->
+        <div class="flex flex-wrap gap-4 text-white text-sm mt-4">
+          <div class="flex items-center">
             <Calendar class="h-4 w-4 mr-1" />
-            <span>{{ publishDate }}</span>
+            <time :datetime="publishDate">{{ publishDate }}</time>
           </div>
-          <div class="flex items-center text-white text-sm mt-4">
+          <div class="flex items-center">
             <Clock class="h-4 w-4 mr-1" />
             <span>{{ calculateReadingTime(content) }}</span>
           </div>
         </div>
-      </div>
+      </article>
     </div>
-  </header>
-  <div class="container mx-auto px-4 mb-6">
+  </section>
+
+  <!-- Blog Cover Image -->
+  <section class="container mx-auto px-4 mb-6">
     <div class="max-w-7xl mx-auto">
-      <div class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl">
-        <img :src="blogImage" :alt="title" class="object-cover" priority />
-      </div>
+      <figure class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl">
+        <img :src="blogImage" :alt="title" class="object-cover w-full h-full" />
+      </figure>
     </div>
-  </div>
+  </section>
 </template>
+
 
 <script setup lang="ts">
 import { calculateReadingTime } from "@/utils/calculateReadingTime";

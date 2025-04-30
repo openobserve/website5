@@ -284,10 +284,10 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div
-      class="flex flex-col md:flex-row w-full container mx-auto space-x-0 md:space-x-10 max-w-7xl"
+      class="flex flex-col lg:flex-row w-full container mx-auto space-x-0 md:space-x-10 max-w-7xl"
     >
       <div
-        class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
+        class="flex flex-col w-full lg:w-[70%] text-left order-2 md:order-none"
       >
         <div id="blog-content" class="">
           <template>
@@ -301,7 +301,7 @@ onMounted(() => {
           <SingleAuthorDetails :type="type" :author="authors" client:load />
         </div>
       </div>
-      <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
+      <div class="w-full lg:w-[30%] mb-8 order-1 lg:order-none">
         <BlogTableofContent :headings="headings" :activeSection="currentSection" />
       </div>
     </div>
