@@ -3,7 +3,7 @@
   <div class="space-y-6">
     <div v-for="(faq, index) in faqList" :key="index" class="border-b border-gray-200 pb-6 last:border-0">
       <button @click="toggle(index)"
-        class="w-full text-left font-medium text-lg md:text-xl flex justify-between items-center hover:text-primary-purple transition-colors">
+        class="w-full text-left font-medium text-lg md:text-xl flex justify-between items-center hover:text-primary-purple transition-colors cursor-pointer">
         <span>{{ faq.question }}</span>
         <span class="ml-4 text-primary-purple text-2xl font-light">
           {{ activeIndex === index ? '−' : '+' }}

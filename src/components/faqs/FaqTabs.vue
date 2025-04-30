@@ -2,10 +2,10 @@
 <template>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
     <button v-for="tab in categories" :key="tab" @click="$emit('update:activeTab', tab)" :class="[
-      'text-sm md:text-base py-3 px-4 rounded-lg border transition-colors',
+      'px-4 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer',
       tab === activeTab
-        ? 'bg-primary-purple text-white border-primary-purple shadow-md'
-        : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-50'
+        ? 'bg-white text-primary-purple shadow'
+        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
     ]">
       {{ tab.charAt(0).toUpperCase() + tab.slice(1) }}
     </button>
