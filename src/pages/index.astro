@@ -4,6 +4,7 @@ import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/homepage.json";
 import Cards from "@/components/core/Cards.vue";
+import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import CTA from "@/components/core/CTA.vue";
 import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
@@ -18,7 +19,7 @@ import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
     description={data?.body[1]?.description}
     align="center"
   />
-  <Cards data={data?.body[4]?.items} />
+  <HomeCardWrapper data={data?.body[4]?.items} />
   <CommonHeroSection
     title={data?.body[2]?.title}
     description={data?.body[2]?.description}

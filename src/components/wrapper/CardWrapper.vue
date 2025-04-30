@@ -24,7 +24,17 @@ const props = defineProps({
     <!-- Heading Section -->
     <HeadingSection :title="title" :description="description" align="center" />
     <!-- Cards Section -->
-    <Cards :data="cardsData" />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <Cards v-for="(card, index) in props.cardsData"
+      :key="index"
+      :title="card.title"
+      :description="card.description"
+      :icon="card.icon"
+      :buttonText="card.buttonText"
+      :buttonLink="card.buttonLink"
+      :theme="card.theme"
+      :items="card.items" />
+      </div>
   </div>
   </CustomSection>
 </template>
