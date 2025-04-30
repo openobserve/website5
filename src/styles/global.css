@@ -26,6 +26,8 @@
   --color-popover-foreground: hsl(var(--popover-foreground));
 
   --color-card: hsl(var(--card));
+  --color-tabs-background: hsl(var(--tabs-background));
+  --color-tabs-title-text: hsl(var(--tabs-title-text));
   --color-hover-card: hsl(var(--hover-card));
   --color-card-foreground: hsl(var(--card-foreground));
 
@@ -67,19 +69,33 @@
   --color-primary-blue: rgba(47, 71, 229);
   color: var(--color-primary-blue);
   --color-card: rgba(47, 71, 229, 0.2);
-  --color-hover-card: rgba(30,64,175)
+  --color-hover-card: rgba(30,64,175);
+  --color-tabs-background: rgba(69,164,243);
+  --color-tabs-title-text: rgba(69,164,243);
 }
 .theme-red {
   --color-primary-blue: rgba(244, 91, 73);
   color: var(--color-primary-blue);
   --color-card: rgba(244, 91, 73, 0.2);
-  --color-hover-card: rgba(220,38,38)
+  --color-hover-card: rgba(220,38,38);
+  --color-tabs-background:rgba(244, 91, 73);
+  --color-tabs-title-text:rgba(244, 91, 73);
 }
 .theme-green {
   --color-primary-blue: rgba(39, 192, 100);
   color: var(--color-primary-blue);
   --color-card: rgba(39, 192, 100, 0.2);
   --color-hover-card: rgba(22,163,74);
+  --color-tabs-background:rgba(39, 192, 100);
+  --color-tabs-title-text: rgba(39, 192, 100);
+}
+.theme-purple {
+  --color-primary-blue: rgba(107, 118, 227);
+  color: var(--color-primary-blue);
+  --color-card: rgba(107, 118, 227, 0.2);
+  --color-hover-card: rgba(126,34,206);
+  --color-tabs-background:rgba(107, 118, 227);
+  --color-tabs-title-text:rgba(107, 118, 227);
 }
 
 @layer base {
@@ -89,6 +105,8 @@
     --card: 0 0% 100%;
     --hover-card: 233 53% 53%;
     --card-foreground: 240 10% 3.9%;
+    --tabs-background: 0 0% 0%;
+    --tabs-title-text: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
     --primary: 240 5.9% 10%;
@@ -114,6 +132,8 @@
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
+    --tabs-background: 240 10% 3.9%;
+    --tabs-title-text: 240 10% 3.9%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;

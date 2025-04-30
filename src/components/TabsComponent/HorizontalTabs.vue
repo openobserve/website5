@@ -3,8 +3,8 @@
     <div v-for="tab in tabs" :key="tab.value">
       <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
         <div class="space-y-4">
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium" :class="tab.badge.class">
-            {{ tab.badge.text }}
+          <span class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white bg-tabs-background text" :class="tab.badge.theme">
+            {{ tab.badge.text }}  
           </span>
           <h3 class="text-2xl font-bold">{{ tab.title }}</h3>
           <p class="text-gray-500">
@@ -46,3 +46,9 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+.text{
+  color: white; /* Replace with your primary green color */
+}
+</style>
