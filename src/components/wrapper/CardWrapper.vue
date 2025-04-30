@@ -1,7 +1,7 @@
 <script setup>
 import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
-import Cards from "../core/Cards.vue";
+import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 
 const props = defineProps({
   title: {
@@ -25,7 +25,7 @@ const props = defineProps({
     <HeadingSection :title="title" :description="description" align="center" />
     <!-- Cards Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <Cards v-for="(card, index) in props.cardsData"
+    <CardWithShadowBorder v-for="(card, index) in props.cardsData"
       :key="index"
       :title="card.title"
       :description="card.description"

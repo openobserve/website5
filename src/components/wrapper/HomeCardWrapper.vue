@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Cards from "../core/Cards.vue";
+import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps<{
@@ -18,7 +18,7 @@ const props = defineProps<{
 <template>
     <CustomSection >
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <Cards
+    <CardWithShadowBorder
       v-for="(card, index) in props.data"
       :key="index"
       :title="card.title"
