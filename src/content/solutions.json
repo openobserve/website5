@@ -308,7 +308,7 @@
           {
             "value": "performance",
             "title": "Performance",
-            "icon": "Zap",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Lightning-Fast Performance",
               "description": "Process millions of events per second with minimal latency",
@@ -325,7 +325,7 @@
           {
             "value": "scalability",
             "title": "Scalability",
-            "icon": "BarChart2",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Effortless Scalability",
               "description": "Scale from gigabytes to petabytes without complexity",
@@ -342,7 +342,7 @@
           {
             "value": "storage",
             "title": "Storage",
-            "icon": "Database",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Efficient Storage",
               "description": "Reduce storage costs by up to 80% compared to competitors",
@@ -359,7 +359,7 @@
           {
             "value": "security",
             "title": "Security",
-            "icon": "Shield",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Enterprise-Grade Security",
               "description": "Protect your observability data with comprehensive security features",
@@ -376,7 +376,7 @@
           {
             "value": "realtime",
             "title": "Real-time",
-            "icon": "Clock",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Real-time Insights",
               "description": "Immediate visibility into your system's performance and health",
