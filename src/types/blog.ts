@@ -19,6 +19,9 @@ export interface Blog {
   authors: {
     name: string;
     slug: string;
+    image: {
+      url: string;
+    };
   }[];
   publishDate: string;
 }

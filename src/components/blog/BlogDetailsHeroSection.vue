@@ -127,6 +127,7 @@
 
 <script setup lang="ts">
 import { calculateReadingTime } from "@/utils/calculateReadingTime";
+import { getInitials } from "@/utils/getInitials";
 import { Calendar, Clock } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 
@@ -150,12 +151,7 @@ const props = defineProps<{
   shareUrl: string;
 }>();
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
-}
+
 
 const copied = ref(false);
 

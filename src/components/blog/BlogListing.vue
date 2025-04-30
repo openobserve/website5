@@ -10,17 +10,16 @@
         class="rounded-lg overflow-hidden border border-border hover:border-primary-purple transition-colors flex flex-col h-full"
       >
         <div class="relative h-48 overflow-hidden">
-          <CustomBlurImage
-            :image="getImageUrl(blog)"
-            :altText="blog.title"
-            />
-            <!-- <img
+          <CustomBlurImage :image="getImageUrl(blog)" :altText="blog.title" />
+          <!-- <img
               :src="getImageUrl(blog)"
               :alt="blog.title"
               class="object-cover transition-transform group-hover:scale-105 w-full h-full absolute inset-0"
               />  -->
           <div className="absolute top-3 left-3">
-            <div className="bg-primary-purple text-white border-none rounded-full p-1 text-xs">
+            <div
+              className="bg-primary-purple text-white border-none rounded-full p-1 text-xs"
+            >
               Openobserve
             </div>
           </div>
@@ -29,43 +28,67 @@
           <div
             class="flex flex-col md:flex-row justify-start md:items-start mb-2"
           >
-            <span v-if="blog?.authors" class="pr-1">
-              <template v-for="(it, index) in blog.authors" :key="index">
-                <a
-                  v-if="it.slug"
-                  :href="generateAuthorLink(type, it.slug)"
-                  class="text-gray-600 hover:underline"
-                >
-                  {{ it.name }}
-                </a>
-                <span v-if="index < blog?.authors?.length - 1">, </span>
-              </template>
-            </span>
-            <span
-              class="hidden md:block text-gray-600"
-              v-if="blog?.authors && blog?.publishDate"
-              >|</span
-            >
-            <span v-if="blog?.publishDate" class="px-1 text-gray-600">{{
-              blog?.publishDate
-            }}</span>
-          </div>
-          <h2 class="text-lg font-semibold mb-2">
-            {{ blog?.title }}
-          </h2>
-          <p class="text-primary-gray mb-4 flex-grow text-base line-clamp-3">
-            {{ blog?.description }}
-          </p>
-          <!-- <div class="flex flex-wrap gap-2 mb-2">
+            <div class="flex flex-wrap gap-2 mb-2">
             <a 
-              v-for="tag in blog?.categories"
+              v-for="tag in blog?.categories?.slice(0, 2)"
               :key="tag.slug"
               :href="`/blog/tag/${tag.slug}`"
               class="text-primary-purple text-sm font-medium bg-primary-purple/20 rounded-full px-3 py-1 capitalize"
             >
               {{ tag.name }}
             </a>
-          </div> -->
+          </div>
+            <h2 class="text-lg font-semibold mb-2">
+              {{ blog?.title }}
+            </h2>
+            <p class="text-primary-gray mb-4 flex-grow text-base line-clamp-3">
+              {{ blog?.description }}
+            </p>
+            <div class="flex items-center flex-wrap gap-4">
+              <!-- Avatars -->
+              <div class="flex -space-x-3">
+                <div
+                  v-for="it in blog.authors"
+                  :key="it.name"
+                  class="relative rounded-full border-2 border-white/80"
+                >
+                  <div
+                    class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
+                  >
+                    <img
+                      v-if="it.image?.url"
+                      :src="it.image.url"
+                      :alt="it.name"
+                      class="h-full w-full object-cover"
+                    />
+                    <span v-else>{{ getInitials(it.name) }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Author Names -->
+              <address
+                class="not-italic text-white flex flex-wrap items-center gap-1"
+              >
+                <template
+                  v-for="(it, index) in blog.authors"
+                  :key="`name-${it.name}`"
+                >
+                  <span class="font-medium">{{ it.name }}</span>
+                  <span
+                    v-if="index < blog.authors.length - 1"
+                    class="text-white/70 text-xs"
+                    >,</span
+                  >
+                </template>
+              </address>
+              <span v-if="blog?.publishDate" class="px-1 text-gray-600">{{
+                blog?.publishDate
+              }}</span>
+            </div>
+          </div>
+
+          
         </div>
       </div>
     </a>
@@ -76,6 +99,7 @@
 import type { Blog } from "@/types/blog";
 import { generateAuthorLink } from "@/utils/redirection";
 import CustomBlurImage from "../core/CustomBlurImage.vue";
+import { getInitials } from "@/utils/getInitials";
 
 defineProps<{
   sectionData: Blog[];
