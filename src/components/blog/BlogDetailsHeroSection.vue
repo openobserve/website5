@@ -67,39 +67,72 @@
           </div>
 
           <!-- Social Share Buttons -->
-          <!-- <div class="flex gap-3 text-white">
+          <div class="flex gap-2 items-center r">
             <a
-              :href="`https://twitter.com/share?url=${shareUrl}&text=${post.title}`"
+              :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                title
+              )}&url=${encodeURIComponent(shareUrl)}`"
               target="_blank"
               rel="noopener"
-              class="hover:opacity-80"
+              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
             >
-              <Twitter class="h-5 w-5" />
+              <img
+                src="/img/icon/twittericon-for-blog.svg"
+                alt="Twitter Icon"
+                class="h-5 w-5"
+              />
             </a>
+
             <a
-              :href="`https://www.linkedin.com/shareArticle?url=${shareUrl}&title=${post.title}`"
+              :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                shareUrl
+              )}`"
               target="_blank"
               rel="noopener"
-              class="hover:opacity-80"
+              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
             >
-              <Linkedin class="h-5 w-5" />
+              <img
+                src="/img/icon/linkdinicon-for-blog.svg"
+                alt="LinkedIn Icon"
+                class="h-5 w-5"
+              />
             </a>
+
             <a
-              :href="`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`"
+              :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                shareUrl
+              )}`"
               target="_blank"
               rel="noopener"
-              class="hover:opacity-80"
+              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center"
             >
-              <Facebook class="h-5 w-5" />
+              <img
+                src="/img/icon/facebookicon-for-blog.svg"
+                alt="Facebook Icon"
+                class="h-5 w-5"
+              />
             </a>
-          </div> -->
+
+            <a
+              @click="copyToClipboard"
+              role="button"
+              class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 flex items-center justify-center cursor-pointer"
+              :title="copied ? 'Copied!' : 'Copy link'"
+            >
+              <img
+                src="/img/icon/linkicon-for-blog.svg"
+                alt="Copy Icon"
+                class="h-5 w-5"
+              />
+            </a>
+          </div>
         </div>
         <div class="flex flex-row space-x-4">
-          <div class="flex items-center text-white text-base mt-4">
+          <div class="flex items-center text-white text-sm mt-4">
             <Calendar class="h-4 w-4 mr-1" />
             <span>{{ publishDate }}</span>
           </div>
-          <div class="flex items-center text-white text-base mt-4">
+          <div class="flex items-center text-white text-sm mt-4">
             <Clock class="h-4 w-4 mr-1" />
             <span>{{ calculateReadingTime(content) }}</span>
           </div>
@@ -118,9 +151,10 @@
 
 <script setup lang="ts">
 import { calculateReadingTime } from "@/utils/calculateReadingTime";
-import { Calendar, Clock, Link } from "lucide-vue-next";
+import { Calendar, Clock } from "lucide-vue-next";
+import { onMounted, ref } from "vue";
 
-defineProps<{
+const props = defineProps<{
   type: string;
   title: string;
   blogImage: string;
@@ -137,6 +171,7 @@ defineProps<{
   }[];
   publishDate: string;
   content: string;
+  shareUrl: string;
 }>();
 
 function getInitials(name: string) {
@@ -145,4 +180,16 @@ function getInitials(name: string) {
     .map((n) => n[0])
     .join("");
 }
+
+const copied = ref(false);
+
+const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
+const shareUrl = `${apiUrl}${props.shareUrl}`;
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(shareUrl);
+  copied.value = true;
+  setTimeout(() => {
+    copied.value = false;
+  }, 2000);
+};
 </script>

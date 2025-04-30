@@ -290,27 +290,6 @@ onMounted(() => {
         class="flex flex-col w-full md:w-[70%] text-left order-2 md:order-none"
       >
         <div id="blog-content" class="">
-          <!-- <template v-for="(section, index) in contentSections" :key="index">
-            <div v-if="section === 'CUSTOM_COMPONENT'" class="py-4">
-              <BlogCtaBanner
-                :banner-title="bannerData?.title"
-                :bannerDescription="bannerData?.description"
-                :heading="bannerData?.heading"
-                :primaryButton="bannerData?.primaryButton"
-                :secondaryButton="bannerData?.secondaryButton"
-                :getStartedText="bannerData?.bottomText"
-                :items="bannerData?.items"
-                :featureTitle="bannerData?.featureTitle"
-                :monthlyText="bannerData?.monthlyText"
-                :componentId="bannerData?.componentId"
-                client:load
-              />
-            </div>
-            <div
-              v-html="section.join('')"
-              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-black"
-            ></div>
-          </template> -->
           <template>
             <div
               v-html="htmlContent"
@@ -322,32 +301,11 @@ onMounted(() => {
           <SingleAuthorDetails :type="type" :author="authors" client:load />
         </div>
       </div>
-      <!-- Table of Contents -->
       <div class="w-full md:w-[30%] mb-8 order-1 md:order-none">
         <BlogTableofContent :headings="headings" :activeSection="currentSection" />
       </div>
     </div>
   </CustomSection>
-  <!-- Image Popup (Updated as per your CSS) -->
-  <!-- <div
-    v-if="showPopup"
-    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
-    @click="closePopup"
-  >
-    <button
-      class="absolute top-3 right-3 text-white cursor-pointer z-50"
-      @click="closePopup"
-    >
-      ✖
-    </button>
-    <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
-      <CustomImage
-        :src="popupImageSrc"
-        class="w-full max-h-[90vh] object-contain"
-        @click.stop
-      />
-    </div>
-  </div> -->
 </template>
 <style scoped>
 .table-wrapper {

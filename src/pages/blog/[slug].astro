@@ -42,10 +42,11 @@ const metaObj = {
       day: "2-digit",
     }).format(new Date(SlugData?.publishDate))}
     content={SlugData?.content}
+    shareUrl={`/blog/${slug}`}
     client:load
   />
   <BlogcontentWrapper
-    :type="blog"
+    type="blog"
     client:load
     content={SlugData?.content}
     authors={author}
