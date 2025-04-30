@@ -2,54 +2,11 @@
 // src/pages/careers.astro
 import Layout from "@/layouts/Layout.astro";
 import careersData from "@/content/careers.json";
-import CareerHero from "@/components/career/CareerHero.vue";
-import CareerMission from "@/components/career/CareerMission.vue";
-import CareerBenefits from "@/components/career/CareerBenefits.vue";
-import CareerGlobalTeam from "@/components/career/CareerGlobalTeam.vue";
-import CareerTestimonials from "@/components/career/CareerTestimonials.vue";
-import CareerTechnology from "@/components/career/CareerTechnology.vue";
-import CareerCTA from "@/components/career/CareerCTA.vue";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 
-const data = careersData?.careersData;
+const data = careersData?.data?.body || {};
 ---
 
-<Layout title="Careers at OpenObserve - Join Our Team">
-  <main class="w-full">
-    <CareerHero data={data.hero} client:load />
-
-    <CareerMission text={data.missionStatement} client:load />
-
-    <CareerBenefits benefits={data.benefits} client:load />
-
-    <CareerGlobalTeam
-      title={data.globalTeam.title}
-      description={data.globalTeam.description}
-      features={data.globalTeam.features}
-      mapText={data.globalTeam.mapText}
-      mapDots={data.globalTeam.mapDots}
-      client:load
-    />
-
-    <CareerTestimonials
-      title={data.testimonials.title}
-      description={data.testimonials.description}
-      items={data.testimonials.items}
-      client:load
-    />
-
-    <CareerTechnology
-      description={data.technology.description}
-      features={data.technology.features}
-      techList={data.technology.techList}
-      techTags={data.technology.techTags}
-      client:load
-    />
-
-    <CareerCTA
-      title={data.cta.title}
-      description={data.cta.description}
-      buttonText={data.cta.buttonText}
-      client:load
-    />
-  </main>
+<Layout>
+  <ComponentCollectionMapper data={data} />
 </Layout>

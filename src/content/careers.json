@@ -1,163 +1,200 @@
 {
-  "careersData": {
-    "hero": {
-      "title": "Join Our Mission to Revolutionize Observability",
-      "description": "Build the future of observability with a team that values innovation, collaboration, and impact.",
-      "buttonText": "See All Positions"
-    },
-    "missionStatement": "At OpenObserve, we're committed to creating an environment where you can do your best work.",
-    "benefits": [
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
       {
-        "title": "Work-Life Balance",
-        "description": "Flexible working hours and generous time off to ensure you stay refreshed and motivated.",
-        "icon": "i-lucide-heart",
-        "iconColor": "bg-purple-700"
+        "__component": "section-hero.careers-hero",
+        "id": 1,
+        "title": "Join Our Mission to Revolutionize Observability",
+        "description": "Build the future of observability with a team that values innovation, collaboration, and impact.",
+        "buttonText": "See All Positions"
       },
       {
-        "title": "Innovation Focus",
-        "description": "We encourage creative thinking and provide time for exploration and experimentation.",
-        "icon": "i-lucide-lightbulb",
-        "iconColor": "bg-blue-700"
+        "__component": "section-text.mission-statement",
+        "id": 2,
+        "text": "At OpenObserve, we're committed to creating an environment where you can do your best work."
       },
       {
-        "title": "Growth Opportunities",
-        "description": "Continuous learning with individual budgets for conferences, courses, and certifications.",
-        "icon": "i-lucide-trending-up",
-        "iconColor": "bg-emerald-700"
+        "__component": "section-cards.career-benefits",
+        "id": 3,
+        "items": [
+          {
+            "title": "Work-Life Balance",
+            "description": "Flexible working hours and generous time off to ensure you stay refreshed and motivated.",
+            "icon": "i-lucide-heart",
+            "iconColor": "bg-purple-700"
+          },
+          {
+            "title": "Innovation Focus",
+            "description": "We encourage creative thinking and provide time for exploration and experimentation.",
+            "icon": "i-lucide-lightbulb",
+            "iconColor": "bg-blue-700"
+          },
+          {
+            "title": "Growth Opportunities",
+            "description": "Continuous learning with individual budgets for conferences, courses, and certifications.",
+            "icon": "i-lucide-trending-up",
+            "iconColor": "bg-emerald-700"
+          },
+          {
+            "title": "Inclusive Culture",
+            "description": "A diverse and supportive environment where all voices are heard and valued.",
+            "icon": "i-lucide-users",
+            "iconColor": "bg-red-700"
+          },
+          {
+            "title": "Remote-First",
+            "description": "Work from anywhere with a distributed team spanning multiple time zones and countries.",
+            "icon": "i-lucide-globe",
+            "iconColor": "bg-indigo-700"
+          },
+          {
+            "title": "Competitive Benefits",
+            "description": "Comprehensive health coverage, retirement plans, and competitive compensation packages.",
+            "icon": "i-lucide-shield",
+            "iconColor": "bg-cyan-700"
+          }
+        ]
       },
       {
-        "title": "Inclusive Culture",
-        "description": "A diverse and supportive environment where all voices are heard and valued.",
-        "icon": "i-lucide-users",
-        "iconColor": "bg-red-700"
+        "__component": "section-features.global-team",
+        "id": 4,
+        "title": "Globally Distributed Team",
+        "description": "Our team spans across continents, bringing diverse perspectives and round-the-clock innovation.",
+        "features": [
+          {
+            "title": "20+ Countries",
+            "description": "Team members across North America, Europe, Asia, and Australia",
+            "icon": "i-lucide-globe"
+          },
+          {
+            "title": "24/7 Coverage",
+            "description": "Continuous development and support across all time zones",
+            "icon": "i-lucide-clock"
+          },
+          {
+            "title": "Multiple Languages",
+            "description": "Our team communicates in 10+ languages, bringing global perspectives",
+            "icon": "i-lucide-message-circle"
+          },
+          {
+            "title": "Local Expertise",
+            "description": "Deep understanding of regional markets and technical requirements",
+            "icon": "i-lucide-map-pin"
+          }
+        ],
+        "mapText": "Work from anywhere in the world",
+        "mapDots": [
+          { "x": 25, "y": 30, "color": "bg-blue-500" },
+          { "x": 35, "y": 40, "color": "bg-green-500" },
+          { "x": 45, "y": 20, "color": "bg-red-500" },
+          { "x": 55, "y": 60, "color": "bg-purple-500" },
+          { "x": 65, "y": 35, "color": "bg-yellow-500" },
+          { "x": 75, "y": 45, "color": "bg-cyan-500" }
+        ]
       },
       {
-        "title": "Remote-First",
-        "description": "Work from anywhere with a distributed team spanning multiple time zones and countries.",
-        "icon": "i-lucide-globe",
-        "iconColor": "bg-indigo-700"
+        "__component": "section-testimonials.employee-testimonials",
+        "id": 5,
+        "title": "Employee Testimonials",
+        "description": "Our employees are our greatest asset. Here's what they have to say about working at OpenObserve.",
+        "items": [
+          {
+            "quote": "Working at OpenObserve has been the highlight of my career. The problems we solve, the engineering culture, and the constantly growing team of brilliant colleagues.",
+            "name": "Jamie Smith",
+            "role": "Senior Software Engineer",
+            "avatar": "/img/icon/slackIcon.svg"
+          },
+          {
+            "quote": "The culture at OpenObserve is truly special. There's a perfect balance of autonomy and accountability. I feel empowered about our wellbeing and growth.",
+            "name": "Raj Patel",
+            "role": "Product Manager",
+            "avatar": "/img/icon/slackIcon.svg"
+          },
+          {
+            "quote": "As a remote employee, I was worried about missing out on the connection and camaraderie. But the art of building strong relationships is cultivated at the core of this company.",
+            "name": "Elena Lopez",
+            "role": "DevOps Engineer",
+            "avatar": "/img/icon/slackIcon.svg"
+          }
+        ]
       },
       {
-        "title": "Competitive Benefits",
-        "description": "Comprehensive health coverage, retirement plans, and competitive compensation packages.",
-        "icon": "i-lucide-shield",
-        "iconColor": "bg-cyan-700"
+        "__component": "section-features.technology",
+        "id": 6,
+        "description": "We're building cutting-edge technology that solves real problems in observability. Here's what you'll work with:",
+        "features": [
+          {
+            "title": "Modern Stack",
+            "description": "Our platform is built with Rust, Go, and TypeScript, leveraging the best tools for performance, reliability, and developer experience.",
+            "iconClass": "Code",
+            "iconColor": "text-purple-600",
+            "iconBgClass": "bg-purple-100"
+          },
+          {
+            "title": "Cloud Native",
+            "description": "We embrace Kubernetes, containerization, and cloud-native principles to build scalable, resilient systems.",
+            "iconClass": "Globe",
+            "iconColor": "text-blue-600",
+            "iconBgClass": "bg-blue-100"
+          },
+          {
+            "title": "Open Source",
+            "description": "We believe in the power of open source and contribute back to the community that supports us.",
+            "iconClass": "Rocket",
+            "iconColor": "text-green-600",
+            "iconBgClass": "bg-green-100"
+          }
+        ],
+        "techList": [
+          "Performance-first mindset",
+          "Scalability by design",
+          "Test-driven development",
+          "Continuous integration and deployment",
+          "Observability as a core feature",
+          "Security at every layer"
+        ],
+        "techTags": [
+          { "name": "Rust", "color": "bg-orange-500 text-white" },
+          { "name": "Go", "color": "bg-blue-500 text-white" },
+          { "name": "TypeScript", "color": "bg-blue-700 text-white" },
+          { "name": "React", "color": "bg-cyan-500 text-white" },
+          { "name": "Redux", "color": "bg-purple-500 text-white" },
+          { "name": "Kubernetes", "color": "bg-blue-600 text-white" },
+          { "name": "Docker", "color": "bg-blue-800 text-white" },
+          { "name": "AWS", "color": "bg-yellow-500 text-white" },
+          { "name": "GCP", "color": "bg-red-500 text-white" },
+          { "name": "REST", "color": "bg-gray-700 text-white" },
+          { "name": "GraphQL", "color": "bg-pink-600 text-white" }
+        ]
+      },
+      {
+        "__component": "section-features.cta",
+        "id": 4,
+        "title": "Ready to Join Us?",
+        "description": "We're looking for passionate individuals to help us build the future of observability. Check out our open positions and apply today.",
+        "buttonText": "View Open Positions"
       }
     ],
-    "globalTeam": {
-      "title": "Globally Distributed Team",
-      "description": "Our team spans across continents, bringing diverse perspectives and round-the-clock innovation.",
-      "features": [
-        {
-          "title": "20+ Countries",
-          "description": "Team members across North America, Europe, Asia, and Australia",
-          "icon": "i-lucide-globe"
-        },
-        {
-          "title": "24/7 Coverage",
-          "description": "Continuous development and support across all time zones",
-          "icon": "i-lucide-clock"
-        },
-        {
-          "title": "Multiple Languages",
-          "description": "Our team communicates in 10+ languages, bringing global perspectives",
-          "icon": "i-lucide-message-circle"
-        },
-        {
-          "title": "Local Expertise",
-          "description": "Deep understanding of regional markets and technical requirements",
-          "icon": "i-lucide-map-pin"
-        }
-      ],
-      "mapText": "Work from anywhere in the world",
-      "mapDots": [
-        { "x": 25, "y": 30, "color": "bg-blue-500" },
-        { "x": 35, "y": 40, "color": "bg-green-500" },
-        { "x": 45, "y": 20, "color": "bg-red-500" },
-        { "x": 55, "y": 60, "color": "bg-purple-500" },
-        { "x": 65, "y": 35, "color": "bg-yellow-500" },
-        { "x": 75, "y": 45, "color": "bg-cyan-500" }
-      ]
-    },
-    "testimonials": {
-      "title": "Employee Testimonials",
-      "description": "Our employees are our greatest asset. Here's what they have to say about working at OpenObserve.",
-      "items": [
-        {
-          "quote": "Working at OpenObserve has been the highlight of my career. The problems we solve, the engineering culture, and the constantly growing team of brilliant colleagues.",
-          "name": "Jamie Smith",
-          "role": "Senior Software Engineer",
-          "avatar": "/img/icon/slackIcon.svg"
-        },
-        {
-          "quote": "The culture at OpenObserve is truly special. There's a perfect balance of autonomy and accountability. I feel empowered about our wellbeing and growth.",
-          "name": "Raj Patel",
-          "role": "Product Manager",
-          "avatar": "/img/icon/slackIcon.svg"
-        },
-        {
-          "quote": "As a remote employee, I was worried about missing out on the connection and camaraderie. But the art of building strong relationships is cultivated at the core of this company.",
-          "name": "Elena Lopez",
-          "role": "DevOps Engineer",
-          "avatar": "/img/icon/slackIcon.svg"
-        }
-      ]
-    },
-    "technology": {
-      "description": "We're building cutting-edge technology that solves real problems in observability. Here's what you'll work with:",
-      "features": [
-        {
-          "title": "Modern Stack",
-          "description": "Our platform is built with Rust, Go, and TypeScript, leveraging the best tools for performance, reliability, and developer experience.",
-          "iconClass": "Code",
-          "iconColor": "text-purple-600",
-          "iconBgClass": "bg-purple-100"
-        },
-        {
-          "title": "Cloud Native",
-          "description": "We embrace Kubernetes, containerization, and cloud-native principles to build scalable, resilient systems.",
-          "iconClass": "Globe",
-          "iconColor": "text-blue-600",
-          "iconBgClass": "bg-blue-100"
-        },
-        {
-          "title": "Open Source",
-          "description": "We believe in the power of open source and contribute back to the community that supports us.",
-          "iconClass": "Rocket",
-          "iconColor": "text-green-600",
-          "iconBgClass": "bg-green-100"
-        }
-      ],
-      "techList": [
-        "Performance-first mindset",
-        "Scalability by design",
-        "Test-driven development",
-        "Continuous integration and deployment",
-        "Observability as a core feature",
-        "Security at every layer"
-      ],
-      "techTags": [
-        { "name": "Rust", "color": "bg-orange-500 text-white" },
-        { "name": "Go", "color": "bg-blue-500 text-white" },
-        { "name": "TypeScript", "color": "bg-blue-700 text-white" },
-        { "name": "React", "color": "bg-cyan-500 text-white" },
-        { "name": "Redux", "color": "bg-purple-500 text-white" },
-        { "name": "Kubernetes", "color": "bg-blue-600 text-white" },
-        { "name": "Docker", "color": "bg-blue-800 text-white" },
-        { "name": "AWS", "color": "bg-yellow-500 text-white" },
-        { "name": "GCP", "color": "bg-red-500 text-white" },
-        { "name": "REST", "color": "bg-gray-700 text-white" },
-        { "name": "GraphQL", "color": "bg-pink-500 text-white" },
-        { "name": "Node.js", "color": "bg-green-600 text-white" },
-        { "name": "WebAssembly", "color": "bg-purple-600 text-white" },
-        { "name": "gRPC", "color": "bg-indigo-500 text-white" },
-        { "name": "Terraform", "color": "bg-purple-800 text-white" }
-      ]
-    },
-    "cta": {
-      "title": "Ready to Join Us?",
-      "description": "We're looking for passionate individuals to help us build the future of observability. Check out our open positions and apply today.",
-      "buttonText": "View Open Positions"
+    "seo": {
+      "id": 999,
+      "title": "Careers at OpenObserve",
+      "description": "Discover exciting career opportunities and join the OpenObserve mission to build the future of observability.",
+      "viewport": null,
+      "creator": null,
+      "publisher": null,
+      "category": null,
+      "robots": null,
+      "manifest": null,
+      "Alternates": null,
+      "Authors": null,
+      "OpenGraph": null,
+      "Twitter": null
     }
-  }
+  },
+  "meta": {}
 }
