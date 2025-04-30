@@ -19,6 +19,7 @@ import CareerCTA from "@/components/career/CareerCTA.vue";
 import VerticalTabs from "@/components/TabsComponent/VerticalTabs.vue";
 import FaqsWrapper from "./faqs/FaqsWrapper.vue";
 import HorizontalTabsWrapper from "./wrapper/HorizontalTabsWrapper.vue";
+import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -38,6 +39,7 @@ const componentsMap = computed(() => ({
   "section-features.cta": CareerCTA,
   "section-solutions.solutions": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
+  "section-solutions.capabilities": CapabilityTabs,
   "section-solutions.faqs": FaqsWrapper
 }));
 

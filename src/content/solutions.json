@@ -299,6 +299,98 @@
             ]
           }
         ]
+      },
+      {
+        "__component": "section-solutions.capabilities",
+        "title": "Frequently Asked Questions",
+        "description": "Find answers to common questions about OpenObserve and its capabilities",
+        "tabs": [
+          {
+            "value": "performance",
+            "title": "Performance",
+            "icon": "Zap",
+            "card": {
+              "title": "Lightning-Fast Performance",
+              "description": "Process millions of events per second with minimal latency",
+              "content": "OpenObserve delivers exceptional performance, processing up to 10x more data than traditional solutions while using significantly fewer resources. Our optimized architecture ensures:",
+              "features": [
+                "Sub-second query response times even with terabytes of data",
+                "Minimal CPU and memory footprint",
+                "Optimized indexing for faster search and retrieval"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "scalability",
+            "title": "Scalability",
+            "icon": "BarChart2",
+            "card": {
+              "title": "Effortless Scalability",
+              "description": "Scale from gigabytes to petabytes without complexity",
+              "content": "OpenObserve's architecture is designed to scale horizontally with your growing data needs. Whether you're a startup or an enterprise, our platform grows with you:",
+              "features": [
+                "Seamless cluster expansion without downtime",
+                "Automatic load balancing across nodes",
+                "Cloud-native design for dynamic environments"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "storage",
+            "title": "Storage",
+            "icon": "Database",
+            "card": {
+              "title": "Efficient Storage",
+              "description": "Reduce storage costs by up to 80% compared to competitors",
+              "content": "OpenObserve's innovative storage engine dramatically reduces your infrastructure costs while maintaining high performance:",
+              "features": [
+                "Advanced compression algorithms reduce storage requirements",
+                "Intelligent data tiering for cost optimization",
+                "Flexible retention policies to manage data lifecycle"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "security",
+            "title": "Security",
+            "icon": "Shield",
+            "card": {
+              "title": "Enterprise-Grade Security",
+              "description": "Protect your observability data with comprehensive security features",
+              "content": "OpenObserve provides robust security features to ensure your data remains protected:",
+              "features": [
+                "End-to-end encryption for data in transit and at rest",
+                "Fine-grained access controls and role-based permissions",
+                "Audit logging and compliance reporting"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "realtime",
+            "title": "Real-time",
+            "icon": "Clock",
+            "card": {
+              "title": "Real-time Insights",
+              "description": "Immediate visibility into your system's performance and health",
+              "content": "OpenObserve provides real-time monitoring and alerting capabilities to help you respond to issues before they impact your users:",
+              "features": [
+                "Live dashboards with sub-second refresh rates",
+                "Intelligent anomaly detection and alerting",
+                "Customizable notification channels (Slack, PagerDuty, etc.)"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          }
+        ]
       }
     ]
   },

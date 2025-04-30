@@ -3,12 +3,7 @@
     <div class="container px-4 md:px-6 mx-auto">
       <div class="flex flex-col items-center justify-center space-y-4 text-center">
         <div class="space-y-2">
-          <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            {{ successStories.sectionTitle }}
-          </h2>
-          <p class="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            {{ successStories.sectionDescription }}
-          </p>
+          <HeadingSection :title="successStories.title" :subtitle="successStories.subtitle" />
         </div>
       </div>
 
@@ -35,7 +30,7 @@
             <h3 class="text-lg font-semibold mb-3">{{ story.title }}</h3>
 
             <!-- Benefits List -->
-            <ul class="mb-4 space-y-2">
+            <ul class="mb-4 space-y-2 mt-auto">
               <li v-for="(benefit, index) in story.benefits" :key="index" class="flex items-start gap-2">
                 <CheckCircle class="h-5 w-5 text-primary-green mt-0.5 flex-shrink-0" />
                 <span class="text-sm">{{ benefit }}</span>
@@ -73,6 +68,7 @@
 
 <script>
 import { CheckCircle, ArrowRight } from 'lucide-vue-next'
+import HeadingSection from '@/components/core/HeadingSection.vue';
 
 export default {
   name: 'SuccessStories',
