@@ -17,6 +17,7 @@ import CareerTestimonials from "@/components/career/CareerTestimonials.vue";
 import CareerTechnology from "@/components/career/CareerTechnology.vue";
 import CareerCTA from "@/components/career/CareerCTA.vue";
 import VerticalTabs from "@/components/TabsComponent/VerticalTabs.vue";
+import HorizontalTabs from "./TabsComponent/HorizontalTabs.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -35,6 +36,7 @@ const componentsMap = computed(() => ({
   "section-features.technology": CareerTechnology,
   "section-features.cta": CareerCTA,
   "section-solutions.solutions": VerticalTabs,
+  "section-solutions.tabs": HorizontalTabs,
 }));
 
 const getComponentProps = (it) => {

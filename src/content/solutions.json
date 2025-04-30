@@ -3,7 +3,8 @@
     "body": [
       {
         "__component": "section-solutions.solutions",
-        "title": "Our Solutions",
+        "title": "Explore Our Solutions",
+        "description": "Discover how OpenObserve can address your specific observability needs with our tailored solutions",
         "items": [
           {
             "id": 1,
@@ -93,6 +94,113 @@
             ],
             "image": {
               "url": "/img/logo.svg"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "section-solutions.tabs",
+        "title": "AWS Observability",
+        "description": "Comprehensive monitoring and insights for your AWS infrastructure.",
+        "tabs": [
+          {
+            "value": "visibility",
+            "label": "Real-Time Visibility",
+            "badge": {
+              "text": "Real-Time Insights",
+              "class": "bg-primary-blue text-white hover:bg-primary-blue/90"
+            },
+            "title": "Real-Time Visibility & Insights",
+            "description": "Get immediate visibility into your AWS infrastructure with real-time dashboards and alerts. Monitor performance metrics, logs, and traces in a unified view.",
+            "features": [
+              "Live metrics and logs streaming",
+              "Customizable real-time dashboards",
+              "Instant anomaly detection",
+              "Proactive alerting system",
+              "Interactive data exploration"
+            ],
+            "button": {
+              "text": "Explore Real-Time Capabilities",
+              "class": "bg-primary-purple hover:bg-dark-purple"
+            },
+            "image": {
+              "url": "/img/logo.svg",
+              "alt": "Real-Time AWS Monitoring Dashboard"
+            }
+          },
+          {
+            "value": "processing",
+            "label": "Data Processing",
+            "badge": {
+              "text": "Data Processing",
+              "class": "bg-primary-purple text-white hover:bg-primary-purple/90"
+            },
+            "title": "Efficient Data Processing",
+            "description": "Process terabytes of observability data with our highly optimized data pipeline. Ingest, process, and analyze logs and metrics at scale without performance bottlenecks.",
+            "features": [
+              "High-throughput data ingestion",
+              "Intelligent data compression",
+              "Automated data lifecycle management",
+              "Advanced query optimization",
+              "Flexible data retention policies"
+            ],
+            "button": {
+              "text": "Learn About Data Processing",
+              "class": "bg-primary-purple hover:bg-dark-purple"
+            },
+            "image": {
+              "url": "/img/logo.svg",
+              "alt": "Efficient Data Processing Pipeline"
+            }
+          },
+          {
+            "value": "coverage",
+            "label": "Service Coverage",
+            "badge": {
+              "text": "Service Coverage",
+              "class": "bg-primary-green text-white hover:bg-primary-green/90"
+            },
+            "title": "Service Coverage & Integration",
+            "description": "Monitor all your AWS services from a single platform. Our solution integrates seamlessly with EC2, Lambda, S3, RDS, ECS, EKS, and many more AWS services.",
+            "features": [
+              "Support for 50+ AWS services",
+              "Automatic service discovery",
+              "Pre-built service dashboards",
+              "Cross-service correlation",
+              "Custom service integrations"
+            ],
+            "button": {
+              "text": "View Supported Services",
+              "class": "bg-primary-purple hover:bg-dark-purple"
+            },
+            "image": {
+              "url": "/img/logo.svg",
+              "alt": "AWS Services Integration"
+            }
+          },
+          {
+            "value": "cost",
+            "label": "Cost-Effective",
+            "badge": {
+              "text": "Cost Optimization",
+              "class": "bg-vibrant-red text-white hover:bg-vibrant-red/90"
+            },
+            "title": "Cost-Effective Monitoring",
+            "description": "Reduce your observability costs by up to 90% compared to traditional solutions. Our efficient architecture and intelligent data handling minimize storage and processing costs.",
+            "features": [
+              "Pay only for what you use",
+              "Transparent pricing model",
+              "Cost optimization recommendations",
+              "Customizable retention policies",
+              "Resource usage analytics"
+            ],
+            "button": {
+              "text": "Calculate Your Savings",
+              "class": "bg-primary-purple hover:bg-dark-purple"
+            },
+            "image": {
+              "url": "/public/abstract-corporate-logo.png",
+              "alt": "Cost Optimization Dashboard"
             }
           }
         ]
