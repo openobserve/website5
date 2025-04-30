@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import HeadingSection from '../core/HeadingSection.vue';
 
 const props = defineProps({
   title: String,
@@ -17,10 +18,7 @@ const activeIndex = ref(0)
 <template>
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">{{ title }}</h2>
-      <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-        {{ description }}
-      </p>
+      <HeadingSection :title="title" :description="description" align="CENTER" />
 
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- Left Navigation -->
