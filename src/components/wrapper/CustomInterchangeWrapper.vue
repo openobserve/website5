@@ -11,7 +11,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="py-0 sm:py-0 md:py-0 lg:py-0 xl:py-0">
       <div v-for="(card, index) in interchangeCard" :key="index">
         <CustomInterchange
           :heading="card.heading"
@@ -20,5 +20,5 @@ const props = defineProps({
           :direction="card.direction || 'left'"
         />
       </div>
-  </CustomSection>
+      </CustomSection>  
 </template>

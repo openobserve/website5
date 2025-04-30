@@ -25,18 +25,18 @@ const props = defineProps({
 });
 
 const sectionClasses = computed(() => ({
-  "md:flex-row-reverse": props.direction === "right",
+  "lg:flex-row-reverse": props.direction === "right",
 }));
 
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-4 relative">
+  <div class="w-full flex flex-col gap-4 relative pt-6 lg:pt-4">
     <HeadingSection v-if="heading" :title="heading.title" :description="heading.description" />
 
-    <div class="w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6" :class="sectionClasses">
+    <div class="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6" :class="sectionClasses">
       <!-- Quote Section -->
-      <div class="relative h-auto rounded-lg border border-gray-200 bg-white shadow-sm p-3 z-10 w-1/2">
+      <div class="relative h-auto rounded-lg border border-gray-200 bg-white shadow-sm p-3 z-10 w-full lg:w-1/2">
         <div class="flex items-start gap-4">
           <div class="bg-primary/10 text-primary rounded-full p-2">
             <Quote class="w-6 h-6" />
@@ -56,7 +56,7 @@ const sectionClasses = computed(() => ({
       </div>
 
       <!-- Feature List -->
-      <div class="w-full md:w-1/2 z-10 flex flex-col space-y-6">
+      <div class="w-full lg:w-1/2 z-10 flex flex-col space-y-6">
         <div v-if="items?.length" class="flex flex-col space-y-6">
           <div v-for="(item, index) in items" :key="index" class="flex items-start">
             <Check class="h-5 w-5 mr-3 bg-blue-500/20 rounded-full p-1 flex-shrink-0 text-blue-500" />
