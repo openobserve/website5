@@ -212,7 +212,7 @@
         "items": [
           {
             "id": 1,
-            "category": "General",
+            "label": "General",
             "questions": [
               {
                 "question": "What is OpenObserve?",
@@ -234,7 +234,7 @@
           },
           {
             "id": 2,
-            "category": "Technical",
+            "label": "Technical",
             "questions": [
               {
                 "question": "What programming languages and technologies does OpenObserve use?",
@@ -256,7 +256,7 @@
           },
           {
             "id": 3,
-            "category": "Pricing",
+            "label": "Pricing",
             "questions": [
               {
                 "question": "How is OpenObserve priced?",
@@ -278,7 +278,7 @@
           },
           {
             "id": 4,
-            "category": "Support",
+            "label": "Support",
             "questions": [
               {
                 "question": "What support options are available?",
