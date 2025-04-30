@@ -35,7 +35,6 @@ const props = defineProps({
           size="medium"
           :buttonText="button.text"
           :buttonLink="button.link"
-          btn-class="bg-white text-indigo-600 hover:bg-indigo-100 font-semibold"
         />
       </div>
     </div>

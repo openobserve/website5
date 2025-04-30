@@ -179,8 +179,29 @@
           "direction": "right"
         }
       ]
+    },
+
+    {
+      "pageTag":"logs",
+      "title": "Powerful visibility at a fraction of the cost",
+      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
+      "buttons": [
+        {
+          "text": "Start For Free",
+          "link": "/",
+          "variant": "secondary"
+        },
+        {
+          "text": "Schedual a Demo",
+          "link": "/",
+          "variant": "tertiary"
+        }
+      ],
+      "image":"/img/herosection-image.png",
+      "altText" :"herosecitonimage"
     }
   ],
+
   "ourStory": {
     "title": "Our Story",
     "paragraphs": "OpenObserve was born from a simple yet powerful idea: observability should be accessible, efficient, and affordable for everyone.<br><br>Founded in 2022 by a team of engineers who experienced firsthand the challenges of managing observability at scale, we set out to build a solution that would dramatically reduce the cost and complexity of monitoring modern applications.<br><br>Our journey began with a clear mission: to create an open-source observability platform that delivers enterprise-grade features without the enterprise-grade price tag. Today, OpenObserve helps organizations of all sizes gain deeper insights into their systems while using up to 10x less storage and computing resources.",
@@ -197,4 +218,5 @@
     "title": "Our Commitment to Open Source",
     "paragraphs": "At OpenObserve, we believe that open source is the foundation of innovation in technology. Our commitment to open source goes beyond just making our code available—it's about fostering a collaborative ecosystem where everyone benefits from shared knowledge and collective improvement.<br><br>We've built our platform on open source principles because we believe observability tools should be transparent, customizable, and community-driven. By making our core technology open source, we ensure that users have complete visibility into how their observability platform works, with the freedom to inspect, modify, and extend it to meet their specific needs.<br><br>Our open source approach also means we're accountable to our community. We actively welcome contributions from developers around the world, incorporating diverse perspectives that make our platform more robust, secure, and innovative. This collaborative development model has allowed us to build features and capabilities that truly address real-world observability challenges.<br><br>We're committed to maintaining a healthy balance between open source sustainability and commercial viability. While our core platform remains free and open source, we offer enterprise features and support services that fund our continued development and growth. This model ensures that OpenObserve remains accessible to everyone while continuing to evolve with the needs of our users."
   }
+ 
 }
