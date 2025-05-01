@@ -1,7 +1,11 @@
 <template>
   <div>
-    <component v-for="(it, index) in data" :key="index" :is="componentsMap[it.__component]"
-      v-bind="getComponentProps(it)" />
+    <component
+      v-for="(it, index) in data"
+      :key="index"
+      :is="componentsMap[it.__component]"
+      v-bind="getComponentProps(it)"
+    />
   </div>
 </template>
 
@@ -20,7 +24,11 @@ import VerticalTabs from "@/components/TabsComponent/VerticalTabs.vue";
 import FaqsWrapper from "./faqs/FaqsWrapper.vue";
 import HorizontalTabsWrapper from "./wrapper/HorizontalTabsWrapper.vue";
 import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
-
+import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
+import CardWrapper from "@/components/wrapper/CardWrapper.vue";
+import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
+import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
+import CTA from "@/components/core/CTA.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -40,7 +48,11 @@ const componentsMap = computed(() => ({
   "section-solutions.solutions": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-solutions.capabilities": CapabilityTabs,
-  "section-solutions.faqs": FaqsWrapper
+  "section-solutions.faqs": FaqsWrapper,
+  "section-hero.homepage-hero": HomeHerosection,
+  "section-cards.homepage-features": CardWrapper,
+  "section-cta.homepage-cta": CTA,
+  "section-features.homepage-feature-details": CustomInterchangeWrapper,
 }));
 
 const getComponentProps = (it) => {
@@ -53,6 +65,8 @@ const getComponentProps = (it) => {
       return { ...it, items: props.blogs };
     case "section-cta.banner":
       return { ...it, ...props.bannerData };
+    case "section-hero.homepage-hero":
+      return { data: it };
     default:
       return it;
   }
