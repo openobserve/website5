@@ -32,6 +32,7 @@ import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
     title={data.body[5]?.title || ""}
     description={data.body[5]?.description || ""}
     cardsData={data.body[5]?.cardsData || []}
+    cardsData2={data.body[5]?.cardsData2 || []}
   />
 
   <CustomInterchangeWrapper interchangeCard={data?.body[6]?.items} />
@@ -42,12 +43,12 @@ import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
   />
   <OurStory data={data?.ourStory} />
   <OurCommitmentO2 data={data?.ourCommitment} />
-  <HeroSectionWithImage  
-  pageTag={data?.body[7]?.pageTag}
-  title={data?.body[7]?.title}
-  description={data?.body[7]?.description}
-  buttons={data?.body[7]?.buttons}
-  image={data?.body[7]?.image}
-  altText={data?.body[7]?.altText}
-   /> 
+  <HeroSectionWithImage
+    pageTag={data?.body[7]?.pageTag}
+    title={data?.body[7]?.title}
+    description={data?.body[7]?.description}
+    buttons={data?.body[7]?.buttons}
+    image={data?.body[7]?.image}
+    altText={data?.body[7]?.altText}
+  />
 </Layout>
