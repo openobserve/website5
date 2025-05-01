@@ -1,6 +1,6 @@
 <template>
   <!-- Sticky Header -->
-  <header class="sticky top-0 z-50">
+  <header class="z-50">
     <div class="w-full container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
       <Logo />
       <nav>
@@ -49,7 +49,7 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-          <a class="rounded-[4px] transition flex items-center border border-[#3d444d]"
+        <a class="rounded-[4px] transition flex items-center border border-[#3d444d]"
           href="https://short.openobserve.ai/community" target="_blank">
           <img src="/img/icon/slackIcon.svg" alt="Search Icon"
             class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1" />
@@ -79,7 +79,7 @@
                 <SectionHeader :title="item.title" :items="item.items" :link="item.link" />
               </div>
             </div>
-            
+
           </div>
           <div class="flex flex-row gap-2 mt-6 w-4/5">
             <div class="w-[55%]">

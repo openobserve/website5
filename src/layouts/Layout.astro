@@ -15,9 +15,13 @@ import Header from "@/components/header/Header.vue";
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
-  <body class="">
-    <Header navData={navData?.data} class="sticky top-0 z-50" client:only />
-    <slot/>
+  <body class="relative">
+    <Header
+      navData={navData?.data}
+      class="sticky top-0 z-50 bg-black backdrop-blur-3xl"
+      client:only
+    />
+    <slot />
     <Footer
       footerData={FooterData?.data?.footerData}
       copyRightText={FooterData?.data?.copyRightText}
