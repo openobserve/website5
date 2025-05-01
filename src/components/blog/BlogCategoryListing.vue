@@ -51,7 +51,7 @@ const props = defineProps<{
     name: string;
     slug: string;
   }[];
-  type: "blog" | "resources";
+  type: "blog" | "articles";
 }>();
 
 const activeCategory = ref("ALL");

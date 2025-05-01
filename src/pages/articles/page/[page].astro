@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getTotalCounts } from "@/utils/cache";
+import {
+  getAllResourceBlogs,
+  getResourceBlogsByPagination,
+  getAllResourceCategories,
+} from "@/utils/api/resources";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
+
+// Generate static paths for pagination
+export async function getStaticPaths() {
+  const totalBlogs = (await getTotalCounts()).resourceBlogsCount;
+
+  const totalPages = Math.ceil(totalBlogs / ITEMS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, index) => ({
+    params: { page: (index + 1).toString() },
+  }));
+}
+
+// Get the current page from Astro props
+const { page } = Astro.params;
+const currentPage = parseInt(page);
+
+// Handle invalid page numbers
+if (isNaN(currentPage) || currentPage < 1) {
+  throw Astro.redirect("/404");
+}
+
+// Fetch paginated blogs for the current page
+const blogsData = await getResourceBlogsByPagination(
+  currentPage,
+  ITEMS_PER_PAGE
+);
+const allArticles = await getAllResourceBlogs();
+// Fetch categories for suggestions
+const suggestionData = await getAllResourceCategories();
+const count = await getTotalCounts();
+
+const metaObj = {
+  title:
+    "Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+  description: "Blog Posts",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <!-- <ResourceHeroSection
+    title="Blog"
+    description="Explore latest insights and updates"
+  /> -->
+  <CustomSection sectionClass="">
+    <BlogCategoryListing
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
+      type="articles"
+      client:load
+    />
+    <BlogsListingWrapper
+      searchBar
+      allBlogs={allArticles}
+      type="articles"
+      totalItems={count.blogsCount}
+      currentPage={currentPage}
+      blogsData={blogsData}
+      client:load
+    />
+  </CustomSection>
+</Layout>
