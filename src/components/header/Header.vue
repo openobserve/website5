@@ -16,10 +16,7 @@ const props = defineProps({
 
 
 <template>
-  <div :class="[
-    'w-full top-0 backdrop-blur-3xl bg-[#23282C] text-black transition-all duration-500',
-    props.class
-  ]">
+  <div class="w-full fixed top-0 z-50 backdrop-blur-3xl bg-black text-black transition-all duration-500">
     <div class="lg:block hidden">
       <LaptopView :items="navData" />
     </div>
