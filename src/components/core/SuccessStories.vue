@@ -88,7 +88,7 @@ export default {
         'Technology': 'bg-purple-100 text-primary-purple',
         'Microservices': 'bg-blue-100 text-primary-blue',
         'Financial Services': 'bg-green-100 text-primary-green',
-        'Cloud Migration': 'bg-blue-100 text-yellow-blue',
+        'Cloud Migration': 'bg-blue-100 text-primary-blue',
         'E-Commerce': 'bg-red-100 text-primary-red',
         'Peak Season': 'bg-purple-100 text-primary-purple',
         // fallback
