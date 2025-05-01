@@ -9,7 +9,7 @@ import { getTotalCounts } from "@/utils/cache";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import BlogListingWrapper from "@/components/blog/BlogListingWrapper.vue";
-import CustomSection from  "@/components/core/CustomSection.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
@@ -30,6 +30,21 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
+  <div class="relative" style={{ height: "350px" }}>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
+      style={{ height: "350px" }}
+    >
+    </div>
+    <div
+      class="container mx-auto px-4 py-12 relative z-10 h-full flex flex-col justify-center"
+    >
+      <h1 class="text-4xl font-bold mb-2 text-white">Blog</h1>
+      <p class="text-lg text-white opacity-90">
+        Insights, tutorials, and updates from the OpenObserve team
+      </p>
+    </div>
+  </div>
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
