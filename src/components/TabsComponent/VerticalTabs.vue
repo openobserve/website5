@@ -58,7 +58,8 @@ const activeIndex = ref(0)
                 </p>
 
                 <div class="space-y-4 mb-8">
-                  <div v-for="(feature, idx) in items[activeIndex].features" :key="idx" class="flex items-start text-black">
+                  <div v-for="(feature, idx) in items[activeIndex].features" :key="idx"
+                    class="flex items-start text-black">
                     <!-- <svg :class="[
                       'w-5 h-5 mr-3 flex-shrink-0 mt-0.5',
                       'text-tabs-title-text'
@@ -67,7 +68,8 @@ const activeIndex = ref(0)
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                         clip-rule="evenodd" />
                     </svg> -->
-                    <Check class="rounded-full p-1 w-5 h-5 mr-3 flex-shrink-0 mt-0.5 bg-tabs-background/20 text-tabs-title-text" />
+                    <Check
+                      class="rounded-full p-1 w-5 h-5 mr-3 flex-shrink-0 mt-0.5 bg-tabs-background/20 text-tabs-title-text" />
                     <span>{{ feature }}</span>
                   </div>
                 </div>
@@ -86,9 +88,9 @@ const activeIndex = ref(0)
               </div>
 
               <!-- Right Column: Image -->
-              <div class="relative h-full min-h-[300px] bg-gray-100">
+              <div class="h-full min-h-[300px] bg-gray-100 flex items-center justify-center">
                 <img :src="items[activeIndex].image.url || '/placeholder.svg'" :alt="items[activeIndex].title"
-                  class="object-contain w-full h-full" />
+                  class="object-contain max-w-full max-h-full" />
               </div>
             </div>
           </div>
