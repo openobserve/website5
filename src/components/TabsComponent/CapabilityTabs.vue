@@ -1,6 +1,6 @@
 <template>
   <div ref="sectionRef" class=" bg-light-gray dark:bg-secondary py-20">
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
 
       <div class="">
         <HeadingSection :title="title" :description="description" align="CENTER" />
