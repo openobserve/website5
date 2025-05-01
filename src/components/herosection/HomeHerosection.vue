@@ -22,10 +22,6 @@ defineProps<{ data: HeroData }>();
 <template>
   <section class="relative overflow-hidden py-20 md:py-32 -z-10 inset-0 bg-primary-black ">
 
-    <div
-      class="absolute inset-0 opacity-20 -z-10 bg-[radial-gradient(#444_1px,transparent_1px)] [background-size:16px_16px]">
-    </div>
-
     <div class="container mx-auto px-4 relative -z-10">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <!-- Left Side -->
