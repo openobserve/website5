@@ -1,0 +1,53 @@
+---
+import {
+  getResourceAuthors,
+  getAllResourceCategories,
+  getResourcesByPaginationAndAuthor,
+} from "@/utils/api/resources";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+
+export async function getStaticPaths() {
+  const authors = (await getResourceAuthors()) || [];
+  return authors.map((author: any) => ({
+    params: { author: author.slug },
+  }));
+}
+
+const { author } = Astro.params;
+const currentPage = 1;
+const { blogs, totalBlogs } = await getResourcesByPaginationAndAuthor(
+  currentPage,
+  author
+);
+
+const suggestionData = (await getAllResourceCategories()) || [];
+const metaObj = {
+  title:
+    "Author | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <CustomSection sectionClass="">
+    <BlogCategoryListing
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
+        []}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
+        []}
+      type="articles"
+      client:load
+    />
+
+    <BlogsListingWrapper
+      type="articles"
+      blogsData={blogs}
+      totalItems={totalBlogs}
+      client:load
+      subType="author"
+      identifier={author}
+    />
+  </CustomSection>
+</Layout>
