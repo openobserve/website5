@@ -9,6 +9,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
@@ -38,10 +39,11 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <!-- <ResourceHeroSection
-    title={"Author"}
+  <CommonHerosection 
+    title="Blog"
     description={`Post by the author: ${auth?.name}`}
-  /> -->
+    align="left"
+  />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||

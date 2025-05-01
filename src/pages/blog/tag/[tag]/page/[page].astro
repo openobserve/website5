@@ -8,6 +8,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 export async function getStaticPaths() {
   const categories = await getAllCategories();
@@ -50,16 +51,16 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <!-- <ResourceHeroSection
+  <CommonHerosection
     title="Blog"
     description={`Post by the category: ${category?.name}`}
-  /> -->
+    align="left"
+    client:load
+  />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(
-        0,
-        Math.min(5, suggestionData.length)
-      ) || []}
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
+        []}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
         []}
       type="blog"

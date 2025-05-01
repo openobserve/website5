@@ -1,6 +1,7 @@
 ---
 import {
   getAllResourceCategories,
+  getAuthorDetails,
   getResourceAuthors,
   getResourcesByPaginationAndAuthor,
 } from "@/utils/api/resources";
@@ -8,6 +9,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 export async function getStaticPaths() {
   const authors = await getResourceAuthors();
@@ -39,6 +41,7 @@ const { blogs, totalBlogs } = await getResourcesByPaginationAndAuthor(
   author
 );
 const suggestionData = await getAllResourceCategories();
+const authorDetails = await getAuthorDetails(author);
 
 const metaObj = {
   title:
@@ -47,6 +50,10 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
+  <CommonHerosection
+    title="Resources"
+    description={`Showing posts by author: ${authorDetails?.name}`}
+  />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||

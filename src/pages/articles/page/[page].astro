@@ -10,6 +10,7 @@ import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
@@ -43,16 +44,17 @@ const count = await getTotalCounts();
 
 const metaObj = {
   title:
-    "Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
-  description: "Blog Posts",
+    "Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+  description: "Resource Posts",
 };
 ---
 
 <Layout metaObj={metaObj}>
-  <!-- <ResourceHeroSection
-    title="Blog"
+  <CommonHerosection 
+   title="Resources"
     description="Explore latest insights and updates"
-  /> -->
+    align="left"
+  />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}

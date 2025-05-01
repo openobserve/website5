@@ -8,6 +8,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -36,6 +37,11 @@ const category = await getCategoryDetails(tag);
 ---
 
 <Layout metaObj={metaObj}>
+  <CommonHerosection
+    title="Resources"
+    description={`Showing posts for category: ${category?.name}`}
+    align="left"
+  />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
