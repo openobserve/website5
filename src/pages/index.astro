@@ -1,11 +1,54 @@
 ---
 import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
+import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
-import data from "@/content/homepage.json"; 
+import data from "@/content/homepage.json";
 import Cards from "@/components/core/Cards.vue";
+import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import HeroSectionWithImage from "@/components/herosection/HeroSectionWithImage.vue";
+import CTA from "@/components/core/CTA.vue";
+import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
+import OurStory from "@/components/core/OurStory.vue";
+import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 ---
 
 <Layout>
-  <HomeHerosection data={data?.body[0]}/>
-  <Cards data={data.featureHighlights}/>
+  <HomeHerosection data={data?.body[0]} />
+  <!-- <CommonHeroSection
+    title={data?.body[1]?.title}
+    description={data?.body[1]?.description}
+    align="center"
+  /> -->
+  <HomeCardWrapper data={data?.body[4]?.items} />
+  <!-- <CommonHeroSection
+    title={data?.body[2]?.title}
+    description={data?.body[2]?.description}
+    buttonText={data?.body[2]?.buttonText}
+    buttonLink={data?.body[2]?.buttonLink}
+    align="center"
+  /> -->
+  <CardWrapper
+    title={data.body[5]?.title || ""}
+    description={data.body[5]?.description || ""}
+    cardsData={data.body[5]?.cardsData || []}
+    cardsData2={data.body[5]?.cardsData2 || []}
+  />
+
+  <CustomInterchangeWrapper interchangeCard={data?.body[6]?.items} />
+  <CTA
+    title={data?.body[3]?.title}
+    description={data?.body[3]?.description}
+    buttons={data?.body[3]?.buttons}
+  />
+  <!-- <OurStory data={data?.ourStory} />
+  <OurCommitmentO2 data={data?.ourCommitment} /> -->
+  <!-- <HeroSectionWithImage
+    pageTag={data?.body[7]?.pageTag}
+    title={data?.body[7]?.title}
+    description={data?.body[7]?.description}
+    buttons={data?.body[7]?.buttons}
+    image={data?.body[7]?.image}
+    altText={data?.body[7]?.altText}
+  /> -->
 </Layout>

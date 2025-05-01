@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import solutionsData from "@/content/solutions.json";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+
+const data = solutionsData?.data?.body || {};
+---
+
+<Layout>
+  <ComponentCollectionMapper data={data} client:load />
+</Layout>

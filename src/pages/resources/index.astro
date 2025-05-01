@@ -1,0 +1,9 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import successStoriesData from "@/content/resources.json";
+import SuccessStories from "@/components/core/SuccessStories.vue";
+---
+
+<Layout>
+  <SuccessStories successStories={successStoriesData.successStories} />
+</Layout>

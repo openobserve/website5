@@ -33,9 +33,9 @@ const computedClass = computed(() => {
 </script>
 
 <template>
-  <h1 :class="computedClass">
+  <h2 :class="computedClass">
     {{ title }}
-  </h1>
+  </h2>
 </template>
 
 <style>

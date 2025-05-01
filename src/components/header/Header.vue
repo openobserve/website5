@@ -2,13 +2,18 @@
 import LaptopView from "./LaptopView.vue";
 import MobileView from "./MobileView.vue";
 
-defineProps({
+const props = defineProps({
   navData: {
     type: Object,
     required: true,
   },
+  class: {
+    type: String,
+    default: '',
+  },
 });
 </script>
+
 
 <template>
   <div class="w-full fixed top-0 z-50 backdrop-blur-3xl bg-black text-black transition-all duration-500">
@@ -20,6 +25,7 @@ defineProps({
     </div>
   </div>
 </template>
+
 
 <style scoped>
 /* Add custom styles only if absolutely necessary */

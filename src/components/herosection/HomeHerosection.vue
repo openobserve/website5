@@ -20,11 +20,7 @@ defineProps<{ data: HeroData }>();
 </script>
 
 <template>
-  <section class="relative overflow-hidden py-20 md:py-32">
-    <div class="absolute inset-0 bg-primary-black -z-10"></div>
-    <div
-      class="absolute inset-0 opacity-20 -z-10 bg-[radial-gradient(#444_1px,transparent_1px)] [background-size:16px_16px]"
-    ></div>
+  <section class="relative overflow-hidden py-20 md:py-32 -z-10 inset-0 bg-primary-black ">
 
     <div class="container mx-auto px-4 relative -z-10">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
@@ -32,13 +28,10 @@ defineProps<{ data: HeroData }>();
         <div class="space-y-8">
           <div class="space-y-4">
             <span
-              class="inline-block px-3 py-1 text-sm font-medium bg-vibrant-red text-white hover:bg-vibrant-red/90 rounded-full"
-            >
+              class="inline-block px-3 py-1 text-sm font-medium bg-vibrant-red text-white hover:bg-vibrant-red/90 rounded-full">
               {{ data.badge }}
             </span>
-            <h1
-              class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white"
-            >
+            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
               {{ data.title }}
             </h1>
             <p class="text-xl text-gray-400">
@@ -47,9 +40,7 @@ defineProps<{ data: HeroData }>();
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <button
-              class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg"
-            >
+            <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg">
               {{ data.ctaText }}
             </button>
           </div>
@@ -57,35 +48,22 @@ defineProps<{ data: HeroData }>();
 
         <!-- Right Side (Video Card) -->
         <div class="relative">
-          <div
-            class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg"
-          ></div>
+          <div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg">
+          </div>
           <div class="relative rounded-xl overflow-hidden group cursor-pointer">
             <div class="aspect-video w-full">
-              <img
-                :src="data.video.thumbnail"
-                alt="OpenObserve Demo Video"
-                class="object-cover w-full h-full"
-              />
+              <img :src="data.video.thumbnail" alt="OpenObserve Demo Video" class="object-cover w-full h-full" />
             </div>
             <div
-              class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors"
-            >
+              class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
               <div
-                class="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform"
-              >
-                <svg
-                  class="h-8 w-8 text-purple-500 ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                class="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="h-8 w-8 text-purple-500 ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
             </div>
-            <div
-              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4"
-            >
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
               <p class="text-white font-medium">
                 {{ data.video.label }}
               </p>
@@ -101,11 +79,8 @@ defineProps<{ data: HeroData }>();
         </div>
         <div class="w-full overflow-hidden">
           <div class="flex gap-6 items-center animate-scroll">
-            <div
-              v-for="(logo, index) in data.logos"
-              :key="index"
-              class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 w-32"
-            >
+            <div v-for="(logo, index) in data.logos" :key="index"
+              class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 w-32">
               <img :src="logo" alt="Company logo" class="h-6 w-auto" />
             </div>
           </div>
@@ -114,4 +89,3 @@ defineProps<{ data: HeroData }>();
     </div>
   </section>
 </template>
-
