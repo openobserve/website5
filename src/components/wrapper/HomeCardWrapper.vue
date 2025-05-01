@@ -14,7 +14,7 @@
       items?: string[];
     }>;
   }>();
-  console.log(props.data);
+
 </script>
 
   <template>
