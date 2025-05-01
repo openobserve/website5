@@ -1,6 +1,6 @@
 <template>
   <!-- Sticky Header -->
-  <header class="z-50">
+  <header>
     <div class="w-full container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
       <Logo />
       <nav>
