@@ -23,6 +23,7 @@ import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
 import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import CTA from "@/components/core/CTA.vue";
+import CardWithSideIconWrapper from "./wrapper/CardWithSideIconWrapper.vue";
 
 
 const props = defineProps({
@@ -48,6 +49,7 @@ const componentsMap = computed(() => ({
   "section-hero.product-hero": CommonHeroSection,
   "section-hero.cta-buttons": CTA,
   "section-features.benefits": HomeCardWrapper,
+  "section-features.architecture": CardWithSideIconWrapper,
 }));
 
 const getComponentProps = (it) => {

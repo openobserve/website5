@@ -39,6 +39,43 @@
         ]
       },
       {
+        "__component": "section-features.architecture",
+        "id": 3,
+        "title": "OpenObserve Architecture",
+        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "image": {
+          "url": "/img/openobserve-architecture.png",
+          "alt": "OpenObserve Architecture Diagram",
+          "width": 1200,
+          "height": 800
+        },
+        "btnValues": {
+          "buttonText": "Get Started with Standard",
+          "buttonLink": "#learn-more",
+          "theme": "theme-blue"
+        },
+        "data": [
+          {
+            "title": "Real-time Monitoring",
+            "description": "Monitor your applications and infrastructure in real-time with sub-second latency",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Cost Efficiency",
+            "description": "Up to 10x more cost-effective than traditional observability solutions",
+            "theme": "theme-red",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Full-Stack Visibility",
+            "description": "Unified view of logs, metrics, and traces in a single platform",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          }
+        ]
+      },
+      {
         "__component": "section-hero.cta-buttons",
         "id": 2,
         "title": "OpenObserve",

@@ -5,7 +5,7 @@ const props = defineProps<{
   title: string;
   description: string;
   icon: string;
-  align?: 'left' | 'center' | 'right';
+  align?: string; // Changed from strict union type to string
   theme?: string;
   items?: string[];
 }>();
@@ -14,11 +14,13 @@ const props = defineProps<{
 <template>
   <div :class="[
     'flex items-start gap-4 rounded-xl border border-gray-300 shadow-md p-6',
-    props.align === 'center'
-      ? 'justify-center text-center'
-      : props.align === 'right'
-        ? 'justify-end text-right'
-        : 'justify-start text-left', // default left
+    ['left', 'center', 'right'].includes(props.align || 'left')
+      ? props.align === 'center'
+        ? 'items-center text-center'
+        : props.align === 'right'
+          ? 'items-end text-right'
+          : 'items-start text-left'
+      : 'items-start text-left', // default if align is not one of the three
   ]">
     <!-- Icon -->
     <div :class="[
