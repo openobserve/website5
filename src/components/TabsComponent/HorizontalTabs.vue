@@ -1,10 +1,12 @@
 <template>
-  <div >
+  <div>
     <div v-for="tab in tabs" :key="tab.value">
       <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
         <div class="space-y-4">
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white bg-tabs-background text" :class="tab.badge.theme">
-            {{ tab.badge.text }}  
+          <span
+            class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white bg-tabs-background text"
+            :class="tab.badge.theme">
+            {{ tab.badge.text }}
           </span>
           <h3 class="text-2xl font-bold">{{ tab.title }}</h3>
           <p class="text-gray-500">
@@ -23,7 +25,7 @@
           </button>
         </div>
         <div class="flex justify-center">
-          <div class="relative h-[300px] w-full max-w-[500px]">
+          <div class="h-auto w-full max-w-[500px] max-h-[400px] aspect-w-1 aspect-h-1">
             <img :src="tab.image?.url" :alt="tab.imageAlt" class="object-contain rounded-lg shadow-lg w-full h-full" />
           </div>
         </div>
@@ -48,7 +50,13 @@ defineProps({
 </script>
 
 <style scoped>
-.text{
-  color: white; /* Replace with your primary green color */
+.text {
+  color: white;
+  /* Replace with your primary green color */
+}
+
+/* Ensure consistent aspect ratio for images */
+.aspect-w-1 {
+  aspect-ratio: 1 / 1;
 }
 </style>
