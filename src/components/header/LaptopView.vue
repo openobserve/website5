@@ -1,7 +1,7 @@
 <template>
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50">
-    <div class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex justify-between items-center py-2">
+    <div class="w-full container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full">
@@ -356,13 +356,13 @@ onUnmounted(() => {
   display: inline-block;
 }
 
-.gradient-hover:hover {
+/* .gradient-hover:hover {
   background: linear-gradient(to left,
       rgb(var(--blue-light)),
       rgb(var(--blue-dark)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 .gradient-hover:hover {
   background: linear-gradient(to left, #09e6ff, #00ffc3);

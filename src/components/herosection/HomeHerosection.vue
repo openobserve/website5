@@ -26,7 +26,7 @@ defineProps<{ data: HeroData }>();
       class="absolute inset-0 opacity-20 -z-10 bg-[radial-gradient(#444_1px,transparent_1px)] [background-size:16px_16px]"
     ></div>
 
-    <div class="container mx-auto px-4 relative">
+    <div class="container mx-auto px-4 relative -z-10">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <!-- Left Side -->
         <div class="space-y-8">

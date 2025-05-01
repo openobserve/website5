@@ -1,0 +1,63 @@
+---
+import {
+  getAllAuthors,
+  getAllCategories,
+  getAuthorDetails,
+  getBlogsByPaginationAndAuthor,
+} from "@/utils/api/blog";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+
+// 🚀 Step 1: Generate dynamic paths for categories
+export async function getStaticPaths() {
+  const authors = await getAllAuthors();
+  return authors?.map((author: any) => ({
+    params: { author: author.slug },
+  }));
+}
+
+// 🚀 Step 2: Get `categorySlug` from URL
+const { author } = Astro.params;
+const currentPage = 1;
+const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+  currentPage,
+  author
+);
+
+const auth = await getAuthorDetails(author);
+
+// ✅ Fetch other required data
+const suggestionData = await getAllCategories();
+
+const metaObj = {
+  title:
+    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <!-- <ResourceHeroSection
+    title={"Author"}
+    description={`Post by the author: ${auth?.name}`}
+  /> -->
+  <CustomSection sectionClass="">
+    <BlogCategoryListing
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
+        []}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) || []}
+      type="blog"
+      client:load
+    />
+
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogs}
+      totalItems={totalBlogs}
+      client:load
+      subType="author"
+      identifier={author}
+    />
+  </CustomSection>
+</Layout>
