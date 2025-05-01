@@ -1,233 +1,236 @@
 {
-  "body": [
-    {
-      "badge": "140x Lower Cost",
-      "title": "Modern observability for modern apps",
-      "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-      "ctaText": "Get Started For Free",
-      "trustedText": "Trusted by thousands of developers worldwide",
-      "logos": [
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png",
-        "/abstract-corporate-logo.png"
-      ],
-      "video": {
-        "thumbnail": "/images/video-thumb.jpg",
-        "label": "See OpenObserve in action"
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.homepage-hero",
+        "id": 1,
+        "badge": "140x Lower Cost",
+        "title": "Modern observability for modern apps",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "ctaText": "Get Started For Free",
+        "trustedText": "Trusted by thousands of developers worldwide",
+        "logos": [
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png",
+          "/abstract-corporate-logo.png"
+        ],
+        "video": {
+          "thumbnail": "/images/video-thumb.jpg",
+          "label": "See OpenObserve in action"
+        }
+      },
+      {
+        "__component": "section-cards.homepage-features",
+        "id": 2,
+        "items": [
+          {
+            "title": "Lightning Fast",
+            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "buttonLink": "#performance-section",
+            "color": "text-primary-blue",
+            "buttonText": "Prove it",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Cost Effective",
+            "description": "140x lower cost compared to other solutions with efficient storage",
+            "buttonLink": "#efficiency-section",
+            "color": "text-vibrant-red",
+            "buttonText": "Prove it",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />",
+            "theme": "theme-red"
+          },
+          {
+            "title": "Open Source",
+            "description": "Fully open source with a vibrant community and regular updates",
+            "buttonLink": "#scalability-section",
+            "color": "text-primary-green",
+            "buttonText": "Prove it",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4\" />",
+            "theme": "theme-green"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.homepage-features",
+        "id": 3,
+        "title": "The \"open\" ethos",
+        "description": "Our commitment to openness drives everything we do",
+        "items": [
+          {
+            "title": "Open Standards",
+            "description": "We embrace and contribute to industry standards, ensuring compatibility and interoperability with your existing tools and workflows.",
+            "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
+            "theme": "theme-blue",
+            "items": [
+              "OpenTelemetry compatibility",
+              "Prometheus metrics support",
+              "Standard API interfaces",
+              "Vendor-neutral approach"
+            ]
+          },
+          {
+            "title": "Open Source",
+            "description": "Our code is fully open source, allowing for community contribution, security audits, and complete control over your observability data.",
+            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "theme": "theme-red",
+            "items": [
+              "MIT licensed",
+              "Active community",
+              "Transparent development",
+              "Community-driven roadmap"
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "section-features.homepage-feature-details",
+        "id": 4,
+        "items": [
+          {
+            "heading": {
+              "title": "Efficiency",
+              "description": "Optimize your observability cost without sacrificing visibility"
+            },
+            "cardData": {
+              "quote": "We reduced our observability costs by 85% after switching to OpenObserve, while actually improving our visibility across our entire stack.",
+              "name": "Jane Smith",
+              "role": "CTO, TechCrop",
+              "avatar": "/img/icon/slackIcon.svg"
+            },
+            "items": [
+              {
+                "title": "140x Lower Storage Costs",
+                "description": "Our efficient storage engine dramatically reduces the cost of storing logs, metrics, and traces."
+              },
+              {
+                "title": "Intelligent Data Sampling",
+                "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
+              },
+              {
+                "title": "Optimized Query Engine",
+                "description": "Fast, efficient queries that reduce compute costs and improve response times."
+              },
+              {
+                "title": "Flexible Retention Policies",
+                "description": "Configure retention policies by data type, source, or importance to optimize storage costs."
+              }
+            ],
+            "direction": "left"
+          },
+          {
+            "heading": {
+              "title": "Performance",
+              "description": "Lightning-fast observability for modern applications"
+            },
+            "cardData": {
+              "quote": "The performance of OpenObserve is incredible. We're querying billions of log lines in under a second. We're querying billions of log lines in under a second, which was unthinkable with our previous solution.",
+              "name": "Alex Johnson",
+              "role": "Lead DevOps, CloudScale",
+              "avatar": "/img/icon/slackIcon.svg"
+            },
+            "items": [
+              {
+                "title": "Rust-Powered Backend",
+                "description": "Built with Rust for exceptional performance, memory safety, and resource efficiency."
+              },
+              {
+                "title": "Sub-Second Query Response",
+                "description": "Get answers to your observability questions in milliseconds, not minutes."
+              },
+              {
+                "title": "Columnar Storage Format",
+                "description": "Optimized storage format for fast analytical queries over large datasets."
+              },
+              {
+                "title": "Parallel Query Execution",
+                "description": "utomatically parallelize queries to take advantage of all available resources."
+              }
+            ],
+            "direction": "right"
+          },
+          {
+            "heading": {
+              "title": "Scalability",
+              "description": "Grow your observability platform alongside your business"
+            },
+            "cardData": {
+              "quote": "\"We scaled from monitoring 50 services to over 500 with OpenObserve, and it handled the growth seamlessly. The horizontal scaling capabilities are impressive.\"",
+              "name": "Maria Rodriguez",
+              "role": "VP Engineering, GrowthTech",
+              "avatar": "/img/icon/slackIcon.svg"
+            },
+            "items": [
+              {
+                "title": "Horizontal Scaling",
+                "description": "Scale out across multiple nodes to handle growing data volumes and query loads."
+              },
+              {
+                "title": "Multi-Tenant Architecture",
+                "description": "Support multiple teams or customers with isolated data and access controls."
+              },
+              {
+                "title": "Cloud-Native Design",
+                "description": "Built for Kubernetes and containerized environments with stateless components."
+              },
+              {
+                "title": "Elastic Resource Allocation",
+                "description": "Automatically adjust resource usage based on current demand and workload."
+              }
+            ],
+            "direction": "left"
+          }
+        ]
+      },
+      {
+        "__component": "section-cta.homepage-cta",
+        "id": 5,
+        "title": "Ready to get started?",
+        "description": "Try OpenObserve today and see the difference in your observability stack",
+        "buttons": [
+          {
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
+          },
+          {
+            "text": "Schedule Demo",
+            "link": "#schedule-demo",
+            "variant": "tertiary"
+          }
+        ]
+      },
+      {
+        "__component": "section-story.our-story",
+        "id": 6,
+        "title": "Our Story",
+        "paragraphs": "OpenObserve was born from a simple yet powerful idea: observability should be accessible, efficient, and affordable for everyone.<br><br>Founded in 2022 by a team of engineers who experienced firsthand the challenges of managing observability at scale, we set out to build a solution that would dramatically reduce the cost and complexity of monitoring modern applications.<br><br>Our journey began with a clear mission: to create an open-source observability platform that delivers enterprise-grade features without the enterprise-grade price tag. Today, OpenObserve helps organizations of all sizes gain deeper insights into their systems while using up to 10x less storage and computing resources.",
+        "image": {
+          "src": "/img/logo.svg",
+          "alt": "OpenObserve founding team"
+        },
+        "link": {
+          "text": "Read our full journey",
+          "url": "/blog/our-journey"
+        }
+      },
+      {
+        "__component": "section-story.our0-commitment",
+        "id": 7,
+        "title": "Our Commitment to Open Source",
+        "paragraphs": "At OpenObserve, we believe that open source is the foundation of innovation in technology. Our commitment to open source goes beyond just making our code available—it's about fostering a collaborative ecosystem where everyone benefits from shared knowledge and collective improvement.<br><br>We've built our platform on open source principles because we believe observability tools should be transparent, customizable, and community-driven. By making our core technology open source, we ensure that users have complete visibility into how their observability platform works, with the freedom to inspect, modify, and extend it to meet their specific needs.<br><br>Our open source approach also means we're accountable to our community. We actively welcome contributions from developers around the world, incorporating diverse perspectives that make our platform more robust, secure, and innovative. This collaborative development model has allowed us to build features and capabilities that truly address real-world observability challenges.<br><br>We're committed to maintaining a healthy balance between open source sustainability and commercial viability. While our core platform remains free and open source, we offer enterprise features and support services that fund our continued development and growth. This model ensures that OpenObserve remains accessible to everyone while continuing to evolve with the needs of our users."
       }
-    },
-
-    {
-      "title": " OpenObserve",
-      "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost"
-    },
-
-    {
-      "title": " OpenObserve",
-      "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-      "buttonText": "Get Started For Free",
-      "buttonLink": "#get-started"
-    },
-
-    {
-      "title": " OpenObserve",
-      "description": " Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-      "buttons": [
-        {
-          "text": "Get Started For Free",
-          "link": "#get-started",
-          "variant": "secondary"
-        },
-        {
-          "text": "Learn More",
-          "link": "#learn-more",
-          "variant": "tertiary"
-        }
-      ]
-    },
-
-    {
-      "items": [
-        {
-          "title": "Lightning Fast",
-          "description": "Built with Rust for exceptional performance and resource efficiency",
-          "buttonLink": "#performance-section",
-          "color": "text-primary-blue",
-          "buttonText": "Prove it",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-          "theme": "theme-blue"
-        },
-        {
-          "title": "Cost Effective",
-          "description": "140x lower cost compared to other solutions with efficient storage",
-          "buttonLink": "#efficiency-section",
-          "color": "text-vibrant-red",
-          "buttonText": "Prove it",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />",
-          "theme": "theme-red"
-        },
-        {
-          "title": "Open Source",
-          "description": "Fully open source with a vibrant community and regular updates",
-          "buttonLink": "#scalability-section",
-          "color": "text-primary-green",
-          "buttonText": "Prove it",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4\" />",
-          "theme": "theme-green"
-        }
-      ]
-    },
-
-    {
-      "title": "The \"open\" ethos",
-      "description": "Our commitment to openness drives everything we do",
-      "cardsData": [
-        {
-          "title": "Lightning Fast",
-          "description": "Built with Rust for exceptional performance and resource efficiency",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-          "theme": "theme-blue",
-          "items": [
-            "High throughput",
-            "Low latency",
-            "Optimized for modern hardware"
-          ]
-        },
-        {
-          "title": "Lightning Fast",
-          "description": "Built with Rust for exceptional performance and resource efficiency",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-          "theme": "theme-blue",
-          "items": [
-            "High throughput",
-            "Low latency",
-            "Optimized for modern hardware"
-          ]
-        }
-      ],
-      "cardsData2": [
-        {
-          "title": "Lightning Fast",
-          "description": "Built with Rust for exceptional performance and resource efficiency",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-          "theme": "theme-blue"
-        },
-        {
-          "title": "Lightning Fast",
-          "description": "Built with Rust for exceptional performance and resource efficiency",
-          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-          "theme": "theme-blue"
-        }
-      ]
-    },
-
-    {
-      "items": [
-        {
-          "heading": {
-            "title": "Efficiency",
-            "description": "Optimize your observability costs without sacrificing visibility"
-          },
-          "cardData": {
-            "quote": "We reduced our observability costs by 85% after switching to OpenObserve, while actually improving our visibility across our entire stack.",
-            "name": "Jamie Smith",
-            "role": "Senior Software Engineer",
-            "avatar": "/img/icon/slackIcon.svg"
-          },
-          "items": [
-            {
-              "title": "140x Lower Storage Costs",
-              "description": "Our efficient storage engine dramatically reduces the cost of storing logs, metrics, and traces."
-            },
-            {
-              "title": "Intelligent Data Sampling",
-              "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
-            },
-            {
-              "title": "Optimized Query Engine",
-              "description": "Fast, efficient queries that reduce compute costs and improve response times."
-            },
-            {
-              "title": "Intelligent Data Sampling",
-              "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
-            }
-          ],
-          "direction": "left"
-        },
-        {
-          "heading": {
-            "title": "Performance",
-            "description": "Lightning-fast observability for modern applications"
-          },
-          "cardData": {
-            "quote": "The performance of OpenObserve is incredible. We're querying billions of log lines in under a is incredible. We're querying billions of log lines in under a second, which was unthinkable with our previous solution",
-            "name": "Alex Johnson",
-            "role": "Senior Software Engineer",
-            "avatar": "/img/icon/slackIcon.svg"
-          },
-          "items": [
-            {
-              "title": "140x Lower Storage Costs",
-              "description": "Built with Rust for exceptional performance, memory safety, and resource efficiency."
-            },
-            {
-              "title": "Intelligent Data Sampling",
-              "description": "Get answers to your observability questions in milliseconds, not minutes."
-            },
-            {
-              "title": "Optimized Query Engine",
-              "description": "Optimized storage format for fast analytical queries over large datasets."
-            },
-            {
-              "title": "Intelligent Data Sampling",
-              "description": "Automatically parallelize queries to take advantage of all available resources."
-            }
-          ],
-          "direction": "right"
-        }
-      ]
-    },
-
-    {
-      "pageTag": "logs",
-      "title": "Powerful visibility at a fraction of the cost",
-      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
-      "buttons": [
-        {
-          "text": "Start For Free",
-          "link": "/",
-          "variant": "secondary"
-        },
-        {
-          "text": "Schedual a Demo",
-          "link": "/",
-          "variant": "tertiary"
-        }
-      ],
-      "image": "/img/herosection-image.png",
-      "altText": "herosecitonimage"
-    }
-  ],
-
-  "ourStory": {
-    "title": "Our Story",
-    "paragraphs": "OpenObserve was born from a simple yet powerful idea: observability should be accessible, efficient, and affordable for everyone.<br><br>Founded in 2022 by a team of engineers who experienced firsthand the challenges of managing observability at scale, we set out to build a solution that would dramatically reduce the cost and complexity of monitoring modern applications.<br><br>Our journey began with a clear mission: to create an open-source observability platform that delivers enterprise-grade features without the enterprise-grade price tag. Today, OpenObserve helps organizations of all sizes gain deeper insights into their systems while using up to 10x less storage and computing resources.",
-    "image": {
-      "src": "/img/logo.svg",
-      "alt": "OpenObserve founding team"
-    },
-    "link": {
-      "text": "Read our full journey",
-      "url": "/blog/our-journey"
-    }
-  },
-  "ourCommitment": {
-    "title": "Our Commitment to Open Source",
-    "paragraphs": "At OpenObserve, we believe that open source is the foundation of innovation in technology. Our commitment to open source goes beyond just making our code available—it's about fostering a collaborative ecosystem where everyone benefits from shared knowledge and collective improvement.<br><br>We've built our platform on open source principles because we believe observability tools should be transparent, customizable, and community-driven. By making our core technology open source, we ensure that users have complete visibility into how their observability platform works, with the freedom to inspect, modify, and extend it to meet their specific needs.<br><br>Our open source approach also means we're accountable to our community. We actively welcome contributions from developers around the world, incorporating diverse perspectives that make our platform more robust, secure, and innovative. This collaborative development model has allowed us to build features and capabilities that truly address real-world observability challenges.<br><br>We're committed to maintaining a healthy balance between open source sustainability and commercial viability. While our core platform remains free and open source, we offer enterprise features and support services that fund our continued development and growth. This model ensures that OpenObserve remains accessible to everyone while continuing to evolve with the needs of our users."
+    ]
   }
 }

@@ -24,8 +24,9 @@ import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import CTA from "@/components/core/CTA.vue";
 import CardWithSideIconWrapper from "./wrapper/CardWithSideIconWrapper.vue";
-
-
+import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
+import CardWrapper from "@/components/wrapper/CardWrapper.vue";
+import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -50,6 +51,10 @@ const componentsMap = computed(() => ({
   "section-hero.cta-buttons": CTA,
   "section-features.benefits": HomeCardWrapper,
   "section-features.architecture": CardWithSideIconWrapper,
+  "section-hero.homepage-hero": HomeHerosection,
+  "section-cards.homepage-features": CardWrapper,
+  "section-cta.homepage-cta": CTA,
+  "section-features.homepage-feature-details": CustomInterchangeWrapper,
 }));
 
 const getComponentProps = (it) => {
@@ -62,6 +67,8 @@ const getComponentProps = (it) => {
       return { ...it, items: props.blogs };
     case "section-cta.banner":
       return { ...it, ...props.bannerData };
+    case "section-hero.homepage-hero":
+      return { data: it };
     default:
       return it;
   }

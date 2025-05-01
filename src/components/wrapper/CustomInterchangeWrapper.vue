@@ -3,7 +3,7 @@ import CustomInterchange from "../core/CustomInterchange.vue";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
-  interchangeCard: {
+  items: {
     type: Array,
     required: true,
   },
@@ -11,13 +11,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <div v-for="(card, index) in interchangeCard" :key="index"
-    :class="card.direction === 'left' ? 'bg-white' : 'bg-gray-100'">
-    <CustomSection sectionClass="py-0 sm:py-0 md:py-0 lg:py-0 xl:py-0">
-      <div>
-        <CustomInterchange :heading="card.heading" :cardData="card.cardData" :items="card.items"
-          :direction="card.direction || 'left'" />
+  <CustomSection sectionClass="py-0 sm:py-0 md:py-0 lg:py-0 xl:py-0">
+    <div class="flex flex-col gap-16">
+      <div v-for="(card, index) in items" :key="index">
+        <CustomInterchange
+          :heading="card.heading"
+          :cardData="card.cardData"
+          :items="card.items"
+          :direction="card.direction || 'left'"
+        />
       </div>
-    </CustomSection>
-  </div>
+    </div>
+      </CustomSection>  
 </template>
