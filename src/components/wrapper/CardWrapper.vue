@@ -13,11 +13,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  cardsData: {
-    type: Array,
-    required: true,
-  },
-  cardsData2: {
+  items: {
     type: Array,
     required: true,
   },
@@ -31,15 +27,15 @@ const props = defineProps({
       <HeadingSection :title="title" :description="description" align="center" />
 
       <!-- Cards Section -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         <!-- CardWithShadowBorder -->
-        <CardWithShadowBorder v-for="(card, index) in cardsData" :key="index" :title="card.title"
+        <CardWithShadowBorder v-for="(card, index) in items" :key="index" :title="card.title"
           :description="card.description" :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink"
           :theme="card.theme" :items="card.items" />
 
         <!-- CardWithSideIcon -->
-        <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
-          :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" />
+        <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
+          :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" /> -->
       </div>
     </div>
   </CustomSection>
