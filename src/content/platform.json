@@ -1,0 +1,208 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "about-page",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.product-hero",
+        "id": 1,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost"
+      },
+      {
+        "__component": "section-hero.cta-buttons",
+        "id": 2,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "buttons": [
+          {
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
+          },
+          {
+            "text": "Learn More",
+            "link": "#learn-more",
+            "variant": "tertiary"
+          }
+        ]
+      },
+      {
+        "__component": "section-features.benefits",
+        "id": 3,
+        "items": [
+          {
+            "title": "Unparalleled Efficiency",
+            "description": "10x more cost-effective with superior performance compared to traditional solutions",
+            "color": "text-primary-blue",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Deploy in Under 2 Minutes",
+            "description": "Quick setup with minimal configuration to get your observability platform running instantly",
+            "color": "text-primary-blue",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Flexible Deployment Options",
+            "description": "Deploy on-premises, in the cloud, or in hybrid environments to match your infrastructure needs",
+            "color": "text-primary-blue",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.ethos",
+        "id": 4,
+        "title": "The \"open\" ethos",
+        "description": "Our commitment to openness drives everything we do",
+        "cardsData": [
+          {
+            "title": "Lightning Fast",
+            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue",
+            "items": [
+              "High throughput",
+              "Low latency",
+              "Optimized for modern hardware"
+            ]
+          },
+          {
+            "title": "Lightning Fast",
+            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue",
+            "items": [
+              "High throughput",
+              "Low latency",
+              "Optimized for modern hardware"
+            ]
+          }
+        ],
+        "cardsData2": [
+          {
+            "title": "Lightning Fast",
+            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Lightning Fast",
+            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          }
+        ]
+      },
+      {
+        "__component": "section-testimonials.feature-testimonials",
+        "id": 5,
+        "items": [
+          {
+            "heading": {
+              "title": "Efficiency",
+              "description": "Optimize your observability costs without sacrificing visibility"
+            },
+            "cardData": {
+              "quote": "We reduced our observability costs by 85% after switching to OpenObserve, while actually improving our visibility across our entire stack.",
+              "name": "Jamie Smith",
+              "role": "Senior Software Engineer",
+              "avatar": "/img/icon/slackIcon.svg"
+            },
+            "items": [
+              {
+                "title": "140x Lower Storage Costs",
+                "description": "Our efficient storage engine dramatically reduces the cost of storing logs, metrics, and traces."
+              },
+              {
+                "title": "Intelligent Data Sampling",
+                "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
+              },
+              {
+                "title": "Optimized Query Engine",
+                "description": "Fast, efficient queries that reduce compute costs and improve response times."
+              },
+              {
+                "title": "Intelligent Data Sampling",
+                "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
+              }
+            ],
+            "direction": "left"
+          },
+          {
+            "heading": {
+              "title": "Performance",
+              "description": "Lightning-fast observability for modern applications"
+            },
+            "cardData": {
+              "quote": "The performance of OpenObserve is incredible. We're querying billions of log lines in under a is incredible. We're querying billions of log lines in under a second, which was unthinkable with our previous solution",
+              "name": "Alex Johnson",
+              "role": "Senior Software Engineer",
+              "avatar": "/img/icon/slackIcon.svg"
+            },
+            "items": [
+              {
+                "title": "140x Lower Storage Costs",
+                "description": "Built with Rust for exceptional performance, memory safety, and resource efficiency."
+              },
+              {
+                "title": "Intelligent Data Sampling",
+                "description": "Get answers to your observability questions in milliseconds, not minutes."
+              },
+              {
+                "title": "Optimized Query Engine",
+                "description": "Optimized storage format for fast analytical queries over large datasets."
+              },
+              {
+                "title": "Intelligent Data Sampling",
+                "description": "Automatically parallelize queries to take advantage of all available resources."
+              }
+            ],
+            "direction": "right"
+          }
+        ]
+      },
+      {
+        "__component": "section-hero.product-feature",
+        "id": 6,
+        "pageTag": "logs",
+        "title": "Powerful visibility at a fraction of the cost",
+        "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
+        "buttons": [
+          {
+            "text": "Start For Free",
+            "link": "/",
+            "variant": "secondary"
+          },
+          {
+            "text": "Schedual a Demo",
+            "link": "/",
+            "variant": "tertiary"
+          }
+        ],
+        "image": "/img/herosection-image.png",
+        "altText": "herosecitonimage"
+      }
+    ],
+    "seo": {
+      "id": 999,
+      "title": "About OpenObserve",
+      "description": "Learn about OpenObserve's mission, story, and commitment to open-source observability.",
+      "viewport": null,
+      "creator": null,
+      "publisher": null,
+      "category": null,
+      "robots": null,
+      "manifest": null,
+      "Alternates": null,
+      "Authors": null,
+      "OpenGraph": null,
+      "Twitter": null
+    }
+  },
+  "meta": {}
+}

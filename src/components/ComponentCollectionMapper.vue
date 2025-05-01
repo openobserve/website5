@@ -20,6 +20,10 @@ import VerticalTabs from "@/components/TabsComponent/VerticalTabs.vue";
 import FaqsWrapper from "./faqs/FaqsWrapper.vue";
 import HorizontalTabsWrapper from "./wrapper/HorizontalTabsWrapper.vue";
 import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
+import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import CTA from "@/components/core/CTA.vue";
+
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -40,7 +44,10 @@ const componentsMap = computed(() => ({
   "section-solutions.solutions": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-solutions.capabilities": CapabilityTabs,
-  "section-solutions.faqs": FaqsWrapper
+  "section-solutions.faqs": FaqsWrapper,
+  "section-hero.product-hero": CommonHeroSection,
+  "section-hero.cta-buttons": CTA,
+  "section-features.benefits": HomeCardWrapper,
 }));
 
 const getComponentProps = (it) => {
