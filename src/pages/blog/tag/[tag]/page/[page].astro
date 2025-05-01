@@ -1,0 +1,79 @@
+---
+import {
+  getAllCategories,
+  getBlogsByPaginationAndCategory,
+  getBlogsCategoryDetails,
+} from "@/utils/api/blog";
+import Layout from "@/layouts/Layout.astro";
+import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
+
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  let paths = [];
+
+  for (const category of categories) {
+    const { totalPages } = await getBlogsByPaginationAndCategory(
+      1,
+      category.slug
+    );
+
+    if (totalPages > 1) {
+      for (let page = 2; page <= totalPages; page++) {
+        paths.push({
+          params: { tag: category.slug, page: page.toString() },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+// Get the current page from Astro props
+const { page, tag } = Astro.params;
+const currentPage = parseInt(page);
+
+const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+  currentPage,
+  tag
+);
+
+const suggestionData = await getAllCategories();
+const category = await getBlogsCategoryDetails(tag);
+
+const metaObj = {
+  title:
+    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+};
+---
+
+<Layout metaObj={metaObj}>
+  <!-- <ResourceHeroSection
+    title="Blog"
+    description={`Post by the category: ${category?.name}`}
+  /> -->
+  <CustomSection sectionClass="">
+    <BlogCategoryListing
+      categories={suggestionData.slice(
+        0,
+        Math.min(5, suggestionData.length)
+      ) || []}
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
+        []}
+      type="blog"
+      client:load
+    />
+
+    <BlogsListingWrapper
+      type="blog"
+      blogsData={blogs}
+      client:load
+      subType="tag"
+      identifier={tag}
+      currentPage={currentPage}
+      totalItems={totalBlogs}
+    />
+  </CustomSection>
+</Layout>
