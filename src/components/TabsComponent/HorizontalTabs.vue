@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-6">
+  <div >
     <div v-for="tab in tabs" :key="tab.value">
       <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
         <div class="space-y-4">
