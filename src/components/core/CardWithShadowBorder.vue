@@ -12,7 +12,7 @@ const props = defineProps<{
   buttonLink?: string;
   align?: 'left' | 'center' | 'right';
   theme?: string;
-  items?: string[];
+items?: string[];
 }>();
 </script>
 

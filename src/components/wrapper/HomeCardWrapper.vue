@@ -16,20 +16,14 @@ const props = defineProps<{
 </script>
 
 <template>
-    <CustomSection >
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <CardWithShadowBorder
-      v-for="(card, index) in props.data"
-      :key="index"
-      :title="card.title"
-      :description="card.description"
-      :icon="card.icon"
-      :buttonText="card.buttonText"
-      :buttonLink="card.buttonLink"
-      :theme="card.theme"
-      :items="card.items"
-    />
-   
+  <div class="bg-gray-50">
+    <CustomSection>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :title="card.title"
+          :description="card.description" :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink"
+          :theme="card.theme" :items="card.items" />
+
+      </div>
+    </CustomSection>
   </div>
-</CustomSection>
 </template>
