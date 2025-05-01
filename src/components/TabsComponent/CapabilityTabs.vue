@@ -38,7 +38,7 @@
                       </li>
                     </ul>
                     <button
-                      class="bg-primary-purple hover:bg-dark-purple text-white py-2 px-4 rounded transition-colors">
+                      class="bg-primary-purple hover:bg-dark-purple text-white py-2 px-4 rounded transition-colors cursor-pointer">
                       {{ tab.card.buttonText }}
                     </button>
                   </div>
