@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import HeadingSection from '../core/HeadingSection.vue';
 
+import { Check } from 'lucide-vue-next';
+
+
 const props = defineProps({
   title: String,
   description: String,
@@ -20,16 +23,16 @@ const activeIndex = ref(0)
     <div class="container mx-auto px-4">
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
-      <div class="flex flex-col lg:flex-row gap-8">
+      <div :class="['flex flex-col lg:flex-row gap-8', props?.items[activeIndex]?.theme]">
         <!-- Left Navigation -->
         <div class="lg:w-1/4">
           <div class="bg-[#f9fafc] rounded-lg p-4">
-            <h3 class="text-lg font-semibold mb-4 px-2">Solutions</h3>
+            <h3 class="text-lg font-semibold mb-4 px-2 text-black">Solutions</h3>
             <nav class="space-y-1">
               <button v-for="(solution, index) in items" :key="solution.id" @click="activeIndex = index" :class="[
                 'w-full text-left px-4 py-3 rounded-md transition-colors cursor-pointer',
                 activeIndex === index
-                  ? `bg-${solution.color} text-white`
+                  ? 'bg-tabs-background text-white'
                   : 'hover:bg-gray-100 text-gray-600'
               ]">
                 {{ solution.title }}
@@ -46,7 +49,7 @@ const activeIndex = ref(0)
               <div class="p-8">
                 <h3 :class="[
                   'text-2xl font-bold mb-4',
-                  `text-${items[activeIndex].color}`
+                  'text-tabs-title-text'
                 ]">
                   {{ items[activeIndex].title }}
                 </h3>
@@ -55,22 +58,23 @@ const activeIndex = ref(0)
                 </p>
 
                 <div class="space-y-4 mb-8">
-                  <div v-for="(feature, idx) in items[activeIndex].features" :key="idx" class="flex items-start">
-                    <svg :class="[
+                  <div v-for="(feature, idx) in items[activeIndex].features" :key="idx" class="flex items-start text-black">
+                    <!-- <svg :class="[
                       'w-5 h-5 mr-3 flex-shrink-0 mt-0.5',
-                      `text-${items[activeIndex].color}`
+                      'text-tabs-title-text'
                     ]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                         clip-rule="evenodd" />
-                    </svg>
+                    </svg> -->
+                    <Check class="rounded-full p-1 w-5 h-5 mr-3 flex-shrink-0 mt-0.5 bg-tabs-background/20 text-tabs-title-text" />
                     <span>{{ feature }}</span>
                   </div>
                 </div>
 
                 <a :href="`/solutions/${items[activeIndex].title.replace(/\s+/g, '-').toLowerCase()}`" :class="[
                   'inline-flex items-center font-medium',
-                  `text-${items[activeIndex].color}`
+                  'text-tabs-title-text'
                 ]">
                   Learn more about {{ items[activeIndex].title }}
                   <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

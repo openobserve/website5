@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// without shadow, border and background color 
-
+// with background color, without border and shadow
 
 import CustomButton from "./CustomButton.vue";
 import { Check } from 'lucide-vue-next';
@@ -20,7 +19,7 @@ const props = defineProps<{
 <template>
     <div
     :class="[
-      'rounded-xl p-6 flex flex-col',
+      'rounded-xl p-6 flex flex-col bg-gray-50',
       props.align === 'center'
         ? 'items-center text-center'
         : props.align === 'right'

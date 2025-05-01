@@ -10,7 +10,6 @@
             "id": 1,
             "title": "Infrastructure Monitoring",
             "description": "Comprehensive visibility into your infrastructure performance, health, and resource utilization.",
-            "color": "primary-purple",
             "features": [
               "Server metrics and health monitoring",
               "Container and Kubernetes observability",
@@ -19,7 +18,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+            "theme": "theme-purple"
           },
           {
             "id": 2,
@@ -34,7 +34,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+             "theme": "theme-blue"
           },
           {
             "id": 3,
@@ -49,7 +50,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+            "theme":"theme-green"
           },
           {
             "id": 4,
@@ -64,7 +66,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+            "theme":"theme-red"
           },
           {
             "id": 5,
@@ -79,7 +82,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+            "theme":"theme-blue"
           },
           {
             "id": 6,
@@ -94,7 +98,8 @@
             ],
             "image": {
               "url": "/img/logo.svg"
-            }
+            },
+            "theme":"theme-purple"
           }
         ]
       },
@@ -108,7 +113,7 @@
             "label": "Real-Time Visibility",
             "badge": {
               "text": "Real-Time Insights",
-              "class": "bg-primary-blue text-white hover:bg-primary-blue/90"
+              "theme": "theme-blue"
             },
             "title": "Real-Time Visibility & Insights",
             "description": "Get immediate visibility into your AWS infrastructure with real-time dashboards and alerts. Monitor performance metrics, logs, and traces in a unified view.",
@@ -133,7 +138,7 @@
             "label": "Data Processing",
             "badge": {
               "text": "Data Processing",
-              "class": "bg-primary-purple text-white hover:bg-primary-purple/90"
+              "theme": "theme-purple"
             },
             "title": "Efficient Data Processing",
             "description": "Process terabytes of observability data with our highly optimized data pipeline. Ingest, process, and analyze logs and metrics at scale without performance bottlenecks.",
@@ -158,7 +163,7 @@
             "label": "Service Coverage",
             "badge": {
               "text": "Service Coverage",
-              "class": "bg-primary-green text-white hover:bg-primary-green/90"
+              "theme": "theme-green"
             },
             "title": "Service Coverage & Integration",
             "description": "Monitor all your AWS services from a single platform. Our solution integrates seamlessly with EC2, Lambda, S3, RDS, ECS, EKS, and many more AWS services.",
@@ -183,7 +188,7 @@
             "label": "Cost-Effective",
             "badge": {
               "text": "Cost Optimization",
-              "class": "bg-vibrant-red text-white hover:bg-vibrant-red/90"
+              "theme": "theme-red"
             },
             "title": "Cost-Effective Monitoring",
             "description": "Reduce your observability costs by up to 90% compared to traditional solutions. Our efficient architecture and intelligent data handling minimize storage and processing costs.",

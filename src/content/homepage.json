@@ -90,7 +90,6 @@
         {
           "title": "Lightning Fast",
           "description": "Built with Rust for exceptional performance and resource efficiency",
-          "color": "text-primary-blue",
           "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
           "theme": "theme-blue",
           "items": [
@@ -102,7 +101,6 @@
         {
           "title": "Lightning Fast",
           "description": "Built with Rust for exceptional performance and resource efficiency",
-          "color": "text-primary-blue",
           "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
           "theme": "theme-blue",
           "items": [
@@ -110,6 +108,20 @@
             "Low latency",
             "Optimized for modern hardware"
           ]
+        }
+      ],
+      "cardsData2": [
+        {
+          "title": "Lightning Fast",
+          "description": "Built with Rust for exceptional performance and resource efficiency",
+          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+          "theme": "theme-blue"
+        },
+        {
+          "title": "Lightning Fast",
+          "description": "Built with Rust for exceptional performance and resource efficiency",
+          "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+          "theme": "theme-blue"
         }
       ]
     },

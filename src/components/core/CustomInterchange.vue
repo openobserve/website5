@@ -61,9 +61,9 @@ const sectionClasses = computed(() => ({
           <div v-for="(item, index) in items" :key="index" class="flex items-start">
             <Check class="h-5 w-5 mr-3 bg-blue-500/20 rounded-full p-1 flex-shrink-0 text-blue-500" />
             <div class="flex flex-col space-y-1">
-              <h3 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black">
+              <h2 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black">
                 {{ item.title }}
-              </h3>
+              </h2>
               <p class="font-inter text-sm text-gray-800">{{ item.description }}</p>
             </div>
           </div>
