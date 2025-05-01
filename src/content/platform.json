@@ -72,6 +72,60 @@
             "description": "Unified view of logs, metrics, and traces in a single platform",
             "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Powerful Alerting",
+            "description": "Create sophisticated alerts with multiple notification channels",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Data Retention",
+            "description": "Configurable data retention policies with hot and cold storage options",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Multi-tenancy",
+            "description": "Support for multiple teams with isolated data and access controls",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Enterprise Security",
+            "description": "Advanced security features including SSO, RBAC, and audit logging",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "SLA Guarantees",
+            "description": "Enterprise-grade SLAs with 24/7 support and guaranteed uptime",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Custom Integrations",
+            "description": "Custom integrations with your existing tools and workflows",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Advanced Analytics",
+            "description": "AI-powered analytics and anomaly detection capabilities",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Dedicated Infrastructure",
+            "description": "Dedicated infrastructure with custom scaling options",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Compliance",
+            "description": "Support for compliance requirements including GDPR, HIPAA, and SOC2",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
       },
