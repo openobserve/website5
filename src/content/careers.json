@@ -14,49 +14,46 @@
         "buttonText": "See All Positions"
       },
       {
-        "__component": "section-text.mission-statement",
-        "id": 2,
-        "text": "At OpenObserve, we're committed to creating an environment where you can do your best work."
-      },
-      {
         "__component": "section-cards.career-benefits",
         "id": 3,
+        "title": "Why Work With Us",
+        "description": "At OpenObserve, we're committed to creating an environment where you can do your best work.",
         "items": [
           {
             "title": "Work-Life Balance",
             "description": "Flexible working hours and generous time off to ensure you stay refreshed and motivated.",
-            "icon": "i-lucide-heart",
-            "iconColor": "bg-purple-700"
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\" />",
+            "iconColor": "theme-purple"
           },
           {
             "title": "Innovation Focus",
             "description": "We encourage creative thinking and provide time for exploration and experimentation.",
-            "icon": "i-lucide-lightbulb",
-            "iconColor": "bg-blue-700"
+            "icon": "<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\" stroke-width=\"2\" /><path d=\"M9 18h6\" stroke-width=\"2\"/><path d=\"M10 22h4\"stroke-width=\"2\" />",
+            "iconColor": "theme-blue"
           },
           {
             "title": "Growth Opportunities",
             "description": "Continuous learning with individual budgets for conferences, courses, and certifications.",
-            "icon": "i-lucide-trending-up",
-            "iconColor": "bg-emerald-700"
+            "icon": "<line x1=\"12\" x2=\"12\" y1=\"20\" y2=\"10\" stroke-width=\"2\"/><line x1=\"18\" x2=\"18\" y1=\"20\" y2=\"4\" stroke-width=\"2\"/><line x1=\"6\" x2=\"6\" y1=\"20\" y2=\"16\" stroke-width=\"2\"/>",
+            "iconColor": "theme-green"
           },
           {
             "title": "Inclusive Culture",
             "description": "A diverse and supportive environment where all voices are heard and valued.",
-            "icon": "i-lucide-users",
-            "iconColor": "bg-red-700"
+            "icon": "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\" stroke-width=\"2\"/><circle cx=\"9\" cy=\"7\" r=\"4\" stroke-width=\"2\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"stroke-width=\"2\" /><path d=\"M16 3.13a4 4 0 0 1 0 7.75\" stroke-width=\"2\"/>",
+            "iconColor": "theme-red"
           },
           {
             "title": "Remote-First",
             "description": "Work from anywhere with a distributed team spanning multiple time zones and countries.",
-            "icon": "i-lucide-globe",
-            "iconColor": "bg-indigo-700"
+            "icon": "<circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"2\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" stroke-width=\"2\"/><path d=\"M2 12h20\"stroke-width=\"2\"/>",
+            "iconColor": "theme-blue"
           },
           {
             "title": "Competitive Benefits",
             "description": "Comprehensive health coverage, retirement plans, and competitive compensation packages.",
-            "icon": "i-lucide-shield",
-            "iconColor": "bg-cyan-700"
+            "icon": "<path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\" stroke-width=\"2\"/><rect width=\"20\" height=\"14\" x=\"2\" y=\"6\" rx=\"2\" stroke-width=\"2\"/>",
+            "iconColor": "theme-purple"
           }
         ]
       },
@@ -69,38 +66,66 @@
           {
             "title": "20+ Countries",
             "description": "Team members across North America, Europe, Asia, and Australia",
-            "icon": "i-lucide-globe"
+            "icon": "<circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"2\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" stroke-width=\"2\"/><path d=\"M2 12h20\"stroke-width=\"2\"/>",
+            "iconColor": "theme-purple"
           },
           {
             "title": "24/7 Coverage",
             "description": "Continuous development and support across all time zones",
-            "icon": "i-lucide-clock"
+            "icon": "<circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"2\"/><polyline points=\"12 6 12 12 16 14\" stroke-width=\"2\"/>",
+            "iconColor": "theme-blue"
           },
           {
             "title": "Multiple Languages",
             "description": "Our team communicates in 10+ languages, bringing global perspectives",
-            "icon": "i-lucide-message-circle"
+            "icon": "<path stroke-width=\"2\" d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+            "iconColor": "theme-green"
           },
           {
             "title": "Local Expertise",
             "description": "Deep understanding of regional markets and technical requirements",
-            "icon": "i-lucide-map-pin"
+            "icon": "<path stroke-width=\"2\" d=\"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z\"/>",
+            "iconColor": "theme-red"
           }
         ],
         "mapText": "Work from anywhere in the world",
         "mapDots": [
-          { "x": 25, "y": 30, "color": "bg-blue-500" },
-          { "x": 35, "y": 40, "color": "bg-green-500" },
-          { "x": 45, "y": 20, "color": "bg-red-500" },
-          { "x": 55, "y": 60, "color": "bg-purple-500" },
-          { "x": 65, "y": 35, "color": "bg-yellow-500" },
-          { "x": 75, "y": 45, "color": "bg-cyan-500" }
+          {
+            "x": 25,
+            "y": 30,
+            "color": "bg-blue-500"
+          },
+          {
+            "x": 35,
+            "y": 40,
+            "color": "bg-green-500"
+          },
+          {
+            "x": 45,
+            "y": 20,
+            "color": "bg-red-500"
+          },
+          {
+            "x": 55,
+            "y": 60,
+            "color": "bg-purple-500"
+          },
+          {
+            "x": 65,
+            "y": 35,
+            "color": "bg-yellow-500"
+          },
+          {
+            "x": 75,
+            "y": 45,
+            "color": "bg-cyan-500"
+          }
         ]
       },
       {
         "__component": "section-testimonials.employee-testimonials",
         "id": 5,
-        "title": "Employee Testimonials",
+        "title": "Hear From Our Team",
         "description": "Our employees are our greatest asset. Here's what they have to say about working at OpenObserve.",
         "items": [
           {
@@ -159,17 +184,50 @@
           "Security at every layer"
         ],
         "techTags": [
-          { "name": "Rust", "color": "bg-orange-500 text-white" },
-          { "name": "Go", "color": "bg-blue-500 text-white" },
-          { "name": "TypeScript", "color": "bg-blue-700 text-white" },
-          { "name": "React", "color": "bg-cyan-500 text-white" },
-          { "name": "Redux", "color": "bg-purple-500 text-white" },
-          { "name": "Kubernetes", "color": "bg-blue-600 text-white" },
-          { "name": "Docker", "color": "bg-blue-800 text-white" },
-          { "name": "AWS", "color": "bg-yellow-500 text-white" },
-          { "name": "GCP", "color": "bg-red-500 text-white" },
-          { "name": "REST", "color": "bg-gray-700 text-white" },
-          { "name": "GraphQL", "color": "bg-pink-600 text-white" }
+          {
+            "name": "Rust",
+            "color": "bg-orange-500 text-white"
+          },
+          {
+            "name": "Go",
+            "color": "bg-blue-500 text-white"
+          },
+          {
+            "name": "TypeScript",
+            "color": "bg-blue-700 text-white"
+          },
+          {
+            "name": "React",
+            "color": "bg-cyan-500 text-white"
+          },
+          {
+            "name": "Redux",
+            "color": "bg-purple-500 text-white"
+          },
+          {
+            "name": "Kubernetes",
+            "color": "bg-blue-600 text-white"
+          },
+          {
+            "name": "Docker",
+            "color": "bg-blue-800 text-white"
+          },
+          {
+            "name": "AWS",
+            "color": "bg-yellow-500 text-white"
+          },
+          {
+            "name": "GCP",
+            "color": "bg-red-500 text-white"
+          },
+          {
+            "name": "REST",
+            "color": "bg-gray-700 text-white"
+          },
+          {
+            "name": "GraphQL",
+            "color": "bg-pink-600 text-white"
+          }
         ]
       },
       {
