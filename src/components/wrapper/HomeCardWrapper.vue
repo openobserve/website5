@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CustomSection from "../core/CustomSection.vue";
+import HeadingSection from "../core/HeadingSection.vue";
 
 const props = defineProps<{
   align: string; // Changed from strict union type to string
+  title?: string;
+  description?: string;
   data: Array<{
     title: string;
     description: string;
@@ -19,6 +22,9 @@ const props = defineProps<{
 <template>
   <div class="bg-gray-50">
     <CustomSection>
+      <div class="mb-8">
+        <HeadingSection :title="props.title" :description="props.description" align="center" />
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :title="card.title"
           :description="card.description" :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink"
