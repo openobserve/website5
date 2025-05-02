@@ -26,7 +26,7 @@ import SearchBar from './SearchBar.vue'
 const props = defineProps({
   title: {
     type: String,
-    default: 'Frequently Asked Questions'
+    default: ''
   },
   description: {
     type: String,

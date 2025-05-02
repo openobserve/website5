@@ -22,7 +22,7 @@ defineProps<{ data: HeroData }>();
 <template>
   <section class="relative overflow-hidden py-20 md:py-32 -z-10 inset-0 bg-primary-black ">
 
-    <div class="container mx-auto px-4 relative -z-10">
+    <div class="container mx-auto sm:px-6 lg:px-8 xl:px-11 relative -z-10">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <!-- Left Side -->
         <div class="space-y-8">
