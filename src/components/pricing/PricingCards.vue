@@ -1,16 +1,22 @@
 <template>
   <div
     v-if="activeTabData"
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
+    class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 gap-6 w-full"
   >
     <div
       v-for="(item, index) in activeTabData.items"
       :key="index"
-     class="p-6 border rounded-lg shadow space-y-4 relative"
-     :class="item.container ?? ''"
+      class="p-6 border rounded-lg shadow space-y-4 relative"
+      :class="[
+        'p-6 border rounded-lg shadow space-y-4 relative col-span-2',
+        item.container ?? '',
+        item.container ?? '',
+        activeTabData.items.length === 1 ? 'lg:col-span-6' : '',
+        activeTabData.items.length === 2 ? 'lg:col-span-3' : ''
+      ]"
     >
-     <!-- Badge positioned at the top-right -->
-     <span
+      <!-- Badge positioned at the top-right -->
+      <span
         v-if="item.badge"
         class="absolute -top-3 left-1/2 sm:left-44 -translate-x-1/2 lg:left-1/2 text-xs px-2 py-1 rounded-full"
         :class="item.theme"
