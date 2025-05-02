@@ -35,7 +35,7 @@ const props = defineProps({
       <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
         {{ title }}
       </h1>
-      <p class="text-white text-lg md:text-xl max-w-3xl mx-auto text-center">
+      <p class="text-white text-lg md:text-xl">
         {{ description }}
       </p>
       <!-- Button -->

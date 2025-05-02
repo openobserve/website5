@@ -1,0 +1,142 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.common-hero",
+        "id": 1,
+        "title": "Simple, Transparent Pricing",
+        "description": "Choose the plan that's right for your observality needs",
+        "align": "center"
+      },
+      {
+        "__component": "section-pricing.pricing-options",
+        "id": 3,
+        "tabs": [
+          {
+            "value": "openobserve-cloud",
+            "label": "Cloud",
+            "title": "OpenObserve Clouds",
+            "items": [
+              {
+                "title": "Starter",
+                "description": "Perfect for small teams and projects",
+                "price": "$49",
+                "period": "/month",
+                "features": [
+                  "Up to 50GB data ingestion",
+                  "7-day data retention",
+                  "3 team members",
+                  "Basic alerting"
+                ],
+                "button": {
+                  "text": "Get Started",
+                  "class": "outline"
+                }
+              },
+              {
+                "title": "Professional",
+                "badge": "Most Popular",
+                "description": "Ideal for growing businesses",
+                "price": "$199",
+                "period": "/month",
+                "features": [
+                  "Up to 500GB data ingestion",
+                  "30-day data retention",
+                  "10 team members",
+                  "Advanced alerting",
+                  "Custom dashboards"
+                ],
+                "button": {
+                  "text": "Get Started",
+                  "class": "bg-primary-purple text-white hover:bg-dark-purple"
+                },
+                "theme":"bg-primary-purple text-white",
+                "container":"border-primary-purple bg-primary-purple/10"
+              },
+              {
+                "title": "Enterprise",
+                "description": "For large-scale observability needs",
+                "price": "Custom",
+                "features": [
+                  "Unlimited data ingestion",
+                  "Configurable data retention",
+                  "Unlimited team members",
+                  "Enterprise-grade security",
+                  "Dedicated support",
+                  "SLA guarantees"
+                ],
+                "button": {
+                  "text": "Contact Sales",
+                  "class": "outline"
+                }
+              }
+            ]
+          },
+          {
+            "value": "self-hosted",
+            "label": "Self Hosted",
+            "title": "OpenObserve Self-hosted",
+            "items": [
+              {
+                "title": "Open Source",
+                "description": "Free and open source forever",
+                "price": "$0",
+                "period": "forever",
+                "features": [
+                  "Self-managed infrastructure",
+                  "Full observability platform",
+                  "Community support",
+                  "MIT licensed"
+                ],
+                "button": {
+                  "text": "Get Started",
+                  "class": "outline"
+                }
+              },
+              {
+                "title": "Enterprise",
+                "description": "For mission-critical deployments",
+                "price": "Custom",
+                "features": [
+                  "Everything in Open Source",
+                  "Enterprise support SLAs",
+                  "Implementation assistance",
+                  "Custom integrations",
+                  "Training and onboarding"
+                ],
+                "button": {
+                  "text": "Contact Sales",
+                  "class": "bg-sky-500 text-white hover:bg-sky-600"
+                },
+                "container":"border-sky-300 bg-sky-300/10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "section-cta.homepage-cta",
+        "id": 5,
+        "title": "Ready to see OpenObserve in action?",
+        "description": "Schedule a personalized demo with our team to see how OpenObserve can transform your observability strategy.",
+        "buttons": [
+          {
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
+          },
+          {
+            "text": "Schedule Demo",
+            "link": "#schedule-demo",
+            "variant": "tertiary"
+          }
+        ]
+      }
+    ]
+  }
+}
