@@ -31,6 +31,8 @@ import OurStory from "@/components/core/OurStory.vue";
 import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
+import BlogSection from "./contactus/BlogSection.vue";
+
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -63,7 +65,9 @@ const componentsMap = computed(() => ({
   "section-story.our-commitment": OurCommitmentO2,
   "section-hero.common-hero": CommonHeroSection,
   "section-story.our-partners": OurPartners,
-  "section-hero.platform-sub-hero": HeroSectionWithImage
+  "section-hero.platform-sub-hero": HeroSectionWithImage,
+  "section-features.paltofrm-sub-benefits": HomeCardWrapper,
+  // "section-solutions.recent-blogs": BlogSection,
 }));
 
 const getComponentProps = (it) => {
