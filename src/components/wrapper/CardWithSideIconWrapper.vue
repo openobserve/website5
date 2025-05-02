@@ -26,7 +26,7 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-  },
+  }
 });
 const tabs = [
   { label: 'Standard', value: 'standard' },
@@ -58,7 +58,8 @@ const activeTab = ref('standard')
       <!-- Centered Tabs -->
       <div class="flex justify-center mt-6">
         <div class="inline-flex">
-          <TabsHeader :tabs="tabs" :activeTab="activeTab" @update:activeTab="activeTab = $event" />
+          <TabsHeader :tabs="tabs" :activeTab="activeTab"
+            gridClass="grid w-full max-w-3xl grid-cols-2 gap-2" @update:activeTab="activeTab = $event" />
         </div>
       </div>
 

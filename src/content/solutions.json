@@ -2,6 +2,93 @@
   "data": {
     "body": [
       {
+        "__component": "section-hero.product-hero",
+        "id": 1,
+        "title": "Complete Observability Solutions",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "align": "center"
+      },
+      {
+        "__component": "section-cards.homepage-features",
+        "id": 2,
+        "title": "Why Choose OpenObserve?",
+        "align": "center",
+        "data": [
+          {
+            "title": "High Performance",
+            "description": "10x more efficient than traditional solutions, with significantly lower resource consumption and faster query response times",
+            "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Cost Effective",
+            "description": " Reduce your observability costs by up to 80% while maintaining enterprise-grade capabilities andreliability.",
+            "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />",
+            "theme": "theme-red"
+          },
+          {
+            "title": "Secure & Compliant",
+            "description": "Enterprise-grade security with role-based access control, data encryption, and compliance with industrystandards.",
+            "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\" />",
+            "theme": "theme-green"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.homepage-comprehensive-features",
+        "id": 2,
+        "title": "Comprehensive Observability Platform",
+        "align": "left",
+        "data": [
+          {
+            "title": "Kubernetes",
+            "description": "Complete visibility into your Kubernetes clusters with metrics, logs, and distributed tracing.",
+            "icon": "<path d=\"M10.4 3.6C11.35 3.6 12.1 2.85 12.1 1.9C12.1 0.95 11.35 0.2 10.4 0.2C9.45 0.2 8.7 0.95 8.7 1.9C8.7 2.85 9.45 3.6 10.4 3.6Z\" fill=\"currentColor\" /> <path d=\"M12 13.8999L17.9 9.8999L19.5 11.8999L12 17.8999L4.5 11.8999L6.1 9.8999L12 13.8999Z\" fill=\"currentColor\" /> <path d=\"M19.5 7.10005L12 13.1L4.5 7.10005L6.1 5.10005L12 9.10005L17.9 5.10005L19.5 7.10005Z\" fill=\"currentColor\" /> <path d=\"M12 5.10005L17.9 9.10005L19.5 7.10005L12 1.10005L4.5 7.10005L6.1 9.10005L12 5.10005Z\" fill=\"currentColor\" />",
+            "theme": "theme-purple"
+          },
+          {
+            "title": "Google Cloud",
+            "description": "Monitor GCP resources and services with seamless integration and comprehensive dashboards.",
+            "icon": "<path d=\"M12 11L7.05 13.75V18.25L12 21L16.95 18.25V13.75L12 11Z\" fill=\"#4285F4\" /> <path d=\"M16.95 13.75L12 16.5L7.05 13.75L12 11L16.95 13.75Z\" fill=\"#669DF6\" /> <path d=\"M7.05 18.25L12 21V16.5L7.05 13.75V18.25Z\" fill=\"#AECBFA\" /> <path d=\"M16.95 18.25V13.75L12 16.5V21L16.95 18.25Z\" fill=\"#1967D2\" /> <path d=\"M12 7.5L7.05 4.75L12 2L16.95 4.75L12 7.5Z\" fill=\"#4285F4\" /> <path d=\"M7.05 9.25V4.75L12 7.5V12L7.05 9.25Z\" fill=\"#AECBFA\" /> <path d=\"M16.95 9.25L12 12V7.5L16.95 4.75V9.25Z\" fill=\"#1967D2\" />",
+            "theme": "theme-green"
+          },
+          {
+            "title": "Amazon Web Services",
+            "description": "Collect and analyze metrics, logs, and traces from your AWS infrastructure and services.",
+            "icon": "<path d=\"M18.7023 14.4204C18.9352 14.4204 19.1223 14.4901 19.2636 14.6296C19.4049 14.7691 19.4755 14.9534 19.4755 15.1825C19.4755 15.4116 19.4049 15.5959 19.2636 15.7354C19.1223 15.8749 18.9352 15.9446 18.7023 15.9446C18.4694 15.9446 18.2823 15.8749 18.141 15.7354C17.9997 15.5959 17.9291 15.4116 17.9291 15.1825C17.9291 14.9534 17.9997 14.7691 18.141 14.6296C18.2823 14.4901 18.4694 14.4204 18.7023 14.4204ZM20.1429 13.9446C19.8642 13.6698 19.4755 13.5324 18.9768 13.5324C18.4781 13.5324 18.0894 13.6698 17.8107 13.9446C17.532 14.2194 17.3926 14.6121 17.3926 15.1227C17.3926 15.6333 17.532 16.026 17.8107 16.3008C18.0894 16.5756 18.4781 16.713 18.9768 16.713C19.4755 16.713 19.8642 16.5756 20.1429 16.3008C20.4216 16.026 20.561 15.6333 20.561 15.1227C20.561 14.6121 20.4216 14.2194 20.1429 13.9446ZM15.9768 13.6698H16.5133V16.5756H15.9768V13.6698ZM14.5133 13.6698H15.0497L13.5133 16.5756H12.9768L11.4404 13.6698H11.9768L13.2636 16.1829L14.5133 13.6698ZM9.97678 14.4204C10.2097 14.4204 10.3968 14.4901 10.5381 14.6296C10.6794 14.7691 10.75 14.9534 10.75 15.1825C10.75 15.4116 10.6794 15.5959 10.5381 15.7354C10.3968 15.8749 10.2097 15.9446 9.97678 15.9446C9.74386 15.9446 9.55678 15.8749 9.41549 15.7354C9.2742 15.5959 9.20355 15.4116 9.20355 15.1825C9.20355 14.9534 9.2742 14.7691 9.41549 14.6296C9.55678 14.4901 9.74386 14.4204 9.97678 14.4204ZM11.4404 13.9446C11.1617 13.6698 10.773 13.5324 10.2742 13.5324C9.77549 13.5324 9.38678 13.6698 9.10807 13.9446C8.82936 14.2194 8.69 14.6121 8.69 15.1227C8.69 15.6333 8.82936 16.026 9.10807 16.3008C9.38678 16.5756 9.77549 16.713 10.2742 16.713C10.773 16.713 11.1617 16.5756 11.4404 16.3008C11.7191 16.026 11.8584 15.6333 11.8584 15.1227C11.8584 14.6121 11.7191 14.2194 11.4404 13.9446ZM6.69 14.5579H7.22678C7.46162 14.5579 7.64291 14.6121 7.77065 14.7204C7.89839 14.8288 7.96226 14.9833 7.96226 15.1825C7.96226 15.3818 7.89839 15.5363 7.77065 15.6446C7.64291 15.753 7.46162 15.8071 7.22678 15.8071H6.69V14.5579ZM6.69 13.6698H6.15323V16.5756H7.22678C7.78033 16.5756 8.20355 16.4672 8.49646 16.2502C8.78936 16.0333 8.93581 15.7121 8.93581 15.2865C8.93581 14.861 8.78936 14.5398 8.49646 14.3229C8.20355 14.1059 7.78033 13.9975 7.22678 13.9975H6.69V13.6698ZM4.15323 14.4204C4.38614 14.4204 4.57323 14.4901 4.71452 14.6296C4.85581 14.7691 4.92646 14.9534 4.92646 15.1825C4.92646 15.4116 4.85581 15.5959 4.71452 15.7354C4.57323 15.8749 4.38614 15.9446 4.15323 15.9446C3.92033 15.9446 3.73323 15.8749 3.59194 15.7354C3.45065 15.5959 3.38 15.4116 3.38 15.1825C3.38 14.9534 3.45065 14.7691 3.59194 14.6296C3.73323 14.4901 3.92033 14.4204 4.15323 14.4204ZM5.61678 13.9446C5.33807 13.6698 4.94936 13.5324 4.45065 13.5324C3.95194 13.5324 3.56323 13.6698 3.28452 13.9446C3.00581 14.2194 2.86646 14.6121 2.86646 15.1227C2.86646 15.6333 3.00581 16.026 3.28452 16.3008C3.56323 16.5756 3.95194 16.713 4.45065 16.713C4.94936 16.713 5.33807 16.5756 5.61678 16.3008C5.89549 16.026 6.03484 15.6333 6.03484 15.1227C6.03484 14.6121 5.89549 14.2194 5.61678 13.9446ZM12.2636 8.05756C11.1429 8.05756 10.2636 8.93686 10.2636 10.0576C10.2636 11.1783 11.1429 12.0576 12.2636 12.0576C13.3844 12.0576 14.2636 11.1783 14.2636 10.0576C14.2636 8.93686 13.3844 8.05756 12.2636 8.05756ZM12.2636 7.05756C13.9205 7.05756 15.2636 8.40071 15.2636 10.0576C15.2636 11.7144 13.9205 13.0576 12.2636 13.0576C10.6068 13.0576 9.26362 11.7144 9.26362 10.0576C9.26362 8.40071 10.6068 7.05756 12.2636 7.05756ZM16.2636 9.05756C15.7113 9.05756 15.2636 9.50527 15.2636 10.0576C15.2636 10.6098 15.7113 11.0576 16.2636 11.0576C16.8159 11.0576 17.2636 10.6098 17.2636 10.0576C17.2636 9.50527 16.8159 9.05756 16.2636 9.05756ZM8.26362 9.05756C7.71134 9.05756 7.26362 9.50527 7.26362 10.0576C7.26362 10.6098 7.71134 11.0576 8.26362 11.0576C8.8159 11.0576 9.26362 10.6098 9.26362 10.0576C9.26362 9.50527 8.8159 9.05756 8.26362 9.05756Z\" fill=\"currentColor\" />",
+            "theme": "theme-red"
+          },
+          {
+            "title": "OpenTelemetry",
+            "description": "Standardized collection of telemetry data with seamless integration into OpenObserve.",
+            "icon": "<path d=\"M12 2L4 6V18L12 22L20 18V6L12 2Z\" stroke=\"#425CC7\" strokeWidth=\"2\" fill=\"#F5FAFF\" /> <path d=\"M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z\" fill=\"#425CC7\" />",
+            "theme": "theme-purple"
+          },
+          {
+            "title": "Microsoft Azure",
+            "description": "Monitor Azure resources and applications with comprehensive observability solutions.",
+            "icon": "<path d=\"M13.0414 4.92705L8.14855 11.0635L4 16.4231H9.59957L13.0414 4.92705Z\" fill=\"currentColor\" /> <path d=\"M13.4967 5.80305L12.4088 10.0764L16.5473 15.4361L9.59957 16.4231H20L13.4967 5.80305Z\" fill=\"currentColor\" fillOpacity=\"0.8\" />",
+            "theme": "theme-green"
+          },
+          {
+            "title": "Prometheus",
+            "description": "Seamless integration with Prometheus for powerful metrics collection and alerting capabilities.",
+            "icon": "<path d=\"M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3ZM12 19.5C7.86 19.5 4.5 16.14 4.5 12C4.5 7.86 7.86 4.5 12 4.5C16.14 4.5 19.5 7.86 19.5 12C19.5 16.14 16.14 19.5 12 19.5Z\" fill=\"currentColor\" /> <path d=\"M12 7.5C11.17 7.5 10.5 8.17 10.5 9C10.5 9.83 11.17 10.5 12 10.5C12.83 10.5 13.5 9.83 13.5 9C13.5 8.17 12.83 7.5 12 7.5Z\" fill=\"currentColor\" /> <path d=\"M12 12V16.5\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" />",
+            "theme": "theme-red"
+          }
+        ],
+        "items": {
+          "title": "OpenObserve Architecture",
+          "description": "OpenObserve's architecture is designed for high performance, scalability, and reliability. The platform efficiently processes logs, metrics, and traces from various sources, stores them optimally, and provides fast query capabilities for real-time insights.",
+          "image": {
+            "url": "/img/openobserve-architecture.png",
+            "alt": "OpenObserve Architecture",
+            "width": 400,
+            "height": 300
+          }
+        }
+      },
+      {
         "__component": "section-solutions.solutions",
         "title": "Explore Our Solutions",
         "description": "Discover how OpenObserve can address your specific observability needs with our tailored solutions",
@@ -35,7 +122,7 @@
             "image": {
               "url": "/img/logo.svg"
             },
-             "theme": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "id": 3,
@@ -51,7 +138,7 @@
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme":"theme-green"
+            "theme": "theme-green"
           },
           {
             "id": 4,
@@ -67,7 +154,7 @@
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme":"theme-red"
+            "theme": "theme-red"
           },
           {
             "id": 5,
@@ -83,7 +170,7 @@
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme":"theme-blue"
+            "theme": "theme-blue"
           },
           {
             "id": 6,
@@ -99,301 +186,25 @@
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme":"theme-purple"
+            "theme": "theme-purple"
           }
         ]
       },
       {
-        "__component": "section-solutions.tabs",
-        "title": "AWS Observability",
-        "description": "Comprehensive monitoring and insights for your AWS infrastructure.",
-        "tabs": [
+        "__component": "section-hero.cta-buttons",
+        "id": 2,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "buttons": [
           {
-            "value": "visibility",
-            "label": "Real-Time Visibility",
-            "badge": {
-              "text": "Real-Time Insights",
-              "theme": "theme-blue"
-            },
-            "title": "Real-Time Visibility & Insights",
-            "description": "Get immediate visibility into your AWS infrastructure with real-time dashboards and alerts. Monitor performance metrics, logs, and traces in a unified view.",
-            "features": [
-              "Live metrics and logs streaming",
-              "Customizable real-time dashboards",
-              "Instant anomaly detection",
-              "Proactive alerting system",
-              "Interactive data exploration"
-            ],
-            "button": {
-              "text": "Explore Real-Time Capabilities",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            },
-            "image": {
-              "url": "/img/logo.svg",
-              "alt": "Real-Time AWS Monitoring Dashboard"
-            }
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
           },
           {
-            "value": "processing",
-            "label": "Data Processing",
-            "badge": {
-              "text": "Data Processing",
-              "theme": "theme-purple"
-            },
-            "title": "Efficient Data Processing",
-            "description": "Process terabytes of observability data with our highly optimized data pipeline. Ingest, process, and analyze logs and metrics at scale without performance bottlenecks.",
-            "features": [
-              "High-throughput data ingestion",
-              "Intelligent data compression",
-              "Automated data lifecycle management",
-              "Advanced query optimization",
-              "Flexible data retention policies"
-            ],
-            "button": {
-              "text": "Learn About Data Processing",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            },
-            "image": {
-              "url": "/img/logo.svg",
-              "alt": "Efficient Data Processing Pipeline"
-            }
-          },
-          {
-            "value": "coverage",
-            "label": "Service Coverage",
-            "badge": {
-              "text": "Service Coverage",
-              "theme": "theme-green"
-            },
-            "title": "Service Coverage & Integration",
-            "description": "Monitor all your AWS services from a single platform. Our solution integrates seamlessly with EC2, Lambda, S3, RDS, ECS, EKS, and many more AWS services.",
-            "features": [
-              "Support for 50+ AWS services",
-              "Automatic service discovery",
-              "Pre-built service dashboards",
-              "Cross-service correlation",
-              "Custom service integrations"
-            ],
-            "button": {
-              "text": "View Supported Services",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            },
-            "image": {
-              "url": "/img/logo.svg",
-              "alt": "AWS Services Integration"
-            }
-          },
-          {
-            "value": "cost",
-            "label": "Cost-Effective",
-            "badge": {
-              "text": "Cost Optimization",
-              "theme": "theme-red"
-            },
-            "title": "Cost-Effective Monitoring",
-            "description": "Reduce your observability costs by up to 90% compared to traditional solutions. Our efficient architecture and intelligent data handling minimize storage and processing costs.",
-            "features": [
-              "Pay only for what you use",
-              "Transparent pricing model",
-              "Cost optimization recommendations",
-              "Customizable retention policies",
-              "Resource usage analytics"
-            ],
-            "button": {
-              "text": "Calculate Your Savings",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            },
-            "image": {
-              "url": "/public/abstract-corporate-logo.png",
-              "alt": "Cost Optimization Dashboard"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.faqs",
-        "title": "Frequently Asked Questions",
-        "description": "Find answers to common questions about OpenObserve and its capabilities",
-        "items": [
-          {
-            "id": 1,
-            "label": "General",
-            "questions": [
-              {
-                "question": "What is OpenObserve?",
-                "answer": "OpenObserve is a cloud-native observability platform designed for logs, metrics, and traces. It's built to be highly efficient, cost-effective, and scalable for modern applications and infrastructure."
-              },
-              {
-                "question": "How does OpenObserve compare to other observability platforms?",
-                "answer": "OpenObserve offers similar functionality to platforms like Elasticsearch and Grafana Loki but with significantly lower resource requirements. It's designed to be 10x more resource-efficient, which translates to lower infrastructure costs and simpler operations."
-              },
-              {
-                "question": "Is OpenObserve open source?",
-                "answer": "Yes, OpenObserve is open source and available under the AGPL license. You can find the source code on GitHub and contribute to the project."
-              },
-              {
-                "question": "Can I self-host OpenObserve?",
-                "answer": "OpenObserve can be self-hosted on your own infrastructure. We provide documentation and support for deploying on Kubernetes, Docker, and other environments."
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "label": "Technical",
-            "questions": [
-              {
-                "question": "What programming languages and technologies does OpenObserve use?",
-                "answer": "OpenObserve is primarily built with Rust for the backend services, which provides excellent performance and memory efficiency. The frontend uses modern JavaScript frameworks."
-              },
-              {
-                "question": "How does OpenObserve handle data storage?",
-                "answer": "OpenObserve uses a columnar database format optimized for observability data. This allows for efficient compression and fast query performance, even with large datasets."
-              },
-              {
-                "question": "What integrations does OpenObserve support?",
-                "answer": "OpenObserve supports standard protocols like Prometheus, OpenTelemetry, Fluent Bit, Vector, and more. It can integrate with most modern application stacks and infrastructure."
-              },
-              {
-                "question": "How does OpenObserve handle high cardinality data?",
-                "answer": "OpenObserve is designed to efficiently handle high cardinality data through its columnar storage format and optimized indexing strategies, allowing for better performance with dimensionally rich data."
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "label": "Pricing",
-            "questions": [
-              {
-                "question": "How is OpenObserve priced?",
-                "answer": "OpenObserve offers both open-source and cloud options. The open-source version is free to use. For OpenObserve Cloud, we offer usage-based pricing that scales with your needs, typically at a fraction of the cost of comparable solutions."
-              },
-              {
-                "question": "Is there a free tier for OpenObserve Cloud?",
-                "answer": "Yes, we offer a generous free tier for OpenObserve Cloud that includes enough capacity for small projects and personal use."
-              },
-              {
-                "question": "How can I estimate my costs for OpenObserve Cloud?",
-                "answer": "Your costs will primarily depend on your data volume and retention period. We provide a pricing calculator on our website to help you estimate costs based on your specific needs."
-              },
-              {
-                "question": "Do you offer discounts for startups or non-profits?",
-                "answer": "Yes, we offer special pricing for startups, non-profits, and educational institutions. Please contact our sales team for more information."
-              }
-            ]
-          },
-          {
-            "id": 4,
-            "label": "Support",
-            "questions": [
-              {
-                "question": "What support options are available?",
-                "answer": "We offer community support through our Discord channel and GitHub for the open-source version. For OpenObserve Cloud customers, we provide email support, with additional options for premium support with SLAs available on higher-tier plans."
-              },
-              {
-                "question": "Is there documentation available for OpenObserve?",
-                "answer": "Yes, we provide comprehensive documentation covering installation, configuration, usage, and best practices at docs.openobserve.ai."
-              },
-              {
-                "question": "Do you offer professional services or implementation help?",
-                "answer": "Yes, we offer professional services for custom implementations, migrations from other platforms, and optimization of your observability stack. Contact our sales team for details."
-              },
-              {
-                "question": "How can I report bugs or request features?",
-                "answer": "You can report bugs and request features through our GitHub repository. For OpenObserve Cloud customers, you can also submit requests through our support portal."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "Frequently Asked Questions",
-        "description": "Find answers to common questions about OpenObserve and its capabilities",
-        "tabs": [
-          {
-            "value": "performance",
-            "title": "Performance",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Lightning-Fast Performance",
-              "description": "Process millions of events per second with minimal latency",
-              "content": "OpenObserve delivers exceptional performance, processing up to 10x more data than traditional solutions while using significantly fewer resources. Our optimized architecture ensures:",
-              "features": [
-                "Sub-second query response times even with terabytes of data",
-                "Minimal CPU and memory footprint",
-                "Optimized indexing for faster search and retrieval"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "scalability",
-            "title": "Scalability",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Effortless Scalability",
-              "description": "Scale from gigabytes to petabytes without complexity",
-              "content": "OpenObserve's architecture is designed to scale horizontally with your growing data needs. Whether you're a startup or an enterprise, our platform grows with you:",
-              "features": [
-                "Seamless cluster expansion without downtime",
-                "Automatic load balancing across nodes",
-                "Cloud-native design for dynamic environments"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "storage",
-            "title": "Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Efficient Storage",
-              "description": "Reduce storage costs by up to 80% compared to competitors",
-              "content": "OpenObserve's innovative storage engine dramatically reduces your infrastructure costs while maintaining high performance:",
-              "features": [
-                "Advanced compression algorithms reduce storage requirements",
-                "Intelligent data tiering for cost optimization",
-                "Flexible retention policies to manage data lifecycle"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "security",
-            "title": "Security",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Enterprise-Grade Security",
-              "description": "Protect your observability data with comprehensive security features",
-              "content": "OpenObserve provides robust security features to ensure your data remains protected:",
-              "features": [
-                "End-to-end encryption for data in transit and at rest",
-                "Fine-grained access controls and role-based permissions",
-                "Audit logging and compliance reporting"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "realtime",
-            "title": "Real-time",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Real-time Insights",
-              "description": "Immediate visibility into your system's performance and health",
-              "content": "OpenObserve provides real-time monitoring and alerting capabilities to help you respond to issues before they impact your users:",
-              "features": [
-                "Live dashboards with sub-second refresh rates",
-                "Intelligent anomaly detection and alerting",
-                "Customizable notification channels (Slack, PagerDuty, etc.)"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
+            "text": "Learn More",
+            "link": "#learn-more",
+            "variant": "tertiary"
           }
         ]
       }
