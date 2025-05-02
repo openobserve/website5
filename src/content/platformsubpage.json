@@ -1,17 +1,32 @@
 {
   "data": {
-    "id": 1,
-    "documentId": "platform-page",
-    "createdAt": "2025-04-30T00:00:00.000Z",
-    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "id": 6,
+    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
+    "slug": "logs",
+    "createdAt": "2025-01-30T15:18:48.596Z",
+    "updatedAt": "2025-03-03T09:57:24.893Z",
     "publishedAt": null,
     "body": [
       {
-        "__component": "section-hero.product-hero",
+        "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "align": "center"
+        "pageTag": "Logs",
+        "title": "Powerful visibility at a fraction of the cost",
+        "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
+        "buttons": [
+          {
+            "text": "Start for free",
+            "link": "#",
+            "variant": "secondary"
+          },
+          {
+            "text": "Schedule a demo",
+            "link": "#",
+            "variant": "tertiary"
+          }
+        ],
+        "image": "/img/herosection-image.png",
+        "altText": "OpenObserve Dashboard"
       },
       {
         "__component": "section-features.benefits",

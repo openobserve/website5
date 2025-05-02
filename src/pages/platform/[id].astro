@@ -1,9 +1,0 @@
----
-import Layout from "@/layouts/Layout.astro";
-import data from "@/content/platformsubpage.json";
-import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
----
-
-<Layout>
-  <ComponentCollectionMapper data={data?.data?.body} client:load />
-</Layout>
