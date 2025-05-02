@@ -32,23 +32,23 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
-        "data": [
+        "features": [
           {
-            "title": "Unparalleled Efficiency",
-            "description": "10x more cost-effective with superior performance compared to traditional solutions",
+            "title": "10x Faster",
+            "description": "Process and query logs at lightning speed with our optimized engine, delivering results in milliseconds even with terabytes of data.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "theme": "theme-blue"
+            "iconColor": "theme-blue"
           },
           {
-            "title": "Deploy in Under 2 Minutes",
-            "description": "Quick setup with minimal configuration to get your observability platform running instantly",
-            "theme": "theme-red",
+            "title": "Infinite Scalability",
+            "description": "Seamlessly scale from gigabytes to petabytes without performance degradation or complex infrastructure management.",
+            "iconColor": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
-            "title": "Flexible Deployment Options",
-            "description": "Deploy on-premises, in the cloud, or in hybrid environments to match your infrastructure needs",
-            "theme": "theme-green",
+            "title": "80% Cost Reduction",
+            "description": "Our efficient storage and processing technology dramatically reduces infrastructure costs compared to traditional solutions.",
+            "iconColor": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]

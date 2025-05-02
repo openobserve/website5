@@ -3,15 +3,14 @@
     <div class="container px-4 md:px-6 mx-auto">
       <div class="flex flex-col items-center justify-center space-y-4 text-center">
         <div class="space-y-2">
-          <HeadingSection :title="successStories.title" :subtitle="successStories.subtitle" />
+          <HeadingSection :title="sectionTitle" :subtitle="sectionDescription" />
         </div>
       </div>
 
       <div class="mx-auto grid gap-8 py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Success Story Cards -->
-        <div v-for="(story, storyIndex) in successStories.stories" :key="story.id"
+        <div v-for="(story, storyIndex) in stories" :key="story.id"
           class="flex flex-col h-full justify-between rounded-lg border bg-card p-6 shadow-sm w-full mx-auto">
-          <!-- Card Content -->
           <div class="flex flex-col flex-grow">
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mb-4">
@@ -57,7 +56,7 @@
       <div class="mt-8 flex justify-center">
         <button
           class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer">
-          {{ successStories.viewAllText }}
+          {{ viewAllText }}
           <ArrowRight class="ml-2 h-4 w-4" />
         </button>
       </div>
@@ -65,39 +64,40 @@
   </section>
 </template>
 
-
-<script>
+<script setup lang="ts">
 import { CheckCircle, ArrowRight } from 'lucide-vue-next'
-import HeadingSection from '@/components/core/HeadingSection.vue';
+import HeadingSection from '@/components/core/HeadingSection.vue'
 
-export default {
-  name: 'SuccessStories',
-  components: {
-    CheckCircle,
-    ArrowRight
-  },
-  props: {
-    successStories: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    getTagColorByName(tag) {
-      const colorMap = {
-        'Technology': 'bg-purple-100 text-primary-purple',
-        'Microservices': 'bg-blue-100 text-primary-blue',
-        'Financial Services': 'bg-green-100 text-primary-green',
-        'Cloud Migration': 'bg-blue-100 text-primary-blue',
-        'E-Commerce': 'bg-red-100 text-primary-red',
-        'Peak Season': 'bg-purple-100 text-primary-purple',
-        // fallback
-        'default': 'bg-gray-100 text-gray-800'
-      }
+type Story = {
+  id: number
+  tags: string[]
+  logo: string
+  logoAlt: string
+  title: string
+  benefits: string[]
+  description: string
+  buttonText: string
+}
 
-      return colorMap[tag] || colorMap['default']
-    }
+const props = defineProps<{
+  sectionTitle: string
+  sectionDescription: string
+  stories: Story[]
+  viewAllText?: string
+}>()
+
+function getTagColorByName(tag: string) {
+  // Example tag color logic
+  const tagColors: Record<string, string> = {
+    Technology: 'bg-blue-100 text-blue-800',
+    'Microservices': 'bg-green-100 text-green-800',
+    'Financial Services': 'bg-yellow-100 text-yellow-800',
+    'Cloud Migration': 'bg-purple-100 text-purple-800',
+    'E-Commerce': 'bg-pink-100 text-pink-800',
+    'Peak Season': 'bg-red-100 text-red-800'
   }
+
+  return tagColors[tag] || 'bg-gray-100 text-gray-800'
 }
 </script>
 
@@ -137,15 +137,7 @@ export default {
   background-color: #5b21b6;
 }
 
-.text-primary-blue {
-  color: #2563eb;
-}
-
 .text-primary-green {
   color: #10b981;
-}
-
-.hover\:bg-dark-purple:hover {
-  background-color: #5b21b6;
 }
 </style>

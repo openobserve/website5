@@ -1,51 +1,166 @@
 {
-  "successStories": {
-    "sectionTitle": "Success Stories",
-    "sectionDescription": "See how organizations are transforming their observability with OpenObserve.",
-    "stories": [
+  "data": {
+    "id": 1,
+    "documentId": "success-stories-page",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
       {
+        "__component": "section-hero.product-hero",
         "id": 1,
-        "tags": ["Technology", "Microservices"],
-        "logo": "/img/icon/slackIcon.svg",
-        "logoAlt": "TechCorp Logo",
-        "title": "How TechCorp Reduced Observability Costs by 80%",
-        "benefits": [
-          "80% reduction in observability infrastructure costs",
-          "Improved MTTR from hours to minutes",
-          "Consolidated 5 monitoring tools into one platform"
-        ],
-        "description": "TechCorp, a leading SaaS provider with over 200 microservices, was struggling with rising observability costs and fragmented tooling. After evaluating several solutions, they chose OpenObserve for its cost efficiency and comprehensive feature set.",
-        "buttonText": "Read Full Story"
+        "title": "Complete Observability Solutions",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "align": "center"
       },
       {
-        "id": 2,
-        "tags": ["Financial Services", "Cloud Migration"],
-        "logo": "/img/icon/slackIcon.svg",
-        "logoAlt": "FinanceApp Logo",
-        "title": "FinanceApp's Journey to Cloud-Native Observability",
-        "benefits": [
-          "Scaled monitoring to handle 10x traffic growth",
-          "Reduced infrastructure costs by 65%",
-          "Achieved 99.99% uptime for critical services"
-        ],
-        "description": "When FinanceApp began their cloud migration journey, they needed a scalable observability solution that could handle their growing transaction volume while maintaining strict security and compliance requirements. OpenObserve provided the perfect balance of performance and cost-efficiency.",
-        "buttonText": "Read Full Story"
-      },
-      {
+        "__component": "section-features.resources-feature-details",
         "id": 3,
-        "tags": ["E-Commerce", "Peak Season"],
-        "logo": "/img/icon/slackIcon.svg",
-        "logoAlt": "ShopNow Logo",
-        "title": "How ShopNow Survived Black Friday with OpenObserve",
-        "benefits": [
-          "Handled 300% increase in traffic without downtime",
-          "Identified and fixed bottlenecks in real-time",
-          "Saved an estimated $2M in potential lost sales"
+        "title": "OpenObserve Architecture",
+        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "data": [
+          {
+            "title": "Documentation",
+            "description": "Comprehensive guides to help you get started with OpenObserve.",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Community",
+            "description": "Join our active community for support and collaboration.",
+            "theme": "theme-purple",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "FAQs",
+            "description": "Find answers to commonly asked questions about OpenObserve.",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.homepage-features",
+        "id": 3,
+        "title": "Explore Documentation",
+        "description": "Everything you need to implement and master observability with OpenObserve.",
+        "items": [
+          {
+            "title": "Getting Started",
+            "description": "Quick start guides to set up OpenObserve in minutes.",
+            "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
+            "theme": "theme-blue",
+            "items": [
+              "Installation Guide",
+              "Basic Configuration",
+              "First Steps"
+            ]
+          },
+          {
+            "title": "Logs & Metrics",
+            "description": "Learn how to collect and analyze logs and metrics effectively.",
+            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "theme": "theme-purple",
+            "items": [
+              "Log Collection",
+              "Metrics Visualization",
+              "Query Language"
+            ]
+          },
+          {
+            "title": "Security & Compliance",
+            "description": "Secure your observability data and meet compliance requirements.",
+            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "theme": "theme-green",
+            "items": ["Authentication", "Data Encryption", "Access Control"]
+          }
+        ]
+      },
+      {
+        "__component": "section-content.success-stories",
+        "id": 1,
+        "sectionTitle": "Success Stories",
+        "`sectionDescription`": "See how organizations are transforming their observability with OpenObserve.",
+        "stories": [
+          {
+            "id": 1,
+            "tags": ["Technology", "Microservices"],
+            "logo": "/img/icon/slackIcon.svg",
+            "logoAlt": "TechCorp Logo",
+            "title": "How TechCorp Reduced Observability Costs by 80%",
+            "benefits": [
+              "80% reduction in observability infrastructure costs",
+              "Improved MTTR from hours to minutes",
+              "Consolidated 5 monitoring tools into one platform"
+            ],
+            "description": "TechCorp, a leading SaaS provider with over 200 microservices, was struggling with rising observability costs and fragmented tooling. After evaluating several solutions, they chose OpenObserve for its cost efficiency and comprehensive feature set.",
+            "buttonText": "Read Full Story"
+          },
+          {
+            "id": 2,
+            "tags": ["Financial Services", "Cloud Migration"],
+            "logo": "/img/icon/slackIcon.svg",
+            "logoAlt": "FinanceApp Logo",
+            "title": "FinanceApp's Journey to Cloud-Native Observability",
+            "benefits": [
+              "Scaled monitoring to handle 10x traffic growth",
+              "Reduced infrastructure costs by 65%",
+              "Achieved 99.99% uptime for critical services"
+            ],
+            "description": "When FinanceApp began their cloud migration journey, they needed a scalable observability solution that could handle their growing transaction volume while maintaining strict security and compliance requirements. OpenObserve provided the perfect balance of performance and cost-efficiency.",
+            "buttonText": "Read Full Story"
+          },
+          {
+            "id": 3,
+            "tags": ["E-Commerce", "Peak Season"],
+            "logo": "/img/icon/slackIcon.svg",
+            "logoAlt": "ShopNow Logo",
+            "title": "How ShopNow Survived Black Friday with OpenObserve",
+            "benefits": [
+              "Handled 300% increase in traffic without downtime",
+              "Identified and fixed bottlenecks in real-time",
+              "Saved an estimated $2M in potential lost sales"
+            ],
+            "description": "For e-commerce giant ShopNow, the holiday shopping season represents over 40% of their annual revenue. When their previous monitoring solution failed during a crucial sales period, they turned to OpenObserve to ensure they would never face the same issue again.",
+            "buttonText": "Read Full Story"
+          }
         ],
-        "description": "For e-commerce giant ShopNow, the holiday shopping season represents over 40% of their annual revenue. When their previous monitoring solution failed during a crucial sales period, they turned to OpenObserve to ensure they would never face the same issue again.",
-        "buttonText": "Read Full Story"
+        "viewAllText": "View All Success Stories"
+      },
+      {
+        "__component": "section-hero.cta-buttons",
+        "id": 2,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "buttons": [
+          {
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
+          },
+          {
+            "text": "Learn More",
+            "link": "#learn-more",
+            "variant": "tertiary"
+          }
+        ]
       }
     ],
-    "viewAllText": "View All Success Stories"
-  }
+    "seo": {
+      "id": 999,
+      "title": "Success Stories",
+      "description": "See how organizations are transforming their observability with OpenObserve.",
+      "viewport": null,
+      "creator": null,
+      "publisher": null,
+      "category": null,
+      "robots": null,
+      "manifest": null,
+      "Alternates": null,
+      "Authors": null,
+      "OpenGraph": null,
+      "Twitter": null
+    }
+  },
+  "meta": {}
 }

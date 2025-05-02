@@ -37,6 +37,10 @@ import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptio
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
 import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
 import PricingOptions from "./pricing/PricingOptions.vue";
+import SuccessStories from "./core/SuccessStories.vue";
+import CardWithSideIconResourcePage from "./wrapper/CardWithSideIconResourcePage.vue";
+import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
+
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -71,8 +75,10 @@ const componentsMap = computed(() => ({
   "section-hero.common-hero": CommonHeroSection,
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
-  "section-features.paltofrm-sub-benefits": HomeCardWrapper,
+  "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
+  "section-content.success-stories": SuccessStories,
+  "section-features.resources-feature-details": CardWithSideIconResourcePage,
   // "section-solutions.recent-blogs": BlogSection,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
