@@ -34,6 +34,8 @@ import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 import DownloadForm from "@/components/downloads/DownloadForm.vue";
 import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
+import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
+import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
