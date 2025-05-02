@@ -36,6 +36,7 @@ import DownloadForm from "@/components/downloads/DownloadForm.vue";
 import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
 import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
+import PricingOptions from "./pricing/PricingOptions.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -75,6 +76,7 @@ const componentsMap = computed(() => ({
   // "section-solutions.recent-blogs": BlogSection,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
+  "section-pricing.pricing-options": PricingOptions,
 }));
 
 const getComponentProps = (it) => {
