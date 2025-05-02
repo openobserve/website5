@@ -2,7 +2,7 @@
   <div>
     <component
       v-for="(it, index) in data"
-      :key="index"
+      :key="it.id || `${it.__component}-${index}`"
       :is="componentsMap[it.__component]"
       v-bind="getComponentProps(it)"
     />
@@ -29,6 +29,10 @@ import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
 import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
+import OurStory from "@/components/core/OurStory.vue";
+import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import OurPartners from "@/components/core/OurPartners.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -53,6 +57,10 @@ const componentsMap = computed(() => ({
   "section-cards.homepage-features": CardWrapper,
   "section-cta.homepage-cta": CTA,
   "section-features.homepage-feature-details": CustomInterchangeWrapper,
+  "section-story.our-story": OurStory,
+  "section-story.our-commitment": OurCommitmentO2,
+  "section-hero.common-hero": CommonHeroSection,
+  "section-story.our-partners": OurPartners,
 }));
 
 const getComponentProps = (it) => {
@@ -66,6 +74,9 @@ const getComponentProps = (it) => {
     case "section-cta.banner":
       return { ...it, ...props.bannerData };
     case "section-hero.homepage-hero":
+    case "section-story.our-story":
+    case "section-story.our-commitment":
+    case "section-story.our-partners":
       return { data: it };
     default:
       return it;

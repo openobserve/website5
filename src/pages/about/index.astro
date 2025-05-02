@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import about from "@/content/aboutus.json";
+
+const data = about?.data?.body || {};
+---
+
+<Layout>
+  <ComponentCollectionMapper data={data} />
+</Layout>
