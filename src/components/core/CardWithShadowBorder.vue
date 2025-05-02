@@ -10,20 +10,22 @@ const props = defineProps<{
   icon: string;
   buttonText?: string;
   buttonLink?: string;
-  align?: 'left' | 'center' | 'right';
+  align?: string; // Changed from strict union type to string
   theme?: string;
-items?: string[];
+  items?: string[];
 }>();
 </script>
 
 <template>
   <div :class="[
     'rounded-xl p-6 flex flex-col border border-gray-300 shadow-md',
-    props.align === 'center'
-      ? 'items-center text-center'
-      : props.align === 'right'
-        ? 'items-end text-right'
-        : 'items-start text-left', // default to left
+    ['left', 'center', 'right'].includes(props.align || 'left')
+      ? props.align === 'center'
+        ? 'items-center text-center'
+        : props.align === 'right'
+          ? 'items-end text-right'
+          : 'items-start text-left'
+      : 'items-start text-left', // default if align is not one of the three
   ]">
     <!-- Icon -->
     <div :class="[

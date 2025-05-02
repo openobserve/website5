@@ -1,0 +1,173 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "about-page",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.product-hero",
+        "id": 1,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "align": "center"
+      },
+      {
+        "__component": "section-features.benefits",
+        "id": 3,
+        "align": "center",
+        "data": [
+          {
+            "title": "Unparalleled Efficiency",
+            "description": "10x more cost-effective with superior performance compared to traditional solutions",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Deploy in Under 2 Minutes",
+            "description": "Quick setup with minimal configuration to get your observability platform running instantly",
+            "theme": "theme-red",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "Flexible Deployment Options",
+            "description": "Deploy on-premises, in the cloud, or in hybrid environments to match your infrastructure needs",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          }
+        ]
+      },
+      {
+        "__component": "section-features.architecture",
+        "id": 3,
+        "title": "OpenObserve Architecture",
+        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "image": {
+          "url": "/img/openobserve-architecture.png",
+          "alt": "OpenObserve Architecture Diagram",
+          "width": 1200,
+          "height": 800
+        },
+        "btnValues": {
+          "buttonText": "Get Started with Standard",
+          "buttonLink": "#learn-more",
+          "theme": "theme-blue"
+        },
+        "data": {
+          "standard": [
+            
+            {
+              "title": "Real-time Monitoring",
+              "description": "Monitor your applications and infrastructure in real-time with sub-second latency",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+              "theme": "theme-blue"
+            },
+            {
+              "title": "Cost Efficiency",
+              "description": "Up to 10x more cost-effective than traditional observability solutions",
+              "theme": "theme-red",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Full-Stack Visibility",
+              "description": "Unified view of logs, metrics, and traces in a single platform",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Powerful Alerting",
+              "description": "Create sophisticated alerts with multiple notification channels",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Data Retention",
+              "description": "Configurable data retention policies with hot and cold storage options",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Multi-tenancy",
+              "description": "Support for multiple teams with isolated data and access controls",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            }
+          ],
+          "enterprise": [
+            {
+              "title": "Enterprise Security",
+              "description": "Advanced security features including SSO, RBAC, and audit logging",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "SLA Guarantees",
+              "description": "Enterprise-grade SLAs with 24/7 support and guaranteed uptime",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Custom Integrations",
+              "description": "Custom integrations with your existing tools and workflows",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Advanced Analytics",
+              "description": "AI-powered analytics and anomaly detection capabilities",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Dedicated Infrastructure",
+              "description": "Dedicated infrastructure with custom scaling options",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            },
+            {
+              "title": "Compliance",
+              "description": "Support for compliance requirements including GDPR, HIPAA, and SOC2",
+              "theme": "theme-green",
+              "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+            }
+          ]
+        }
+      },
+      {
+        "__component": "section-hero.cta-buttons",
+        "id": 2,
+        "title": "OpenObserve",
+        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "buttons": [
+          {
+            "text": "Get Started For Free",
+            "link": "#get-started",
+            "variant": "secondary"
+          },
+          {
+            "text": "Learn More",
+            "link": "#learn-more",
+            "variant": "tertiary"
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "id": 999,
+      "title": "About OpenObserve",
+      "description": "Learn about OpenObserve's mission, story, and commitment to open-source observability.",
+      "viewport": null,
+      "creator": null,
+      "publisher": null,
+      "category": null,
+      "robots": null,
+      "manifest": null,
+      "Alternates": null,
+      "Authors": null,
+      "OpenGraph": null,
+      "Twitter": null
+    }
+  },
+  "meta": {}
+}
