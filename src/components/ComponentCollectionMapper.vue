@@ -31,8 +31,9 @@ import OurStory from "@/components/core/OurStory.vue";
 import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
-import BlogSection from "./contactus/BlogSection.vue";
+// import BlogSection from "./contactus/BlogSection.vue";
 
+import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -44,7 +45,7 @@ const props = defineProps({
 const componentsMap = computed(() => ({
   "section-hero.careers-hero": CareerHero,
   "section-text.mission-statement": CareerMission,
-  "section-cards.career-benefits": CareerBenefits,
+  "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
   "section-testimonials.employee-testimonials": CareerTestimonials,
   "section-features.technology": CareerTechnology,
