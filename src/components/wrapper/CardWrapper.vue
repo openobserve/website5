@@ -21,6 +21,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <div class="bg-gray-50">
   <CustomSection>
     <div>
       <!-- Heading Section -->
@@ -39,4 +40,5 @@ const props = defineProps({
       </div>
     </div>
   </CustomSection>
+</div>
 </template>
