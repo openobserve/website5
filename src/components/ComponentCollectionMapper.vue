@@ -34,6 +34,7 @@ import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
 import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
+import SuccessStories from "./core/SuccessStories.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -69,6 +70,7 @@ const componentsMap = computed(() => ({
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
+  "section-content.success-stories": SuccessStories
   // "section-solutions.recent-blogs": BlogSection,
 }));
 
