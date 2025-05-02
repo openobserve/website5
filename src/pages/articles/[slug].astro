@@ -1,0 +1,55 @@
+---
+import BlogDetailsHeroSection from "@/components/blog/BlogDetailsHeroSection.vue";
+import Layout from "@/layouts/Layout.astro";
+import {
+  getResBlogsBySlug,
+  getAllResourceBlogs,
+  getAuthorDetails,
+} from "@/utils/api/resources";
+import BlogcontentWrapper from "@/components/blog/BlogcontentWrapper.vue";
+
+export async function getStaticPaths() {
+  const blogs = await getAllResourceBlogs();
+  return blogs?.map((it) => ({
+    params: { slug: it.slug },
+  }));
+}
+
+const { slug }: any = Astro.params;
+const SlugData = (await getResBlogsBySlug(slug)) || {};
+const authorsSlugs = SlugData.authors || [];
+
+const author = await Promise.all(
+  authorsSlugs.map(async (authorSlug: any) => {
+    return await getAuthorDetails(authorSlug.slug);
+  })
+);
+const metaObj = {
+  title: SlugData?.title,
+};
+---
+
+<Layout metaObj={metaObj}>
+  <BlogDetailsHeroSection
+    type="articles"
+    title={SlugData?.title}
+    blogImage={SlugData?.image?.url || SlugData?.image?.url}
+    tags={SlugData?.categories || []}
+    author={author}
+    publishDate={new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(new Date(SlugData?.publishDate))}
+    content={SlugData?.content}
+    shareUrl={`/articles/${slug}`}
+    client:load
+  />
+  <BlogcontentWrapper
+    type="articles"
+    client:load
+    content={SlugData?.content}
+    authors={author}
+  />
+</Layout>

@@ -3,7 +3,7 @@
     <a
       v-for="blog in sectionData"
       :key="blog.slug"
-      :href="`/blog/${blog.slug}`"
+      :href="`/${type}/${blog.slug}`"
       class="group"
     >
       <div
