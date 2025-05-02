@@ -27,23 +27,23 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
-        "data": [
+        "features": [
           {
             "title": "10x Cost Efficiency",
             "description": "Save up to 90% on your observability costs compared to traditional solutions while maintaining enterprise-grade capabilities.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "theme": "theme-blue"
+            "iconColor": "theme-blue"
           },
           {
             "title": "Unified Observability",
             "description": "Collect, analyze, and visualize logs, metrics, and traces in a single platform with powerful correlation capabilities.",
-            "theme": "theme-red",
+            "iconColor": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Enterprise Security",
             "description": "Built with security-first architecture featuring end-to-end encryption, role-based access control, and compliance with industry standards.",
-            "theme": "theme-green",
+            "iconColor": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
