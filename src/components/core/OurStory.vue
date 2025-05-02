@@ -1,18 +1,12 @@
 <template>
   <section id="our-story" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <!-- Title with horizontal lines -->
-    <div class="flex items-center gap-4">
-      <div class="h-px flex-1 bg-gray-200 "></div>
-      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900 whitespace-nowrap">
-        {{ data.title }}
-      </h2>
-      <div class="h-px flex-1 bg-gray-200 "></div>
-    </div>
+    <FramedTitle :title="data.title" />
 
     <!-- Content grid -->
-    <div class="grid gap-8 md:grid-cols-2 items-center">
+    <div class="grid gap-8 lg:grid-cols-2 items-center">
       <!-- Text content -->
-      <div class="space-y-4 text-gray-600">
+      <div class="space-y-4 text-gray-600 order-2 lg:order-none">
         <div class="text-lg" v-html="data.paragraphs"></div>
       </div>
 
@@ -23,7 +17,7 @@
     </div>
 
     <!-- Read more link -->
-    <div class="flex justify-center pt-4">
+    <div class="flex justify-center pt-4" v-if="data.isLink">
       <a :href="data.link.url"
         class="inline-flex items-center text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium">
         {{ data.link.text }}
@@ -33,10 +27,18 @@
         </svg>
       </a>
     </div>
+    <!-- Button if islink is false -->
+    <div class="flex justify-start pt-4" v-else>
+      <a :href="data.link.url"
+        class="inline-flex items-center  text-white bg-purple-600 hover:bg-purple-800 p-3 rounded-lg transition-colors font-medium">
+        {{ data.link.text }}
+      </a>
+    </div>
   </section>
 </template>
 
 <script setup>
+import FramedTitle from "./FramedTitle.vue";
 const props = defineProps({
   data: {
     type: Object,
@@ -51,7 +53,8 @@ const props = defineProps({
       link: {
         text: "Read our full journey",
         url: "/blog/our-journey"
-      }
+      },
+      isLink: true
     })
   }
 });

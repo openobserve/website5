@@ -1,60 +1,55 @@
 ---
 import {
-  getAllAuthors,
-  getAllCategories,
+  getResourceAuthors,
+  getAllResourceCategories,
+  getResourcesByPaginationAndAuthor,
   getAuthorDetails,
-  getBlogsByPaginationAndAuthor,
-} from "@/utils/api/blog";
+} from "@/utils/api/resources";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
-// 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
-  const authors = await getAllAuthors();
-  return authors?.map((author: any) => ({
+  const authors = (await getResourceAuthors()) || [];
+  return authors.map((author: any) => ({
     params: { author: author.slug },
   }));
 }
 
-// 🚀 Step 2: Get `categorySlug` from URL
 const { author } = Astro.params;
 const currentPage = 1;
-const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+const { blogs, totalBlogs } = await getResourcesByPaginationAndAuthor(
   currentPage,
   author
 );
 
-const auth = await getAuthorDetails(author);
-
-// ✅ Fetch other required data
-const suggestionData = await getAllCategories();
-
+const suggestionData = (await getAllResourceCategories()) || [];
+const authorDetails = await getAuthorDetails(author);
 const metaObj = {
   title:
-    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+    "Author | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
 ---
 
 <Layout metaObj={metaObj}>
-  <CommonHerosection 
-    title="Blog"
-    description={`Post by the author: ${auth?.name}`}
-    align="left"
+  <CommonHerosection
+    title="Resources"
+    description={`Showing posts by author: ${authorDetails?.name}`}
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
         []}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) || []}
-      type="blog"
+      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
+        []}
+      type="articles"
       client:load
     />
 
     <BlogsListingWrapper
-      type="blog"
+      type="articles"
       blogsData={blogs}
       totalItems={totalBlogs}
       client:load

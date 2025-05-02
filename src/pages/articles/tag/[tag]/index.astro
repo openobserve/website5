@@ -1,48 +1,46 @@
 ---
 import {
-  getAllCategories,
-  getBlogsByPaginationAndCategory,
-  getBlogsCategoryDetails,
-} from "@/utils/api/blog";
+  getAllResourceCategories,
+  getResourcesByPaginationAndCategory,
+  getCategoryDetails,
+} from "@/utils/api/resources";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
-import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
+import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
-// 🚀 Generate Static Paths for each category
+// 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
-  const categories = await getAllCategories();
+  const categories = await getAllResourceCategories();
 
   return categories.map((category) => ({
     params: { tag: category.slug },
   }));
 }
 
-// Get current category
+// 🚀 Get Category Slug from URL
 const { tag } = Astro.params;
 const currentPage = 1;
-const suggestionData = await getAllCategories();
-
-const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+// ✅ Fetch Additional Data
+const suggestionData = await getAllResourceCategories();
+const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
   currentPage,
   tag
 );
-
 const metaObj = {
   title:
-    "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+    "Tag | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
 
-const category = await getBlogsCategoryDetails(tag);
+const category = await getCategoryDetails(tag);
 ---
 
 <Layout metaObj={metaObj}>
   <CommonHerosection
-    title="Blog"
-    description={`Post by the category: ${category?.name}`}
+    title="Resources"
+    description={`Showing posts for category: ${category?.name}`}
     align="left"
-    client:load
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
@@ -50,11 +48,11 @@ const category = await getBlogsCategoryDetails(tag);
         []}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
         []}
-      type="blog"
+      type="articles"
       client:load
     />
     <BlogsListingWrapper
-      type="blog"
+      type="articles"
       blogsData={blogs}
       client:load
       subType="tag"
