@@ -14,6 +14,69 @@
         "align": "center"
       },
       {
+        "__component": "section-features.resources-feature-details",
+        "id": 3,
+        "title": "OpenObserve Architecture",
+        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "data": [
+          {
+            "title": "Documentation",
+            "description": "Comprehensive guides to help you get started with OpenObserve.",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Community",
+            "description": "Join our active community for support and collaboration.",
+            "theme": "theme-purple",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          },
+          {
+            "title": "FAQs",
+            "description": "Find answers to commonly asked questions about OpenObserve.",
+            "theme": "theme-green",
+            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.homepage-features",
+        "id": 3,
+        "title": "Explore Documentation",
+        "description": "Everything you need to implement and master observability with OpenObserve.",
+        "data": [
+          {
+            "title": "Getting Started",
+            "description": "Quick start guides to set up OpenObserve in minutes.",
+            "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
+            "theme": "theme-blue",
+            "items": [
+              "Installation Guide",
+              "Basic Configuration",
+              "First Steps"
+            ]
+          },
+          {
+            "title": "Logs & Metrics",
+            "description": "Learn how to collect and analyze logs and metrics effectively.",
+            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "theme": "theme-purple",
+            "items": [
+              "Log Collection",
+              "Metrics Visualization",
+              "Query Language"
+            ]
+          },
+          {
+            "title": "Security & Compliance",
+            "description": "Secure your observability data and meet compliance requirements.",
+            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "theme": "theme-green",
+            "items": ["Authentication", "Data Encryption", "Access Control"]
+          }
+        ]
+      },
+      {
         "__component": "section-content.success-stories",
         "id": 1,
         "sectionTitle": "Success Stories",
@@ -63,69 +126,6 @@
           }
         ],
         "viewAllText": "View All Success Stories"
-      },
-      {
-        "__component": "section-features.architecture",
-        "id": 3,
-        "title": "OpenObserve Architecture",
-        "description": "A modern, scalable architecture designed for high performance and low cost",
-        "btnValues": {
-          "buttonText": "Get Started with Standard",
-          "buttonLink": "#learn-more",
-          "theme": "theme-blue"
-        },
-        "data": [
-          {
-            "title": "Documentation",
-            "description": "Comprehensive guides to help you get started with OpenObserve.",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "theme": "theme-blue"
-          },
-          {
-            "title": "Community",
-            "description": "Join our active community for support and collaboration.",
-            "theme": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "FAQs",
-            "description": "Find answers to commonly asked questions about OpenObserve.",
-            "theme": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.homepage-features",
-        "id": 3,
-        "title": "The \"open\" ethos",
-        "description": "Our commitment to openness drives everything we do",
-        "data": [
-          {
-            "title": "Open Standards",
-            "description": "We embrace and contribute to industry standards, ensuring compatibility and interoperability with your existing tools and workflows.",
-            "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
-            "theme": "theme-blue",
-            "items": [
-              "OpenTelemetry compatibility",
-              "Prometheus metrics support",
-              "Standard API interfaces",
-              "Vendor-neutral approach"
-            ]
-          },
-          {
-            "title": "Open Source",
-            "description": "Our code is fully open source, allowing for community contribution, security audits, and complete control over your observability data.",
-            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
-            "theme": "theme-red",
-            "items": [
-              "MIT licensed",
-              "Active community",
-              "Transparent development",
-              "Community-driven roadmap"
-            ]
-          }
-        ]
       },
       {
         "__component": "section-hero.cta-buttons",
