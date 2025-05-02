@@ -1,9 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import successStoriesData from "@/content/resources.json";
-import SuccessStories from "@/components/core/SuccessStories.vue";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import resourcepage from "@/content/resources.json";
+
+const data = resourcepage?.data?.body || {};
 ---
 
 <Layout>
-  <SuccessStories successStories={successStoriesData.successStories} />
+  <ComponentCollectionMapper data={data} />
 </Layout>
