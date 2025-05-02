@@ -32,6 +32,8 @@ import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 // import BlogSection from "./contactus/BlogSection.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
+import DownloadForm from "@/components/downloads/DownloadForm.vue";
+import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
 import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
 import SuccessStories from "./core/SuccessStories.vue";
@@ -61,7 +63,8 @@ const componentsMap = computed(() => ({
   "section-features.benefits": HomeCardWrapper,
   "section-features.architecture": CardWithSideIconWrapper,
   "section-hero.homepage-hero": HomeHerosection,
-  "section-cards.homepage-features": CardWithBackgroundWrapper,
+  "section-cards.homepage-features": CardWrapper,
+  "section-cards.solution-features": CardWithBackgroundWrapper,
   "section-cta.homepage-cta": CTA,
   "section-features.homepage-feature-details": CustomInterchangeWrapper,
   "section-story.our-story": OurStory,
@@ -74,6 +77,8 @@ const componentsMap = computed(() => ({
   "section-content.success-stories": SuccessStories,
   "section-features.resources-feature-details": CardWithSideIconResourcePage
   // "section-solutions.recent-blogs": BlogSection,
+  "section-downloads.downloads-form": DownloadForm,
+  "section-downloads.deployment-options": OpenObserveDeploymentOptions,
 }));
 
 const getComponentProps = (it) => {

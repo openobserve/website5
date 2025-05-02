@@ -9,7 +9,7 @@
         "align": "center"
       },
       {
-        "__component": "section-cards.homepage-features",
+        "__component": "section-cards.solution-features",
         "id": 2,
         "title": "Why Choose OpenObserve?",
         "align": "center",
