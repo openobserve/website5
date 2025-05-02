@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gradient-to-r from-primary-purple to-primary-blue py-16 md:py-24">
+  <section class="hero-gradient py-16 md:py-24">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white">{{ block.title }}</h1>

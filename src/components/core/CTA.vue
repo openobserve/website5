@@ -19,7 +19,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full bg-gradient-to-r from-[#6A76E3] to-[#45A4F3] py-20 px-5">
+  <div class="w-full hero-gradient py-20 px-5">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
         {{ title }}

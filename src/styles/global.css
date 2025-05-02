@@ -396,3 +396,7 @@
   background-color: var(--color-destructive) / 0.2;
   border-color: var(--color-destructive) / 0.3;
 }
+
+.hero-gradient {
+  @apply bg-gradient-to-r from-[#6A76E3] to-[#45A4F3];
+}

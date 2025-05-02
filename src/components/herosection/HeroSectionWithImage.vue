@@ -33,7 +33,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="w-full bg-gradient-to-r from-[#6A76E3] to-[#45A4F3]">
+    <div class="w-full hero-gradient">
         <CustomSection>
             <div class="flex flex-col lg:flex-row items-center gap-6">
                 <div
