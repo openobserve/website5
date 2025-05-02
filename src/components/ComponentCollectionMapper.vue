@@ -1,11 +1,7 @@
 <template>
   <div>
-    <component
-      v-for="(it, index) in data"
-      :key="it.id || `${it.__component}-${index}`"
-      :is="componentsMap[it.__component]"
-      v-bind="getComponentProps(it)"
-    />
+    <component v-for="(it, index) in data" :key="it.id || `${it.__component}-${index}`"
+      :is="componentsMap[it.__component]" v-bind="getComponentProps(it)" />
   </div>
 </template>
 
@@ -34,6 +30,9 @@ import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrap
 import OurStory from "@/components/core/OurStory.vue";
 import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
+import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
+// import BlogSection from "./contactus/BlogSection.vue";
+
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 const props = defineProps({
   data: { type: Array, required: true },
@@ -67,6 +66,9 @@ const componentsMap = computed(() => ({
   "section-story.our-commitment": OurCommitmentO2,
   "section-hero.common-hero": CommonHeroSection,
   "section-story.our-partners": OurPartners,
+  "section-hero.platform-sub-hero": HeroSectionWithImage,
+  "section-features.paltofrm-sub-benefits": HomeCardWrapper,
+  // "section-solutions.recent-blogs": BlogSection,
 }));
 
 const getComponentProps = (it) => {
