@@ -44,7 +44,7 @@
         "id": 3,
         "title": "Explore Documentation",
         "description": "Everything you need to implement and master observability with OpenObserve.",
-        "data": [
+        "items": [
           {
             "title": "Getting Started",
             "description": "Quick start guides to set up OpenObserve in minutes.",

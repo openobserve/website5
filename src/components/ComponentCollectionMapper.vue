@@ -75,7 +75,7 @@ const componentsMap = computed(() => ({
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   "section-content.success-stories": SuccessStories,
-  "section-features.resources-feature-details": CardWithSideIconResourcePage
+  "section-features.resources-feature-details": CardWithSideIconResourcePage,
   // "section-solutions.recent-blogs": BlogSection,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
