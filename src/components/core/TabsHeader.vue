@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center mb-8">
-    <div class="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2">
+    <div :class="gridClass">
       <button v-for="tab in tabs" :key="tab.value" @click="$emit('update:activeTab', tab.value)"
         class="px-4 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer" :class="{
           'bg-white text-primary-purple shadow': activeTab === tab.value,
@@ -19,6 +19,10 @@ defineProps({
     required: true
   },
   activeTab: {
+    type: String,
+    required: true
+  },
+  gridClass: {
     type: String,
     required: true
   }
