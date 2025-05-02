@@ -37,20 +37,37 @@
           },
           {
             "value": "self-hosted",
-            "label": "Seld Hosted",
+            "label": "Self Hosted",
             "title": "OpenObserve Self-hosted",
-            "description": "Deploy and manage OpenObserve on your own infrastructure for full control and customization.",
-            "features": [
-              "Full control over your data and environment",
-              "Flexibility to configure to your specific requirements",
-              "Option to integrate with your existing systems",
-              "Advanced query optimization",
-              "Community support and extensive documentation"
-            ],
-            "button": {
-              "text": "Learn More About Self-hosting →",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            }
+            "subTabs": [
+              {
+                "value": "quick-start",
+                "label": "Quick Start",
+                "title": "Quick Start Installation",
+                "description": "Get up and running quickly with our Docker-based installation.<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> For more installation options, check our documentation.",
+                "features": [],
+                "button": {
+                  "text": "View Documentation →",
+                  "class": "bg-black hover:bg-black/50"
+                }
+              },
+              {
+                "value": "enterprise",
+                "label": "Enterprise",
+                "title": "Enterprise Deployment",
+                "description": "Production-ready deployment for high-scale environments.",
+                "features": [
+                  "Kubernetes deployment templates",
+                  "High availability configuration",
+                  "Advanced security options",
+                  "Enterprise support packages"
+                ],
+                "button": {
+                  "text": "Download Enterprise →",
+                  "class": "bg-primary-purple hover:bg-dark-purple"
+                }
+              }
+            ]
           }
         ]
       },

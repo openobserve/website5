@@ -1,22 +1,22 @@
 <template>
-    <div>
+    <div class="w-full">
       <div v-for="tab in tabs" :key="tab.value">
-        <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+        <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-1 lg:gap-12 items-center border rounded-lg p-4">
           <div class="space-y-4">
-            <h3 class="text-2xl font-bold">{{ tab.title }}</h3>
-            <p class="text-gray-500">
-              {{ tab.description }}
-            </p>
+            <h3 class="text-2xl font-bold">{{ tab?.title }}</h3>
+            <p class="text-gray-500" v-html="tab?.description"/>
+              <!-- {{ tab?.description }}
+            </p> -->
             <ul class="space-y-2">
-              <li v-for="(feature, index) in tab.features" :key="index" class="flex items-center gap-2">
-                <CheckCircle class="h-5 w-5 text-primary-green" />
+              <li v-for="(feature, index) in tab?.features" :key="index" class="flex items-center gap-2">
+                <Check class="h-5 w-5 text-primary-purple" />
                 <span>{{ feature }}</span>
               </li>
             </ul>
             <button
-              class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors"
+              class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors w-full"
               :class="tab.button.class">
-              {{ tab.button.text }}
+              {{ tab?.button.text }}
             </button>
           </div>
         </div>
@@ -25,7 +25,7 @@
   </template>
   
   <script setup>
-  import { CheckCircle } from 'lucide-vue-next'
+  import { Check } from 'lucide-vue-next';
   
   defineProps({
     tabs: {
