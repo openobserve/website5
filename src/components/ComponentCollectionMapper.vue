@@ -11,7 +11,6 @@ import { computed } from "vue";
 // Import all possible section components
 import CareerHero from "@/components/career/CareerHero.vue";
 import CareerMission from "@/components/career/CareerMission.vue";
-import CareerBenefits from "@/components/career/CareerBenefits.vue";
 import CareerGlobalTeam from "@/components/career/CareerGlobalTeam.vue";
 import CareerTestimonials from "@/components/career/CareerTestimonials.vue";
 import CareerTechnology from "@/components/career/CareerTechnology.vue";
@@ -32,7 +31,6 @@ import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 // import BlogSection from "./contactus/BlogSection.vue";
-
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 import DownloadForm from "@/components/downloads/DownloadForm.vue";
 import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
@@ -61,7 +59,7 @@ const componentsMap = computed(() => ({
   "section-features.benefits": HomeCardWrapper,
   "section-features.architecture": CardWithSideIconWrapper,
   "section-hero.homepage-hero": HomeHerosection,
-  "section-cards.homepage-features": CardWrapper,
+  "section-cards.homepage-features": CardWithBackgroundWrapper,
   "section-cta.homepage-cta": CTA,
   "section-features.homepage-feature-details": CustomInterchangeWrapper,
   "section-story.our-story": OurStory,
@@ -70,6 +68,7 @@ const componentsMap = computed(() => ({
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
+  "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-solutions.recent-blogs": BlogSection,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,

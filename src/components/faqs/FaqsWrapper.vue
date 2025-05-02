@@ -5,8 +5,8 @@
 
     <!-- Add SearchBar component here -->
 
-    <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab"
-      @update:activeTab="updateActiveTab" />
+    <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab" @update:activeTab="updateActiveTab"
+      gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2" />
     <SearchBar @search="handleSearch" />
 
     <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions" />
