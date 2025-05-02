@@ -67,6 +67,7 @@ const componentsMap = computed(() => ({
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
+  "section-cards.homepage-comprehensive -features": HomeCardWrapper,
   // "section-solutions.recent-blogs": BlogSection,
 }));
 
