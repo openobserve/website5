@@ -32,6 +32,8 @@ import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 // import BlogSection from "./contactus/BlogSection.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
+import DownloadForm from "@/components/downloads/DownloadForm.vue";
+import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
 import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
 const props = defineProps({
@@ -70,6 +72,8 @@ const componentsMap = computed(() => ({
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-solutions.recent-blogs": BlogSection,
+  "section-downloads.downloads-form": DownloadForm,
+  "section-downloads.deployment-options": OpenObserveDeploymentOptions,
 }));
 
 const getComponentProps = (it) => {

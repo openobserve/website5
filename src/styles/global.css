@@ -396,3 +396,17 @@
   background-color: var(--color-destructive) / 0.2;
   border-color: var(--color-destructive) / 0.3;
 }
+
+.hero-gradient {
+  @apply bg-gradient-to-r from-[#6A76E3] to-[#45A4F3];
+}
+
+.code-inline {
+  font-family: monospace, monospace; /* Use a monospace font */
+  background-color: #f0f0f0; /* Light background color */
+  color: #333; /* Dark text color */
+  padding: 0.2em 0.4em; /* Some padding around the text */
+  border-radius: 3px; /* Slightly rounded corners */
+  font-size: 0.9em; /* Slightly smaller font size */
+  white-space: pre-wrap; /* Preserve whitespace and wrap if needed */
+}
