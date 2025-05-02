@@ -33,6 +33,7 @@ import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 // import BlogSection from "./contactus/BlogSection.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
 import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
+import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -67,7 +68,7 @@ const componentsMap = computed(() => ({
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": HomeCardWrapper,
-  "section-cards.homepage-comprehensive -features": HomeCardWrapper,
+  "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-solutions.recent-blogs": BlogSection,
 }));
 
