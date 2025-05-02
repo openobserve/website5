@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+        {
+            "__component": "section-hero.common-hero",
+            "id": 1,
+            "title": "Download OpenObserve",
+            "description": "Get started with OpenObserve's powerful observability platform. Choose the deployment option that best fits your needs.",
+            "align": "center"
+          },
+          {
+            "__component": "section-downloads.downloads-form",
+            "id": 2
+          }
+    ]
+  }
+}

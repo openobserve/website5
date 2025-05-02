@@ -35,6 +35,8 @@ import OurStory from "@/components/core/OurStory.vue";
 import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
 import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
+import DownloadForm from "@/components/downloads/DownloadForm.vue";
+
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -67,6 +69,7 @@ const componentsMap = computed(() => ({
   "section-story.our-commitment": OurCommitmentO2,
   "section-hero.common-hero": CommonHeroSection,
   "section-story.our-partners": OurPartners,
+  "section-downloads.downloads-form": DownloadForm,
 }));
 
 const getComponentProps = (it) => {
