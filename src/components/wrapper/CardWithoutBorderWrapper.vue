@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16 px-4 bg-blue-50">
+  <div class="px-4 py-4 md:py-6 lg:py-6 xl:py-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">{{ title }}</h2>
       <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ description }}</p>
@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import Cards from "../core/Cards.vue";
+import CustomSection from "../core/CustomSection.vue";
 interface GlobalTeamFeature {
   title: string;
   description: string;

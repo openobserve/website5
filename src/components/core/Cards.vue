@@ -20,7 +20,7 @@ const props = defineProps<{
 <template>
     <div
     :class="[
-      'rounded-xl p-6 flex flex-col',
+      'rounded-xl p-2 lg:p-6 flex flex-col',
       props.align === 'center'
         ? 'items-center text-center'
         : props.align === 'right'
