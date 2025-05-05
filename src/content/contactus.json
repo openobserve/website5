@@ -1,92 +1,51 @@
 {
-  "body": [
-    {
-      "id": "hero-section",
-      "type": "hero",
-      "title": "Get in Touch",
-      "subtitle": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform."
-    },
-    {
-      "id": "contact-form",
-      "type": "contactForm",
-      "title": "",
-      "subtitle": "",
-      "fields": {
-        "name": "Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "website": "Website",
-        "message": "How Can We Help You?"
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.common-hero",
+        "id": 1,
+        "title": "Get in Touch",
+        "description": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform.",
+        "align": "center"
       },
-      "submitButton": {
-        "text": "Send Message"
+      {
+        "__component": "section-forms.contact-form",
+        "id": 2
       },
-      "privacyText": "By submitting this form, you agree to our",
-      "privacyLink": {
-        "text": "Privacy Policy",
-        "url": "/privacy"
+      {
+        "__component": "section-contact.community-support",
+        "id": 3,
+        "title": "Community Support",
+        "items": [
+          {
+            "id": "slack",
+            "title": "Join our Slack Community",
+            "description": "Connect with other OpenObserve users, get help, and share your experiences in our active Slack community.",
+            "icon": "<path stroke-width=\"2\" d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+            "iconColor": "theme-purple",
+            "linkText": "Join Slack",
+            "linkUrl": "https://openobserve-community.slack.com/join/shared_invite/zt-11r96hv2b-UwxUILuSJ1duzl_6mhJwVg#/shared-invite/error"
+          },
+          {
+            "id": "github",
+            "title": "GitHub Discussions",
+            "description": "Ask questions, report issues, and contribute to the development of OpenObserve through GitHub Discussions.",
+            "icon": "<path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 18c-4.51 2-5-2-7-2\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>",
+            "iconColor": "theme-purple",
+            "linkText": "View Discussions",
+            "linkUrl": "https://github.com/openobserve/openobserve/discussions"
+          }
+        ]
+      },
+      {
+        "__component": "section-cards.blog",
+        "id": 4
       }
-    },
-    {
-      "id": "community-support",
-      "type": "communitySupport",
-      "title": "Community Support",
-      "options": [
-        {
-          "id": "slack",
-          "title": "Join our Slack Community",
-          "description": "Connect with other OpenObserve users, get help, and share your experiences in our active Slack community.",
-          "icon": "message-square",
-          "linkText": "Join Slack",
-          "linkUrl": "https://slack.openobserve.ai"
-        },
-        {
-          "id": "github",
-          "title": "GitHub Discussions",
-          "description": "Ask questions, report issues, and contribute to the development of OpenObserve through GitHub Discussions.",
-          "icon": "github",
-          "linkText": "View Discussions",
-          "linkUrl": "https://github.com/openobserve/openobserve/discussions"
-        }
-      ]
-    },
-    {
-      "id": "blog-section",
-      "type": "blogSection",
-      "title": "Latest from Our Blog",
-      "viewAllLink": {
-        "text": "View all posts",
-        "url": "/blog"
-      },
-      "posts": [
-        {
-          "id": "post-1",
-          "title": "Introducing OpenObserve v0.5.0 with Enhanced Performance",
-          "date": "April 12, 2023",
-          "author": "OpenObserve Team",
-          "excerpt": "We're excited to announce the release of OpenObserve v0.5.0 with significant performance improvements and new features.",
-          "image": "/images/blog/dashboard-analytics.jpg",
-          "readMoreLink": "/blog/introducing-v0-5-0"
-        },
-        {
-          "id": "post-2",
-          "title": "How to Set Up Distributed Tracing with OpenObserve",
-          "date": "April 5, 2023",
-          "author": "Jane Smith",
-          "excerpt": "Learn how to implement distributed tracing in your microservices architecture using OpenObserve.",
-          "image": "/images/blog/distributed-tracing.jpg",
-          "readMoreLink": "/blog/distributed-tracing"
-        },
-        {
-          "id": "post-3",
-          "title": "Optimizing Log Storage Costs with OpenObserve",
-          "date": "March 28, 2023",
-          "author": "John Doe",
-          "excerpt": "Discover strategies to reduce your observability costs while maintaining comprehensive visibility into your systems.",
-          "image": "/images/blog/cost-optimization.jpg",
-          "readMoreLink": "/blog/optimizing-log-storage-costs"
-        }
-      ]
-    }
-  ]
+    ]
+  }
 }

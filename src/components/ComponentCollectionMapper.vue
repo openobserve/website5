@@ -40,6 +40,9 @@ import PricingOptions from "./pricing/PricingOptions.vue";
 import SuccessStories from "./core/SuccessStories.vue";
 import CardWithSideIconResourcePage from "./wrapper/CardWithSideIconResourcePage.vue";
 import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
+import ContactForm from "./forms/ContactForm.vue";
+import BlogSection from "./contactus/BlogSection.vue";
+import CommunitySupport from "./contactus/CommunitySupport.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -79,10 +82,12 @@ const componentsMap = computed(() => ({
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   "section-content.success-stories": SuccessStories,
   "section-features.resources-feature-details": CardWithSideIconResourcePage,
-  // "section-solutions.recent-blogs": BlogSection,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
+  "section-forms.contact-form": ContactForm,
+  "section-cards.blog": BlogSection,
+  "section-contact.community-support": CommunitySupport,
 }));
 
 const getComponentProps = (it) => {
