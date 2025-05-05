@@ -1,9 +1,15 @@
 <template>
   <section class="w-full py-12 md:py-16">
     <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center mb-8">
+      <div class="flex justify-between items-center mb-8 px-4">
         <h2 class="text-2xl md:text-3xl font-bold">{{ sectionTitle }}</h2>
-        <div class="flex space-x-2" v-show ="!loading">
+      </div>
+
+      <div
+        class="flex flex-row justify-between items-center w-full px-4 mb-4"
+        v-show="!loading"
+      >
+        <div class="flex space-x-2">
           <!-- Prev Button -->
           <button
             @click="scrollLeft"
@@ -50,7 +56,30 @@
             </svg>
           </button>
         </div>
+        <div class="">
+          <a
+            :href="viewAllLink.url"
+            class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
+          >
+            {{ viewAllLink.text }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
+
       <div v-if="loading" class="text-center py-10">
         <!-- <svg class="animate-spin h-8 w-8 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 24 24">
@@ -76,29 +105,6 @@
             <BlogCard2 :blog="post" type="blog" />
           </div>
         </div>
-      </div>
-
-      <div class="mt-8 text-center" v-show="!loading">
-        <a
-          :href="viewAllLink.url"
-          class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
-        >
-          {{ viewAllLink.text }}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </a>
       </div>
     </div>
   </section>
@@ -145,7 +151,6 @@ function updateButtonState() {
   isAtEnd.value = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
 }
 
-
 onMounted(async () => {
   try {
     allPosts.value = await getAllBlogs();
@@ -175,7 +180,6 @@ const viewAllLink = {
   url: "/blog",
   text: "View all posts",
 };
-
 </script>
 <style>
 /* Optional: hide scrollbar */
