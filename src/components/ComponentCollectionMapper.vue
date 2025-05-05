@@ -43,7 +43,9 @@ import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
 import ContactForm from "./forms/ContactForm.vue";
 import BlogSection from "./contactus/BlogSection.vue";
 import CommunitySupport from "./contactus/CommunitySupport.vue";
-
+import TOC from "./policies/TOC.vue";
+import SummaryWrapper from "./policies/SummaryWrapper.vue";
+import PoliciesHeader from "./policies/PoliciesHeader.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -88,6 +90,9 @@ const componentsMap = computed(() => ({
   "section-forms.contact-form": ContactForm,
   "section-cards.blog": BlogSection,
   "section-contact.community-support": CommunitySupport,
+  "section-policies.table-of-contents": TOC,
+  "section-policies.summary": SummaryWrapper,
+  "section-hero.policy-hero": PoliciesHeader,
 }));
 
 const getComponentProps = (it) => {
