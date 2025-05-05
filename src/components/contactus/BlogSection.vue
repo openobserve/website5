@@ -3,9 +3,14 @@
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-8">
         <h2 class="text-2xl md:text-3xl font-bold">{{ sectionTitle }}</h2>
-        <div class="flex space-x-2">
+        <div class="flex space-x-2" v-show ="!loading">
           <!-- Prev Button -->
-          <button @click="scrollLeft" class="p-2 rounded-lg border">
+          <button
+            @click="scrollLeft"
+            :disabled="isAtStart"
+            class="p-2 rounded-lg border"
+            :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -23,7 +28,12 @@
           </button>
 
           <!-- Next Button -->
-          <button @click="scrollRight" class="p-2 rounded-lg border">
+          <button
+            @click="scrollRight"
+            :disabled="isAtEnd"
+            class="p-2 rounded-lg border"
+            :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -68,7 +78,7 @@
         </div>
       </div>
 
-      <div class="mt-8 text-center">
+      <div class="mt-8 text-center" v-show="!loading">
         <a
           :href="viewAllLink.url"
           class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
@@ -95,9 +105,8 @@
 </template>
 
 <script setup lang="ts">
+import { nextTick } from "vue";
 import { ref, computed, onMounted } from "vue";
-import type { BlogSectionBlock } from "@/types/Contactus";
-import BlogCard from "@/components/contactus/BlogCard.vue";
 import BlogCard2 from "@/components/blog/BlogCard2.vue";
 import { getAllBlogs } from "@/utils/api/blog";
 import type { Blog } from "@/types/blog";
@@ -106,7 +115,8 @@ const allPosts = ref<Blog[]>([]);
 const scrollContainer = ref<HTMLElement | null>(null);
 
 const scrollAmount = ref(300);
-
+const isAtStart = ref(true);
+const isAtEnd = ref(false);
 function scrollLeft() {
   console.log("scrollLeft");
   if (scrollContainer.value) {
@@ -127,29 +137,45 @@ function scrollRight() {
   }
 }
 
-onMounted(async () => {
-  const firstCard = scrollContainer.value?.querySelector("div");
-  if (firstCard) {
-    const cardWidth = (firstCard as HTMLElement).offsetWidth;
-    scrollAmount.value = cardWidth + 16; // padding
-  }
+function updateButtonState() {
+  if (!scrollContainer.value) return;
 
+  const el = scrollContainer.value;
+  isAtStart.value = el.scrollLeft <= 0;
+  isAtEnd.value = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+}
+
+
+onMounted(async () => {
   try {
     allPosts.value = await getAllBlogs();
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
   } finally {
     loading.value = false;
+
+    // Wait until DOM updates with loaded blog cards
+    await nextTick();
+
+    const firstCard = scrollContainer.value?.querySelector("div");
+    if (firstCard) {
+      const cardWidth = (firstCard as HTMLElement).offsetWidth;
+      scrollAmount.value = cardWidth + 16;
+    }
+
+    // Initial check now that DOM is ready
+    updateButtonState();
+
+    scrollContainer.value?.addEventListener("scroll", updateButtonState);
   }
 });
-
 // Set section title and view-all link manually
 const sectionTitle = "Latest from Our Blogs";
 const viewAllLink = {
   url: "/blog",
   text: "View all posts",
 };
-// const allPosts = await getAllBlogs();
+
 </script>
 <style>
 /* Optional: hide scrollbar */
