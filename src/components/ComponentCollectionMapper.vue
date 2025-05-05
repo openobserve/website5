@@ -45,6 +45,7 @@ import BlogSection from "./contactus/BlogSection.vue";
 import CommunitySupport from "./contactus/CommunitySupport.vue";
 import TOC from "./policies/TOC.vue";
 import SummaryWrapper from "./policies/SummaryWrapper.vue";
+import PoliciesHeader from "./policies/PoliciesHeader.vue";
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -91,6 +92,7 @@ const componentsMap = computed(() => ({
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
+  "section-hero.policy-hero": PoliciesHeader,
 }));
 
 const getComponentProps = (it) => {

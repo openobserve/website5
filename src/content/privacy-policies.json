@@ -7,10 +7,10 @@
         "publishedAt": null,
         "body": [
             {
-                "__component": "section-hero.common-hero",
+                "__component": "section-hero.policy-hero",
                 "id": 1,
                 "title": "Privacy Policy",
-                "description": "ast updated: April 17, 2025",
+                "description": "Last updated: April 17, 2025",
                 "align": "left"
             },
             {
