@@ -73,9 +73,9 @@ const sectionClasses = computed(() => ({
             <div class="space-y-1">
               <div class="flex items-center">
                 <Check class="h-5 w-5 mr-2 bg-card rounded-full p-1 text-color-primary-blue" />
-                <h2 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black">
+                <h3 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black">
                   {{ item.title }}
-                </h2>
+                </h3>
               </div>
               <p class="font-inter text-sm text-gray-800 pl-7">
                 {{ item.description }}

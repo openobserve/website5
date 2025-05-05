@@ -32,8 +32,8 @@ const props = defineProps<{
       <div class="mb-8">
         <HeadingSection :title="props.title" :description="props.description" align="center" />
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :title="card.title"
+      <div class="card-grid">
+        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" class="card-item" :title="card.title"
           :description="card.description" :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink"
           :theme="card.theme" :items="card.items" :align="props.align" />
       </div>
@@ -45,3 +45,29 @@ const props = defineProps<{
     </CustomSection>
   </div>
 </template>
+
+<style scoped>
+:deep(.card-grid) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Optional: Ensure card has consistent size */
+:deep(.card-item) {
+  /* Optional: default full-width of cell */
+}
+
+/* Center last single item */
+:deep(.card-item:last-child:nth-child(3n + 1)) {
+  justify-self: center;
+  grid-column: span 1;
+}
+
+/* Center two items in last row */
+:deep(.card-item:nth-last-child(2):nth-child(3n + 1)),
+:deep(.card-item:nth-last-child(1):nth-child(3n + 2)) {
+  justify-self: center;
+}
+
+</style>
