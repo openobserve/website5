@@ -42,6 +42,7 @@ import CardWithSideIconResourcePage from "./wrapper/CardWithSideIconResourcePage
 import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
 import ContactForm from "./forms/ContactForm.vue";
 import BlogSection from "./contactus/BlogSection.vue";
+import CommunitySupport from "./contactus/CommunitySupport.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -86,6 +87,7 @@ const componentsMap = computed(() => ({
   "section-pricing.pricing-options": PricingOptions,
   "section-forms.contact-form": ContactForm,
   "section-cards.blog": BlogSection,
+  "section-contact.community-support": CommunitySupport,
 }));
 
 const getComponentProps = (it) => {

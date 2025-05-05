@@ -1,12 +1,10 @@
 <template>
-  <section class="w-full py-12 md:py-16">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center mb-8 px-4">
-        <h2 class="text-2xl md:text-3xl font-bold">{{ sectionTitle }}</h2>
+    <CustomSection>
+    <div class="md:pl-1 lg:pl-2">
+       <HeadingSection :title="sectionTitle" description="" align="LEFT" />
       </div>
-
       <div
-        class="flex flex-row justify-between items-center w-full px-4 mb-4"
+        class="flex flex-row justify-between items-center w-full md:px-1 lg:px-2 my-6"
         v-show="!loading"
       >
         <div class="flex space-x-2">
@@ -100,14 +98,13 @@
           <div
             v-for="post in allPosts"
             :key="post.id"
-            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3 snap-start"
+            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
           >
             <BlogCard2 :blog="post" type="blog" />
           </div>
         </div>
       </div>
-    </div>
-  </section>
+  </CustomSection>
 </template>
 
 <script setup lang="ts">
@@ -116,6 +113,8 @@ import { ref, computed, onMounted } from "vue";
 import BlogCard2 from "@/components/blog/BlogCard2.vue";
 import { getAllBlogs } from "@/utils/api/blog";
 import type { Blog } from "@/types/blog";
+import HeadingSection from "../core/HeadingSection.vue";
+import CustomSection from "../core/CustomSection.vue";
 const loading = ref(true);
 const allPosts = ref<Blog[]>([]);
 const scrollContainer = ref<HTMLElement | null>(null);
