@@ -1,19 +1,19 @@
 <template>
-  <div class="bg-black border border-gray-800 rounded-lg overflow-hidden flex flex-col h-full">
+  <div class="border rounded-lg overflow-hidden flex flex-col h-full">
     <div class="aspect-[16/9] overflow-hidden">
-      <img :src="post.image" :alt="post.title" class="w-full h-full object-cover" />
+      <img :src="post.image.url" :alt="post.title" class="w-full h-full object-contain" />
     </div>
-    <div class="p-5 flex flex-col flex-grow">
-      <div class="text-xs text-gray-400 mb-2">
-        {{ post.date }} • {{ post.author }}
+    <div class="p-5 flex flex-col h-full flex-1">
+      <div class="text-xs text-gray-600 mb-2">
+        {{ post.publishDate }} • {{ post.authors[0].name }}
       </div>
-      <h3 class="text-lg font-semibold text-white mb-2">{{ post.title }}</h3>
-      <p v-if="post.excerpt" class="text-gray-400 text-sm mb-4 flex-grow">
-        {{ post.excerpt }}
+      <h3 class="text-lg font-semibold mb-2">{{ post.title }}</h3>
+      <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+        {{ post.description }}
       </p>
       <a
-        :href="post.readMoreLink"
-        class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group mt-auto"
+        :href="`/blog/${post.slug}`"
+        class="text-indigo-400 hover:text-indigo-300 text-sm mt-auto inline-flex items-center font-medium group"
       >
         Read more
         <svg
@@ -31,15 +31,16 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   post: {
     id: string;
     title: string;
-    date: string;
-    author: string;
-    excerpt?: string;
-    image: string;
-    readMoreLink: string;
+    publishDate: string;
+    author: Object;
+    description: string;
+    image: Object;
+    slug: string;
   };
 }>();
+console.log(props.post,"post")
 </script>
