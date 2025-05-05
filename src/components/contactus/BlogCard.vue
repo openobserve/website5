@@ -36,11 +36,13 @@ const props = defineProps<{
     id: string;
     title: string;
     publishDate: string;
-    author: Object;
+    authors: Array<{ name: string }>;
     description: string;
-    image: Object;
+    image: {
+      url: string;
+    };
     slug: string;
   };
 }>();
-console.log(props.post,"post")
+// console.log(props.post,"post")
 </script>
