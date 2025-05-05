@@ -1,0 +1,14 @@
+---
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import Layout from "@/layouts/Layout.astro";
+import policies from "@/content/privacy-policies.json";
+const metaObj = {
+  title:
+    "Privacy Policy | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
+};
+const data = policies?.data?.body || {};
+---
+
+<Layout metaObj={metaObj}>
+  <ComponentCollectionMapper data={data} client:load />
+</Layout>
