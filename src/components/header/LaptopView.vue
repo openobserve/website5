@@ -66,7 +66,7 @@
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div class="absolute top-full flex justify-center translate-x-[15%] w-[80%] xl:w-3/5 container mx-auto"
+    <div class="fixed top-full flex justify-center left-[25%] w-[80%] xl:w-1/2 container mx-auto"
       v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
@@ -81,8 +81,8 @@
             </div>
 
           </div>
-          <div class="flex flex-row gap-2 mt-6 w-4/5">
-            <div class="w-[55%]">
+          <div class="flex flex-row gap-2 mt-6 w-full">
+            <div class="w-[80%]">
               <CustomHeaderButton title="Full Stack Observability Platform" linkTitle="View Platform"
                 link="/platform" />
             </div>
