@@ -12,7 +12,7 @@
         item.container ?? '',
         item.container ?? '',
         activeTabData.items.length === 1 ? 'lg:col-span-6' : '',
-        activeTabData.items.length === 2 ? 'lg:col-span-3' : ''
+        activeTabData.items.length === 2 ? 'lg:col-span-3' : '',
       ]"
     >
       <!-- Badge positioned at the top-right -->
@@ -41,12 +41,14 @@
           <span>{{ feature }}</span>
         </li>
       </ul>
-      <button
-        :class="item.button.class"
-        class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"
-      >
-        {{ item.button.text }}
-      </button>
+      <a :href="item.button.link" target="_blank">
+        <button
+          :class="item.button.class"
+          class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"
+        >
+          {{ item.button.text }}
+        </button>
+      </a>
     </div>
   </div>
 </template>
