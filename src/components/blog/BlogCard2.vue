@@ -33,9 +33,9 @@ const getImageUrl = ({ image }: Blog) =>
               :alt="blog.title"
               class="object-cover transition-transform group-hover:scale-105 w-full h-full absolute inset-0"
               />  -->
-          <div className="absolute top-3 left-3">
+          <div class="absolute top-3 left-3">
             <div
-              className="bg-primary-purple text-white border-none rounded-full p-1 text-xs"
+              class="bg-primary-purple text-white border-none rounded-full p-1 text-xs"
             >
               Openobserve
             </div>

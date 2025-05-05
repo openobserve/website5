@@ -4,12 +4,8 @@
       <div class="flex justify-between items-center mb-8">
         <h2 class="text-2xl md:text-3xl font-bold">{{ sectionTitle }}</h2>
         <div class="flex space-x-2">
-          <button
-            @click="scrollPrev"
-            class="p-2 rounded-lg border"
-            :disabled="currentIndex === 0"
-            :class="{ 'opacity-50 cursor-not-allowed': currentIndex === 0 }"
-          >
+          <!-- Prev Button -->
+          <button @click="scrollLeft" class="p-2 rounded-lg border">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -25,15 +21,9 @@
               />
             </svg>
           </button>
-          <button
-            @click="scrollNext"
-            class="p-2 rounded-lg border"
-            :disabled="currentIndex >= allPosts.length - visiblePosts"
-            :class="{
-              'opacity-50 cursor-not-allowed':
-                currentIndex >= allPosts.length - visiblePosts,
-            }"
-          >
+
+          <!-- Next Button -->
+          <button @click="scrollRight" class="p-2 rounded-lg border">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -51,20 +41,29 @@
           </button>
         </div>
       </div>
-
-      <div class="relative overflow-hidden">
+      <div v-if="loading" class="text-center py-10">
+        <!-- <svg class="animate-spin h-8 w-8 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+          <path class="opacity-75" fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+        </svg> -->
         <div
-          class="flex transition-transform duration-300 ease-in-out"
-          :style="{
-            transform: `translateX(-${currentIndex * (100 / visiblePosts)}%)`,
-          }"
+          className="h-8 w-8 animate-spin mx-auto rounded-full border-4 border-indigo-500 border-t-transparent"
+        ></div>
+        <p class="text-sm text-gray-500 mt-2">Loading blog posts...</p>
+      </div>
+      <div v-else class="overflow-hidden relative">
+        <div
+          ref="scrollContainer"
+          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
         >
           <div
             v-for="post in allPosts"
             :key="post.id"
-            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2"
+            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3 snap-start"
           >
-            <BlogCard :post="post" />
+            <BlogCard2 :blog="post" type="blog" />
           </div>
         </div>
       </div>
@@ -99,40 +98,50 @@
 import { ref, computed, onMounted } from "vue";
 import type { BlogSectionBlock } from "@/types/Contactus";
 import BlogCard from "@/components/contactus/BlogCard.vue";
+import BlogCard2 from "@/components/blog/BlogCard2.vue";
 import { getAllBlogs } from "@/utils/api/blog";
-const props = defineProps<{
-  block: BlogSectionBlock;
-}>();
+import type { Blog } from "@/types/blog";
+const loading = ref(true);
+const allPosts = ref<Blog[]>([]);
+const scrollContainer = ref<HTMLElement | null>(null);
 
-const currentIndex = ref(0);
-const windowWidth = ref(0);
+const scrollAmount = ref(300);
 
-const visiblePosts = computed(() => {
-  if (windowWidth.value < 768) return 1;
-  if (windowWidth.value < 1024) return 2;
-  return 3;
-});
-const updateWindowWidth = () => {
-  windowWidth.value = window.innerWidth;
-};
-
-onMounted(() => {
-  updateWindowWidth();
-  window.addEventListener("resize", updateWindowWidth);
-});
-
-const scrollNext = () => {
-  console.log("next ubtton clicked")
-  if (currentIndex.value < allPosts.length - visiblePosts.value) {
-    currentIndex.value++;
+function scrollLeft() {
+  console.log("scrollLeft");
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({
+      left: -scrollAmount.value,
+      behavior: "smooth",
+    });
   }
-};
+}
 
-const scrollPrev = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value--;
+function scrollRight() {
+  console.log("scrollRight");
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({
+      left: scrollAmount.value,
+      behavior: "smooth",
+    });
   }
-};
+}
+
+onMounted(async () => {
+  const firstCard = scrollContainer.value?.querySelector("div");
+  if (firstCard) {
+    const cardWidth = (firstCard as HTMLElement).offsetWidth;
+    scrollAmount.value = cardWidth + 16; // padding
+  }
+
+  try {
+    allPosts.value = await getAllBlogs();
+  } catch (err) {
+    console.error("Failed to fetch blogs:", err);
+  } finally {
+    loading.value = false;
+  }
+});
 
 // Set section title and view-all link manually
 const sectionTitle = "Latest from Our Blogs";
@@ -140,5 +149,15 @@ const viewAllLink = {
   url: "/blog",
   text: "View all posts",
 };
-const allPosts = await getAllBlogs();
+// const allPosts = await getAllBlogs();
 </script>
+<style>
+/* Optional: hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
