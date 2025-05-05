@@ -45,7 +45,9 @@ import BlogSection from "./contactus/BlogSection.vue";
 import CommunitySupport from "./contactus/CommunitySupport.vue";
 import TOC from "./policies/TOC.vue";
 import SummaryWrapper from "./policies/SummaryWrapper.vue";
-import PoliciesHeader from "./policies/PoliciesHeader.vue";
+import PoliciesHeader from "./policies/PoliciesHeader.vue";import DemoForm from "./forms/DemoForm.vue";
+import DemoWrapper from "./wrapper/DemoWrapper.vue";
+
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
@@ -88,6 +90,8 @@ const componentsMap = computed(() => ({
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
   "section-forms.contact-form": ContactForm,
+  "section-forms.demo-form": DemoWrapper,
+
   "section-cards.blog": BlogSection,
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
