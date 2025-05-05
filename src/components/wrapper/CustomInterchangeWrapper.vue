@@ -19,6 +19,7 @@ const props = defineProps({
           :cardData="card.cardData"
           :items="card.items"
           :direction="card.direction || 'left'"
+          :theme="card.theme"
         />
       </div>
     </div>
