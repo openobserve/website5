@@ -3,7 +3,6 @@ import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
-import { boolean } from "astro:schema";
 
 const props = defineProps({
   title: {
