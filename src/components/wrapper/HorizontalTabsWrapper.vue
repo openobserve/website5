@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full py-12 bg-light-gray">
+  <section class="w-full py-12" :class="background ? 'bg-gray-50' : ''">
     <div class="container mx-auto px-4 md:px-6 space-y-10">
       <div>
         <HeadingSection :title="title" :description="description" align="CENTER" />
@@ -27,6 +27,10 @@ const props = defineProps({
   tabs: {
     type: Array,
     required: true
+  },
+  background: {
+    type: Boolean,
+    required: false,
   }
 })
 

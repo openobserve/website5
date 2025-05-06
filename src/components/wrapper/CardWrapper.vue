@@ -17,11 +17,15 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  background: {
+    type: Boolean,
+    required: false,
+  },
 });
 </script>
 
 <template>
-  <div class="bg-gray-50">
+  <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection>
       <div>
         <!-- Heading Section -->
@@ -34,7 +38,7 @@ const props = defineProps({
         />
 
         <!-- Cards Section -->
-        <div class="grid-container mt-12">
+        <div class="grid-container">
           <!-- CardWithShadowBorder -->
           <CardWithShadowBorder
             v-for="(card, index) in items"

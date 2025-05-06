@@ -1,10 +1,12 @@
 <template>
+    <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection>
         <div class="w-full">
             <HeadingSection :title="title" :description="description" align="center" />
             <CareerBenefits :benefits="items" />
         </div>
     </CustomSection>
+</div>
 </template>
 <script setup lang="ts">
 import CustomSection from '../core/CustomSection.vue';
@@ -22,7 +24,11 @@ const props = defineProps({
     items: {
         type: Array,
         required: true,
-    }
+    },
+    background: {
+    type: Boolean,
+    required: false,
+  },
 })
 </script>
 <style scoped></style>

@@ -26,7 +26,11 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-  }
+  },
+  background: {
+    type: Boolean,
+    required: false,
+  },
 });
 const tabs = [
   { label: 'Standard', value: 'standard' },
@@ -38,6 +42,7 @@ const activeTab = ref('standard')
 </script>
 
 <template>
+  <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
     <div>
       <!-- Heading Section -->
@@ -75,4 +80,5 @@ const activeTab = ref('standard')
       </div>
     </div>
   </CustomSection>
+</div>
 </template>

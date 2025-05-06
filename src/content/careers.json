@@ -11,6 +11,8 @@
         "id": 1,
         "title": "Join Our Mission to Revolutionize Observability",
         "description": "Build the future of observability with a team that values innovation, collaboration, and impact.",
+        "align": "center",
+        "buttonLink": "/careers",
         "buttonText": "See All Positions"
       },
       {
@@ -127,6 +129,7 @@
         "id": 5,
         "title": "Hear From Our Team",
         "description": "Our employees are our greatest asset. Here's what they have to say about working at OpenObserve.",
+        "background": true,
         "items": [
           {
             "quote": "Working at OpenObserve has been the highlight of my career. The problems we solve, the engineering culture, and the constantly growing team of brilliant colleagues.",

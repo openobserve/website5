@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full py-12 md:py-24 bg-light-gray">
+  <section class="w-full py-12 md:py-24" :class="background ? 'bg-gray-50' : ''">
     <div class="container px-4 md:px-6 mx-auto">
       <div class="flex flex-col items-center justify-center space-y-4 text-center">
         <div class="space-y-2">
@@ -81,6 +81,7 @@ type Story = {
 
 const props = defineProps<{
   sectionTitle: string
+  background?: boolean
   sectionDescription: string
   stories: Story[]
   viewAllText?: string

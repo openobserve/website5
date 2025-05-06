@@ -80,6 +80,7 @@
         "__component": "section-content.success-stories",
         "id": 1,
         "sectionTitle": "Success Stories",
+        "background": true,
         "`sectionDescription`": "See how organizations are transforming their observability with OpenObserve.",
         "stories": [
           {

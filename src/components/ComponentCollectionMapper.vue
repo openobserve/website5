@@ -57,7 +57,7 @@ const props = defineProps({
 });
 
 const componentsMap = computed(() => ({
-  "section-hero.careers-hero": CareerHero,
+  "section-hero.careers-hero": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
@@ -96,7 +96,7 @@ const componentsMap = computed(() => ({
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
-  "section-hero.policy-hero": PoliciesHeader,
+  "section-hero.policy-hero": CommonHeroSection,
 }));
 
 const getComponentProps = (it) => {

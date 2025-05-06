@@ -32,6 +32,7 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 2,
+        "background": true,
         "items": [
           {
             "title": "Lightning Fast",
@@ -65,8 +66,9 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 3,
-        "title": "The \"open\" ethos",
+        "title": "The \"Open\" Ethos",
         "description": "Our commitment to openness drives everything we do",
+        "background": true,
         "items": [
           {
             "title": "Open Standards",

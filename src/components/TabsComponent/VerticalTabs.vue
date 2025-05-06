@@ -11,6 +11,10 @@ const props = defineProps({
   items: {
     type: Array,
     required: true
+  },
+  background: {
+    type: Boolean,
+    required: false,
   }
 })
 
@@ -19,7 +23,7 @@ const activeIndex = ref(0)
 </script>
 
 <template>
-  <section class="py-16 bg-white">
+  <section class="py-16" :class="background ? 'bg-gray-50' : ''">
     <div class="container mx-auto px-4 space-y-10">
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
