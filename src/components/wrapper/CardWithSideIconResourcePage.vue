@@ -26,14 +26,18 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-  }
+  },
+  background: {
+    type: Boolean,
+    required: false,
+  },
 });
 
 </script>
 
 <template>
+  <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
-    <div>
       <!-- Heading Section -->
       <HeadingSection :title="title" :description="description" align="center" />
 
@@ -42,6 +46,6 @@ const props = defineProps({
         <CardWithSideIcon v-for="(card, index) in data" :key="index" :title="card.title" :description="card.description"
           :icon="card.icon" :theme="card.theme" />
       </div>
-    </div>
   </CustomSection>
+</div>
 </template>

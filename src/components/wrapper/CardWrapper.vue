@@ -26,7 +26,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="background ? 'bg-orange-200' : ''">
+  <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection>
       <div>
         <!-- Heading Section -->

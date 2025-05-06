@@ -7,6 +7,7 @@ const props = defineProps<{
   align: string; // Changed from strict union type to string
   title?: string;
   description?: string;
+  background?: boolean;
   data: Array<{
     title: string;
     description: string;
@@ -20,7 +21,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="bg-gray-50">
+  <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection>
       <div class="mb-8">
         <HeadingSection :title="props.title" :description="props.description" align="center" />

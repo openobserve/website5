@@ -20,10 +20,15 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  background:{
+    type: Boolean,
+    required: false,
+  }
 });
 </script>
 
 <template>
+   <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
     <div class="mb-8">
       <HeadingSection :title="title" :description="description" align="center" />
@@ -34,4 +39,5 @@ const props = defineProps({
         :items="card.items" :align="align" />
     </div>
   </CustomSection>
+</div>
 </template>

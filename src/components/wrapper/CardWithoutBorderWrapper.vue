@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 py-4 md:py-6 lg:py-6 xl:py-6">
+  <div class="px-4 py-4 md:py-6 lg:py-6 xl:py-6" :class="background ? 'bg-gray-50' : ''">
     <div class="max-w-6xl mx-auto">
       <h2  v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-2">{{ title }}</h2>
       <p   v-if="description" class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ description }}</p>
@@ -26,6 +26,7 @@ interface GlobalTeamFeature {
 defineProps<{
   title: string;
   description: string;
+  background: boolean;
   features: GlobalTeamFeature[];
 }>();
 </script>

@@ -39,6 +39,7 @@
         "id": 2,
         "title": "Comprehensive Observability Platform",
         "align": "left",
+        "background": true,
         "data": [
           {
             "title": "Kubernetes",
