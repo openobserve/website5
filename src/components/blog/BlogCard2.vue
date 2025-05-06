@@ -41,7 +41,7 @@ const getImageUrl = ({ image }: Blog) =>
             </div>
           </div>
         </div>
-        <div class="p-4 flex flex-col justify-start md:items-start flex-grow">
+        <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
          
             <div class="min-h-0 flex gap-2 mb-2">
               <a
