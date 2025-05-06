@@ -41,9 +41,9 @@ const getImageUrl = ({ image }: Blog) =>
             </div>
           </div>
         </div>
-        <div class="p-2 flex flex-col flex-grow">
-          <div class="flex flex-col justify-start md:items-start mb-2">
-            <div class="flex flex-wrap gap-2 mb-2">
+        <div class="p-4 flex flex-col justify-start md:items-start flex-grow">
+         
+            <div class="min-h-0 flex gap-2 mb-2">
               <a
                 v-for="tag in blog?.categories?.slice(0, 2)"
                 :key="tag.slug"
@@ -53,14 +53,13 @@ const getImageUrl = ({ image }: Blog) =>
                 {{ tag.name }}
               </a>
             </div>
-            <h2 class="text-lg font-semibold mb-2">
+            <h2 class="text-lg font-semibold flex-grow mb-2">
               {{ blog?.title }}
             </h2>
             <p class="text-primary-gray mb-4 flex-grow text-base line-clamp-3">
               {{ blog?.description }}
-            </p>
-            <div class="mt-auto w-full">
-              <div class="flex items-center flex-wrap gap-4">
+            </p>          
+              <div class="flex items-center flex-wrap gap-4 mt-auto w-full">
                 <!-- Avatars -->
                 <div class="flex -space-x-3">
                   <div
@@ -106,8 +105,6 @@ const getImageUrl = ({ image }: Blog) =>
                   >
                 </div>
               </div>
-            </div>
-          </div>
         </div>
       </div>
     </a>
