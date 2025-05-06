@@ -57,6 +57,7 @@
         "__component": "section-solutions.capabilities",
         "title": "Logs with OpenObserve",
         "description": "Discover how our platform transforms your observability experience",
+        "background":true,
         "tabs": [
           {
             "value": "performance",
@@ -149,6 +150,7 @@
         "__component": "section-solutions.faqs",
         "title": "Frequently Asked Questions",
         "description": "Find answers to common questions about OpenObserve and its capabilities",
+        "background": true,
         "items": [
           {
             "id": 1,

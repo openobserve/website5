@@ -1,17 +1,19 @@
 <!-- FaqsWrapper.vue -->
 <template>
-  <div class="max-w-4xl mx-auto px-4 py-12 space-y-10">
-    <HeadingSection :title="title" :description="description" align="CENTER" />
+  <div :class="background ? 'bg-gray-50' : ''">
+    <div class="max-w-4xl mx-auto px-4 py-12 space-y-10">
+      <HeadingSection :title="title" :description="description" align="CENTER" />
 
-    <!-- Add SearchBar component here -->
+      <!-- Add SearchBar component here -->
 
-    <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab" @update:activeTab="updateActiveTab"
-      gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2" />
-    <SearchBar @search="handleSearch" />
+      <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab" @update:activeTab="updateActiveTab"
+        gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2" />
+      <SearchBar @search="handleSearch" />
 
-    <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions" />
-    <div v-else class="text-center text-gray-500">
-      No questions found for your search
+      <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions" />
+      <div v-else class="text-center text-gray-500">
+        No questions found for your search
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +37,10 @@ const props = defineProps({
   items: {
     type: Array,
     default: () => []
+  },
+  background: {
+    type: Boolean,
+    required: false
   }
 })
 

@@ -3,6 +3,7 @@ import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
+import { boolean } from "astro:schema";
 
 const props = defineProps({
   title: {
@@ -17,11 +18,15 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  background: {
+    type: Boolean,
+    required: false,
+  },
 });
 </script>
 
 <template>
-  <div class="bg-gray-50">
+  <div :class="background ? 'bg-orange-200' : ''">
     <CustomSection>
       <div>
         <!-- Heading Section -->

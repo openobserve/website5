@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full py-12 md:py-14 bg-light-gray">
+  <section class="w-full py-12 md:py-14" :class="background ? 'bg-gray-50' : ''">
     <div class="container mx-auto py-16 px-4 md:px-6">
       <div class="flex flex-col items-center space-y-4 mb-10 text-center">
         <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">{{ title }}</h2>
@@ -39,5 +39,6 @@ defineProps<{
   title: string;
   description: string;
   items: Testimonial[];
+  background?: boolean;
 }>();
 </script>

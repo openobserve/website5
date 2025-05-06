@@ -1,5 +1,5 @@
 <template>
-  <div ref="sectionRef" class=" bg-light-gray dark:bg-secondary">
+  <div ref="sectionRef" :class="background ? 'bg-gray-50' : ''">
     <CustomSection>
         <HeadingSection :title="title" :description="description" align="CENTER" />
       <div class="w-full">
@@ -62,6 +62,10 @@ const props = defineProps({
   tabs: {
     type: Array,
     required: true
+  },
+  background: {
+    type: Boolean,
+    required: false
   }
 })
 const activeTab = ref('performance')

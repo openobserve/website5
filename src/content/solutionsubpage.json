@@ -52,6 +52,7 @@
         "__component": "section-solutions.tabs",
         "title": "AWS Observability",
         "description": "Comprehensive monitoring and insights for your AWS infrastructure.",
+        "background": true,
         "tabs": [
           {
             "value": "visibility",
