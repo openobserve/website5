@@ -20,7 +20,7 @@ const props = defineProps<{
 <template>
     <div
     :class="[
-      'rounded-xl p-2 lg:p-6 flex flex-col',
+      'rounded-xl p-2 lg:p-6 flex flex-col gap-4',
       props.align === 'center'
         ? 'items-center text-center'
         : props.align === 'right'
@@ -30,7 +30,7 @@ const props = defineProps<{
   >
       <!-- Icon -->
       <div :class="[ 
-        'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card', 
+        'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card', 
         props.theme
       ]">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ const props = defineProps<{
       </h2>
 
       <!-- Description -->
-      <p class="my-4 text-gray-600 dark:text-gray-400 text-sm">
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
         {{ props.description }}
       </p>
 

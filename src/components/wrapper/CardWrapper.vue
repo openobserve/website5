@@ -34,7 +34,7 @@ const props = defineProps({
         />
 
         <!-- Cards Section -->
-        <div class="grid-container mt-12">
+        <div class="grid-container">
           <!-- CardWithShadowBorder -->
           <CardWithShadowBorder
             v-for="(card, index) in items"
