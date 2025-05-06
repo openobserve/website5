@@ -4,34 +4,34 @@
     <div class="w-full container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
       <Logo />
       <nav>
-        <ul class="flex items-center space-x-0.5 w-full">
+        <ul class="flex items-center space-x-0.5 w-full font-semibold text-base ">
           <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
-            <a href="/platform" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+            <a href="/platform" class="px-3 py-2 rounded-lg transition-all"
               :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Platform
             </a>
           </li>
           <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
-            <a href="/solutions" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+            <a href="/solutions" class="px-3 py-2 rounded-lg transition-all"
               :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Solutions
             </a>
           </li>
           <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
-            <a href="/resources" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+            <a href="/resources" class="px-3 py-2 rounded-lg transition-all"
               :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Resources
             </a>
           </li>
           <li class="relative" @mouseenter="onCompanyMenuHover" @mouseleave="onCompanyMenuMouseLeave">
-            <a href="/about" class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all"
+            <a href="/about" class="px-3 py-2 rounded-lg transition-all"
               :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
               Company
             </a>
           </li>
           <li class="relative">
             <a href="/downloads"
-              class="text-white font-semibold text-base px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50">
+              class="px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50">
               Downloads
             </a>
           </li>
