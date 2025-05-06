@@ -62,14 +62,14 @@ const props = defineProps({
   grid-template-columns: repeat(6, minmax(auto, 1fr));
   /* Adjust the number of columns */
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: start;
   /* Center the grid items */
   grid-auto-flow: dense;
   /* Make sure the last row fills gaps */
 }
 
 .grid-item {
-  text-align: center;
+  text-align: start;
   display: flex;
   justify-content: center;
   grid-column: span 2;
