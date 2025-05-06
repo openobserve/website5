@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {
-  getAllBlogs,
+  getallBlogsWithoutCaseStudies,
   getAllCategories,
   getBlogsByPagination,
 } from "@/utils/api/blog";
@@ -17,9 +17,7 @@ const currentPage = page ? parseInt(page) : 1;
 
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
-const allBlogsData = (await getAllBlogs()).filter(
-  (blog: any) => !blog.caseStudies
-);
+const allBlogsData = await getallBlogsWithoutCaseStudies();
 const suggestionData = await getAllCategories();
 const count = await getTotalCounts();
 
@@ -35,7 +33,6 @@ const metaObj = {
     title="Blog"
     description="Explore latest insights and updates"
     align="left"
-    client:load
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
