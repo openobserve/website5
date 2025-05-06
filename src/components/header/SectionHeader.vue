@@ -1,11 +1,11 @@
 <template>
   <div class="w-full space-y-1 xl:space-y-2">
     <a :href="`/platform/${link}`"
-      class="text-[#FFFFFF] text-sm md:text-base lg:text-sm xl:text-base font-semibold cursor-pointer gradient-hover">
+      class="text-sm md:text-base lg:text-sm xl:text-base font-semibold cursor-pointer gradient-hover">
       {{ title }}
     </a>
     <ul class="space-y-0.5">
-      <li v-for="(item, index) in updatedItems" :key="index" class="text-[#BEC0C2] text-sm">
+      <li v-for="(item, index) in updatedItems" :key="index" class="text-gray-600 text-sm">
         <a :href="item.slug" :class="item.slug ? 'gradient-hover' : ''">
           {{ item.title }}
         </a>
@@ -58,7 +58,7 @@ const updatedItems = computed(() => {
   -webkit-text-fill-color: transparent;
 } */
 .gradient-hover:hover {
-  background: linear-gradient(to left, #09e6ff, #00ffc3);
+  background: linear-gradient(to left, #6A76E3 ,#45A4F3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

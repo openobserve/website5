@@ -20,9 +20,9 @@ import Header from "@/components/header/Header.vue";
       navData={navData?.data}
       client:only
       />
-    <div class=" pt-12 xl:pt-18">
-      <slot />
-    </div>
+      <main class="pt-[78px] min-h-[calc(100vh-10rem)]">
+        <slot />
+      </main>
     <Footer
       footerData={FooterData?.data?.footerData}
       copyRightText={FooterData?.data?.copyRightText}
