@@ -66,7 +66,7 @@
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div class="fixed top-full flex justify-center left-[25%] w-[80%] xl:w-1/2 mx-auto"
+    <div class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto"
       v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
@@ -74,12 +74,11 @@
             {{ items.platform.title }}
           </a>
           <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
-            <div class="w-full md:w-2/2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              <div v-for="(item, index) in items.platform.items" :key="index">
-                <SectionHeader :title="item.title" :items="item.items" :link="item.link" />
-              </div>
-            </div>
-
+            <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
+                  <li v-for="(item, index) in items.platform.items" :key="index" class="text-gray-600 text-sm">
+                    <a :href="`/platform/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
+                  </li>
+                </ul>
           </div>
           <div class="flex flex-row gap-2 mt-6 w-full text-white">
             <div class="w-[80%]">
@@ -92,13 +91,13 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] mx-auto"
+    <div class="fixed top-full flex justify-center w-[50%] left-1/4 xl:w-[40%] 2xl:w-[30%] 2xl:left-1/3 mx-auto"
       v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
             <!-- Use Case Column -->
-            <div class="flex flex-col space-y-3 w-2/3">
+            <div class="flex flex-col space-y-3">
               <h4 class="text-base font-semibold">Use Case</h4>
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4">
@@ -108,29 +107,9 @@
                 </ul>
               </div>
             </div>
-            <!-- By Team Column -->
-            <div class="flex flex-col space-y-3 w-1/3">
-              <div class="flex flex-col space-y-2">
-                <h4 class="text-base font-semibold">By Team</h4>
-                <div>
-                  <ul class="flex flex-col space-y-4">
-                    <li v-for="(item, index) in items.solutions.byTeam" :key="index" class="text-gray-600 text-sm">
-                      <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title
-                      }}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Sandbox Column -->
-              <div>
-                <a :href="items?.solutions?.sandbox?.link">{{
-                  items?.solutions?.sandbox?.title
-                }}</a>
-              </div>
-            </div>
           </div>
           <div class="flex justify-center">
-            <div class="w-4/5 xl:w-[60%]">
+            <div class="w-full">
               <CustomHeaderButton title="Full Stack Observability Solutions" linkTitle="View Solutions"
                 link="/solutions" />
             </div>
@@ -138,7 +117,7 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] mx-auto"
+    <div class="fixed top-full flex justify-center w-[45%] xl:w-[31%] left-[30%] 2xl:w-[30%] xl:left-[40%] mx-auto"
       v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
@@ -199,7 +178,7 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto" v-if="isCompanyMenuOpen"
+    <div class="absolute top-full flex justify-center left-[40%] xl:left-[48%] w-52 mx-auto" v-if="isCompanyMenuOpen"
       @mouseenter="onCompanyMenuHover">
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
@@ -374,32 +353,5 @@ onUnmounted(() => {
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;
-}
-
-/* 
-.glass-card {
-  position: relative;
-}
-
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 8px 16px;
-}
-
-.glass-card:hover {
-  background: rgba(72, 71, 71, 1);
-   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background 0.3s ease;
-} */
-</style>
-<style>
-body {
-  /* margin-top: 10vh; Adjust this value based on your header height */
 }
 </style>
