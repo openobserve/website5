@@ -1,37 +1,37 @@
 <template>
   <!-- Sticky Header -->
-  <header class="sticky top-0 z-50">
-    <div class="w-full container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
+  <header class="sticky top-0 z-50 w-full">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full font-semibold text-base ">
           <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
             <a href="/platform" class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Platform
             </a>
           </li>
           <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
             <a href="/solutions" class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Solutions
             </a>
           </li>
           <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
             <a href="/resources" class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Resources
             </a>
           </li>
           <li class="relative" @mouseenter="onCompanyMenuHover" @mouseleave="onCompanyMenuMouseLeave">
             <a href="/about" class="px-3 py-2 rounded-lg transition-all"
-              :class="isCompanyMenuOpen ? 'bg-gray-600/50' : 'bg-transparent'">
+              :class="isCompanyMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Company
             </a>
           </li>
           <li class="relative">
             <a href="/downloads"
-              class="px-3 py-2 rounded-lg transition-all hover:bg-gray-600/50">
+              class="px-3 py-2 rounded-lg transition-all hover:text-[#6b76e3]">
               Downloads
             </a>
           </li>
@@ -49,7 +49,7 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <a class="rounded-[4px] transition flex items-center border border-[#3d444d]"
+        <a class="rounded-[4px] transition flex items-center border"
           href="https://short.openobserve.ai/community" target="_blank">
           <img src="/img/icon/slackIcon.svg" alt="Search Icon"
             class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1" />
@@ -66,11 +66,11 @@
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div class="fixed top-full flex justify-center left-[25%] w-[80%] xl:w-1/2 container mx-auto"
+    <div class="fixed top-full flex justify-center left-[25%] w-[80%] xl:w-1/2 mx-auto"
       v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
-          <a class="text-xl font-bold text-[#FFFFFF]">
+          <a class="text-xl font-bold">
             {{ items.platform.title }}
           </a>
           <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
@@ -81,7 +81,7 @@
             </div>
 
           </div>
-          <div class="flex flex-row gap-2 mt-6 w-full">
+          <div class="flex flex-row gap-2 mt-6 w-full text-white">
             <div class="w-[80%]">
               <CustomHeaderButton title="Full Stack Observability Platform" linkTitle="View Platform"
                 link="/platform" />
@@ -92,17 +92,17 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] container mx-auto"
+    <div class="absolute top-full flex justify-center w-[60%] xl:w-1/2 left-[25%] mx-auto"
       v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
             <!-- Use Case Column -->
             <div class="flex flex-col space-y-3 w-2/3">
-              <h4 class="text-[#FFFFFF] text-base font-semibold">Use Case</h4>
+              <h4 class="text-base font-semibold">Use Case</h4>
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4">
-                  <li v-for="(item, index) in items.solutions.useCases" :key="index" class="text-[#BEC0C2] text-sm">
+                  <li v-for="(item, index) in items.solutions.useCases" :key="index" class="text-gray-600 text-sm">
                     <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
                   </li>
                 </ul>
@@ -111,10 +111,10 @@
             <!-- By Team Column -->
             <div class="flex flex-col space-y-3 w-1/3">
               <div class="flex flex-col space-y-2">
-                <h4 class="text-[#FFFFFF] text-base font-semibold">By Team</h4>
+                <h4 class="text-base font-semibold">By Team</h4>
                 <div>
                   <ul class="flex flex-col space-y-4">
-                    <li v-for="(item, index) in items.solutions.byTeam" :key="index" class="text-[#BEC0C2] text-sm">
+                    <li v-for="(item, index) in items.solutions.byTeam" :key="index" class="text-gray-600 text-sm">
                       <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title
                       }}</a>
                     </li>
@@ -138,7 +138,7 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] container mx-auto"
+    <div class="absolute top-full flex justify-center w-[60%] xl:w-[30%] left-[40%] mx-auto"
       v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
@@ -155,19 +155,19 @@
                   }}</a>
                 </li>
               </ul> -->
-              <ul class="flex flex-col space-y-2">
-                <li class="cursor-pointer text-[#BEC0C2] text-base gradient-hover">
-                  <a href="https://openobserve.ai/docs/" class="text-[#BEC0C2] text-sm gradient-hover"
+              <ul class="flex flex-col space-y-2 text-gray-600 text-sm">
+                <li class="cursor-pointer gradient-hover">
+                  <a href="https://openobserve.ai/docs/" class=""
                     target="_blank">Documentation</a>
                 </li>
-                <li class="cursor-pointer">
-                  <a href="/blog" class="text-[#BEC0C2] text-sm gradient-hover">Blog</a>
+                <li class="cursor-pointer gradient-hover">
+                  <a href="/blog" class="">Blog</a>
                 </li>
-                <li class="cursor-pointer">
-                  <a href="/faqs" class="text-[#BEC0C2] text-sm gradient-hover">Frequently Asked Questions</a>
+                <li class="cursor-pointer gradient-hover">
+                  <a href="/faqs" class="">Frequently Asked Questions</a>
                 </li>
-                <li class="cursor-pointer">
-                  <a href="/case-studies" class="text-[#BEC0C2] text-sm gradient-hover">Case Studies and
+                <li class="cursor-pointer gradient-hover">
+                  <a href="/case-studies" class="">Case Studies and
                     testimonials</a>
                 </li>
               </ul>
@@ -203,7 +203,7 @@
       @mouseenter="onCompanyMenuHover">
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
-          <li v-for="(item, index) in items?.company?.items" :key="index" class="text-[#BEC0C2] text-sm">
+          <li v-for="(item, index) in items?.company?.items" :key="index" class=" text-gray-600 text-sm">
             <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
               item.title
             }}</a>
@@ -365,7 +365,7 @@ onUnmounted(() => {
 } */
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #09e6ff, #00ffc3);
+  background: linear-gradient(to left, #6A76E3 ,#45A4F3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
