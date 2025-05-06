@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CustomButton from "../core/CustomButton.vue";
+import CustomSection from "../core/CustomSection.vue";
 
 defineProps({
   title: {
@@ -26,13 +27,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full hero-gradient py-12 md:py-24 lg:py-32 px-5">
-    <div class="max-w-full mx-auto flex flex-col container px-4 space-y-6" :class="{
+  <div class="w-full hero-gradient">
+  <CustomSection sectionclass="py-2 sm:py-6 md:py-6 lg:py-8 xl:py-10">
+    <div class="max-w-full container mx-auto flex flex-col px-4 space-y-6" :class="{
       'items-start text-left': align === 'left',
       'items-center text-center': align === 'center',
       'items-end text-right': align === 'right',
     }">
-      <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
+      <h1 class="text-3xl sm:text-4xl xl:text-5xl/none font-bold tracking-tighter text-white">
         {{ title }}
       </h1>
       <p class="text-white text-lg md:text-xl">
@@ -41,8 +43,9 @@ defineProps({
       <!-- Button -->
       <div v-if="buttonText && buttonLink">
         <CustomButton variant="secondary" size="medium" :buttonText="buttonText" :buttonLink="buttonLink"
-          btn-class="bg-white text-indigo-500 mt-6" />
+          btn-class="bg-white text-indigo-500" />
       </div>
     </div>
+  </CustomSection>
   </div>
 </template>
