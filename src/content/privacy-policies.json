@@ -11,7 +11,7 @@
                 "id": 1,
                 "title": "Privacy Policy",
                 "description": "Last updated: April 17, 2025",
-                "align": "left"
+                "align": "center"
             },
             {
                 "__component": "section-policies.table-of-contents",
