@@ -56,9 +56,10 @@ const getImageUrl = ({ image }: Blog) =>
             <h2 class="text-lg font-semibold flex-grow mb-2">
               {{ blog?.title }}
             </h2>
-            <p class="text-primary-gray mb-4 flex-grow text-base line-clamp-3">
+            <p class="text-primary-gray mb-3 text-base line-clamp-3">
               {{ blog?.description }}
-            </p>          
+            </p>
+            <div class="w-full h-px bg-gray-200 my-3"></div>
               <div class="flex items-center flex-wrap gap-4 mt-auto w-full">
                 <!-- Avatars -->
                 <div class="flex -space-x-3">
