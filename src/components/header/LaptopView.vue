@@ -165,7 +165,7 @@
             </div>
             <a
               href="/pricing"
-              class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer"
+              class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer text-sm"
               >Pricing</a
             >
           </div>
