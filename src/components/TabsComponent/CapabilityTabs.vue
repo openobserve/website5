@@ -1,10 +1,7 @@
 <template>
-  <div ref="sectionRef" class=" bg-light-gray dark:bg-secondary py-20">
-    <div class="container mx-auto px-4">
-
-      <div class="">
+  <div ref="sectionRef" class=" bg-light-gray dark:bg-secondary">
+    <CustomSection>
         <HeadingSection :title="title" :description="description" align="CENTER" />
-      </div>
       <div class="w-full">
         <div class="grid w-full grid-cols-2 md:grid-cols-5 h-auto p-0 bg-transparent gap-2">
           <button v-for="tab in tabs" :key="tab.value" @click="setActiveTab(tab.value)" :class="[
@@ -51,13 +48,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </CustomSection>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import HeadingSection from '../core/HeadingSection.vue'
+import CustomSection from '../core/CustomSection.vue'
 const props = defineProps({
   title: String,
   description: String,
