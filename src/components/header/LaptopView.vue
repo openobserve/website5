@@ -1,37 +1,71 @@
 <template>
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50 w-full">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2">
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex justify-between items-center py-2"
+    >
       <Logo />
       <nav>
-        <ul class="flex items-center space-x-0.5 w-full font-semibold text-base ">
-          <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
-            <a href="/platform" class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'">
+        <ul
+          class="flex items-center space-x-0.5 w-full font-semibold text-base"
+        >
+          <li
+            class="relative"
+            @mouseenter="onPlatformMenuHover"
+            @mouseleave="onPlatformMenuMouseLeave"
+          >
+            <a
+              href="/platform"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Platform
             </a>
           </li>
-          <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
-            <a href="/solutions" class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onSolutionMenuHover"
+            @mouseleave="onSolutionMenuMouseLeave"
+          >
+            <a
+              href="/solutions"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Solutions
             </a>
           </li>
-          <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
-            <a href="/resources" class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onResourcesMenuHover"
+            @mouseleave="onResourcesMenuMouseLeave"
+          >
+            <a
+              href="/resources"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Resources
             </a>
           </li>
-          <li class="relative" @mouseenter="onCompanyMenuHover" @mouseleave="onCompanyMenuMouseLeave">
-            <a href="/about" class="px-3 py-2 rounded-lg transition-all"
-              :class="isCompanyMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onCompanyMenuHover"
+            @mouseleave="onCompanyMenuMouseLeave"
+          >
+            <a
+              href="/about"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isCompanyMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Company
             </a>
           </li>
           <li class="relative">
-            <a href="/downloads"
-              class="px-3 py-2 rounded-lg transition-all hover:text-[#6b76e3]">
+            <a
+              href="/downloads"
+              class="px-3 py-2 rounded-lg transition-all hover:text-[#6b76e3]"
+            >
               Downloads
             </a>
           </li>
@@ -49,50 +83,100 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <a class="rounded-[4px] transition flex items-center border"
-          href="https://short.openobserve.ai/community" target="_blank">
-          <img src="/img/icon/slackIcon.svg" alt="Search Icon"
-            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1" />
+        <a
+          class="rounded-[4px] transition flex items-center border"
+          href="https://short.openobserve.ai/community"
+          target="_blank"
+        >
+          <img
+            src="/img/icon/slackIcon.svg"
+            alt="Search Icon"
+            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
+          />
         </a>
         <!-- GitHub Stats Section -->
-        <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="dark" data-size="large"
-          data-show-count="true" aria-label="Star openobserve/openobserve on GitHub" class="pt-1.5">Star</GithubButton>
-        <CustomButton variant="secondary" size="small" buttonLink="https://cloud.openobserve.ai" target="_blank">
+        <GithubButton
+          href="https://github.com/openobserve/openobserve"
+          data-color-scheme="dark"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star openobserve/openobserve on GitHub"
+          class="pt-1.5"
+          >Star</GithubButton
+        >
+        <CustomButton
+          variant="secondary"
+          size="small"
+          buttonLink="https://cloud.openobserve.ai"
+          target="_blank"
+        >
           LOG IN
         </CustomButton>
-        <CustomButton variant="primary" size="small" buttonLink="/demo">
+        <CustomButton
+          variant="primary"
+          size="small"
+          buttonLink="/demo"
+          class="transition-opacity duration-500 ease-in-out"
+          :class="
+            showStickyButton
+              ? 'opacity-100'
+              : 'opacity-0'
+          "
+        >
           GET DEMO
         </CustomButton>
       </div>
     </div>
     <!-- Dropdown Menus -->
-    <div class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto"
-      v-if="isPlatformMenuOpen" @mouseenter="onPlatformMenuHover">
+    <div
+      class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto"
+      v-if="isPlatformMenuOpen"
+      @mouseenter="onPlatformMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
           <a class="text-xl font-bold">
             {{ items.platform.title }}
           </a>
-          <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4">
+          <div
+            class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4"
+          >
             <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
-                  <li v-for="(item, index) in items.platform.items" :key="index" class="text-gray-600 text-sm">
-                    <a :href="`/platform/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
-                  </li>
-                </ul>
+              <li
+                v-for="(item, index) in items.platform.items"
+                :key="index"
+                class="text-gray-600 text-sm"
+              >
+                <a
+                  :href="`/platform/${item.link}`"
+                  :class="item.link ? 'gradient-hover' : ''"
+                  >{{ item.title }}</a
+                >
+              </li>
+            </ul>
           </div>
           <div class="flex flex-row gap-2 mt-6 w-full text-white">
             <div class="w-[80%]">
-              <CustomHeaderButton title="Full Stack Observability Platform" linkTitle="View Platform"
-                link="/platform" />
+              <CustomHeaderButton
+                title="Full Stack Observability Platform"
+                linkTitle="View Platform"
+                link="/platform"
+              />
             </div>
-            <a href="/pricing"
-              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer">Pricing</a>
+            <a
+              href="/pricing"
+              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer"
+              >Pricing</a
+            >
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="fixed top-full flex justify-center w-[50%] left-1/4 xl:w-[40%] 2xl:w-[30%] 2xl:left-1/3 mx-auto"
-      v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
+    <div
+      class="fixed top-full flex justify-center w-[50%] left-1/4 xl:w-[40%] 2xl:w-[30%] 2xl:left-1/3 mx-auto"
+      v-if="isSolutionMenuOpen"
+      @mouseenter="onSolutionMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
@@ -101,8 +185,16 @@
               <h4 class="text-base font-semibold">Use Case</h4>
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4">
-                  <li v-for="(item, index) in items.solutions.useCases" :key="index" class="text-gray-600 text-sm">
-                    <a :href="`/solutions/${item.link}`" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
+                  <li
+                    v-for="(item, index) in items.solutions.useCases"
+                    :key="index"
+                    class="text-gray-600 text-sm"
+                  >
+                    <a
+                      :href="`/solutions/${item.link}`"
+                      :class="item.link ? 'gradient-hover' : ''"
+                      >{{ item.title }}</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -110,15 +202,21 @@
           </div>
           <div class="flex justify-center">
             <div class="w-full">
-              <CustomHeaderButton title="Full Stack Observability Solutions" linkTitle="View Solutions"
-                link="/solutions" />
+              <CustomHeaderButton
+                title="Full Stack Observability Solutions"
+                linkTitle="View Solutions"
+                link="/solutions"
+              />
             </div>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="fixed top-full flex justify-center w-[45%] xl:w-[31%] left-[30%] 2xl:w-[30%] xl:left-[40%] mx-auto"
-      v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
+    <div
+      class="fixed top-full flex justify-center w-[45%] xl:w-[31%] left-[30%] 2xl:w-[30%] xl:left-[40%] mx-auto"
+      v-if="isResourcesMenuOpen"
+      @mouseenter="onResourcesMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
@@ -136,8 +234,12 @@
               </ul> -->
               <ul class="flex flex-col space-y-2 text-gray-600 text-sm">
                 <li class="cursor-pointer gradient-hover">
-                  <a href="https://openobserve.ai/docs/" class=""
-                    target="_blank">Documentation</a>
+                  <a
+                    href="https://openobserve.ai/docs/"
+                    class=""
+                    target="_blank"
+                    >Documentation</a
+                  >
                 </li>
                 <li class="cursor-pointer gradient-hover">
                   <a href="/blog" class="">Blog</a>
@@ -146,8 +248,9 @@
                   <a href="/faqs" class="">Frequently Asked Questions</a>
                 </li>
                 <li class="cursor-pointer gradient-hover">
-                  <a href="/case-studies" class="">Case Studies and
-                    testimonials</a>
+                  <a href="/case-studies" class=""
+                    >Case Studies and testimonials</a
+                  >
                 </li>
               </ul>
             </div>
@@ -172,17 +275,28 @@
           </div>
           <div class="flex justify-center">
             <div class="w-full">
-              <CustomHeaderButton title="Check out our resource library" linkTitle="View Resources" link="/resources" />
+              <CustomHeaderButton
+                title="Check out our resource library"
+                linkTitle="View Resources"
+                link="/resources"
+              />
             </div>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full flex justify-center left-[40%] xl:left-[48%] w-52 mx-auto" v-if="isCompanyMenuOpen"
-      @mouseenter="onCompanyMenuHover">
+    <div
+      class="absolute top-full flex justify-center left-[40%] xl:left-[48%] w-52 mx-auto"
+      v-if="isCompanyMenuOpen"
+      @mouseenter="onCompanyMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
         <ul class="flex flex-col space-y-2">
-          <li v-for="(item, index) in items?.company?.items" :key="index" class=" text-gray-600 text-sm">
+          <li
+            v-for="(item, index) in items?.company?.items"
+            :key="index"
+            class="text-gray-600 text-sm"
+          >
             <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
               item.title
             }}</a>
@@ -209,13 +323,20 @@
         </ul>
       </CustomHoverHeader>
     </div> -->
-    <div class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2" v-if="isOpenSearch"
-      @click.stop>
+    <div
+      class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2"
+      v-if="isOpenSearch"
+      @click.stop
+    >
       <div
-        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer">
+        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
+      >
         <img src="/img/icon/search.svg" alt="Search Icon" class="" />
-        <input type="text" class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
-          placeholder="Search here" />
+        <input
+          type="text"
+          class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
+          placeholder="Search here"
+        />
         <button @click="isOpenSearch = false" class="text-white">
           <img src="/img/icon/close.svg" alt="Search Icon" class="" />
         </button>
@@ -329,6 +450,20 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
+
+const showStickyButton = ref(false);
+
+const handleScroll = () => {
+  showStickyButton.value = window.scrollY > 100;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 <style scoped>
 .gradient-hover {
@@ -344,7 +479,7 @@ onUnmounted(() => {
 } */
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #6A76E3 ,#45A4F3);
+  background: linear-gradient(to left, #6a76e3, #45a4f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
