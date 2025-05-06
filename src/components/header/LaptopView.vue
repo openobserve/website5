@@ -155,7 +155,7 @@
               </li>
             </ul>
           </div>
-          <div class="flex flex-row gap-2 mt-6 w-full text-white">
+          <div class="flex flex-row gap-2 mt-6 w-full">
             <div class="w-[80%]">
               <CustomHeaderButton
                 title="Full Stack Observability Platform"
@@ -165,7 +165,7 @@
             </div>
             <a
               href="/pricing"
-              class="p-4 bg-black bg-opacity-40 card-border w-1/4 flex justify-center cursor-pointer"
+              class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer"
               >Pricing</a
             >
           </div>

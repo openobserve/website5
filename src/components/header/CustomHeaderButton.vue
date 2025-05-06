@@ -2,9 +2,9 @@
 const props = defineProps({ title: String, linkTitle: String, link: String });
 </script>
 <template>
-  <div class="bg-black bg-opacity-40 card-border p-4 w-full">
+  <div class="border border-gray-400 rounded-lg p-4 w-full">
     <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-      <h3 class="text-white text-base">{{ title }}</h3>
+      <h3 class="text-base">{{ title }}</h3>
       <a class="gradient-hover cursor-pointer text-base" :href="link">
         {{ linkTitle }}
       </a>
