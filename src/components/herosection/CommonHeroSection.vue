@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CustomButton from "../core/CustomButton.vue";
 
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true,

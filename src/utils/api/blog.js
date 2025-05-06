@@ -48,7 +48,6 @@ export async function getAllCaseStudies() {
   const blogs = await getAllBlogs();
   // Filter blogs where caseStudies is true
   const caseStudies = blogs.filter((blog) => blog.caseStudies === true);
-
   return caseStudies;
 }
 
@@ -71,7 +70,13 @@ export async function getAllAuthors() {
 }
 
 export async function getAllCategories() {
-  const categories = await fetchCategories();
+  let categories = await fetchCategories();
+  categories = categories.map((cat) => {
+    return {
+      name: cat.name,
+      slug: cat.slug,
+    };
+  });
   return categories;
 }
 
@@ -94,17 +99,32 @@ export async function getBlogsByAuthor(author) {
 
 export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
+
   // Filter out case studies
   const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
-  // Sort blogs by publishDate in descending order
+
+  // Sort by publishDate descending
   const sortedBlogs = filteredBlogs.sort(
     (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
   );
 
+  // Paginate
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
-  return sortedBlogs.slice(start, end);
+  const paginatedBlogs = sortedBlogs.slice(start, end);
+
+  // Return only selected fields
+  return paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 }
+
 
 const filterBlogsWithoutCaseStudies = (blogs) => {
   return blogs.filter((blog) => !blog.caseStudies);
@@ -139,7 +159,16 @@ export async function getBlogsByPaginationAndCategory(
     filteredBlogs = filterBlogsByCategory(filteredBlogs, categorySlug);
   }
 
-  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  let paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  paginatedBlogs = paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 
   return {
     blogs: paginatedBlogs,
@@ -156,11 +185,36 @@ export async function getBlogsByPaginationAndAuthor(page, authorSlug = null) {
     filteredBlogs = filterBlogsByAuthor(filteredBlogs, authorSlug);
   }
 
-  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  let paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  paginatedBlogs = paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 
   return {
     blogs: paginatedBlogs,
     totalBlogs: filteredBlogs.length,
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };
+}
+
+export async function getallBlogsWithoutCaseStudies() {
+  const blogs = await getAllBlogs();
+  let filteredBlogs = await filterBlogsWithoutCaseStudies(blogs);
+  filteredBlogs = filteredBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
+   return filteredBlogs;
 }
