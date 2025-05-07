@@ -1,6 +1,6 @@
 <template>
   <section class="w-full py-12" :class="background ? 'bg-gray-50' : ''">
-    <div class="container mx-auto px-4 md:px-6 space-y-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 space-y-10">
       <div>
         <HeadingSection :title="title" :description="description" align="CENTER" />
       </div>

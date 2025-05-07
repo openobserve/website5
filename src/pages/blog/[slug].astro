@@ -7,6 +7,7 @@ import {
 } from "@/utils/api/blog";
 import BlogcontentWrapper from "@/components/blog/BlogcontentWrapper.vue";
 import BlogDetailsHeroSection from "@/components/blog/BlogDetailsHeroSection.vue";
+import BlogSection from "@/components/contactus/BlogSection.vue";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
   return slugs.map((it: any) => ({
@@ -23,6 +24,7 @@ const author = await Promise.all(
     return await getAuthorDetails(authorSlug.slug);
   })
 );
+const allBlogs = await getAllBlogs();
 const metaObj = {
   title: SlugData?.title,
 };
@@ -51,5 +53,8 @@ const metaObj = {
     content={SlugData?.content}
     authors={author}
   />
+  <div class="max-w-7xl container mx-auto">
+    <BlogSection client:load />
+  </div>
   <!-- bannerData={BannerData?.data} -->
 </Layout>

@@ -171,6 +171,7 @@ onMounted(async () => {
     scrollContainer.value?.addEventListener("scroll", updateButtonState);
   }
 });
+
 // Set section title and view-all link manually
 const sectionTitle = "Latest from Our Blogs";
 const viewAllLink = {

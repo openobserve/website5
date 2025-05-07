@@ -129,6 +129,10 @@
         "viewAllText": "View All Success Stories"
       },
       {
+        "__component": "section-cards.blog",
+        "id": 4
+      },
+      {
         "__component": "section-hero.cta-buttons",
         "id": 2,
         "title": "OpenObserve",
