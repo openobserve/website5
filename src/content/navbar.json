@@ -242,26 +242,6 @@
         }
       ]
     },
-    "company": {
-      "id": 1,
-      "items": [
-        {
-          "id": 49,
-          "title": "About Us",
-          "link": "/about"
-        },
-        {
-          "id": 50,
-          "title": "Careers",
-          "link": "/careers"
-        },
-        {
-          "id": 52,
-          "title": "Contact Us",
-          "link": "/contactus"
-        }
-      ]
-    },
     "resources": {
       "id": 1,
       "item1": [

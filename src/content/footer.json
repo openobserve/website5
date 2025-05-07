@@ -134,6 +134,11 @@
             "id": 23,
             "text": "Articles",
             "link": "/articles"
+          },
+          {
+            "id": 24,
+            "text":"Downloads",
+            "link": "/downloads"
           }
         ]
       },

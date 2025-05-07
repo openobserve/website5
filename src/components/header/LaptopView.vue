@@ -48,27 +48,6 @@
               Resources
             </a>
           </li>
-          <li
-            class="relative"
-            @mouseenter="onCompanyMenuHover"
-            @mouseleave="onCompanyMenuMouseLeave"
-          >
-            <a
-              href="/about"
-              class="px-3 py-2 rounded-lg transition-all"
-              :class="isCompanyMenuOpen ? 'theme-purple' : 'bg-transparent'"
-            >
-              Company
-            </a>
-          </li>
-          <li class="relative">
-            <a
-              href="/downloads"
-              class="px-3 py-2 rounded-lg transition-all hover:text-[#6b76e3]"
-            >
-              Downloads
-            </a>
-          </li>
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
@@ -286,44 +265,6 @@
       </CustomHoverHeader>
     </div>
     <div
-      class="absolute top-full flex justify-center left-[40%] xl:left-[48%] w-52 mx-auto"
-      v-if="isCompanyMenuOpen"
-      @mouseenter="onCompanyMenuHover"
-    >
-      <CustomHoverHeader @mouseleave="onCompanyMenuMouseLeave">
-        <ul class="flex flex-col space-y-2">
-          <li
-            v-for="(item, index) in items?.company?.items"
-            :key="index"
-            class="text-gray-600 text-sm"
-          >
-            <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
-              item.title
-            }}</a>
-          </li>
-        </ul>
-      </CustomHoverHeader>
-    </div>
-    <!-- <div
-      class="absolute top-full flex justify-center left-[48%] w-52 container mx-auto"
-      v-if="isCommunityOpen"
-      @mouseenter="onCommunityMenuHover"
-    >
-      <CustomHoverHeader @mouseleave="onCommunityMenuMouseLeave">
-        <ul class="flex flex-col space-y-2">
-          <li
-            v-for="(item, index) in items?.company"
-            :key="index"
-            class="text-[#BEC0C2] text-sm"
-          >
-            <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{
-              item.title
-            }}</a>
-          </li>
-        </ul>
-      </CustomHoverHeader>
-    </div> -->
-    <div
       class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2"
       v-if="isOpenSearch"
       @click.stop
@@ -350,10 +291,8 @@ import Logo from "@/components/core/Logo.vue";
 import CustomButton from "@/components/core/CustomButton.vue";
 import CustomHoverHeader from "@/components/header/CustomHoverHeader.vue";
 import CustomHeaderButton from "@/components/header/CustomHeaderButton.vue";
-import SectionHeader from "@/components/header/SectionHeader.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import GithubButton from "vue-github-button";
-import { slugify } from "@/utils/slugify";
 defineProps({
   items: {
     type: Object,

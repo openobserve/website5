@@ -2,7 +2,7 @@
 const props = defineProps({ title: String, linkTitle: String, link: String });
 </script>
 <template>
-  <div class="border border-gray-400 rounded-lg p-4 min-w-[400px]">
+  <div class="border border-gray-400 rounded-lg p-4 w-full lg:min-w-[400px]">
     <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
       <h3 class="text-sm">{{ title }}</h3>
       <a class="gradient-hover cursor-pointer text-sm" :href="link">
