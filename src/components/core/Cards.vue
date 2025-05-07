@@ -38,9 +38,9 @@ const props = defineProps<{
       </div>
 
       <!-- Title -->
-      <h2 class="text-lg font-semibold text-gray-800">
+      <h3 class="text-lg font-semibold text-gray-800">
         {{ props.title }}
-      </h2>
+      </h3>
 
       <!-- Description -->
       <p class="text-gray-600 dark:text-gray-400 text-sm">

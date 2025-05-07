@@ -34,9 +34,9 @@ const props = defineProps<{
 
     <!-- Text content -->
     <div>
-      <h2 class="text-base font-semibold text-gray-800 dark:text-gray-200">
+      <h3 class="text-base font-semibold text-gray-800 dark:text-gray-200">
         {{ props.title }}
-      </h2>
+      </h3>
       <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
         {{ props.description }}
       </p>

@@ -47,7 +47,7 @@ const socialIcon = (name) => {
 };
 </script>
 <template>
-  <div class="relative bg-[#14181B] w-full">
+  <footer class="relative bg-[#14181B] w-full">
     <!-- SVG Background -->
     <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1221 684" fill="none">
       <g filter="url(#filter0_f_1434_1855)">
@@ -73,15 +73,15 @@ const socialIcon = (name) => {
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <!-- First loop (show first 4 items) -->
         <div v-for="section in firstSections" :key="section.title" class="min-w-0">
-          <h3 class="text-[#929A9E] font-medium text-xl mb-4">
+          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
             {{ section.title }}
-          </h3>
+          </h2>
 
           <ul class="space-y-2">
             <li v-for="item in section.items" :key="item.text">
               <a :href="item.link" :target="item.target"
                 class="gradient-hover text-[#BEC0C2] text-base transition duration-300">
-                <TextGradient textGradientColor="" />
+                <!-- <TextGradient textGradientColor="" /> -->
                 {{ item.text }}
               </a>
             </li>
@@ -90,9 +90,9 @@ const socialIcon = (name) => {
 
         <!-- Second loop (show last item separately) -->
         <div v-if="lastSection" class="min-w-0">
-          <h3 class="text-[#929A9E] font-medium text-xl mb-4">
+          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
             {{ lastSection.title }}
-          </h3>
+          </h2>
 
           <ul class="space-y-2">
             <li v-for="item in lastSection.items" :key="item.text">
@@ -108,7 +108,7 @@ const socialIcon = (name) => {
       <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4">
         <!-- Pricing Section -->
         <div class="w-full md:w-auto">
-          <h3 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h3>
+          <h2 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h2>
           <ul>
             <li>
               <a href="/pricing" class="gradient-hover text-[#BEC0C2] font-normal text-base">View Plans
@@ -122,7 +122,7 @@ const socialIcon = (name) => {
           <div class="flex items-center gap-3">
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
-              <img src="/img/SOC.webp" class="w-full h-full object-contain grayscale" />
+              <img src="/img/SOC.webp" class="w-full h-full object-contain grayscale" alt="SOC2 Type 2" />
             </div>
 
             <!-- Title & Description in one line -->
@@ -154,9 +154,9 @@ const socialIcon = (name) => {
         class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-[#FFFFFF]">
         <!-- Copyright -->
         <div class="flex flex-col items-center lg:items-start space-y-0.5">
-          <h1 class="md:mb-0 font-normal text-xs">
+          <p class="md:mb-0 font-normal text-xs">
             {{ copyRightText }} © {{ getCurrentYear() }}
-          </h1>
+          </p>
           <p class="font-normal text-center lg:text-start text-xs">
             {{ address }}
           </p>
@@ -175,14 +175,14 @@ const socialIcon = (name) => {
           <div class="social-links">
             <a v-for="(item, index) in socialMedia" :key="index" :href="item.link"
               :class="['icon', item.name.toLowerCase()]" class="icon" target="_blank">
-              <img :src="socialIcon(item.name)" class="icon-img" />
+              <img :src="socialIcon(item.name)" class="icon-img" :alt="item.name + ' icon'" />
             </a>
           </div>
         </div>
       </div>
     </div>
     <!-- </CustomSection> -->
-  </div>
+  </footer>
 </template>
 <style scoped>
 .gradient-hover {

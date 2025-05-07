@@ -42,9 +42,9 @@ const props = defineProps({
                         class="w-fit flex items-center justify-center rounded-3xl bg-white/20 hover:bg-white/30 py-1 px-4">
                         <h2 class="text-sm font-semibold text-white text-center capitalize">{{ pageTag }}</h2>
                     </div>
-                    <h3 class="text-3xl lg:text-5xl font-bold text-white">
+                    <h1 class="text-3xl lg:text-5xl font-bold text-white">
                         {{ title }}
-                    </h3>
+                    </h1>
                     <p class="text-white text-base md:text-xl">
                         {{ description }}
                     </p>
