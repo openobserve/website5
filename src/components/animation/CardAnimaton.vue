@@ -91,9 +91,9 @@ const positionStage = ref<'initial' | 'stage1' | 'stage2' | 'final'>('initial')
 const stages = ['initial', 'stage1', 'stage2', 'final'] as const
 
 const currentPositions = {
-  initial: ['top-24 left-1/3', 'top-24 left-1/3', 'top-24 left-1/3'],
-  stage1: ['top-8 left-[28%]', 'top-8 left-1/3', 'top-8 left-[45%]'],
-  stage2: ['top-4 left-1/6', 'top-4 left-1/3', 'top-4 left-[55%]'],
+  initial: ['top-0 left-1/3', 'top-0 left-1/3', 'top-0 left-1/3'],
+  stage1: ['top-0 left-[28%]', 'top-0 left-1/3', 'top-0 left-[45%]'],
+  stage2: ['top-0 left-1/6', 'top-0 left-1/3', 'top-0 left-[55%]'],
   final: ['top-0 left-0', 'top-0 left-1/3', 'top-0 left-2/3'],
 }
 
