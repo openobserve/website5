@@ -4,8 +4,9 @@ import solutionsData from "@/content/solutions.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 
 const data = solutionsData?.data?.body || {};
+const seoData = solutionsData?.data?.seo || {};
 ---
 
-<Layout>
+<Layout title={seoData?.title} description={seoData?.description}>
   <ComponentCollectionMapper data={data} client:load />
 </Layout>

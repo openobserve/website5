@@ -14,8 +14,9 @@ export async function getStaticPaths() {
 }
 
 const { pageData } = Astro.props;
+const seoData = pageData?.seo || {};
 ---
 
-<Layout>
+<Layout title={seoData?.title} description={seoData?.description}>
   <ComponentCollectionMapper data={pageData.body} client:load />
 </Layout>

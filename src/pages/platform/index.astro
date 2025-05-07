@@ -2,8 +2,9 @@
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/platform.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+const seoData = data?.data?.seo || {};
 ---
 
-<Layout>
+<Layout title={seoData?.title} description={seoData?.description}>
   <ComponentCollectionMapper data={data?.data?.body} client:load />
 </Layout>

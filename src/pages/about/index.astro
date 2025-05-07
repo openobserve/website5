@@ -4,8 +4,9 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import about from "@/content/aboutus.json";
 
 const data = about?.data?.body || {};
+const seoData = about?.data?.seo || {};
 ---
 
-<Layout>
+<Layout title={seoData?.title} description={seoData?.description}>
   <ComponentCollectionMapper data={data} />
 </Layout>

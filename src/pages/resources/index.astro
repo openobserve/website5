@@ -4,8 +4,9 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import resourcepage from "@/content/resources.json";
 
 const data = resourcepage?.data?.body || {};
+const seoData = resourcepage?.data?.seo || {};
 ---
 
-<Layout>
+<Layout title={seoData?.title} description={seoData?.description}>
   <ComponentCollectionMapper data={data} />
 </Layout>
