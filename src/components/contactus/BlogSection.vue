@@ -12,7 +12,7 @@
           <button
             @click="scrollLeft"
             :disabled="isAtStart"
-            class="p-2 rounded-lg border"
+            class="p-2 rounded-lg border cursor-pointer"
             :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
           >
             <svg
@@ -35,7 +35,7 @@
           <button
             @click="scrollRight"
             :disabled="isAtEnd"
-            class="p-2 rounded-lg border"
+            class="p-2 rounded-lg border cursor-pointer"
             :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
           >
             <svg
@@ -123,7 +123,6 @@ const scrollAmount = ref(300);
 const isAtStart = ref(true);
 const isAtEnd = ref(false);
 function scrollLeft() {
-  console.log("scrollLeft");
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
       left: -scrollAmount.value,
@@ -133,7 +132,6 @@ function scrollLeft() {
 }
 
 function scrollRight() {
-  console.log("scrollRight");
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
       left: scrollAmount.value,
