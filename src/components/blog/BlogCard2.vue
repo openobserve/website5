@@ -53,9 +53,9 @@ const getImageUrl = ({ image }: Blog) =>
                 {{ tag.name }}
               </a>
             </div>
-            <h2 class="text-lg font-semibold flex-grow mb-2">
+            <h3 class="text-lg font-semibold flex-grow mb-2">
               {{ blog?.title }}
-            </h2>
+            </h3>
             <p class="text-primary-gray mb-3 text-base line-clamp-3">
               {{ blog?.description }}
             </p>

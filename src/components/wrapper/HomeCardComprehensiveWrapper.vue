@@ -39,7 +39,7 @@ const props = defineProps<{
           :theme="card.theme" :items="card.items" :align="props.align" />
       </div>
       <div class="mt-8 space-y-10 text-center bg-white p-6 rounded-lg shadow-md">
-        <h4 class="text-xl font-bold">{{ props.items?.title }}</h4>
+        <h3 class="text-xl font-bold">{{ props.items?.title }}</h3>
         <img :src="props.items?.image?.url" alt="Image" class="w-full h-auto mb-4 object-cover" />
         <p class="max-w-3xl mx-auto">{{ props.items?.description }}</p>
       </div>
