@@ -190,7 +190,7 @@ const socialIcon = (name) => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #09e6ff, #00ffc3);
+  background: linear-gradient(to left, #6A76E3 ,#45A4F3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
