@@ -131,7 +131,7 @@ function updateCardPositions(ratio: number) {
         lastTop.value = currentTop;
         lastRatio.value = ratio;
       },
-      { threshold: [0.2, 0.6, 0.8, 1] , rootMargin: "0px 0px 70px 0px" }
+      { threshold: [0.2, 0.6, 0.8, 1]  }
     );
   
     if (cardContainer.value) {
