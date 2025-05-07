@@ -4,6 +4,10 @@ import navData from "@/content/navbar.json";
 import FooterData from "@/content/footer.json";
 import Footer from "@/components/footer/Footer.vue";
 import Header from "@/components/header/Header.vue";
+import SEO from "@/components/SEO.astro";
+
+// Accept SEO metadata as props
+const { metaObj } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,16 +17,13 @@ import Header from "@/components/header/Header.vue";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <SEO title={metaObj?.title} description={metaObj?.description} />
   </head>
   <body class="">
-    <Header
-      navData={navData?.data}
-      client:only
-      />
-      <main class="pt-[78px] min-h-[calc(100vh-10rem)]">
-        <slot />
-      </main>
+    <Header navData={navData?.data} client:only />
+    <main class="pt-[78px] min-h-[calc(100vh-10rem)]">
+      <slot />
+    </main>
     <Footer
       footerData={FooterData?.data?.footerData}
       copyRightText={FooterData?.data?.copyRightText}
