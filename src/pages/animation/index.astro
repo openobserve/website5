@@ -1,8 +1,11 @@
 ---
 import AnimationWrapper from "@/components/animation/AnimationWrapper.vue";
+import CardAnimaton from "@/components/animation/CardAnimaton.vue";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <AnimationWrapper client:only="vue"/>
+  <!-- <AnimationWrapper client:only="vue"/> -->
+   <div class="min-h-[450px] bg-cyan-200"></div>
+  <CardAnimaton client:only="vue"/>
 </Layout>
