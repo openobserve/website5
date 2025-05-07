@@ -7,12 +7,8 @@ import BlogSection from "@/components/contactus/BlogSection.vue";
 
 // Type-check the imported content
 const data = contactus?.data?.body || {};
-const filteredData = data.filter(
-  (item) => item.__component !== 'section-cards.blog'
-)
 ---
 
 <Layout>
- <ComponentCollectionMapper data={filteredData} client:load/>
- <BlogSection client:only="vue" />
+ <ComponentCollectionMapper data={data} client:load/>
 </Layout>
