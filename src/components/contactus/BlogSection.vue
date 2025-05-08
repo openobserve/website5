@@ -1,109 +1,111 @@
 <template>
-    <CustomSection>
+  <CustomSection>
     <div class="md:pl-1 lg:pl-2">
-       <HeadingSection :title="sectionTitle" description="" align="LEFT" />
-      </div>
-      <div
-        class="flex flex-row justify-between items-center w-full md:px-1 lg:px-2 my-6"
-        v-show="!loading"
-      >
-        <div class="flex space-x-2">
-          <!-- Prev Button -->
-          <button
-            @click="scrollLeft"
-            :disabled="isAtStart"
-            class="p-2 rounded-lg border cursor-pointer"
-            :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
+      <HeadingSection :title="sectionTitle" description="" align="LEFT" />
+    </div>
+    <div
+      class="flex flex-row justify-between items-center w-full md:px-1 lg:px-2 my-6"
+      v-show="!loading"
+    >
+      <div class="flex space-x-2">
+        <!-- Prev Button -->
+        <button
+          @click="scrollLeft"
+          :disabled="isAtStart"
+          class="p-2 rounded-lg border cursor-pointer"
+          :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
+        >
+          <span class="sr-only"> Previous </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
 
-          <!-- Next Button -->
-          <button
-            @click="scrollRight"
-            :disabled="isAtEnd"
-            class="p-2 rounded-lg border cursor-pointer"
-            :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
+        <!-- Next Button -->
+        <button
+          @click="scrollRight"
+          :disabled="isAtEnd"
+          class="p-2 rounded-lg border cursor-pointer"
+          :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
+        >
+          <span class="sr-only"> Next </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="">
-          <a
-            :href="viewAllLink.url"
-            class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
-          >
-            {{ viewAllLink.text }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
+      <div class="">
+        <a
+          :href="viewAllLink.url"
+          class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
+        >
+          {{ viewAllLink.text }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
 
-      <div v-if="loading" class="text-center py-10">
-        <!-- <svg class="animate-spin h-8 w-8 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+    <div v-if="loading" class="text-center py-10">
+      <!-- <svg class="animate-spin h-8 w-8 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
           <path class="opacity-75" fill="currentColor"
             d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
         </svg> -->
+      <div
+        className="h-8 w-8 animate-spin mx-auto rounded-full border-4 border-indigo-500 border-t-transparent"
+      ></div>
+      <p class="text-sm text-gray-500 mt-2">Loading blog posts...</p>
+    </div>
+    <div v-else class="overflow-hidden relative">
+      <div
+        ref="scrollContainer"
+        class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
+      >
         <div
-          className="h-8 w-8 animate-spin mx-auto rounded-full border-4 border-indigo-500 border-t-transparent"
-        ></div>
-        <p class="text-sm text-gray-500 mt-2">Loading blog posts...</p>
-      </div>
-      <div v-else class="overflow-hidden relative">
-        <div
-          ref="scrollContainer"
-          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
+          v-for="post in allPosts"
+          :key="post.id"
+          class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >
-          <div
-            v-for="post in allPosts"
-            :key="post.id"
-            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
-          >
-            <BlogCard2 :blog="post" type="blog" />
-          </div>
+          <BlogCard2 :blog="post" type="blog" />
         </div>
       </div>
+    </div>
   </CustomSection>
 </template>
 
