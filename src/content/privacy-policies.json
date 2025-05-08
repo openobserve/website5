@@ -7,7 +7,7 @@
         "publishedAt": null,
         "body": [
             {
-                "__component": "section-hero.policy-hero",
+                "__component": "section-hero.common-hero",
                 "id": 1,
                 "title": "Privacy Policy",
                 "description": "Last updated: April 17, 2025",

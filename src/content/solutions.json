@@ -2,7 +2,7 @@
   "data": {
     "body": [
       {
-        "__component": "section-hero.product-hero",
+        "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Complete Observability Solutions",
         "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
@@ -84,8 +84,8 @@
           "image": {
             "url": "/img/openobserve-architecture.png",
             "alt": "OpenObserve Architecture",
-            "width": 400,
-            "height": 300
+            "width": 1200,
+            "height": 800
           }
         }
       },

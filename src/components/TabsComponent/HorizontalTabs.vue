@@ -26,7 +26,7 @@
         </div>
         <div class="flex justify-center">
           <div class="h-auto w-full max-w-[500px] max-h-[400px] aspect-w-1 aspect-h-1">
-            <img :src="tab.image?.url" :alt="tab.imageAlt" class="object-contain rounded-lg shadow-lg w-full h-full" />
+            <img :src="tab.image?.url" :alt="tab.image?.alt" class="object-contain rounded-lg shadow-lg w-full h-full" />
           </div>
         </div>
       </div>

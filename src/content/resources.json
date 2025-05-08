@@ -7,7 +7,7 @@
     "publishedAt": null,
     "body": [
       {
-        "__component": "section-hero.product-hero",
+        "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Complete Observability Solutions",
         "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",

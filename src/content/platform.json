@@ -7,7 +7,7 @@
     "publishedAt": null,
     "body": [
       {
-        "__component": "section-hero.product-hero",
+        "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Modern Observability for Modern Applications",
         "description": "Get powerful visibility into your entire stack at a fraction of the cost of traditional solutions",

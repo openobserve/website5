@@ -48,6 +48,13 @@
               Resources
             </a>
           </li>
+          <li class="relative">
+            <a
+              href="/pricing"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
+              >Pricing</a
+            >
+          </li>
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
@@ -62,7 +69,7 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <a
+        <!-- <a
           class="rounded-[4px] transition flex items-center border"
           href="https://short.openobserve.ai/community"
           target="_blank"
@@ -72,11 +79,11 @@
             alt="Search Icon"
             class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
           />
-        </a>
+        </a> -->
         <!-- GitHub Stats Section -->
         <GithubButton
           href="https://github.com/openobserve/openobserve"
-          data-color-scheme="dark"
+          data-color-scheme="light"
           data-size="large"
           data-show-count="true"
           aria-label="Star openobserve/openobserve on GitHub"
@@ -96,11 +103,7 @@
           size="small"
           buttonLink="/demo"
           class="transition-opacity duration-500 ease-in-out"
-          :class="
-            showStickyButton
-              ? 'opacity-100'
-              : 'opacity-0'
-          "
+          :class="showStickyButton ? 'opacity-100' : 'opacity-0'"
         >
           GET DEMO
         </CustomButton>
@@ -135,24 +138,24 @@
             </ul>
           </div>
           <div class="flex flex-row gap-2 mt-6 w-full">
-            <div class="w-[80%]">
+            <div class="w-full">
               <CustomHeaderButton
                 title="Full Stack Observability Platform"
                 linkTitle="View Platform"
                 link="/platform"
               />
             </div>
-            <a
+            <!-- <a
               href="/pricing"
               class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer text-sm"
               >Pricing</a
-            >
+            > -->
           </div>
         </div>
       </CustomHoverHeader>
     </div>
     <div
-      class="fixed top-full flex justify-center w-[50%] left-1/4 xl:w-[40%] 2xl:w-[30%] 2xl:left-1/3 mx-auto"
+      class="fixed top-full flex justify-center w-[45%] left-1/4 xl:w-auto xl:left-2/6 mx-auto"
       v-if="isSolutionMenuOpen"
       @mouseenter="onSolutionMenuHover"
     >
@@ -192,7 +195,7 @@
       </CustomHoverHeader>
     </div>
     <div
-      class="fixed top-full flex justify-center w-[45%] xl:w-[31%] left-[30%] 2xl:w-[30%] xl:left-[40%] mx-auto"
+      class="fixed top-full flex justify-center w-[45%] left-[30%] xl:w-auto xl:left-[40%] mx-auto"
       v-if="isResourcesMenuOpen"
       @mouseenter="onResourcesMenuHover"
     >
@@ -211,7 +214,7 @@
                   }}</a>
                 </li>
               </ul> -->
-              <ul class="flex flex-col space-y-2 text-gray-600 text-sm">
+              <ul class="flex flex-col space-y-4 text-gray-600 text-sm">
                 <li class="cursor-pointer gradient-hover">
                   <a
                     href="https://openobserve.ai/docs/"

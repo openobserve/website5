@@ -82,11 +82,6 @@
             "id": 13,
             "text": "OpenTelemetry",
             "link": "/solutions/opentelemetry"
-          },
-          {
-            "id": 15,
-            "text": "Development Teams",
-            "link": "/solutions/development-teams"
           }
         ]
       },
