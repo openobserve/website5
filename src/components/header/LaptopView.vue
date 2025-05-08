@@ -48,6 +48,13 @@
               Resources
             </a>
           </li>
+          <li class="relative">
+            <a
+              href="/pricing"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
+              >Pricing</a
+            >
+          </li>
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
@@ -62,7 +69,7 @@
             class="cursor-pointer w-full h-full object-cover p-2.5"
           />
         </div> -->
-        <a
+        <!-- <a
           class="rounded-[4px] transition flex items-center border"
           href="https://short.openobserve.ai/community"
           target="_blank"
@@ -72,7 +79,7 @@
             alt="Search Icon"
             class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
           />
-        </a>
+        </a> -->
         <!-- GitHub Stats Section -->
         <GithubButton
           href="https://github.com/openobserve/openobserve"
@@ -96,11 +103,7 @@
           size="small"
           buttonLink="/demo"
           class="transition-opacity duration-500 ease-in-out"
-          :class="
-            showStickyButton
-              ? 'opacity-100'
-              : 'opacity-0'
-          "
+          :class="showStickyButton ? 'opacity-100' : 'opacity-0'"
         >
           GET DEMO
         </CustomButton>
@@ -135,18 +138,18 @@
             </ul>
           </div>
           <div class="flex flex-row gap-2 mt-6 w-full">
-            <div class="w-[80%]">
+            <div class="w-full">
               <CustomHeaderButton
                 title="Full Stack Observability Platform"
                 linkTitle="View Platform"
                 link="/platform"
               />
             </div>
-            <a
+            <!-- <a
               href="/pricing"
               class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer text-sm"
               >Pricing</a
-            >
+            > -->
           </div>
         </div>
       </CustomHoverHeader>
