@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white flex flex-col z-50 relative">
+  <header class="flex flex-col z-50 relative">
     <div class="relative">
       <div class="flex justify-between items-center p-2">
         <Logo />
@@ -16,7 +16,7 @@
             />
           </div> -->
           <a
-            class="rounded-md transition flex items-center border -mt-0.5 border-[#3d444d]"
+            class="rounded-md transition flex items-center border -mt-0.5"
             href="https://short.openobserve.ai/community"
             target="_blank"
           >
@@ -28,7 +28,7 @@
           </a>
           <GithubButton
             href="https://github.com/openobserve/openobserve"
-            data-color-scheme="dark"
+            data-color-scheme="light"
             data-size="small"
             data-show-count="false"
             aria-label="Star openobserve/openobserve on GitHub"
