@@ -53,7 +53,8 @@ const activeTab = ref('standard')
         </div>
         <div class="relative flex justify-center items-center">
           <button className="w-full  cursor-pointer transition-all duration-300 transform group-hover:scale-[1.01]">
-            <img :src="image?.url" :alt="image?.altText" className="rounded-lg border shadow-md" />
+            <span class="sr-only">{{ title }}</span>
+            <img :src="image?.url" :alt="image?.alt" className="rounded-lg border shadow-md" />
             <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 rounded-lg transition-all duration-300">
             </div>
           </button>
