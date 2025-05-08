@@ -21,16 +21,19 @@ export async function getStaticPaths() {
 const { slug }: any = Astro.params;
 const SlugData = (await getResBlogsBySlug(slug)) || {};
 const authorsSlugs = SlugData.authors || [];
-
 const author = await Promise.all(
   authorsSlugs.map(async (authorSlug) => {
     return await getAuthorDetails(authorSlug.slug);
   })
 );
 const loadcaseStudyData = await getCaseStudies();
+const metaObj = {
+  title: SlugData?.seoTitle,
+  description: SlugData?.seoDescription
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <BlogDetailsHeroSectionWrapper
     type="articles"
     title={SlugData.title}
