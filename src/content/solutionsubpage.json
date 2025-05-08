@@ -21,7 +21,7 @@
           }
         ],
         "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "AWS Monitoring Dashboard"
       },
       {
         "__component": "section-features.paltofrm-sub-benefits",
