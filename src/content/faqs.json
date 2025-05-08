@@ -8,7 +8,7 @@
     "publishedAt": null,
     "body": [
       {
-        "__component": "section-hero.product-hero",
+        "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Frequently Asked Questions",
         "description": "Find answers to common questions about OpenObserve, the modern observability platform designed for today's applications.",
