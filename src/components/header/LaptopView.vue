@@ -76,7 +76,7 @@
         <!-- GitHub Stats Section -->
         <GithubButton
           href="https://github.com/openobserve/openobserve"
-          data-color-scheme="dark"
+          data-color-scheme="light"
           data-size="large"
           data-show-count="true"
           aria-label="Star openobserve/openobserve on GitHub"
