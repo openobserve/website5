@@ -57,7 +57,7 @@ const props = defineProps({
 });
 
 const componentsMap = computed(() => ({
-  "section-hero.careers-hero": CommonHeroSection,
+  "section-hero.common-hero": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
@@ -68,7 +68,6 @@ const componentsMap = computed(() => ({
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-solutions.capabilities": CapabilityTabs,
   "section-solutions.faqs": FaqsWrapper,
-  "section-hero.product-hero": CommonHeroSection,
   "section-hero.cta-buttons": CTA,
   "section-features.benefits": HomeCardWrapper,
   "section-features.architecture": CardWithSideIconWrapper,
@@ -79,7 +78,6 @@ const componentsMap = computed(() => ({
   "section-features.homepage-feature-details": CustomInterchangeWrapper,
   "section-story.our-story": OurStory,
   "section-story.our-commitment": OurCommitmentO2,
-  "section-hero.common-hero": CommonHeroSection,
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
@@ -91,12 +89,10 @@ const componentsMap = computed(() => ({
   "section-pricing.pricing-options": PricingOptions,
   "section-forms.contact-form": ContactForm,
   "section-forms.demo-form": DemoWrapper,
-
   "section-cards.blog": BlogSection,
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
-  "section-hero.policy-hero": CommonHeroSection,
 }));
 
 const getComponentProps = (it) => {

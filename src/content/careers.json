@@ -7,7 +7,7 @@
     "publishedAt": null,
     "body": [
       {
-        "__component": "section-hero.careers-hero",
+        "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Join Our Mission to Revolutionize Observability",
         "description": "Build the future of observability with a team that values innovation, collaboration, and impact.",
