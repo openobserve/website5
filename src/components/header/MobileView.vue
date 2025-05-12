@@ -21,7 +21,7 @@
             target="_blank"
           >
             <img
-              src="/img/icon/slackIcon.svg"
+              src="/img/icon/slack-icon.svg"
               alt="Slack Icon"
               class="cursor-pointer w-5 h-5 object-cover p-1"
             />
