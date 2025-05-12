@@ -2,7 +2,7 @@
 <template>
   <div class="mb-8">
     <div class="relative">
-      <input v-model="searchQuery" type="text" placeholder="Search questions..."
+      <input v-model="searchQuery" type="text" placeholder="Search questions..." name="search" id="search"
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-purple focus:border-primary-purple outline-none transition-all"
         @input="handleSearch" />
       <span class="absolute right-3 top-3 text-gray-400">
