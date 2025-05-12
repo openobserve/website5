@@ -102,7 +102,7 @@
                   {{ item }}
                 </h4>
                 <img
-                  src="/img/icon/submenuicon.svg"
+                  src="/img/icon/submenu-icon.svg"
                   alt="Arrow Icon"
                   class="w-4 h-4"
                 />

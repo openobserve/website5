@@ -86,7 +86,7 @@
               aria-label="Share on Twitter"
             >
               <img
-                src="/img/icon/twittericon-for-blog.svg"
+                src="/img/icon/twitter-icon-for-blog.svg"
                 alt="Twitter Icon"
                 class="h-5 w-5"
               />
