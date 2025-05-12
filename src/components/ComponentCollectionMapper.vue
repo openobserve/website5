@@ -52,6 +52,7 @@ import SummaryWrapper from "./policies/SummaryWrapper.vue";
 import PoliciesHeader from "./policies/PoliciesHeader.vue";
 import DemoForm from "./forms/DemoForm.vue";
 import DemoWrapper from "./wrapper/DemoWrapper.vue";
+import PlatformKeyFeaturesWrapper from "./wrapper/PlatformKeyFeaturesWrapper.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -97,6 +98,7 @@ const componentsMap = computed(() => ({
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
+  "section-key-features-benefits.key-features": PlatformKeyFeaturesWrapper
 }));
 
 const getComponentProps = (it) => {

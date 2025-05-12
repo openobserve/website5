@@ -1,7 +1,7 @@
 {
   "data": {
     "id": 1,
-    "documentId": "about-page",
+    "documentId": "homepage",
     "createdAt": "2025-04-30T00:00:00.000Z",
     "updatedAt": "2025-04-30T00:00:00.000Z",
     "publishedAt": null,
@@ -9,7 +9,7 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "Modern Observability for Modern Applications",
+        "title": "The OpenObserve Platform",
         "description": "Get powerful visibility into your entire stack at a fraction of the cost of traditional solutions",
         "align": "center"
       },
@@ -17,10 +17,11 @@
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
+        "title": "Why OpenObserve?",
         "data": [
           {
             "title": "Unparalleled Efficiency",
-            "description": "10x more cost-effective with superior performance compared to traditional solutions",
+            "description": "Reduce your overall observability costs by up to 90%",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
             "theme": "theme-blue"
           },
@@ -41,7 +42,7 @@
       {
         "__component": "section-features.architecture",
         "id": 3,
-        "title": "OpenObserve Architecture",
+        "title": "Explore the OpenObserve Platform",
         "description": "A modern, scalable architecture designed for high performance and low cost",
         "image": {
           "url": "/img/openobserve-architecture.png",
@@ -53,30 +54,36 @@
           "buttonText": "Get Started with Standard",
           "buttonLink": "#learn-more",
           "theme": "theme-blue"
-        },
+        }
+      },
+      {
+        "__component": "section-key-features-benefits.key-features",
+        "id": 4,
+        "align": "center",
+        "title": "Key Platform Benefits",
         "data": {
           "standard": [
             {
-              "title": "Real-time Monitoring",
-              "description": "Monitor your applications and infrastructure in real-time with sub-second latency",
+              "title": "140x Lower Storage Costs",
+              "description": "Achieve dramatic cost reduction through advanced columnar storage and efficient compression",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
               "theme": "theme-blue"
             },
             {
-              "title": "Cost Efficiency",
-              "description": "Up to 10x more cost-effective than traditional observability solutions",
+              "title": "Full-Stack Observability",
+              "description": "Unified view of logs, metrics, and traces in a single platform",
               "theme": "theme-red",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Full-Stack Visibility",
-              "description": "Unified view of logs, metrics, and traces in a single platform",
+              "title": "High Availability (HA) and Clustering",
+              "description": "Scale horizontally with a stateless node architecture that eliminates data replication challenges",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Powerful Alerting",
-              "description": "Create sophisticated alerts with multiple notification channels",
+              "title": "SQL, PromQL, and VRL Support",
+              "description": "Query your data using preferred languages",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
@@ -107,30 +114,40 @@
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Custom Integrations",
-              "description": "Custom integrations with your existing tools and workflows",
+              "title": "Priority Support",
+              "description": "OpenObserve’s dedicated team will ensure your ongoing success",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Advanced Analytics",
-              "description": "AI-powered analytics and anomaly detection capabilities",
+              "title": "Extended Data Retention",
+              "description": "Keep historical data accessible longer for compliance and insights",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Dedicated Infrastructure",
-              "description": "Dedicated infrastructure with custom scaling options",
+              "title": "Bring Your Own Cloud",
+              "description": "Deploy on your existing cloud infrastructure for maximum control",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Compliance",
-              "description": "Support for compliance requirements including GDPR, HIPAA, and SOC2",
+              "title": "Federated Search",
+              "description": "Query across multiple regions in a unified interface",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             }
           ]
+        },
+        "standardCTA": {
+          "buttonText": "et started with OpenObserve Cloud",
+          "buttonLink": "/pricing",
+          "theme": "theme-blue"
+        },
+        "enterpriseCTA": {
+          "buttonText": "Contact US",
+          "buttonLink": "/contactus",
+          "theme": "theme-blue"
         }
       },
       {
@@ -154,8 +171,8 @@
     ],
     "seo": {
       "id": 999,
-      "title": "About OpenObserve",
-      "description": "Learn about OpenObserve's mission, story, and commitment to open-source observability.",
+      "title": "OpenObserve Platform | Full-Stack Observability & Monitoring Suite",
+      "description": "Enterprise-grade observability platform with 140x lower storage costs. Unified logs, metrics, and traces monitoring with SSO, RBAC, and SOC2 compliance. Scale effortlessly.",
       "viewport": null,
       "creator": null,
       "publisher": null,
