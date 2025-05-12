@@ -141,7 +141,7 @@ const props = defineProps({
     required: false,
   },
 });
-const activeTab = ref("performance");
+const activeTab = ref(props.tabs[0]?.value || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
 let interval = null;

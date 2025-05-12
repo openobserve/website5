@@ -3,11 +3,16 @@ import { ref } from "vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import CustomButton from "../core/CustomButton.vue";
+import HeadingSection from "../core/HeadingSection.vue";
 
 defineProps({
   title: {
     type: String,
     required: true,
+  },
+  description: {
+    type: String,
+    required: false,
   },
   align: {
     type: String,
@@ -24,7 +29,7 @@ defineProps({
   enterpriseCTA: {
     type: Object,
     required: false,
-  }
+  },
 });
 
 const tabs = [
@@ -36,6 +41,8 @@ const activeTab = ref("standard");
 </script>
 <template>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 pb-10">
+    <!-- Heading Section -->
+    <HeadingSection :title="title" :description="description" align="center" />
     <!-- Centered Tabs -->
     <div class="flex justify-center mt-6">
       <div class="inline-flex">
@@ -62,11 +69,21 @@ const activeTab = ref("standard");
 
     <div class="text-center mt-6">
       <CustomButton
-        :buttonLink="activeTab === 'standard' ? standardCTA?.buttonLink : enterpriseCTA?.buttonLink"
-        :btn-class="activeTab === 'standard' ? standardCTA?.theme : enterpriseCTA?.theme"
+        :buttonLink="
+          activeTab === 'standard'
+            ? standardCTA?.buttonLink
+            : enterpriseCTA?.buttonLink
+        "
+        :btn-class="
+          activeTab === 'standard' ? standardCTA?.theme : enterpriseCTA?.theme
+        "
         size="small"
         class="text-md inline-flex px-10 py-4"
-        :buttonText="activeTab === 'standard' ? standardCTA?.buttonText : enterpriseCTA?.buttonText"
+        :buttonText="
+          activeTab === 'standard'
+            ? standardCTA?.buttonText
+            : enterpriseCTA?.buttonText
+        "
       />
     </div>
   </div>

@@ -61,6 +61,7 @@
         "id": 4,
         "align": "center",
         "title": "Key Platform Benefits",
+        "description":"Every capability that is available in OpenObserve Standard tier",
         "data": {
           "standard": [
             {
