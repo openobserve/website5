@@ -98,7 +98,7 @@
         class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
       >
         <div
-          v-for="post in allPosts"
+          v-for="post in allPosts.slice(0, 10)"
           :key="post.id"
           class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >

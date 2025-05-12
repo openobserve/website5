@@ -91,6 +91,7 @@ onMounted(() => {
     :class="{ 'pointer-events-none opacity-50': currentPage === 1 }"
     :href="generatePageNavLink(type, subType, identifier, currentPage - 1)"
   >
+    <span class="sr-only">Previous</span>
     <ChevronLeft class="w-4 h-4" />
   </a>
 
@@ -119,6 +120,7 @@ onMounted(() => {
     :class="{ 'pointer-events-none opacity-50': currentPage === totalPages }"
     :href="generatePageNavLink(type, subType, identifier, currentPage + 1)"
   >
+   <span class="sr-only">Next</span>
     <ChevronRight class="w-4 h-4" />
   </a>
 </section>
