@@ -39,7 +39,7 @@ const metaObj = {
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
       type="blog"
-      client:load
+      client:only = "vue"
     />
     <BlogListingWrapper
       searchBar
@@ -48,7 +48,7 @@ const metaObj = {
       totalItems={count.blogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
-      client:load
+      client:only = "vue"
     />
   </CustomSection>
 </Layout>
