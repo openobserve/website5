@@ -18,9 +18,16 @@ const { metaObj } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <SEO title={metaObj?.title} description={metaObj?.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin"
+      rel="stylesheet"
+      media="all"
+    />
   </head>
   <body class="">
-    <Header navData={navData?.data} client:only />
+    <Header navData={navData?.data} client:only/>
     <main class="pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)]">
       <slot />
     </main>
