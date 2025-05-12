@@ -86,7 +86,7 @@
               aria-label="Share on Twitter"
             >
               <img
-                src="/img/icon/twittericon-for-blog.svg"
+                src="/img/icon/twitter-icon-for-blog.svg"
                 alt="Twitter Icon"
                 class="h-5 w-5"
               />
@@ -102,7 +102,7 @@
               aria-label="Share on LinkedIn"
             >
               <img
-                src="/img/icon/linkdinicon-for-blog.svg"
+                src="/img/icon/linkdin-icon-for-blog.svg"
                 alt="LinkedIn Icon"
                 class="h-5 w-5"
               />
@@ -118,7 +118,7 @@
               aria-label="Share on Facebook"
             >
               <img
-                src="/img/icon/facebookicon-for-blog.svg"
+                src="/img/icon/facebook-icon-for-blog.svg"
                 alt="Facebook Icon"
                 class="h-5 w-5"
               />
@@ -131,7 +131,7 @@
               aria-label="Copy link"
             >
               <img
-                src="/img/icon/linkicon-for-blog.svg"
+                src="/img/icon/link-icon-for-blog.svg"
                 alt="Copy Icon"
                 class="h-5 w-5"
               />

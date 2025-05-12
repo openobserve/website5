@@ -109,7 +109,7 @@
               "quote": "We reduced our observability costs by 85% after switching to OpenObserve, while actually improving our visibility across our entire stack.",
               "name": "Jane Smith",
               "role": "CTO, TechCrop",
-              "avatar": "/img/icon/slackIcon.svg"
+              "avatar": "/img/icon/slack-icon.svg"
             },
             "items": [
               {
@@ -141,7 +141,7 @@
               "quote": "The performance of OpenObserve is incredible. We're querying billions of log lines in under a second. We're querying billions of log lines in under a second, which was unthinkable with our previous solution.",
               "name": "Alex Johnson",
               "role": "Lead DevOps, CloudScale",
-              "avatar": "/img/icon/slackIcon.svg"
+              "avatar": "/img/icon/slack-icon.svg"
             },
             "items": [
               {
@@ -173,7 +173,7 @@
               "quote": "We scaled from monitoring 50 services to over 500 with OpenObserve, and it handled the growth seamlessly. The horizontal scaling capabilities are impressive.",
               "name": "Maria Rodriguez",
               "role": "VP Engineering, GrowthTech",
-              "avatar": "/img/icon/slackIcon.svg"
+              "avatar": "/img/icon/slack-icon.svg"
             },
             "items": [
               {

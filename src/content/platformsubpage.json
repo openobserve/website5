@@ -62,7 +62,7 @@
           {
             "value": "performance",
             "title": "Performance",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Lightning-Fast Performance",
               "description": "Process millions of events per second with minimal latency",
@@ -79,7 +79,7 @@
           {
             "value": "scalability",
             "title": "Scalability",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Effortless Scalability",
               "description": "Scale from gigabytes to petabytes without complexity",
@@ -96,7 +96,7 @@
           {
             "value": "storage",
             "title": "Storage",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Efficient Storage",
               "description": "Reduce storage costs by up to 80% compared to competitors",
@@ -113,7 +113,7 @@
           {
             "value": "security",
             "title": "Security",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Enterprise-Grade Security",
               "description": "Protect your observability data with comprehensive security features",
@@ -130,7 +130,7 @@
           {
             "value": "realtime",
             "title": "Real-time",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Real-time Insights",
               "description": "Immediate visibility into your system's performance and health",
