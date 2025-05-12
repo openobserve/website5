@@ -1,5 +1,5 @@
-{
-  "data": {
+[
+  {
     "id": 6,
     "documentId": "aikgj6v9m29x6azwjv7vw6gj",
     "slug": "logs",
@@ -11,20 +11,13 @@
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
         "pageTag": "Logs",
-        "title": "Powerful visibility at a fraction of the cost",
-        "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
-        "buttons": [
-          {
-            "text": "Start for free",
-            "link": "#",
-            "variant": "secondary"
-          },
-          {
-            "text": "Schedule a demo",
-            "link": "#",
-            "variant": "tertiary"
-          }
-        ],
+        "title": "Log Management and Analytics",
+        "description": "Transform your log data into actionable insights with real-time analysis and industry-leading storage efficiency.",
+        "primaryButton": {
+          "text": "Start Free Cloud Trial",
+          "link": "/pricing",
+          "variant": "secondary"
+        },
         "image": "/img/herosection-image.png",
         "altText": "OpenObserve Dashboard"
       },
@@ -34,20 +27,20 @@
         "align": "center",
         "features": [
           {
-            "title": "10x Faster",
-            "description": "Process and query logs at lightning speed with our optimized engine, delivering results in milliseconds even with terabytes of data.",
+            "title": "Significantly Efficient",
+            "description": "140x lower storage costs compared to Elasticsearch",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
             "iconColor": "theme-blue"
           },
           {
-            "title": "Infinite Scalability",
-            "description": "Seamlessly scale from gigabytes to petabytes without performance degradation or complex infrastructure management.",
+            "title": "Highly Performant",
+            "description": "Run lightning-fast queries across terabytes of data.",
             "iconColor": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
-            "title": "80% Cost Reduction",
-            "description": "Our efficient storage and processing technology dramatically reduces infrastructure costs compared to traditional solutions.",
+            "title": "OTel-Native Logs",
+            "description": "Standardized collection with zero vendor lock-in.",
             "iconColor": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
@@ -55,101 +48,91 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "Logs with OpenObserve",
-        "description": "Discover how our platform transforms your observability experience",
-        "background":true,
+        "title": "OpenObserve Logs",
+        "description": "Scale from gigabytes to petabytes while dramatically reducing costs.",
+        "background": true,
         "tabs": [
           {
-            "value": "performance",
-            "title": "Performance",
-            "icon": "/img/icon/slack-icon.svg",
+            "value": "realtime-analytics",
+            "title": "Real-Time Analytics",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
-              "title": "Lightning-Fast Performance",
-              "description": "Process millions of events per second with minimal latency",
-              "content": "OpenObserve delivers exceptional performance, processing up to 10x more data than traditional solutions while using significantly fewer resources. Our optimized architecture ensures:",
+              "title": "Real-Time Analytics",
               "features": [
-                "Sub-second query response times even with terabytes of data",
-                "Minimal CPU and memory footprint",
-                "Optimized indexing for faster search and retrieval"
+                {
+                  "title": "Instant Ingest-to-dashboard",
+                  "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
+                },
+                {
+                  "title": "Log-centric Visualizations",
+                  "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
+                }
               ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
+              "image": "/img/herosection-image.png"
             }
           },
           {
-            "value": "scalability",
-            "title": "Scalability",
-            "icon": "/img/icon/slack-icon.svg",
+            "value": "powerful-search",
+            "title": "Powerful Search",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
-              "title": "Effortless Scalability",
-              "description": "Scale from gigabytes to petabytes without complexity",
-              "content": "OpenObserve's architecture is designed to scale horizontally with your growing data needs. Whether you're a startup or an enterprise, our platform grows with you:",
+              "title": "Powerful Search",
               "features": [
-                "Seamless cluster expansion without downtime",
-                "Automatic load balancing across nodes",
-                "Cloud-native design for dynamic environments"
+                {
+                  "title": "Instantaneous Text Search",
+                  "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
+                },
+                {
+                  "title": "Simple, Yet Precise Queries",
+                  "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
+                }
               ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
+              "image": "/img/herosection-image.png"
             }
           },
           {
-            "value": "storage",
-            "title": "Storage",
-            "icon": "/img/icon/slack-icon.svg",
+            "value": "log-processing",
+            "title": "Log Processing",
+            "icon": "/img/icon/slackIcon.svg",
+            "card": {
+              "title": "Log Processing",
+              "features": [
+                {
+                  "title": " Automated Parsing",
+                  "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
+                },
+                {
+                  "title": "Flexible Transformation Pipeline",
+                  "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
+                }
+              ],
+              "image": "/img/herosection-image.png"
+            }
+          },
+          {
+            "value": "efficient-storage",
+            "title": "Efficient Storage",
+            "icon": "/img/icon/slackIcon.svg",
             "card": {
               "title": "Efficient Storage",
-              "description": "Reduce storage costs by up to 80% compared to competitors",
-              "content": "OpenObserve's innovative storage engine dramatically reduces your infrastructure costs while maintaining high performance:",
               "features": [
-                "Advanced compression algorithms reduce storage requirements",
-                "Intelligent data tiering for cost optimization",
-                "Flexible retention policies to manage data lifecycle"
+                {
+                  "title": "Industry-Leading Compression",
+                  "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
+                },
+                {
+                  "title": "Retention Management",
+                  "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
+                }
               ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "security",
-            "title": "Security",
-            "icon": "/img/icon/slack-icon.svg",
-            "card": {
-              "title": "Enterprise-Grade Security",
-              "description": "Protect your observability data with comprehensive security features",
-              "content": "OpenObserve provides robust security features to ensure your data remains protected:",
-              "features": [
-                "End-to-end encryption for data in transit and at rest",
-                "Fine-grained access controls and role-based permissions",
-                "Audit logging and compliance reporting"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
-            }
-          },
-          {
-            "value": "realtime",
-            "title": "Real-time",
-            "icon": "/img/icon/slack-icon.svg",
-            "card": {
-              "title": "Real-time Insights",
-              "description": "Immediate visibility into your system's performance and health",
-              "content": "OpenObserve provides real-time monitoring and alerting capabilities to help you respond to issues before they impact your users:",
-              "features": [
-                "Live dashboards with sub-second refresh rates",
-                "Intelligent anomaly detection and alerting",
-                "Customizable notification channels (Slack, PagerDuty, etc.)"
-              ],
-              "image": "/img/herosection-image.png",
-              "buttonText": "Learn more"
+              "image": "/img/herosection-image.png"
             }
           }
         ]
       },
       {
         "__component": "section-solutions.faqs",
-        "title": "Frequently Asked Questions",
-        "description": "Find answers to common questions about OpenObserve and its capabilities",
+        "title": "Logs FAQs",
         "background": true,
         "items": [
           {
@@ -243,45 +226,6 @@
         ]
       },
       {
-        "id": "blog-section",
-        "__component": "section-solutions.recent-blogs",
-        "type": "blogSection",
-        "title": "Latest from Our Blog",
-        "viewAllLink": {
-          "text": "View all posts",
-          "url": "/blog"
-        },
-        "posts": [
-          {
-            "id": "post-1",
-            "title": "Introducing OpenObserve v0.5.0 with Enhanced Performance",
-            "date": "April 12, 2023",
-            "author": "OpenObserve Team",
-            "excerpt": "We're excited to announce the release of OpenObserve v0.5.0 with significant performance improvements and new features.",
-            "image": "/images/blog/dashboard-analytics.jpg",
-            "readMoreLink": "/blog/introducing-v0-5-0"
-          },
-          {
-            "id": "post-2",
-            "title": "How to Set Up Distributed Tracing with OpenObserve",
-            "date": "April 5, 2023",
-            "author": "Jane Smith",
-            "excerpt": "Learn how to implement distributed tracing in your microservices architecture using OpenObserve.",
-            "image": "/images/blog/distributed-tracing.jpg",
-            "readMoreLink": "/blog/distributed-tracing"
-          },
-          {
-            "id": "post-3",
-            "title": "Optimizing Log Storage Costs with OpenObserve",
-            "date": "March 28, 2023",
-            "author": "John Doe",
-            "excerpt": "Discover strategies to reduce your observability costs while maintaining comprehensive visibility into your systems.",
-            "image": "/images/blog/cost-optimization.jpg",
-            "readMoreLink": "/blog/optimizing-log-storage-costs"
-          }
-        ]
-      },
-      {
         "__component": "section-cards.blog",
         "id": 4
       },
@@ -293,7 +237,7 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "#get-started",
+            "link": "/pricing",
             "variant": "secondary"
           },
           {
@@ -306,8 +250,8 @@
     ],
     "seo": {
       "id": 999,
-      "title": "About OpenObserve",
-      "description": "Learn about OpenObserve's mission, story, and commitment to open-source observability.",
+      "title": "OpenObserve Logs | Real-Time Log Management & Analytics",
+      "description": "Transform log data into insights with SQL-compatible queries, real-time analytics, and efficient storage. Supports JSON, cloud providers, and custom formats with VRL parsing.",
       "viewport": null,
       "creator": null,
       "publisher": null,
@@ -319,6 +263,5 @@
       "OpenGraph": null,
       "Twitter": null
     }
-  },
-  "meta": {}
-}
+  }
+]
