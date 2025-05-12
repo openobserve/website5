@@ -6,9 +6,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 
 
+import sitemap from '@astrojs/sitemap';
+
+
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
+  site: 'https://openobserve.ai',
+  integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()]
   }
