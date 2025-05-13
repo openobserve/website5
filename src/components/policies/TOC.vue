@@ -1,7 +1,7 @@
 <template>
   <CustomSection sectionClass="max-w-4xl !pt-12 !pb-0">
-    <div class="bg-light-gray dark:bg-accent rounded-lg p-6 mb-10">
-      <h2 class="text-xl font-semibold text-primary-black dark:text-white mb-4">
+    <div class="bg-light-gray rounded-lg p-6 mb-10">
+      <h2 class="text-xl font-semibold text-primary-black mb-4">
         Table of Contents
       </h2>
       <nav class="space-y-2">
@@ -9,7 +9,7 @@
           v-for="(item, index) in items"
           :key="item.id"
           :href="'#' + item.id"
-          class="block text-primary-purple dark:text-primary-blue hover:underline"
+          class="block text-primary-purple hover:underline"
         >
           {{ index + 1 }}. {{ item.title }}
         </a>

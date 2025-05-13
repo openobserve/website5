@@ -35,8 +35,8 @@
                 ],
                 "button": {
                   "text": "Get Started",
-                  "link":"https://cloud.openobserve.ai/web/login",
-                  "class": "outline"
+                  "link": "https://cloud.openobserve.ai/web/login",
+                  "class": "theme-outline"
                 }
               },
               {
@@ -54,11 +54,11 @@
                 ],
                 "button": {
                   "text": "Get Started",
-                  "link":"https://cloud.openobserve.ai/web/login",
+                  "link": "https://cloud.openobserve.ai/web/login",
                   "class": "bg-primary-purple text-white hover:bg-dark-purple"
                 },
-                "theme":"bg-primary-purple text-white",
-                "container":"border-primary-purple bg-primary-purple/10"
+                "theme": "bg-primary-purple text-white",
+                "container": "border-primary-purple bg-primary-purple/10"
               },
               {
                 "title": "Enterprise",
@@ -74,8 +74,8 @@
                 ],
                 "button": {
                   "text": "Contact Sales",
-                  "link":"/contactus",
-                  "class": "outline"
+                  "link": "/contactus",
+                  "class": "theme-outline"
                 }
               }
             ]
@@ -98,8 +98,8 @@
                 ],
                 "button": {
                   "text": "Get Started",
-                  "link":"https://openobserve.ai/docs/quickstart/#self-hosted-installation",
-                  "class": "outline"
+                  "link": "https://openobserve.ai/docs/quickstart/#self-hosted-installation",
+                  "class": "theme-outline"
                 }
               },
               {
@@ -115,10 +115,10 @@
                 ],
                 "button": {
                   "text": "Contact Sales",
-                  "link":"https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
+                  "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
                   "class": "bg-sky-500 text-white hover:bg-sky-600"
                 },
-                "container":"border-sky-300 bg-sky-300/10"
+                "container": "border-sky-300 bg-sky-300/10"
               }
             ]
           }

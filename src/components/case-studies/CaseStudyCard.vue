@@ -25,9 +25,9 @@
 
     <!-- Content section -->
 
-    <div class="bg-white dark:bg-card p-6 flex-1 flex flex-col">
+    <div class="bg-white p-6 flex-1 flex flex-col">
       <!-- Quote text -->
-      <p class="text-foreground dark:text-foreground mb-4">{{ item.quote }}</p>
+      <p class="text-foreground mb-4">{{ item.quote }}</p>
 
       <!-- Metrics -->
       <div class="space-y-2 mb-6 mt-2">

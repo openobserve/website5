@@ -6,7 +6,7 @@
         v-for="(authorItem, index) in author"
         :key="index"
         :href="generateAuthorLink(type, authorItem.slug)"
-        class="rounded-xl border border-primary-blue/20 bg-light-gray/50 dark:bg-accent/50"
+        class="rounded-xl border border-primary-blue/20 bg-light-gray/50"
       >
         <div class="p-2 lg:p-6">
           <div

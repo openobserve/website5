@@ -15,7 +15,7 @@
     <!-- Read more link -->
     <div class="flex justify-center pt-4">
       <a :href="data.link.url"
-        class="inline-flex items-center text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium">
+        class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium">
         {{ data.link.text }}
         <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
