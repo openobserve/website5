@@ -78,7 +78,7 @@ const resetForm = () => {
                                 class="text-red-500">*</span></label>
                         <input id="email" v-model="formData.email" type="email" placeholder="your.name@company.com"
                             required
-                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 bg-white" />
                     </div>
 
                     <!-- Company Name -->
@@ -86,7 +86,7 @@ const resetForm = () => {
                         <label for="company" class="block font-medium text-sm text-gray-700">Company Name <span
                                 class="text-red-500">*</span></label>
                         <input id="company" v-model="formData.company" type="text" placeholder="Acme Inc." required
-                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 bg-white" />
                     </div>
 
                     <!-- Deployment Preference -->
@@ -124,7 +124,7 @@ const resetForm = () => {
                             <span class="text-red-500">*</span></label>
                         <input id="referral" v-model="formData.referral" type="text"
                             placeholder="Search engine, social media, colleague, etc." required
-                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+                            class="mt-1 w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 bg-white" />
                     </div>
 
                     <!-- Error message -->
