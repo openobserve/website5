@@ -89,7 +89,12 @@ export async function fetchBlogs() {
   }
   const data = await fetchAllPages({
     endpoint: "api/blog-pages",
-    query: { populate: "*" },
+    // query: { populate: "*" },
+    query: {
+      "populate[authors][populate]": "image",
+      "populate[categories]": true,
+      "populate[image]": true,
+    },
   });
 
   cache.blogs = data;
