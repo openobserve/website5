@@ -61,7 +61,7 @@ const props = defineProps<{
         <img
           :src="props.items?.image?.url"
           :alt="props.items?.image?.alt"
-          class="object-cover"
+          class="object-cover flex justify-center mx-auto"
           :width="props.items?.image?.width || 'auto'"
           :height="props.items?.image?.height || 'auto'"
           loading="lazy"

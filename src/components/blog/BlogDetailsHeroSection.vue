@@ -6,7 +6,7 @@
     ></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
-      <article class="max-w-7xl mx-auto">
+      <article class="">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
           <a
@@ -33,7 +33,7 @@
           class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
         >
           <!-- Author Info -->
-          <div class="flex items-center flex-wrap gap-4">
+          <div class="flex items-center flex-wrap gap-3">
             <!-- Avatars -->
             <div class="flex -space-x-3">
               <div
@@ -55,23 +55,39 @@
               </div>
             </div>
 
-            <!-- Author Names -->
-            <address
-              class="not-italic text-white flex flex-wrap items-center gap-1"
-            >
-              <template v-for="(it, index) in author" :key="`name-${it.name}`">
-                <a
-                  :href="`/${type}/author/${it.slug}`"
-                  class="font-medium hover:underline"
-                  >{{ it.name }}</a
+            <div class="flex flex-col space-y-0.5">
+              <!-- Author Names -->
+              <address
+                class="not-italic text-white flex flex-wrap items-center gap-1"
+              >
+                <template
+                  v-for="(it, index) in author"
+                  :key="`name-${it.name}`"
                 >
-                <span
-                  v-if="index < author.length - 1"
-                  class="text-white/70 text-xs"
-                  >,</span
-                >
-              </template>
-            </address>
+                  <a
+                    :href="`/${type}/author/${it.slug}`"
+                    class="font-medium hover:underline"
+                    >{{ it.name }}</a
+                  >
+                  <span
+                    v-if="index < author.length - 1"
+                    class="text-white/70 text-xs"
+                    >,</span
+                  >
+                </template>
+              </address>
+              <!-- Publish Date and Read Time -->
+              <div class="flex flex-wrap gap-2 text-white text-sm">
+                <div class="flex items-center">
+                  <Calendar class="h-4 w-4 mr-1" />
+                  <span>{{ publishDate }}</span>
+                </div>
+                <div class="flex items-center">
+                  <Clock class="h-4 w-4 mr-1" />
+                  <span>{{ calculateReadingTime(content) }}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Social Icons -->
@@ -138,25 +154,13 @@
             </button>
           </nav>
         </div>
-
-        <!-- Publish Date and Read Time -->
-        <div class="flex flex-wrap gap-4 text-white text-sm mt-4">
-          <div class="flex items-center">
-            <Calendar class="h-4 w-4 mr-1" />
-            <span>{{ publishDate }}</span>
-          </div>
-          <div class="flex items-center">
-            <Clock class="h-4 w-4 mr-1" />
-            <span>{{ calculateReadingTime(content) }}</span>
-          </div>
-        </div>
       </article>
     </div>
   </section>
 
   <!-- Blog Cover Image -->
-  <section class="container mx-auto px-4 mb-6">
-    <div class="max-w-7xl mx-auto">
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
+    <div class="">
       <figure
         class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl"
       >

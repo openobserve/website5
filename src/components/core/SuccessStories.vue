@@ -1,6 +1,6 @@
 <template>
   <section class="w-full py-12" :class="background ? 'bg-gray-50' : ''">
-    <div class="container px-4 md:px-6 mx-auto">
+    <div class="container px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto">
       <div class="flex flex-col items-center justify-center space-y-4 text-center">
         <div class="space-y-2">
           <HeadingSection :title="sectionTitle" :subtitle="sectionDescription" />
