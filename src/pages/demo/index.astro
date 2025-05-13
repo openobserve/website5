@@ -7,6 +7,6 @@ const data = demo?.data?.body || {};
 const seoData = demo?.data?.seo || {};
 ---
 
-<Layout title={seoData?.title} description={seoData?.description}>
+<Layout metaObj={seoData}>
   <ComponentCollectionMapper data={data} />
 </Layout>

@@ -45,6 +45,19 @@
           }
         ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "OpenObserve - Modern Observability for Modern Apps",
+      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing powerful visibility at a fraction of the cost.",
+      "keywords": [
+        "observability",
+        "open source",
+        "monitoring",
+        "logs",
+        "metrics",
+        "traces"
+      ],
+      "image": "/images/seo-image.jpg"
+    }
   }
 }
