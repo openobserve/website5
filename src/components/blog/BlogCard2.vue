@@ -61,9 +61,9 @@ const getImageUrl = ({ image }: Blog) =>
         <div class="w-full h-px bg-gray-200 my-3"></div>
         <div class="flex items-center flex-wrap gap-2 mt-auto w-full">
           <!-- Avatars -->
-          <div class="flex -space-x-3" v-if="effectiveAuthors.length">
+          <div class="flex -space-x-3" v-if="blog?.authors?.length">
             <div
-              v-for="it in effectiveAuthors"
+              v-for="it in blog.authors"
               :key="it.name"
               class="relative rounded-full border-2 border-white/80"
             >
