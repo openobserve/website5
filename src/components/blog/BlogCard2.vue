@@ -10,7 +10,9 @@ const props = defineProps<{
   type: string;
   authors: any[];
 }>();
-
+const effectiveAuthors = computed(() =>
+  props.authors?.length ? props.authors : props.blog.authors
+);
 const getImageUrl = ({ image }: Blog) =>
   image?.formats?.medium?.url ??
   image?.formats?.large?.url ??
@@ -59,9 +61,9 @@ const getImageUrl = ({ image }: Blog) =>
         <div class="w-full h-px bg-gray-200 my-3"></div>
         <div class="flex items-center flex-wrap gap-4 mt-auto w-full">
           <!-- Avatars -->
-          <div class="flex -space-x-3">
+          <div class="flex -space-x-3" v-if="effectiveAuthors.length">
             <div
-              v-for="it in authors"
+              v-for="it in effectiveAuthors"
               :key="it.name"
               class="relative rounded-full border-2 border-white/80"
             >
