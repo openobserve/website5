@@ -1,5 +1,5 @@
 <template>
-  <section id="our-story" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <section id="our-story" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 xl:px-11 max-w-3xl lg:max-w-7xl mx-auto">
     <!-- Title with horizontal lines -->
     <FramedTitle :title="data.title" />
 
