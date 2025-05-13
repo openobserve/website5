@@ -118,7 +118,6 @@ const onClick = (event) => {
   position: relative;
   border: none;
   color: white;
-  font-weight: 600;
   cursor: pointer;
   border-radius: 12px;
   background-origin: border-box;

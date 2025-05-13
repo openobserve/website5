@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-form-container">
+  <div class="max-w-3xl lg:max-w-4xl px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto -mt-6">
     <div class="contact-form-card">
       <template v-if="status.submitted">
         <div class="contact-form-success">

@@ -1,9 +1,9 @@
 <template>
   <header class="flex flex-col z-50 relative">
     <div class="relative">
-      <div class="flex justify-between items-center p-2">
+      <div class="flex justify-between items-center p-2 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <Logo />
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-3">
           <!-- <div
             class="relative rounded-xl"
             @click="onSearchClick"
@@ -16,39 +16,20 @@
             />
           </div> -->
           <a
-            class="rounded-md transition flex items-center border -mt-0.5"
-            href="https://short.openobserve.ai/community"
-            target="_blank"
-          >
-            <img
-              src="/img/icon/slack-icon.svg"
-              alt="Slack Icon"
-              class="cursor-pointer w-5 h-5 object-cover p-1"
-            />
-          </a>
-          <GithubButton
-            href="https://github.com/openobserve/openobserve"
-            data-color-scheme="light"
-            data-size="small"
-            data-show-count="false"
-            aria-label="Star openobserve/openobserve on GitHub"
-            class=""
-            >Star</GithubButton
-          >
-          <a
             href="https://cloud.openobserve.ai"
             class="text-black text-xs"
             target="_blank"
             >LOG IN</a
           >
-          <!-- <CustomButton
-            variant="tertiary"
-            size="small"
-            buttonLink="https://cloud.openobserve.ai"
-            target="_blank"
-            btn-class="p-0"
-            >LOG IN</CustomButton
-          > -->
+          <GithubButton
+            href="https://github.com/openobserve/openobserve"
+            data-color-scheme="light"
+            data-size="medium"
+            data-show-count="false"
+            aria-label="Star openobserve/openobserve on GitHub"
+            class=""
+            >Star</GithubButton
+          >
           <div
             class="cursor-pointer h-7 w-7 flex items-center"
             @click="onMenuClick"
@@ -126,6 +107,11 @@
           >
             <!-- <CustomButton class="w-full" variant="secondary" size="large" buttonLink="/downloads">DOWNLOADS
             </CustomButton> -->
+            <a
+              class="p-4 bg-white bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center text-black cursor-pointer text-sm"
+              href="/pricing"
+              >Pricing</a
+            >
             <CustomButton
               class="w-full"
               variant="primary"
@@ -174,26 +160,25 @@
                   linkTitle="View Platform"
                   link="/platform"
                 />
-                <a
-                  class="p-4 bg-white bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center text-black cursor-pointer text-sm"
-                  href="/pricing"
-                  >Pricing</a
-                >
               </div>
-              <div class="flex justify-center">
-                <h3 class="text-xl font-bold pb-2 text-black">
+              <div class="flex justify-start">
+                <h3 class="text-lg font-bold pb-2 text-black">
                   {{ items.platform.title }}
                 </h3>
               </div>
-              <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
-                <div v-for="(item, index) in items.platform.items" :key="index">
-                  <SectionHeader
-                    :title="item.title"
-                    :items="item.items"
-                    :link="item.link"
-                  />
-                </div>
-              </div>
+              <ul class="grid grid-cols-1 gap-x-6 gap-y-2">
+                <li
+                  v-for="(item, index) in items.platform.items"
+                  :key="index"
+                  class="text-gray-600 text-base"
+                >
+                  <a
+                    :href="`/platform/${item.link}`"
+                    :class="item.link ? 'gradient-hover' : ''"
+                    >{{ item.title }}</a
+                  >
+                </li>
+              </ul>
             </div>
             <div
               v-show="activeSubMenu === 'Solutions'"
@@ -205,13 +190,13 @@
                 link="/solutions"
               />
               <div class="flex flex-col space-y-3">
-                <h4 class="text-black text-base font-semibold">Use Case</h4>
+                <h4 class="text-black text-lg font-semibold">Use Case</h4>
                 <div class="">
                   <ul class="grid grid-cols-1 gap-2">
                     <li
                       v-for="(item, index) in items.solutions.useCases"
                       :key="index"
-                      class="text-theme-secondaryFont text-base gradient-hover"
+                      class="text-gray-600 text-base gradient-hover"
                     >
                       <a
                         :href="`/solutions/${item.link}`"
@@ -220,31 +205,6 @@
                       >
                     </li>
                   </ul>
-                </div>
-                <div class="flex flex-col space-y-2">
-                  <!-- <h4 class="text-[#FFFFFF] text-base font-semibold">
-                    By Team
-                  </h4> -->
-                  <!-- <div>
-                    <ul class="flex flex-col space-y-2">
-                      <li
-                        v-for="(item, index) in items.solutions.byTeam"
-                        :key="index"
-                        class="text-theme-secondaryFont text-base"
-                      >
-                        <a
-                          :href="`/solutions/${item.link}`"
-                          :class="item.link ? 'gradient-hover' : ''"
-                          >{{ item.title }}</a
-                        >
-                      </li>
-                    </ul>
-                  </div> -->
-                  <!-- <div>
-                    <a :href="items?.solutions?.sandbox?.link">{{
-                      items?.solutions?.sandbox?.title
-                    }}</a>
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -259,22 +219,11 @@
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <!-- <ul
-                    class=""
-                    v-for="(item, index) in items.resources.item1"
-                    :key="index"
-                  >
-                    <li class="cursor-pointer flex flex-col space-y-2">
-                      <a :href="item.link" class="text-lg font-bold">{{
-                        item.title
-                      }}</a>
-                    </li>
-                  </ul> -->
                   <ul class="flex flex-col space-y-2">
                     <li class="cursor-pointer">
                       <a
                         href="https://openobserve.ai/docs/"
-                        class="text-theme-secondaryFont text-base gradient-hover"
+                        class="text-gray-600 text-base gradient-hover"
                         target="_blank"
                         >Documentation</a
                       >
@@ -282,55 +231,30 @@
                     <li class="cursor-pointer">
                       <a
                         href="/blog"
-                        class="text-theme-secondaryFont text-base gradient-hover"
+                        class="text-gray-600 text-base gradient-hover"
                         >Blog</a
                       >
                     </li>
                     <li class="cursor-pointer">
                       <a
                         href="/faqs"
-                        class="text-theme-secondaryFont text-base gradient-hover"
+                        class="text-gray-600 text-base gradient-hover"
                         >Frequently Asked Questions</a
                       >
                     </li>
                     <li class="cursor-pointer">
                       <a
                         href="/case-studies"
-                        class="text-theme-secondaryFont text-base gradient-hover"
+                        class="text-gray-600 text-base gradient-hover"
                         >Case Studies and testimonials</a
                       >
                     </li>
                   </ul>
                 </div>
-                <!-- <div
-                  class="flex flex-col space-y-3"
-                  v-for="(item, index) in items.resources.item2"
-                  :key="index"
-                >
-                  <h4 class="text-base font-bold">{{ item.title }}</h4>
-                  <ul class="" v-for="(it, index) in item.items" :key="index">
-                    <li class="cursor-pointer flex flex-col space-y-2">
-                      <a
-                        :href="it.link"
-                        class="gradient-hover text-sm text-[#BEC0C2]"
-                        >{{ it.title }}</a
-                      >
-                    </li>
-                  </ul>
-                </div> -->
               </div>
             </div>
-            <!-- <div v-show="activeSubMenu === 'Company'" class="flex flex-col space-y-4">
-              <ul class="flex flex-col space-y-3">
-                <li v-for="(item, index) in items?.company?.items" :key="index"
-                  class="text-theme-secondaryFont text-base">
-                  <a :href="item.link" :class="item.link ? 'gradient-hover' : ''">{{ item.title }}</a>
-                </li>
-              </ul>
-            </div> -->
           </div>
         </div>
-        <!-- <div style="background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg')"></div> -->
       </div>
     </div>
   </header>
@@ -339,9 +263,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
-import SectionHeader from "./SectionHeader.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
-import { slugify } from "@/utils/slugify";
 import GithubButton from "vue-github-button";
 
 defineProps({
@@ -403,7 +325,7 @@ onUnmounted(() => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #6A76E3 ,#45A4F3);
+  background: linear-gradient(to left, #6a76e3, #45a4f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
