@@ -2,8 +2,6 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div v-for="(item, index) in sectionData" :key="index">
       <BlogCard2 :blog="item" :type="type" :authors="getAuthorsForBlog(item)" />
-    <div v-for="(item, index) in sectionData" :key="index">
-      <BlogCard2 :blog="item" :type="type" :authors="getAuthorsForBlog(item)" />
     </div>
   </div>
 </template>
