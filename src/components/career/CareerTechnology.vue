@@ -1,6 +1,6 @@
 <template>
   <section class="w-full py-12 md:py-24 " :class="background ? 'bg-gray-50' : ''">
-    <div class="container px-4 md:px-6 mx-auto">
+    <div class="container px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto">
       <div class="flex flex-col items-center space-y-4 text-center mb-10">
         <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Our Tech</h2>
         <p class="mx-auto max-w-[700px] text-gray-500">

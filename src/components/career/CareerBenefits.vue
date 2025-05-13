@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 py-8">
+  <div class="py-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
       <div v-for="(benefit, index) in benefits" :key="index" class="rounded-lg border">
         <Cards :title="benefit.title" :description="benefit.description" :icon="benefit.icon" :theme="benefit.iconColor"
