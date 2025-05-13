@@ -81,6 +81,23 @@
           />
         </a> -->
         <!-- GitHub Stats Section -->
+        <CustomButton
+          variant="primary"
+          size="small"
+          buttonLink="/demo"
+          class="transition-opacity duration-500 ease-in-out"
+           :class="showStickyButton ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
+        >
+          GET DEMO
+        </CustomButton>
+        <CustomButton
+          variant="secondary"
+          size="small"
+          buttonLink="https://cloud.openobserve.ai"
+          target="_blank"
+        >
+          LOG IN
+        </CustomButton>
         <GithubButton
           href="https://github.com/openobserve/openobserve"
           data-color-scheme="light"
@@ -90,23 +107,6 @@
           class="pt-1.5"
           >Star</GithubButton
         >
-        <CustomButton
-          variant="secondary"
-          size="small"
-          buttonLink="https://cloud.openobserve.ai"
-          target="_blank"
-        >
-          LOG IN
-        </CustomButton>
-        <CustomButton
-          variant="primary"
-          size="small"
-          buttonLink="/demo"
-          class="transition-opacity duration-500 ease-in-out"
-          :class="showStickyButton ? 'opacity-100' : 'opacity-0'"
-        >
-          GET DEMO
-        </CustomButton>
       </div>
     </div>
     <!-- Dropdown Menus -->
