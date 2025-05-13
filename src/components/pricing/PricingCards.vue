@@ -6,7 +6,7 @@
     <div
       v-for="(item, index) in activeTabData.items"
       :key="index"
-      class="p-6 border rounded-lg shadow space-y-4 relative"
+      class="flex flex-col p-6 border rounded-lg shadow space-y-3 relative"
       :class="[
         'p-6 border rounded-lg shadow space-y-4 relative col-span-2',
         item.container ?? '',
@@ -26,12 +26,14 @@
       <div class="flex justify-between items-center">
         <h3 class="text-lg lg:text-2xl font-bold">{{ item.title }}</h3>
       </div>
-      <p class="text-sm text-gray-600 mt-1">{{ item.description }}</p>
-      <span class="text-3xl font-bold mt-4">{{ item.price }}</span>
+      <p class="text-sm text-gray-600">{{ item.description }}</p>
+      <div>
+      <span class="text-3xl font-bold">{{ item.price }}</span>
       <span class="pl-1 font-medium text-sm text-gray-600">{{
         item.period
       }}</span>
-      <ul class="mt-4 space-y-1">
+      </div>
+      <ul class="space-y-1">
         <li
           v-for="(feature, fIndex) in item.features"
           :key="fIndex"
@@ -41,7 +43,7 @@
           <span>{{ feature }}</span>
         </li>
       </ul>
-      <a :href="item.button.link" target="_blank">
+      <a :href="item.button.link" target="_blank" class="mt-auto">
         <button
           :class="item.button.class"
           class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"
