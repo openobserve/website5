@@ -86,6 +86,7 @@
       >
         <div
           v-for="post in data"
+          v-for="post in data"
           :key="post.id"
           class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >
