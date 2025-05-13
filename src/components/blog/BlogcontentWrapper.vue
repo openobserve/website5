@@ -284,7 +284,7 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div
-      class="flex flex-col lg:flex-row  container mx-auto space-x-0 md:space-x-10 max-w-7xl"
+      class="flex flex-col lg:flex-row  container mx-auto space-x-0 md:space-x-10"
     >
       <div
         class="flex flex-col w-full lg:w-[70%] text-left order-2 md:order-none"
