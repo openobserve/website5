@@ -92,7 +92,6 @@
           <BlogCard2
             :blog="post"
             type="blog"
-            :authors="getAuthorsForBlog(post)"
           />
         </div>
       </div>
@@ -154,7 +153,7 @@ function updateButtonState() {
 onMounted(async () => {
   try {
     // Now that blogs are fetched, fetch authors
-    authorsMap.value = await fetchAuthorsMapFromBlogs(props.data);
+    // authorsMap.value = await fetchAuthorsMapFromBlogs(props.data);
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
   } finally {
@@ -178,13 +177,13 @@ const viewAllLink = {
   text: "View all posts",
 };
 
-function getAuthorsForBlog(blog: Blog) {
-  return (
-    blog.authors
-      ?.map((author) => authorsMap.value[author.slug])
-      .filter(Boolean) || []
-  );
-}
+// function getAuthorsForBlog(blog: Blog) {
+//   return (
+//     blog.authors
+//       ?.map((author) => authorsMap.value[author.slug])
+//       .filter(Boolean) || []
+//   );
+// }
 </script>
 <style>
 /* Optional: hide scrollbar */
