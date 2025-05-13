@@ -102,7 +102,11 @@
           :key="post.id"
           class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >
-          <BlogCard2 :blog="post" type="blog" />
+          <BlogCard2
+            :blog="post"
+            type="blog"
+            :authors="getAuthorsForBlog(post)"
+          />
         </div>
       </div>
     </div>
@@ -117,6 +121,7 @@ import { getAllBlogs } from "@/utils/api/blog";
 import type { Blog } from "@/types/blog";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
+import { fetchAuthorsMapFromBlogs } from "@/utils/blogAuthorHelper";
 const loading = ref(true);
 const allPosts = ref<Blog[]>([]);
 const scrollContainer = ref<HTMLElement | null>(null);
@@ -124,6 +129,9 @@ const scrollContainer = ref<HTMLElement | null>(null);
 const scrollAmount = ref(300);
 const isAtStart = ref(true);
 const isAtEnd = ref(false);
+
+const authorsMap = ref<Record<string, any>>({});
+
 function scrollLeft() {
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
@@ -153,11 +161,12 @@ function updateButtonState() {
 onMounted(async () => {
   try {
     allPosts.value = await getAllBlogs();
+    // Now that blogs are fetched, fetch authors
+    authorsMap.value = await fetchAuthorsMapFromBlogs(allPosts.value);
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
   } finally {
     loading.value = false;
-
     // Wait until DOM updates with loaded blog cards
     await nextTick();
 
@@ -180,6 +189,14 @@ const viewAllLink = {
   url: "/blog",
   text: "View all posts",
 };
+
+function getAuthorsForBlog(blog: Blog) {
+  return (
+    blog.authors
+      ?.map((author) => authorsMap.value[author.slug])
+      .filter(Boolean) || []
+  );
+}
 </script>
 <style>
 /* Optional: hide scrollbar */

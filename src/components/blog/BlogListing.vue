@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type { Blog } from "@/types/blog";
 import BlogCard2 from "./BlogCard2.vue";
-import { getAuthorDetails } from "@/utils/api/blog";
+import { fetchAuthorsMapFromBlogs } from "@/utils/blogAuthorHelper";
 import { ref, onMounted, toRaw } from "vue";
 const props = defineProps<{
   sectionData: Blog[];
@@ -17,31 +17,8 @@ const props = defineProps<{
 }>();
 
 const authorsMap = ref<Record<string, any>>({});
-const authorDetails = ref<Record<string, any>>({});
 onMounted(async () => {
-  const slugsSet = new Set<string>();
-
-  // Collect unique slugs
-  props.sectionData.forEach((blog) => {
-    blog.authors?.forEach((author) => {
-      if (author.slug) slugsSet.add(author.slug);
-    });
-  });
-
-  const uniqueSlugs = Array.from(slugsSet);
-
-  // Fetch details in parallel
-  const authorDetailsArray = await Promise.all(
-    uniqueSlugs.map((slug) => getAuthorDetails(slug))
-  );
-
-  // Convert array to map for quick lookup
-  authorsMap.value = Object.fromEntries(
-    authorDetailsArray.map((author) => [author.slug, author])
-  );
-
-  // If you need the plain object, you can access it like this
-  const authorDetails = toRaw(authorsMap.value);
+  authorsMap.value = await fetchAuthorsMapFromBlogs(props.sectionData);
 });
 
 // This makes author mapping reactive
