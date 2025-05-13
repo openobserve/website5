@@ -98,7 +98,7 @@ async function addCopyButtons() {
     const button = document.createElement("button");
     button.innerHTML = `<img src="/img/icon/copy.svg" alt="COpy Icon" />`;
     button.className =
-      "copy-button absolute top-0 right-0  px-0  rounded-md text-sm transition-opacity opacity-100";
+      "copy-button absolute top-0 right-0  px-0  rounded-md text-sm transition-opacity opacity-100 w-4 h-4 cursor-pointer";
     button.setAttribute("aria-label", "Copy code to clipboard");
     button.tabIndex = 0;
     button.style.position = "absolute";
@@ -113,10 +113,10 @@ async function addCopyButtons() {
       const code = pre.querySelector("code")?.innerText.trim();
       if (code) {
         navigator.clipboard.writeText(code);
-        button.innerHTML = `<img src="/img/icon/copied.svg" alt="Copy Icon" class="h-5 w-5" />`;
+        button.innerHTML = `<img src="/img/icon/copied.svg" alt="Copy Icon" class="h-6 w-6 cursor-pointer" />`;
         setTimeout(
           () =>
-            (button.innerHTML = `<img src="/img/icon/copy.svg" alt="Copy Icon" />`),
+            (button.innerHTML = `<img src="/img/icon/copy.svg" alt="Copy Icon" class="h-4 w-4 cursor-pointer"/>`),
           2000
         );
       }
@@ -284,7 +284,7 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div
-      class="flex flex-col lg:flex-row  container mx-auto space-x-0 md:space-x-10 max-w-7xl"
+      class="flex flex-col lg:flex-row  container mx-auto space-x-0 md:space-x-10"
     >
       <div
         class="flex flex-col w-full lg:w-[70%] text-left order-2 md:order-none"

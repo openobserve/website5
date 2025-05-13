@@ -24,7 +24,7 @@ const activeIndex = ref(0)
 
 <template>
   <section class="py-16" :class="background ? 'bg-gray-50' : ''">
-    <div class="container mx-auto px-4 space-y-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 space-y-10">
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
       <div :class="['flex flex-col lg:flex-row gap-8', props?.items[activeIndex]?.theme]">

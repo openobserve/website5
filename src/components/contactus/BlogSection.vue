@@ -1,10 +1,10 @@
 <template>
   <CustomSection>
-    <div class="md:pl-1 lg:pl-2">
+    <div class="">
       <HeadingSection :title="sectionTitle" description="" align="LEFT" />
     </div>
     <div
-      class="flex flex-row justify-between items-center w-full md:px-1 lg:px-2 my-6"
+      class="flex flex-row justify-between items-center w-full  my-6"
       v-show="!loading"
     >
       <div class="flex space-x-2">
