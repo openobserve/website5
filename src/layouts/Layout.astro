@@ -7,7 +7,7 @@ import Header from "@/components/header/Header.vue";
 import SEO from "@/components/SEO.astro";
 
 // Accept SEO metadata as props
-const { title, description } = Astro.props;
+const { metaObj } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <SEO title={title} description={description} />
+    <SEO title={metaObj?.title} description={metaObj?.description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -5,12 +5,12 @@ import data from "@/content/platformsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 
 export async function getStaticPaths() {
-  return data.map((item: any) => {
-    return {
-      params: { slug: item.slug },
-      props: { pageData: item },
-    };
-  });
+  return [
+    {
+      params: { slug: data.data.slug }, // 'logs'
+      props: { pageData: data.data }, // whole object
+    },
+  ];
 }
 
 const { pageData } = Astro.props;
