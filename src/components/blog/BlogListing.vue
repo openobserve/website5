@@ -10,7 +10,7 @@
 import type { Blog } from "@/types/blog";
 import BlogCard2 from "./BlogCard2.vue";
 import { fetchAuthorsMapFromBlogs } from "@/utils/blogAuthorHelper";
-import { ref, onMounted, toRaw } from "vue";
+import { ref, onMounted} from "vue";
 
 const props = defineProps<{
   sectionData: Blog[];

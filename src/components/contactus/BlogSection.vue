@@ -117,7 +117,6 @@ const props = defineProps({
     default: () => [],
   },
 });
-console.log("data blog", props.data);
 const scrollContainer = ref<HTMLElement | null>(null);
 
 const scrollAmount = ref(300);
