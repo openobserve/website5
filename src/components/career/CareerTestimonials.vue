@@ -1,6 +1,6 @@
 <template>
   <section class="w-full" :class="background ? 'bg-gray-50' : ''">
-    <div class="container mx-auto py-16 px-4 md:px-6">
+    <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8 xl:px-11">
       <div class="flex flex-col items-center space-y-4 mb-10 text-center">
         <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">{{ title }}</h2>
         <p class="mx-auto max-w-[700px] text-muted-foreground ">
