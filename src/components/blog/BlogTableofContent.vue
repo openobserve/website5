@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky top-20 border border-gray-400 rounded-xl p-4 md:max-h-full overflow-y-auto scrollbar "
+    class="sticky top-20 border border-gray-400 rounded-xl p-4 overflow-y-auto scrollbar md:h-[calc(100vh-230px)]"
   >
     <h3 class="text-lg lg:text-xl font-semibold text-black mb-2">Table of Contents</h3>
     <ul class="space-y-2 ml-2">

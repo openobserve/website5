@@ -79,30 +79,21 @@
         </a>
       </div>
     </div>
-
-    <div v-if="loading" class="text-center py-10">
-      <!-- <svg class="animate-spin h-8 w-8 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-          <path class="opacity-75" fill="currentColor"
-            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-        </svg> -->
-      <div
-        className="h-8 w-8 animate-spin mx-auto rounded-full border-4 border-indigo-500 border-t-transparent"
-      ></div>
-      <p class="text-sm text-gray-500 mt-2">Loading blog posts...</p>
-    </div>
-    <div v-else class="overflow-hidden relative">
+    <div class="overflow-hidden relative">
       <div
         ref="scrollContainer"
         class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
       >
         <div
-          v-for="post in allPosts.slice(0, 10)"
+          v-for="post in data"
+          v-for="post in data"
           :key="post.id"
           class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >
-          <BlogCard2 :blog="post" type="blog" />
+          <BlogCard2
+            :blog="post"
+            type="blog"
+          />
         </div>
       </div>
     </div>
@@ -117,13 +108,23 @@ import { getAllBlogs } from "@/utils/api/blog";
 import type { Blog } from "@/types/blog";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
-const loading = ref(true);
-const allPosts = ref<Blog[]>([]);
+import { fetchAuthorsMapFromBlogs } from "@/utils/blogAuthorHelper";
+// Define the props for this component
+const props = defineProps({
+  data: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
+});
 const scrollContainer = ref<HTMLElement | null>(null);
 
 const scrollAmount = ref(300);
 const isAtStart = ref(true);
 const isAtEnd = ref(false);
+
+const authorsMap = ref<Record<string, any>>({});
+
 function scrollLeft() {
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
@@ -152,15 +153,11 @@ function updateButtonState() {
 
 onMounted(async () => {
   try {
-    allPosts.value = await getAllBlogs();
+    // Now that blogs are fetched, fetch authors
+    // authorsMap.value = await fetchAuthorsMapFromBlogs(props.data);
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
   } finally {
-    loading.value = false;
-
-    // Wait until DOM updates with loaded blog cards
-    await nextTick();
-
     const firstCard = scrollContainer.value?.querySelector("div");
     if (firstCard) {
       const cardWidth = (firstCard as HTMLElement).offsetWidth;
@@ -180,6 +177,14 @@ const viewAllLink = {
   url: "/blog",
   text: "View all posts",
 };
+
+// function getAuthorsForBlog(blog: Blog) {
+//   return (
+//     blog.authors
+//       ?.map((author) => authorsMap.value[author.slug])
+//       .filter(Boolean) || []
+//   );
+// }
 </script>
 <style>
 /* Optional: hide scrollbar */

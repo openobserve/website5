@@ -284,7 +284,7 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div
-      class="flex flex-col lg:flex-row  container mx-auto space-x-0 md:space-x-10"
+      class="flex flex-col lg:flex-row container mx-auto space-x-0 md:space-x-10 max-w-7xl"
     >
       <div
         class="flex flex-col w-full lg:w-[70%] text-left order-2 md:order-none"
@@ -293,7 +293,7 @@ onMounted(() => {
           <template>
             <div
               v-html="htmlContent"
-              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600 [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:theme(colors.black)] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)]  [--tw-prose-code:theme(colors.black)] text-sm lg:text-base"
+              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600 [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:theme(colors.black)] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-sm lg:text-base"
             ></div>
           </template>
         </div>
@@ -302,10 +302,33 @@ onMounted(() => {
         </div>
       </div>
       <div class="w-full lg:w-[30%] mb-8 order-1 lg:order-none">
-        <BlogTableofContent :headings="headings" :activeSection="currentSection" />
+        <BlogTableofContent
+          :headings="headings"
+          :activeSection="currentSection"
+        />
       </div>
     </div>
   </CustomSection>
+  <!-- Image Popup (Updated as per your CSS) -->
+  <div
+    v-if="showPopup"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closePopup"
+  >
+    <button
+      class="absolute top-3 right-3 text-white cursor-pointer z-50"
+      @click="closePopup"
+    >
+      ✖
+    </button>
+    <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
+      <CustomImage
+        :src="popupImageSrc"
+        class="w-full max-h-[90vh] object-contain"
+        @click.stop
+      />
+    </div>
+  </div>
 </template>
 <style scoped>
 .table-wrapper {
