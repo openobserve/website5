@@ -11,7 +11,7 @@
       </div>
 
       <!-- Image -->
-      <div class="relative h-64 md:h-96 lg:h-[28rem] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div class="relative h-64 md:h-96 lg:h-[28rem] rounded-lg overflow-hidden bg-gray-100">
         <img :src="data.image.src" :alt="data.image.alt" class="object-contain w-full h-full" loading="lazy" />
       </div>
     </div>
@@ -19,7 +19,7 @@
     <!-- Read more link -->
     <div class="flex justify-center pt-4" v-if="data.isLink">
       <a :href="data.link.url"
-        class="inline-flex items-center text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium">
+        class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium">
         {{ data.link.text }}
         <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">

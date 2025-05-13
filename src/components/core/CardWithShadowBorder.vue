@@ -42,12 +42,12 @@ const props = defineProps<{
     </h3>
 
     <!-- Description -->
-    <p class="my-4 text-gray-600 dark:text-gray-400 text-sm">
+    <p class="my-4 text-gray-600 text-sm">
       {{ props.description }}
     </p>
 
     <!-- Array of Items with Lucide Check Icons -->
-    <ul v-if="props.items" class="space-y-2 text-gray-600 dark:text-gray-400 text-sm mt-auto mb-3">
+    <ul v-if="props.items" class="space-y-2 text-gray-600 text-sm mt-auto mb-3">
       <li v-for="(listItem, listIndex) in props.items" :key="listIndex" class="flex items-start">
         <Check class="h-5 w-5 mr-2 bg-green-500/20 rounded-full p-1 flex-shrink-0 text-green-500" />
         <span>{{ listItem }}</span>
