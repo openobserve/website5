@@ -38,7 +38,6 @@ const getImageUrl = ({ image }: Blog) =>
             class="bg-primary-purple text-white border-none rounded-full px-3 py-1 text-xs"
           >
             Openobserve
-          </div>
         </div>
       </div>
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
@@ -52,34 +51,34 @@ const getImageUrl = ({ image }: Blog) =>
             {{ tag.name }}
           </a>
         </div>
-        <h3 class="text-lg font-semibold flex-grow mb-2">
-          {{ blog?.title }}
-        </h3>
-        <p class="text-primary-gray mb-3 text-base line-clamp-3">
-          {{ blog?.description }}
-        </p>
-        <div class="w-full h-px bg-gray-200 my-3"></div>
-        <div class="flex items-center flex-wrap gap-2 mt-auto w-full">
-          <!-- Avatars -->
-          <div class="flex -space-x-3" v-if="blog?.authors?.length">
-            <div
-              v-for="it in blog.authors"
-              :key="it.name"
-              class="relative rounded-full border-2 border-white/80"
-            >
-              <div
-                class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-              >
-                <img
-                  v-if="it?.image?.url"
-                  :src="it.image.url"
-                  :alt="it.name"
-                  class="h-full w-full object-cover"
-                />
-                <span v-else>{{ getInitials(it.name) }}</span>
-              </div>
-            </div>
-          </div>
+            <h3 class="text-lg font-semibold flex-grow mb-2">
+              {{ blog?.title }}
+            </h3>
+            <p class="text-primary-gray mb-3 text-base line-clamp-3">
+              {{ blog?.description }}
+            </p>
+            <div class="w-full h-px bg-gray-200 my-3"></div>
+              <div class="flex items-center flex-wrap gap-2 mt-auto w-full">
+                <!-- Avatars -->
+                <div class="flex -space-x-3">
+                  <div
+                    v-for="it in blog.authors"
+                    :key="it.name"
+                    class="relative rounded-full border-2 border-white/80"
+                  >
+                    <div
+                      class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
+                    >
+                      <img
+                        v-if="it?.image?.url"
+                        :src="it.image.url"
+                        :alt="it.name"
+                        class="h-full w-full object-cover"
+                      />
+                      <span v-else>{{ getInitials(it.name) }}</span>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Author Names -->
                 <div class="flex flex-col">
