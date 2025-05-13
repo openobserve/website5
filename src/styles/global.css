@@ -1,6 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"); */
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
 @theme {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -47,6 +48,7 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+  --accent: 240 4.8% 95.9%;
 }
 
 /*
@@ -58,6 +60,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -66,6 +69,7 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
+
 .theme-blue {
   --color-primary-blue: rgba(47, 71, 229);
   color: var(--color-primary-blue);
@@ -74,6 +78,7 @@
   --color-tabs-background: rgba(69, 164, 243);
   --color-tabs-title-text: rgba(69, 164, 243);
 }
+
 .theme-red {
   --color-primary-blue: rgba(244, 91, 73);
   color: var(--color-primary-blue);
@@ -82,6 +87,7 @@
   --color-tabs-background: rgba(244, 91, 73);
   --color-tabs-title-text: rgba(244, 91, 73);
 }
+
 .theme-green {
   --color-primary-blue: rgba(39, 192, 100);
   color: var(--color-primary-blue);
@@ -90,6 +96,7 @@
   --color-tabs-background: rgba(39, 192, 100);
   --color-tabs-title-text: rgba(39, 192, 100);
 }
+
 .theme-purple {
   --color-primary-blue: rgba(107, 118, 227);
   color: var(--color-primary-blue);
@@ -97,6 +104,10 @@
   --color-hover-card: rgba(126, 34, 206);
   --color-tabs-background: rgba(107, 118, 227);
   --color-tabs-title-text: rgba(107, 118, 227);
+}
+
+.theme-outline {
+  @apply border border-input bg-transparent hover:bg-accent hover:text-accent-foreground;
 }
 
 @layer base {
@@ -172,6 +183,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -183,7 +195,7 @@
   animation: scroll 20s linear infinite;
 }
 
-.animate-scroll > * {
+.animate-scroll>* {
   flex-shrink: 0;
 }
 
@@ -193,21 +205,25 @@
 
 /* Target scrollbars inside prose code blocks */
 .prose pre::-webkit-scrollbar {
-  width: 8px; /* Adjust scrollbar width */
+  width: 8px;
+  /* Adjust scrollbar width */
 }
 
 .prose pre::-webkit-scrollbar-track {
-  background: #1f2937; /* Tailwind gray-800 */
+  background: #1f2937;
+  /* Tailwind gray-800 */
   border-radius: 4px;
 }
 
 .prose pre::-webkit-scrollbar-thumb {
-  background-color: #4b5563; /* Tailwind gray-600 */
+  background-color: #4b5563;
+  /* Tailwind gray-600 */
   border-radius: 4px;
 }
 
 .prose pre::-webkit-scrollbar-thumb:hover {
-  background-color: #6b7280; /* Tailwind gray-500 */
+  background-color: #6b7280;
+  /* Tailwind gray-500 */
 }
 
 /* For Firefox */
@@ -402,11 +418,18 @@
 }
 
 .code-inline {
-  font-family: monospace, monospace; /* Use a monospace font */
-  background-color: #f0f0f0; /* Light background color */
-  color: #333; /* Dark text color */
-  padding: 0.2em 0.4em; /* Some padding around the text */
-  border-radius: 3px; /* Slightly rounded corners */
-  font-size: 0.9em; /* Slightly smaller font size */
-  white-space: pre-wrap; /* Preserve whitespace and wrap if needed */
+  font-family: monospace, monospace;
+  /* Use a monospace font */
+  background-color: #f0f0f0;
+  /* Light background color */
+  color: #333;
+  /* Dark text color */
+  padding: 0.2em 0.4em;
+  /* Some padding around the text */
+  border-radius: 3px;
+  /* Slightly rounded corners */
+  font-size: 0.9em;
+  /* Slightly smaller font size */
+  white-space: pre-wrap;
+  /* Preserve whitespace and wrap if needed */
 }
