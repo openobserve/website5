@@ -25,6 +25,7 @@ const author = await Promise.all(
   })
 );
 const allBlogs = await getAllBlogs();
+const latestBlogData = allBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 const metaObj = {
   title: SlugData?.title,
 };
@@ -54,7 +55,7 @@ const metaObj = {
     authors={author}
   />
   <div class="max-w-7xl container mx-auto">
-    <BlogSection client:load />
+    <BlogSection data={allBlogs.slice(0, 10)} client:load />
   </div>
   <!-- bannerData={BannerData?.data} -->
 </Layout>

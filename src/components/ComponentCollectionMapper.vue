@@ -1,7 +1,11 @@
 <template>
   <div>
-    <component v-for="(it, index) in data" :key="it.id || `${it.__component}-${index}`"
-      :is="componentsMap[it.__component]" v-bind="getComponentProps(it)" />
+    <component
+      v-for="(it, index) in data"
+      :key="it.id || `${it.__component}-${index}`"
+      :is="componentsMap[it.__component]"
+      v-bind="getComponentProps(it)"
+    />
   </div>
 </template>
 
@@ -45,7 +49,8 @@ import BlogSection from "./contactus/BlogSection.vue";
 import CommunitySupport from "./contactus/CommunitySupport.vue";
 import TOC from "./policies/TOC.vue";
 import SummaryWrapper from "./policies/SummaryWrapper.vue";
-import PoliciesHeader from "./policies/PoliciesHeader.vue";import DemoForm from "./forms/DemoForm.vue";
+import PoliciesHeader from "./policies/PoliciesHeader.vue";
+import DemoForm from "./forms/DemoForm.vue";
 import DemoWrapper from "./wrapper/DemoWrapper.vue";
 
 const props = defineProps({
@@ -55,7 +60,6 @@ const props = defineProps({
   caseStudyData: { type: Array, required: false },
   bannerData: { type: Object, required: false },
 });
-
 const componentsMap = computed(() => ({
   "section-hero.common-hero": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
@@ -110,6 +114,8 @@ const getComponentProps = (it) => {
     case "section-story.our-commitment":
     case "section-story.our-partners":
       return { data: it };
+    case "section-cards.blog":
+      return { ...it, data: props.blogsData };
     default:
       return it;
   }

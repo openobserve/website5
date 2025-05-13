@@ -3,17 +3,16 @@
 import contactus from "@/content/contactus.json";
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import BlogSection from "@/components/contactus/BlogSection.vue";
+import { getAllBlogs } from "@/utils/api/blog";
 
 // Type-check the imported content
 const data = contactus?.data?.body || {};
-const filteredData = data.filter(
-  (item) => item.__component !== "section-cards.blog"
-);
 const seoData = contactus?.data?.seo || {};
+const blogData = (await getAllBlogs())
+  .slice(0, 10)
+  .map(({ content, ...rest }) => rest);
 ---
 
 <Layout title={seoData?.title} description={seoData?.description}>
-  <ComponentCollectionMapper data={filteredData} client:load />
-  <BlogSection client:only="vue" />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
 </Layout>

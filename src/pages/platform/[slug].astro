@@ -3,6 +3,7 @@
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/platformsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import { getAllBlogs } from "@/utils/api/blog";
 
 export async function getStaticPaths() {
   return [
@@ -15,8 +16,11 @@ export async function getStaticPaths() {
 
 const { pageData } = Astro.props;
 const seoData = pageData?.seo || {};
+const blogData = (await getAllBlogs())
+  .slice(0, 10)
+  .map(({ content, ...rest }) => rest);
 ---
 
 <Layout title={seoData?.title} description={seoData?.description}>
-  <ComponentCollectionMapper data={pageData.body} client:load />
+  <ComponentCollectionMapper data={pageData.body} blogsData={blogData} client:load />
 </Layout>
