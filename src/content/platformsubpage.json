@@ -1,5 +1,5 @@
-[
-  {
+{
+  "data": {
     "id": 6,
     "documentId": "aikgj6v9m29x6azwjv7vw6gj",
     "slug": "logs",
@@ -11,13 +11,20 @@
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
         "pageTag": "Logs",
-        "title": "Log Management and Analytics",
-        "description": "Transform your log data into actionable insights with real-time analysis and industry-leading storage efficiency.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
+        "title": "Powerful visibility at a fraction of the cost",
+        "description": "OpenObserve is an open-source observability platform designed for modern applications, providing comprehensive insights without the hefty price tag.",
+        "buttons": [
+          {
+            "text": "Start for free",
+            "link": "#",
+            "variant": "secondary"
+          },
+          {
+            "text": "Schedule a demo",
+            "link": "#",
+            "variant": "tertiary"
+          }
+        ],
         "image": "/img/herosection-image.png",
         "altText": "OpenObserve Dashboard"
       },
@@ -27,20 +34,20 @@
         "align": "center",
         "features": [
           {
-            "title": "Significantly Efficient",
-            "description": "140x lower storage costs compared to Elasticsearch",
+            "title": "10x Faster",
+            "description": "Process and query logs at lightning speed with our optimized engine, delivering results in milliseconds even with terabytes of data.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
             "iconColor": "theme-blue"
           },
           {
-            "title": "Highly Performant",
-            "description": "Run lightning-fast queries across terabytes of data.",
+            "title": "Infinite Scalability",
+            "description": "Seamlessly scale from gigabytes to petabytes without performance degradation or complex infrastructure management.",
             "iconColor": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
-            "title": "OTel-Native Logs",
-            "description": "Standardized collection with zero vendor lock-in.",
+            "title": "80% Cost Reduction",
+            "description": "Our efficient storage and processing technology dramatically reduces infrastructure costs compared to traditional solutions.",
             "iconColor": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
@@ -48,124 +55,229 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Logs",
-        "description": "Scale from gigabytes to petabytes while dramatically reducing costs.",
-        "background": true,
+        "title": "Logs with OpenObserve",
+        "description": "Discover how our platform transforms your observability experience",
+        "background":true,
         "tabs": [
           {
-            "value": "realtime-analytics",
-            "title": "Real-Time Analytics",
-            "icon": "/img/icon/slackIcon.svg",
+            "value": "performance",
+            "title": "Performance",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
-              "title": "Real-Time Analytics",
+              "title": "Lightning-Fast Performance",
+              "description": "Process millions of events per second with minimal latency",
+              "content": "OpenObserve delivers exceptional performance, processing up to 10x more data than traditional solutions while using significantly fewer resources. Our optimized architecture ensures:",
               "features": [
-                {
-                  "title": "Instant Ingest-to-dashboard",
-                  "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
-                },
-                {
-                  "title": "Log-centric Visualizations",
-                  "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
-                }
+                "Sub-second query response times even with terabytes of data",
+                "Minimal CPU and memory footprint",
+                "Optimized indexing for faster search and retrieval"
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
             }
           },
           {
-            "value": "powerful-search",
-            "title": "Powerful Search",
-            "icon": "/img/icon/slackIcon.svg",
+            "value": "scalability",
+            "title": "Scalability",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
-              "title": "Powerful Search",
+              "title": "Effortless Scalability",
+              "description": "Scale from gigabytes to petabytes without complexity",
+              "content": "OpenObserve's architecture is designed to scale horizontally with your growing data needs. Whether you're a startup or an enterprise, our platform grows with you:",
               "features": [
-                {
-                  "title": "Instantaneous Text Search",
-                  "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
-                },
-                {
-                  "title": "Simple, Yet Precise Queries",
-                  "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
-                }
+                "Seamless cluster expansion without downtime",
+                "Automatic load balancing across nodes",
+                "Cloud-native design for dynamic environments"
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
             }
           },
           {
-            "value": "log-processing",
-            "title": "Log Processing",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Log Processing",
-              "features": [
-                {
-                  "title": " Automated Parsing",
-                  "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
-                },
-                {
-                  "title": "Flexible Transformation Pipeline",
-                  "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "efficient-storage",
-            "title": "Efficient Storage",
-            "icon": "/img/icon/slackIcon.svg",
+            "value": "storage",
+            "title": "Storage",
+            "icon": "/img/icon/slack-icon.svg",
             "card": {
               "title": "Efficient Storage",
+              "description": "Reduce storage costs by up to 80% compared to competitors",
+              "content": "OpenObserve's innovative storage engine dramatically reduces your infrastructure costs while maintaining high performance:",
               "features": [
-                {
-                  "title": "Industry-Leading Compression",
-                  "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
-                },
-                {
-                  "title": "Retention Management",
-                  "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
-                }
+                "Advanced compression algorithms reduce storage requirements",
+                "Intelligent data tiering for cost optimization",
+                "Flexible retention policies to manage data lifecycle"
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "security",
+            "title": "Security",
+            "icon": "/img/icon/slack-icon.svg",
+            "card": {
+              "title": "Enterprise-Grade Security",
+              "description": "Protect your observability data with comprehensive security features",
+              "content": "OpenObserve provides robust security features to ensure your data remains protected:",
+              "features": [
+                "End-to-end encryption for data in transit and at rest",
+                "Fine-grained access controls and role-based permissions",
+                "Audit logging and compliance reporting"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
+            }
+          },
+          {
+            "value": "realtime",
+            "title": "Real-time",
+            "icon": "/img/icon/slack-icon.svg",
+            "card": {
+              "title": "Real-time Insights",
+              "description": "Immediate visibility into your system's performance and health",
+              "content": "OpenObserve provides real-time monitoring and alerting capabilities to help you respond to issues before they impact your users:",
+              "features": [
+                "Live dashboards with sub-second refresh rates",
+                "Intelligent anomaly detection and alerting",
+                "Customizable notification channels (Slack, PagerDuty, etc.)"
+              ],
+              "image": "/img/herosection-image.png",
+              "buttonText": "Learn more"
             }
           }
         ]
       },
       {
-        "__component": "sections.faq",
-        "title": "Logs FAQs",
+        "__component": "section-solutions.faqs",
+        "title": "Frequently Asked Questions",
+        "description": "Find answers to common questions about OpenObserve and its capabilities",
         "background": true,
         "items": [
           {
-            "question": "How does OpenObserve handle log ingestion?",
-            "answer": "OpenObserve provides multiple ingestion methods for different use cases:<br>Direct log shipping via HTTP/HTTPS endpoints with API authentication.<br>Integration with industry-standard log forwarders like Vector, Fluentd, and Fluent Bit.<br>Kubernetes environments supported through the OpenObserve operator or DaemonSet.<br>Cloud provider logs ingested through native integrations such as AWS Kinesis Firehose or GCP Pub/Sub."
+            "id": 1,
+            "label": "General",
+            "questions": [
+              {
+                "question": "What is OpenObserve?",
+                "answer": "OpenObserve is a cloud-native observability platform designed for logs, metrics, and traces. It's built to be highly efficient, cost-effective, and scalable for modern applications and infrastructure."
+              },
+              {
+                "question": "How does OpenObserve compare to other observability platforms?",
+                "answer": "OpenObserve offers similar functionality to platforms like Elasticsearch and Grafana Loki but with significantly lower resource requirements. It's designed to be 10x more resource-efficient, which translates to lower infrastructure costs and simpler operations."
+              },
+              {
+                "question": "Is OpenObserve open source?",
+                "answer": "Yes, OpenObserve is open source and available under the AGPL license. You can find the source code on GitHub and contribute to the project."
+              },
+              {
+                "question": "Can I self-host OpenObserve?",
+                "answer": "OpenObserve can be self-hosted on your own infrastructure. We provide documentation and support for deploying on Kubernetes, Docker, and other environments."
+              }
+            ]
           },
           {
-            "question": "What log formats are supported?",
-            "answer": "OpenObserve supports a wide range of log formats:<br>Structured JSON logs are handled natively, with automatic field detection and indexing.<br>Unstructured logs, such as nginx, Apache, and system logs, are supported via built-in parsers.<br>Cloud provider logs from AWS, GCP, and Azure are parsed using predefined templates.<br>Custom log formats can be parsed using Vector Remap Language (VRL)."
+            "id": 2,
+            "label": "Technical",
+            "questions": [
+              {
+                "question": "What programming languages and technologies does OpenObserve use?",
+                "answer": "OpenObserve is primarily built with Rust for the backend services, which provides excellent performance and memory efficiency. The frontend uses modern JavaScript frameworks."
+              },
+              {
+                "question": "How does OpenObserve handle data storage?",
+                "answer": "OpenObserve uses a columnar database format optimized for observability data. This allows for efficient compression and fast query performance, even with large datasets."
+              },
+              {
+                "question": "What integrations does OpenObserve support?",
+                "answer": "OpenObserve supports standard protocols like Prometheus, OpenTelemetry, Fluent Bit, Vector, and more. It can integrate with most modern application stacks and infrastructure."
+              },
+              {
+                "question": "How does OpenObserve handle high cardinality data?",
+                "answer": "OpenObserve is designed to efficiently handle high cardinality data through its columnar storage format and optimized indexing strategies, allowing for better performance with dimensionally rich data."
+              }
+            ]
           },
           {
-            "question": "How does log parsing work in OpenObserve?",
-            "answer": "Log parsing uses a multi-stage approach:<br>Format detection identifies structured or unstructured data.<br>Structured JSON logs have fields automatically extracted and indexed.<br>Unstructured logs are parsed using configured rules in VRL, enabling complex transformations like field extraction, timestamp parsing, and data enrichment.<br>Parsed logs are indexed in columnar format for efficient querying and storage."
+            "id": 3,
+            "label": "Pricing",
+            "questions": [
+              {
+                "question": "How is OpenObserve priced?",
+                "answer": "OpenObserve offers both open-source and cloud options. The open-source version is free to use. For OpenObserve Cloud, we offer usage-based pricing that scales with your needs, typically at a fraction of the cost of comparable solutions."
+              },
+              {
+                "question": "Is there a free tier for OpenObserve Cloud?",
+                "answer": "Yes, we offer a generous free tier for OpenObserve Cloud that includes enough capacity for small projects and personal use."
+              },
+              {
+                "question": "How can I estimate my costs for OpenObserve Cloud?",
+                "answer": "Your costs will primarily depend on your data volume and retention period. We provide a pricing calculator on our website to help you estimate costs based on your specific needs."
+              },
+              {
+                "question": "Do you offer discounts for startups or non-profits?",
+                "answer": "Yes, we offer special pricing for startups, non-profits, and educational institutions. Please contact our sales team for more information."
+              }
+            ]
           },
           {
-            "question": "What search and query capabilities does OpenObserve provide?",
-            "answer": "OpenObserve offers a SQL-compatible query engine:<br>Full-text searches across all log fields.<br>Support for complex conditions, regular expressions, time-based filtering, field-specific searches, and advanced aggregations.<br>Nested queries, mathematical functions, joins across different log streams, and aggregations (e.g., count, sum, average)."
+            "id": 4,
+            "label": "Support",
+            "questions": [
+              {
+                "question": "What support options are available?",
+                "answer": "We offer community support through our Discord channel and GitHub for the open-source version. For OpenObserve Cloud customers, we provide email support, with additional options for premium support with SLAs available on higher-tier plans."
+              },
+              {
+                "question": "Is there documentation available for OpenObserve?",
+                "answer": "Yes, we provide comprehensive documentation covering installation, configuration, usage, and best practices at docs.openobserve.ai."
+              },
+              {
+                "question": "Do you offer professional services or implementation help?",
+                "answer": "Yes, we offer professional services for custom implementations, migrations from other platforms, and optimization of your observability stack. Contact our sales team for details."
+              },
+              {
+                "question": "How can I report bugs or request features?",
+                "answer": "You can report bugs and request features through our GitHub repository. For OpenObserve Cloud customers, you can also submit requests through our support portal."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blog-section",
+        "__component": "section-solutions.recent-blogs",
+        "type": "blogSection",
+        "title": "Latest from Our Blog",
+        "viewAllLink": {
+          "text": "View all posts",
+          "url": "/blog"
+        },
+        "posts": [
+          {
+            "id": "post-1",
+            "title": "Introducing OpenObserve v0.5.0 with Enhanced Performance",
+            "date": "April 12, 2023",
+            "author": "OpenObserve Team",
+            "excerpt": "We're excited to announce the release of OpenObserve v0.5.0 with significant performance improvements and new features.",
+            "image": "/images/blog/dashboard-analytics.jpg",
+            "readMoreLink": "/blog/introducing-v0-5-0"
           },
           {
-            "question": "How does OpenObserve optimize log storage?",
-            "answer": "Optimization techniques include:<br>Storing logs in columnar format using Apache Parquet for excellent compression ratios.<br>Implementing dictionary encoding for repeated values and specific compression algorithms for different data types.<br>Organizing storage into hot and warm tiers with configurable retention periods per data source.<br>Lifecycle management automates data movement and cleanup based on retention policies."
+            "id": "post-2",
+            "title": "How to Set Up Distributed Tracing with OpenObserve",
+            "date": "April 5, 2023",
+            "author": "Jane Smith",
+            "excerpt": "Learn how to implement distributed tracing in your microservices architecture using OpenObserve.",
+            "image": "/images/blog/distributed-tracing.jpg",
+            "readMoreLink": "/blog/distributed-tracing"
           },
           {
-            "question": "What real-time analysis capabilities are available?",
-            "answer": "Real-time features include:<br>Live tail functionality for monitoring logs as they're ingested.<br>Real-time dashboards that update automatically as new data arrives.<br>Pattern detection for identifying anomalies or specific conditions in log streams.<br>An alerting system to trigger notifications based on custom query conditions."
-          },
-          {
-            "question": "How does OpenObserve handle high-volume log ingestion?",
-            "answer": "The platform uses a distributed architecture to handle high-throughput ingestion:<br>Efficient write paths with batch processing and parallel ingestion.<br>Write-ahead logging ensures durability while buffering incoming logs during high load.<br>Optimized storage engine maintains query performance even under heavy write loads."
-          },
-          {
-            "question": "What visualization and dashboard features are available?",
-            "answer": "OpenObserve offers flexible dashboards for visualization:<br>Custom dashboards with various visualization types (e.g., time series graphs, tables).<br>Dynamic time ranges and auto-refresh capabilities.<br>Saved queries for frequent use and template variables for reusable dashboards.<br>Data export options in various formats for external analysis."
+            "id": "post-3",
+            "title": "Optimizing Log Storage Costs with OpenObserve",
+            "date": "March 28, 2023",
+            "author": "John Doe",
+            "excerpt": "Discover strategies to reduce your observability costs while maintaining comprehensive visibility into your systems.",
+            "image": "/images/blog/cost-optimization.jpg",
+            "readMoreLink": "/blog/optimizing-log-storage-costs"
           }
         ]
       },
@@ -181,7 +293,7 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "#get-started",
             "variant": "secondary"
           },
           {
@@ -194,8 +306,8 @@
     ],
     "seo": {
       "id": 999,
-      "title": "OpenObserve Logs | Real-Time Log Management & Analytics",
-      "description": "Transform log data into insights with SQL-compatible queries, real-time analytics, and efficient storage. Supports JSON, cloud providers, and custom formats with VRL parsing.",
+      "title": "About OpenObserve",
+      "description": "Learn about OpenObserve's mission, story, and commitment to open-source observability.",
       "viewport": null,
       "creator": null,
       "publisher": null,
@@ -208,1250 +320,5 @@
       "Twitter": null
     }
   },
-  {
-    "id": 7,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "metrics",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "Metrics",
-        "title": "Metrics",
-        "description": "Monitor your infrastructure and applications with Prometheus-native metrics and efficient time-series storage.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Correlated Telemetry",
-            "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Multilingual Queries",
-            "description": "Query metrics with either SQL or PromQL",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "OTel-native Metrics",
-            "description": "Standardized collection with zero vendor lock-in",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Metrics",
-        "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments.",
-        "background": true,
-        "tabs": [
-          {
-            "value": "metrics-collection",
-            "title": "Metrics Collection & Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Metrics Collection & Analysis",
-              "features": [
-                {
-                  "title": "Effortless Collection",
-                  "description": "Ingest metrics from any source with minimal overhead via Prometheus remote-write, OpenTelemetry, or direct API integration."
-                },
-                {
-                  "title": "Real-Time Insights",
-                  "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "prometheus-integration",
-            "title": "Prometheus Integration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Prometheus Integration",
-              "features": [
-                {
-                  "title": "Native Compatibility",
-                  "description": "Connect with Prometheus endpoints using full remote write protocol support and your existing configurations."
-                },
-                {
-                  "title": "Flexible Querying",
-                  "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "metrics-processing",
-            "title": "Metrics Processing Advanced",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Metrics Processing Advanced",
-              "features": [
-                {
-                  "title": "Aggregations",
-                  "description": "Process time-series data with powerful calculations including rates, moving averages, and percentile analysis using either PromQL or SQL."
-                },
-                {
-                  "title": "Downsampling",
-                  "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "optimized-storage",
-            "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
-                {
-                  "title": "Columnar Storage",
-                  "description": "Cut storage costs while maintaining query speed through OpenObserve’s columnar format designed for time-series data."
-                },
-                {
-                  "title": "Configurable Retention",
-                  "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Metrics FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "How does OpenObserve collect metrics?",
-            "answer": "OpenObserve supports multiple collection methods for metrics: <br/>\\*Metrics collection through Prometheus remote write<br/>Metrics collection via OTLP protocol using otelc-collector<br/>Custom metrics ingestion through HTTP API endpoints<br/>Infrastructure metrics collection through various integrations, including cloud provider services and the OpenObserve collector"
-          },
-          {
-            "question": "What types of metrics are supported?",
-            "answer": "OpenObserve handles various metric types: <br/>Standard metric types: counters, gauges, summary and histograms<br/>Prometheus-compatible metric types and aggregation methods<br/>System-level metrics (CPU, memory, disk)<br/>Application metrics (request rates, latencies, error rates)<br/>Custom metrics using any numeric data type with timestamps"
-          },
-          {
-            "question": "How does metric processing work?",
-            "answer": "The metric processing pipeline in OpenObserve is optimized for time-series data: <br/>Real-time processing of incoming metrics using downsampling or pipelines<br/>Storage in a columnar format optimized for time-series queries<br/>Support for various aggregation functions (rate calculations, moving averages, percentiles)<br/>Efficient indexing of labels and tags for fast filtering and grouping operations"
-          },
-          {
-            "question": "What query capabilities are available for metrics?",
-            "answer": "OpenObserve provides a dual query interface for metrics: <br/>PromQL queries for compatibility with Prometheus workflows<br/>SQL for more complex analytics<br/>Support for time-based functions, mathematical operations, and advanced aggregations<br/>Cross-metric calculations<br/>Functions like rate and increase<br/>Complex metric expressions"
-          },
-          {
-            "question": "How does OpenObserve handle high-cardinality metrics?",
-            "answer": "The platform implements specific optimizations for high-cardinality metrics: <br/>OpenObserve stores data in parquet format and does not suffer from high cardinality issues<br/>Efficient label indexing and compression techniques<br/>Intelligent caching and query optimization to maintain performance"
-          },
-          {
-            "question": "What visualization options are available?",
-            "answer": "OpenObserve offers comprehensive visualization options for metrics: <br/>Time-series graphs, gauges, and heat maps<br/>Various panel types optimized for different metric visualizations<br/>Dynamic time ranges, zoom capabilities, and legend options<br/>Template variables for reusable dashboards<br/>Automatic refresh intervals<br/>Annotations for highlighting specific events in time<br/>Drill down and correlation between logs, metrics and traces"
-          },
-          {
-            "question": "How does Prometheus compatibility work?",
-            "answer": "The platform provides native Prometheus compatibility: <br/>Support for prometheus remote write protocol to accept metrics from Prometheus agents<br/>PromQL support for queries<br/>Maintenance of label consistency with Prometheus metrics<br/>Support for all standard Prometheus metric types"
-          },
-          {
-            "question": "What aggregation and alerting features are available?",
-            "answer": "OpenObserve provides comprehensive aggregation and alerting capabilities: <br/>Rolling aggregations and downsampling rules<br/>Custom metric transformations<br/>Threshold-based alerts and trend analysis<br/>Integration with various notification channels<br/>Detailed metric context in alerts"
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve Metrics | Time-Series Data & Performance KPIs",
-      "description": "Monitor system metrics and performance indicators in real-time. Collect, analyze and visualize time-series data with OpenObserve's metrics platform.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  },
-  {
-    "id": 6,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "traces",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "Traces",
-        "title": "Traces",
-        "description": "Gain end-to-end visibility into your distributed systems, powered by OpenTelemetry.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Correlated Telemetry",
-            "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Significantly Efficient",
-            "description": "70% lower storage requirements for traces compared to Elasticsearch",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "OTel-Native Traces",
-            "description": "Standardized collection with zero vendor lock-in",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Traces",
-        "description": "",
-        "background": true,
-        "tabs": [
-          {
-            "value": "trace-collection",
-            "title": "Trace Collection",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Trace Collection",
-              "features": [
-                {
-                  "title": "OpenTelemetry Integration",
-                  "description": "Collect traces through native OTLP (OpenTelemetry Protocol). Instrument applications once and export traces directly to OpenObserve—no vendor lock-in."
-                },
-                {
-                  "title": "Auto-instrumentation",
-                  "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "service-analysis",
-            "title": "Service Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Service Analysis",
-              "features": [
-                {
-                  "title": "Dependency Mapping",
-                  "description": "See your microservices in action. Real-time service maps reveal how your systems truly connect."
-                },
-                {
-                  "title": "Performance Insights",
-                  "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "trace-analysis",
-            "title": "Trace Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Trace Analysis",
-              "features": [
-                {
-                  "title": "Detailed Spans",
-                  "description": "Dive deep into every operation—examine spans with precise timing, tags, and logs. One click takes you from overview metrics to the exact problematic trace span."
-                },
-                {
-                  "title": "Context Propagation",
-                  "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "optimized-storage",
-            "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
-                {
-                  "title": "Efficient Storage",
-                  "description": "Slash storage costs to 1/140th of Elasticsearch with Apache Parquet's powerful columnar format. Get exceptional compression without sacrificing lightning-fast query performance."
-                },
-                {
-                  "title": "Flexible Retention",
-                  "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Traces FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "How does OpenObserve collect traces?",
-            "answer": "OpenObserve collects distributed traces through OpenTelemetry instrumentation. The platform accepts traces via the OTLP protocol, supporting both manual and automatic instrumentation methods. For services already instrumented with OpenTelemetry, you can configure the exporter to send traces directly to OpenObserve. The system maintains trace context across service boundaries using W3C trace context standards."
-          },
-          {
-            "question": " What information is captured in traces?",
-            "answer": "Each trace consists of spans representing operations across services. Spans include essential information such as operation name, timestamp, duration, and service name. Additional context is captured through span attributes, events, and links. The system preserves parent-child relationships between spans, enabling full request path visualization. Error information and stack traces are automatically captured for failed operations."
-          },
-          {
-            "question": "How does trace analysis work?",
-            "answer": "OpenObserve processes traces to provide multiple analysis perspectives. The trace view shows the complete request timeline with nested spans and timing information. Service maps are generated automatically from trace data, showing dependencies and interaction patterns. The query engine supports filtering traces by service, operation, duration, and custom attributes. You can analyze latency distributions and error rates across services."
-          },
-          {
-            "question": "What visualization capabilities are available?",
-            "answer": "The platform provides several visualization options for trace data. The trace timeline view shows the hierarchical relationship between spans with precise timing. Service maps display the topology of your distributed system based on actual request flows. The dashboard system supports custom visualizations for trace metrics, including latency histograms and error rate trends."
-          },
-          {
-            "question": "How does OpenObserve handle trace sampling?",
-            "answer": "Trace sampling is configurable to balance data volume with observability needs. The system supports head-based sampling at collection time and tail-based sampling for more sophisticated scenarios. You can define sampling rules based on service names, operation types, or custom attributes. The platform maintains statistical accuracy while reducing storage requirements through intelligent sampling strategies."
-          },
-          {
-            "question": "What query capabilities are available for traces?",
-            "answer": "OpenObserve implements a powerful query engine for trace analysis. You can search traces using service names, operation names, duration thresholds, and custom attributes. The system supports complex queries combining multiple criteria with logical operators. Trace queries can be saved and reused across dashboards. The query language allows for aggregations and statistical analysis of trace data."
-          },
-          {
-            "question": "How does service dependency analysis work?",
-            "answer": "The platform automatically generates service dependency information from trace data. Service maps show both direct and indirect dependencies between components. The system calculates key metrics like request rates, error rates, and latency percentiles for each service interaction. You can analyze dependency changes over time and identify critical paths in your architecture."
-          },
-          {
-            "question": "What retention and storage options are available?",
-            "answer": "OpenObserve optimizes trace storage using columnar format and efficient compression. Retention periods are configurable per data source, allowing you to balance storage costs with analysis needs. The system supports tiered storage for different trace retention requirements. Historical traces can be accessed efficiently through the query interface while maintaining quick access to recent data."
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve Traces | Distributed System Monitoring & Analysis",
-      "description": "Monitor distributed systems with end-to-end request tracing. OpenTelemetry integration, service dependency mapping, and efficient trace analysis with columnar storage.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  },
-  {
-    "id": 6,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "frontend-monitoring",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "Frontend Monitoring",
-        "title": "Frontend Monitoring",
-        "description": "Gain insights into application performance, user interactions, and frontend errors.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Unified Observability",
-            "description": "Consolidate your frontend observability alongside your application performance and infrastructure health",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Clear User Insights",
-            "description": "See exactly how users experience your site— click-by-click",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "Simple Implementation",
-            "description": "Add one JavaScript snippet to your HTML and start collecting real user experience data immediately",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Frontend Monitoring",
-        "background": true,
-        "tabs": [
-          {
-            "value": "user-experience-monitoring",
-            "title": "User Experience Monitoring",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "User Experience Monitoring",
-              "features": [
-                {
-                  "title": "Performance Metrics",
-                  "description": "Track vital web metrics that impact your users most —page load times, First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI)."
-                },
-                {
-                  "title": "User Journey Analysis",
-                  "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "error-tracking",
-            "title": "Error Tracking",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Error Tracking",
-              "features": [
-                {
-                  "title": "Error Capture",
-                  "description": "Catch every frontend issue—with complete stack traces, browser details, and the exact user actions that triggered them."
-                },
-                {
-                  "title": "Impact Analysis",
-                  "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "performance-analysis",
-            "title": "Performance Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Performance Analysis",
-              "features": [
-                {
-                  "title": "Core Web Vitals",
-                  "description": "Identify experience bottlenecks, track performance across user segments, and deliver pages that respond instantly to every interaction."
-                },
-                {
-                  "title": "Resource Load Time",
-                  "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "quick-implementation",
-            "title": "Quick Implementation",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Quick Implementation",
-              "features": [
-                {
-                  "title": "Fast Setup",
-                  "description": "Go from zero to monitoring in minutes. Collect real user data instantly and customize your configuration to meet your exact needs."
-                },
-                {
-                  "title": "Flexible Integration",
-                  "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Frontend Monitoring FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "How do I get started with Frontend Monitoring?",
-            "answer": "Getting started with OpenObserve's RUM is straightforward. Add our JavaScript snippet to your application's HTML, and you'll begin collecting user experience data immediately. The snippet automatically captures performance metrics, user interactions, and errors. You can customize the configuration to focus on specific aspects of your application or adjust sampling rates."
-          },
-          {
-            "question": "What user experience data is collected?",
-            "answer": "OpenObserve captures essential frontend performance metrics including page load timing, navigation timing, and Core Web Vitals. The system tracks user interactions such as page views, clicks, and navigation events. Performance data includes resource timing for assets and API calls, giving you visibility into loading performance and backend dependencies."
-          },
-          {
-            "question": "How does error tracking work?",
-            "answer": "The frontend monitoring system automatically captures JavaScript errors and exceptions with full stack traces and context. Each error event includes relevant information such as browser details, user actions leading to the error, and application state. You can track error frequencies, affected users, and patterns across different browsers and devices."
-          },
-          {
-            "question": "What performance metrics are available?",
-            "answer": "OpenObserve collects key frontend performance indicators including: First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI). The system tracks resource loading performance, API call latencies, and custom timing marks you define. You can analyze performance trends across different user segments and page types."
-          },
-          {
-            "question": "How is the data visualized?",
-            "answer": "The platform provides dedicated dashboards for frontend monitoring data. You can view performance trends, error rates, and user behavior patterns through various visualizations. Custom dashboards can be created to focus on specific metrics or user segments. The system supports real-time monitoring of current user experiences."
-          },
-          {
-            "question": "Can I track custom events and metrics?",
-            "answer": "OpenObserve's frontend monitoring supports custom event tracking and metric collection. You can define specific user interactions or business events to monitor. The system allows for custom attributes and dimensions to be added to any tracked event, enabling detailed analysis of user behavior and application performance."
-          },
-          {
-            "question": "How does sampling and data retention work?",
-            "answer": "The platform implements intelligent sampling to balance data volume with monitoring coverage. You can configure sampling rates based on your needs and traffic patterns. Data retention policies can be customized per data type, allowing you to maintain historical data for trend analysis while managing storage costs."
-          },
-          {
-            "question": "What analysis capabilities are available?",
-            "answer": "OpenObserve provides comprehensive analysis tools for frontend monitoring data. You can segment users by browser, device, location, or custom attributes. The query engine supports complex analysis of performance metrics and user behavior patterns. You can create custom alerts based on performance thresholds or error conditions."
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve RUM | Real User Monitoring & Frontend Performance",
-      "description": "Monitor real user experience with comprehensive frontend tracking. Analyze Core Web Vitals, user journeys, and JavaScript errors. Start free with minimal setup.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  },
-  {
-    "id": 6,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "pipelines",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "pipelines",
-        "title": "Observability Pipelines",
-        "description": "Transform, enrich, redact, reduce, and parse your observability data with real-time and scheduled pipelines.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Protect Sensitive Data",
-            "description": "Strengthen your security posture by automatically redacting and transforming sensitive data",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Reduce Costs",
-            "description": "Slash storage expenses by routing data to optimal storage tiers",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": " Improve Data Quality",
-            "description": "Make data more valuable and actionable by pre-processing and enriching data",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Observability Pipelines",
-        "background": true,
-        "tabs": [
-          {
-            "value": "pipeline-types",
-            "title": "Pipeline Types",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Pipeline Types",
-              "features": [
-                {
-                  "title": "Real-time",
-                  "description": "Transform data the instant it arrives. Parse, filter, and enrich streams on-the-fly—turning raw data into immediate insights."
-                },
-                {
-                  "title": "Scheduled",
-                  "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "data-transformation",
-            "title": "Data Transformation",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Data Transformation",
-              "features": [
-                {
-                  "title": "VRL Functions",
-                  "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
-                },
-                {
-                  "title": "Data Parsing",
-                  "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "data-enrichment",
-            "title": "Data Enrichment",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Data Enrichment",
-              "features": [
-                {
-                  "title": "Enrichment Tables",
-                  "description": "Transform raw events into context-rich intelligence using simple CSV lookup tables. Instantly add location data, user details, and critical metadata that turns isolated signals into meaningful patterns."
-                },
-                {
-                  "title": "Dynamic Lookups",
-                  "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "pipeline-components",
-            "title": "Pipeline Components",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Pipeline Components",
-              "features": [
-                {
-                  "title": "Function Nodes",
-                  "description": "Build data processing workflows with VRL function nodes. Execute custom logic for complex transformations and create reusable components that make your data pipelines more efficient and maintainable."
-                },
-                {
-                  "title": "Stream Operations",
-                  "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Observability Pipelines FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "What types of pipelines does OpenObserve support?",
-            "answer": "OpenObserve supports two main types of pipelines: real-time and scheduled. Real-time pipelines process data as it arrives, transforming and enriching it on the fly. These pipelines can include multiple processing steps using functions, conditions, and stream operations. Scheduled pipelines run at defined intervals, allowing for batch processing and periodic data transformations."
-          },
-          {
-            "question": "How do functions work in pipelines?",
-            "answer": "Functions in OpenObserve use Vector Remap Language (VRL) for data transformation. Each function contains VRL code that can parse, transform, and enrich data. Functions can access the incoming data fields, perform conditional processing, and modify or create new fields. For example, a function might parse JSON logs, extract specific fields, and enrich them with geographical information using enrichment tables."
-          },
-          {
-            "question": "What are enrichment tables and how are they used?",
-            "answer": "Enrichment tables are CSV-based lookup tables that allow you to add additional context to your data. You can upload CSV files containing reference data, which can then be queried within pipeline functions using the get_enrichment_table_record function. Common use cases include IP to location mapping, user agent parsing, and adding business context to technical data."
-          },
-          {
-            "question": "How does data parsing work in pipelines?",
-            "answer": "Data parsing in OpenObserve pipelines is handled through VRL functions. The platform supports parsing various formats including JSON, structured logs, and custom formats. Functions can include conditional logic to apply different parsing rules based on the data source or content. Error handling is built into the parsing functions, allowing graceful handling of malformed data."
-          },
-          {
-            "question": "What stream operations are available?",
-            "answer": "Pipeline streams can be configured with various operations including source selection, transformation steps, and destination routing. The platform supports both logs and metrics streams. You can create complex workflows with multiple processing steps, conditions, and parallel processing paths. Stream operations maintain data consistency while allowing for flexible transformation chains."
-          },
-          {
-            "question": "How do pipeline conditions work?",
-            "answer": "Conditions in pipelines allow for selective processing based on data attributes. Using VRL expressions, you can create sophisticated routing and processing logic. Conditions can check field values, apply pattern matching, and implement complex business rules. This enables targeted processing of specific data streams or message types."
-          },
-          {
-            "question": "What monitoring and debugging features are available?",
-            "answer": "The platform provides visibility into pipeline execution through the pipeline viewer. You can monitor pipeline performance, track processing errors, and debug transformation logic. The system maintains metrics about pipeline throughput and processing latency. Test functions allow you to verify transformation logic before deployment."
-          },
-          {
-            "question": "How are pipeline changes managed?",
-            "answer": "Pipeline configurations are managed through the OpenObserve interface, where you can create, edit, and delete pipelines. Changes to pipeline functions can be tested before deployment using sample data. The platform maintains version control for pipeline configurations, allowing you to track changes and roll back if needed."
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve Pipelines | Real-Time Data Processing & Enrichment",
-      "description": "Transform observability data with real-time and scheduled pipelines. VRL functions, enrichment tables, and custom data processing. Flexible stream operations and parsing.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  },
-  {
-    "id": 6,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "alerts",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "Alerts",
-        "title": "Alerts",
-        "description": "Detect and resolve systemic issues with robust alerting built for modern observability.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Personalize Notifications",
-            "description": "Send notifications to email, Slack, or webhook endpoints for immediate action",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Multilingual Support",
-            "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "Stay on top of Issues",
-            "description": "Identify and fix problems before customers notice",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Alerts",
-        "background": true,
-        "tabs": [
-          {
-            "value": "alert-types",
-            "title": "Alert Types",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Types",
-              "features": [
-                {
-                  "title": "Standard Alerts",
-                  "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
-                },
-                {
-                  "title": "Real-time Alerts",
-                  "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "alert-configuration",
-            "title": "Alert Configuration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Configuration",
-              "features": [
-                {
-                  "title": "Flexible Condition Building",
-                  "description": "Build alert logic exactly how you need it—use sophisticated SQL for complex scenarios or quick conditions when simplicity matters."
-                },
-                {
-                  "title": "Aggregation Support",
-                  "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "alert-notifications",
-            "title": "Alert Notifications",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Notifications",
-              "features": [
-                {
-                  "title": "Multiple Notification Destinations",
-                  "description": "Deliver alerts exactly where your team needs them—Slack, email, webhooks, and more."
-                },
-                {
-                  "title": "Smart Silence Periods",
-                  "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "alert-controls",
-            "title": "Alert Controls",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Controls",
-              "features": [
-                {
-                  "title": "Advanced Threshold Settings",
-                  "description": "Trigger alerts with precision by setting thresholds that respond to evolving data patterns."
-                },
-                {
-                  "title": "Frequency Optimization",
-                  "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Alerts FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "What types of alerts does OpenObserve support?",
-            "answer": "OpenObserve provides two main alert types: Standard and Real-time. Standard alerts run at scheduled intervals, evaluating conditions against your data. Real-time alerts continuously monitor data streams for immediate detection. Both types support SQL queries and quick condition builders for alert definition."
-          },
-          {
-            "question": "How do alert conditions work?",
-            "answer": "Alert conditions can be created using either SQL queries or the quick condition builder. The quick builder allows you to select columns, operators, and values with an AND operator for multiple conditions. SQL mode provides full query flexibility for complex alert scenarios. Conditions can include aggregations with configurable thresholds and evaluation periods."
-          },
-          {
-            "question": "What notification options are available?",
-            "answer": "The platform supports multiple notification destinations that can be configured for each alert. Notifications include customizable templates for alert messages. You can set silence periods to prevent notification fatigue, specifying durations during which repeat notifications are suppressed. Each destination can be configured independently."
-          },
-          {
-            "question": "How are alert thresholds configured?",
-            "answer": "Thresholds in OpenObserve alerts include both occurrence counts and time windows. You can specify how many times a condition must be met within a period to trigger an alert. The system supports comparison operators (=, >, <, etc.) for threshold definition. Aggregation windows can be configured to evaluate data over specific time periods."
-          },
-          {
-            "question": "What alert scheduling options exist?",
-            "answer": "For standard alerts, you can configure:<br/> Evaluation frequency (how often the alert condition is checked) <br/> Evaluation period (the time window for data analysis) <br/>Threshold occurrences (how many times a condition must be met)<br/>Silence periods (duration to suppress repeat notifications)"
-          },
-          {
-            "question": "How does real-time alerting work?",
-            "answer": "Real-time alerts continuously monitor incoming data streams. They evaluate conditions as data arrives, providing immediate notification when conditions are met. Real-time alerts support the same condition-building and notification options as standard alerts, but with continuous evaluation instead of scheduled checks."
-          },
-          {
-            "question": "What alert management features are available?",
-            "answer": "The platform provides a comprehensive alert management interface where you can: <br/> 1.Create and edit alert definitions<br/> 2.Configure notification destinations<br/> 3.Set up alert conditions and thresholds<br/> 4.Define evaluation periods and frequencies<br/> 5.Monitor alert status and history <br/> 6.Configure silence periods<br/> 7.Add custom variables for alert context"
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve Alerts | Real-Time Monitoring & Notifications",
-      "description": "Configure standard and real-time alerts with SQL queries and flexible conditions. Multiple notification channels, silence periods, and threshold management for DevOps teams.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  },
-  {
-    "id": 6,
-    "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "visualization-and-dashboards",
-    "createdAt": "2025-01-30T15:18:48.596Z",
-    "updatedAt": "2025-03-03T09:57:24.893Z",
-    "publishedAt": null,
-    "body": [
-      {
-        "__component": "section-hero.platform-sub-hero",
-        "id": 1,
-        "pageTag": "Dashboards and Visualizations",
-        "title": "Dashboards and Visualizations",
-        "description": "Gain valuable insights and identify patterns from your observability data with real-time, customizable dashboards.",
-        "primaryButton": {
-          "text": "Start Free Cloud Trial",
-          "link": "/pricing",
-          "variant": "secondary"
-        },
-        "image": "/img/herosection-image.png",
-        "altText": "OpenObserve Dashboard"
-      },
-      {
-        "__component": "section-features.paltofrm-sub-benefits",
-        "id": 3,
-        "align": "center",
-        "features": [
-          {
-            "title": "Spot Issues Before Users Do",
-            "description": "Identify potential problems before they impact your users.",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
-          },
-          {
-            "title": "Resolve Issues Faster",
-            "description": "Pinpoint exact issue sources for quicker, more accurate fixes.",
-            "iconColor": "theme-red",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          },
-          {
-            "title": "Collaborate Effectively",
-            "description": "Monitor systems from a single source of truth for complete visibility.",
-            "iconColor": "theme-green",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
-          }
-        ]
-      },
-      {
-        "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Dashboards and Visualizations",
-        "background": true,
-        "tabs": [
-          {
-            "value": "real-time-monitoring",
-            "title": "Real-Time Monitoring",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Real-Time Monitoring",
-              "features": [
-                {
-                  "title": "Interactive Dashboards",
-                  "description": "Visualize your system's heartbeat with 19+ chart types—from heat maps that expose hotspots to time-series graphs that reveal trends. Build comprehensive health views in minutes with intuitive drag-and-drop simplicity."
-                },
-                {
-                  "title": "Continuous Updates",
-                  "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "customizable-views",
-            "title": "Customizable Views",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Customizable Views",
-              "features": [
-                {
-                  "title": "Dynamic Filtering",
-                  "description": "Quickly evaluate exactly what matters with powerful variable-driven dashboards. Filter multiple panels simultaneously to uncover hidden patterns and identify root causes in seconds."
-                },
-                {
-                  "title": "Built-in + Custom Charts",
-                  "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "advanced-query-capabilities",
-            "title": "Advanced Query Capabilities",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Advanced Query Capabilities",
-              "features": [
-                {
-                  "title": "SQL & PromQL Query Language Support",
-                  "description": "Harness the full power of SQL and PromQL to build sophisticated analyses that reveal deeper insights. Transform raw data instantly with VRL's precision-engineered functions."
-                },
-                {
-                  "title": "Codeless Query Builder",
-                  "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          },
-          {
-            "value": "easy-collaboration",
-            "title": "Easy Collaboration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Easy Collaboration",
-              "features": [
-                {
-                  "title": "Dashboard Sharing",
-                  "description": "Unite your teams around critical visualizations while maintaining precise access controls. Import and export dashboards instantly—turning reliability into a true team sport."
-                },
-                {
-                  "title": "Drill-Down Analysis",
-                  "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
-                }
-              ],
-              "image": "/img/herosection-image.png"
-            }
-          }
-        ]
-      },
-      {
-        "__component": "sections.faq",
-        "title": "Dashboards and Visualizations FAQs",
-        "background": true,
-        "items": [
-          {
-            "question": "What visualization types are available?",
-            "answer": "OpenObserve supports over 19 chart types for different visualization needs. Time-series data can be displayed using line graphs, area charts, and bar charts. Tables provide detailed data views with sorting and filtering. Heat maps show data density and patterns. Gauge visualizations display current values against thresholds. Each visualization type includes specific configuration options for customizing appearance and behavior."
-          },
-          {
-            "question": "How do I import prebuilt dashboards into OpenObserve?",
-            "answer": "Simply download the desired JSON file from our Community Dashboards repository, navigate to the Dashboards section in OpenObserve, click on 'Import,' select the file, and you're ready to go!"
-          },
-          {
-            "question": "What drill-down capabilities are available?",
-            "answer": "The drill-down feature enables navigation between related dashboards while maintaining context. You can navigate directly to logs or other dashboards while carrying over filter values, enabling a deeper level of data analysis without losing context."
-          },
-          {
-            "question": "How do queries work in dashboards?",
-            "answer": "OpenObserve supports multiple query languages for dashboard visualizations. You can use SQL for complex data analysis and aggregations, PromQL for metric queries, and VRL for data transformations. The query editor provides syntax highlighting and auto-completion. The Query Inspector helps debug and optimize query performance. Results can be previewed before adding to dashboards."
-          },
-          {
-            "question": "What customization options are available?",
-            "answer": "Dashboards can be customized with various options, including panel arrangements, time ranges, and refresh intervals. Variables allow dynamic filtering across multiple panels. Templates enable reusable dashboard configurations. Panel settings include axis labels, thresholds, and legends. Dashboards automatically adjust to different screen sizes and can be viewed in full-screen mode."
-          },
-          {
-            "question": "How does real-time updating work?",
-            "answer": "Dashboard panels support auto-refresh functionality with configurable intervals. You can set refresh rates per panel or globally for the entire dashboard. Time range controls allow viewing data from recent minutes to months. The system optimizes query performance to maintain responsiveness during updates."
-          },
-          {
-            "question": "What are community dashboards?",
-            "answer": "Community dashboards are pre-built, ready-to-use dashboards for common use cases. They can be imported directly into your OpenObserve instance and customized as needed. These dashboards cover various monitoring scenarios, including infrastructure, applications, and services."
-          },
-          {
-            "question": "How does dashboard sharing work?",
-            "answer": "Dashboards can be shared with other users in your organization. Access controls determine who can view or edit specific dashboards. Shared dashboards maintain their configurations and auto-refresh settings. You can export dashboard configurations to share across environments or teams."
-          }
-        ]
-      },
-      {
-        "__component": "section-cards.blog",
-        "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "/pricing",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
-      }
-    ],
-    "seo": {
-      "id": 999,
-      "title": "OpenObserve Dashboards | Real-Time Data Visualization Platform",
-      "description": "Create interactive dashboards with 19+ chart types, SQL/PromQL queries, and real-time updates. Import community templates or build custom visualizations for your data.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
-    }
-  }
-]
+  "meta": {}
+}
