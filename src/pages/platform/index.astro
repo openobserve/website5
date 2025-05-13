@@ -5,6 +5,6 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 const seoData = data?.data?.seo || {};
 ---
 
-<Layout title={seoData?.title} description={seoData?.description}>
+<Layout metaObj={seoData}>
   <ComponentCollectionMapper data={data?.data?.body} client:load />
 </Layout>

@@ -20,6 +20,10 @@ const blogData = (await getAllBlogs())
   .map(({ content, ...rest }) => rest);
 ---
 
-<Layout title={seoData?.title} description={seoData?.description}>
-  <ComponentCollectionMapper data={pageData.body} blogsData={blogData} client:load />
+<Layout metaObj={seoData}>
+  <ComponentCollectionMapper
+    data={pageData.body}
+    blogsData={blogData}
+    client:load
+  />
 </Layout>

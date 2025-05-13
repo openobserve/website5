@@ -7,6 +7,6 @@ const data = solutionsData?.data?.body || {};
 const seoData = solutionsData?.data?.seo || {};
 ---
 
-<Layout title={seoData?.title} description={seoData?.description}>
+<Layout metaObj={seoData}>
   <ComponentCollectionMapper data={data} client:load />
 </Layout>

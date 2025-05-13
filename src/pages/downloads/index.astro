@@ -7,6 +7,6 @@ const data = downloads?.data?.body || {};
 const seoData = downloads?.data?.seo || {};
 ---
 
-<Layout title={seoData?.title} description={seoData?.description}>
-  <ComponentCollectionMapper data={data} client:load/>
+<Layout metaObj={seoData}>
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>
