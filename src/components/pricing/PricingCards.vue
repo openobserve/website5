@@ -6,9 +6,9 @@
     <div
       v-for="(item, index) in activeTabData.items"
       :key="index"
-      class="p-6 border rounded-lg shadow space-y-4 relative"
+      class="flex flex-col p-6 border rounded-lg shadow relative"
       :class="[
-        'p-6 border rounded-lg shadow space-y-4 relative col-span-2',
+        'col-span-2',
         item.container ?? '',
         item.container ?? '',
         activeTabData.items.length === 1 ? 'lg:col-span-6' : '',
@@ -23,25 +23,27 @@
       >
         {{ item.badge }}
       </span>
-      <div class="flex justify-between items-center">
+      <div class="flex flex-col justify-between items-start gap-2">
         <h3 class="text-lg lg:text-2xl font-bold">{{ item.title }}</h3>
+        <p class="text-sm text-gray-600">{{ item.description }}</p>
       </div>
-      <p class="text-sm text-gray-600 mt-1">{{ item.description }}</p>
-      <span class="text-3xl font-bold mt-4">{{ item.price }}</span>
-      <span class="pl-1 font-medium text-sm text-gray-600">{{
-        item.period
-      }}</span>
-      <ul class="mt-4 space-y-1">
+      <div class="mt-4">
+        <span class="text-3xl font-bold">{{ item.price }}</span>
+        <span class="pl-1 font-medium text-sm text-gray-600">{{
+          item.period
+        }}</span>
+      </div>
+      <ul class="space-y-1 mt-6">
         <li
           v-for="(feature, fIndex) in item.features"
           :key="fIndex"
-          class="flex items-start gap-2 space-y-4"
+          class="flex items-start gap-2 space-y-3"
         >
           <Check class="h-4 w-4 text-primary-green mt-1" />
           <span>{{ feature }}</span>
         </li>
       </ul>
-      <a :href="item.button.link" target="_blank">
+      <a :href="item.button.link" target="_blank" class="mt-auto">
         <button
           :class="item.button.class"
           class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"

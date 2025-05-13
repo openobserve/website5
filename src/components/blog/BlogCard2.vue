@@ -35,7 +35,7 @@ const getImageUrl = ({ image }: Blog) =>
               />  -->
           <div class="absolute top-3 left-3">
             <div
-              class="bg-primary-purple text-white border-none rounded-full p-1 text-xs"
+              class="bg-primary-purple text-white border-none rounded-full px-3 py-1 text-xs"
             >
               Openobserve
             </div>
@@ -60,7 +60,7 @@ const getImageUrl = ({ image }: Blog) =>
               {{ blog?.description }}
             </p>
             <div class="w-full h-px bg-gray-200 my-3"></div>
-              <div class="flex items-center flex-wrap gap-4 mt-auto w-full">
+              <div class="flex items-center flex-wrap gap-2 mt-auto w-full">
                 <!-- Avatars -->
                 <div class="flex -space-x-3">
                   <div
@@ -83,9 +83,9 @@ const getImageUrl = ({ image }: Blog) =>
                 </div>
 
                 <!-- Author Names -->
-                <div class="flex flex-col gap-1">
+                <div class="flex flex-col">
                   <address
-                    class="not-italic text-black flex flex-wrap items-center gap-1"
+                    class="not-italic text-black flex flex-wrap items-center"
                   >
                     <template
                       v-for="(it, index) in blog.authors"
