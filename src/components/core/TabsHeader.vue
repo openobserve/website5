@@ -6,7 +6,7 @@
           'bg-white text-primary-purple shadow': activeTab === tab.value,
           'bg-gray-100 text-gray-700 hover:bg-gray-200': activeTab !== tab.value
         }">
-        {{ tab.label }}
+        <h2>{{ tab.label }}</h2>
       </button>
     </div>
   </div>

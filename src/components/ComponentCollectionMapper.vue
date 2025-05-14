@@ -54,6 +54,7 @@ import DemoForm from "./forms/DemoForm.vue";
 import DemoWrapper from "./wrapper/DemoWrapper.vue";
 import PlatformKeyFeaturesWrapper from "./wrapper/PlatformKeyFeaturesWrapper.vue";
 import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
+import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
 import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
 
 const props = defineProps({
@@ -94,7 +95,7 @@ const componentsMap = computed(() => ({
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
-  "section-forms.contact-form": ContactForm,
+  "section-forms.contact-form": ContactFormWrapper,
   "section-forms.demo-form": DemoWrapper,
   "section-cards.blog": BlogSection,
   "section-contact.community-support": CommunitySupport,

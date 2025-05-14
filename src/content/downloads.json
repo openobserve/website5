@@ -9,29 +9,30 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "Download OpenObserve",
-        "description": "Get started with OpenObserve's powerful observability platform. Choose the deployment option that best fits your needs.",
+        "title": "Downloads",
         "align": "center"
       },
       {
         "__component": "section-downloads.deployment-options",
         "id": 3,
         "title": "Get Started with OpenObserve",
-        "description": "Choose the deployment option that best fits your needs and start monitoring your applications today.",
+        "description": "Choose the deployment option that best fits your needs and start monitoring your infrastructure and applications today.",
         "tabs": [
           {
             "value": "openobserve-cloud",
             "label": "Cloud",
-            "title": "OpenObserve Clouds",
+            "title": "OpenObserve Cloud",
             "description": "Get started in minutes with our fully managed cloud solution. No infrastructure to manage.",
             "features": [
               "No infrastructure to manage",
               "Automatic updates and maintenance",
               "Scalable resources based on your needs",
-              "24/7 monitoring and support"
+              "24/7 monitoring and support",
+              "No licensing fees",
+              "Pay-as-you-go pricing"
             ],
             "button": {
-              "text": "Sign Up for Cloud →",
+              "text": "Try Free Cloud Trial →",
               "class": "bg-primary-purple hover:bg-dark-purple"
             }
           },
@@ -44,26 +45,30 @@
                 "value": "quick-start",
                 "label": "Quick Start",
                 "title": "Quick Start Installation",
-                "description": "Get up and running quickly with our Docker-based installation.<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> For more installation options, check our documentation.",
+                "description": "<img src='/img/icon/docker.svg' class='w-5 h-5 inline mr-2 mb-1'/>Docker<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> <img src='/img/icon/downloading.svg' class='w-4 h-4 inline mr-2 mb-1'/>Download<br/>Binaries can be downloaded from the releases page for the appropriate platform.<br/><br/><img src='/img/icon/ha-clustering.svg' class='w-4 h-4 inline mr-2 mb-1'/>High Availability(HA) Deployment<br/>If you are looking for a Highly Available installation then head over to <a href='https://openobserve.ai/docs/ha_deployment/' class='underline text-blue-500'>HA Deployment</a> section.",
                 "features": [],
-                "button": {
-                  "text": "View Documentation →",
-                  "class": "bg-black hover:bg-black/50"
-                }
+                "button": { },
+                "additionalInfo":""
               },
               {
                 "value": "enterprise",
                 "label": "Enterprise",
-                "title": "Enterprise Deployment",
-                "description": "Production-ready deployment for high-scale environments.",
+                "title": "Enterprise Edition is the recommended version for self-hosted deployments.",
+                "description": "It is free for up to 200 GB of ingestion per day.",
                 "features": [
-                  "Kubernetes deployment templates",
-                  "High availability configuration",
-                  "Advanced security options",
-                  "Enterprise support packages"
+                  "Single Sign On (SSO)",
+                  "Role-Based Access Control (RBAC)",
+                  "Federated search / Super cluster",
+                  "Query Management",
+                  "Workload management (QoS)",
+                  "Audit Trail",
+                  " Action Scripts",
+                  " Cipher keys (HIPAA, PCI compliance)",
+                  "Sensitive Data Redaction"
                 ],
+                "additionalInfo": "For additional volume needs or special requirements, contact our team.",
                 "button": {
-                  "text": "Download Enterprise →",
+                  "text": "Install →",
                   "class": "bg-primary-purple hover:bg-dark-purple"
                 }
               }
