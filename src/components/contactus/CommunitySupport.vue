@@ -1,7 +1,7 @@
 <template>
   <CustomSection sectionClass="">
     <!-- Heading Section -->
-    <HeadingSection :title="title" :description="description" align="LEFT" />
+    <HeadingSection :title="title" :description="description" align="LEFT" class="" />
 
     <!-- Cards Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full pt-10">
