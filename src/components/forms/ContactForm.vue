@@ -1,6 +1,5 @@
 <template>
-  <div class="max-w-3xl lg:max-w-4xl px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto -mt-6">
-    <div class="contact-form-card">
+    <div class="">
       <template v-if="status.submitted">
         <div class="contact-form-success">
           <div class="contact-form-success-icon">
@@ -60,12 +59,12 @@
 
           <p class="contact-form-footer">
             By submitting this form, you agree to our
-            <a href="/privacy-policy">Privacy Policy</a>.
+            <a href="/policies/privacy-policy">Privacy Policy</a>
+            and <a href="/policies/terms-of-service">Terms of Service</a>.
           </p>
         </form>
       </template>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
