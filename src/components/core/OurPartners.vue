@@ -1,19 +1,20 @@
 <template>
-  <section id="our-story" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 xl:px-11 max-w-3xl lg:max-w-7xl mx-auto">
+  <section id="our-story">
+    <CustomSection>
     <!-- Title with horizontal lines -->
     <FramedTitle :title="data.title" />
     <p class="text-center text-gray-600 text-lg">{{ data.description }}</p>
     <!-- Content grid -->
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 items-center">
+    <div class="grid gap-8 grid-cols-2 md:grid-cols-4 items-center mt-8">
       <!-- Image content -->
       <div v-for="(logo, index) in data.logos" :key="index"
-              class="flex-shrink-0  rounded-lg border-2 p-4 flex items-center justify-center h-full w-full">
+              class="flex-shrink-0  rounded-lg border p-4 flex items-center justify-center h-full w-full">
               <img :src="logo" alt="Company logo" class="h-24 w-24" />
             </div>
       </div>
 
     <!-- Read more link -->
-    <div class="flex justify-center pt-4">
+    <div class="flex justify-center pt-8">
       <a :href="data.link.url"
         class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium">
         {{ data.link.text }}
@@ -23,10 +24,12 @@
         </svg>
       </a>
     </div>
+    </CustomSection>
   </section>
 </template>
 <script setup>
 import FramedTitle from "./FramedTitle.vue";
+import CustomSection from "./CustomSection.vue";
 const props = defineProps({
   data: {
     type: Object,
