@@ -95,6 +95,7 @@
           size="small"
           buttonLink="https://cloud.openobserve.ai"
           target="_blank"
+          class="border !border-gray-200"
         >
           LOG IN
         </CustomButton>
