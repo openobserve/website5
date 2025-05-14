@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-4xl mx-auto my-10 lg:px-0 px-4">
-    <HeadingSection :title="title" :description="description" align="center" />
+  <CustomSection sectionClass="max-w-4xl !pb-0">
+    <HeadingSection :title="title" :description="description" align="center" class="!mb-10"/>
     <div class="w-full flex flex-col gap-4 items-center h-full justify-center mt-6 lg:px-12">
       <!-- <TabsHeader
         :tabs="tabs"
@@ -33,12 +33,13 @@
         <OptionsCard :tabs="tabs" :activeTab="activeTab" />
       </template>
     </div>
-  </div>
+  </CustomSection>
 </template>
 <script setup lang="ts">
 import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
+import CustomSection from "../core/CustomSection.vue";
 import { computed, ref, watch } from "vue";
 const props = defineProps<{
   title: {
