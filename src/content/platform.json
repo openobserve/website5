@@ -141,7 +141,7 @@
           ]
         },
         "standardCTA": {
-          "buttonText": "et started with OpenObserve Cloud",
+          "buttonText": "Get started with OpenObserve Cloud",
           "buttonLink": "/pricing",
           "theme": "theme-blue"
         },
