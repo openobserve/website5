@@ -40,9 +40,9 @@ const alignClass = computed(() => ({
 </script>
 
 <template>
-  <div class="w-full mb-16">
-    <h2 class="text-3xl md:text-4xl font-semibold text-black" :class="alignClass" v-html="formattedTitle"></h2>
-    <p v-if="description" class="text-sm md:text-lg xl:text-xl my-4 text-gray-500" :class="alignClass">
+  <div class="w-full mb-16 max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-black" :class="alignClass" v-html="formattedTitle"></h2>
+    <p v-if="description" class="text-sm md:text-lg my-4 text-gray-500" :class="alignClass">
       {{ description }}
     </p>
   </div>

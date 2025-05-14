@@ -154,6 +154,7 @@
       {
         "__component": "section-features.technology",
         "id": 6,
+        "title": " Our Tech",
         "description": "We're building cutting-edge technology that solves real problems in observability. Here's what you'll work with:",
         "features": [
           {

@@ -1,12 +1,13 @@
 <template>
-  <section class="w-full py-12 md:py-24 " :class="background ? 'bg-gray-50' : ''">
-    <div class="container px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto">
-      <div class="flex flex-col items-center space-y-4 text-center mb-10">
-        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Our Tech</h2>
-        <p class="mx-auto max-w-[700px] text-gray-500">
-          {{ description }}
-        </p>
-      </div>
+  <section class="w-full" :class="background ? 'bg-gray-50' : ''">
+   <CustomSection>
+       <!-- Heading Section -->
+        <HeadingSection
+          v-if="title || description"
+          :title="title"
+          :description="description"
+          align="center"
+        />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="space-y-6">
           <div v-for="(feature, index) in features" :key="index" class="flex items-start space-x-4">
@@ -37,12 +38,14 @@
           </div>
         </div>
       </div>
-    </div>
+   </CustomSection>
   </section>
 </template>
 
 <script setup lang="ts">
 import { Code, Globe, Rocket } from 'lucide-vue-next';
+import HeadingSection from '@/components/core/HeadingSection.vue';
+import CustomSection from '@/components/core/CustomSection.vue';
 interface TechFeature {
   title: string;
   description: string;
@@ -57,6 +60,7 @@ interface TechTag {
 }
 
 defineProps<{
+  title: string;
   description: string;
   features: TechFeature[];
   techTags: TechTag[];
