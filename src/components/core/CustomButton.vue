@@ -1,7 +1,4 @@
 <script setup>
-
-
-
 const emit = defineEmits(["click"]); // Define emit for click event
 
 const props = defineProps({
@@ -33,9 +30,9 @@ const props = defineProps({
     default: null,
   },
   btnClass: {
-      type: [String, Array],  // Can accept both String or Array of strings
-      default: () => []        // Default is an empty array
-    },
+    type: [String, Array], // Can accept both String or Array of strings
+    default: () => [], // Default is an empty array
+  },
   disabled: {
     type: Boolean,
     default: false,
@@ -93,7 +90,7 @@ const onClick = (event) => {
 <template>
   <component
     :is="buttonLink ? 'a' : 'button'"
-    :class="[containerClass, buttonSize, buttonVariant,btnClass]"
+    :class="[containerClass, buttonSize, buttonVariant, btnClass]"
     @click="onClick"
     :disabled="disabled || loading"
     :href="buttonLink"
@@ -113,13 +110,12 @@ const onClick = (event) => {
   </component>
 </template>
 <style scoped>
-
 .primary-button {
   position: relative;
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
@@ -132,11 +128,11 @@ const onClick = (event) => {
 .primary-button:hover {
   background-color: var(--color-hover-card);
 }
+
 .primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image:
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -144,21 +140,22 @@ const onClick = (event) => {
 .secondary-button {
   position: relative;
   border: none;
-  color: #5764d9 ;
+  color: #5764d9;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
   background-color: white;
   border: 1px solid transparent;
 }
-.secondary-button:hover{
-  /* Transparent border to show gradient */
-  background-color:#f3f4f6;
 
+.secondary-button:hover {
+  /* Transparent border to show gradient */
+  background-color: #f3f4f6;
 }
-.secondary-button:disabled{
+
+.secondary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   border-color: #cccccc;
@@ -171,20 +168,21 @@ const onClick = (event) => {
   position: relative;
   color: black;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background: transparent;
   /* Transparent background */
   border: 1px solid black;
   /* White border */
   transition: all 0.3s ease;
 }
-.outline-button:hover{
+
+.outline-button:hover {
   border: 1px solid white;
   /* Transparent border to show gradient */
   color: white;
-
 }
-.outline-button:disabled{
+
+.outline-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   border-color: #cccccc;
@@ -193,23 +191,23 @@ const onClick = (event) => {
   box-shadow: none;
 }
 
-
 .tertiary-button {
   position: relative;
   color: white;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background: transparent;
   /* Transparent background */
   border: 1px solid white;
   /* White border */
   transition: all;
 }
-.tertiary-button:hover{
-  background: rgba(255, 255, 255, 0.1); 
 
+.tertiary-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
-.tertiary-button:disabled{
+
+.tertiary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   border-color: #cccccc;
@@ -217,7 +215,6 @@ const onClick = (event) => {
   background: transparent;
   box-shadow: none;
 }
-
 
 .orange-button {
   position: relative;
@@ -225,24 +222,24 @@ const onClick = (event) => {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
-  background-color: #F45B49;
+  background-color: #f45b49;
   /* Creates a 2px border that matches the button color initially */
   border: 1px solid transparent;
 }
 
 .orange-button:hover {
   /* Only change the border gradient on hover */
-  background-color:#DE5444;
+  background-color: #de5444;
 }
+
 .orange-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image:
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -250,27 +247,27 @@ const onClick = (event) => {
 .black-primary-button {
   position: relative;
   border: none;
-  color: #6B76E3;
+  color: #6b76e3;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
   background-color: black;
   /* Creates a 2px border that matches the button color initially */
-  border: 1px solid #6B76E3 ;
+  border: 1px solid #6b76e3;
 }
 
 .black-primary-button:hover {
   background-color: #1e1d1d;
-  color:white
+  color: white;
 }
+
 .black-primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image:
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -281,7 +278,7 @@ const onClick = (event) => {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 6px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
@@ -292,13 +289,13 @@ const onClick = (event) => {
 
 .black-secondary-button:hover {
   background-color: #1e1d1d;
-  color:#6B76E3
+  color: #6b76e3;
 }
+
 .black-secondary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-image:
-    linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
+  background-image: linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%),
     linear-gradient(180deg, #8cc7ff 0%, #7ab7ff 100%);
   box-shadow: none;
 }
@@ -316,5 +313,4 @@ const onClick = (event) => {
 .text {
   display: inline-block;
 }
-
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <section class="relative py-12 md:py-16 mb-6 overflow-hidden">
-    <!-- Gradient background -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
-    ></div>
+  <section class="py-12 md:py-16 mb-6 hero-gradient">
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
       <article class="">
@@ -20,13 +16,11 @@
         </div>
 
         <!-- Title -->
-        <header>
-          <h1
-            class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
-          >
-            {{ title }}
-          </h1>
-        </header>
+        <h1
+          class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
+        >
+          {{ title }}
+        </h1>
 
         <!-- Author Info & Social Sharing -->
         <div
@@ -55,7 +49,7 @@
               </div>
             </div>
 
-            <div class="flex flex-col space-y-0.5">
+            <div class="flex flex-col">
               <!-- Author Names -->
               <address
                 class="not-italic text-white flex flex-wrap items-center gap-1"
@@ -77,13 +71,13 @@
                 </template>
               </address>
               <!-- Publish Date and Read Time -->
-              <div class="flex flex-wrap gap-2 text-white text-sm">
-                <div class="flex items-center">
-                  <Calendar class="h-4 w-4 mr-1" />
-                  <span>{{ publishDate }}</span>
+              <div class="flex flex-wrap gap-4 text-white/80 text-sm">
+                <div class="flex items-center gap-1">
+                  <Calendar class="h-4 w-4" />
+                  <span>{{ formatPublishDate(publishDate) }}</span>
                 </div>
-                <div class="flex items-center">
-                  <Clock class="h-4 w-4 mr-1" />
+                <div class="flex items-center gap-1">
+                  <Clock class="h-4 w-4" />
                   <span>{{ calculateReadingTime(content) }}</span>
                 </div>
               </div>
@@ -91,68 +85,35 @@
           </div>
 
           <!-- Social Icons -->
-          <nav class="flex gap-2 items-center">
+          <div class="flex gap-2 items-center">
             <a
-              :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                title
-              )}&url=${encodeURIComponent(shareUrl)}`"
+              v-for="(item, index) in socialMedia"
+              :key="index"
+              :href="item.href"
               target="_blank"
               rel="noopener"
-              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
-              aria-label="Share on Twitter"
+              class="rounded-full bg-white/10 w-8 h-8 hover:bg-white/20 flex items-center justify-center"
+              :aria-label="item.ariaLabel"
             >
-              <img
-                src="/img/icon/twitter-icon-for-blog.svg"
-                alt="Twitter Icon"
-                class="h-5 w-5"
-              />
+              <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
             </a>
-
-            <a
-              :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                shareUrl
-              )}`"
-              target="_blank"
-              rel="noopener"
-              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
-              aria-label="Share on LinkedIn"
-            >
-              <img
-                src="/img/icon/linkdin-icon-for-blog.svg"
-                alt="LinkedIn Icon"
-                class="h-5 w-5"
-              />
-            </a>
-
-            <a
-              :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                shareUrl
-              )}`"
-              target="_blank"
-              rel="noopener"
-              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
-              aria-label="Share on Facebook"
-            >
-              <img
-                src="/img/icon/facebook-icon-for-blog.svg"
-                alt="Facebook Icon"
-                class="h-5 w-5"
-              />
-            </a>
-
             <button
               @click="copyToClipboard"
-              class="rounded-full bg-white/10 p-2 hover:bg-white/20"
+              :class="[
+                'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300',
+                'bg-white/10 hover:bg-white/20',
+                copied ? 'ring-2 ring-white' : '',
+              ]"
               :title="copied ? 'Copied!' : 'Copy link'"
               aria-label="Copy link"
             >
               <img
                 src="/img/icon/link-icon-for-blog.svg"
                 alt="Copy Icon"
-                class="h-5 w-5"
+                class="h-4 w-4"
               />
             </button>
-          </nav>
+          </div>
         </div>
       </article>
     </div>
@@ -175,7 +136,7 @@ import { calculateReadingTime } from "@/utils/calculateReadingTime";
 import { getInitials } from "@/utils/getInitials";
 import { Calendar, Clock } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
-
+import { formatPublishDate } from "@/utils/formatPublishDate";
 const props = defineProps<{
   type: string;
   title: string;
@@ -195,7 +156,6 @@ const props = defineProps<{
   content: string;
   shareUrl: string;
 }>();
-
 const copied = ref(false);
 
 const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
@@ -207,4 +167,33 @@ const copyToClipboard = () => {
     copied.value = false;
   }, 2000);
 };
+const socialMedia = ref([
+  {
+    name: "twitter",
+    href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      props.title
+    )}&url=${encodeURIComponent(props.shareUrl)}`,
+    icon: "/img/icon/twitter-icon-for-blog.svg",
+    alt: "Twitter Icon",
+    ariaLabel: "Share on Twitter",
+  },
+  {
+    name: "linkedin",
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+      props.shareUrl
+    )}`,
+    icon: "/img/icon/linkdin-icon-for-blog.svg",
+    alt: "LinkedIn Icon",
+    ariaLabel: "Share on LinkedIn",
+  },
+  {
+    name: "facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      props.shareUrl
+    )}`,
+    icon: "/img/icon/facebook-icon.svg",
+    alt: "Facebook Icon",
+    ariaLabel: "Share on Facebook",
+  },
+]);
 </script>
