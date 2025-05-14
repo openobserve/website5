@@ -418,18 +418,22 @@
 }
 
 .code-inline {
-  font-family: monospace, monospace;
+  font-family: monospace;
   /* Use a monospace font */
   background-color: #f0f0f0;
   /* Light background color */
   color: #333;
   /* Dark text color */
-  padding: 0.2em 0.4em;
+  padding: 0.4em 0.6em;
   /* Some padding around the text */
   border-radius: 3px;
   /* Slightly rounded corners */
-  font-size: 0.9em;
+  font-size: 14px;
   /* Slightly smaller font size */
   white-space: pre-wrap;
   /* Preserve whitespace and wrap if needed */
+  overflow-x: auto;
+  max-width: 100%;
+  word-break: break-word;
+  font-weight: 400;
 }
