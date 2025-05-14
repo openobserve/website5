@@ -417,7 +417,7 @@
         ]
       },
       {
-        "__component": "section-solutions.capabilities",
+        "__component": "section-solutions.tabs",
         "title": "OpenObserve’s Key Database Monitoring Capabilities",
         "description": "",
         "background": true,

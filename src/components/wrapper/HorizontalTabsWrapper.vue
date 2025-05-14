@@ -5,7 +5,7 @@
       <div>
         <div class="w-full">
           <TabsHeader :tabs="tabs" :activeTab="activeTab" @update:activeTab="activeTab = $event"
-            gridClass="grid w-full grid-cols-2 md:grid-cols-4 gap-2" />
+           :gridClass="`grid w-full grid-cols-2 md:grid-cols-${tabs.length} gap-2`" />
           <HorizontalTabs :tabs="tabs" :activeTab="activeTab" />
         </div>
       </div>

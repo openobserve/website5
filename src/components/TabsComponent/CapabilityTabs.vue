@@ -4,7 +4,7 @@
         <HeadingSection :title="title" :description="description" align="CENTER"/>
       <div class="w-full">
         <div
-          class="grid w-full grid-cols-2 md:grid-cols-5 h-auto p-0 bg-transparent gap-2"
+          class="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-0 bg-transparent gap-2"
         >
           <button
             v-for="tab in tabs"
