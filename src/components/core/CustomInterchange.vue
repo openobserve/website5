@@ -34,15 +34,26 @@ const sectionClasses = computed(() => ({
 </script>
 
 <template>
-  <div :class="['w-full flex flex-col gap-4 relative pt-6 lg:pt-4', props.theme]">
-    <HeadingSection v-if="heading" :title="heading.title" :description="heading.description" />
+  <div :class="['w-full flex flex-col', props.theme]">
+    <HeadingSection
+      v-if="heading"
+      :title="heading.title"
+      :description="heading.description"
+    />
 
-    <div class="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6" :class="sectionClasses">
+    <div
+      class="w-full flex flex-col lg:flex-row justify-center items-center gap-12 lg:mb-12"
+      :class="sectionClasses"
+    >
       <!-- client review Section -->
-      <div class="relative h-auto rounded-lg border border-card bg-white shadow-sm p-3 z-10 w-full lg:w-1/2">
+      <div
+        class="h-auto rounded-lg border border-card bg-white shadow-sm p-3 z-10 w-full lg:w-1/2"
+      >
         <div class="flex items-start gap-4">
           <!-- Icon -->
-          <div class="bg-black/5 text-color-primary-blue rounded-full p-2 shrink-0 mt-1">
+          <div
+            class="bg-black/5 text-color-primary-blue rounded-full p-2 shrink-0 mt-1"
+          >
             <Quote class="w-6 h-6" />
           </div>
 
@@ -50,10 +61,12 @@ const sectionClasses = computed(() => ({
           <div class="flex flex-col">
             <p class="text-gray-600 italic text-sm leading-relaxed mb-4">
               "{{ cardData?.quote }}"
-
             </p>
             <div class="flex items-center gap-3">
-              <CustomImage :src="cardData?.avatar" class="w-8 h-8 rounded-full shrink-0" />
+              <CustomImage
+                :src="cardData?.avatar"
+                class="w-8 h-8 rounded-full shrink-0"
+              />
               <div>
                 <p class="font-semibold text-sm text-gray-900">
                   {{ cardData?.name }}
@@ -63,17 +76,24 @@ const sectionClasses = computed(() => ({
             </div>
           </div>
         </div>
-
       </div>
 
       <!-- Feature List -->
       <div class="w-full lg:w-1/2 z-10 flex flex-col space-y-6">
         <div v-if="items?.length" class="flex flex-col space-y-6">
-          <div v-for="(item, index) in items" :key="index" class="flex items-start">
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="flex items-start"
+          >
             <div class="space-y-1">
               <div class="flex items-center">
-                <Check class="h-5 w-5 mr-2 bg-card rounded-full p-1 text-color-primary-blue" />
-                <h3 class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black">
+                <Check
+                  class="h-5 w-5 mr-2 bg-card rounded-full p-1 text-color-primary-blue"
+                />
+                <h3
+                  class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black"
+                >
                   {{ item.title }}
                 </h3>
               </div>

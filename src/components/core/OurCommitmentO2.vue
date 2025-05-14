@@ -1,13 +1,8 @@
 <template>
-  <section id="our-commitment" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 xl:px-11 max-w-3xl lg:max-w-7xl mx-auto">
+  <section id="our-commitment">
+    <CustomSection sectionClass="!pb-0">
     <!-- Title with horizontal lines -->
-    <div class="flex items-center gap-4">
-      <div class="h-px flex-1 bg-gray-200 "></div>
-      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900 whitespace-nowrap">
-        {{ data.title }}
-      </h2>
-      <div class="h-px flex-1 bg-gray-200 "></div>
-    </div>
+    <FramedTitle :title="data.title" />
 
     <!-- Content grid -->
     <div class="bg-light-gray rounded-lg p-8 shadow-sm border border-border">
@@ -16,10 +11,13 @@
         <div class="text-lg mb-4" v-html="data.paragraphs"></div>
       </div>
     </div>
+    </CustomSection>
   </section>
 </template>
 
 <script setup>
+import CustomSection from "./CustomSection.vue";
+import FramedTitle from "./FramedTitle.vue";
 const props = defineProps({
   data: {
     type: Object,

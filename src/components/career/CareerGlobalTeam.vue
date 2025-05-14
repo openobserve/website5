@@ -1,12 +1,25 @@
 <template>
-  <div class="py-16 bg-blue-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">{{ title }}</h2>
-      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">{{ description }}</p>
-
+  <div class="bg-gradient-to-r from-primary-purple/5 to-primary-blue/5">
+   <CustomSection>
+      <HeadingSection
+        v-if="title || description"
+        :title="title"
+        :description="description"
+        align="center"
+      />
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div v-for="(feature, index) in features" :key="index" class="text-center">
-          <Cards :title="feature.title" :description="feature.description" :icon="feature.icon" :theme="feature.iconColor" align="center" />
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="text-center"
+        >
+          <Cards
+            :title="feature.title"
+            :description="feature.description"
+            :icon="feature.icon"
+            :theme="feature.iconColor"
+            align="center"
+          />
         </div>
       </div>
 
@@ -16,18 +29,24 @@
             <p class="text-center">{{ mapText }}</p>
           </div>
           <div class="absolute inset-0 flex items-center justify-center">
-            <div v-for="(dot, index) in mapDots" :key="index" class="w-3 h-3 rounded-full absolute" :class="dot.color"
-              :style="{ left: dot.x + '%', top: dot.y + '%' }">
-            </div>
+            <div
+              v-for="(dot, index) in mapDots"
+              :key="index"
+              class="w-3 h-3 rounded-full absolute animate-ping duration-700 ease-in-out"
+              :class="dot.color"
+              :style="{ left: dot.x + '%', top: dot.y + '%' }"
+            ></div>
           </div>
         </div>
       </div>
-    </div>
+   </CustomSection>
   </div>
 </template>
 
 <script setup lang="ts">
 import Cards from "../core/Cards.vue";
+import HeadingSection from "../core/HeadingSection.vue";
+import CustomSection from "../core/CustomSection.vue";
 interface GlobalTeamFeature {
   title: string;
   description: string;

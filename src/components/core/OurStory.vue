@@ -1,5 +1,6 @@
 <template>
-  <section id="our-story" class="space-y-8 py-12 px-4 sm:px-6 lg:px-8 xl:px-11 max-w-3xl lg:max-w-7xl mx-auto">
+  <section id="our-story">
+    <CustomSection sectionClass="!pb-0">
     <!-- Title with horizontal lines -->
     <FramedTitle :title="data.title" />
 
@@ -19,7 +20,7 @@
     <!-- Read more link -->
     <div class="flex justify-center pt-4" v-if="data.isLink">
       <a :href="data.link.url"
-        class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium">
+        class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium mt-4">
         {{ data.link.text }}
         <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
@@ -34,11 +35,13 @@
         {{ data.link.text }}
       </a>
     </div>
+    </CustomSection>
   </section>
 </template>
 
 <script setup>
 import FramedTitle from "./FramedTitle.vue";
+import CustomSection from "./CustomSection.vue";
 const props = defineProps({
   data: {
     type: Object,

@@ -1,12 +1,14 @@
 <template>
   <section class="w-full" :class="background ? 'bg-gray-50' : ''">
-    <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8 xl:px-11">
-      <div class="flex flex-col items-center space-y-4 mb-10 text-center">
-        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">{{ title }}</h2>
-        <p class="mx-auto max-w-[700px] text-muted-foreground ">
-          {{ description }}
-        </p>
-      </div>
+    <CustomSection>
+      <!-- Heading -->
+      <HeadingSection
+          v-if="title || description"
+          :title="title"
+          :description="description"
+          align="center"
+          class="!mb-12"
+        />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="(testimonial, index) in items" :key="index"
@@ -23,11 +25,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </CustomSection>
   </section>
 </template>
 
 <script setup lang="ts">
+import HeadingSection from "../core/HeadingSection.vue";
+import CustomSection from "../core/CustomSection.vue";
 interface Testimonial {
   quote: string;
   name: string;
