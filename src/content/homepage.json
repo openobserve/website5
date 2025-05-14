@@ -10,10 +10,13 @@
         "__component": "section-hero.homepage-hero",
         "id": 1,
         "badge": "140x Lower Cost",
-        "title": "Modern observability for modern apps",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "ctaText": "Get Started For Free",
-        "trustedText": "Trusted by thousands of developers worldwide",
+        "title": "Lightweight, petabyte-scale observability De-escalate the cost of observability.",
+        "description": "Lorem upsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "primaryButton": {
+          "text": "Start Free Cloud Trial",
+          "link": "/pricing"
+        },
+        "trustedText": "From Fortune 10 Giants to Innovative Startups: These Companies Rely on OpenObserve",
         "logos": [
           "/abstract-corporate-logo.png",
           "/abstract-corporate-logo.png",
@@ -35,8 +38,8 @@
         "background": true,
         "items": [
           {
-            "title": "Lightning Fast",
-            "description": "Built with Rust for exceptional performance and resource efficiency",
+            "title": "Efficiency",
+            "description": "Drastically reduce telemetry costs",
             "buttonLink": "#performance-section",
             "color": "text-primary-blue",
             "buttonText": "Prove it",
@@ -44,8 +47,8 @@
             "theme": "theme-blue"
           },
           {
-            "title": "Cost Effective",
-            "description": "140x lower cost compared to other solutions with efficient storage",
+            "title": "Performance",
+            "description": "Blazing speed meets enterprise reliability",
             "buttonLink": "#efficiency-section",
             "color": "text-vibrant-red",
             "buttonText": "Prove it",
@@ -53,8 +56,8 @@
             "theme": "theme-red"
           },
           {
-            "title": "Open Source",
-            "description": "Fully open source with a vibrant community and regular updates",
+            "title": "Scalability",
+            "description": "Operate at petabyte scale",
             "buttonLink": "#scalability-section",
             "color": "text-primary-green",
             "buttonText": "Prove it",
@@ -64,34 +67,62 @@
         ]
       },
       {
+        "__component": "section-features.homepage-architecture",
+        "id": 3,
+        "title": "Explore the OpenObserve Platform",
+        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "image": {
+          "url": "/img/modern-observability-diagram.png",
+          "alt": "OpenObserve Architecture Diagram"
+        },
+        "items": [
+          {
+            "title": "Lorem ipsum dolor sit amet",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
+            "theme": "theme-blue"
+          },
+          {
+            "title": "Lorem ipsum dolor sit amet",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
+            "theme": "theme-purple"
+          },
+          {
+            "title": "Lorem ipsum dolor sit amet",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
+            "theme": "theme-green"
+          }
+        ]
+      },
+      {
         "__component": "section-cards.homepage-features",
         "id": 3,
-        "title": "The \"Open\" Ethos",
-        "description": "Our commitment to openness drives everything we do",
+        "title": "It’s in Our DNA: Our Unwavering Commitment to Open| Source| Standards| Protocols | Observability | Design| Community",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "background": true,
         "items": [
           {
-            "title": "Open Standards",
-            "description": "We embrace and contribute to industry standards, ensuring compatibility and interoperability with your existing tools and workflows.",
+            "title": "Open Source",
+            "description": "Our code is fully open source, allowing for community contributions, security audits, and complete control over your observability data.",
             "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
             "theme": "theme-blue",
             "items": [
-              "OpenTelemetry compatibility",
-              "Prometheus metrics support",
-              "Standard API interfaces",
-              "Vendor-neutral approach"
+              "AGPL-3.0 license",
+              "Active community",
+              "Transparent development"
             ]
           },
           {
-            "title": "Open Source",
-            "description": "Our code is fully open source, allowing for community contribution, security audits, and complete control over your observability data.",
+            "title": "Open Standards",
+            "description": "We embrace and contribute to industry standards, ensuring compatibility and interoperability with your existing tools and workflows.",
             "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
             "theme": "theme-red",
             "items": [
-              "MIT licensed",
-              "Active community",
-              "Transparent development",
-              "Community-driven roadmap"
+              "OpenTelemetry compatible",
+              "Standard API interfaces",
+              "Vendor-neutral approach"
             ]
           }
         ]
@@ -102,31 +133,27 @@
         "items": [
           {
             "heading": {
-              "title": "Efficiency",
-              "description": "Optimize your observability cost without sacrificing visibility"
+              "title": "",
+              "description": ""
             },
             "cardData": {
-              "quote": "We reduced our observability costs by 85% after switching to OpenObserve, while actually improving our visibility across our entire stack.",
-              "name": "Jane Smith",
-              "role": "CTO, TechCrop",
-              "avatar": "/img/icon/slack-icon.svg"
+              "quote": "OpenObserve has proven to be a reliable and cost-effective solution built to address real-world challenges.",
+              "name": "Wayne Creel",
+              "role": "CTO, ONEngine",
+              "avatar": "/img/client/wayne-creel.jpg"
             },
             "items": [
               {
-                "title": "140x Lower Storage Costs",
-                "description": "Our efficient storage engine dramatically reduces the cost of storing logs, metrics, and traces."
+                "title": "Lower Storage Costs",
+                "description": "140x lower storage cost when benchmarked against Elastic Search."
               },
               {
-                "title": "Intelligent Data Sampling",
-                "description": "Automatically sample data to reduce volume while maintaining statistical accuracy."
+                "title": "High Compression",
+                "description": "OpenObserve provides high compression (~40x), columnar storage with Apache Parquet."
               },
               {
-                "title": "Optimized Query Engine",
-                "description": "Fast, efficient queries that reduce compute costs and improve response times."
-              },
-              {
-                "title": "Flexible Retention Policies",
-                "description": "Configure retention policies by data type, source, or importance to optimize storage costs."
+                "title": "Bring Your Own Bucket",
+                "description": "OpenObserve supports efficient long-term storage including local disk, S3, MinIO, GCS, and Azure Blob Storage."
               }
             ],
             "theme": "theme-blue",
@@ -134,31 +161,27 @@
           },
           {
             "heading": {
-              "title": "Performance",
-              "description": "Lightning-fast observability for modern applications"
+              "title": "",
+              "description": ""
             },
             "cardData": {
-              "quote": "The performance of OpenObserve is incredible. We're querying billions of log lines in under a second. We're querying billions of log lines in under a second, which was unthinkable with our previous solution.",
-              "name": "Alex Johnson",
-              "role": "Lead DevOps, CloudScale",
-              "avatar": "/img/icon/slack-icon.svg"
+              "quote": "[OpenObserve is] super fast, definitely very lightweight, and you can get started with an initial POC in two to three minutes to be honest.",
+              "name": "Ajith Natarajan",
+              "role": "Lead Software Engineer, Radius.ai",
+              "avatar": "/img/client/ajit-natarajan.jpg"
             },
             "items": [
               {
-                "title": "Rust-Powered Backend",
-                "description": "Built with Rust for exceptional performance, memory safety, and resource efficiency."
+                "title": "Performant Language",
+                "description": "OpenObserve is written in Rust."
               },
               {
-                "title": "Sub-Second Query Response",
-                "description": "Get answers to your observability questions in milliseconds, not minutes."
+                "title": "Performant Architecture",
+                "description": "OpenObserve utilizes the DataFusion query engine to directly query Parquet files."
               },
               {
-                "title": "Columnar Storage Format",
-                "description": "Optimized storage format for fast analytical queries over large datasets."
-              },
-              {
-                "title": "Parallel Query Execution",
-                "description": "utomatically parallelize queries to take advantage of all available resources."
+                "title": "Performant Platform",
+                "description": "Internal query benchmarking of 1 petabyte of data returned in 2 seconds."
               }
             ],
             "theme": "theme-red",
@@ -166,31 +189,27 @@
           },
           {
             "heading": {
-              "title": "Scalability",
-              "description": "Grow your observability platform alongside your business"
+              "title": "",
+              "description": ""
             },
             "cardData": {
-              "quote": "We scaled from monitoring 50 services to over 500 with OpenObserve, and it handled the growth seamlessly. The horizontal scaling capabilities are impressive.",
-              "name": "Maria Rodriguez",
-              "role": "VP Engineering, GrowthTech",
-              "avatar": "/img/icon/slack-icon.svg"
+              "quote": "Today, I think we run our entire production logs through OpenObserve... it’s been a phenomenal journey so far.",
+              "name": "Shailesh Mangal",
+              "role": "CTO, Roambee",
+              "avatar": "/img/client/shailesh-mangal.jpg"
             },
             "items": [
               {
-                "title": "Horizontal Scaling",
-                "description": "Scale out across multiple nodes to handle growing data volumes and query loads."
+                "title": "Enterprise Scale",
+                "description": "Providing self-hosted logging for Fortune 100 Enterprises."
               },
               {
-                "title": "Multi-Tenant Architecture",
-                "description": "Support multiple teams or customers with isolated data and access controls."
+                "title": "Stateless Architecture",
+                "description": "OpenObserve’s stateless node architecture allows horizontal scaling without data complexity."
               },
               {
-                "title": "Cloud-Native Design",
-                "description": "Built for Kubernetes and containerized environments with stateless components."
-              },
-              {
-                "title": "Elastic Resource Allocation",
-                "description": "Automatically adjust resource usage based on current demand and workload."
+                "title": "Performant at Scale",
+                "description": "OpenObserve uses result and disk caching to keep the platform performant, even at scale."
               }
             ],
             "theme": "theme-green",
@@ -218,8 +237,8 @@
       }
     ],
     "seo": {
-      "title": "OpenObserve - Modern Observability for Modern Apps",
-      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing powerful visibility at a fraction of the cost.",
+      "title": "OpenObserve: Open Source Observability Platform | Logs, Metrics & Traces",
+      "description": "Fast, scalable and cost-effective open source observability platform. Monitor logs, metrics & traces with 140x lower storage costs than Elasticsearch. Start in 2 minutes.",
       "keywords": [
         "observability",
         "open source",

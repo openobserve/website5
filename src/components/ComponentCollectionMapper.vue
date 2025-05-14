@@ -54,6 +54,7 @@ import DemoForm from "./forms/DemoForm.vue";
 import DemoWrapper from "./wrapper/DemoWrapper.vue";
 import PlatformKeyFeaturesWrapper from "./wrapper/PlatformKeyFeaturesWrapper.vue";
 import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
+import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -100,7 +101,8 @@ const componentsMap = computed(() => ({
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
   "section-key-features-benefits.key-features": PlatformKeyFeaturesWrapper,
-  "sections.faq": CommonFaqWrapper
+  "sections.faq": CommonFaqWrapper,
+  "section-features.homepage-architecture": HomeModernArchiture
 }));
 
 const getComponentProps = (it) => {
