@@ -39,7 +39,6 @@ const sectionClasses = computed(() => ({
       v-if="heading"
       :title="heading.title"
       :description="heading.description"
-      class="mb-16"
     />
 
     <div

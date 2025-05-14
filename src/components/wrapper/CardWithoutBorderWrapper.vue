@@ -1,34 +1,33 @@
 <template>
-  <div
-    class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11  py-4 md:py-6 lg:py-6 xl:py-6"
-    :class="background ? 'bg-gray-50' : ''"
-  >
-    <h2 v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-2">
-      {{ title }}
-    </h2>
-    <p
-      v-if="description"
-      class="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
-    >
-      {{ description }}
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        v-for="(feature, index) in features"
-        :key="index"
-        class="text-center"
+  <CustomSection>
+    <div :class="background ? 'bg-gray-50' : ''">
+      <h2 v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-2">
+        {{ title }}
+      </h2>
+      <p
+        v-if="description"
+        class="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
       >
-        <Cards
-          :title="feature.title"
-          :description="feature.description"
-          :icon="feature.icon"
-          :theme="feature.iconColor"
-          align="center"
-        />
+        {{ description }}
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="text-center"
+        >
+          <Cards
+            :title="feature.title"
+            :description="feature.description"
+            :icon="feature.icon"
+            :theme="feature.iconColor"
+            align="center"
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </CustomSection>
 </template>
 
 <script setup lang="ts">

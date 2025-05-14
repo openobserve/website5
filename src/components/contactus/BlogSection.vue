@@ -1,7 +1,7 @@
 <template>
   <CustomSection>
     <div class="">
-      <HeadingSection :title="sectionTitle" description="" align="LEFT" />
+      <HeadingSection :title="sectionTitle" description="" align="LEFT" class="!mb-12" />
     </div>
     <div
       class="flex flex-row justify-between items-center w-full  my-6"

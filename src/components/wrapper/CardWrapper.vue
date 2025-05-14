@@ -34,7 +34,6 @@ const props = defineProps({
           :title="title"
           :description="description"
           align="center"
-          class="mb-16"
         />
 
         <!-- Cards Section -->
