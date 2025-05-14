@@ -10,7 +10,10 @@ interface HeroData {
   badge: string;
   title: string;
   description: string;
-  ctaText: string;
+  primaryButton: {
+    text: string;
+    link: string;
+  },
   trustedText: string;
   logos: string[];
   video: Video;
@@ -41,11 +44,13 @@ defineProps<{ data: HeroData }>();
 
           <div class="flex flex-col sm:flex-row gap-4">
             <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg">
-              {{ data.ctaText }}
+              {{ data.primaryButton.text }}
             </button>
           </div>
         </div>
 
+
+        
         <!-- Right Side (Video Card) -->
         <div class="relative">
           <div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg">
