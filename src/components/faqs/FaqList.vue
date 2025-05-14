@@ -4,14 +4,13 @@
     <div v-for="(faq, index) in faqList" :key="index" class="border-b border-gray-200 pb-6 last:border-0">
       <button @click="toggle(index)"
         class="w-full text-left font-medium text-lg md:text-xl flex justify-between items-center hover:text-primary-purple transition-colors cursor-pointer">
-        <span>{{ faq.question }}</span>
+        <h2>{{ faq.question }}</h2>
         <span class="ml-4 text-primary-purple text-2xl font-light">
           {{ activeIndex === index ? '−' : '+' }}
         </span>
       </button>
-      <div v-if="activeIndex === index" class="mt-3 text-gray-600 text-base md:text-lg animate-fade-in">
-        {{ faq.answer }}
-      </div>
+      <p v-if="activeIndex === index" v-html="faq.answer" class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray">
+      </p>
     </div>
   </div>
 </template>

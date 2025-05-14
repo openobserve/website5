@@ -6,12 +6,12 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import { getAllBlogs } from "@/utils/api/blog";
 
 export async function getStaticPaths() {
-  return [
-    {
-      params: { slug: data.data.slug }, // 'logs'
-      props: { pageData: data.data }, // whole object
-    },
-  ];
+  return data.map((item: any) => {
+    return {
+      params: { slug: item.slug },
+      props: { pageData: item },
+    };
+  });
 }
 
 const { pageData } = Astro.props;
