@@ -1,9 +1,5 @@
 <template>
-  <section class="relative py-12 md:py-16 mb-6 overflow-hidden">
-    <!-- Gradient background -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
-    ></div>
+  <section class="py-12 md:py-16 mb-6 hero-gradient">
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
       <article class="">
@@ -75,13 +71,13 @@
                 </template>
               </address>
               <!-- Publish Date and Read Time -->
-              <div class="flex flex-wrap gap-2 text-white text-sm">
-                <div class="flex items-center">
-                  <Calendar class="h-4 w-4 mr-1" />
+              <div class="flex flex-wrap gap-4 text-white/80 text-sm">
+                <div class="flex items-center gap-1">
+                  <Calendar class="h-4 w-4" />
                   <span>{{ formatPublishDate(publishDate) }}</span>
                 </div>
-                <div class="flex items-center">
-                  <Clock class="h-4 w-4 mr-1" />
+                <div class="flex items-center gap-1">
+                  <Clock class="h-4 w-4" />
                   <span>{{ calculateReadingTime(content) }}</span>
                 </div>
               </div>
