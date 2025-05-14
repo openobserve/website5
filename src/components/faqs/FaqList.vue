@@ -9,7 +9,7 @@
           {{ activeIndex === index ? '−' : '+' }}
         </span>
       </button>
-      <p v-if="activeIndex === index" v-html="faq.answer" class="mt-3 text-gray-600 text-base md:text-lg animate-fade-in">
+      <p v-if="activeIndex === index" v-html="faq.answer" class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray">
       </p>
     </div>
   </div>
