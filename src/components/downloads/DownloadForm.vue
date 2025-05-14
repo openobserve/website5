@@ -1,8 +1,8 @@
 <template>
-  <div class="max-w-4xl mx-auto my-10 lg:px-0 px-4">
+  <CustomSection>
     <div class="contact-form-card">
     <HeadingSection :title="title" :description="description" align="center" />
-    <div class="mt-10">
+    <div class="mt-10 max-w-3xl mx-auto">
       <template v-if="status.submitted">
         <div class="contact-form-success">
           <div class="contact-form-success-icon">
@@ -29,7 +29,7 @@
       </template>
       <template v-else>
         <form @submit.prevent="handleSubmit" class="contact-form">
-          <div class="contact-form-fields">
+          <div class="contact-form-fields space-y-4">
             <div class="flex flex-col lg:flex-row gap-6 w-full">
               <div class="lg:w-1/2 w-full">
                 <label for="fname" class="contact-form-label">First name</label>
@@ -124,12 +124,12 @@
       </template>
     </div>
 </div>
-  </div>
+</CustomSection>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
 import HeadingSection from "@/components/core/HeadingSection.vue";
-
+import CustomSection from "../core/CustomSection.vue";
 defineProps({
   title: {
     type: String,
