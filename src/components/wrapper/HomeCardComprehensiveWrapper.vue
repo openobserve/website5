@@ -33,13 +33,11 @@ const props = defineProps<{
 <template>
   <div :class="props.background ? 'bg-gray-50' : ''">
     <CustomSection>
-      <div class="mb-8">
         <HeadingSection
           :title="props.title"
           :description="props.description"
           align="center"
         />
-      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CardWithShadowBorder
           v-for="(card, index) in props.data"
@@ -55,7 +53,7 @@ const props = defineProps<{
         />
       </div>
       <div
-        class="mt-8 space-y-10 text-center bg-white p-6 rounded-lg shadow-md"
+        class="mt-12 space-y-10 text-center bg-white p-8 rounded-lg shadow-md"
       >
         <h3 class="text-xl font-bold">{{ props.items?.title }}</h3>
         <img

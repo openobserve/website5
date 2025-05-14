@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import HeadingSection from '../core/HeadingSection.vue';
-
+import CustomSection from '../core/CustomSection.vue';
 import { Check } from 'lucide-vue-next';
 
 
@@ -23,8 +23,8 @@ const activeIndex = ref(0)
 </script>
 
 <template>
-  <section class="py-16" :class="background ? 'bg-gray-50' : ''">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 space-y-10">
+  <section class="" :class="background ? 'bg-gray-50' : ''">
+    <CustomSection>
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
       <div :class="['flex flex-col lg:flex-row gap-8', props?.items[activeIndex]?.theme]">
@@ -100,6 +100,6 @@ const activeIndex = ref(0)
           </div>
         </div>
       </div>
-    </div>
+    </CustomSection>
   </section>
 </template>
