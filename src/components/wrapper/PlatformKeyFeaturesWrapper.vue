@@ -4,7 +4,7 @@ import TabsHeader from "../core/TabsHeader.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import CustomButton from "../core/CustomButton.vue";
 import HeadingSection from "../core/HeadingSection.vue";
-
+import CustomSection from "../core/CustomSection.vue";
 defineProps({
   title: {
     type: String,
@@ -40,11 +40,11 @@ const tabs = [
 const activeTab = ref("standard");
 </script>
 <template>
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 pb-10">
+  <CustomSection>
     <!-- Heading Section -->
     <HeadingSection :title="title" :description="description" align="center" />
     <!-- Centered Tabs -->
-    <div class="flex justify-center mt-6">
+    <div class="flex justify-center">
       <div class="inline-flex">
         <TabsHeader
           :tabs="tabs"
@@ -67,7 +67,7 @@ const activeTab = ref("standard");
       />
     </div>
 
-    <div class="text-center mt-6">
+    <div class="text-center mt-12">
       <CustomButton
         :buttonLink="
           activeTab === 'standard'
@@ -86,5 +86,5 @@ const activeTab = ref("standard");
         "
       />
     </div>
-  </div>
+  </CustomSection>
 </template>
