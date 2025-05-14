@@ -1,5 +1,6 @@
 <template>
-  <div class="max-w-4xl mx-auto my-10 lg:px-0 px-4">
+  <CustomSection >
+  <div class="max-w-4xl mx-auto lg:px-0 px-4">
     <HeadingSection
       :title="title"
       :description="description"
@@ -14,12 +15,14 @@
       />
       <PricingCards :tabs="tabs" :activeTab="activeTab" />
   </div>
+  </CustomSection>
 </template>
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import PricingCards from "./PricingCards.vue";
+import CustomSection from "../core/CustomSection.vue";
 const props = defineProps<{
   title: {
     type: String;
