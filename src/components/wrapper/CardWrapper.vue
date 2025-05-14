@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
-    <CustomSection>
+    <CustomSection sectionClass="">
       <div>
         <!-- Heading Section -->
         <HeadingSection
@@ -34,7 +34,7 @@ const props = defineProps({
           :title="title"
           :description="description"
           align="center"
-          
+          class="mb-16"
         />
 
         <!-- Cards Section -->
@@ -50,7 +50,8 @@ const props = defineProps({
             :buttonLink="card.buttonLink"
             :theme="card.theme"
             :items="card.items"
-          class="grid-item" />
+            class="grid-item"
+          />
 
           <!-- CardWithSideIcon -->
           <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
