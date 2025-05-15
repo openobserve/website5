@@ -384,6 +384,10 @@
   gap: 1rem;
 }
 
+.contact-form-error {
+  @apply text-red-500 text-sm pt-1 pl-1;
+}
+
 .contact-form-footer {
   font-size: 0.75rem;
   text-align: center;
