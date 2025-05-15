@@ -9,62 +9,76 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "About OpenObserve",
-        "description": "Modern observability for modern applications-powerful visibility at a fraction of the cost.",
+        "title": "About Us",
         "align": "center"
       },
       {
         "__component": "section-story.our-story",
         "id": 2,
         "title": "Our Story",
-        "paragraphs": "OpenObserve was born from a simple yet powerful idea: observability should be accessible, efficient, and affordable for everyone.<br><br>Founded in 2022 by a team of engineers who experienced firsthand the challenges of managing observability at scale, we set out to build a solution that would dramatically reduce the cost and complexity of monitoring modern applications.<br><br>Our journey began with a clear mission: to create an open-source observability platform that delivers enterprise-grade features without the enterprise-grade price tag. Today, OpenObserve helps organizations of all sizes gain deeper insights into their systems while using up to 10x less storage and computing resources.",
+        "paragraphs": "OpenObserve was founded in 2022 with a vision to make observability more accessible, complete and cost-effective. OpenObserve emerged from the challenges of managing complex distributed systems. Our platform addresses the growing need for unified observability while dramatically reducing storage costs.",
         "image": {
            "src": "/img/logo.svg",
           "alt": "OpenObserve founding team"
-        },
-        "link": {
-          "text": "Read our full journey",
-          "url": "/blog/our-journey"
-        },
-        "isLink": true
+        }
       },
       {
         "__component": "section-story.our-commitment",
         "id": 3,
         "title": "Our Commitment to Open Source",
-        "paragraphs": "At OpenObserve, we believe that open source is the foundation of innovation in technology. Our commitment to open source goes beyond just making our code available—it's about fostering a collaborative ecosystem where everyone benefits from shared knowledge and collective improvement.<br><br>We've built our platform on open source principles because we believe observability tools should be transparent, customizable, and community-driven. By making our core technology open source, we ensure that users have complete visibility into how their observability platform works, with the freedom to inspect, modify, and extend it to meet their specific needs.<br><br>Our open source approach also means we're accountable to our community. We actively welcome contributions from developers around the world, incorporating diverse perspectives that make our platform more robust, secure, and innovative. This collaborative development model has allowed us to build features and capabilities that truly address real-world observability challenges.<br><br>We're committed to maintaining a healthy balance between open source sustainability and commercial viability. While our core platform remains free and open source, we offer enterprise features and support services that fund our continued development and growth. This model ensures that OpenObserve remains accessible to everyone while continuing to evolve with the needs of our users."
+        "paragraphs": "We built OpenObserve on a simple truth - the best tech grows in the open. Our open source foundation isn't just a checkbox; it's our lifeblood.<br><br>When observability tools hide their inner workings, everyone loses. That's why we've thrown open our codebase, letting you peek under the hood, tinker with the engine, or rebuild entire systems to fit your world.<br><br>Our community keeps us honest. Developers from Boston to Bangalore contribute code that solves real problems they've faced firsthand. This diversity of thought has taken us places we never would have discovered alone.<br><br>We're pragmatists about sustainability too. While our core platform remains free for all, our enterprise offerings fund the coffee that fuels our late-night coding sessions. This balance ensures OpenObserve stays both accessible and evolving."
       },
       {
         "__component": "section-story.our-story",
         "id": 4,
         "title": "Our People",
-        "paragraphs": "Our team brings together decades of experience in observability, distributed systems, and cloud infrastructure. We're passionate about building tools that make developers' lives easier.<br/><br/>Founded by engineers who experienced firsthand the challenges of managing observability at scale, our team combines technical expertise with a deep understanding of our users' needs. We've worked at companies like Google, AWS, Netflix, and other tech giants, bringing that knowledge to build a more efficient observability solution.<br/><br/>We're a remote-first company with team members across the globe, united by our mission to make powerful observability accessible to everyone. Our diverse perspectives drive innovation and help us build products that work for teams of all sizes and industries.",
+        "paragraphs": "We're problem-solvers scattered across continents who speak the language of systems at scale. Our engineers have battled production fires, optimized query engines, and designed architectures that handle billions of events daily.<br/><br/>We didn't gather because we shared an office—we connected because we shared obsessions. This distributed DNA shapes everything we build: resilient, global, and uncompromising.",
         "image": {
           "src": "/img/logo.svg",
           "alt": "OpenObserve founding team"
         },
-        "link": {
+        "primaryButton": {
           "text": "Explore Careers",
-          "url": "/careers"
-        },
-        "isLink": false
+          "link": "/careers"
+        }
       },
       {
         "__component": "section-story.our-partners",
         "id": 5,
         "title": "Our Partners",
-        "description": "We collaborate with industry leaders to deliver integrated solutions that enhance your observability experience.",
-        "logos": [
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png"
-        ],
-        "link": {
-          "text": "View all partners",
-          "url": "/"
-        }
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "images": [
+          {
+            "url": "/img/partners/nexus.png",
+            "alt": "Nexus Venture",
+            "link": "https://nexusvp.com/"
+          },
+          {
+            "url": "/img/partners/dell-technologies.png",
+            "alt": "Dell Technologies",
+            "link":"https://www.delltechnologiescapital.com/"
+          },
+          {
+            "url": "/img/partners/secure-octane.png",
+            "alt": "SecureOctane",
+            "link":"https://www.secureoctane.com/"
+          },
+          {
+            "url": "/img/partners/ratio-ventures.png",
+            "alt": "Ratio Ventures",
+            "link":"https://www.ratio.ventures/"
+          },
+          {
+            "url": "/img/partners/doug-merrit.png",
+            "alt": "Doug Merrit",
+            "link":"https://aviatrix.com/leader/doug-merritt/"
+          }
+        ]
       }
-    ]
+    ],
+    "seo": {
+      "title": "About OpenObserve | Modern Observability Platform",
+      "description": "Learn about OpenObserve's mission to make observability accessible and cost-effective. Discover our platform's core values, team, and innovative approach."
+    }
   }
 }

@@ -117,9 +117,6 @@ const getComponentProps = (it) => {
     case "section-cta.banner":
       return { ...it, ...props.bannerData };
     case "section-hero.homepage-hero":
-    case "section-story.our-story":
-    case "section-story.our-commitment":
-    case "section-story.our-partners":
       return { data: it };
     case "section-cards.blog":
       return { ...it, data: props.blogsData };
