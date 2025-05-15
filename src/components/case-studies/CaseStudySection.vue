@@ -1,4 +1,5 @@
 <template>
+  <section id="customer-stories" class="bg-gray-50">
   <CustomSection>
     <HeadingSection
       :title="sectionData.title"
@@ -21,6 +22,7 @@
       </a>
     </div>
   </CustomSection>
+  </section>
 </template>
 
 <script setup lang="ts">
