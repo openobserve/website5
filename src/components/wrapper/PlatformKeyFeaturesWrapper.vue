@@ -40,7 +40,7 @@ const tabs = [
 const activeTab = ref("standard");
 </script>
 <template>
-  <CustomSection>
+  <CustomSection class="!pt-10">
     <!-- Heading Section -->
     <HeadingSection :title="title" :description="description" align="center" />
     <!-- Centered Tabs -->

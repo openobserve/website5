@@ -24,7 +24,7 @@ const activeIndex = ref(0)
 
 <template>
   <section class="" :class="background ? 'bg-gray-50' : ''">
-    <CustomSection>
+    <CustomSection sectionClass="!pb-0">
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
       <div :class="['flex flex-col lg:flex-row gap-8', props?.items[activeIndex]?.theme]">

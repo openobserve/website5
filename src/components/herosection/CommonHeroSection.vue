@@ -43,7 +43,7 @@ defineProps({
           {{ description }}
         </p>
         <!-- Button -->
-        <div v-if="primaryButton && primaryButton.text && primaryButton.link">
+        <div v-if="primaryButton && primaryButton.text && primaryButton.link" class="mt-4">
           <CustomButton
             variant="secondary"
             size="medium"

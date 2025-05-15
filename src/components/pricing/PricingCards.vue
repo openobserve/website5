@@ -33,11 +33,11 @@
           item.period
         }}</span>
       </div>
-      <ul class="space-y-1 mt-6">
+      <ul class="space-y-1 mt-6 leading-snug">
         <li
           v-for="(feature, fIndex) in item.features"
           :key="fIndex"
-          class="flex items-start gap-2 space-y-3"
+          class="flex items-start gap-2 space-y-1.5"
         >
           <Check class="h-4 w-4 text-primary-green mt-1 shrink-0" />
           <span>{{ feature }}</span>

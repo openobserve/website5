@@ -1,7 +1,7 @@
 <template>
   <CustomSection>
     <div :class="background ? 'bg-gray-50' : ''">
-      <h2 v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-2">
+      <h2 v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-12">
         {{ title }}
       </h2>
       <p

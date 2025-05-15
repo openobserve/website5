@@ -22,7 +22,7 @@ const props = defineProps<{
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
-    <CustomSection class="!pb-10">
+    <CustomSection class="!pb-0">
       <div class="" v-if="props.title || props.description">
         <HeadingSection :title="props.title" :description="props.description" align="center" />
       </div>
