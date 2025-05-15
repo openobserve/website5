@@ -137,6 +137,10 @@
       {
         "__component": "section-cards.blog",
         "id": 4
+      },
+      {
+        "__component": "section-cards.articles",
+        "id": 4
       }
     ],
     "seo": {

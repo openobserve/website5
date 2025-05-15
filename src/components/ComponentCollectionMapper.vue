@@ -57,12 +57,14 @@ import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
 import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
 import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
 import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
+import { ArticlesResources ,BlogResources } from "@/utils/constant";
 
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
   blogs: { type: Array, required: false },
   caseStudyData: { type: Array, required: false },
+  articlesData:{  type: Array, required: false },
   bannerData: { type: Object, required: false },
 });
 const componentsMap = computed(() => ({
@@ -106,16 +108,19 @@ const componentsMap = computed(() => ({
   "sections.faq": CommonFaqWrapper,
   "section-features.homepage-architecture": HomeModernArchiture,
   "section-cards.customer-stories": CaseStudySection,
+  "section-cards.articles": BlogSection,
 }));
 
 const getComponentProps = (it) => {
   switch (it.__component) {
     case "section-cards.blog":
-      return { ...it, data: props.blogsData };
+      return { ...it, data: props.blogsData , sectionData: BlogResources};
     case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
     case "section-cards.customer-stories":
       return { ...it, data: props.caseStudyData };
+    case "section-cards.articles":
+      return { ...it, data: props.articlesData , sectionData: ArticlesResources };
     case "section-cards.resources-blogs":
       return { ...it, items: props.blogs };
     case "section-cta.banner":

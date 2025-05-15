@@ -21,7 +21,7 @@ const blogsData = await getResourceBlogsByPagination(
   currentPage,
   ITEMS_PER_PAGE
 );
-const allArticlesData = (await getAllResourceBlogs()).slice(0, 10).map(({ content, ...rest }) => rest);
+const allArticlesData = (await getAllResourceBlogs()).map(({ content, ...rest }) => rest);
 const suggestionData = await getAllResourceCategories();
 const count = await getTotalCounts();
 const metaObj = {
