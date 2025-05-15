@@ -30,13 +30,13 @@ const props = defineProps({
 <template>
    <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
-    <div class="">
+    <div class="" v-if="title || description">
       <HeadingSection :title="title" :description="description" align="center" />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <CardWithBackground v-for="(card, index) in data" :key="index" :title="card.title" :description="card.description"
         :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink" :theme="card.theme"
-        :items="card.items" :align="align" />
+        :items="card.items" :align="align" headingLevel="2" />
     </div>
   </CustomSection>
 </div>

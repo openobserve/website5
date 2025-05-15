@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="activeTabData"
-    class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 gap-6 w-full"
+    class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-6 gap-6 w-full"
   >
     <div
       v-for="(item, index) in activeTabData.items"
@@ -18,7 +18,7 @@
       <!-- Badge positioned at the top-right -->
       <span
         v-if="item.badge"
-        class="absolute -top-3 left-1/2 sm:left-44 -translate-x-1/2 lg:left-1/2 text-xs px-2 py-1 rounded-full"
+        class="absolute -top-3 left-1/2  -translate-x-1/2 lg:left-1/2 text-xs px-2 py-1 rounded-full"
         :class="item.theme"
       >
         {{ item.badge }}
@@ -27,7 +27,7 @@
         <h3 class="text-lg lg:text-2xl font-bold">{{ item.title }}</h3>
         <p class="text-sm text-gray-600">{{ item.description }}</p>
       </div>
-      <div class="mt-4">
+      <div class="mt-4" v-if="item?.price">
         <span class="text-3xl font-bold">{{ item.price }}</span>
         <span class="pl-1 font-medium text-sm text-gray-600">{{
           item.period
@@ -39,11 +39,12 @@
           :key="fIndex"
           class="flex items-start gap-2 space-y-3"
         >
-          <Check class="h-4 w-4 text-primary-green mt-1" />
+          <Check class="h-4 w-4 text-primary-green mt-1 shrink-0" />
           <span>{{ feature }}</span>
         </li>
       </ul>
-      <a :href="item.button.link" target="_blank" class="mt-auto">
+      <p v-if="item.additionalInfo" class="mt-4 text-sm text-gray-600">{{ item.additionalInfo }}</p>
+      <a :href="item.button.link" :target="item.button.target ?? '_self'" class="mt-auto">
         <button
           :class="item.button.class"
           class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"
