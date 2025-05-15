@@ -18,12 +18,9 @@ const props = defineProps<{
 
 // Compute heading level with validation and default to 3
 const headingLevel = computed(() => {
-  if (!props.headingLevel) return 3;
-  if (props.headingLevel < 1 || props.headingLevel > 6) {
-    console.warn("headingLevel must be between 1 and 6. Falling back to 3.");
-    return 3;
-  }
-  return props.headingLevel;
+  return props.headingLevel && props.headingLevel >= 1 && props.headingLevel <= 6
+    ? props.headingLevel
+    : 3;
 });
 </script>
 
