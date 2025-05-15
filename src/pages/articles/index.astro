@@ -2,6 +2,7 @@
 import {
   getAllResourceBlogs,
   getAllResourceCategories,
+  getAllResourcesLists,
   getResourceBlogsByPagination,
 } from "@/utils/api/resources";
 import { getTotalCounts } from "@/utils/cache";
@@ -21,21 +22,16 @@ const blogsData = await getResourceBlogsByPagination(
   currentPage,
   ITEMS_PER_PAGE
 );
-const allArticlesData = await getAllResourceBlogs();
+const allArticlesData = await getAllResourcesLists();
 const suggestionData = await getAllResourceCategories();
 const count = await getTotalCounts();
 const metaObj = {
-  title:
-    "Articles | OpenObserve Open Source Observability Platform",
+  title: "Articles | OpenObserve Open Source Observability Platform",
 };
 ---
 
 <Layout metaObj={metaObj}>
-  <CommonHerosection
-    title="Articles"
-    description=""
-    align="center"
-  />
+  <CommonHerosection title="Articles" description="" align="center" />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
@@ -47,7 +43,7 @@ const metaObj = {
       searchBar
       allBlogs={allArticlesData}
       type="articles"
-      totalItems={count.blogsCount}
+      totalItems={count.resourceBlogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
       client:load

@@ -29,7 +29,18 @@ export async function getResourceBlogsByPagination(page, pageSize) {
   const resourceBlogs = await getAllResourceBlogs();
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
-  return resourceBlogs.slice(start, end);
+  const paginatedBlogs = resourceBlogs.slice(start, end);
+
+  // Return only selected fields
+  return paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 }
 
 export async function getResBlogsBySlug(slug) {
@@ -81,7 +92,16 @@ export async function getResourcesByPaginationAndCategory(
     filteredBlogs = filterResourceByCategory(blogs, categorySlug);
   }
 
-  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  let paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  paginatedBlogs = paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 
   return {
     blogs: paginatedBlogs,
@@ -101,7 +121,17 @@ export async function getResourcesByPaginationAndAuthor(
     filteredBlogs = filterResourceByAuthor(blogs, authorSlug);
   }
 
-  const paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+  let paginatedBlogs = paginate(filteredBlogs, page, ITEMS_PER_PAGE);
+
+  paginatedBlogs = paginatedBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
 
   return {
     blogs: paginatedBlogs,
@@ -109,3 +139,18 @@ export async function getResourcesByPaginationAndAuthor(
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };
 }
+
+export const getAllResourcesLists = async () => {
+  const allResources = await getAllResourceBlogs();
+  const resourcesData = allResources.map((resource) => ({
+    title: resource.title,
+    description: resource.description,
+    image: resource.image,
+    slug: resource.slug,
+    publishDate: resource.publishDate,
+    categories: resource.categories,
+    authors: resource.authors
+  }))  
+
+  return resourcesData
+} 

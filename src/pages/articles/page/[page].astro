@@ -5,6 +5,7 @@ import {
   getAllResourceBlogs,
   getResourceBlogsByPagination,
   getAllResourceCategories,
+  getAllResourcesLists,
 } from "@/utils/api/resources";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
@@ -37,23 +38,18 @@ const blogsData = await getResourceBlogsByPagination(
   currentPage,
   ITEMS_PER_PAGE
 );
-const allArticles = await getAllResourceBlogs();
+const allArticles = await getAllResourcesLists();
 // Fetch categories for suggestions
 const suggestionData = await getAllResourceCategories();
 const count = await getTotalCounts();
 
 const metaObj = {
-  title:
-    "Articles | OpenObserve Open Source Observability Platform",
+  title: "Articles | OpenObserve Open Source Observability Platform",
 };
 ---
 
 <Layout metaObj={metaObj}>
-  <CommonHerosection 
-   title="Articles"
-    description=""
-    align="center"
-  />
+  <CommonHerosection title="Articles" description="" align="center" />
   <CustomSection sectionClass="">
     <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
@@ -65,7 +61,7 @@ const metaObj = {
       searchBar
       allBlogs={allArticles}
       type="articles"
-      totalItems={count.blogsCount}
+      totalItems={count.resourceBlogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
       client:load
