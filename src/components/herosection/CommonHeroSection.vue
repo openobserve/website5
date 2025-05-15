@@ -35,6 +35,7 @@ defineProps({
       >
         <h1
           class="text-3xl sm:text-4xl xl:text-5xl/none font-bold tracking-tighter text-white"
+          :class="description ? 'mb-4' : ''"
         >
           {{ title }}
         </h1>
