@@ -21,21 +21,20 @@ const blogsData = await getResourceBlogsByPagination(
   currentPage,
   ITEMS_PER_PAGE
 );
-const allArticlesData = await getAllResourceBlogs();
+const allArticlesData = (await getAllResourceBlogs()).slice(0, 10).map(({ content, ...rest }) => rest);
 const suggestionData = await getAllResourceCategories();
 const count = await getTotalCounts();
 const metaObj = {
   title:
-    "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
+    "Articles | OpenObserve Open Source Observability Platform",
 };
 ---
 
 <Layout metaObj={metaObj}>
   <CommonHerosection
-    title="Resources"
-    description="Explore latest insights and updates"
-    align="left"
-    client:load
+    title="Articles"
+    description=""
+    align="center"
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
