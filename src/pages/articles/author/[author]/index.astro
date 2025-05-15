@@ -29,14 +29,15 @@ const suggestionData = (await getAllResourceCategories()) || [];
 const authorDetails = await getAuthorDetails(author);
 const metaObj = {
   title:
-    "Author | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+     "Author | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
 };
 ---
 
 <Layout metaObj={metaObj}>
   <CommonHerosection
-    title="Resources"
+    title="Articles"
     description={`Showing posts by author: ${authorDetails?.name}`}
+    align="center"
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing

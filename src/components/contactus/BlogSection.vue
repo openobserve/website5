@@ -1,7 +1,7 @@
 <template>
   <CustomSection>
     <div class="">
-      <HeadingSection :title="sectionTitle" description="" align="LEFT" class="!mb-12" />
+      <HeadingSection :title="sectionData.title" description="" align="LEFT" class="!mb-12" />
     </div>
     <div
       class="flex flex-row justify-between items-center w-full  my-6"
@@ -58,10 +58,10 @@
       </div>
       <div class="">
         <a
-          :href="viewAllLink.url"
+          :href="sectionData.button.link"
           class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
         >
-          {{ viewAllLink.text }}
+          {{ sectionData.button.text }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
@@ -115,6 +115,11 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
+  sectionData: {
+    type: Object,
+    required: false,
+    default: () => {},
+  } //used for button and title
 });
 const scrollContainer = ref<HTMLElement | null>(null);
 
@@ -170,20 +175,6 @@ onMounted(async () => {
   }
 });
 
-// Set section title and view-all link manually
-const sectionTitle = "Latest from Our Blogs";
-const viewAllLink = {
-  url: "/blog",
-  text: "View all posts",
-};
-
-// function getAuthorsForBlog(blog: Blog) {
-//   return (
-//     blog.authors
-//       ?.map((author) => authorsMap.value[author.slug])
-//       .filter(Boolean) || []
-//   );
-// }
 </script>
 <style>
 /* Optional: hide scrollbar */

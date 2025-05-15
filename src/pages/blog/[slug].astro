@@ -8,6 +8,7 @@ import {
 import BlogcontentWrapper from "@/components/blog/BlogcontentWrapper.vue";
 import BlogDetailsHeroSection from "@/components/blog/BlogDetailsHeroSection.vue";
 import BlogSection from "@/components/contactus/BlogSection.vue";
+import { BlogResources } from "@/utils/constant";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
   return slugs.map((it: any) => ({
@@ -55,7 +56,7 @@ const metaObj = {
     authors={author}
   />
   <div class="max-w-7xl container mx-auto">
-    <BlogSection data={allBlogs.slice(0, 10)} client:load />
+    <BlogSection data={allBlogs.slice(0, 10)} sectionData={BlogResources} client:load />
   </div>
   <!-- bannerData={BannerData?.data} -->
 </Layout>

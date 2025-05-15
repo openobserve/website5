@@ -4,14 +4,22 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import resourcepage from "@/content/resources.json";
 import { getAllBlogs } from "@/utils/api/blog";
 import {caseStudies} from "@/pages/customer-stories/index.astro";
+import { getAllResourceBlogs } from "@/utils/api/resources";
 const data = resourcepage?.data?.body || {};
 const seoData = resourcepage?.data?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 const caseData = caseStudies.slice(0, 3);
+const allowedSlugs = [
+  "elasticsearch-matching",
+  "otel-exporters-introduction",
+  "iis-logging-basics"
+];
+const allArticlesData = (await getAllResourceBlogs())
+  .map(({ content, ...rest }) => rest).filter((it: any) => allowedSlugs.includes(it.slug));
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} caseStudyData={caseData} client:load />
+  <ComponentCollectionMapper data={data} blogsData={blogData} caseStudyData={caseData} articlesData={allArticlesData} client:load />
 </Layout>

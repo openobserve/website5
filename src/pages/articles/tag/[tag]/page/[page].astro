@@ -44,16 +44,16 @@ const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
 const suggestionData = await getAllResourceCategories();
 const metaObj = {
   title:
-    "Tag | Resources | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+   "Tag | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
 };
 const category = await getCategoryDetails(tag);
 ---
 
 <Layout metaObj={metaObj}>
   <CommonHerosection
-    title="Resources"
+    title="Articles"
     description={`Showing posts for category: ${category?.name}`}
-    align="left"
+    align="center"
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
