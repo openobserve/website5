@@ -113,6 +113,7 @@
                 "button": {
                   "text": "Download",
                   "link": "https://openobserve.ai/docs/quickstart/#self-hosted-installation",
+                  "target": "_blank",
                   "class": "theme-outline"
                 }
               },
@@ -135,6 +136,7 @@
                 "button": {
                   "text": "Download",
                   "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
+                  "target": "_blank",
                   "class": "bg-sky-500 text-white hover:bg-sky-600"
                 },
                 "theme": "bg-sky-500 text-white",
