@@ -2,11 +2,14 @@
 import Layout from "@/layouts/Layout.astro";
 import solutionsData from "@/content/solutions.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-
+import { getAllBlogs } from "@/utils/api/blog";
 const data = solutionsData?.data?.body || {};
 const seoData = solutionsData?.data?.seo || {};
+const blogData = (await getAllBlogs())
+  .slice(0, 10)
+  .map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} client:load />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
 </Layout>

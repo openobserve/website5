@@ -4,31 +4,30 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "Complete Observability for Modern Applications",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "title": "OpenObserve's Turnkey Observability Solutions",
         "align": "center"
       },
       {
         "__component": "section-cards.solution-features",
         "id": 2,
-        "title": "Why Choose OpenObserve?",
+        "title": "",
         "align": "center",
         "data": [
           {
-            "title": "High Performance",
-            "description": "10x more efficient than traditional solutions, with significantly lower resource consumption and faster query response times",
+            "title": "Launch in Minutes, Not Weeks",
+            "description": "Spin up observability instantly without complex setups or manual configuration.",
             "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
             "theme": "theme-blue"
           },
           {
-            "title": "Cost Effective",
-            "description": " Reduce your observability costs by up to 80% while maintaining enterprise-grade capabilities andreliability.",
+            "title": "Cut Observability Costs",
+            "description": "Reduce telemetry storage spend using OpenObserve's ultra-efficient compression and smart retention.",
             "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />",
             "theme": "theme-red"
           },
           {
-            "title": "Secure & Compliant",
-            "description": "Enterprise-grade security with role-based access control, data encryption, and compliance with industrystandards.",
+            "title": "Consolidate for Clarity",
+            "description": "Correlate metrics, logs, and traces in a single platform for faster root cause analysis.",
             "icon": "<path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\" />",
             "theme": "theme-green"
           }
@@ -96,13 +95,13 @@
         "items": [
           {
             "id": 1,
-            "title": "Infrastructure Monitoring",
-            "description": "Comprehensive visibility into your infrastructure performance, health, and resource utilization.",
+            "title": "AWS Monitoring",
+            "description": "Comprehensive visibility into your AWS infrastructure performance, health, and resource utilization.",
             "features": [
-              "Server metrics and health monitoring",
-              "Container and Kubernetes observability",
-              "Cloud resource optimization",
-              "Real-time infrastructure alerts"
+              "Real-Time Visibility & Insights",
+              "Efficient Data Processing",
+              "Service Coverage & Integration",
+              "Cost-Effective Monitoring"
             ],
             "image": {
               "url": "/img/logo.svg"
@@ -111,46 +110,43 @@
           },
           {
             "id": 2,
-            "title": "Application Performance",
-            "description": "Monitor and optimize your application performance with detailed insights and tracing.",
-            "color": "primary-blue",
+            "title": "Azure Monitoring",
+            "description": "Comprehensive visibility into your Azure infrastructure performance, health, and resource utilization.",
             "features": [
-              "End-to-end request tracing",
-              "Error tracking and analysis",
-              "Performance bottleneck identification",
-              "User experience monitoring"
+              "Real-Time Visibility & Insights",
+              "Efficient Data Processing",
+              "Service Coverage & Integration",
+              "Cost-Effective Monitoring"
             ],
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme": "theme-blue"
+           "theme": "theme-blue"
           },
           {
             "id": 3,
-            "title": "Security & Compliance",
-            "description": "Enhance your security posture with advanced monitoring and compliance capabilities.",
-            "color": "primary-green",
+            "title": "GCP Monitoring",
+            "description": "Comprehensive visibility into your GCP infrastructure performance, health, and resource utilization.",
             "features": [
-              "Security event monitoring",
-              "Latency analysis",
-              "Compliance reporting and auditing",
-              "Threat detection and response"
+              "Data Collection and Analysis",
+              "Service Monitoring",
+              "Log Processing",
+              "Resource Management"
             ],
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme": "theme-green"
+             "theme": "theme-green"
           },
           {
             "id": 4,
-            "title": "Kubernetes Observability",
-            "description": "Complete visibility into your Kubernetes clusters with metrics, logs, and distributed tracing.",
-            "color": "vibrant-red",
+            "title": "Kubernetes Monitoring",
+            "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
             "features": [
-              "Pod and node monitoring",
-              "Cluster health dashboards",
-              "Container log aggregation",
-              "Kubernetes events tracking"
+              "Unified Kubernetes Monitoring",
+              "Multi-cluster Visibility",
+              "Resource Optimization",
+              "Uptime & Incident Management"
             ],
             "image": {
               "url": "/img/logo.svg"
@@ -159,30 +155,28 @@
           },
           {
             "id": 5,
-            "title": "Multi-Cloud Monitoring",
-            "description": "Unified observability across AWS, GCP, Azure and other cloud providers in a single platform.",
-            "color": "primary-purple",
+            "title": "Database Monitoring",
+            "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
             "features": [
-              "Cross-cloud resource visibility",
-              "Cost optimization insights",
-              "Cloud service performance metrics",
-              "Hybrid cloud monitoring"
+              "Performance Monitoring",
+              "Proactive Error Detection & Resolution",
+              "Data-Driven Decisions",
+              "Holistic Monitoring & Alerts"
             ],
             "image": {
               "url": "/img/logo.svg"
             },
-            "theme": "theme-blue"
+           "theme": "theme-blue"
           },
           {
             "id": 6,
-            "title": "DevOps Insights",
-            "description": "Accelerate your CI/CD pipeline with integrated observability for DevOps teams.",
-            "color": "purple-600",
+            "title": "OpenTelemetry",
+            "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
             "features": [
-              "Deployment tracking and correlation",
-              "CI/CD pipeline observability",
-              "Release impact analysis",
-              "Automated incident response"
+              "Data Collection",
+              "Instrumentation Options",
+              "Data Processing",
+              "Observability Insights"
             ],
             "image": {
               "url": "/img/logo.svg"
@@ -191,36 +185,14 @@
           }
         ]
       },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "#get-started",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
+       {
+        "__component": "section-cards.blog",
+        "id": 5
       }
     ],
     "seo": {
-      "title": "OpenObserve - Modern Observability for Modern Apps",
-      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing powerful visibility at a fraction of the cost.",
-      "keywords": [
-        "observability",
-        "open source",
-        "monitoring",
-        "logs",
-        "metrics",
-        "traces"
-      ],
+      "title": "OpenObserve Solutions | Cloud & Infrastructure Monitoring",
+      "description": "Complete monitoring solutions for AWS, Azure, GCP, and Kubernetes environments. Unified observability for databases, DevOps teams, and OpenTelemetry integration.",
       "image": "/images/seo-image.jpg"
     }
   },
