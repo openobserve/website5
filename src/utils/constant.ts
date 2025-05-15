@@ -8,7 +8,7 @@ type RESOURCES = {
 }
 
 export const BlogResources: RESOURCES = {
-    title: "Latest From Our BlogS",
+    title: "Latest From Our Blogs",
     description: "",
     button: {
         text: "View all posts",
@@ -17,7 +17,7 @@ export const BlogResources: RESOURCES = {
 };
 
 export const ArticlesResources: RESOURCES = {
-    title: "Latest From Our Articles",
+    title: "Articles",
     description: "",
     button: {
         text: "View all articles",

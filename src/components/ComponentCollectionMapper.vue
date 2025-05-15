@@ -58,6 +58,7 @@ import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
 import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
 import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
 import { ArticlesResources ,BlogResources } from "@/utils/constant";
+import LatestArticles from "./articles/LatestArticles.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -108,7 +109,7 @@ const componentsMap = computed(() => ({
   "sections.faq": CommonFaqWrapper,
   "section-features.homepage-architecture": HomeModernArchiture,
   "section-cards.customer-stories": CaseStudySection,
-  "section-cards.articles": BlogSection,
+  "section-cards.articles": LatestArticles,
 }));
 
 const getComponentProps = (it) => {

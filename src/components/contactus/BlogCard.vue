@@ -44,5 +44,4 @@ const props = defineProps<{
     slug: string;
   };
 }>();
-// console.log(props.post,"post")
 </script>

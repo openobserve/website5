@@ -11,7 +11,13 @@ const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 const caseData = caseStudies.slice(0, 3);
-const allArticlesData = (await getAllResourceBlogs()).slice(0, 10).map(({ content, ...rest }) => rest);
+const allowedSlugs = [
+  "elasticsearch-matching",
+  "otel-exporters-introduction",
+  "iis-logging-basics"
+];
+const allArticlesData = (await getAllResourceBlogs())
+  .map(({ content, ...rest }) => rest).filter((it: any) => allowedSlugs.includes(it.slug));
 ---
 
 <Layout metaObj={seoData}>
