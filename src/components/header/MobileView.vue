@@ -1,20 +1,11 @@
 <template>
   <header class="flex flex-col z-50 relative">
     <div class="relative">
-      <div class="flex justify-between items-center p-2 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
+      <div
+        class="flex justify-between items-center p-2 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10"
+      >
         <Logo />
         <div class="flex items-center space-x-3">
-          <!-- <div
-            class="relative rounded-xl"
-            @click="onSearchClick"
-            ref="searchWrapper"
-          >
-            <img
-              src="/img/icon/search.svg"
-              alt="Search Icon"
-              class="cursor-pointer w-full h-full object-cover p-2.5"
-            />
-          </div> -->
           <a
             href="https://cloud.openobserve.ai"
             class="text-black text-xs"
@@ -64,7 +55,6 @@
         </div>
       </div>
       <div v-if="isMenuOpen" class="w-full h-screen bg-white">
-        <!-- Main Menu -->
         <div
           v-if="!activeSubMenu"
           class="w-full h-full flex flex-col items-center space-y-4 bg-white overflow-y-auto"
@@ -105,8 +95,6 @@
           <div
             class="flex flex-col justify-center w-full items-center space-y-4 pt-4 mx-auto px-10"
           >
-            <!-- <CustomButton class="w-full" variant="secondary" size="large" buttonLink="/downloads">DOWNLOADS
-            </CustomButton> -->
             <a
               class="p-4 bg-white bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center text-black cursor-pointer text-sm"
               href="/pricing"
@@ -121,9 +109,6 @@
             >
           </div>
         </div>
-
-        <!-- Submenu Content -->
-        <!-- <div style="background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg')" class="bg-cover bg-no-repeat top-1/2" ></div> -->
         <div
           v-if="activeSubMenu"
           style="
@@ -219,34 +204,16 @@
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <ul class="flex flex-col space-y-2">
-                    <li class="cursor-pointer">
+                  <ul class="flex flex-col space-y-4 text-gray-600 text-sm">
+                    <li
+                      v-for="(item, index) in items.resources.items"
+                      :key="index"
+                    >
                       <a
-                        href="https://openobserve.ai/docs/"
-                        class="text-gray-600 text-base gradient-hover"
-                        target="_blank"
-                        >Documentation</a
-                      >
-                    </li>
-                    <li class="cursor-pointer">
-                      <a
-                        href="/blog"
-                        class="text-gray-600 text-base gradient-hover"
-                        >Blog</a
-                      >
-                    </li>
-                    <li class="cursor-pointer">
-                      <a
-                        href="/faqs"
-                        class="text-gray-600 text-base gradient-hover"
-                        >Frequently Asked Questions</a
-                      >
-                    </li>
-                    <li class="cursor-pointer">
-                      <a
-                        href="/case-studies"
-                        class="text-gray-600 text-base gradient-hover"
-                        >Case Studies and testimonials</a
+                        :href="item.link"
+                        :class="item.link ? 'gradient-hover' : ''"
+                        :target="item.target"
+                        >{{ item.title }}</a
                       >
                     </li>
                   </ul>
@@ -265,14 +232,11 @@ import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
 import CustomHeaderButton from "./CustomHeaderButton.vue";
 import GithubButton from "vue-github-button";
-
 defineProps({
   items: Object,
   required: true,
 });
-// Menu items
 const navHeading = ["Platform", "Solutions", "Resources"];
-
 // Reactive states
 const isMenuOpen = ref(false);
 const activeSubMenu = ref(null); // Tracks the currently active submenu
@@ -281,20 +245,16 @@ const searchWrapper = ref(null); // Reference to the search bar wrapper
 // Toggle main menu
 const onMenuClick = () => {
   isMenuOpen.value = !isMenuOpen.value;
-
   // Reset submenu state when closing the menu
   if (!isMenuOpen.value) {
     activeSubMenu.value = null;
   }
 };
 
-// Open a submenu
 const onSubMenuClick = (item) => {
-  console.log("Submenu clicked:", item);
   activeSubMenu.value = item;
 };
 
-// Close submenu and return to main menu
 const closeSubMenu = () => {
   activeSubMenu.value = null;
 };
