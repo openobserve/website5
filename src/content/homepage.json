@@ -11,7 +11,6 @@
         "id": 1,
         "badge": "140x Lower Cost",
         "title": "Lightweight, petabyte-scale observability De-escalate the cost of observability.",
-        "description": "Lorem upsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "/pricing"
