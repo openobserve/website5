@@ -85,9 +85,9 @@
                 "additionalInfo": "High-volume needs? Let's talk scale! Contact us for tailored solutionsand volume discounts!",
                 "button": {
                   "text": "Contact Us",
-                  "link": "/contact",
+                  "link": "/contactus",
                   "class": "theme-outline",
-                  "target": "_blank"
+                  "target": "_self"
                 }
               }
             ]
@@ -111,7 +111,7 @@
                   "Advanced multilingual GUI"
                 ],
                 "button": {
-                  "text": "Get Started",
+                  "text": "Download",
                   "link": "https://openobserve.ai/docs/quickstart/#self-hosted-installation",
                   "class": "theme-outline"
                 }
@@ -133,7 +133,7 @@
                   "Cipher keys (HIPAA, PCI compliance)"
                 ],
                 "button": {
-                  "text": "Contact Sales",
+                  "text": "Download",
                   "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
                   "class": "bg-sky-500 text-white hover:bg-sky-600"
                 },
