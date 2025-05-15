@@ -13,13 +13,15 @@
                 <span>{{ feature }}</span>
               </li>
             </ul>
-            <p class="text-gray-500" v-if="tab?.additionalInfo">{{ tab?.additionalInfo }}</p>
+            <p class="text-gray-500" v-if="tab?.additionalInfo" v-html="tab?.additionalInfo"></p>
+            <a :href="tab?.button.link" :target="tab?.button.target||'_self'">
             <button
               v-if="tab?.button.text"
               class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors w-full"
               :class="tab.button.class">
               {{ tab?.button.text }}
             </button>
+            </a>
           </div>
         </div>
       </div>

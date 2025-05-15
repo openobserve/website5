@@ -33,6 +33,8 @@
             ],
             "button": {
               "text": "Try Free Cloud Trial →",
+              "link": "https://cloud.openobserve.ai/web/login",
+              "target": "_blank",
               "class": "bg-primary-purple hover:bg-dark-purple"
             }
           },
@@ -47,8 +49,8 @@
                 "title": "Quick Start Installation",
                 "description": "<img src='/img/icon/docker.svg' class='w-5 h-5 inline mr-2 mb-1'/>Docker<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> <img src='/img/icon/downloading.svg' class='w-4 h-4 inline mr-2 mb-1'/>Download<br/>Binaries can be downloaded from the releases page for the appropriate platform.<br/><br/><img src='/img/icon/ha-clustering.svg' class='w-4 h-4 inline mr-2 mb-1'/>High Availability(HA) Deployment<br/>If you are looking for a Highly Available installation then head over to <a href='https://openobserve.ai/docs/ha_deployment/' class='underline text-blue-500'>HA Deployment</a> section.",
                 "features": [],
-                "button": { },
-                "additionalInfo":""
+                "button": {},
+                "additionalInfo": ""
               },
               {
                 "value": "enterprise",
@@ -66,9 +68,11 @@
                   " Cipher keys (HIPAA, PCI compliance)",
                   "Sensitive Data Redaction"
                 ],
-                "additionalInfo": "For additional volume needs or special requirements, contact our team.",
+                "additionalInfo": "For additional volume needs or special requirements, <a href='/contactus' class='underline text-blue-500'>contact our team</a>.",
                 "button": {
                   "text": "Install →",
+                  "link": "https://openobserve.ai/docs/openobserve-enterprise-edition-installation-guide",
+                  "target": "_blank",
                   "class": "bg-primary-purple hover:bg-dark-purple"
                 }
               }
