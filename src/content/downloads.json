@@ -82,16 +82,8 @@
       }
     ],
     "seo": {
-      "title": "OpenObserve - Modern Observability for Modern Apps",
-      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing powerful visibility at a fraction of the cost.",
-      "keywords": [
-        "observability",
-        "open source",
-        "monitoring",
-        "logs",
-        "metrics",
-        "traces"
-      ],
+      "title": "OpenObserve Downloads | Start Free Cloud or Self-Hosted Monitoring Today",
+      "description": "Get started with OpenObserve's generous free tier for cloud and self-hosted installations. Try unlimited features with a 15-day free trial. No credit card required.",
       "image": "/images/seo-image.jpg"
     }
   }

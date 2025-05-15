@@ -10,7 +10,6 @@
         "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Simple, Transparent Pricing",
-        "description": "Choose the plan that's right for your observality needs",
         "align": "center"
       },
       {
@@ -23,59 +22,72 @@
             "title": "OpenObserve Clouds",
             "items": [
               {
-                "title": "Starter",
-                "description": "Perfect for small teams and projects",
-                "price": "$49",
-                "period": "/month",
+                "title": "Free",
+                "description": "Self-managed, cloud-based OpenObserve",
+                "price": "",
+                "period": "",
                 "features": [
-                  "Up to 50GB data ingestion",
-                  "7-day data retention",
-                  "3 team members",
-                  "Basic alerting"
+                  "Full Stack Observability including metrics,logs, and traces",
+                  "Community Support",
+                  "High Availability",
+                  "Multi-tenancy",
+                  "Dynamic schema  and schema  evolution",
+                  "Advanced  multilingual GUI"
                 ],
                 "button": {
-                  "text": "Get Started",
+                  "text": "Deploy on Heroku",
                   "link": "https://cloud.openobserve.ai/web/login",
-                  "class": "theme-outline"
-                }
+                  "class": "theme-outline",
+                  "target": "_blank"
+                },
+                "additionalInfo": ""
               },
               {
-                "title": "Professional",
+                "title": "Standard Cloud",
                 "badge": "Most Popular",
-                "description": "Ideal for growing businesses",
-                "price": "$199",
-                "period": "/month",
+                "description": "No licensing costs, pay-as-you-go",
+                "price": "",
+                "period": "",
                 "features": [
-                  "Up to 500GB data ingestion",
-                  "30-day data retention",
-                  "10 team members",
-                  "Advanced alerting",
-                  "Custom dashboards"
+                  "$0.30 per GB for logs, metrics & traces",
+                  "Query Volume - $0.01 per GB",
+                  "Pipelines - $0.10 per GB Data Processed",
+                  "$0.25 per GB for Remote destinations",
+                  "RUM & Session Replay - $1 per 1K sessions",
+                  "Error Tracking - $0.15 per 1K events",
+                  "Action Script - $1 per 1k runs",
+                  "Unlimited Users",
+                  "Role-Based Access Control (RBAC)",
+                  "API Access",
+                  "15-Days Retention"
                 ],
                 "button": {
-                  "text": "Get Started",
+                  "text": "Start Cloud Free Trial",
                   "link": "https://cloud.openobserve.ai/web/login",
-                  "class": "bg-primary-purple text-white hover:bg-dark-purple"
+                  "class": "bg-primary-purple text-white hover:bg-dark-purple",
+                  "target": "_blank"
                 },
+                "additionalInfo": "Unlimited users, logs,  metrics, traces & more.",
                 "theme": "bg-primary-purple text-white",
                 "container": "border-primary-purple bg-primary-purple/10"
               },
               {
-                "title": "Enterprise",
-                "description": "For large-scale observability needs",
-                "price": "Custom",
+                "title": "Enterprise Cloud",
+                "description": "Advanced functionality and support for Enterprise demands",
+                "price": "",
                 "features": [
-                  "Unlimited data ingestion",
-                  "Configurable data retention",
-                  "Unlimited team members",
-                  "Enterprise-grade security",
-                  "Dedicated support",
-                  "SLA guarantees"
+                  "Everything in Standard, plus:",
+                  "Extended Data Retention",
+                  "Priority Support",
+                  "SSO (Single Sign On) with Custom Auth Providers (Okta, Microsoft Entra, etc)",
+                  "SLA Guarantees"
                 ],
+                "additionalInfo": "High-volume needs? Let's talk scale! Contact us for tailored solutionsand volume discounts!",
                 "button": {
-                  "text": "Contact Sales",
-                  "link": "/contactus",
-                  "class": "theme-outline"
+                  "text": "Contact Us",
+                  "link": "/contact",
+                  "class": "theme-outline",
+                  "target": "_blank"
                 }
               }
             ]
@@ -86,15 +98,17 @@
             "title": "OpenObserve Self-hosted",
             "items": [
               {
-                "title": "Open Source",
-                "description": "Free and open source forever",
-                "price": "$0",
-                "period": "forever",
+                "title": "Download for free",
+                "description": "",
+                "price": "",
+                "period": "",
                 "features": [
-                  "Self-managed infrastructure",
-                  "Full observability platform",
-                  "Community support",
-                  "MIT licensed"
+                  "Full Stack Observability including metrics, logs, and traces",
+                  "Community Support",
+                  "High Availability",
+                  "Multi-tenancy",
+                  "Dynamic schema and schema evolution",
+                  "Advanced multilingual GUI"
                 ],
                 "button": {
                   "text": "Get Started",
@@ -104,20 +118,26 @@
               },
               {
                 "title": "Enterprise",
-                "description": "For mission-critical deployments",
-                "price": "Custom",
+                "badge": "Recommended",
+                "description": "Free for up to 200 GB of ingestion per day.",
+                "price": "",
                 "features": [
-                  "Everything in Open Source",
-                  "Enterprise support SLAs",
-                  "Implementation assistance",
-                  "Custom integrations",
-                  "Training and onboarding"
+                  "Extended Data Retention",
+                  "SSO (Single Sign On)",
+                  "Role-Based Access Control (RBAC)",
+                  "Federated search / Super cluster",
+                  "Query Management",
+                  "Workload management (QoS)",
+                  "Audit Trail",
+                  "Sensitive Data Redaction",
+                  "Cipher keys (HIPAA, PCI compliance)"
                 ],
                 "button": {
                   "text": "Contact Sales",
                   "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
                   "class": "bg-sky-500 text-white hover:bg-sky-600"
                 },
+                "theme": "bg-sky-500 text-white",
                 "container": "border-sky-300 bg-sky-300/10"
               }
             ]
@@ -132,28 +152,20 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "#get-started",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Schedule Demo",
-            "link": "#schedule-demo",
+            "link": "/demo",
             "variant": "tertiary"
           }
         ]
       }
     ],
     "seo": {
-      "title": "OpenObserve - Modern Observability for Modern Apps",
-      "description": "OpenObserve is an open-source observability platform designed for modern applications, providing powerful visibility at a fraction of the cost.",
-      "keywords": [
-        "observability",
-        "open source",
-        "monitoring",
-        "logs",
-        "metrics",
-        "traces"
-      ],
+      "title": "Pricing | Open Source Observability Platform for Logs, Metrics,Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
+      "description": "Compare OpenObserve pricing for cloud and self-hosted plans. Explore flexible, scalable options built for observability at any size or stage.",
       "image": "/images/seo-image.jpg"
     }
   }
