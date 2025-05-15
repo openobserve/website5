@@ -132,7 +132,7 @@
         "items": [
           {
             "heading": {
-              "title": "",
+              "title": "Efficiency",
               "description": ""
             },
             "cardData": {
@@ -160,7 +160,7 @@
           },
           {
             "heading": {
-              "title": "",
+              "title": "Performance",
               "description": ""
             },
             "cardData": {
@@ -188,7 +188,7 @@
           },
           {
             "heading": {
-              "title": "",
+              "title": "Scalability",
               "description": ""
             },
             "cardData": {
