@@ -3,7 +3,7 @@ import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
-
+import { ArrowRight } from "lucide-vue-next";
 const props = defineProps({
   title: {
     type: String,
@@ -19,6 +19,10 @@ const props = defineProps({
   },
   background: {
     type: Boolean,
+    required: false,
+  },
+  button: {
+    type: Object,
     required: false,
   },
 });
@@ -51,10 +55,22 @@ const props = defineProps({
             :items="card.items"
             class="grid-item"
           />
-
           <!-- CardWithSideIcon -->
           <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
           :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" /> -->
+        </div>
+
+        <!-- View All Button -->
+        <div class="mt-12 flex justify-center w-full" v-if="button">
+          <a :href="button.link" :target="button.target||'_self'" class="">
+            <button
+              :class="button.class"
+              class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+            >
+              {{ button.text }}
+              <ArrowRight class="ml-2 h-4 w-4" />
+            </button>
+          </a>
         </div>
       </div>
     </CustomSection>

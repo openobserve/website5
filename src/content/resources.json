@@ -9,31 +9,30 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "Complete Observability Solutions",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
+        "title": "Resources to learn, grow with, and master OpenObserve",
         "align": "center"
       },
       {
         "__component": "section-features.resources-feature-details",
         "id": 3,
-        "title": "OpenObserve Architecture",
-        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "title": "",
+        "description": "",
         "data": [
           {
             "title": "Documentation",
-            "description": "Comprehensive guides to help you get started with OpenObserve.",
+            "description": "Comprehensive guides and references for implementing OpenObserve.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
             "theme": "theme-blue"
           },
           {
-            "title": "Community",
-            "description": "Join our active community for support and collaboration.",
+            "title": "Join the Community",
+            "description": "Connect with users and developers in our Slack channel for support and collaboration.",
             "theme": "theme-purple",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "FAQs",
-            "description": "Find answers to commonly asked questions about OpenObserve.",
+            "description": "Quick answers to common questions about OpenObserve configuration and capabilities.",
             "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
@@ -42,43 +41,33 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 3,
-        "title": "Explore Documentation",
-        "description": "Everything you need to implement and master observability with OpenObserve.",
+        "title": "Documentation",
+        "description": "",
         "items": [
           {
-            "title": "Getting Started",
-            "description": "Quick start guides to set up OpenObserve in minutes.",
+            "title": "User Guide",
+            "description": "Step-by-step instructions for setting up and managing OpenObserve.",
             "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
-            "theme": "theme-blue",
-            "items": [
-              "Installation Guide",
-              "Basic Configuration",
-              "First Steps"
-            ]
+            "theme": "theme-blue"
           },
           {
-            "title": "Logs & Metrics",
-            "description": "Learn how to collect and analyze logs and metrics effectively.",
+            "title": "API Reference",
+            "description": "Comprehensive API documentation for integrations.",
             "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
-            "theme": "theme-purple",
-            "items": [
-              "Log Collection",
-              "Metrics Visualization",
-              "Query Language"
-            ]
+            "theme": "theme-purple"
           },
           {
-            "title": "Security & Compliance",
-            "description": "Secure your observability data and meet compliance requirements.",
+            "title": "Function Reference",
+            "description": "Detailed information about functions and capabilities.",
             "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
-            "theme": "theme-green",
-            "items": [
-              "Authentication",
-              "Data Encryption",
-              "Access Control"
-            ]
+            "theme": "theme-green"
           }
-        ]
+        ],
+        "button":{
+          "text": "View Documentation",
+          "link": "https://openobserve.ai/docs/",
+          "target":"_blank"
+        }
       },
       {
         "__component": "section-content.success-stories",
@@ -144,40 +133,12 @@
       {
         "__component": "section-cards.blog",
         "id": 4
-      },
-      {
-        "__component": "section-hero.cta-buttons",
-        "id": 2,
-        "title": "OpenObserve",
-        "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "#get-started",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "#learn-more",
-            "variant": "tertiary"
-          }
-        ]
       }
     ],
     "seo": {
       "id": 999,
-      "title": "Success Stories",
-      "description": "See how organizations are transforming their observability with OpenObserve.",
-      "viewport": null,
-      "creator": null,
-      "publisher": null,
-      "category": null,
-      "robots": null,
-      "manifest": null,
-      "Alternates": null,
-      "Authors": null,
-      "OpenGraph": null,
-      "Twitter": null
+      "title": "OpenObserve Resources | Documentation, Guides & Best Practices",
+      "description": "Access comprehensive guides, documentation, and best practices for OpenObserve implementation. Learn about observability,monitoring, and platform optimization."
     }
   },
   "meta": {}

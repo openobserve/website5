@@ -39,12 +39,12 @@ const props = defineProps({
   <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
       <!-- Heading Section -->
-      <HeadingSection :title="title" :description="description" align="center" />
+      <HeadingSection :title="title" :description="description" align="center" v-if="title || description" />
 
       <!-- Card rendering based on activeTab -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CardWithSideIcon v-for="(card, index) in data" :key="index" :title="card.title" :description="card.description"
-          :icon="card.icon" :theme="card.theme" />
+          :icon="card.icon" :theme="card.theme" headingLevel="2" />
       </div>
   </CustomSection>
 </div>
