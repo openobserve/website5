@@ -22,7 +22,7 @@ defineProps<{
 <template>
   <CustomSection>
     <HeadingSection :title="title" :description="description" />
-    <div class="flex flex-col md:flex-row items-center justify-center mb-8 w-full">
+    <div class="flex flex-col md:flex-row items-center justify-center mb-16 w-full">
       <div class="w-full md:w-2/3">
         <img
           :src="image.url"
