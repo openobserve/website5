@@ -1,6 +1,6 @@
 <template>
   <CustomSection >
-  <div class="max-w-4xl mx-auto lg:px-0 px-4">
+  <div class="max-w-5xl mx-auto lg:px-0 px-4">
     <HeadingSection
       :title="title"
       :description="description"

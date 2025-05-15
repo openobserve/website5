@@ -1,5 +1,5 @@
 <template>
-  <CustomSection sectionClass="max-w-4xl !pb-0">
+  <CustomSection sectionClass="max-w-4xl !pb-0 !pt-14">
     <HeadingSection :title="title" :description="description" align="center" class="!mb-10"/>
     <div class="w-full flex flex-col gap-4 items-center h-full justify-center mt-6 lg:px-12">
       <!-- <TabsHeader

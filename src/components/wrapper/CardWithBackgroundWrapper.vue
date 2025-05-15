@@ -29,7 +29,7 @@ const props = defineProps({
 
 <template>
    <div :class="background ? 'bg-gray-50' : ''">
-  <CustomSection>
+  <CustomSection sectionClass="">
     <div class="" v-if="title || description">
       <HeadingSection :title="title" :description="description" align="center" />
     </div>
