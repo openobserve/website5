@@ -26,7 +26,7 @@ defineProps({
   <div class="w-full hero-gradient">
     <CustomSection sectionclass="py-2 sm:py-6 md:py-6 lg:py-8 xl:py-10">
       <div
-        class="max-w-full container mx-auto flex flex-col px-4 space-y-6"
+        class="max-w-full container mx-auto flex flex-col px-4"
         :class="{
           'items-start text-left': align === 'left',
           'items-center text-center': align === 'center',

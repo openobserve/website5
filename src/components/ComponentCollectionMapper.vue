@@ -56,6 +56,7 @@ import PlatformKeyFeaturesWrapper from "./wrapper/PlatformKeyFeaturesWrapper.vue
 import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
 import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
 import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
+import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -90,7 +91,7 @@ const componentsMap = computed(() => ({
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
-  "section-content.success-stories": SuccessStories,
+  // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
   "section-features.resources-feature-details": CardWithSideIconResourcePage,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
@@ -103,7 +104,8 @@ const componentsMap = computed(() => ({
   "section-policies.summary": SummaryWrapper,
   "section-key-features-benefits.key-features": PlatformKeyFeaturesWrapper,
   "sections.faq": CommonFaqWrapper,
-  "section-features.homepage-architecture": HomeModernArchiture
+  "section-features.homepage-architecture": HomeModernArchiture,
+  "section-cards.customer-stories": CaseStudySection,
 }));
 
 const getComponentProps = (it) => {
@@ -111,6 +113,8 @@ const getComponentProps = (it) => {
     case "section-cards.blog":
       return { ...it, data: props.blogsData };
     case "section-cards.case-studies":
+      return { ...it, data: props.caseStudyData };
+    case "section-cards.customer-stories":
       return { ...it, data: props.caseStudyData };
     case "section-cards.resources-blogs":
       return { ...it, items: props.blogs };

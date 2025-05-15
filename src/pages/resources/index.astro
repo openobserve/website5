@@ -3,14 +3,15 @@ import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import resourcepage from "@/content/resources.json";
 import { getAllBlogs } from "@/utils/api/blog";
-
+import {caseStudies} from "@/pages/customer-stories/index.astro";
 const data = resourcepage?.data?.body || {};
 const seoData = resourcepage?.data?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
+const caseData = caseStudies.slice(0, 3);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
+  <ComponentCollectionMapper data={data} blogsData={blogData} caseStudyData={caseData} client:load />
 </Layout>

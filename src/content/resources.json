@@ -63,10 +63,10 @@
             "theme": "theme-green"
           }
         ],
-        "button":{
+        "button": {
           "text": "View Documentation",
           "link": "https://openobserve.ai/docs/",
-          "target":"_blank"
+          "target": "_blank"
         }
       },
       {
@@ -129,6 +129,10 @@
           }
         ],
         "viewAllText": "View All Success Stories"
+      },
+      {
+        "__component": "section-cards.customer-stories",
+        "id": 1
       },
       {
         "__component": "section-cards.blog",
