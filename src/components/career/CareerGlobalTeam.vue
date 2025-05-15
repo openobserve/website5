@@ -1,13 +1,16 @@
 <template>
   <div class="bg-gradient-to-r from-primary-purple/5 to-primary-blue/5">
-   <CustomSection>
+    <CustomSection>
       <HeadingSection
         v-if="title || description"
         :title="title"
         :description="description"
         align="center"
       />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        class="grid gap-6"
+        :class="gridClass"
+      >
         <div
           v-for="(feature, index) in features"
           :key="index"
@@ -39,7 +42,7 @@
           </div>
         </div>
       </div>
-   </CustomSection>
+    </CustomSection>
   </div>
 </template>
 
@@ -47,6 +50,7 @@
 import Cards from "../core/Cards.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
+import { computed } from "vue";
 interface GlobalTeamFeature {
   title: string;
   description: string;
@@ -59,11 +63,25 @@ interface MapDot {
   color: string;
 }
 
-defineProps<{
+const props = defineProps<{
   title: string;
   description: string;
   features: GlobalTeamFeature[];
   mapText: string;
   mapDots: MapDot[];
 }>();
+
+const gridClass = computed(() => {
+  const count = props?.features?.length
+
+  if (count >= 3) {
+    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+  } else if (count === 2) {
+    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
+  } else if (count === 1) {
+    return 'grid-cols-1'
+  } else {
+    return ''
+  }
+})
 </script>

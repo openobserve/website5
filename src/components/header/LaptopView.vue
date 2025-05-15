@@ -1,5 +1,4 @@
 <template>
-  <!-- Sticky Header -->
   <header class="sticky top-0 z-50 w-full">
     <div
       class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex justify-between items-center py-2"
@@ -58,35 +57,16 @@
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
-        <!-- <div
-          class="relative rounded-xl hover:bg-gradient-to-r hover:from-[#3E93D9] hover:to-[#99CAE9] transition"
-          @click="onSearchClick"
-          ref="searchWrapper"
-        >
-          <img
-            src="/img/icon/search.svg"
-            alt="Search Icon"
-            class="cursor-pointer w-full h-full object-cover p-2.5"
-          />
-        </div> -->
-        <!-- <a
-          class="rounded-[4px] transition flex items-center border"
-          href="https://short.openobserve.ai/community"
-          target="_blank"
-        >
-          <img
-            src="/img/icon/slackIcon.svg"
-            alt="Search Icon"
-            class="cursor-pointer w-[1.6rem] h-[1.6rem] object-cover p-1"
-          />
-        </a> -->
-        <!-- GitHub Stats Section -->
         <CustomButton
           variant="primary"
           size="small"
           buttonLink="/demo"
           class="transition-opacity duration-500 ease-in-out"
-           :class="showStickyButton ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
+          :class="
+            showStickyButton
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
+          "
         >
           GET DEMO
         </CustomButton>
@@ -110,7 +90,6 @@
         >
       </div>
     </div>
-    <!-- Dropdown Menus -->
     <div
       class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto"
       v-if="isPlatformMenuOpen"
@@ -146,11 +125,6 @@
                 link="/platform"
               />
             </div>
-            <!-- <a
-              href="/pricing"
-              class="p-4 border border-gray-400 rounded-lg w-1/4 flex justify-center cursor-pointer text-sm"
-              >Pricing</a
-            > -->
           </div>
         </div>
       </CustomHoverHeader>
@@ -163,7 +137,6 @@
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
-            <!-- Use Case Column -->
             <div class="flex flex-col space-y-3">
               <h4 class="text-base font-semibold">Use Case</h4>
               <div class="mt-3">
@@ -204,57 +177,17 @@
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
             <div>
-              <!-- <ul
-                class=""
-                v-for="(item, index) in items.resources.item1"
-                :key="index"
-              >
-                <li class="cursor-pointer flex flex-col space-y-2">
-                  <a :href="item.link" class="text-lg font-bold">{{
-                    item.title
-                  }}</a>
-                </li>
-              </ul> -->
               <ul class="flex flex-col space-y-4 text-gray-600 text-sm">
-                <li class="cursor-pointer gradient-hover">
+                <li v-for="(item, index) in items.resources.items" :key="index">
                   <a
-                    href="https://openobserve.ai/docs/"
-                    class=""
-                    target="_blank"
-                    >Documentation</a
-                  >
-                </li>
-                <li class="cursor-pointer gradient-hover">
-                  <a href="/blog" class="">Blog</a>
-                </li>
-                <li class="cursor-pointer gradient-hover">
-                  <a href="/faqs" class="">Frequently Asked Questions</a>
-                </li>
-                <li class="cursor-pointer gradient-hover">
-                  <a href="/case-studies" class=""
-                    >Case Studies and testimonials</a
+                    :href="item.link"
+                    :class="item.link ? 'gradient-hover' : ''"
+                    :target="item.target"
+                    >{{ item.title }}</a
                   >
                 </li>
               </ul>
             </div>
-            <!-- <div
-              class="flex flex-col space-y-3"
-              v-for="(item, index) in items.resources.item2"
-              :key="index"
-            >
-              <h4 class="text-base font-bold">
-                {{ item.title }}
-              </h4>
-              <ul class="" v-for="(it, index) in item.items" :key="index">
-                <li class="cursor-pointer flex flex-col space-y-2">
-                  <a
-                    :href="it.link"
-                    class="gradient-hover text-sm text-[#BEC0C2]"
-                    >{{ it.title }}</a
-                  >
-                </li>
-              </ul>
-            </div> -->
           </div>
           <div class="flex justify-center">
             <div class="w-full">
@@ -313,7 +246,6 @@ const searchWrapper = ref(null); // Reference to the search bar wrapper
 const platformMenuTimeout = ref(null);
 const solutionMenuTimeout = ref(null);
 const resourcesMenuTimeout = ref(null);
-const companyMenuTimeout = ref(null);
 
 const onPlatformMenuHover = () => {
   clearTimeout(platformMenuTimeout.value);
@@ -360,32 +292,11 @@ const onResourcesMenuMouseLeave = () => {
   }, 300);
 };
 
-const onCompanyMenuHover = () => {
-  clearTimeout(companyMenuTimeout.value);
-  isCompanyMenuOpen.value = true;
-  isPlatformMenuOpen.value = false;
-  isSolutionMenuOpen.value = false;
-  isResourcesMenuOpen.value = false;
-};
-
-const onCompanyMenuMouseLeave = () => {
-  companyMenuTimeout.value = setTimeout(() => {
-    if (!isCompanyMenuOpen.value) return;
-    isCompanyMenuOpen.value = false;
-  }, 300);
-};
-
-const onSearchClick = () => {
-  isOpenSearch.value = !isOpenSearch.value;
-};
-
 const handleClickOutside = (event) => {
-  // Close search bar if clicked outside
   if (searchWrapper.value && !searchWrapper.value.contains(event.target)) {
     isOpenSearch.value = false;
   }
 };
-// Attach and detach the event listener
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
 });
@@ -412,22 +323,12 @@ onUnmounted(() => {
 .gradient-hover {
   display: inline-block;
 }
-
-/* .gradient-hover:hover {
-  background: linear-gradient(to left,
-      rgb(var(--blue-light)),
-      rgb(var(--blue-dark)));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
 .gradient-hover:hover {
   background: linear-gradient(to left, #6a76e3, #45a4f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .card-border {
   border: 1px solid #313539;
   border-radius: 0.5rem;

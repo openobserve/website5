@@ -9,8 +9,8 @@
       {
         "__component": "section-hero.common-hero",
         "id": 1,
-        "title": "Get in Touch",
-        "description": "Have questions or need assistance with OpenObserve? We're here to help you get the most out of your observability platform.",
+        "title": "Contact Us",
+        "description": "We value your interest in OpenObserve and are here to assist you.",
         "align": "center"
       },
       {
@@ -21,6 +21,7 @@
         "__component": "section-contact.community-support",
         "id": 3,
         "title": "Community Support",
+        "description":"Connect with our community for support and collaboration.",
         "items": [
           {
             "id": "slack",
@@ -46,6 +47,10 @@
         "__component": "section-cards.blog",
         "id": 4
       }
-    ]
+    ],
+    "seo": {
+      "title": "Contact OpenObserve | Get Platform Support Today",
+      "description": "Connect with OpenObserve for technical support, sales inquiries, and platform demonstrations. Get expert assistance for your observability needs. Contact us now."
+    }
   }
 }

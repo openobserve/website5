@@ -1,6 +1,6 @@
 <template>
     <!-- Title with horizontal lines -->
-    <div class="flex items-center gap-4 mb-12">
+    <div class="flex items-center gap-4 mb-8">
       <div class="h-px flex-1 bg-gray-200 "></div>
       <h2 class="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900 whitespace-nowrap">
         {{ title }}

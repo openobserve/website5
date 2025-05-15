@@ -83,7 +83,8 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircle, ArrowRight } from "lucide-vue-next";
+
+
 import HeadingSection from "@/components/core/HeadingSection.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 type Story = {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 // Card with left side icon, without shadow and border
 
 const props = defineProps<{
@@ -8,7 +10,13 @@ const props = defineProps<{
   align?: string; // Changed from strict union type to string
   theme?: string;
   items?: string[];
+  headingLevel?: number;
 }>();
+const headingLevel = computed(() => {
+  return props.headingLevel && props.headingLevel >= 1 && props.headingLevel <= 6
+    ? props.headingLevel
+    : 3;
+});
 </script>
 
 <template>
@@ -34,9 +42,12 @@ const props = defineProps<{
 
     <!-- Text content -->
     <div>
-      <h3 class="text-base font-semibold text-gray-800">
-        {{ props.title }}
-      </h3>
+       <component
+      :is="`h${headingLevel}`"
+      class="text-lg font-semibold text-gray-800"
+    >
+      {{ props.title }}
+    </component>
       <p class="text-sm text-gray-600 mt-1">
         {{ props.description }}
       </p>

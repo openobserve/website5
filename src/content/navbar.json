@@ -243,40 +243,26 @@
       ]
     },
     "resources": {
-      "id": 1,
-      "item1": [
+      "items": [
         {
-          "id": 53,
           "title": "Documentation",
-          "link": "https://openobserve.ai/docs/"
+          "link": "https://openobserve.ai/docs/",
+          "target": "_blank"
         },
         {
-          "id": 54,
           "title": "Blog",
-          "link": "/blog"
-        }
-      ],
-      "item2": [
+          "link": "/blog",
+          "target": "_self"
+        },
         {
-          "id": 1,
-          "title": "Support",
-          "items": [
-            {
-              "id": 55,
-              "title": "Frequently Asked Questions",
-              "link": "/faqs"
-            },
-            {
-              "id": 56,
-              "title": "Community Support",
-              "link": "/community-support"
-            },
-            {
-              "id": 57,
-              "title": "Enterprise Support",
-              "link": "/enterprise-support"
-            }
-          ]
+          "title": "Freqently Asked Questions",
+          "link": "/faqs",
+          "target": "_self"
+        },
+        {
+          "title": "Customer Stories",
+          "link": "/customer-stories",
+          "target": "_self"
         }
       ]
     }
