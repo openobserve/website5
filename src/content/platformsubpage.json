@@ -15,7 +15,7 @@
         "description": "Transform your log data into actionable insights with real-time analysis and industry-leading storage efficiency.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -182,12 +182,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -225,7 +225,7 @@
         "description": "Monitor your infrastructure and applications with Prometheus-native metrics and efficient time-series storage.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -392,12 +392,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -435,7 +435,7 @@
         "description": "Gain end-to-end visibility into your distributed systems, powered by OpenTelemetry.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -602,12 +602,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -645,7 +645,7 @@
         "description": "Gain insights into application performance, user interactions, and frontend errors.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -811,12 +811,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -854,7 +854,7 @@
         "description": "Transform, enrich, redact, reduce, and parse your observability data with real-time and scheduled pipelines.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -1020,12 +1020,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -1063,7 +1063,7 @@
         "description": "Detect and resolve systemic issues with robust alerting built for modern observability.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -1225,12 +1225,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -1268,7 +1268,7 @@
         "description": "Gain valuable insights and identify patterns from your observability data with real-time, customizable dashboards.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -1434,12 +1434,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]

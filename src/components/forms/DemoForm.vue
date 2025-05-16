@@ -237,7 +237,7 @@ const reset = () => {
           <p class="text-xs text-center text-gray-500 mt-4">
             By submitting this form, you agree to our
             <a
-              href="/privacy-policy"
+              href="/policies/privacy-policy/"
               class="underline hover:text-primary-purple"
               >Privacy Policy</a
             >.

@@ -3,6 +3,9 @@ import CaseStudiesDetailWrapper from "@/components/case-studies/CaseStudiesDetai
 import CaseStudyHerosection from "@/components/case-studies/CaseStudyHerosection.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import Layout from "@/layouts/Layout.astro";
+import {caseStudies} from "@/pages/customer-stories/index.astro";
+import CaseStudiesListingWrapper from "@/components/case-studies/CaseStudiesListingWrapper.vue";
+import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
 
 export async function getStaticPaths() {
   const slugs = [
@@ -106,7 +109,7 @@ const tags = [
 ---
 
 <Layout>
-<CaseStudyHerosection
+  <CaseStudyHerosection
     title="TechCorp's Journey to Cost-Effective Observability"
     caseStudyImage="/abstract-corporate-logo.png"
     tags={tags}
@@ -126,5 +129,10 @@ const tags = [
     }).format(new Date())}
     content={markdown}
   />
-  <CaseStudiesDetailWrapper content={markdown} client:load/>
-</Layout>
+  <div class="">
+    <CaseStudiesDetailWrapper content={markdown} client:load />
+  </div>
+  <div class="pt-20">
+    <CaseStudySection data={caseStudies.slice(0, 3)} client:load />
+  </div></Layout
+>

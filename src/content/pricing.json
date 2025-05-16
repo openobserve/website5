@@ -85,7 +85,7 @@
                 "additionalInfo": "High-volume needs? Let's talk scale! Contact us for tailored solutionsand volume discounts!",
                 "button": {
                   "text": "Contact Us",
-                  "link": "/contactus",
+                  "link": "/contact-us",
                   "class": "theme-outline",
                   "target": "_self"
                 }
