@@ -44,7 +44,7 @@
         "title": "Explore the OpenObserve Platform",
         "description": "A modern, scalable architecture designed for high performance and low cost",
         "image": {
-          "url": "/img/openobserve-architecture.png",
+          "url": "/img/platform-landing-page/platform-landing-architecture-image.png",
           "alt": "OpenObserve Architecture Diagram",
           "width": 1200,
           "height": 800

@@ -68,7 +68,7 @@
                   "description": "Transform complex AWS metrics into instant understanding with pre-built and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-aws/aws_data.gif"
             }
           },
           {
@@ -86,7 +86,7 @@
                   "description": "Explore your AWS environment using powerful SQL queries that reveal hidden patterns. Leverage comprehensive parsing and enrichment functions to answer your most complex operational questions."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-aws/pipeline-aws.png"
             }
           },
           {
@@ -104,7 +104,7 @@
                   "description": "Keep the data you need, store it intelligently. Configure retention policies that balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-aws/aws-dashboard.png"
             }
           }
         ]
@@ -245,7 +245,7 @@
                   "description": "Gain complete visibility into your GCP performance. Collect both platform metrics and custom application telemetry through Cloud Monitoring export for comprehensive performance insights."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-gcp-monitoring/gcp-datasources.png"
             }
           },
           {
@@ -281,7 +281,7 @@
                   "description": "Ask complex questions, get immediate answers. Query logs and metrics using familiar SQL syntax with full support for advanced aggregations and time-series analysis."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-gcp-monitoring/gcp-logs.png"
             }
           },
           {
@@ -299,7 +299,7 @@
                   "description": "Keep what matters, discard what doesn't. Configure intelligent retention policies and compression settings that balance cost efficiency with ready access to your most important data."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-gcp-monitoring/google-workspaces-dashboard.png"
             }
           }
         ]
@@ -442,7 +442,7 @@
                   "description": "Expose performance bottlenecks before they slow you down. Turn raw metrics into actionable insights that boost query efficiency and maximize overall database throughput."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-database-monitoring/database_dashboard.png"
             }
           },
           {
@@ -460,7 +460,7 @@
                   "description": "Solve database mysteries with forensic-level diagnostics. Trace error patterns to their source and optimize configurations based on historical performance data that tells the true story."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-database-monitoring/zookeeper_database_metrics_flow.gif"
             }
           },
           {
@@ -478,7 +478,7 @@
                   "description": "Predict tomorrow's database needs today. Transform historical trends into accurate forecasts that guide resource allocation and scaling decisions with confidence."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-database-monitoring/database_data.png"
             }
           },
           {
@@ -496,7 +496,7 @@
                   "description": "Create alerts as unique as your environment. Build intelligent notification systems based on your specific performance thresholds that respond to developing trends, not just static limits."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-alerts/alert-configure.png"
             }
           }
         ]
