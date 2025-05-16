@@ -6,6 +6,7 @@ import * as yup from "yup";
 
 // Form validation
 const schema = yup.object({
+  name: yup.string().required("Name is required"),
   email: yup.string().required("Email is required").email("Invalid email"),
   company: yup.string().required("Company name is required"),
   deployment: yup.string().required("Deployment option is required"),
@@ -24,12 +25,13 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     validationSchema: schema,
     validateOnMount: false, // default
     initialValues: {
+      name: "",
       email: "",
       company: "",
       deployment: "",
       volume: "",
       referral: "",
-    }
+    },
   });
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
@@ -88,6 +90,21 @@ const reset = () => {
       <template v-else>
         <form @submit.prevent="onSubmit" class="space-y-4">
           <!-- {{ JSON.stringify(errors) }} -->
+          <!-- name -->
+          <div>
+            <label for="email" class="contact-form-label"
+              >Name <span class="text-red-500">*</span></label
+            >
+
+            <Field
+              name="name"
+              type="text"
+              placeholder="Your name"
+              as="input"
+              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
+            />
+            <ErrorMessage name="name" class="contact-form-error" />
+          </div>
           <!-- Work Email -->
           <div>
             <label for="email" class="contact-form-label"
@@ -134,7 +151,9 @@ const reset = () => {
                 errors.deployment ? 'is-invalid' : '',
               ]"
             >
-              <option value="" disabled selected hidden>Select deployment option</option>
+              <option value="" disabled selected hidden>
+                Select deployment option
+              </option>
               <option value="cloud">Cloud (Saas)</option>
               <option value="self-hosted">Self-hosted</option>
               <option value="hybrid">Hybrid</option>
@@ -157,7 +176,9 @@ const reset = () => {
                 errors.volume ? 'is-invalid' : '',
               ]"
             >
-              <option value="" disabled selected hidden>Select data volume</option>
+              <option value="" disabled selected hidden>
+                Select data volume
+              </option>
               <option value="lt-10gb">Less than 10GB</option>
               <option value="10-100gb">10GB - 100GB</option>
               <option value="100gb-1tb">100GB - 1TB</option>
@@ -178,7 +199,10 @@ const reset = () => {
               type="text"
               placeholder="Search engine, social media, colleague, etc."
               as="input"
-             :class="['contact-form-input', errors.referral ? 'is-invalid' : '']"
+              :class="[
+                'contact-form-input',
+                errors.referral ? 'is-invalid' : '',
+              ]"
             />
             <ErrorMessage name="referral" class="contact-form-error" />
           </div>
