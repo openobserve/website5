@@ -17,14 +17,15 @@
         },
         "trustedText": "From Fortune 10 Giants to Innovative Startups: These Companies Rely on OpenObserve",
         "logos": [
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png"
+          "/img/company/alderley-logo.svg",
+          "/img/company/avatar-fleet-logo.svg",
+          "/img/company/roambee-logo.svg",
+          "/img/company/jidu.svg",
+          "/img/company/blue-ribbon-bags-logo.svg",
+          "/img/company/one-engine-logo-light.svg",
+          "/img/company/reverie-logo.svg",
+          "/img/company/quadrant-logo.svg",
+          "/img/company/radius-ai.svg"
         ],
         "video": {
           "thumbnail": "/images/video-thumb.jpg",
