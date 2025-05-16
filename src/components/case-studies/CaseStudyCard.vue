@@ -54,7 +54,7 @@
         </div>
       </div>
       <a
-        :href="`/case-studies/${item.slug}`"
+        :href="`/customer-stories/${item.slug}`"
         class="text-sm font-medium w-full text-center py-2 px-4 border border-gray-200 hover:bg-gray-50 rounded-md transition-colors duration-200 ease-in-out"
         >Read Case Study</a
       >
