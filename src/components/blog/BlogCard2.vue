@@ -8,11 +8,7 @@ import { computed } from "vue";
 const props = defineProps<{
   blog: Blog;
   type: string;
-  authors: any[];
 }>();
-const effectiveAuthors = computed(() =>
-  props.authors?.length ? props.authors : props.blog.authors
-);
 const getImageUrl = ({ image }: Blog) =>
   image?.formats?.medium?.url ??
   image?.formats?.large?.url ??
