@@ -50,9 +50,11 @@ defineProps<{ data: HeroData }>();
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg">
+            <a :href="data.primaryButton.link" target="_blank" class="cursor-pointer">
+            <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer">
               {{ data.primaryButton.text }}
             </button>
+            </a>
           </div>
         </div>
 

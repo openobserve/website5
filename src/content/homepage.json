@@ -14,7 +14,7 @@
         "subtitle": "De-escalate observability costs.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing"
+           "link": "https://cloud.openobserve.ai/web/login"
         },
         "trustedText": "From Fortune 10 Giants to Innovative Startups: These Companies Rely on OpenObserve",
         "logos": [
@@ -254,12 +254,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "#get-started",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Schedule Demo",
-            "link": "#schedule-demo",
+            "link": "/demo",
             "variant": "tertiary"
           }
         ]
