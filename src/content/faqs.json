@@ -154,12 +154,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "#get-started",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
