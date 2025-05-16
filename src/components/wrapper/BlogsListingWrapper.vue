@@ -88,6 +88,8 @@ watch(searchItem, async (newValue) => {
   );
 });
 
+console.log("filteredBlogsData", filteredBlogsData);
+
 const shouldPaginate = computed(() => {
   return props?.totalItems > ITEMS_PER_PAGE;
 });
