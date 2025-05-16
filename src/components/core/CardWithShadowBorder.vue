@@ -3,6 +3,7 @@
 
 import CustomButton from "./CustomButton.vue";
 import { Check } from 'lucide-vue-next';
+import { computed } from "vue";
 
 const props = defineProps<{
   title: string;
@@ -13,7 +14,15 @@ const props = defineProps<{
   align?: string; // Changed from strict union type to string
   theme?: string;
   items?: string[];
+  headingLevel?: number; // optional here
 }>();
+
+// Compute heading level with validation and default to 3
+const headingLevel = computed(() => {
+  return props.headingLevel && props.headingLevel >= 1 && props.headingLevel <= 6
+    ? props.headingLevel
+    : 3;
+});
 </script>
 
 <template>
@@ -37,9 +46,9 @@ const props = defineProps<{
     </div>
 
     <!-- Title -->
-    <h3 class="text-lg font-semibold text-gray-800">
+    <component :is="`h${headingLevel}`" class="text-lg font-semibold text-gray-800">
       {{ props.title }}
-    </h3>
+    </component>
 
     <!-- Description -->
     <p class="my-4 text-gray-600 text-sm">

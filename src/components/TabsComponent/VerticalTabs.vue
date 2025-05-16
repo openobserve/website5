@@ -31,7 +31,7 @@ const activeIndex = ref(0)
         <!-- Left Navigation -->
         <div class="lg:w-1/4">
           <div class="bg-[#f9fafc] rounded-lg p-4">
-            <h3 class="text-lg font-semibold mb-4 px-2 text-black">Solutions</h3>
+            <p class="text-lg font-semibold mb-4 px-2 text-black">Solutions</p>
             <nav class="space-y-1">
               <button v-for="(solution, index) in items" :key="solution.id" @click="activeIndex = index" :class="[
                 'w-full text-left px-4 py-3 rounded-md transition-colors cursor-pointer',
@@ -39,7 +39,9 @@ const activeIndex = ref(0)
                   ? 'bg-tabs-background text-white'
                   : 'hover:bg-gray-100 text-gray-600'
               ]">
-                {{ solution.title }}
+                <h2>
+                  {{ solution.title }}
+                </h2>
               </button>
             </nav>
           </div>
@@ -51,12 +53,12 @@ const activeIndex = ref(0)
             <div class="grid md:grid-cols-2 gap-0">
               <!-- Left Column: Content -->
               <div class="p-8">
-                <h3 :class="[
+                <h2 :class="[
                   'text-2xl font-bold mb-4',
                   'text-tabs-title-text'
                 ]">
                   {{ items[activeIndex].title }}
-                </h3>
+                </h2>
                 <p class="text-gray-600 mb-6">
                   {{ items[activeIndex].description }}
                 </p>

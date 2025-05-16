@@ -25,6 +25,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why OpenObserve for AWS Monitoring?",
         "features": [
           {
@@ -201,6 +202,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why Use OpenObserve for GCP Monitoring?",
         "features": [
           {
@@ -396,6 +398,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why use OpenObserve for Database Monitoring?",
         "features": [
           {
@@ -583,6 +586,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why Use OpenObserve for Azure Monitoring?",
         "features": [
           {
@@ -777,6 +781,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why use OpenObserve for Kubernetes?",
         "features": [
           {
@@ -963,6 +968,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "title": "Why use OpenObserve for OpenTelemetry?",
         "features": [
           {
