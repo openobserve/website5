@@ -5,7 +5,6 @@
     </div>
     <div
       class="flex flex-row justify-between items-center w-full  my-6"
-      v-show="!loading"
     >
       <div class="flex space-x-2">
         <!-- Prev Button -->
