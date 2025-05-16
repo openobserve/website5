@@ -124,7 +124,10 @@ import * as yup from "yup";
 const schema = yup.object({
   name: yup.string().required("Name is required"),
   email: yup.string().required("Email is required").email("Invalid email"),
-  phone: yup.string(),
+   phone: yup
+    .string()
+    .matches(/^\d{10}$/, "Phone number must be 10 digits only")
+    .required("Phone number is required"),
   website: yup.string().url("Invalid URL"),
   message: yup.string().required("Message is required"),
 });
@@ -148,9 +151,6 @@ const onSubmit = handleSubmit(async (values) => {
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
           senderName: values.name,
           senderEmail: values.email,
