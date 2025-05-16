@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import CustomButton from "../core/CustomButton.vue";
-import { useForm, useField, Field } from "vee-validate";
+import { useForm, useField, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
 // Form validation
@@ -14,22 +14,26 @@ const schema = yup.object({
 });
 type FormData = yup.InferType<typeof schema>;
 
-const { value: email } = useField<string>("email");
-const { value: company } = useField<string>("company");
-const { value: deployment } = useField<string>("deployment");
-const { value: volume } = useField<string>("volume");
-const { value: referral } = useField<string>("referral");
 const status = ref({
   submitted: false,
   error: false,
   message: "",
 });
-const { handleSubmit, errors, resetForm, isSubmitting, submitCount } = useForm<FormData>({
-//   validationSchema: schema
-});
+const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
+  useForm<FormData>({
+    validationSchema: schema,
+    validateOnMount: false, // default
+    initialValues: {
+      email: "",
+      company: "",
+      deployment: "",
+      volume: "",
+      referral: "",
+    }
+  });
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
-
+  console.log("Form submitted with:", values);
   try {
     await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
 
@@ -50,9 +54,9 @@ const onSubmit = handleSubmit(async (values) => {
 });
 
 const reset = () => {
-    status.value = { submitted: false, error: false, message: '' }
-    resetForm();
-}
+  status.value = { submitted: false, error: false, message: "" };
+  resetForm();
+};
 </script>
 
 <template>
@@ -89,40 +93,32 @@ const reset = () => {
             <label for="email" class="contact-form-label"
               >Work Email <span class="text-red-500">*</span></label
             >
-            <Field name="email">
-              <input
-                id="email"
-                v-model="email"
-                type="email"
-                placeholder="your.name@company.com"
-                required
-                class="contact-form-input"
-              />
-              <p class="contact-form-error" v-if="errors.email">
-                {{ errors.email }}
-              </p>
-            </Field>
-          </div>
 
+            <Field
+              name="email"
+              type="email"
+              placeholder="your.name@company.com"
+              as="input"
+              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
+            />
+            <ErrorMessage name="email" class="contact-form-error" />
+          </div>
           <!-- Company Name -->
           <div>
             <label for="company" class="contact-form-label"
               >Company Name <span class="text-red-500">*</span></label
             >
-            <Field name="company">
-              <input
-                id="company"
-                v-model="company"
-                type="text"
-                name="company"
-                placeholder="Acme Inc."
-                required
-                class="contact-form-input"
-              />
-              <p class="contact-form-error" v-if="errors.company">
-                {{ errors.company }}
-              </p>
-            </Field>
+            <Field
+              name="company"
+              type="text"
+              placeholder="Acme Inc."
+              as="input"
+              :class="[
+                'contact-form-input',
+                errors.company ? 'is-invalid' : '',
+              ]"
+            />
+            <ErrorMessage name="company" class="contact-form-error" />
           </div>
 
           <!-- Deployment Preference -->
@@ -130,26 +126,21 @@ const reset = () => {
             <label for="deployment" class="contact-form-label"
               >Deployment Preference <span class="text-red-500">*</span></label
             >
-            <Field name="deployment">
-              <select
-                id="deployment"
-                v-model="deployment"
-                name="deployment"
-                required
-                class="mt-1 w-full px-4 py-2 border rounded-md bg-white focus:ring-indigo-500 focus:border-indigo-500"
-              >
-                <option value="" disabled hidden>
-                  Select deployment option
-                </option>
-                <option>Cloud (Saas)</option>
-                <option>Self-hosted</option>
-                <option>Hybrid</option>
-                <option>Not sure yet</option>
-              </select>
-              <p class="contact-form-error" v-if="errors.deployment">
-                {{ errors.deployment }}
-              </p>
+            <Field
+              name="deployment"
+              as="select"
+              :class="[
+                'contact-form-select',
+                errors.deployment ? 'is-invalid' : '',
+              ]"
+            >
+              <option value="">Select deployment option</option>
+              <option value="cloud">Cloud (Saas)</option>
+              <option value="self-hosted">Self-hosted</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="not-sure">Not sure yet</option>
             </Field>
+            <ErrorMessage name="deployment" class="contact-form-error" />
           </div>
 
           <!-- Data Volume -->
@@ -158,25 +149,22 @@ const reset = () => {
               >Expected Daily Data Volume
               <span class="text-red-500">*</span></label
             >
-            <Field name="volume">
-            <select
-              id="volume"
-              v-model="volume"
+            <Field
               name="volume"
-              required
-              class="mt-1 w-full px-4 py-2 border rounded-md bg-white focus:ring-indigo-500 focus:border-indigo-500"
+              as="select"
+              :class="[
+                'contact-form-select',
+                errors.volume ? 'is-invalid' : '',
+              ]"
             >
-              <option value="" disabled hidden>Select data volume</option>
-              <option>Less than 10GB</option>
-              <option>10GB - 100GB</option>
-              <option>100GB - 1TB</option>
-              <option>More than 1TB</option>
-              <option>Not sure yet</option>
-            </select>
-            <p class="contact-form-error" v-if="errors.volume">
-              {{ errors.volume }}
-            </p>
+              <option value="">Select data volume</option>
+              <option value="lt-10gb">Less than 10GB</option>
+              <option value="10-100gb">10GB - 100GB</option>
+              <option value="100gb-1tb">100GB - 1TB</option>
+              <option value="gt-1tb">More than 1TB</option>
+              <option value="not-sure">Not sure yet</option>
             </Field>
+            <ErrorMessage name="volume" class="contact-form-error" />
           </div>
 
           <!-- How did you hear -->
@@ -185,20 +173,14 @@ const reset = () => {
               >How did you hear about us?
               <span class="text-red-500">*</span></label
             >
-            <Field name="referral">
-            <input
-              id="referral"
-              v-model="referral"
+            <Field
               name="referral"
               type="text"
               placeholder="Search engine, social media, colleague, etc."
-              required
-              class="contact-form-input"
+              as="input"
+             :class="['contact-form-input', errors.referral ? 'is-invalid' : '']"
             />
-            <p class="contact-form-error" v-if="errors.referral">
-              {{ errors.referral }}
-            </p>
-            </Field>
+            <ErrorMessage name="referral" class="contact-form-error" />
           </div>
 
           <!-- Error message -->

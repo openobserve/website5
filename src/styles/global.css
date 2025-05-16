@@ -289,6 +289,7 @@
   color: var(--color-foreground);
   font-family: var(--color-font-family-sans);
   transition: all 0.2s ease;
+  margin-top: 6px;
 }
 
 .contact-form-textarea {
@@ -301,6 +302,19 @@
   outline: none;
   border-color: var(--color-primary-purple);
   box-shadow: 0 0 0 2px rgba(107, 118, 227, 0.2);
+}
+
+.contact-form-select {
+  @apply mt-1 w-full px-4 py-2 border rounded-md bg-white focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+/* error */
+/* Error border for invalid fields */
+.contact-form-input.is-invalid,
+.contact-form-textarea.is-invalid ,
+.contact-form-select.is-invalid {
+  border-color: #ef4444; /* Tailwind red-500 */
+  box-shadow: 0 0 0 0px #ef4444;
 }
 
 /* Success State */
@@ -385,7 +399,7 @@
 }
 
 .contact-form-error {
-  @apply text-red-500 text-sm pt-1 pl-1;
+  @apply text-red-500 text-xs pt-1 pl-1;
 }
 
 .contact-form-footer {
