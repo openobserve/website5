@@ -15,7 +15,10 @@ interface HeroData {
     link: string;
   },
   trustedText: string;
-  logos: string[];
+  logos: {
+    url: string;
+    alt: string;
+  }[];
   video: Video;
 }
 
@@ -86,7 +89,7 @@ defineProps<{ data: HeroData }>();
           <div class="flex gap-6 items-center animate-scroll">
             <div v-for="(logo, index) in data.logos" :key="index"
               class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 w-32">
-              <img :src="logo" alt="Company logo" class="h-6 w-auto" />
+              <img :src="logo.url" :alt="logo.alt" class="h-6 w-auto" />
             </div>
           </div>
         </div>
