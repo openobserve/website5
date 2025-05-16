@@ -36,7 +36,7 @@
                 ],
                 "button": {
                   "text": "Deploy on Heroku",
-                  "link": "https://cloud.openobserve.ai/web/login",
+                  "link": "https://openobserve.ai/blog/deploy-openobserve-on-heroku/",
                   "class": "theme-outline",
                   "target": "_blank"
                 },
