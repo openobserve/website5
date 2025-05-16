@@ -25,6 +25,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Significantly Efficient",
@@ -234,6 +235,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Correlated Telemetry",
@@ -443,6 +445,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Correlated Telemetry",
@@ -652,6 +655,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Unified Observability",
@@ -860,6 +864,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Protect Sensitive Data",
@@ -1068,6 +1073,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Personalize Notifications",
@@ -1272,6 +1278,7 @@
         "__component": "section-features.paltofrm-sub-benefits",
         "id": 3,
         "align": "center",
+        "headingLevel": 2,
         "features": [
           {
             "title": "Spot Issues Before Users Do",

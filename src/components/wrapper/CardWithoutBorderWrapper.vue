@@ -4,26 +4,14 @@
       <h2 v-if="title" class="text-2xl md:text-3xl font-bold text-center mb-12">
         {{ title }}
       </h2>
-      <p
-        v-if="description"
-        class="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
-      >
+      <p v-if="description" class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
         {{ description }}
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          v-for="(feature, index) in features"
-          :key="index"
-          class="text-center"
-        >
-          <Cards
-            :title="feature.title"
-            :description="feature.description"
-            :icon="feature.icon"
-            :theme="feature.iconColor"
-            align="center"
-          />
+        <div v-for="(feature, index) in features" :key="index" class="text-center">
+          <Cards :title="feature.title" :description="feature.description" :icon="feature.icon"
+            :theme="feature.iconColor" align="center" :headingLevel="headingLevel" />
         </div>
       </div>
     </div>
@@ -44,5 +32,6 @@ defineProps<{
   description: string;
   background: boolean;
   features: GlobalTeamFeature[];
+  headingLevel?: number;
 }>();
 </script>
