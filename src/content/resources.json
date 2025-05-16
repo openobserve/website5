@@ -42,6 +42,7 @@
         "__component": "section-cards.homepage-features",
         "id": 3,
         "title": "Documentation",
+        "headingLevel": 2,
         "description": "",
         "items": [
           {
@@ -78,10 +79,7 @@
         "stories": [
           {
             "id": 1,
-            "tags": [
-              "Technology",
-              "Microservices"
-            ],
+            "tags": ["Technology", "Microservices"],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "TechCorp Logo",
             "title": "How TechCorp Reduced Observability Costs by 80%",
@@ -95,10 +93,7 @@
           },
           {
             "id": 2,
-            "tags": [
-              "Financial Services",
-              "Cloud Migration"
-            ],
+            "tags": ["Financial Services", "Cloud Migration"],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "FinanceApp Logo",
             "title": "FinanceApp's Journey to Cloud-Native Observability",
@@ -112,10 +107,7 @@
           },
           {
             "id": 3,
-            "tags": [
-              "E-Commerce",
-              "Peak Season"
-            ],
+            "tags": ["E-Commerce", "Peak Season"],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "ShopNow Logo",
             "title": "How ShopNow Survived Black Friday with OpenObserve",
