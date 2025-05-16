@@ -53,6 +53,7 @@ const props = defineProps({
   target: {
     type: String,
     required: false,
+    default: "_self",
   },
 });
 
