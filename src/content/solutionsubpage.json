@@ -86,7 +86,7 @@
                   "description": "Explore your AWS environment using powerful SQL queries that reveal hidden patterns. Leverage comprehensive parsing and enrichment functions to answer your most complex operational questions."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-aws/pipeline-aws.png"
             }
           },
           {
@@ -245,7 +245,7 @@
                   "description": "Gain complete visibility into your GCP performance. Collect both platform metrics and custom application telemetry through Cloud Monitoring export for comprehensive performance insights."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/solution-gcp-monitoring/gcp-datasources.png"
             }
           },
           {

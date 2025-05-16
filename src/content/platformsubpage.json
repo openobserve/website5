@@ -18,7 +18,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-logs/logs-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -107,7 +107,7 @@
                   "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-logs/logs-pipelines.png"
             }
           },
           {
@@ -126,7 +126,7 @@
                   "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-logs/logs-settings.png"
             }
           }
         ]
@@ -229,7 +229,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-metrics/metrics-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -280,7 +280,7 @@
                   "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-metrics/metrics-collection.png"
             }
           },
           {
@@ -299,7 +299,7 @@
                   "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-metrics/metrics-promql.png"
             }
           },
           {
@@ -440,7 +440,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-traces/traces-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -491,7 +491,7 @@
                   "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-traces/traces-datasources.png"
             }
           },
           {
@@ -510,7 +510,7 @@
                   "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-traces/traces-service-map.png"
             }
           },
           {
@@ -529,7 +529,7 @@
                   "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-traces/traces-event.png"
             }
           },
           {
@@ -548,7 +548,7 @@
                   "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-traces/traces-settings.png"
             }
           }
         ]
@@ -651,7 +651,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -720,7 +720,7 @@
                   "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
             }
           },
           {
@@ -739,7 +739,7 @@
                   "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-frontend-monitoring/frontend-webvitals.png"
             }
           },
           {
@@ -758,7 +758,7 @@
                   "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
             }
           }
         ]
@@ -861,7 +861,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-pipelines/pipelines-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -911,7 +911,7 @@
                   "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-pipelines/pipelines-types.png"
             }
           },
           {
@@ -930,7 +930,7 @@
                   "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-pipelines/pipelines-vrlfunction.png"
             }
           },
           {
@@ -949,7 +949,7 @@
                   "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-pipelines/enrichment-tables.png"
             }
           },
           {
@@ -968,7 +968,7 @@
                   "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-pipelines/pipelines-components.png"
             }
           }
         ]
@@ -1121,7 +1121,7 @@
                   "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-alerts/alert-type.png"
             }
           },
           {
@@ -1140,7 +1140,7 @@
                   "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-alerts/alert-configure.png"
             }
           },
           {
@@ -1159,7 +1159,7 @@
                   "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-alerts/alert-slack.png"
             }
           },
           {
@@ -1277,7 +1277,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-visualization/dashboard-hero.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -1346,7 +1346,7 @@
                   "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-visualization/dashboard-auto.png"
             }
           },
           {
@@ -1365,7 +1365,7 @@
                   "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-visualization/dashboard-queryeditor.png"
             }
           },
           {

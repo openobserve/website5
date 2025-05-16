@@ -59,7 +59,7 @@ const props = defineProps({
                 :alt="image?.alt"
                 className="rounded-lg border shadow-md"
                 :width="image?.width || 'auto'"
-                :height="image?.height || 'auto'"
+                :height="image?.height || 'auto'" 
                 loading="lazy"
                 decoding="async"
               />
