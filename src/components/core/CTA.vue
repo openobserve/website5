@@ -36,6 +36,7 @@ const props = defineProps({
           :buttonText="button.text"
           :buttonLink="button.link"
           :target="button.target"
+          :buttonDescription="button.description"
         />
       </div>
     </div>

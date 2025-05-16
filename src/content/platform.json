@@ -166,7 +166,8 @@
             "text": "Learn More",
             "link": " https://openobserve.ai/docs/",
             "target": "_blank",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }

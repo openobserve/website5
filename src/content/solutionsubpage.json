@@ -153,7 +153,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }
@@ -347,7 +348,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }
@@ -533,7 +535,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }
@@ -726,7 +729,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }
@@ -911,7 +915,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }
@@ -1108,7 +1113,8 @@
           {
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary"
+            "variant": "tertiary",
+            "description":"Refer Docs"
           }
         ]
       }

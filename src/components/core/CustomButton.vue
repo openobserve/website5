@@ -55,6 +55,10 @@ const props = defineProps({
     required: false,
     default: "_self",
   },
+  buttonDescription: {
+    type: String,
+    required: false,
+  },
 });
 
 const sizes = {
@@ -99,6 +103,9 @@ const onClick = (event) => {
     :type="!buttonLink ? type : null"
     v-bind="buttonProps"
   >
+    <span class="sr-only" v-if="buttonLink">{{
+      buttonDescription || buttonText
+    }}</span>
     <span class="items-center">
       <template v-if="$slots.default">
         <slot></slot>
