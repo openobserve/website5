@@ -1,7 +1,7 @@
 <script setup>
 import GithubButton from "vue-github-button";
 import TextGradient from "@/components/core/TextWithGradient.vue";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 const props = defineProps({
   footerData: {
     type: Object,
@@ -47,6 +47,13 @@ const socialIcon = (name) => {
   };
   return icons[name.toLowerCase()];
 };
+
+onMounted(() => {
+  const script = document.createElement("script");
+  script.src = "https://openobserve.activehosted.com/f/embed.php?id=3";
+  script.async = true;
+  document.head.appendChild(script);
+});
 </script>
 <template>
   <footer class="relative bg-[#14181B] w-full">
@@ -148,7 +155,9 @@ const socialIcon = (name) => {
           </ul>
         </div>
       </div>
-
+      <div class="flex justify-end">
+        <div class="_form_3"></div>
+      </div>
       <div
         class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4"
       >
@@ -174,7 +183,7 @@ const socialIcon = (name) => {
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
               <img
-                src="/img/soc.webp"
+                src="/img/SOC.webp"
                 class="w-full h-full object-contain grayscale"
                 alt="SOC2 Type 2"
               />
