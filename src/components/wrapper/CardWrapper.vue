@@ -25,6 +25,10 @@ const props = defineProps({
     type: Object,
     required: false,
   },
+  headingLevel: {
+    type: Number,
+    default: 3,
+  }
 });
 </script>
 
@@ -40,7 +44,8 @@ const props = defineProps({
           <!-- CardWithShadowBorder -->
           <CardWithShadowBorder v-for="(card, index) in items" :key="index" :title="card.title"
             :description="card.description" :icon="card.icon" :buttonText="card.buttonText"
-            :buttonLink="card.buttonLink" :theme="card.theme" :items="card.items" class="grid-item" headingLevel="3" />
+            :buttonLink="card.buttonLink" :theme="card.theme" :items="card.items" class="grid-item"
+            :heading-level="headingLevel" />
           <!-- CardWithSideIcon -->
           <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
           :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" /> -->

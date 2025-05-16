@@ -63,6 +63,7 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 2,
+        "headingLevel":3,
         "background": true,
         "title": "Why OpenObserve?",
         "items": [
@@ -128,6 +129,7 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 3,
+        "headingLevel":2,
         "title": "It’s in Our DNA: Our Unwavering Commitment to Open| Source| Standards| Protocols | Observability | Design| Community",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "background": true,
