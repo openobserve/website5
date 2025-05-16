@@ -134,7 +134,7 @@ const reset = () => {
                 errors.deployment ? 'is-invalid' : '',
               ]"
             >
-              <option value="">Select deployment option</option>
+              <option value="" disabled selected hidden>Select deployment option</option>
               <option value="cloud">Cloud (Saas)</option>
               <option value="self-hosted">Self-hosted</option>
               <option value="hybrid">Hybrid</option>
@@ -157,7 +157,7 @@ const reset = () => {
                 errors.volume ? 'is-invalid' : '',
               ]"
             >
-              <option value="">Select data volume</option>
+              <option value="" disabled selected hidden>Select data volume</option>
               <option value="lt-10gb">Less than 10GB</option>
               <option value="10-100gb">10GB - 100GB</option>
               <option value="100gb-1tb">100GB - 1TB</option>
