@@ -9,7 +9,7 @@
       />
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div v-for="(item, index) in data" :key="index">
-          <BlogCard2 :blog="item" type="blog" />
+          <BlogCard2 :blog="item" type="articles" />
         </div>
       </div>
       <!-- View All Button -->

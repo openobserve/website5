@@ -18,14 +18,42 @@
         },
         "trustedText": "From Fortune 10 Giants to Innovative Startups: These Companies Rely on OpenObserve",
         "logos": [
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png",
-          "/abstract-corporate-logo.png"
+          {
+            "url":"/img/company/alderley-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url":"/img/company/avatar-fleet-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url": "/img/company/roambee-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url":"/img/company/jidu.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url":"/img/company/blue-ribbon-bags-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url": "/img/company/one-engine-logo-light.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url":"/img/company/reverie-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url":"/img/company/quadrant-logo.svg",
+            "alt":"Alderley"
+          },
+          {
+            "url": "/img/company/radius-ai.svg",
+            "alt":"Alderley"
+          }
         ],
         "video": {
           "thumbnail": "/images/video-thumb.jpg",
