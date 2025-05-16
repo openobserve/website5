@@ -126,7 +126,7 @@ const schema = yup.object({
   email: yup.string().required("Email is required").email("Invalid email"),
    phone: yup
     .string()
-    .matches(/^\d{10}$/, "Phone number must be 10 digits only")
+    .matches(/^\d+$/, "Phone number must be digits only")
     .required("Phone number is required"),
   website: yup.string().url("Invalid URL"),
   message: yup.string().required("Message is required"),
