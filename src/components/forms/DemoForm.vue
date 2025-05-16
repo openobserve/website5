@@ -37,14 +37,35 @@ const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
   console.log("Form submitted with:", values);
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
+    const response = await fetch(
+      "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          senderName: values.name,
+          senderEmail: values.email,
+          senderCompany: values.company,
+          senderDeployment: values.deployment,
+          senderDataVolume: values.dataVolume,
+          senderMessage: values.referral,
+          formType: "demo",
+        }),
+      }
+    );
 
-    status.value = {
-      submitted: true,
-      error: false,
-      message: "Thank you! Your message has been sent successfully.",
-    };
-
+    if (!response.ok) {
+      status.value = {
+        submitted: false,
+        error: true,
+        message: "Oops! Something went wrong. Please try again later.",
+      };
+    } else {
+      status.value = {
+        submitted: true,
+        error: false,
+        message: "Thank you! Your message has been sent successfully.",
+      };
+    }
     resetForm();
   } catch (e) {
     status.value = {
@@ -154,10 +175,8 @@ const reset = () => {
               <option value="" disabled selected hidden>
                 Select deployment option
               </option>
-              <option value="cloud">Cloud (Saas)</option>
+              <option value="cloud">Cloud</option>
               <option value="self-hosted">Self-hosted</option>
-              <option value="hybrid">Hybrid</option>
-              <option value="not-sure">Not sure yet</option>
             </Field>
             <ErrorMessage name="deployment" class="contact-form-error" />
           </div>
@@ -179,11 +198,9 @@ const reset = () => {
               <option value="" disabled selected hidden>
                 Select data volume
               </option>
-              <option value="lt-10gb">Less than 10GB</option>
-              <option value="10-100gb">10GB - 100GB</option>
-              <option value="100gb-1tb">100GB - 1TB</option>
-              <option value="gt-1tb">More than 1TB</option>
-              <option value="not-sure">Not sure yet</option>
+              <option value="< 100GB/day">< 100GB/day</option>
+              <option value="100GB - 1TB/day">100GB - 1TB/day</option>
+              <option value="> 1TB/day">> 1TB/day</option>
             </Field>
             <ErrorMessage name="volume" class="contact-form-error" />
           </div>

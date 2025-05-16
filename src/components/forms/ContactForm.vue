@@ -146,7 +146,6 @@ const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
   console.log("Form submitted with:", values);
   try {
-    // await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
