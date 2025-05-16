@@ -60,8 +60,6 @@ const props = defineProps({
     required: true,
   },
 });
-console.log("tabs", props.tabs);
-console.log("activetabs", props.activeTab);
 </script>
 
 <style scoped>
