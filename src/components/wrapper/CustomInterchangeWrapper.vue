@@ -22,6 +22,7 @@ const props = defineProps({
           :direction="card.direction || 'left'"
           :theme="card.theme"
           class=""
+          :id="card.id"
         />
         </CustomSection>
       </div>
