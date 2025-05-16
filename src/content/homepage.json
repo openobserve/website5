@@ -10,7 +10,8 @@
         "__component": "section-hero.homepage-hero",
         "id": 1,
         "badge": "140x Lower Cost",
-        "title": "Lightweight, petabyte-scale observability De-escalate the cost of observability.",
+        "title": "Lightweight, petabyte-scale observability",
+        "subtitle": "De-escalate observability costs.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "/pricing"
@@ -63,6 +64,7 @@
         "__component": "section-cards.homepage-features",
         "id": 2,
         "background": true,
+        "title": "Why OpenObserve?",
         "items": [
           {
             "title": "Efficiency",

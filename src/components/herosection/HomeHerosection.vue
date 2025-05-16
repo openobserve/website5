@@ -9,6 +9,7 @@ interface Video {
 interface HeroData {
   badge: string;
   title: string;
+  subtitle: string;
   description: string;
   primaryButton: {
     text: string;
@@ -40,6 +41,9 @@ defineProps<{ data: HeroData }>();
             <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
               {{ data.title }}
             </h1>
+            <h2 class="text-2xl font-semibold text-gray-300">
+              {{ data.subtitle }}
+            </h2>
             <p class="text-xl text-gray-400">
               {{ data.description }}
             </p>
@@ -53,7 +57,7 @@ defineProps<{ data: HeroData }>();
         </div>
 
 
-        
+
         <!-- Right Side (Video Card) -->
         <div class="relative">
           <div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg">

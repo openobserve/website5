@@ -110,11 +110,11 @@
             }
           },
           {
-            "value": "efficient-storage",
-            "title": "Efficient Storage",
+            "value": "Optimized-storage",
+            "title": "Optimized Storage",
             "icon": "/img/icon/slackIcon.svg",
             "card": {
-              "title": "Efficient Storage",
+              "title": "Optimized Storage",
               "features": [
                 {
                   "title": "Industry-Leading Compression",
