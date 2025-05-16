@@ -15,7 +15,7 @@
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -147,12 +147,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -190,7 +190,7 @@
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -341,12 +341,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -384,7 +384,7 @@
         "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -527,12 +527,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -570,7 +570,7 @@
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -720,12 +720,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -763,7 +763,7 @@
         "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -905,12 +905,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
@@ -948,7 +948,7 @@
         "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "/pricing",
+          "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
         "image": "/img/herosection-image.png",
@@ -1102,12 +1102,12 @@
         "buttons": [
           {
             "text": "Get Started For Free",
-            "link": "/pricing",
+            "link": "https://cloud.openobserve.ai/web/login",
             "variant": "secondary"
           },
           {
             "text": "Learn More",
-            "link": "#learn-more",
+            "link": "https://openobserve.ai/docs/",
             "variant": "tertiary"
           }
         ]
