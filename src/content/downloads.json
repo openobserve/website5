@@ -21,28 +21,31 @@
           {
             "value": "openobserve-cloud",
             "label": "Cloud",
-            "title": "OpenObserve Cloud",
-            "description": "Get started in minutes with our fully managed cloud solution. No infrastructure to manage.",
-            "features": [
-              "No infrastructure to manage",
-              "Automatic updates and maintenance",
-              "Scalable resources based on your needs",
-              "24/7 monitoring and support",
-              "No licensing fees",
-              "Pay-as-you-go pricing"
-            ],
-            "button": {
-              "text": "Try Free Cloud Trial →",
-              "link": "https://cloud.openobserve.ai/web/login",
-              "target": "_blank",
-              "class": "bg-primary-purple hover:bg-dark-purple"
-            }
+            "items": [
+              {
+                "title": "OpenObserve Cloud",
+                "description": "Get started in minutes with our fully managed cloud solution. No infrastructure to manage.",
+                "features": [
+                  "No infrastructure to manage",
+                  "Automatic updates and maintenance",
+                  "Scalable resources based on your needs",
+                  "24/7 monitoring and support",
+                  "No licensing fees",
+                  "Pay-as-you-go pricing"
+                ],
+                "button": {
+                  "text": "Try Free Cloud Trial →",
+                  "link": "https://cloud.openobserve.ai/web/login",
+                  "target": "_blank",
+                  "class": "bg-primary-purple hover:bg-dark-purple"
+                }
+              }
+            ]
           },
           {
             "value": "self-hosted",
             "label": "Self Hosted",
-            "title": "OpenObserve Self-hosted",
-            "subTabs": [
+            "items": [
               {
                 "value": "quick-start",
                 "label": "Quick Start",
