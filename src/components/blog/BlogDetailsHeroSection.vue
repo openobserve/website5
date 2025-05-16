@@ -140,6 +140,7 @@ import { formatPublishDate } from "@/utils/formatPublishDate";
 const props = defineProps<{
   type: string;
   title: string;
+  description: string;
   blogImage: string;
   tags: {
     name: string;

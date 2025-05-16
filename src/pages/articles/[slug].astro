@@ -26,6 +26,7 @@ const author = await Promise.all(
 );
 const metaObj = {
   title: SlugData?.title,
+  description: SlugData?.description,
 };
 ---
 
@@ -33,6 +34,7 @@ const metaObj = {
   <BlogDetailsHeroSection
     type="articles"
     title={SlugData?.title}
+    description={SlugData?.description}
     blogImage={SlugData?.image?.url || SlugData?.image?.url}
     tags={SlugData?.categories || []}
     author={author}
