@@ -36,6 +36,7 @@
         "__component": "section-cards.homepage-features",
         "id": 2,
         "background": true,
+        "title": "Why OpenObserve?",
         "items": [
           {
             "title": "Efficiency",
