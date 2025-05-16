@@ -69,7 +69,7 @@
                   "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-logs/logs-visualizer.png"
             }
           },
           {
@@ -88,7 +88,7 @@
                   "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-logs/logs-sqlquery.png"
             }
           },
           {
@@ -280,7 +280,7 @@
                   "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-collection.png"
+              "image": "/img/platform-metrics/metrics-datasources.png"
             }
           },
           {
@@ -318,7 +318,7 @@
                   "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-metrics/dashboard-queryeditor.png"
             }
           },
           {
@@ -337,7 +337,7 @@
                   "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-metrics/metrics-settings.png"
             }
           }
         ]
@@ -651,7 +651,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png",
+        "image": "/img/platform-frontend-monitoring/frontend-webvitals.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -701,7 +701,7 @@
                   "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-frontend-monitoring/session-replay.png"
             }
           },
           {
@@ -739,7 +739,7 @@
                   "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-webvitals.png"
+              "image": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
             }
           },
           {
@@ -1071,7 +1071,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "image": "/img/platform-alerts/alert-configure.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -1159,7 +1159,7 @@
                   "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
                 }
               ],
-              "image": "/img/platform-alerts/alert-slack.png"
+              "image": "/img/platform-alerts/alert-destinations.png"
             }
           },
           {
@@ -1178,7 +1178,7 @@
                   "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-alerts/alert-slack.png"
             }
           }
         ]
@@ -1277,7 +1277,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-visualization/dashboard-hero.png",
+        "image": "/img/platform-visualization/dashboard-kubernetes.png",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -1327,7 +1327,7 @@
                   "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-metrics/dashboard-queryeditor.png"
             }
           },
           {
@@ -1346,7 +1346,7 @@
                   "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-auto.png"
+              "image": "/img/platform-visualization/dashboard-geomap.png"
             }
           },
           {
@@ -1365,7 +1365,7 @@
                   "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-queryeditor.png"
+              "image": "/img/platform-metrics/metrics-promql.png"
             }
           },
           {
@@ -1384,7 +1384,7 @@
                   "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/img/platform-visualization/dashboard-drilldown.png"
             }
           }
         ]
