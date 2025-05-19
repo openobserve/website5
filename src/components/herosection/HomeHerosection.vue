@@ -94,7 +94,7 @@ defineProps<{ data: HeroData }>();
         <div class="w-full overflow-hidden">
           <div class="flex gap-4 lg:gap-6 items-center animate-scroll">
             <div v-for="(logo, index) in data.logos" :key="index"
-              class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 md:h-16 w-32 md:w-36">
+              class="flex-shrink-0 bg-gray-800 rounded-lg p-6 flex items-center justify-center h-12 md:h-16 w-auto">
               <img :src="logo.url" :alt="logo.alt" class="h-8 w-auto" />
             </div>
           </div>
