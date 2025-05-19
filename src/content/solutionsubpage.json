@@ -20,6 +20,7 @@
         },
         "bgImage": "/img/solution-aws/BG.svg",
         "rightImage": "/img/solution-aws/Group 9269.svg",
+        "mobileImage": "/img/solution-aws/mobile-view.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -194,7 +195,7 @@
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "secondary"
+          "variant": "primary"
         },
         "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
         "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
@@ -391,7 +392,7 @@
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "secondary"
+          "variant": "primary"
         },
         "bgImage": "/img/solution-database-monitoring/database-2.svg",
         "rightImage": "/img/solution-database-monitoring/database-1.svg",
@@ -580,7 +581,7 @@
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "secondary"
+          "variant": "primary"
         },
         "bgImage": "/img/solution-azure/azure-2.svg",
         "rightImage": "/img/solution-azure/azure-1.svg",
@@ -776,7 +777,7 @@
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "secondary"
+          "variant": "primary"
         },
         "bgImage": "/public/img/solution-kubernates/kubernets-2.svg",
         "rightImage": "/public/img/solution-kubernates/kubernet-3.svg",
@@ -964,7 +965,7 @@
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "secondary"
+          "variant": "primary"
         },
         "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
         "rightImage": "/img/solution-openTL/open-telemetry-1.svg",

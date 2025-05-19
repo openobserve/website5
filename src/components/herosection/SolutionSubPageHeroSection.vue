@@ -35,6 +35,10 @@ const props = defineProps({
     type: Object,
     required: false,
   },
+  mobileRightImage: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
@@ -70,7 +74,6 @@ const props = defineProps({
 
 <style scoped>
 .hero-image {
-  background-image: url(props.bgImage);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
