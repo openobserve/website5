@@ -19,9 +19,9 @@
         :item="item"
       />
     </div>
-    <!-- <template v-if="shouldPaginate">
+    <template v-if="shouldPaginate">
+      <!-- v-show="!searchItem.trim()" -->
       <BlogPagination
-      v-show="!searchItem.trim()"
         :totalItems="totalItems"
         :itemsPerPage="ITEMS_PER_PAGE"
         :currentPage="currentPage"
@@ -30,15 +30,17 @@
         :identifier="identifier"
         client:load
       />
-    </template> -->
+    </template>
   </div>
 </template>
 <script setup lang="ts">
 import type { CaseStudies } from "@/types/case-studies";
 import { handleBlogSearch } from "@/utils/handleBlogSearch";
 import { SearchIcon } from "lucide-vue-next";
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import CaseStudyCard from "./CaseStudyCard.vue";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
+import BlogPagination from "@/components/blog/BlogPagination.vue";
 const props = defineProps({
   caseStudies: {
     type: Array as () => CaseStudies[],
@@ -52,27 +54,39 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  shouldPaginate: {
-    type: Boolean,
-    required: true,
-  },
   searchBar: {
     type: Boolean,
     required: false,
   },
-})
+  allCaseStudies: {
+    type: Array as () => CaseStudies[],
+    required: true,
+  },
+  subType: {
+    type: String,
+    required: false,
+  },
+  identifier: {
+    type: String,
+    required: false,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+});
 
 const searchItem = ref("");
 const filteredCaseStudiesData = ref(props.caseStudies);
-// watch(searchItem, async (newValue) => {
-//   filteredBlogsData.value = await handleBlogSearch(
-//     newValue,
-//     props?.allBlogs,
-//     props?.blogsData
-//   );
-// });
+watch(searchItem, async (newValue) => {
+  filteredCaseStudiesData.value = await handleBlogSearch(
+    newValue,
+    props?.allCaseStudies,
+    props?.caseStudies
+  );
+});
 
-// const shouldPaginate = computed(() => {
-//   return props?.totalItems > ITEMS_PER_PAGE;
-// });
+const shouldPaginate = computed(() => {
+  return props?.totalItems > ITEMS_PER_PAGE;
+});
 </script>

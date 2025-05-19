@@ -24,3 +24,12 @@ export const ArticlesResources: RESOURCES = {
         link: "/articles",
     },
 };
+
+export const CaseStudiesResources: RESOURCES = {
+    title: "Related Customer Stories",
+    description: "",
+    button: {
+        text: "View all customer stories",
+        link: "/customer-stories",
+    },
+};

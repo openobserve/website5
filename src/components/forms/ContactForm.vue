@@ -144,7 +144,6 @@ const status = ref({
 
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
-  console.log("Form submitted with:", values);
   try {
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
