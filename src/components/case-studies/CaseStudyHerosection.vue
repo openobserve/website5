@@ -1,25 +1,22 @@
 <template>
-   <CustomSection sectionClass="">
-    <div class="relative w-full rounded-lg overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-primary-purple to-primary-blue"
-      >
-      </div>
-      <div class="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col space-y-4">
-        <div class="flex justify-start">
-          <div class="flex flex-wrap gap-2">
-            <!-- :href="`/${type}/tag/${tag.slug}`" -->
+  <!-- <CustomSection sectionClass=""> -->
+  <section class="py-12 md:py-16 mb-6 hero-gradient">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
+      <article class="">
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-4">
           <a
             v-for="tag in tags"
             :key="tag.slug"
+            :href="`/${type}/tag/${tag.slug}`"
             class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize"
           >
             {{ tag.name }}
           </a>
         </div>
-        </div>
+        <!-- Title -->
         <h1
-          class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white"
+          class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
         >
           {{ title }}
         </h1>
@@ -28,13 +25,29 @@
           <span class="mx-4">•</span>
           <span>Reading time: {{ calculateReadingTime(content) }}</span>
         </div>
-      </div>
+      </article>
     </div>
-  </CustomSection>
+  </section>
+
+  <!-- CaseStudy Cover Image -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
+    <div class="">
+      <figure
+        class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl"
+      >
+        <img
+          :src="caseStudyImage"
+          :alt="title"
+          class="object-cover w-full h-full"
+        />
+      </figure>
+    </div>
+  </section>
+  <!-- </CustomSection> -->
 </template>
 <script setup lang="ts">
-import { calculateReadingTime } from '@/utils/calculateReadingTime';
-import CustomSection from '../core/CustomSection.vue';
+import { calculateReadingTime } from "@/utils/calculateReadingTime";
+import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps<{
   title: string;
@@ -51,5 +64,7 @@ const props = defineProps<{
   }[];
   publishDate: string;
   content: string;
+  caseStudyImage: string;
+  type: string;
 }>();
 </script>

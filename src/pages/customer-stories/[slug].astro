@@ -1,138 +1,57 @@
 ---
 import CaseStudiesDetailWrapper from "@/components/case-studies/CaseStudiesDetailWrapper.vue";
 import CaseStudyHerosection from "@/components/case-studies/CaseStudyHerosection.vue";
-import CustomSection from "@/components/core/CustomSection.vue";
 import Layout from "@/layouts/Layout.astro";
 import { caseStudies } from "@/pages/customer-stories/index.astro";
-import CaseStudiesListingWrapper from "@/components/case-studies/CaseStudiesListingWrapper.vue";
 import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
+import {
+  getAuthorDetails,
+  getBlogsBySlug,
+  getAllCaseStudies,
+} from "@/utils/api/blog";
 
 export async function getStaticPaths() {
-  const slugs = [
-    {
-      slug: "acme-corp",
-    },
-    {
-      slug: "techflow",
-    },
-    {
-      slug: "quantum-financial",
-    },
-    {
-      slug: "healthplus",
-    },
-    {
-      slug: "gameverse",
-    },
-    {
-      slug: "cloudnative-inc",
-    },
-  ];
+  const slugs = await getAllCaseStudies();
   return slugs.map((it: any) => ({
     params: { slug: it.slug },
   }));
 }
 
-const markdown = `## Overview
+const { slug }: any = Astro.params;
+const SlugData = (await getBlogsBySlug(slug)) || {};
+const authorsSlugs = SlugData.authors || [];
 
-TechCorp, a rapidly growing SaaS company with over 500 microservices, was struggling with escalating observability costs that were growing faster than their business. This case study explores how they implemented OpenObserve to gain better visibility into their systems while dramatically reducing costs.
-
-## The Challenge
-
-As TechCorp's infrastructure grew, so did their observability needs. Their existing solution was:
-
-- Costing over $1.2M annually with 20% month-over-month growth
-- Requiring significant engineering resources to maintain
-- Providing limited retention periods due to cost constraints
-- Creating data silos between logs, metrics, and traces
-
-The DevOps team was under pressure to reduce costs while improving system visibility and reliability. Traditional solutions would require either accepting the high costs or sacrificing observability coverage.
-
-## The Solution
-
-After evaluating several alternatives, TechCorp selected OpenObserve for its:
-
-- Unified platform for logs, metrics, and traces
-- Columnar storage architecture optimized for observability data
-- Significantly lower resource requirements
-- Flexible deployment options (self-hosted and cloud)
-- Compatible API that made migration straightforward
-
-The team decided on a phased approach, starting with logs before expanding to metrics and traces.
-
-## Implementation
-
-TechCorp's implementation process included:
-
-1. **Pilot Phase:** Deployed OpenObserve in a Kubernetes cluster alongside their existing solution  
-2. **Agent Configuration:** Updated their logging agents to dual-ship to both platforms  
-3. **Dashboard Migration:** Recreated critical dashboards in OpenObserve  
-4. **Alert Testing:** Validated alert configurations in the new environment  
-5. **Team Training:** Conducted workshops for engineering teams  
-6. **Full Rollout:** Gradually shifted all services to the new platform  
-
-The entire migration was completed in 8 weeks with no service disruptions.
-
-## Results
-
-After six months of using OpenObserve, TechCorp reported:
-
-- 70% reduction in observability infrastructure costs
-- Increased data retention from 7 days to 30 days
-- 50% reduction in query latency for common operations
-- Improved correlation between logs, metrics, and traces
-- Simplified operations with a single platform to maintain
-
-The cost savings allowed TechCorp to reinvest in other critical infrastructure improvements while maintaining comprehensive observability coverage.
-
-## Conclusion
-
-TechCorp's successful implementation of OpenObserve demonstrates that companies don't need to choose between comprehensive observability and reasonable costs. By adopting a modern, efficient observability platform, they achieved better visibility while significantly reducing their infrastructure expenses.
-
-The engineering team now spends less time managing their observability infrastructure and more time using insights to improve their services.
-`;
-
-const tags = [
-  {
-    name: "Observability",
-    slug: "observability",
-  },
-  {
-    name: "Cost Reduction",
-    slug: "cost-reduction",
-  },
-  {
-    name: "SaaS",
-    slug: "saas",
-  },
-];
+const author = await Promise.all(
+  authorsSlugs.map(async (authorSlug: { slug: any }) => {
+    return await getAuthorDetails(authorSlug.slug);
+  })
+);
+const allCaseStudies = await getAllCaseStudies();
+const metaObj = {
+  title: SlugData?.title,
+};
 ---
 
-<Layout>
+<Layout metaObj={metaObj}>
   <CaseStudyHerosection
-    title="TechCorp's Journey to Cost-Effective Observability"
-    caseStudyImage="/abstract-corporate-logo.png"
-    tags={tags}
-    author={{
-      name: "John Doe",
-      title: "Head of Engineering",
-      image: {
-        url: "/confident-engineer.png",
-      },
-      role: "CTO & Co-Founder",
-    }}
+    title={SlugData?.title}
+    caseStudyImage={SlugData?.image?.url || SlugData?.image?.url}
+    tags={SlugData?.categories || []}
+    author={author}
     publishDate={new Intl.DateTimeFormat("en-US", {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "2-digit",
-    }).format(new Date())}
-    content={markdown}
+    }).format(new Date(SlugData?.publishDate))}
+    content={SlugData?.content}
+    type="customer-stories"
+    client:load
   />
   <div class="">
-    <CaseStudiesDetailWrapper content={markdown} client:load />
+    <CaseStudiesDetailWrapper  content={SlugData?.content} client:load />
   </div>
   <div class="pt-20">
-    <CaseStudySection data={caseStudies.slice(0, 3)} client:load />
+    <CaseStudySection data={allCaseStudies.slice(0, 3)} client:load />
   </div>
-  </Layout>
+</Layout>
