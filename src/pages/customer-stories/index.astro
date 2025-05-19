@@ -4,6 +4,24 @@ import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 import CaseStudiesCategory from "@/components/case-studies/CaseStudiesCategory.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import CaseStudiesListingWrapper from "@/components/case-studies/CaseStudiesListingWrapper.vue";
+import BlogListingWrapper from "@/components/blog/BlogListingWrapper.vue";
+import {
+  getAllCaseStudies,
+  getCaseStudiesByPagination,
+} from "@/utils/api/blog";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
+import { getTotalCounts } from "@/utils/cache";
+// Get the current page from URL parameters
+const { page } = Astro.params;
+const currentPage = page ? parseInt(page) : 1;
+
+// Fetch blogs data with the current page
+const caseStudiesData = await getCaseStudiesByPagination(
+  currentPage,
+  ITEMS_PER_PAGE
+);
+const allCaseStudiesData = await getAllCaseStudies();
+const count = await getTotalCounts();
 
 export const caseStudies = [
   {
@@ -177,18 +195,17 @@ const meta = {
 ---
 
 <Layout metaObj={meta}>
-  <CommonHerosection
-    title="Customer Stories"
-    align="center"
-    client:load
-  />
+  <CommonHerosection title="Customer Stories" align="center" client:load />
   <CustomSection sectionClass="">
     <CaseStudiesCategory tags={tags} client:load />
     <CaseStudiesListingWrapper
-      caseStudies={caseStudies}
+      allCaseStudies={allCaseStudiesData}
+      caseStudies={caseStudiesData}
       searchBar
-      totalItems={caseStudies.length}
-      client:load
+      type="case-studies"
+      totalItems={count.caseStudiesCount}
+      currentPage={currentPage}
+      client:only="vue"
     />
   </CustomSection>
 </Layout>

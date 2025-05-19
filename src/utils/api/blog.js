@@ -218,3 +218,30 @@ export async function getallBlogsWithoutCaseStudies() {
   }));
    return filteredBlogs;
 }
+
+
+export async function getCaseStudiesByPagination(page, pageSize) {
+  const caseStudies = await getAllCaseStudies();
+
+
+  // Sort by publishDate descending
+  const sortedcaseStudies = caseStudies.sort(
+    (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
+  );
+
+  // Paginate
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  const paginatedCaseStudies = sortedcaseStudies.slice(start, end);
+
+  // Return only selected fields
+  return paginatedCaseStudies.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    categories: blog.categories,
+    slug: blog.slug,
+  }));
+}
