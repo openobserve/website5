@@ -5,13 +5,6 @@
   >
     <div class="relative h-48 overflow-hidden">
       <CustomBlurImage :image="getImageUrl(item)" :altText="item.title" />
-      <div class="absolute top-3 right-3">
-        <div
-          class="bg-primary-purple text-white border-none rounded-full px-3 py-1 text-xs"
-        >
-          Openobserve
-        </div>
-      </div>
     </div>
     <!-- Content section -->
 

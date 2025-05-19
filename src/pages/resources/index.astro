@@ -2,24 +2,33 @@
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import resourcepage from "@/content/resources.json";
-import { getAllBlogs } from "@/utils/api/blog";
-import {caseStudies} from "@/pages/customer-stories/index.astro";
+import { getAllBlogs, getAllCaseStudies } from "@/utils/api/blog";
 import { getAllResourceBlogs } from "@/utils/api/resources";
 const data = resourcepage?.data?.body || {};
 const seoData = resourcepage?.data?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
-const caseData = caseStudies.slice(0, 3);
+const allCaseStudiesData = await getAllCaseStudies();
+const caseData = allCaseStudiesData
+  .slice(0, 3)
+  .map(({ content, ...rest }) => rest);
 const allowedSlugs = [
   "elasticsearch-matching",
   "otel-exporters-introduction",
-  "iis-logging-basics"
+  "iis-logging-basics",
 ];
 const allArticlesData = (await getAllResourceBlogs())
-  .map(({ content, ...rest }) => rest).filter((it: any) => allowedSlugs.includes(it.slug));
+  .map(({ content, ...rest }) => rest)
+  .filter((it: any) => allowedSlugs.includes(it.slug));
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} caseStudyData={caseData} articlesData={allArticlesData} client:load />
+  <ComponentCollectionMapper
+    data={data}
+    blogsData={blogData}
+    caseStudyData={caseData}
+    articlesData={allArticlesData}
+    client:load
+  />
 </Layout>
