@@ -9,9 +9,9 @@
     <!-- Content section -->
 
     <div class="bg-white p-6 flex-1 flex flex-col">
-      <!-- <h3 class="text-lg font-semibold flex-grow mb-2">
+      <h3 class="text-lg font-semibold flex-grow mb-2">
         {{ item?.title }}
-      </h3> -->
+      </h3>
       <p class="text-primary-gray mb-3 text-base line-clamp-3">
         {{ item?.description }}
       </p>
