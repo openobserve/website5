@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
   <!-- <CustomSection sectionClass=""> -->
     <div class="flex flex-col">
-      <div v-for="(card, index) in items" :key="index" :class="index % 2 !== 0 ? 'bg-gray-50' : ''">
+      <div v-for="(card, index) in items" :key="index" :class="index % 2 == 0 ? 'bg-gray-50' : ''">
       <CustomSection sectionClass="py-4 sm:py-4 md:py-4 lg:py-6 xl:py-7">
         <CustomInterchange
           :heading="card.heading"

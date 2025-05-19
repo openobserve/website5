@@ -1,7 +1,7 @@
 <template>
     <svg width="1920" height="1384" viewBox="0 0 1920 1384" fill="none" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
-        <rect width="1920" height="1384" fill="#F5F5F5" />
+        <!-- <rect width="1920" height="1384" fill="#F5F5F5" /> -->
         <path
             d="M610 36.5H1770C1779.67 36.5 1787.5 44.335 1787.5 54V243C1787.5 252.665 1779.67 260.5 1770 260.5H610C600.335 260.5 592.5 252.665 592.5 243V54C592.5 44.335 600.335 36.5 610 36.5Z"
             fill="white" stroke="#CFCFCF" />

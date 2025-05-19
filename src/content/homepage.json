@@ -100,7 +100,6 @@
         "__component": "section-cards.homepage-features",
         "id": 2,
         "headingLevel": 3,
-        "background": true,
         "title": "Why OpenObserve?",
         "items": [
           {
@@ -136,6 +135,7 @@
         "__component": "section-features.homepage-architecture",
         "id": 3,
         "title": "Explore the OpenObserve Platform",
+        "background": true,
         "description": "A modern, scalable architecture designed for high performance and low cost",
         "image": {
           "url": "/img/marketecture-diagram-laptop.svg",
@@ -167,7 +167,6 @@
         "id": 3,
         "headingLevel": 2,
         "title": "It's in Our DNA:<br/> Our Unwavering Commitment to Open",
-        "background": true,
         "titleItems": [
           "Source",
           "Standards",

@@ -9,6 +9,7 @@ import MobileviewArchitectureSVG from "../core/MobileviewArchitectureSVG.vue";
 interface Item {
   title: string;
   description: string;
+  
   icon: string;
   theme: string;
 }
@@ -16,19 +17,21 @@ interface Item {
 defineProps<{
   title: string;
   description?: string;
-  image: { url: string; alt: string };
+  background?: boolean;
+  image?: { url: string; alt: string };
   items: Item[];
 }>();
 </script>
 
 <template>
+  <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
     <HeadingSection :title="title" :description="description" />
     <div class="flex flex-col md:flex-row items-center justify-center mb-16 w-full">
       <div class="w-full h-full">
 
        <!-- desktop screen -->
-      <LaptopviewArchitectureSVG class="w-full h-full rounded-lg hidden md:block"/>
+      <LaptopviewArchitectureSVG class="mx-auto w-4/7 h-auto rounded-lg hidden md:block"/>
         <!-- <img
           :src="image.url"
           :alt="image.alt"
@@ -52,6 +55,7 @@ defineProps<{
       />
     </div>
   </CustomSection>
+  </div>
 </template>
 <style scoped>
 .grid-container {
