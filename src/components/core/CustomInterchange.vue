@@ -42,7 +42,7 @@ const sectionClasses = computed(() => ({
     />
 
     <div
-      class="w-full flex flex-col lg:flex-row justify-center items-center gap-12 lg:mb-12"
+      class="w-full flex flex-col lg:flex-row justify-center items-center gap-12"
       :class="sectionClasses"
     >
       <!-- client review Section -->
@@ -59,7 +59,7 @@ const sectionClasses = computed(() => ({
 
           <!-- Quote + Author Info -->
           <div class="flex flex-col">
-            <p class="text-gray-600 italic text-sm leading-relaxed mb-4">
+            <p class="text-gray-600 italic text-sm md:text-base leading-relaxed mb-4">
               "{{ cardData?.quote }}"
             </p>
             <div class="flex items-center gap-3">

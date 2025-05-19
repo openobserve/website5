@@ -40,7 +40,7 @@ const alignClass = computed(() => ({
 </script>
 
 <template>
-  <div class="w-full mb-16">
+  <div class="w-full mb-8 lg:mb-16 xl:mb-10">
     <h2 class="text-3xl md:text-4xl font-bold text-black" :class="alignClass" v-html="formattedTitle"></h2>
     <p v-if="description" class="text-sm md:text-lg my-4 text-gray-500" :class="alignClass">
       {{ description }}
