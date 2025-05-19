@@ -37,16 +37,18 @@ const props = defineProps({
 
 <template>
   <div class="w-full hero-image">
-    <CustomSection>
-      <div class="relative w-full h-full">
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10">
+      <div>
         <!-- ✅ Top image positioned inside section correctly -->
         <CustomImage class="top-overlay-image" :src="'/img/solution-aws/svgviewer-output\ \(5\).svg'"
           :alt="'Top Overlay'" />
+      </div>
+      <div class="relative w-full">
 
-        <div class="flex flex-col lg:flex-row items-center gap-6 relative z-10 py-16">
+        <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative  py-16">
           <div
             class="w-full flex-1  mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
-            <div class="w-fit flex items-center justify-center rounded-3xl bg-white/20 py-1 px-4">
+            <div class="w-fit flex items-center justify-center rounded-3xl bg-gray-300/80 py-1 px-4">
               <h2 class="text-sm font-semibold text-black text-center capitalize">
                 {{ pageTag }}
               </h2>
@@ -54,7 +56,7 @@ const props = defineProps({
             <h1 class="text-3xl lg:text-5xl font-bold text-black">
               {{ title }}
             </h1>
-            <p class="lg:w-1/2 text-black text-base md:text-xl">
+            <p class="text-black text-base md:text-xl">
               {{ description }}
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -64,7 +66,7 @@ const props = defineProps({
           </div>
         </div>
       </div>
-    </CustomSection>
+    </section>
   </div>
 </template>
 
@@ -91,7 +93,7 @@ const props = defineProps({
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 0;
   pointer-events: none;
 }
