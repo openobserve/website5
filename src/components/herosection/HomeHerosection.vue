@@ -88,14 +88,14 @@ defineProps<{ data: HeroData }>();
 
       <!-- Logos -->
       <div class="mt-12">
-        <div class="text-sm text-gray-400 mb-3">
+        <div class="text-sm md:text-lg xl:text-xl text-gray-400 mb-3">
           {{ data.trustedText }}
         </div>
         <div class="w-full overflow-hidden">
-          <div class="flex gap-6 items-center animate-scroll">
+          <div class="flex gap-4 lg:gap-6 items-center animate-scroll">
             <div v-for="(logo, index) in data.logos" :key="index"
-              class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 w-32">
-              <img :src="logo.url" :alt="logo.alt" class="h-6 w-auto" />
+              class="flex-shrink-0 bg-gray-800 rounded-lg p-3 flex items-center justify-center h-12 md:h-16 w-32 md:w-36">
+              <img :src="logo.url" :alt="logo.alt" class="h-8 w-auto" />
             </div>
           </div>
         </div>
