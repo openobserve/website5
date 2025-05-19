@@ -42,8 +42,6 @@ const props = withDefaults(
   }
 );
 
-console.log(props.items, "itwms for title");
-
 const headingLevel = computed(() => {
   return props.headingLevel &&
     props.headingLevel >= 1 &&
