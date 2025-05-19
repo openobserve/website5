@@ -37,7 +37,7 @@ const props = defineProps({
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
-    <CustomSection :section-class="`pb-0 sm:pb-0 lg:pb-0 xl:pb-0`">
+    <CustomSection sectionClass="py-4 sm:py-4 md:py-4 lg:py-6 xl:py-7">
       <div>
         <!-- Heading Section -->
         <HeadingSection
