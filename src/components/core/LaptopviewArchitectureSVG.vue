@@ -1,10 +1,4 @@
-<script setup>
-import { ref } from 'vue'
-
-const isHovered = ref(false)
-</script>
 <template>
-
     <svg width="1920" height="1384" viewBox="0 0 1920 1384" fill="none" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="1920" height="1384" fill="#F5F5F5" />
