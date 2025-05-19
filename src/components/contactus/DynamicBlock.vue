@@ -6,7 +6,7 @@
 import { computed } from 'vue';
 
 // import CommunitySupport from './CommunitySupport.vue';
-import BlogSection from './BlogSection.vue';
+import BlogSection from '../blog/BlogSection.vue';
 import type { ContentBlock } from '@/types/Contactus';
 import ContactUsHeroSection from './ContactUsHeroSection.vue';
 import ContactForm from '@/components/forms/ContactForm.vue';
