@@ -9,7 +9,7 @@ defineProps({
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   align: {
     type: String as () => "left" | "center" | "right",

@@ -2,13 +2,13 @@
   <div
     class="flex flex-col lg:flex-row items-start gap-8 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11"
   >
-    <div class="w-full sticky top-20 lg:w-64">
+    <div class="lg:sticky top-20 w-full xl:w-1/4">
       <BlogTableofContent
         :headings="headings"
         :activeSection="currentSection"
       />
     </div>
-    <div class="lg:flex-1 ">
+    <div class="lg:flex-1 w-full">
       <div id="blog-content" class="">
         <template>
           <div
@@ -18,7 +18,8 @@
         </template>
       </div>
     </div>
-    <div class="w-full sticky top-20 lg:w-80">
+
+    <div class="w-full lg:sticky top-20 xl:w-1/4">
       <div
         class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
       >
@@ -48,7 +49,6 @@
           </li>
         </ul>
       </div>
-
     </div>
   </div>
 </template>
@@ -63,7 +63,6 @@ const props = defineProps({
     required: true,
   },
 });
-
 const outcomes = [
   "<strong>70%</strong> reduction in observability costs",
   "<strong>4x</strong> increase in data retention period",
@@ -71,7 +70,6 @@ const outcomes = [
   "<strong>8 weeks</strong> to complete migration",
   "<strong>Zero</strong> service disruptions during transition",
 ];
-
 const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);
@@ -142,7 +140,7 @@ function observeHeadings() {
   const container = document.getElementById("blog-content");
   if (!container) return;
 
-  const headingElements = container.querySelectorAll("h2, h3", "h4");
+  const headingElements = container.querySelectorAll("h2, h3, h4");
   headingElements.forEach((heading) => observer.observe(heading));
 }
 

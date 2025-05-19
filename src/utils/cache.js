@@ -7,6 +7,7 @@ let cache = {
   resourceBlogs: null,
   resourceCategories: null,
   resourceAuthors: null,
+  caseStudies:null,
   len: {
     authorsCount: 0,
     blogsCount: 0,
@@ -14,6 +15,7 @@ let cache = {
     resourceBlogsCount: 0,
     resourceCategoriesCount: 0,
     resourceAuthorsCount: 0,
+    caseStudiesCount:0
   },
 };
 

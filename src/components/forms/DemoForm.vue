@@ -35,7 +35,6 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
   });
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
-  console.log("Form submitted with:", values);
   try {
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
@@ -46,7 +45,7 @@ const onSubmit = handleSubmit(async (values) => {
           senderEmail: values.email,
           senderCompany: values.company,
           senderDeployment: values.deployment,
-          senderDataVolume: values.dataVolume,
+          senderDataVolume: values.volume,
           senderMessage: values.referral,
           formType: "demo",
         }),

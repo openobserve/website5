@@ -41,7 +41,7 @@ import SuccessStories from "./core/SuccessStories.vue";
 import CardWithSideIconResourcePage from "./wrapper/CardWithSideIconResourcePage.vue";
 import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
 import ContactForm from "./forms/ContactForm.vue";
-import BlogSection from "./contactus/BlogSection.vue";
+import BlogSection from "./blog/BlogSection.vue";
 import CommunitySupport from "./contactus/CommunitySupport.vue";
 import TOC from "./policies/TOC.vue";
 import SummaryWrapper from "./policies/SummaryWrapper.vue";
