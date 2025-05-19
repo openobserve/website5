@@ -10,7 +10,6 @@
         "__component": "section-hero.common-hero",
         "id": 1,
         "title": "Careers",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "align": "center",
         "primaryButton": {
           "text": "Explore Careers",

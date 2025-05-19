@@ -1,11 +1,7 @@
 <template>
   <div>
-    <component
-      v-for="(it, index) in data"
-      :key="it.id || `${it.__component}-${index}`"
-      :is="componentsMap[it.__component]"
-      v-bind="getComponentProps(it)"
-    />
+    <component v-for="(it, index) in data" :key="it.id || `${it.__component}-${index}`"
+      :is="componentsMap[it.__component]" v-bind="getComponentProps(it)" />
   </div>
 </template>
 
@@ -57,15 +53,16 @@ import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
 import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
 import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
 import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
-import { ArticlesResources ,BlogResources } from "@/utils/constant";
+import { ArticlesResources, BlogResources } from "@/utils/constant";
 import LatestArticles from "./articles/LatestArticles.vue";
+import SolutionSubPageHeroSection from "./herosection/SolutionSubPageHeroSection.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
   blogsData: { type: Array, required: false },
   blogs: { type: Array, required: false },
   caseStudyData: { type: Array, required: false },
-  articlesData:{  type: Array, required: false },
+  articlesData: { type: Array, required: false },
   bannerData: { type: Object, required: false },
 });
 const componentsMap = computed(() => ({
@@ -92,6 +89,7 @@ const componentsMap = computed(() => ({
   "section-story.our-commitment": OurCommitmentO2,
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
+  "section-hero.solution-sub-hero": SolutionSubPageHeroSection,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
@@ -115,13 +113,13 @@ const componentsMap = computed(() => ({
 const getComponentProps = (it) => {
   switch (it.__component) {
     case "section-cards.blog":
-      return { ...it, data: props.blogsData , sectionData: BlogResources};
+      return { ...it, data: props.blogsData, sectionData: BlogResources };
     case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
     case "section-cards.customer-stories":
       return { ...it, data: props.caseStudyData };
     case "section-cards.articles":
-      return { ...it, data: props.articlesData , sectionData: ArticlesResources };
+      return { ...it, data: props.articlesData, sectionData: ArticlesResources };
     case "section-cards.resources-blogs":
       return { ...it, items: props.blogs };
     case "section-cta.banner":

@@ -104,7 +104,7 @@
               "Cost-Effective Monitoring"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-aws/overview.svg"
             },
             "theme": "theme-purple"
           },
@@ -119,9 +119,9 @@
               "Cost-Effective Monitoring"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-azure/overview.svg"
             },
-           "theme": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "id": 3,
@@ -134,9 +134,9 @@
               "Resource Management"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-gcp-monitoring/overview.svg"
             },
-             "theme": "theme-green"
+            "theme": "theme-green"
           },
           {
             "id": 4,
@@ -149,7 +149,7 @@
               "Uptime & Incident Management"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-kubernates/overview.svg"
             },
             "theme": "theme-red"
           },
@@ -164,9 +164,9 @@
               "Holistic Monitoring & Alerts"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-database-monitoring/overview.svg"
             },
-           "theme": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "id": 6,
@@ -179,13 +179,13 @@
               "Observability Insights"
             ],
             "image": {
-              "url": "/img/logo.svg"
+              "url": "/img/solution-openTL/overview.svg"
             },
             "theme": "theme-purple"
           }
         ]
       },
-       {
+      {
         "__component": "section-cards.blog",
         "id": 5
       }
