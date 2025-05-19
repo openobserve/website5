@@ -2,12 +2,13 @@
 import CaseStudiesDetailWrapper from "@/components/case-studies/CaseStudiesDetailWrapper.vue";
 import CaseStudyHerosection from "@/components/case-studies/CaseStudyHerosection.vue";
 import Layout from "@/layouts/Layout.astro";
-import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
+import RelatedCaseStudySection from "@/components/case-studies/RelatedCaseStudySection.vue";
 import {
   getAuthorDetails,
   getBlogsBySlug,
   getAllCaseStudies,
 } from "@/utils/api/blog";
+import { CaseStudiesResources } from "@/utils/constant";
 
 export async function getStaticPaths() {
   const slugs = await getAllCaseStudies();
@@ -48,9 +49,13 @@ const metaObj = {
     client:load
   />
   <div class="">
-    <CaseStudiesDetailWrapper  content={SlugData?.content} client:load />
+    <CaseStudiesDetailWrapper content={SlugData?.content} client:load />
   </div>
   <div class="pt-20">
-    <CaseStudySection data={allCaseStudies.slice(0, 3)} client:load />
+    <RelatedCaseStudySection
+      data={allCaseStudies.slice(0, 10)}
+      sectionData={CaseStudiesResources}
+      client:load
+    />
   </div>
 </Layout>
