@@ -4,6 +4,7 @@ import HeadingSection from "../core/HeadingSection.vue";
 import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import { ArrowRight } from "lucide-vue-next";
+import FeatureTitle from "../core/FeatureTitle.vue";
 const props = defineProps({
   title: {
     type: String,
@@ -28,7 +29,11 @@ const props = defineProps({
   headingLevel: {
     type: Number,
     default: 3,
-  }
+  },
+  titleItems: {
+    type: Array,
+    required: false,
+  },
 });
 </script>
 
@@ -37,15 +42,31 @@ const props = defineProps({
     <CustomSection sectionClass="">
       <div>
         <!-- Heading Section -->
-        <HeadingSection v-if="title || description" :title="title" :description="description" align="center" />
+        <FeatureTitle
+          v-if="title || description"
+          :title="title"
+          :description="description"
+          align="center"
+          :heading-level="headingLevel"
+          :items="titleItems"
+        />
 
         <!-- Cards Section -->
         <div class="grid-container">
           <!-- CardWithShadowBorder -->
-          <CardWithShadowBorder v-for="(card, index) in items" :key="index" :title="card.title"
-            :description="card.description" :icon="card.icon" :buttonText="card.buttonText"
-            :buttonLink="card.buttonLink" :theme="card.theme" :items="card.items" class="grid-item"
-            :heading-level="headingLevel" />
+          <CardWithShadowBorder
+            v-for="(card, index) in items"
+            :key="index"
+            :title="card.title"
+            :description="card.description"
+            :icon="card.icon"
+            :buttonText="card.buttonText"
+            :buttonLink="card.buttonLink"
+            :theme="card.theme"
+            :items="card.items"
+            class="grid-item"
+            :heading-level="headingLevel"
+          />
           <!-- CardWithSideIcon -->
           <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
           :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" /> -->
@@ -54,8 +75,10 @@ const props = defineProps({
         <!-- View All Button -->
         <div class="mt-12 flex justify-center w-full" v-if="button">
           <a :href="button.link" :target="button.target || '_self'" class="">
-            <button :class="button.class"
-              class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer">
+            <button
+              :class="button.class"
+              class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+            >
               {{ button.text }}
               <ArrowRight class="ml-2 h-4 w-4" />
             </button>
@@ -104,7 +127,6 @@ const props = defineProps({
 }
 
 @media (min-width: 1024px) {
-
   /* Optional: Add a counter if you need to display item numbers */
   .grid-item:last-child:nth-child(3n - 1) {
     grid-column-end: -2;
