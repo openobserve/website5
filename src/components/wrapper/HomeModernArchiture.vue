@@ -3,6 +3,7 @@ import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
+import SVGComponent from "../core/SVGComponent.vue";
 
 interface Item {
   title: string;
@@ -23,12 +24,13 @@ defineProps<{
   <CustomSection>
     <HeadingSection :title="title" :description="description" />
     <div class="flex flex-col md:flex-row items-center justify-center mb-16 w-full">
-      <div class="w-full md:w-2/3">
-        <img
+      <div class="w-full h-full">
+      <SVGComponent class="w-full h-full rounded-lg"/>
+        <!-- <img
           :src="image.url"
           :alt="image.alt"
           class="w-full h-full object-cover rounded-lg"
-        />
+        /> -->
       </div>
     </div>
     <div class="grid-container">

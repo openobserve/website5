@@ -138,7 +138,7 @@
         "title": "Explore the OpenObserve Platform",
         "description": "A modern, scalable architecture designed for high performance and low cost",
         "image": {
-          "url": "/img/marketecture-diagram-laptopview.svg",
+          "url": "/img/marketecture-diagram-laptop.svg",
           "alt": "OpenObserve Architecture Diagram"
         },
         "items": [
