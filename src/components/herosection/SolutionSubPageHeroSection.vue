@@ -35,7 +35,7 @@ const props = defineProps({
     type: Object,
     required: false,
   },
-  mobileRightImage: {
+  mobileImage: {
     type: String,
     required: false,
   },
@@ -43,10 +43,19 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full hero-image" :style="{ backgroundImage: `url(${bgImage})` }">
+  <div class="w-full hero-image">
+    <!-- Desktop background image (hidden on mobile) -->
+    <div v-if="bgImage" class="hidden md:block absolute inset-0 bg-cover bg-center"
+      :style="{ backgroundImage: `url(${bgImage})` }"></div>
+
+    <!-- Mobile background image (hidden on desktop) -->
+    <div v-if="mobileImage" class="md:hidden absolute inset-0 bg-cover bg-center"
+      :style="{ backgroundImage: `url(${mobileImage})` }"></div>
+
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative">
-      <!-- Right side overlay image -->
-      <CustomImage class="right-overlay-image" :src="rightImage" :alt="altText || 'Overlay Image'" />
+      <!-- Right side overlay image (hidden on mobile) -->
+      <CustomImage v-if="rightImage" class="right-overlay-image hidden md:block" :src="rightImage"
+        :alt="altText || 'Overlay Image'" />
 
       <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16">
         <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
@@ -71,18 +80,16 @@ const props = defineProps({
   </div>
 </template>
 
-
 <style scoped>
 .hero-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 500px;
+  /* Adjust as needed */
 }
 
 /* Right side overlay image */
@@ -98,29 +105,9 @@ const props = defineProps({
   pointer-events: none;
 }
 
-/* Top overlay image (if still needed) */
-.top-overlay-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-  pointer-events: none;
-}
-
 @media (max-width: 768px) {
   .hero-image {
     min-height: 80vh;
-  }
-
-  .right-overlay-image {
-    display: none;
-    /* Hide on mobile if it's too crowded */
-    /* OR adjust for mobile */
-    /* height: 50%;
-    opacity: 0.5; */
   }
 }
 </style>

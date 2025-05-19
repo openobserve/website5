@@ -199,6 +199,7 @@
         },
         "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
         "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
+        "mobileImage": "/public/img/solution-gcp-monitoring/mobile-view.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -396,6 +397,7 @@
         },
         "bgImage": "/img/solution-database-monitoring/database-2.svg",
         "rightImage": "/img/solution-database-monitoring/database-1.svg",
+        "mobileImage": "/public/img/solution-database-monitoring/mobile-view.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -585,6 +587,8 @@
         },
         "bgImage": "/img/solution-azure/azure-2.svg",
         "rightImage": "/img/solution-azure/azure-1.svg",
+        "mobileImage": "/public/img/solution-azure/mobile-view.svg",
+
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -781,6 +785,8 @@
         },
         "bgImage": "/public/img/solution-kubernates/kubernets-2.svg",
         "rightImage": "/public/img/solution-kubernates/kubernet-3.svg",
+        "mobileImage": "/public/img/solution-kubernates/mobile-view.svg",
+
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -969,6 +975,7 @@
         },
         "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
         "rightImage": "/img/solution-openTL/open-telemetry-1.svg",
+        "mobileImage": "/public/img/solution-openTL/mobile-view.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
