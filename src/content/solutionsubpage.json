@@ -18,7 +18,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/img/solution-aws/BG.svg",
+        "rightImage": "/img/solution-aws/Group 9269.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -155,7 +156,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }
@@ -195,7 +196,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
+        "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -351,7 +353,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }
@@ -391,7 +393,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/img/solution-database-monitoring/database-2.svg",
+        "rightImage": "/img/solution-database-monitoring/database-1.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -539,7 +542,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }
@@ -579,7 +582,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/img/solution-azure/azure-2.svg",
+        "rightImage": "/img/solution-azure/azure-1.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -734,7 +738,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }
@@ -774,7 +778,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/public/img/solution-kubernates/kubernets-2.svg",
+        "rightImage": "/public/img/solution-kubernates/kubernet-3.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -921,7 +926,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }
@@ -961,7 +966,8 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/herosection-image.png",
+        "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
+        "rightImage": "/img/solution-openTL/open-telemetry-1.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -1120,7 +1126,7 @@
             "text": "Learn More",
             "link": "https://openobserve.ai/docs/",
             "variant": "tertiary",
-            "description":"Refer Docs"
+            "description": "Refer Docs"
           }
         ]
       }

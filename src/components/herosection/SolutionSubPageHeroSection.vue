@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
-import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
   pageTag: {
@@ -16,9 +15,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  image: {
+  bgImage: {
     type: String,
     required: true,
+  },
+  rightImage: {
+    type: String,
+    required: false,
   },
   altText: {
     type: String,
@@ -36,33 +39,27 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-full hero-image">
-    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10">
-      <div>
-        <!-- ✅ Top image positioned inside section correctly -->
-        <CustomImage class="top-overlay-image" :src="'/img/solution-aws/svgviewer-output\ \(5\).svg'"
-          :alt="'Top Overlay'" />
-      </div>
-      <div class="relative w-full">
+  <div class="w-full hero-image" :style="{ backgroundImage: `url(${bgImage})` }">
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative">
+      <!-- Right side overlay image -->
+      <CustomImage class="right-overlay-image" :src="rightImage" :alt="altText || 'Overlay Image'" />
 
-        <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative  py-16">
-          <div
-            class="w-full flex-1  mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
-            <div class="w-fit flex items-center justify-center rounded-3xl bg-gray-300/80 py-1 px-4">
-              <h2 class="text-sm font-semibold text-black text-center capitalize">
-                {{ pageTag }}
-              </h2>
-            </div>
-            <h1 class="text-3xl lg:text-5xl font-bold text-black">
-              {{ title }}
-            </h1>
-            <p class="text-black text-base md:text-xl">
-              {{ description }}
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-              <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
-                :buttonLink="primaryButton.link" />
-            </div>
+      <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16">
+        <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
+          <div class="w-fit flex items-center justify-center rounded-3xl bg-gray-300/80 py-1 px-4">
+            <h2 class="text-sm font-semibold text-black text-center capitalize">
+              {{ pageTag }}
+            </h2>
+          </div>
+          <h1 class="text-3xl lg:text-5xl font-bold text-black">
+            {{ title }}
+          </h1>
+          <p class="text-black text-base md:text-xl">
+            {{ description }}
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
+              :buttonLink="primaryButton.link" />
           </div>
         </div>
       </div>
@@ -73,8 +70,7 @@ const props = defineProps({
 
 <style scoped>
 .hero-image {
-  background-image: url('/img/solution-aws/svgviewer-output (4).svg');
-  /* ✅ remove `/public` */
+  background-image: url(props.bgImage);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,7 +82,20 @@ const props = defineProps({
   justify-content: center;
 }
 
-/* ✅ Constrain top overlay image inside relative wrapper */
+/* Right side overlay image */
+.right-overlay-image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  max-width: 50%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Top overlay image (if still needed) */
 .top-overlay-image {
   position: absolute;
   top: 0;
@@ -98,19 +107,17 @@ const props = defineProps({
   pointer-events: none;
 }
 
-.hero-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
 @media (max-width: 768px) {
   .hero-image {
     min-height: 80vh;
+  }
+
+  .right-overlay-image {
+    display: none;
+    /* Hide on mobile if it's too crowded */
+    /* OR adjust for mobile */
+    /* height: 50%;
+    opacity: 0.5; */
   }
 }
 </style>
