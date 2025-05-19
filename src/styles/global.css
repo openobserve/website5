@@ -199,6 +199,10 @@
   flex-shrink: 0;
 }
 
+.animate-scroll:hover {
+  animation-play-state: paused; /* ✅ Pause on hover */
+}
+
 .font-inter {
   font-family: var(--color-font-family-sans);
 }
