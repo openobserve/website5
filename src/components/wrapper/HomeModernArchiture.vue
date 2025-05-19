@@ -3,7 +3,8 @@ import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import CustomSection from "../core/CustomSection.vue";
 import HeadingSection from "../core/HeadingSection.vue";
-import SVGComponent from "../core/SVGComponent.vue";
+import LaptopviewArchitectureSVG from "../core/LaptopviewArchitectureSVG.vue";
+import MobileviewArchitectureSVG from "../core/MobileviewArchitectureSVG.vue";
 
 interface Item {
   title: string;
@@ -25,12 +26,17 @@ defineProps<{
     <HeadingSection :title="title" :description="description" />
     <div class="flex flex-col md:flex-row items-center justify-center mb-16 w-full">
       <div class="w-full h-full">
-      <SVGComponent class="w-full h-full rounded-lg"/>
+
+       <!-- desktop screen -->
+      <LaptopviewArchitectureSVG class="w-full h-full rounded-lg hidden md:block"/>
         <!-- <img
           :src="image.url"
           :alt="image.alt"
           class="w-full h-full object-cover rounded-lg"
         /> -->
+
+        <!-- Mobile screen -->
+      <MobileviewArchitectureSVG class="w-full h-full rounded-lg block md:hidden" />
       </div>
     </div>
     <div class="grid-container">
