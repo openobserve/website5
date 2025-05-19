@@ -166,15 +166,15 @@
         "__component": "section-cards.homepage-features",
         "id": 3,
         "headingLevel": 2,
-        "title": "It's in Our DNA:<br/> Our Unwavering Commitment to",
+        "title": "It's in Our DNA:<br/> Our Unwavering Commitment to Open",
         "background": true,
         "titleItems": [
-          "Open Source",
-          "Open Standards",
-          "Open Protocols",
-          "Open Observability",
-          "Open Design",
-          "Open Community"
+          "Source",
+          "Standards",
+          "Protocols",
+          "Observability",
+          "Design",
+          "Community"
         ],
         "items": [
           {
