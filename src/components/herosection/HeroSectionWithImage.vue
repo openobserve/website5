@@ -40,11 +40,8 @@ const props = defineProps({
     <CustomSection>
       <div class="flex flex-col lg:flex-row items-center gap-6">
         <div
-          class="w-full flex-1 lg:w-1/2 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5"
-        >
-          <div
-            class="w-fit flex items-center justify-center rounded-3xl bg-white/20 hover:bg-white/30 py-1 px-4"
-          >
+          class="w-full flex-1 lg:w-1/2 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
+          <div class="w-fit flex items-center justify-center rounded-3xl bg-white/20 py-1 px-4">
             <h2 class="text-sm font-semibold text-white text-center capitalize">
               {{ pageTag }}
             </h2>
@@ -57,27 +54,14 @@ const props = defineProps({
           </p>
           <!-- Button -->
           <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <CustomButton
-              :variant="primaryButton.variant"
-              size="medium"
-              :buttonText="primaryButton.text"
-              :buttonLink="primaryButton.link"
-            />
-            <CustomButton
-              v-if="secondaryButton"
-              :variant="secondaryButton.variant"
-              size="medium"
-              :buttonText="secondaryButton.text"
-              :buttonLink="secondaryButton.link"
-            />
+            <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
+              :buttonLink="primaryButton.link" />
+            <CustomButton v-if="secondaryButton" :variant="secondaryButton.variant" size="medium"
+              :buttonText="secondaryButton.text" :buttonLink="secondaryButton.link" />
           </div>
         </div>
         <div class="w-full lg:w-1/2 h-full">
-          <CustomImage
-            :image="image"
-            :altText="altText"
-            cssClass="rounded-lg"
-          />
+          <CustomImage :image="image" :altText="altText" cssClass="rounded-lg" />
         </div>
       </div>
     </CustomSection>
