@@ -16,7 +16,7 @@
             <a
               href="/platform"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
+              :class="isPlatformMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
             >
               Platform
             </a>
@@ -29,7 +29,7 @@
             <a
               href="/solutions"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
+              :class="isSolutionMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
             >
               Solutions
             </a>
@@ -42,7 +42,7 @@
             <a
               href="/resources"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'"
+              :class="isResourcesMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
             >
               Resources
             </a>
@@ -50,7 +50,7 @@
           <li class="relative">
             <a
               href="/pricing"
-              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-blue"
               >Pricing</a
             >
           </li>
@@ -58,10 +58,9 @@
       </nav>
       <div class="flex items-center space-x-2">
         <CustomButton
-          variant="primary"
           size="small"
           buttonLink="/demo"
-          class="transition-opacity duration-500 ease-in-out"
+          class="transition-opacity duration-500 ease-in-out !bg-primary-purple "
           :class="
             showStickyButton
               ? 'opacity-100 pointer-events-auto'
@@ -111,7 +110,7 @@
               >
                 <a
                   :href="`/platform/${item.link}`"
-                  :class="item.link ? 'gradient-hover' : ''"
+                  class="w-full block hover:text-primary-blue"
                   >{{ item.title }}</a
                 >
               </li>
@@ -139,7 +138,7 @@
                   >
                     <a
                       :href="`/solutions/${item.link}`"
-                      :class="item.link ? 'gradient-hover' : ''"
+                      class="w-full block hover:text-primary-blue"
                       >{{ item.title }}</a
                     >
                   </li>
@@ -160,10 +159,14 @@
           <div class="flex flex-row space-x-14">
             <div>
               <ul class="flex flex-col space-y-4 text-gray-600 text-sm">
-                <li v-for="(item, index) in items.resources.items" :key="index">
+                <li
+                  v-for="(item, index) in items.resources.items"
+                  :key="index"
+                  class="w-full"
+                >
                   <a
                     :href="item.link"
-                    :class="item.link ? 'gradient-hover' : ''"
+                    class="w-full block hover:text-primary-blue"
                     :target="item.target"
                     >{{ item.title }}</a
                   >
