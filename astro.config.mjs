@@ -12,5 +12,5 @@ export default defineConfig({
   integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
-  },
+  }
 });
