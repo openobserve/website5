@@ -11,10 +11,10 @@
             :key="tab.value"
             @click="setActiveTab(tab.value)"
             :class="[
-              'py-3 flex flex-col items-center gap-2 transition-colors rounded-lg cursor-pointer',
+              'py-3 flex flex-col items-center gap-2 font-semibold transition-colors rounded-lg cursor-pointer',
               activeTab === tab.value
                 ? 'bg-primary-purple text-white'
-                : 'text-gray-700 hover:bg-gray-100',
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
             ]"
           >
             <img :src="tab.icon" :alt="tab.title + 'icon'" class="h-5 w-5" />
