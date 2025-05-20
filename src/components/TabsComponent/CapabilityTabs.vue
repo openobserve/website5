@@ -29,7 +29,7 @@
             v-show="activeTab === tab.value"
           >
             <div
-              class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center justify-between w-full gap-4"
+              class="bg-white rounded-lg shadow px-8 py-16 flex flex-col md:flex-row items-center justify-between w-full gap-4"
             >
               <div class="w-full md:w-1/2">
                 <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
