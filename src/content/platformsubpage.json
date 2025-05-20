@@ -22,27 +22,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Significantly Efficient",
             "description": "140x lower storage costs compared to Elasticsearch",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Highly Performant",
             "description": "Run lightning-fast queries across terabytes of data.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "OTel-Native Logs",
             "description": "Standardized collection with zero vendor lock-in.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -233,27 +233,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "OTel-native Metrics",
             "description": "Standardized collection with zero vendor lock-in",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -444,27 +444,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Significantly Efficient",
             "description": "70% lower storage requirements for traces compared to Elasticsearch",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "OTel-Native Traces",
             "description": "Standardized collection with zero vendor lock-in",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -655,27 +655,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Unified Observability",
             "description": "Consolidate your frontend observability alongside your application performance and infrastructure health",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Clear User Insights",
             "description": "See exactly how users experience your site— click-by-click",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Simple Implementation",
             "description": "Add one JavaScript snippet to your HTML and start collecting real user experience data immediately",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -865,27 +865,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Protect Sensitive Data",
             "description": "Strengthen your security posture by automatically redacting and transforming sensitive data",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Reduce Costs",
             "description": "Slash storage expenses by routing data to optimal storage tiers",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": " Improve Data Quality",
             "description": "Make data more valuable and actionable by pre-processing and enriching data",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -1075,27 +1075,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Personalize Notifications",
             "description": "Send notifications to email, Slack, or webhook endpoints for immediate action",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Stay on top of Issues",
             "description": "Identify and fix problems before customers notice",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -1281,27 +1281,27 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "features": [
+        "data": [
           {
             "title": "Spot Issues Before Users Do",
             "description": "Identify potential problems before they impact your users.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Resolve Issues Faster",
             "description": "Pinpoint exact issue sources for quicker, more accurate fixes.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Collaborate Effectively",
             "description": "Monitor systems from a single source of truth for complete visibility.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
