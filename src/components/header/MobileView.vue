@@ -143,7 +143,7 @@
                 <CustomHeaderButton
                   title="Full Stack Observability Platform"
                   linkTitle="View Platform"
-                  link=""
+                  link="/platform"
                 />
               </div>
               <div class="flex justify-start">
@@ -170,7 +170,7 @@
               <CustomHeaderButton
                 title="Full Stack Observability Solutions"
                 linkTitle="View Solutions"
-                link=""
+                link="/solutions"
               />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-black text-lg font-semibold">Use Case</h4>

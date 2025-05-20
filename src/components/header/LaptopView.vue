@@ -14,7 +14,7 @@
             @mouseleave="onPlatformMenuMouseLeave"
           >
             <a
-              href=""
+              href="/platform"
               class="px-3 py-2 rounded-lg transition-all"
               :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
@@ -27,7 +27,7 @@
             @mouseleave="onSolutionMenuMouseLeave"
           >
             <a
-              href=""
+              href="/solutions"
               class="px-3 py-2 rounded-lg transition-all"
               :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
