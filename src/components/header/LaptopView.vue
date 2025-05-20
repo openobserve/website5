@@ -68,7 +68,7 @@
               : 'opacity-0 pointer-events-none'
           "
         >
-          GET DEMO
+          Get Demo
         </CustomButton>
         <CustomButton
           variant="secondary"
@@ -77,7 +77,7 @@
           target="_blank"
           class="border !border-gray-200"
         >
-          LOG IN
+          Log In
         </CustomButton>
         <GithubButton
           href="https://github.com/openobserve/openobserve"

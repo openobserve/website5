@@ -138,35 +138,35 @@
         "items": [
           {
             "question": "How does OpenObserve handle log ingestion?",
-            "answer": "OpenObserve provides multiple ingestion methods for different use cases:<br>Direct log shipping via HTTP/HTTPS endpoints with API authentication.<br>Integration with industry-standard log forwarders like Vector, Fluentd, and Fluent Bit.<br>Kubernetes environments supported through the OpenObserve operator or DaemonSet.<br>Cloud provider logs ingested through native integrations such as AWS Kinesis Firehose or GCP Pub/Sub."
+            "answer": "OpenObserve provides multiple ingestion methods for different use cases:<br><ul><li>Direct log shipping via HTTP/HTTPS endpoints with API authentication.</li><li>Integration with industry-standard log forwarders like Vector, Fluentd, and Fluent Bit.</li><li>Kubernetes environments supported through the OpenObserve operator or DaemonSet.</li><li>Cloud provider logs ingested through native integrations such as AWS Kinesis Firehose or GCP Pub/Sub.</li></ul>"
           },
           {
             "question": "What log formats are supported?",
-            "answer": "OpenObserve supports a wide range of log formats:<br>Structured JSON logs are handled natively, with automatic field detection and indexing.<br>Unstructured logs, such as nginx, Apache, and system logs, are supported via built-in parsers.<br>Cloud provider logs from AWS, GCP, and Azure are parsed using predefined templates.<br>Custom log formats can be parsed using Vector Remap Language (VRL)."
+            "answer": "OpenObserve supports a wide range of log formats:<br><ul><li>Structured JSON logs are handled natively, with automatic field detection and indexing.</li><li>Unstructured logs, such as nginx, Apache, and system logs, are supported via built-in parsers.</li><li>Cloud provider logs from AWS, GCP, and Azure are parsed using predefined templates.</li><li>Custom log formats can be parsed using Vector Remap Language (VRL).</li></ul>"
           },
           {
             "question": "How does log parsing work in OpenObserve?",
-            "answer": "Log parsing uses a multi-stage approach:<br>Format detection identifies structured or unstructured data.<br>Structured JSON logs have fields automatically extracted and indexed.<br>Unstructured logs are parsed using configured rules in VRL, enabling complex transformations like field extraction, timestamp parsing, and data enrichment.<br>Parsed logs are indexed in columnar format for efficient querying and storage."
+            "answer": "Log parsing uses a multi-stage approach:<br><ol><li>Format detection identifies structured or unstructured data.</li><li>Structured JSON logs have fields automatically extracted and indexed.</li><li>Unstructured logs are parsed using configured rules in VRL, enabling complex transformations like field extraction, timestamp parsing, and data enrichment.</li><li>Parsed logs are indexed in columnar format for efficient querying and storage.</li></ol>"
           },
           {
             "question": "What search and query capabilities does OpenObserve provide?",
-            "answer": "OpenObserve offers a SQL-compatible query engine:<br>Full-text searches across all log fields.<br>Support for complex conditions, regular expressions, time-based filtering, field-specific searches, and advanced aggregations.<br>Nested queries, mathematical functions, joins across different log streams, and aggregations (e.g., count, sum, average)."
+            "answer": "OpenObserve offers a SQL-compatible query engine:<br><ul><li>Full-text searches across all log fields.</li><li>Support for complex conditions, regular expressions, time-based filtering, field-specific searches, and advanced aggregations.</li><li>Nested queries, mathematical functions, joins across different log streams, and aggregations (e.g., count, sum, average).</li></ul>"
           },
           {
             "question": "How does OpenObserve optimize log storage?",
-            "answer": "Optimization techniques include:<br>Storing logs in columnar format using Apache Parquet for excellent compression ratios.<br>Implementing dictionary encoding for repeated values and specific compression algorithms for different data types.<br>Organizing storage into hot and warm tiers with configurable retention periods per data source.<br>Lifecycle management automates data movement and cleanup based on retention policies."
+            "answer": "Optimization techniques include:<br><ul><li>Storing logs in columnar format using Apache Parquet for excellent compression ratios.</li><li>Implementing dictionary encoding for repeated values and specific compression algorithms for different data types.</li><li>Organizing storage into hot and warm tiers with configurable retention periods per data source.</li><li>Lifecycle management automates data movement and cleanup based on retention policies.</li></ul>"
           },
           {
             "question": "What real-time analysis capabilities are available?",
-            "answer": "Real-time features include:<br>Live tail functionality for monitoring logs as they're ingested.<br>Real-time dashboards that update automatically as new data arrives.<br>Pattern detection for identifying anomalies or specific conditions in log streams.<br>An alerting system to trigger notifications based on custom query conditions."
+            "answer": "Real-time features include:<br><ul><li>Live tail functionality for monitoring logs as they're ingested.</li><li>Real-time dashboards that update automatically as new data arrives.</li><li>Pattern detection for identifying anomalies or specific conditions in log streams.</li><li>An alerting system to trigger notifications based on custom query conditions.</li></ul>"
           },
           {
             "question": "How does OpenObserve handle high-volume log ingestion?",
-            "answer": "The platform uses a distributed architecture to handle high-throughput ingestion:<br>Efficient write paths with batch processing and parallel ingestion.<br>Write-ahead logging ensures durability while buffering incoming logs during high load.<br>Optimized storage engine maintains query performance even under heavy write loads."
+            "answer": "The platform uses a distributed architecture to handle high-throughput ingestion:<br><ul><li>Efficient write paths with batch processing and parallel ingestion.</li><li>Write-ahead logging ensures durability while buffering incoming logs during high load.</li><li>Optimized storage engine maintains query performance even under heavy write loads.</li></ul>"
           },
           {
             "question": "What visualization and dashboard features are available?",
-            "answer": "OpenObserve offers flexible dashboards for visualization:<br>Custom dashboards with various visualization types (e.g., time series graphs, tables).<br>Dynamic time ranges and auto-refresh capabilities.<br>Saved queries for frequent use and template variables for reusable dashboards.<br>Data export options in various formats for external analysis."
+            "answer": "OpenObserve offers flexible dashboards for visualization:<br><ul><li>Custom dashboards with various visualization types (e.g., time series graphs, tables).</li><li>Dynamic time ranges and auto-refresh capabilities.</li><li>Saved queries for frequent use and template variables for reusable dashboards.</li><li>Data export options in various formats for external analysis.</li><>"
           }
         ]
       },
@@ -349,35 +349,35 @@
         "items": [
           {
             "question": "How does OpenObserve collect metrics?",
-            "answer": "OpenObserve supports multiple collection methods for metrics: <br/>\\*Metrics collection through Prometheus remote write<br/>Metrics collection via OTLP protocol using otelc-collector<br/>Custom metrics ingestion through HTTP API endpoints<br/>Infrastructure metrics collection through various integrations, including cloud provider services and the OpenObserve collector"
+            "answer": "OpenObserve supports multiple collection methods for metrics: *Metrics collection through Prometheus remote write<br/><ul><li>Metrics collection via OTLP protocol using otelc-collector</li><li>Custom metrics ingestion through HTTP API endpoints</li><li>Infrastructure metrics collection through various integrations, including cloud provider services and the OpenObserve collector</li></ul>"
           },
           {
             "question": "What types of metrics are supported?",
-            "answer": "OpenObserve handles various metric types: <br/>Standard metric types: counters, gauges, summary and histograms<br/>Prometheus-compatible metric types and aggregation methods<br/>System-level metrics (CPU, memory, disk)<br/>Application metrics (request rates, latencies, error rates)<br/>Custom metrics using any numeric data type with timestamps"
+            "answer": "OpenObserve handles various metric types: <br/><ul><li>Standard metric types: counters, gauges, summary and histograms</li><li>Prometheus-compatible metric types and aggregation methods</li><li>System-level metrics (CPU, memory, disk)</li><li>Application metrics (request rates, latencies, error rates)</li><li>Custom metrics using any numeric data type with timestamps</li></ul>"
           },
           {
             "question": "How does metric processing work?",
-            "answer": "The metric processing pipeline in OpenObserve is optimized for time-series data: <br/>Real-time processing of incoming metrics using downsampling or pipelines<br/>Storage in a columnar format optimized for time-series queries<br/>Support for various aggregation functions (rate calculations, moving averages, percentiles)<br/>Efficient indexing of labels and tags for fast filtering and grouping operations"
+            "answer": "The metric processing pipeline in OpenObserve is optimized for time-series data: <br/><ul><li>Real-time processing of incoming metrics using downsampling or pipelines</li><li>Storage in a columnar format optimized for time-series queries</li><li>Support for various aggregation functions (rate calculations, moving averages, percentiles)</li><li>Efficient indexing of labels and tags for fast filtering and grouping operations</li></ul>"
           },
           {
             "question": "What query capabilities are available for metrics?",
-            "answer": "OpenObserve provides a dual query interface for metrics: <br/>PromQL queries for compatibility with Prometheus workflows<br/>SQL for more complex analytics<br/>Support for time-based functions, mathematical operations, and advanced aggregations<br/>Cross-metric calculations<br/>Functions like rate and increase<br/>Complex metric expressions"
+            "answer": "OpenObserve provides a dual query interface for metrics: <br/><ul><li>PromQL queries for compatibility with Prometheus workflows</li><li>SQL for more complex analytics</li><li>Support for time-based functions, mathematical operations, and advanced aggregations</li><li>Cross-metric calculations</li><li>Functions like rate and increase</li><li>Complex metric expressions</li></ul>"
           },
           {
             "question": "How does OpenObserve handle high-cardinality metrics?",
-            "answer": "The platform implements specific optimizations for high-cardinality metrics: <br/>OpenObserve stores data in parquet format and does not suffer from high cardinality issues<br/>Efficient label indexing and compression techniques<br/>Intelligent caching and query optimization to maintain performance"
+            "answer": "The platform implements specific optimizations for high-cardinality metrics: <br/><ul><li>OpenObserve stores data in parquet format and does not suffer from high cardinality issues</li><li>Efficient label indexing and compression techniques</li><li>Intelligent caching and query optimization to maintain performance</li></ul>"
           },
           {
             "question": "What visualization options are available?",
-            "answer": "OpenObserve offers comprehensive visualization options for metrics: <br/>Time-series graphs, gauges, and heat maps<br/>Various panel types optimized for different metric visualizations<br/>Dynamic time ranges, zoom capabilities, and legend options<br/>Template variables for reusable dashboards<br/>Automatic refresh intervals<br/>Annotations for highlighting specific events in time<br/>Drill down and correlation between logs, metrics and traces"
+            "answer": "OpenObserve offers comprehensive visualization options for metrics: <br/><ul><li>Time-series graphs, gauges, and heat maps</li><li>Various panel types optimized for different metric visualizations</li><li>Dynamic time ranges, zoom capabilities, and legend options</li><li>Template variables for reusable dashboards</li><li>Automatic refresh intervals</li><li>Annotations for highlighting specific events in time</li><li>Drill down and correlation between logs, metrics and traces</li></ul>"
           },
           {
             "question": "How does Prometheus compatibility work?",
-            "answer": "The platform provides native Prometheus compatibility: <br/>Support for prometheus remote write protocol to accept metrics from Prometheus agents<br/>PromQL support for queries<br/>Maintenance of label consistency with Prometheus metrics<br/>Support for all standard Prometheus metric types"
+            "answer": "The platform provides native Prometheus compatibility: <br/><ul><li>Support for prometheus remote write protocol to accept metrics from Prometheus agents</li><li>PromQL support for queries</li><li>Maintenance of label consistency with Prometheus metrics</li><li>Support for all standard Prometheus metric types</li></ul>"
           },
           {
             "question": "What aggregation and alerting features are available?",
-            "answer": "OpenObserve provides comprehensive aggregation and alerting capabilities: <br/>Rolling aggregations and downsampling rules<br/>Custom metric transformations<br/>Threshold-based alerts and trend analysis<br/>Integration with various notification channels<br/>Detailed metric context in alerts"
+            "answer": "OpenObserve provides comprehensive aggregation and alerting capabilities: <br/><ul><li>Rolling aggregations and downsampling rules</li><li>Custom metric transformations</li><li>Threshold-based alerts and trend analysis</li><li>Integration with various notification channels</li><li>Detailed metric context in alerts</li></ul>"
           }
         ]
       },
@@ -1206,7 +1206,7 @@
           },
           {
             "question": "What alert scheduling options exist?",
-            "answer": "For standard alerts, you can configure:<br/> Evaluation frequency (how often the alert condition is checked) <br/> Evaluation period (the time window for data analysis) <br/>Threshold occurrences (how many times a condition must be met)<br/>Silence periods (duration to suppress repeat notifications)"
+            "answer": "For standard alerts, you can configure:<br/><ul><li> Evaluation frequency (how often the alert condition is checked) </li><li> Evaluation period (the time window for data analysis) </li><li>Threshold occurrences (how many times a condition must be met)</li><li>Silence periods (duration to suppress repeat notifications)</li></ul>"
           },
           {
             "question": "How does real-time alerting work?",
@@ -1214,7 +1214,7 @@
           },
           {
             "question": "What alert management features are available?",
-            "answer": "The platform provides a comprehensive alert management interface where you can: <br/> 1.Create and edit alert definitions<br/> 2.Configure notification destinations<br/> 3.Set up alert conditions and thresholds<br/> 4.Define evaluation periods and frequencies<br/> 5.Monitor alert status and history <br/> 6.Configure silence periods<br/> 7.Add custom variables for alert context"
+            "answer": "The platform provides a comprehensive alert management interface where you can: <br/> <ul><li>.Create and edit alert definitions</li><li>Configure notification destinations</li><li>Set up alert conditions and thresholds</li><li>Define evaluation periods and frequencies</li><li>Monitor alert status and history </li><li>Configure silence periods</li><li>Add custom variables for alert context</li></ul>"
           }
         ]
       },
