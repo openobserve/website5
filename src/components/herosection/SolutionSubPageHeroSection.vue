@@ -62,12 +62,7 @@ const props = defineProps({
         :alt="altText || 'Overlay Image'" />
 
       <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16 flex-1">
-        <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
-          <div class="w-fit flex items-center justify-center rounded-3xl bg-gray-300/80 py-1 px-4">
-            <h2 class="text-sm font-semibold text-black text-center capitalize">
-              {{ pageTag }}
-            </h2>
-          </div>
+        <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">            
           <h1 class="text-3xl lg:text-5xl font-bold text-black">
             {{ title }}
           </h1>

@@ -40,12 +40,7 @@ const props = defineProps({
     <CustomSection>
       <div class="flex flex-col lg:flex-row items-center gap-6">
         <div
-          class="w-full flex-1 lg:w-1/2 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
-          <div class="w-fit flex items-center justify-center rounded-3xl bg-white/20 py-1 px-4">
-            <h2 class="text-sm font-semibold text-white text-center capitalize">
-              {{ pageTag }}
-            </h2>
-          </div>
+          class="w-full flex-1 lg:w-1/2 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">          
           <h1 class="text-3xl lg:text-5xl font-bold text-white">
             {{ title }}
           </h1>
