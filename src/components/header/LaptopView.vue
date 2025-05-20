@@ -16,7 +16,7 @@
             <a
               href="/platform"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Platform
             </a>
@@ -29,7 +29,7 @@
             <a
               href="/solutions"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Solutions
             </a>
@@ -42,7 +42,7 @@
             <a
               href="/resources"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Resources
             </a>
@@ -50,7 +50,7 @@
           <li class="relative">
             <a
               href="/pricing"
-              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-blue"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
               >Pricing</a
             >
           </li>
@@ -111,7 +111,7 @@
               >
                 <a
                   :href="`/platform/${item.link}`"
-                  class="w-full block hover:text-primary-blue"
+                  class="w-full block hover:text-black"
                   >{{ item.title }}</a
                 >
               </li>
@@ -139,7 +139,7 @@
                   >
                     <a
                       :href="`/solutions/${item.link}`"
-                      class="w-full block hover:text-primary-blue"
+                      class="w-full block hover:text-black"
                       >{{ item.title }}</a
                     >
                   </li>
@@ -167,7 +167,7 @@
                 >
                   <a
                     :href="item.link"
-                    class="w-full block hover:text-primary-blue"
+                    class="w-full block hover:text-black"
                     :target="item.target"
                     >{{ item.title }}</a
                   >

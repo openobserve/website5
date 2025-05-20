@@ -158,7 +158,7 @@
                   class="text-gray-600 text-base"
                 >
                   <a
-                    class="block hover:text-primary-blue"
+                    class="block hover:text-black"
                     :href="`/platform/${item.link}`"
                     >{{ item.title }}</a
                   >
@@ -185,7 +185,7 @@
                     >
                       <a
                         :href="`/solutions/${item.link}`"
-                        class="block hover:text-primary-blue"
+                        class="block hover:text-black"
                         >{{ item.title }}</a
                       >
                     </li>
@@ -211,7 +211,7 @@
                     >
                       <a
                         :href="item.link"
-                        class="block hover:text-primary-blue"
+                        class="block hover:text-black"
                         :target="item.target"
                         >{{ item.title }}</a
                       >
