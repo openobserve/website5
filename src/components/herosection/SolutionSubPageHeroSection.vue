@@ -35,7 +35,11 @@ const props = defineProps({
     type: Object,
     required: false,
   },
-  mobileImage: {
+  mobileBgImage: {
+    type: String,
+    required: false,
+  },
+  mobileRightImage: {
     type: String,
     required: false,
   },
@@ -49,15 +53,15 @@ const props = defineProps({
       :style="{ backgroundImage: `url(${bgImage})` }"></div>
 
     <!-- Mobile background image (hidden on desktop) -->
-    <div v-if="mobileImage" class="md:hidden absolute inset-0 bg-cover bg-center mobile-bg-rotated"
-      :style="{ backgroundImage: `url(${mobileImage})` }"></div>
+    <div v-if="mobileBgImage" class="md:hidden absolute inset-0 bg-cover bg-center"
+      :style="{ backgroundImage: `url(${mobileBgImage})` }"></div>
 
-    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative">
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative flex flex-col h-full">
       <!-- Right image for desktop (overlayed) -->
       <CustomImage v-if="rightImage" class="right-overlay-image hidden lg:block" :src="rightImage"
         :alt="altText || 'Overlay Image'" />
 
-      <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16">
+      <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16 flex-1">
         <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
           <div class="w-fit flex items-center justify-center rounded-3xl bg-gray-300/80 py-1 px-4">
             <h2 class="text-sm font-semibold text-black text-center capitalize">
@@ -74,11 +78,12 @@ const props = defineProps({
             <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
               :buttonLink="primaryButton.link" />
           </div>
-
-          <!-- Mobile-only right image placed below content -->
-          <CustomImage v-if="rightImage" class="block lg:hidden mt-6 w-full max-w-xs mx-auto" :src="rightImage"
-            :alt="altText || 'Overlay Image'" />
         </div>
+      </div>
+
+      <!-- Mobile-only right image placed at bottom -->
+      <div v-if="mobileRightImage" class="md:hidden w-full mt-auto self-end">
+        <CustomImage class="w-full" :src="mobileRightImage" :alt="altText || 'Overlay Image'" />
       </div>
     </section>
   </div>
@@ -100,7 +105,7 @@ const props = defineProps({
 .right-overlay-image {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   height: 100%;
   max-width: 50%;
@@ -109,22 +114,19 @@ const props = defineProps({
   pointer-events: none;
 }
 
-/* Mobile rotated background image */
-.mobile-bg-rotated {  
-  width: 100vh;  /* Use viewport height for width */
-  height: 100vw; /* Use viewport width for height */
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 @media (max-width: 768px) {
   .hero-image {
-    min-height: 80vh;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  section {
+    min-height: 100vh;
+    padding-bottom: 0;
+  }
+
+  .container {
+    height: 100%;
   }
 }
 </style>

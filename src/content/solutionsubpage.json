@@ -20,7 +20,8 @@
         },
         "bgImage": "/img/solution-aws/BG.svg",
         "rightImage": "/img/solution-aws/Group 9269.svg",
-        "mobileImage": "/img/solution-aws/BG.svg",
+        "mobileBgImage": "/public/img/solution-aws/mobile-view.svg",
+        "mobileRightImage": "/img/solution-aws/Group 9269.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -199,7 +200,8 @@
         },
         "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
         "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
-        "mobileImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
+        "mobileBgImage": "/public/img/solution-gcp-monitoring/mobile-view.svg",
+        "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -397,7 +399,8 @@
         },
         "bgImage": "/img/solution-database-monitoring/database-2.svg",
         "rightImage": "/img/solution-database-monitoring/database-1.svg",
-        "mobileImage": "/img/solution-database-monitoring/database-2.svg",
+        "mobileBgImage": "/public/img/solution-database-monitoring/mobile-view.svg",
+        "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -586,9 +589,9 @@
           "variant": "primary"
         },
         "bgImage": "/img/solution-azure/azure-2.svg",
-        "rightImage": "/img/solution-azure/azure-1.svg",
-        "mobileImage": "/img/solution-azure/azure-2.svg",
-
+        "rightImage": "/public/img/solution-azure/Group 9277.svg",
+        "mobileBgImage": "/public/img/solution-azure/mobile-view.svg",
+        "mobileRightImage": "/public/img/solution-azure/Group 9287.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -785,8 +788,8 @@
         },
         "bgImage": "/img/solution-kubernates/kubernets-2.svg",
         "rightImage": "/img/solution-kubernates/kubernet-3.svg",
-        "mobileImage": "/img/solution-kubernates/kubernets-2.svg",
-
+        "mobileBgImage": "/public/img/solution-kubernates/mobile-view.svg",
+        "mobileRightImage": "/public/img/solution-kubernates/Group 9285.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -975,7 +978,8 @@
         },
         "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
         "rightImage": "/img/solution-openTL/open-telemetry-1.svg",
-        "mobileImage": "/img/solution-openTL/open-telemetry-2.svg",
+        "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
+        "mobileRightImage": "/public/img/solution-openTL/Group 9283.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
