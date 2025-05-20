@@ -45,7 +45,12 @@
           {
             "id": 7,
             "text": "Visualizations & Dashboard",
-            "link": "/visualization-and-dashboards"
+            "link": "/platform/visualization-and-dashboards"
+          },
+          {
+            "id": 8,
+            "text": "View Plans",
+            "link": "/pricing"
           }
         ]
       },

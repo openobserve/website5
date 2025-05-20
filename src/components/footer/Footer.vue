@@ -49,52 +49,21 @@ const socialIcon = (name) => {
 };
 </script>
 <template>
-  <footer class="relative bg-[#14181B] w-full">
+  <footer class="relative bg-primary-black w-full">
     <!-- SVG Background -->
-    <svg
-      class="absolute inset-0 w-full h-full"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1221 684"
-      fill="none"
-    >
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1221 684" fill="none">
       <g filter="url(#filter0_f_1434_1855)">
-        <circle
-          cx="610.5"
-          cy="610.5"
-          r="410.5"
-          fill="url(#paint0_radial_1434_1855)"
-        />
+        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
       </g>
       <defs>
-        <filter
-          id="filter0_f_1434_1855"
-          x="0"
-          y="0"
-          width="1221"
-          height="1221"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
+        <filter id="filter0_f_1434_1855" x="0" y="0" width="1221" height="1221" filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="100"
-            result="effect1_foregroundBlur_1434_1855"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
         </filter>
-        <radialGradient
-          id="paint0_radial_1434_1855"
-          cx="0"
-          cy="0"
-          r="1"
-          gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(610.5 610.5) rotate(90) scale(410.5)"
-        >
+        <radialGradient id="paint0_radial_1434_1855" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(610.5 610.5) rotate(90) scale(410.5)">
           <stop offset="0.01" stop-color="#23282C" />
           <stop offset="0.885" stop-color="#23282C" stop-opacity="0" />
         </radialGradient>
@@ -105,43 +74,16 @@ const socialIcon = (name) => {
       <!-- Main Footer Content -->
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <!-- First loop (show first 4 items) -->
-        <div
-          v-for="section in firstSections"
-          :key="section.title"
-          class="min-w-0"
-        >
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
+        <div v-for="section in firstSections" :key="section.title" class="min-w-0">
+          <h2 class="text-white font-medium text-xl mb-4">
             {{ section.title }}
           </h2>
 
           <ul class="space-y-2">
             <li v-for="item in section.items" :key="item.text">
-              <a
-                :href="item.link"
-                :target="item.target"
-                class="gradient-hover text-[#BEC0C2] text-base transition duration-300"
-              >
+              <a :href="item.link" :target="item.target"
+                class="gradient-hover text-gray-300 text-base transition duration-300">
                 <!-- <TextGradient textGradientColor="" /> -->
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Second loop (show last item separately) -->
-        <div v-if="lastSection" class="min-w-0">
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
-            {{ lastSection.title }}
-          </h2>
-
-          <ul class="space-y-2">
-            <li v-for="item in lastSection.items" :key="item.text">
-              <a
-                :href="item.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="gradient-hover text-[#BEC0C2] text-base transition duration-300"
-              >
                 {{ item.text }}
               </a>
             </li>
@@ -149,35 +91,24 @@ const socialIcon = (name) => {
         </div>
       </div>
 
-      <div
-        class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4"
-      >
+      <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4">
         <!-- Pricing Section -->
         <div class="w-full md:w-auto">
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h2>
+          <!-- <h2 class="text-white font-medium text-xl mb-4">Pricing</h2>
           <ul>
             <li>
-              <a
-                href="/pricing"
-                class="gradient-hover text-[#BEC0C2] font-normal text-base"
-                >View Plans
+              <a href="/pricing" class="gradient-hover text-gray-300 font-normal text-base">View Plans
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
 
         <!-- GitHub Stats Section -->
-        <div
-          class="flex flex-wrap items-center justify-center md:justify-start gap-8 w-full md:w-auto"
-        >
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-8 w-full md:w-auto">
           <div class="flex items-center gap-3">
             <!-- Icon -->
             <div class="w-12 h-12 flex-shrink-0">
-              <img
-                src="/img/soc.webp"
-                class="w-full h-full object-contain grayscale"
-                alt="SOC2 Type 2"
-              />
+              <img src="/img/soc.webp" class="w-full h-full object-contain grayscale" alt="SOC2 Type 2" />
             </div>
 
             <!-- Title & Description in one line -->
@@ -191,33 +122,18 @@ const socialIcon = (name) => {
 
           <!-- GitHub Buttons Container -->
           <div class="flex flex-wrap justify-center md:justify-start gap-2">
-            <GithubButton
-              href="https://github.com/openobserve/openobserve"
-              data-color-scheme=""
-              data-size="large"
-              data-show-count="true"
-              aria-label="Star openobserve/openobserve on GitHub"
-            >
+            <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="" data-size="large"
+              data-show-count="true" aria-label="Star openobserve/openobserve on GitHub">
               Star
             </GithubButton>
 
-            <GithubButton
-              href="https://github.com/openobserve/openobserve/fork"
-              data-color-scheme=""
-              data-size="large"
-              data-show-count="true"
-              aria-label="Fork openobserve/openobserve on GitHub"
-            >
-              Fork
-            </GithubButton>
           </div>
         </div>
       </div>
 
       <!-- Bottom Section -->
       <div
-        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-[#FFFFFF]"
-      >
+        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-[#FFFFFF]">
         <!-- Copyright -->
         <div class="flex flex-col items-center lg:items-start space-y-0.5">
           <p class="md:mb-0 font-normal text-xs">
@@ -228,18 +144,10 @@ const socialIcon = (name) => {
           </p>
         </div>
         <div class="flex items-center gap-4">
-          <a
-            :href="termsOfService?.link"
-            :target="termsOfService?.target"
-            class="text-base gradient-hover"
-          >
+          <a :href="termsOfService?.link" :target="termsOfService?.target" class="text-base gradient-hover">
             {{ termsOfService?.text }}
           </a>
-          <a
-            :href="privacyText?.link"
-            :target="privacyText?.target"
-            class="text-base gradient-hover"
-          >
+          <a :href="privacyText?.link" :target="privacyText?.target" class="text-base gradient-hover">
             {{ privacyText?.text }}
           </a>
         </div>
@@ -247,19 +155,9 @@ const socialIcon = (name) => {
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
           <div class="social-links">
-            <a
-              v-for="(item, index) in socialMedia"
-              :key="index"
-              :href="item.link"
-              :class="['icon', item.name.toLowerCase()]"
-              class="icon"
-              target="_blank"
-            >
-              <img
-                :src="socialIcon(item.name)"
-                class="icon-img"
-                :alt="item.name + ' icon'"
-              />
+            <a v-for="(item, index) in socialMedia" :key="index" :href="item.link"
+              :class="['icon', item.name.toLowerCase()]" class="icon" target="_blank">
+              <img :src="socialIcon(item.name)" class="icon-img" :alt="item.name + ' icon'" />
             </a>
           </div>
         </div>
