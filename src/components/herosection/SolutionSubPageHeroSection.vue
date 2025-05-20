@@ -49,14 +49,13 @@ const props = defineProps({
       :style="{ backgroundImage: `url(${bgImage})` }"></div>
 
     <!-- Mobile background image (hidden on desktop) -->
-    <div v-if="mobileImage" class="md:hidden absolute inset-0 bg-cover bg-center"
+    <div v-if="mobileImage" class="md:hidden absolute inset-0 bg-cover bg-center mobile-bg-rotated"
       :style="{ backgroundImage: `url(${mobileImage})` }"></div>
 
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative">
       <!-- Right image for desktop (overlayed) -->
       <CustomImage v-if="rightImage" class="right-overlay-image hidden lg:block" :src="rightImage"
         :alt="altText || 'Overlay Image'" />
-
 
       <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16">
         <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
@@ -79,13 +78,11 @@ const props = defineProps({
           <!-- Mobile-only right image placed below content -->
           <CustomImage v-if="rightImage" class="block lg:hidden mt-6 w-full max-w-xs mx-auto" :src="rightImage"
             :alt="altText || 'Overlay Image'" />
-
         </div>
       </div>
     </section>
   </div>
 </template>
-
 
 <style scoped>
 .hero-image {
@@ -110,6 +107,19 @@ const props = defineProps({
   object-fit: contain;
   z-index: 2;
   pointer-events: none;
+}
+
+/* Mobile rotated background image */
+.mobile-bg-rotated {  
+  width: 100vh;  /* Use viewport height for width */
+  height: 100vw; /* Use viewport width for height */
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
