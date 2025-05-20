@@ -47,7 +47,7 @@
       <a :href="item.button.link" :target="item.button.target ?? '_self'" class="mt-auto">
         <button
           :class="item.button.class"
-          class="mt-4 w-full py-2 rounded-lg text-sm cursor-pointer"
+          class="mt-4 w-full py-2 rounded-md text-sm cursor-pointer"
         >
           {{ item.button.text }}
         </button>

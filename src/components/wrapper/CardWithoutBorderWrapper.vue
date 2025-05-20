@@ -9,7 +9,7 @@
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div v-for="(feature, index) in features" :key="index" class="text-center">
+        <div v-for="(feature, index) in features" :key="index">
           <Cards :title="feature.title" :description="feature.description" :icon="feature.icon"
             :theme="feature.iconColor" align="center" :headingLevel="headingLevel" />
         </div>

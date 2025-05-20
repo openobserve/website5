@@ -50,6 +50,7 @@ const props = defineProps<{
           :theme="card.theme"
           :items="card.items"
           :align="props.align"
+          class="bg-white"
         />
       </div>
       <div

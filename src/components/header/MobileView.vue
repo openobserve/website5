@@ -10,7 +10,7 @@
             href="https://cloud.openobserve.ai"
             class="text-black text-xs"
             target="_blank"
-            >LOG IN</a
+            >Log In</a
           >
           <GithubButton
             href="https://github.com/openobserve/openobserve"
@@ -105,7 +105,7 @@
               variant="primary"
               size="large"
               buttonLink="/demo"
-              >GET DEMO</CustomButton
+              >Get Demo</CustomButton
             >
           </div>
         </div>
@@ -157,11 +157,9 @@
                   :key="index"
                   class="text-gray-600 text-base"
                 >
-                  <a
-                    class="block hover:text-primary-blue"
-                    :href="`/platform/${item.link}`"
-                    >{{ item.title }}</a
-                  >
+                  <a class="block hover:text-black" :href="`/${item.link}`">{{
+                    item.title
+                  }}</a>
                 </li>
               </ul>
             </div>
@@ -184,8 +182,8 @@
                       class="text-gray-600 text-base"
                     >
                       <a
-                        :href="`/solutions/${item.link}`"
-                        class="block hover:text-primary-blue"
+                        :href="`/${item.link}`"
+                        class="block hover:text-black"
                         >{{ item.title }}</a
                       >
                     </li>
@@ -211,7 +209,7 @@
                     >
                       <a
                         :href="item.link"
-                        class="block hover:text-primary-blue"
+                        class="block hover:text-black"
                         :target="item.target"
                         >{{ item.title }}</a
                       >

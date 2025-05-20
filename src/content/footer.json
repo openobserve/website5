@@ -15,32 +15,32 @@
           {
             "id": 1,
             "text": "Logs",
-            "link": "/platform/logs"
+            "link": "/logs"
           },
           {
             "id": 2,
             "text": "Metrics",
-            "link": "/platform/metrics"
+            "link": "/metrics"
           },
           {
             "id": 3,
             "text": "Traces",
-            "link": "/platform/traces"
+            "link": "/traces"
           },
           {
             "id": 4,
             "text": "Frontend Monitoring",
-            "link": "/platform/frontend-monitoring"
+            "link": "/frontend-monitoring"
           },
           {
             "id": 5,
             "text": "Pipelines",
-            "link": "/platform/pipelines"
+            "link": "/pipelines"
           },
           {
             "id": 6,
             "text": "Alerts",
-            "link": "/platform/alerts"
+            "link": "/alerts"
           },
           {
             "id": 7,
@@ -61,32 +61,32 @@
           {
             "id": 8,
             "text": "Azure Monitoring",
-            "link": "/solutions/azure-monitoring"
+            "link": "/azure-monitoring"
           },
           {
             "id": 9,
             "text": "AWS Monitoring",
-            "link": "/solutions/aws-monitoring"
+            "link": "/aws-monitoring"
           },
           {
             "id": 10,
             "text": "GCP Monitoring",
-            "link": "/solutions/gcp-monitoring"
+            "link": "/gcp-monitoring"
           },
           {
             "id": 11,
             "text": "Kubernetes Observability",
-            "link": "/solutions/kubernetes-observability"
+            "link": "/kubernetes-observability"
           },
           {
             "id": 12,
             "text": "Database Monitoring",
-            "link": "/solutions/database-monitoring"
+            "link": "/database-monitoring"
           },
           {
             "id": 13,
             "text": "OpenTelemetry",
-            "link": "/solutions/opentelemetry"
+            "link": "/opentelemetry"
           }
         ]
       },

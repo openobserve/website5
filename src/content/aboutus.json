@@ -46,7 +46,7 @@
         "__component": "section-story.our-partners",
         "id": 5,
         "title": "Our Partners",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "",
         "images": [
           {
             "url": "/img/partners/nexus.png",

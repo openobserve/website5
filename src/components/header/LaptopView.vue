@@ -16,7 +16,7 @@
             <a
               href="/platform"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Platform
             </a>
@@ -29,7 +29,7 @@
             <a
               href="/solutions"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Solutions
             </a>
@@ -42,7 +42,7 @@
             <a
               href="/resources"
               class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'text-primary-blue' : 'bg-transparent'"
+              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
               Resources
             </a>
@@ -50,7 +50,7 @@
           <li class="relative">
             <a
               href="/pricing"
-              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-blue"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
               >Pricing</a
             >
           </li>
@@ -58,7 +58,7 @@
       </nav>
       <div class="flex items-center space-x-2">
         <CustomButton
-        variant="primary"
+          variant="primary"
           size="small"
           buttonLink="/demo"
           class="transition-opacity duration-500 ease-in-out"
@@ -68,7 +68,7 @@
               : 'opacity-0 pointer-events-none'
           "
         >
-          GET DEMO
+          Get Demo
         </CustomButton>
         <CustomButton
           variant="secondary"
@@ -77,7 +77,7 @@
           target="_blank"
           class="border !border-gray-200"
         >
-          LOG IN
+          Log In
         </CustomButton>
         <GithubButton
           href="https://github.com/openobserve/openobserve"
@@ -110,8 +110,8 @@
                 class="text-gray-600 text-sm"
               >
                 <a
-                  :href="`/platform/${item.link}`"
-                  class="w-full block hover:text-primary-blue"
+                  :href="`/${item.link}`"
+                  class="w-full block hover:text-black"
                   >{{ item.title }}</a
                 >
               </li>
@@ -138,8 +138,8 @@
                     class="text-gray-600 text-sm"
                   >
                     <a
-                      :href="`/solutions/${item.link}`"
-                      class="w-full block hover:text-primary-blue"
+                      :href="`/${item.link}`"
+                      class="w-full block hover:text-black"
                       >{{ item.title }}</a
                     >
                   </li>
@@ -167,7 +167,7 @@
                 >
                   <a
                     :href="item.link"
-                    class="w-full block hover:text-primary-blue"
+                    class="w-full block hover:text-black"
                     :target="item.target"
                     >{{ item.title }}</a
                   >

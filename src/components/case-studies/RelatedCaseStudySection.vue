@@ -1,102 +1,108 @@
 <template>
-    <div class="bg-gray-50">
-  <CustomSection>
-    <div class="">
-      <HeadingSection
-        :title="sectionData.title"
-        description=""
-        align="LEFT"
-        class="!mb-12"
-      />
-    </div>
-    <div class="flex flex-row justify-between items-center w-full my-6">
-      <div class="flex space-x-2">
-        <!-- Prev Button -->
-        <button
-          @click="scrollLeft"
-          :disabled="isAtStart"
-          class="p-2 rounded-lg border cursor-pointer"
-          :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
-        >
-          <span class="sr-only"> Previous </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-
-        <!-- Next Button -->
-        <button
-          @click="scrollRight"
-          :disabled="isAtEnd"
-          class="p-2 rounded-lg border cursor-pointer"
-          :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
-        >
-          <span class="sr-only"> Next </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      </div>
+  <div class="bg-gray-50">
+    <CustomSection>
       <div class="">
-        <a
-          :href="sectionData.button.link"
-          class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
-        >
-          {{ sectionData.button.text }}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </a>
+        <HeadingSection
+          :title="sectionData.title"
+          description=""
+          align="LEFT"
+          class="!mb-12"
+        />
       </div>
-    </div>
-    <div class="overflow-hidden relative">
-      <div
-        ref="scrollContainer"
-        class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
-      >
-        <div
-          v-for="(post, index) in data"
-          :key="post.id"
-          class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
-        >
-          <CaseStudyCard :key="index" :item="post" />
+      <div class="flex flex-row justify-between items-center w-full my-6">
+        <div class="flex space-x-2">
+          <!-- Prev Button -->
+          <button
+            @click="scrollLeft"
+            :disabled="isAtStart"
+            class="p-2 rounded-lg border cursor-pointer"
+            :class="{
+              'opacity-50 cursor-not-allowed': isAtStart,
+              'cursor-pointer': !isAtStart,
+            }"
+          >
+            <span class="sr-only"> Previous </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <!-- Next Button -->
+          <button
+            @click="scrollRight"
+            :disabled="isAtEnd"
+            class="p-2 rounded-lg border"
+            :class="{
+              'opacity-50 cursor-not-allowed': isAtEnd,
+              'cursor-pointer': !isAtEnd,
+            }"
+          >
+            <span class="sr-only"> Next </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="">
+          <a
+            :href="sectionData.button.link"
+            class="text-indigo-400 hover:text-indigo-300 text-sm font-medium inline-flex items-center group"
+          >
+            {{ sectionData.button.text }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
         </div>
       </div>
-    </div>
-  </CustomSection>
+      <div class="overflow-hidden relative">
+        <div
+          ref="scrollContainer"
+          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
+        >
+          <div
+            v-for="(post, index) in data"
+            :key="post.id"
+            class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
+          >
+            <CaseStudyCard :key="index" :item="post" />
+          </div>
+        </div>
+      </div>
+    </CustomSection>
   </div>
 </template>
 

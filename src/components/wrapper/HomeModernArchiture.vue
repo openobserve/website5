@@ -51,7 +51,7 @@ defineProps<{
         :icon="card.icon"
         :theme="card.theme"
         
-        class="grid-item"
+        class="grid-item bg-white"
       />
     </div>
   </CustomSection>

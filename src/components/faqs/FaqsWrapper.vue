@@ -5,7 +5,7 @@
       <HeadingSection :title="title" :description="description" align="CENTER" v-if="title || description" />
       <!-- Add SearchBar component here -->
       <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab" @update:activeTab="updateActiveTab"
-        gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2" />
+        gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2 mt-5" />
       <SearchBar @search="handleSearch" />
 
       <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions" />
