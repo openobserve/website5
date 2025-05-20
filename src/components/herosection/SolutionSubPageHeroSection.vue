@@ -3,10 +3,7 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
-  pageTag: {
-    type: String,
-    required: false,
-  },
+  pageTag: String,
   title: {
     type: String,
     required: true,
@@ -19,109 +16,75 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  rightImage: {
-    type: String,
-    required: false,
-  },
-  altText: {
-    type: String,
-    required: false,
-  },
+  rightImage: String,
+  altText: String,
   primaryButton: {
     type: Object,
     required: true,
   },
-  secondaryButton: {
-    type: Object,
-    required: false,
-  },
-  mobileBgImage: {
-    type: String,
-    required: false,
-  },
-  mobileRightImage: {
-    type: String,
-    required: false,
-  },
+  secondaryButton: Object,
+  mobileBgImage: String,
+  mobileRightImage: String,
 });
 </script>
 
 <template>
-  <div class="w-full hero-image">
-    <!-- Desktop background image (hidden on mobile) -->
-    <div v-if="bgImage" class="hidden md:block absolute inset-0 bg-cover bg-center"
-      :style="{ backgroundImage: `url(${bgImage})` }"></div>
+  <div
+    class="w-full bg-no-repeat"
+    :style="{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+  >
+    <!-- Mobile background override -->
+    <div
+      v-if="mobileBgImage"
+      class="md:hidden w-full h-full  inset-0 z-[-1]"
+      :style="{ backgroundImage: `url(${mobileBgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+    ></div>
 
-    <!-- Mobile background image (hidden on desktop) -->
-    <div v-if="mobileBgImage" class="md:hidden absolute inset-0 bg-cover bg-center"
-      :style="{ backgroundImage: `url(${mobileBgImage})` }"></div>
-
-    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative flex flex-col h-full">
-      <!-- Right image for desktop (overlayed) -->
-      <CustomImage v-if="rightImage" class="right-overlay-image hidden lg:block" :src="rightImage"
-        :alt="altText || 'Overlay Image'" />
-
-      <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16 flex-1">
-        <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">            
-          <h1 class="text-3xl lg:text-5xl font-bold text-black">
-            {{ title }}
-          </h1>
-          <p class="text-black text-base md:text-xl">
-            {{ description }}
-          </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
-              :buttonLink="primaryButton.link" />
-          </div>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex flex-col md:flex-row items-center">
+      <!-- Left Content -->
+      <div class="w-full md:w-1/2 space-y-5 text-center md:text-left flex flex-col items-center md:items-start">
+        <h1 class="text-3xl lg:text-5xl font-bold text-black">
+          {{ title }}
+        </h1>
+        <p class="text-black text-base md:text-xl">
+          {{ description }}
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <CustomButton
+            :variant="primaryButton.variant"
+            size="medium"
+            :buttonText="primaryButton.text"
+            :buttonLink="primaryButton.link"
+          />
+          <CustomButton
+            v-if="secondaryButton"
+            :variant="secondaryButton.variant"
+            size="medium"
+            :buttonText="secondaryButton.text"
+            :buttonLink="secondaryButton.link"
+          />
         </div>
       </div>
 
-      <!-- Mobile-only right image placed at bottom -->
-      <div v-if="mobileRightImage" class="md:hidden w-full mt-auto self-end">
-        <CustomImage class="w-full" :src="mobileRightImage" :alt="altText || 'Overlay Image'" />
+      <!-- Right Image -->
+      <div class="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end">
+        <CustomImage
+          v-if="rightImage"
+          class="max-w-full h-auto object-contain"
+          :src="rightImage"
+          :alt="altText || 'Overlay Image'"
+        />
+        <CustomImage
+          v-else-if="mobileRightImage"
+          class="block md:hidden max-w-full h-auto object-contain"
+          :src="mobileRightImage"
+          :alt="altText || 'Overlay Image'"
+        />
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.hero-image {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 500px;
-  /* Adjust as needed */
-}
-
-/* Right side overlay image */
-.right-overlay-image {
-  position: absolute;
-  right: 0;
-  top: 45%;
-  transform: translateY(-50%);
-  height: 100%;
-  max-width: 50%;
-  object-fit: contain;
-  z-index: 2;
-  pointer-events: none;
-}
-
-@media (max-width: 768px) {
-  .hero-image {
-    min-height: 100vh;
-    align-items: flex-start;
-  }
-
-  section {
-    min-height: 100vh;
-    padding-bottom: 0;
-  }
-
-  .container {
-    height: 100%;
-  }
-}
+/* Optional: Additional styles can be added here */
 </style>
