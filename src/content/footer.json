@@ -46,6 +46,11 @@
             "id": 7,
             "text": "Visualizations & Dashboard",
             "link": "/platform/visualization-and-dashboards"
+          },
+          {
+            "id": 8,
+            "text": "View Plans",
+            "link": "/pricing"
           }
         ]
       },
@@ -132,7 +137,7 @@
           },
           {
             "id": 24,
-            "text":"Downloads",
+            "text": "Downloads",
             "link": "/downloads"
           }
         ]

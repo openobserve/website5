@@ -94,13 +94,13 @@ const socialIcon = (name) => {
       <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4">
         <!-- Pricing Section -->
         <div class="w-full md:w-auto">
-          <h2 class="text-white font-medium text-xl mb-4">Pricing</h2>
+          <!-- <h2 class="text-white font-medium text-xl mb-4">Pricing</h2>
           <ul>
             <li>
               <a href="/pricing" class="gradient-hover text-gray-300 font-normal text-base">View Plans
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
 
         <!-- GitHub Stats Section -->
