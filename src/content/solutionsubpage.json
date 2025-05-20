@@ -784,7 +784,7 @@
           "variant": "primary"
         },
         "bgImage": "/img/solution-kubernates/kubernets-2.svg",
-        "rightImage": "/public/img/solution-kubernates/kubernet-3.svg",
+        "rightImage": "/img/solution-kubernates/kubernet-3.svg",
         "mobileImage": "/img/solution-kubernates/kubernets-2.svg",
 
         "altText": "OpenObserve Dashboard"
