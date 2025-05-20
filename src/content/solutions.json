@@ -8,10 +8,11 @@
         "align": "center"
       },
       {
-        "__component": "section-cards.solution-features",
+        "__component": "section-features.benefits",
         "id": 2,
         "title": "",
         "align": "center",
+        "headingLevel": 2,
         "data": [
           {
             "title": "Launch in Minutes, Not Weeks",

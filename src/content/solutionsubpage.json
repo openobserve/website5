@@ -24,28 +24,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why OpenObserve for AWS Monitoring?",
-        "features": [
+        "data": [
           {
             "title": "Deep AWS Observability",
             "description": "Gain deep visibility into the many layers of your AWS environment for faster troubleshooting and proactive issue prevention.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Reduce monitoring costs significantly with efficient data ingestion and storage while maintaining comprehensive AWS observability.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with AWS services using Kinesis Data Firehose and CloudWatch for efficient log and metric collection.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -203,28 +203,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why Use OpenObserve for GCP Monitoring?",
-        "features": [
+        "data": [
           {
             "title": "Deep GCP Observability",
             "description": "Gain deep visibility into the many layers of your GCP environment for faster troubleshooting and proactive issue prevention.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash GCP telemetry storage costs with OpenObserve’s efficient compression and retention.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with the Cloud Logging export to Pub/Sub or OpenTelemetry collector with Terraform support for efficient telemetry collection.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -401,28 +401,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why use OpenObserve for Database Monitoring?",
-        "features": [
+        "data": [
           {
             "title": "Unified Insights",
             "description": "See all your databases in a single pane of glass. Track performance, health metrics, and capacity.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Key Metrics Collection",
             "description": "Capture critical database metrics, from query response times to resource utilization patterns, with minimal overhead.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Proactive Performance Visibility",
             "description": "Spot issues before they impact users with dynamic dashboards and instant alerts that keep your databases performing at their peak.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -592,28 +592,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why Use OpenObserve for Azure Monitoring?",
-        "features": [
+        "data": [
           {
             "title": "Deep Azure Observability",
             "description": "Gain deep visibility into the many layers of your Azure environment for faster troubleshooting and proactive issue prevention.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash Azure telemetry storage costs with OpenObserve’s efficient compression and retention.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": " Almost Too-easy Integration",
             "description": "Effortlessly monitor your Azure services with Azure Monitor Diagnostic Settings and Event Hubs exports.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -790,28 +790,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why use OpenObserve for Kubernetes?",
-        "features": [
+        "data": [
           {
             "title": "Complete Kubernetes Observability",
             "description": "Full visibility into containers, workloads, and infrastructure performance across clusters.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Stand Up In Minutes",
             "description": "Monitor your Kubernetes environment instantly with the OpenObserve Collector. Automatically capture metrics, logs, and traces.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Reduce Kubernetes Costs",
             "description": "Identify Kubernetes inefficiencies and optimize resources for immediate cost savings.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
@@ -979,28 +979,28 @@
         "altText": "OpenObserve Dashboard"
       },
       {
-        "__component": "section-features.paltofrm-sub-benefits",
+        "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
         "title": "Why use OpenObserve for OpenTelemetry?",
-        "features": [
+        "data": [
           {
             "title": "Instant Instrumentation",
             "description": "Deploy production-ready observability in minutes with zero-config scripts that automatically collect your telemetry data.",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
-            "iconColor": "theme-blue"
+            "theme": "theme-blue"
           },
           {
             "title": "Intelligent Data Streaming",
             "description": "Automatically route and transform all telemetry data through a unified OpenTelemetry collector with minimal configuration.",
-            "iconColor": "theme-red",
+            "theme": "theme-red",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           },
           {
             "title": "Complete Observability",
             "description": "Get full-stack observability across your entire infrastructure with minimal configuration or maintenance overhead.",
-            "iconColor": "theme-green",
+            "theme": "theme-green",
             "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
           }
         ]
