@@ -158,8 +158,8 @@
                   class="text-gray-600 text-base"
                 >
                   <a
+                    class="block hover:text-primary-blue"
                     :href="`/platform/${item.link}`"
-                    :class="item.link ? 'gradient-hover' : ''"
                     >{{ item.title }}</a
                   >
                 </li>
@@ -181,11 +181,11 @@
                     <li
                       v-for="(item, index) in items.solutions.useCases"
                       :key="index"
-                      class="text-gray-600 text-base gradient-hover"
+                      class="text-gray-600 text-base"
                     >
                       <a
                         :href="`/solutions/${item.link}`"
-                        :class="item?.link ? 'gradient-hover' : ''"
+                        class="block hover:text-primary-blue"
                         >{{ item.title }}</a
                       >
                     </li>
@@ -204,14 +204,14 @@
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <ul class="flex flex-col space-y-4 text-gray-600 text-sm">
+                  <ul class="flex flex-col space-y-4 text-gray-600 text-base">
                     <li
                       v-for="(item, index) in items.resources.items"
                       :key="index"
                     >
                       <a
                         :href="item.link"
-                        :class="item.link ? 'gradient-hover' : ''"
+                        class="block hover:text-primary-blue"
                         :target="item.target"
                         >{{ item.title }}</a
                       >
