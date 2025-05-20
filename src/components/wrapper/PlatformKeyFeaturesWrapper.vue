@@ -45,7 +45,7 @@ const activeTab = ref("standard");
     <HeadingSection :title="title" :description="description" align="center" />
     <!-- Centered Tabs -->
     <div class="flex justify-center">
-      <div class="inline-flex">
+      <div class="w-full">
         <TabsHeader
           :tabs="tabs"
           :activeTab="activeTab"
