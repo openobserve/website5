@@ -53,9 +53,10 @@ const props = defineProps({
       :style="{ backgroundImage: `url(${mobileImage})` }"></div>
 
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 py-10 relative">
-      <!-- Right side overlay image (hidden on mobile) -->
-      <CustomImage v-if="rightImage" class="right-overlay-image hidden md:block" :src="rightImage"
+      <!-- Right image for desktop (overlayed) -->
+      <CustomImage v-if="rightImage" class="right-overlay-image hidden lg:block" :src="rightImage"
         :alt="altText || 'Overlay Image'" />
+
 
       <div class="flex lg:w-1/2 flex-col lg:flex-row items-center gap-6 relative py-16">
         <div class="w-full flex-1 mx-auto flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
@@ -74,11 +75,17 @@ const props = defineProps({
             <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
               :buttonLink="primaryButton.link" />
           </div>
+
+          <!-- Mobile-only right image placed below content -->
+          <CustomImage v-if="rightImage" class="block lg:hidden mt-6 w-full max-w-xs mx-auto" :src="rightImage"
+            :alt="altText || 'Overlay Image'" />
+
         </div>
       </div>
     </section>
   </div>
 </template>
+
 
 <style scoped>
 .hero-image {
