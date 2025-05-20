@@ -293,7 +293,7 @@ onMounted(() => {
           <template>
             <div
               v-html="htmlContent"
-              class="prose prose-md prose-invert prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600 [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:theme(colors.black)] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-sm md:text-md lg:text-lg"
+              class="prose prose-lg prose-invert prose-pre:bg-gray-900 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-[#364153] [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-base lg:text-lg"
             ></div>
           </template>
         </div>
