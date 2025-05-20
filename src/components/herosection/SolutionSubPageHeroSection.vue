@@ -29,16 +29,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <div
-    class="w-full bg-no-repeat"
-    :style="{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
-  >
+  <div class="w-full bg-no-repeat pt-10 pb-10 md:pt-0 md:pb-0"
+    :style="{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
+
     <!-- Mobile background override -->
-    <div
-      v-if="mobileBgImage"
-      class="md:hidden w-full h-full  inset-0 z-[-1]"
-      :style="{ backgroundImage: `url(${mobileBgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
-    ></div>
+    <div v-if="mobileBgImage" class="md:hidden w-full h-full  inset-0 z-[-1]"
+      :style="{ backgroundImage: `url(${mobileBgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
+    </div>
 
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 flex flex-col md:flex-row items-center">
       <!-- Left Content -->
@@ -50,36 +47,22 @@ const props = defineProps({
           {{ description }}
         </p>
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-          <CustomButton
-            :variant="primaryButton.variant"
-            size="medium"
-            :buttonText="primaryButton.text"
-            :buttonLink="primaryButton.link"
-          />
-          <CustomButton
-            v-if="secondaryButton"
-            :variant="secondaryButton.variant"
-            size="medium"
-            :buttonText="secondaryButton.text"
-            :buttonLink="secondaryButton.link"
-          />
+          <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
+            :buttonLink="primaryButton.link" />
+          <CustomButton v-if="secondaryButton" :variant="secondaryButton.variant" size="medium"
+            :buttonText="secondaryButton.text" :buttonLink="secondaryButton.link" />
         </div>
       </div>
 
       <!-- Right Image -->
       <div class="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end">
-        <CustomImage
-          v-if="rightImage"
-          class="max-w-full h-auto object-contain"
-          :src="rightImage"
-          :alt="altText || 'Overlay Image'"
-        />
-        <CustomImage
-          v-else-if="mobileRightImage"
-          class="block md:hidden max-w-full h-auto object-contain"
-          :src="mobileRightImage"
-          :alt="altText || 'Overlay Image'"
-        />
+        <!-- Desktop/laptop image (hidden on mobile) -->
+        <CustomImage v-if="rightImage" class="hidden md:block max-w-full h-auto object-contain" :src="rightImage"
+          :alt="altText || 'Overlay Image'" />
+
+        <!-- Mobile/tablet image (hidden on desktop) -->
+        <CustomImage v-if="mobileRightImage" class="block md:hidden max-w-full h-auto object-contain opacity-80"
+          :src="mobileRightImage" :alt="altText || 'Overlay Image'" />
       </div>
     </section>
   </div>
