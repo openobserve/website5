@@ -10,7 +10,7 @@
             href="https://cloud.openobserve.ai"
             class="text-black text-xs"
             target="_blank"
-            >LOG IN</a
+            >Log In</a
           >
           <GithubButton
             href="https://github.com/openobserve/openobserve"
@@ -105,7 +105,7 @@
               variant="primary"
               size="large"
               buttonLink="/demo"
-              >GET DEMO</CustomButton
+              >Get Demo</CustomButton
             >
           </div>
         </div>

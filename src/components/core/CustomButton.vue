@@ -80,7 +80,7 @@ const variants = {
 };
 
 const containerClass =
-  "flex uppercase text-nowrap text-center justify-center items-center";
+  "flex capitalize text-nowrap text-center justify-center items-center";
 
 const buttonVariant = variants[props.variant];
 

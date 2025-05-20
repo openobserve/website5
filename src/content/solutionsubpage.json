@@ -117,19 +117,19 @@
         "items": [
           {
             "question": "How does OpenObserve collect AWS logs and metrics?",
-            "answer": "OpenObserve offers multiple ingestion methods:<br><ul><li>Kinesis Data Firehose for log delivery from various AWS services</li><li>Direct CloudWatch integration for metrics</li><li>AWS Lambda function logs through Kinesis Firehose</li><li>Custom metrics via API endpoints</li><li>All AWS services can send their logs via S3 to Openobserve</li><li>Refer to our detailed setup guides here</li></ul>"
+            "answer": "OpenObserve offers multiple ingestion methods:<br><ul><li>Kinesis Data Firehose for log delivery from various AWS services</li><li>Direct CloudWatch integration for metrics</li><li>AWS Lambda function logs through Kinesis Firehose</li><li>Custom metrics via API endpoints</li><li>All AWS services can send their logs via S3 to Openobserve</li></ul>Refer to our detailed setup guides <a href='https://openobserve.ai/blog/tag/aws' target='_blank'>here</a>"
           },
           {
             "question": "Which AWS services can I monitor with OpenObserve?",
-            "answer": "OpenObserve supports monitoring for all AWS services, including but not limited to:<br><ul><li>CloudWatch Logs and Metrics</li><li>CloudTrail Logs for API activity</li><li>VPC Flow Logs for network monitoring</li><li>RDS Logs and Performance Metrics</li><li>Lambda Function Logs and Metrics</li><li>API Gateway Access Logs</li><li>Route 53 Query Logs</li><li>Application Load Balancer Logs</li><li>S3 Access Logs</li><li>WAF Logs</li><li>Refer to our detailed setup guides here</li></ul>"
+            "answer": "OpenObserve supports monitoring for all AWS services, including but not limited to:<br><ul><li>CloudWatch Logs and Metrics</li><li>CloudTrail Logs for API activity</li><li>VPC Flow Logs for network monitoring</li><li>RDS Logs and Performance Metrics</li><li>Lambda Function Logs and Metrics</li><li>API Gateway Access Logs</li><li>Route 53 Query Logs</li><li>Application Load Balancer Logs</li><li>S3 Access Logs</li><li>WAF Logs</li></ul>Refer to our detailed setup guides <a href='https://openobserve.ai/blog/tag/aws' target='_blank'>here</a>"
           },
           {
             "question": "What's the typical setup process for AWS monitoring?",
-            "answer": "The setup process varies by data source. For example, you may implement the following at a high level:<br><br>Via Kinesis Data Firehose:<br><ol><li>Create a Firehose delivery stream</li><li>Configure source AWS service to send logs to Firehose</li><li>Set up IAM roles and permissions</li><li>Configure OpenObserve endpoint in Firehose</li></ol><br><br>For CloudWatch Metrics:<br><ol><li>Configure CloudWatch integration</li><li>Set up necessary IAM permissions</li><li>Select metrics to collect</li><li>Configure collection frequency</li><li>Refer to our detailed setup guides here</li></ol>"
+            "answer": "The setup process varies by data source. For example, you may implement the following at a high level:<br><br>Via Kinesis Data Firehose:<br><ol><li>Create a Firehose delivery stream</li><li>Configure source AWS service to send logs to Firehose</li><li>Set up IAM roles and permissions</li><li>Configure OpenObserve endpoint in Firehose</li></ol>For CloudWatch Metrics:<br><ol><li>Configure CloudWatch integration</li><li>Set up necessary IAM permissions</li><li>Select metrics to collect</li><li>Configure collection frequency</li></ol>Refer to our detailed setup guides <a href='https://openobserve.ai/blog/tag/aws' target='_blank'>here</a>"
           },
           {
             "question": "How does OpenObserve handle AWS log parsing?",
-            "answer": "OpenObserve provides enrich, parse, reduce, redact & aggregate capabilities:<br><ul><li>Automatic parsing for common AWS log formats. e.g. VPC flow logs</li><li>Vector Remap Language (VRL) and SQL for custom log parsing and analysis</li><li>JSON and structured log support</li><li>Field extraction, transformation capabilities</li><li>Support for multiple timestamp formats</li></ul>"
+            "answer": "OpenObserve provides enrich, parse, reduce, redact & aggregate capabilities:<br><ul><li>Automatic parsing for common AWS log formats. e.g. <a href='https://short.openobserve.ai/aws/vpc-flow-logs'>VPC flow logs</a></li><li>Vector Remap Language (VRL) and SQL for custom log parsing and analysis</li><li>JSON and structured log support</li><li>Field extraction, transformation capabilities</li><li>Support for multiple timestamp formats</li></ul>"
           },
           {
             "question": "What query capabilities are available for AWS data?",
@@ -517,11 +517,11 @@
           },
           {
             "question": "How do I get started with database monitoring?",
-            "answer": "To start monitoring your databases with OpenObserve, consider the following::\n* Identify the components you need to monitor (network, server, application)\n* Determine the metrics you need to collect and analyze\n* Consider the level of support and scalability required\n* Analyze and troubleshoot issues with ease using our intuitive and scalable platform."
+            "answer": "To start monitoring your databases with OpenObserve, consider the following::<br/><ul><li> Identify the components you need to monitor (network, server, application)</li><li>Determine the metrics you need to collect and analyze</li><li>Consider the level of support and scalability required</li><li>Analyze and troubleshoot issues with ease using our intuitive and scalable platform.</li></ul>"
           },
           {
             "question": "What databases can I monitor with OpenObserve?",
-            "answer": "OpenObserve supports monitoring both on-premises databases and Managed databases on AWS, Azure & more cloud providers. Refer to our detailed guides:\n\n* [SQL Server](https://short.openobserve.ai/database/sql-server)\n* [Postgres](https://short.openobserve.ai/database/postgres)\n* [MongoDB](https://short.openobserve.ai/database/mongodb) \n* [Redis](https://short.openobserve.ai/database/redis)\n* [MySQL](https://short.openobserve.ai/database/mysql)\n* [Snowflake](https://short.openobserve.ai/database/snowflake)\n* [Zookeeper](https://short.openobserve.ai/database/zookeeper)\n* [Cassandra](https://short.openobserve.ai/database/cassandra)\n* [Aerospike](https://short.openobserve.ai/database/aerospike)\n* [DynamoDB](https://short.openobserve.ai/database/dynamodb)"
+            "answer": "OpenObserve supports monitoring both on-premises databases and Managed databases on AWS, Azure & more cloud providers. Refer to our detailed guides:<br><ul><li><a href=\"https://short.openobserve.ai/database/sql-server\" target=\"_blank\">SQL Server</a></li><li><a href=\"https://short.openobserve.ai/database/postgres\" target=\"_blank\">Postgres</a></li><li><a href=\"https://short.openobserve.ai/database/mongodb\" target=\"_blank\">MongoDB</a></li><li><a href=\"https://short.openobserve.ai/database/redis\" target=\"_blank\">Redis</a></li><li><a href=\"https://short.openobserve.ai/database/mysql\" target=\"_blank\">MySQL</a></li><li><a href=\"https://short.openobserve.ai/database/snowflake\" target=\"_blank\">Snowflake</a></li><li><a href=\"https://short.openobserve.ai/database/zookeeper\" target=\"_blank\">Zookeeper</a></li><li><a href=\"https://short.openobserve.ai/database/cassandra\" target=\"_blank\">Cassandra</a></li><li><a href=\"https://short.openobserve.ai/database/aerospike\" target=\"_blank\">Aerospike</a></li><li><a href=\"https://short.openobserve.ai/database/dynamodb\" target=\"_blank\">DynamoDB</a></li></ul>"
           }
         ]
       },
@@ -703,15 +703,15 @@
         "items": [
           {
             "question": "How does OpenObserve collect Azure logs and metrics?",
-            "answer": "OpenObserve offers multiple ingestion methods:<br/><ul><li>Azure Event Hub for log delivery from various Azure services</li><li>Azure Monitor Diagnostic Settings for metrics and logs</li><li>Azure Functions logs and metrics through Diagnostic Settings</li><li>Custom metrics via API endpoints</li></ul>"
+            "answer": "OpenObserve offers multiple ingestion methods:<br/><ol><li>Azure Event Hub for log delivery from various Azure services</li><li>Azure Monitor Diagnostic Settings for metrics and logs</li><li>Azure Functions logs and metrics through Diagnostic Settings</li><li>Custom metrics via API endpoints</li></ol>"
           },
           {
             "question": "Which Azure services can I monitor with OpenObserve?",
-            "answer": "OpenObserve supports monitoring for key Azure services, including but not limited to:<br/><ul><li>Azure Monitor Logs and Metrics</li><li>Azure Activity Log for subscription-level activity</li><li>NSG Flow Logs for network monitoring</li><li>Azure SQL Database Logs and Performance Metrics</li><li>Azure Functions Logs and Metrics</li><li>Azure API Management Access Logs</li><li>Azure DNS Query Logs</li><li>Azure Application Gateway Logs</li><li>Azure Storage Access Logs</li><li>Azure WAF Logs</li><li>Azure Front Door WAF</li></ul>"
+            "answer": "OpenObserve supports monitoring for key Azure services, including but not limited to:<br/><ol><li>Azure Monitor Logs and Metrics</li><li>Azure Activity Log for subscription-level activity</li><li>NSG Flow Logs for network monitoring</li><li>Azure SQL Database Logs and Performance Metrics</li><li>Azure Functions Logs and Metrics</li><li>Azure API Management Access Logs</li><li>Azure DNS Query Logs</li><li>Azure Application Gateway Logs</li><li>Azure Storage Access Logs</li><li>Azure WAF Logs</li><li>Azure Front Door WAF</li></ol>"
           },
           {
             "question": "What’s the typical setup process for Azure monitoring?",
-            "answer": "The setup process varies by data source. For example, you may implement the following at a high level: <br/> For Event Hubs: <br/><ol><li>Create an Event Hub namespace and event hub</li><li>Configure source Azure service to send logs to Event Hubs via Diagnostic Settings</li><li>Set up roles and permissions</li><li>Configure the OpenObserve endpoint to receive data from Event Hubs</li></ol> For Azure Monitor Metrics:<br/><ol><li>Configure Diagnostic Settings in Azure Monitor</li><li>Set up necessary permissions</li><li>Select metrics and logs to collect</li><li>Configure collection frequency</li></ol>"
+            "answer": "The setup process varies by data source. For example, you may implement the following at a high level: <br/> For Event Hubs: <br/><ul><li>Create an Event Hub namespace and event hub</li><li>Configure source Azure service to send logs to Event Hubs via Diagnostic Settings</li><li>Set up roles and permissions</li><li>Configure the OpenObserve endpoint to receive data from Event Hubs</li></ul> For Azure Monitor Metrics:<br/><ul><li>Configure Diagnostic Settings in Azure Monitor</li><li>Set up necessary permissions</li><li>Select metrics and logs to collect</li><li>Configure collection frequency</li></ul>"
           },
           {
             "question": "How does OpenObserve handle Azure log parsing?",
@@ -905,11 +905,11 @@
           },
           {
             "question": "How does OpenObserve simplify Kubernetes observability?",
-            "answer": "OpenObserve simplifies Kubernetes observability by providing a unified platform for monitoring and troubleshooting Kubernetes applications. With OpenObserve, you can:<br/><br/><ul><li>Collect metrics, logs, and traces from your Kubernetes cluster with minimal configuration and overhead.</li><li>Visualize performance and health metrics in real-time through customizable dashboards.</li><li>Receive proactive alerts and notifications for potential issues and security threats.</li><li>Analyze and troubleshoot issues with ease using our intuitive and scalable platform.</li></ul>"
+            "answer": "OpenObserve simplifies Kubernetes observability by providing a unified platform for monitoring and troubleshooting Kubernetes applications. With OpenObserve, you can:<br/><ul><li>Collect metrics, logs, and traces from your Kubernetes cluster with minimal configuration and overhead.</li><li>Visualize performance and health metrics in real-time through customizable dashboards.</li><li>Receive proactive alerts and notifications for potential issues and security threats.</li><li>Analyze and troubleshoot issues with ease using our intuitive and scalable platform.</li></ul>"
           },
           {
             "question": "What are the key features of the OpenObserve Collector?",
-            "answer": "The OpenObserve Collector is a preconfigured OpenTelemetry (OTel) Collector that follows best practices to capture all signals from your Kubernetes environment. The key features include:<br/><br/><ul><li>Metrics Collection: Gather metrics from your Kubernetes cluster, including CPU, memory, and disk usage.</li><li>Event Gathering: Capture events occurring within the cluster, facilitating real-time monitoring and alerting. e.g. which pods got evicted.</li><li>Log Aggregation: Collect logs from all pods, aiding troubleshooting and analysis.</li><li>Automatic Trace Capture: Enable tracing without requiring manual instrumentation of applications, using OpenTelemetry's auto-instrumentation capabilities.</li></ul>"
+            "answer": "The OpenObserve Collector is a preconfigured OpenTelemetry (OTel) Collector that follows best practices to capture all signals from your Kubernetes environment. The key features include:<br/><ul><li>Metrics Collection: Gather metrics from your Kubernetes cluster, including CPU, memory, and disk usage.</li><li>Event Gathering: Capture events occurring within the cluster, facilitating real-time monitoring and alerting. e.g. which pods got evicted.</li><li>Log Aggregation: Collect logs from all pods, aiding troubleshooting and analysis.</li><li>Automatic Trace Capture: Enable tracing without requiring manual instrumentation of applications, using OpenTelemetry's auto-instrumentation capabilities.</li></ul>"
           }
         ]
       },
