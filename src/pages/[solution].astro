@@ -7,7 +7,7 @@ import { getAllBlogs } from "@/utils/api/blog";
 export async function getStaticPaths() {
   return data.map((item: any) => {
     return {
-      params: { slug: item.slug },
+      params: { solution: item.slug },
       props: { pageData: item },
     };
   });

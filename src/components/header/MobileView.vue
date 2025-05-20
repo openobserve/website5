@@ -143,7 +143,7 @@
                 <CustomHeaderButton
                   title="Full Stack Observability Platform"
                   linkTitle="View Platform"
-                  link="/platform"
+                  link=""
                 />
               </div>
               <div class="flex justify-start">
@@ -157,11 +157,9 @@
                   :key="index"
                   class="text-gray-600 text-base"
                 >
-                  <a
-                    class="block hover:text-black"
-                    :href="`/platform/${item.link}`"
-                    >{{ item.title }}</a
-                  >
+                  <a class="block hover:text-black" :href="`/${item.link}`">{{
+                    item.title
+                  }}</a>
                 </li>
               </ul>
             </div>
@@ -172,7 +170,7 @@
               <CustomHeaderButton
                 title="Full Stack Observability Solutions"
                 linkTitle="View Solutions"
-                link="/solutions"
+                link=""
               />
               <div class="flex flex-col space-y-3">
                 <h4 class="text-black text-lg font-semibold">Use Case</h4>
@@ -184,7 +182,7 @@
                       class="text-gray-600 text-base"
                     >
                       <a
-                        :href="`/solutions/${item.link}`"
+                        :href="`/${item.link}`"
                         class="block hover:text-black"
                         >{{ item.title }}</a
                       >

@@ -1,5 +1,5 @@
 ---
-// src/pages/platform/[slug].astro
+// src/pages/[slug].astro
 import Layout from "@/layouts/Layout.astro";
 import data from "@/content/platformsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
@@ -8,7 +8,7 @@ import { getAllBlogs } from "@/utils/api/blog";
 export async function getStaticPaths() {
   return data.map((item: any) => {
     return {
-      params: { slug: item.slug },
+      params: { platform: item.slug },
       props: { pageData: item },
     };
   });

@@ -14,7 +14,7 @@
             @mouseleave="onPlatformMenuMouseLeave"
           >
             <a
-              href="/platform"
+              href=""
               class="px-3 py-2 rounded-lg transition-all"
               :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
@@ -27,7 +27,7 @@
             @mouseleave="onSolutionMenuMouseLeave"
           >
             <a
-              href="/solutions"
+              href=""
               class="px-3 py-2 rounded-lg transition-all"
               :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
             >
@@ -58,7 +58,7 @@
       </nav>
       <div class="flex items-center space-x-2">
         <CustomButton
-        variant="primary"
+          variant="primary"
           size="small"
           buttonLink="/demo"
           class="transition-opacity duration-500 ease-in-out"
@@ -110,7 +110,7 @@
                 class="text-gray-600 text-sm"
               >
                 <a
-                  :href="`/platform/${item.link}`"
+                  :href="`/${item.link}`"
                   class="w-full block hover:text-black"
                   >{{ item.title }}</a
                 >
@@ -138,7 +138,7 @@
                     class="text-gray-600 text-sm"
                   >
                     <a
-                      :href="`/solutions/${item.link}`"
+                      :href="`/${item.link}`"
                       class="w-full block hover:text-black"
                       >{{ item.title }}</a
                     >
