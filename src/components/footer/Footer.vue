@@ -49,7 +49,7 @@ const socialIcon = (name) => {
 };
 </script>
 <template>
-  <footer class="relative bg-[#14181B] w-full">
+  <footer class="relative bg-primary-black w-full">
     <!-- SVG Background -->
     <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1221 684" fill="none">
       <g filter="url(#filter0_f_1434_1855)">
@@ -75,31 +75,15 @@ const socialIcon = (name) => {
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 mt-12">
         <!-- First loop (show first 4 items) -->
         <div v-for="section in firstSections" :key="section.title" class="min-w-0">
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
+          <h2 class="text-white font-medium text-xl mb-4">
             {{ section.title }}
           </h2>
 
           <ul class="space-y-2">
             <li v-for="item in section.items" :key="item.text">
               <a :href="item.link" :target="item.target"
-                class="gradient-hover text-[#BEC0C2] text-base transition duration-300">
+                class="gradient-hover text-gray-300 text-base transition duration-300">
                 <!-- <TextGradient textGradientColor="" /> -->
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Second loop (show last item separately) -->
-        <div v-if="lastSection" class="min-w-0">
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">
-            {{ lastSection.title }}
-          </h2>
-
-          <ul class="space-y-2">
-            <li v-for="item in lastSection.items" :key="item.text">
-              <a :href="item.link" target="_blank" rel="noopener noreferrer"
-                class="gradient-hover text-[#BEC0C2] text-base transition duration-300">
                 {{ item.text }}
               </a>
             </li>
@@ -110,10 +94,10 @@ const socialIcon = (name) => {
       <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-5 gap-4">
         <!-- Pricing Section -->
         <div class="w-full md:w-auto">
-          <h2 class="text-[#929A9E] font-medium text-xl mb-4">Pricing</h2>
+          <h2 class="text-white font-medium text-xl mb-4">Pricing</h2>
           <ul>
             <li>
-              <a href="/pricing" class="gradient-hover text-[#BEC0C2] font-normal text-base">View Plans
+              <a href="/pricing" class="gradient-hover text-gray-300 font-normal text-base">View Plans
               </a>
             </li>
           </ul>
