@@ -117,15 +117,6 @@
               </li>
             </ul>
           </div>
-          <div class="flex flex-row gap-2 mt-6 w-full">
-            <div class="w-full">
-              <CustomHeaderButton
-                title="Full Stack Observability Platform"
-                linkTitle="View Platform"
-                link="/platform"
-              />
-            </div>
-          </div>
         </div>
       </CustomHoverHeader>
     </div>
@@ -156,15 +147,6 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center">
-            <div class="w-full">
-              <CustomHeaderButton
-                title="Full Stack Observability Solutions"
-                linkTitle="View Solutions"
-                link="/solutions"
-              />
-            </div>
-          </div>
         </div>
       </CustomHoverHeader>
     </div>
@@ -187,15 +169,6 @@
                   >
                 </li>
               </ul>
-            </div>
-          </div>
-          <div class="flex justify-center">
-            <div class="w-full">
-              <CustomHeaderButton
-                title="Check out our resource library"
-                linkTitle="View Resources"
-                link="/resources"
-              />
             </div>
           </div>
         </div>
@@ -312,7 +285,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-    handleScroll();
+  handleScroll();
   window.addEventListener("scroll", handleScroll);
 });
 
