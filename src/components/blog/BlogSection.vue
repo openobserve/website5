@@ -1,18 +1,24 @@
 <template>
   <CustomSection>
     <div class="">
-      <HeadingSection :title="sectionData.title" description="" align="LEFT" class="!mb-12" />
+      <HeadingSection
+        :title="sectionData.title"
+        description=""
+        align="LEFT"
+        class="!mb-12"
+      />
     </div>
-    <div
-      class="flex flex-row justify-between items-center w-full  my-6"
-    >
+    <div class="flex flex-row justify-between items-center w-full my-6">
       <div class="flex space-x-2">
         <!-- Prev Button -->
         <button
           @click="scrollLeft"
           :disabled="isAtStart"
-          class="p-2 rounded-lg border cursor-pointer"
-          :class="{ 'opacity-50 cursor-not-allowed': isAtStart }"
+          class="p-2 rounded-lg border"
+          :class="{
+            'opacity-50 cursor-not-allowed': isAtStart,
+            'cursor-pointer': !isAtStart,
+          }"
         >
           <span class="sr-only"> Previous </span>
           <svg
@@ -35,8 +41,11 @@
         <button
           @click="scrollRight"
           :disabled="isAtEnd"
-          class="p-2 rounded-lg border cursor-pointer"
-          :class="{ 'opacity-50 cursor-not-allowed': isAtEnd }"
+          class="p-2 rounded-lg border"
+          :class="{
+            'opacity-50 cursor-not-allowed': isAtEnd,
+            'cursor-pointer': !isAtEnd,
+          }"
         >
           <span class="sr-only"> Next </span>
           <svg
@@ -88,10 +97,7 @@
           :key="post.id"
           class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 md:px-2 lg:pr-6 snap-start"
         >
-          <BlogCard2
-            :blog="post"
-            type="blog"
-          />
+          <BlogCard2 :blog="post" type="blog" />
         </div>
       </div>
     </div>
@@ -99,14 +105,10 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick } from "vue";
 import { ref, computed, onMounted } from "vue";
 import BlogCard2 from "@/components/blog/BlogCard2.vue";
-import { getAllBlogs } from "@/utils/api/blog";
-import type { Blog } from "@/types/blog";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
-import { fetchAuthorsMapFromBlogs } from "@/utils/blogAuthorHelper";
 // Define the props for this component
 const props = defineProps({
   data: {
@@ -118,7 +120,7 @@ const props = defineProps({
     type: Object,
     required: false,
     default: () => {},
-  } //used for button and title
+  }, //used for button and title
 });
 const scrollContainer = ref<HTMLElement | null>(null);
 
@@ -173,7 +175,6 @@ onMounted(async () => {
     scrollContainer.value?.addEventListener("scroll", updateButtonState);
   }
 });
-
 </script>
 <style>
 /* Optional: hide scrollbar */
