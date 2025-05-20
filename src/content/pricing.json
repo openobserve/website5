@@ -44,7 +44,6 @@
               },
               {
                 "title": "Standard Cloud",
-                "badge": "Most Popular",
                 "description": "No licensing costs, pay-as-you-go",
                 "price": "",
                 "period": "",
@@ -119,7 +118,6 @@
               },
               {
                 "title": "Enterprise",
-                "badge": "Recommended",
                 "description": "Free for up to 200 GB of ingestion per day.",
                 "price": "",
                 "features": [
@@ -137,10 +135,10 @@
                   "text": "Download",
                   "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
                   "target": "_blank",
-                  "class": "bg-sky-500 text-white hover:bg-sky-600"
+                  "class": "bg-primary-purple text-white hover:bg-dark-purple"
                 },
-                "theme": "bg-sky-500 text-white",
-                "container": "border-sky-300 bg-sky-300/10"
+                "theme": "bg-primary-purple text-white",
+                "container": "border-primary-purple bg-primary-purple/10"
               }
             ]
           }

@@ -1,20 +1,17 @@
 <template>
-  <CustomSection >
-  <div class="max-w-7xl mx-auto lg:px-0 px-4">
-    <HeadingSection
-      :title="title"
-      :description="description"
-      align="center"
-      v-if="title || description"
-    />
-    <TabsHeader
+  <CustomSection>
+    <div class="max-w-7xl mx-auto lg:px-0 px-4">
+      <!-- <HeadingSection v-if="title || description" :title="title" :description="description" align="center" /> -->
+       <div class="max-w-4xl mx-auto">
+      <TabsHeader
         :tabs="tabs"
         :activeTab="activeTab"
         @update:activeTab="activeTab = $event"
         gridClass="grid w-full justify-center grid-cols-2 gap-2"
       />
+      </div>
       <PricingCards :tabs="tabs" :activeTab="activeTab" />
-  </div>
+    </div>
   </CustomSection>
 </template>
 <script setup lang="ts">
