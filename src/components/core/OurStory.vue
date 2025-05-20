@@ -4,13 +4,13 @@
       <FramedTitle :title="title" />
       <div class="flex flex-col-reverse gap-6 lg:flex-row items-center">
         <div class="flex flex-col space-y-4">
-          <div class="space-y-4 text-gray-600 ">
+          <div class="space-y-4 text-gray-600">
             <div class="text-lg" v-html="paragraphs"></div>
           </div>
           <div class="flex justify-start pt-4" v-if="primaryButton">
             <a
               :href="primaryButton?.link"
-              class="inline-flex items-center text-white bg-purple-600 hover:bg-purple-800 p-3 rounded-lg transition-colors font-medium"
+              class="inline-flex items-center text-white bg-primary-purple hover:bg-dark-purple p-3 rounded-md transition-colors font-medium"
             >
               {{ primaryButton?.text }}
             </a>
