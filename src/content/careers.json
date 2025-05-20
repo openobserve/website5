@@ -145,7 +145,12 @@
             "role": "CTO, Roambee",
             "avatar": "/img/client/shailesh-mangal.jpg"
           }
-        ]
+        ],
+        "button": {
+          "text": "Explore Careers",
+          "link": "https://openobserve.zohorecruit.com/jobs/Careers",
+          "target": "_blank"
+        }
       },
       {
         "__component": "section-features.technology",

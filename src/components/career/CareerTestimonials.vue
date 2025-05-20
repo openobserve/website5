@@ -25,6 +25,16 @@
           </div>
         </div>
       </div>
+
+       <div class="mt-12 flex justify-center">
+        <a :href="button.link" :target="button.target|| '_self'">
+          <button
+            class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors bg-white text-primary-purple hover:bg-accent  cursor-pointer"
+          >
+            {{ button.text }}
+          </button>
+        </a>
+      </div>
     </CustomSection>
   </section>
 </template>
@@ -44,5 +54,10 @@ defineProps<{
   description: string;
   items: Testimonial[];
   background?: boolean;
+  button:{
+    text: string;
+    link: string;
+    target?: string;
+  };
 }>();
 </script>
