@@ -2,13 +2,24 @@
   <div
     class="flex flex-col lg:flex-row items-start gap-8 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11"
   >
-      <div class="lg:hidden w-full">
+      <div class="lg:sticky top-24 w-full lg:w-1/5">
       <BlogTableofContent
         :headings="headings"
         :activeSection="currentSection"
       />
     </div>
-    <div class="w-full lg:sticky top-20 xl:w-1/5">
+
+    <div class="lg:flex-1 w-full">
+      <div id="blog-content" class="">
+        <template>
+          <div
+            v-html="htmlContent"
+            class="prose prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600 "
+          ></div>
+        </template>
+      </div>
+    </div>
+     <div class="w-full xl:w-1/5">
       <div
         class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
       >
@@ -38,23 +49,6 @@
           </li>
         </ul>
       </div>
-    </div>
-
-    <div class="lg:flex-1 w-full">
-      <div id="blog-content" class="">
-        <template>
-          <div
-            v-html="htmlContent"
-            class="prose prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600 "
-          ></div>
-        </template>
-      </div>
-    </div>
-    <div class=" hidden lg:block sticky top-20 w-full xl:w-1/5">
-      <BlogTableofContent
-        :headings="headings"
-        :activeSection="currentSection"
-      />
     </div>
   </div>
 </template>
