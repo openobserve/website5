@@ -5,25 +5,24 @@
       <article class="">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
-          <a
-            v-for="tag in tags"
-            :key="tag.slug"
-            :href="`/${type}/tag/${tag.slug}`"
-            class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize"
-          >
+          <a v-for="tag in tags" :key="tag.slug" :href="`/${type}/tag/${tag.slug}`"
+            class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize">
             {{ tag.name }}
           </a>
         </div>
         <!-- Title -->
-        <h1
-          class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
-        >
+        <h1 class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
           {{ title }}
         </h1>
-        <div class="flex flex-col md:flex-row items-start md:items-center text-white/80">
-          <span>Published: {{ publishDate }}</span>
-          <span class="mx-4 hidden md:block">•</span>
-          <span>Reading time: {{ calculateReadingTime(content) }}</span>
+        <div class="flex flex-col md:flex-row items-start md:items-center text-white/80 gap-2 md:gap-6">
+          <div class="flex items-center space-x-2">
+            <Calendar class="h-4 w-4" />
+            <span>{{ publishDate }}</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <Clock class="h-4 w-4" />
+            <span>{{ calculateReadingTime(content) }}</span>
+          </div>
         </div>
       </article>
     </div>
@@ -31,20 +30,16 @@
 
   <!-- CaseStudy Cover Image -->
   <section class="container mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
-      <figure
-        class="shadow-xl"
-      >
-        <img
-          :src="caseStudyImage"
-          :alt="title"
-          class="object-cover w-full h- rounded-lg"
-        />
-      </figure>
+    <figure class="shadow-xl">
+      <img :src="caseStudyImage" :alt="title" class="object-cover w-full h- rounded-lg" />
+    </figure>
   </section>
   <!-- </CustomSection> -->
 </template>
 <script setup lang="ts">
 import { calculateReadingTime } from "@/utils/calculateReadingTime";
+
+import { Calendar, Clock } from "lucide-vue-next";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps<{
