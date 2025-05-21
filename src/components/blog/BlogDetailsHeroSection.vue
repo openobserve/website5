@@ -1,7 +1,6 @@
 <template>
   <section class="py-12 md:py-16 mb-6 hero-gradient">
-
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 relative z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11">
       <article class="">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
@@ -120,14 +119,14 @@
   </section>
 
   <!-- Blog Cover Image -->
-  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
-    <div class="">
-      <figure
-        class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl"
-      >
-        <img :src="blogImage" :alt="title" class="object-cover w-full h-full" />
-      </figure>
-    </div>
+  <section
+  class="max-w-7xl mx-auto px-4"
+  >
+      <img
+        :src="blogImage"
+        :alt="title"
+        class="object-cover object-center rounded-lg bg-white max-h-[60vh] mx-auto"
+      />
   </section>
 </template>
 
