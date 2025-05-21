@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-center w-full mb-8 ">
     <div :class="gridClass">
-      <button v-for="tab in tabs" :key="tab.value" @click="$emit('update:activeTab', tab.value)"
+      <button v-for="tab in tabs" :key="tab.value" :id="tab.value" @click="$emit('update:activeTab', tab.value)"
         class="w-full px-4 font-semibold rounded-md transition-colors cursor-pointer py-4" :class="{
-          'bg-white text-primary-purple shadow-md': activeTab === tab.value,
-          'bg-gray-100 text-gray-700 hover:bg-gray-200': activeTab !== tab.value
+          'bg-white focus:outline-none text-primary-purple shadow-md': activeTab === tab.value,
+          'bg-gray-100 focus:outline-none text-gray-700 hover:bg-gray-200': activeTab !== tab.value
         }">
         {{ tab.label }}
       </button>

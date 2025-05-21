@@ -25,13 +25,13 @@ defineProps<{
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
-  <CustomSection>
-    <HeadingSection :title="title" :description="description" />
+  <CustomSection sectionClass="!py-3 lg:!py-12">
+    <HeadingSection :title="title" :description="description" class="!mb-2 lg:!mb-2" />
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="w-full h-full">
 
        <!-- desktop screen -->
-      <LaptopviewArchitectureSVG class="mx-auto w-4/7 h-auto rounded-lg hidden md:block"/>
+      <LaptopviewArchitectureSVG class="mx-auto w-full lg:w-2/3 h-auto rounded-lg hidden md:block"/>
         <!-- <img
           :src="image.url"
           :alt="image.alt"
