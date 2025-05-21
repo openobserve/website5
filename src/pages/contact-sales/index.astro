@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import contactSales from "@/content/contact-sales.json";
+
+const data = contactSales?.data?.body || {};
+const seoData = contactSales?.data?.seo || {};
+---
+
+<Layout metaObj={seoData}>
+  <ComponentCollectionMapper data={data} client:load />
+</Layout>

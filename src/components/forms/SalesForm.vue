@@ -8,10 +8,11 @@ import * as yup from "yup";
 const schema = yup.object({
   fname: yup.string().required("First Name is required"),
   lname: yup.string().required("Last Name is required"),
-  email: yup.string().required("Email is required").email("Invalid email"),
   company: yup.string().required("Company name is required"),
-  deployment: yup.string().required("Deployment option is required"),
-  volume: yup.string().required("Data volume is required"),
+  phone: yup
+    .string()
+    .matches(/^\d+$/, "Phone number must be digits only")
+    .required("Phone number is required"),
   referral: yup.string().required("Referral source is required"),
 });
 type FormData = yup.InferType<typeof schema>;
@@ -28,10 +29,8 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     initialValues: {
       fname: "",
       lname: "",
-      email: "",
       company: "",
-      deployment: "",
-      volume: "",
+      phone: "",
       referral: "",
     },
   });
@@ -43,14 +42,12 @@ const onSubmit = handleSubmit(async (values) => {
       {
         method: "POST",
         body: JSON.stringify({
-          senderFirstName: values.fname,
+          senderName: values.fname,
           senderLastName: values.lname,
-          senderEmail: values.email,
           senderCompany: values.company,
-          senderDeployment: values.deployment,
-          senderDataVolume: values.volume,
+          senderMobile: values.phone,
           senderMessage: values.referral,
-          formType: "demo",
+          formType: "sales",
         }),
       }
     );
@@ -151,21 +148,6 @@ const reset = () => {
               <ErrorMessage name="lname" class="contact-form-error" />
             </div>
           </div>
-          <!-- Work Email -->
-          <div>
-            <label for="email" class="contact-form-label"
-              >Work Email <span class="text-red-500">*</span></label
-            >
-
-            <Field
-              name="email"
-              type="email"
-              placeholder="your.name@company.com"
-              as="input"
-              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
-            />
-            <ErrorMessage name="email" class="contact-form-error" />
-          </div>
           <!-- Company Name -->
           <div>
             <label for="company" class="contact-form-label"
@@ -183,51 +165,17 @@ const reset = () => {
             />
             <ErrorMessage name="company" class="contact-form-error" />
           </div>
-
-          <!-- Deployment Preference -->
+          <!-- Phone -->
           <div>
-            <label for="deployment" class="contact-form-label"
-              >Deployment Preference <span class="text-red-500">*</span></label
-            >
+            <label for="phone" class="contact-form-label">Phone Number</label>
             <Field
-              name="deployment"
-              as="select"
-              :class="[
-                'contact-form-select',
-                errors.deployment ? 'is-invalid' : '',
-              ]"
-            >
-              <option value="" disabled selected hidden>
-                Select deployment option
-              </option>
-              <option value="cloud">Cloud</option>
-              <option value="self-hosted">Self-hosted</option>
-            </Field>
-            <ErrorMessage name="deployment" class="contact-form-error" />
-          </div>
-
-          <!-- Data Volume -->
-          <div>
-            <label for="volume" class="contact-form-label"
-              >Expected Daily Data Volume
-              <span class="text-red-500">*</span></label
-            >
-            <Field
-              name="volume"
-              as="select"
-              :class="[
-                'contact-form-select',
-                errors.volume ? 'is-invalid' : '',
-              ]"
-            >
-              <option value="" disabled selected hidden>
-                Select data volume
-              </option>
-              <option value="< 100GB/day">< 100GB/day</option>
-              <option value="100GB - 1TB/day">100GB - 1TB/day</option>
-              <option value="> 1TB/day">> 1TB/day</option>
-            </Field>
-            <ErrorMessage name="volume" class="contact-form-error" />
+              name="phone"
+              type="tel"
+              placeholder="+1 (555) 123-4567"
+              as="input"
+              :class="['contact-form-input', errors.phone ? 'is-invalid' : '']"
+            />
+            <ErrorMessage name="phone" class="contact-form-error" />
           </div>
 
           <!-- How did you hear -->
@@ -256,7 +204,7 @@ const reset = () => {
 
           <!-- Submit -->
           <CustomButton type="submit" :disabled="isSubmitting" class="w-full">
-            {{ isSubmitting ? "Submitting..." : "Request Demo" }}
+            {{ isSubmitting ? "Submitting..." : "Contact Sales" }}
           </CustomButton>
 
           <p class="contact-form-footer">
