@@ -125,7 +125,7 @@
       <img
         :src="blogImage"
         :alt="title"
-        class="object-cover object-center rounded-lg bg-white max-h-[60vh] mx-auto"
+        class="object-cover object-center rounded-lg bg-white max-h-[60vh] mx-auto shadow-xl"
       />
   </section>
 </template>
