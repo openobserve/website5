@@ -204,7 +204,7 @@ const reset = () => {
 
           <!-- Submit -->
           <CustomButton type="submit" :disabled="isSubmitting" class="w-full">
-            {{ isSubmitting ? "Submitting..." : "Request Demo" }}
+            {{ isSubmitting ? "Submitting..." : "Contact Sales" }}
           </CustomButton>
 
           <p class="contact-form-footer">
