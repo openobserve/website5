@@ -140,27 +140,7 @@
         "image": {
           "url": "/img/marketecture-diagram-laptop.svg",
           "alt": "OpenObserve Architecture Diagram"
-        },
-        "items": [
-          {
-            "title": "Lorem ipsum dolor sit amet",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
-            "theme": "theme-blue"
-          },
-          {
-            "title": "Lorem ipsum dolor sit amet",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
-            "theme": "theme-purple"
-          },
-          {
-            "title": "Lorem ipsum dolor sit amet",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "icon": "<path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.5 14.5v-3h3v3zm0-4.5V7h3v5z\" stroke-width=\"2\"/>",
-            "theme": "theme-green"
-          }
-        ]
+        }
       },
       {
         "__component": "section-cards.homepage-features",

@@ -147,7 +147,7 @@
                 />
               </div>
               <div class="flex justify-start">
-                <h3 class="text-lg font-bold pb-2 text-black">
+                <h3 class="text-lg font-bold text-black">
                   {{ items.platform.title }}
                 </h3>
               </div>
@@ -155,7 +155,7 @@
                 <li
                   v-for="(item, index) in items.platform.items"
                   :key="index"
-                  class="text-gray-600 text-base"
+                  class="text-gray-600 text-base font-semibold"
                 >
                   <a class="block hover:text-black" :href="`/${item.link}`">{{
                     item.title
@@ -173,13 +173,13 @@
                 link="/solutions"
               />
               <div class="flex flex-col space-y-3">
-                <h4 class="text-black text-lg font-semibold">Use Case</h4>
+                <h4 class="text-black text-lg font-bold">Use Case</h4>
                 <div class="">
                   <ul class="grid grid-cols-1 gap-2">
                     <li
                       v-for="(item, index) in items.solutions.useCases"
                       :key="index"
-                      class="text-gray-600 text-base"
+                      class="text-gray-600 text-base font-semibold"
                     >
                       <a
                         :href="`/${item.link}`"
@@ -202,7 +202,7 @@
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <ul class="flex flex-col space-y-4 text-gray-600 text-base">
+                  <ul class="flex flex-col space-y-2 font-semibold text-gray-600 text-base">
                     <li
                       v-for="(item, index) in items.resources.items"
                       :key="index"

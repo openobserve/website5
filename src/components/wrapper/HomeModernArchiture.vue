@@ -27,7 +27,7 @@ defineProps<{
   <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection>
     <HeadingSection :title="title" :description="description" />
-    <div class="flex flex-col md:flex-row items-center justify-center mb-16 w-full">
+    <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="w-full h-full">
 
        <!-- desktop screen -->
@@ -42,7 +42,7 @@ defineProps<{
       <MobileviewArchitectureSVG class="w-full h-full rounded-lg block md:hidden" />
       </div>
     </div>
-    <div class="grid-container">
+    <!-- <div class="grid-container" v-if="items">
       <CardWithShadowBorder
         v-for="(card, index) in items"
         :key="index"
@@ -53,7 +53,7 @@ defineProps<{
         
         class="grid-item bg-white"
       />
-    </div>
+    </div> -->
   </CustomSection>
   </div>
 </template>
