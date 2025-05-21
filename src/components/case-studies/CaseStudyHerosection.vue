@@ -30,18 +30,16 @@
   </section>
 
   <!-- CaseStudy Cover Image -->
-  <section class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
-    <div class="">
+  <section class="container mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
       <figure
-        class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl"
+        class="shadow-xl"
       >
         <img
           :src="caseStudyImage"
           :alt="title"
-          class="object-cover w-full h-full"
+          class="object-cover w-full h- rounded-lg"
         />
       </figure>
-    </div>
   </section>
   <!-- </CustomSection> -->
 </template>
