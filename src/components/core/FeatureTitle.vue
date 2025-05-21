@@ -8,12 +8,21 @@
     </component>
 
     <!-- Animated Item -->
-    <div class="relative h-[1.2em] overflow-hidden" v-if="items.length > 0">
-      <transition name="slide-cycle" mode="out-in">
-        <span :key="activeIndex" class="block absolute w-full">
-          {{ items[activeIndex] }}
-        </span>
-      </transition>
+    <div class="relative h-[1.5em] overflow-hidden">
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="absolute top-0 left-0 w-full transition-all duration-500 ease-in-out"
+        :class="{
+          'opacity-0 translate-y-full z-0':
+            index !== activeIndex && prevIndex !== index,
+          'opacity-0 -translate-y-full z-10':
+            prevIndex === index && index !== activeIndex,
+          'opacity-100 translate-y-0 z-20': index === activeIndex,
+        }"
+      >
+        {{ item }}
+      </div>
     </div>
 
     <p
@@ -41,7 +50,7 @@ const props = withDefaults(
     align: "CENTER",
   }
 );
-
+const prevIndex = ref(-1);
 const headingLevel = computed(() => {
   return props.headingLevel &&
     props.headingLevel >= 1 &&
@@ -64,10 +73,10 @@ let interval: ReturnType<typeof setInterval>;
 
 onMounted(() => {
   interval = setInterval(() => {
+    prevIndex.value = activeIndex.value;
     activeIndex.value = (activeIndex.value + 1) % props.items.length;
-  }, 3000); // Every 3 seconds
+  }, 1500);
 });
-
 onUnmounted(() => {
   clearInterval(interval);
 });
@@ -76,9 +85,11 @@ onUnmounted(() => {
 <style scoped>
 .slide-cycle-enter-active,
 .slide-cycle-leave-active {
-  transition: all 0.6s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
   position: absolute;
   width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .slide-cycle-enter-from {
@@ -87,16 +98,15 @@ onUnmounted(() => {
 }
 .slide-cycle-enter-to {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0%);
 }
 
 .slide-cycle-leave-from {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0%);
 }
 .slide-cycle-leave-to {
   opacity: 0;
   transform: translateY(-100%);
 }
-
 </style>
