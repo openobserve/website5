@@ -155,7 +155,7 @@
                 <li
                   v-for="(item, index) in items.platform.items"
                   :key="index"
-                  class="text-gray-600 text-base font-medium"
+                  class="text-gray-600 text-base font-semibold"
                 >
                   <a class="block hover:text-black" :href="`/${item.link}`">{{
                     item.title
@@ -179,7 +179,7 @@
                     <li
                       v-for="(item, index) in items.solutions.useCases"
                       :key="index"
-                      class="text-gray-600 text-base font-medium"
+                      class="text-gray-600 text-base font-semibold"
                     >
                       <a
                         :href="`/${item.link}`"
@@ -202,7 +202,7 @@
               />
               <div class="flex flex-col space-y-3">
                 <div>
-                  <ul class="flex flex-col space-y-2 font-medium text-gray-600 text-base">
+                  <ul class="flex flex-col space-y-2 font-semibold text-gray-600 text-base">
                     <li
                       v-for="(item, index) in items.resources.items"
                       :key="index"
