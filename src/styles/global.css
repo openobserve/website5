@@ -71,7 +71,7 @@
 }
 
 .theme-blue {
-  --color-primary-purple: rgba(47, 71, 229);
+  --color-primary-purple: rgb(60, 168, 251);
   color: var( --color-primary-purple);
   --color-card: rgba(47, 71, 229, 0.2);
   --color-hover-card: rgba(30, 64, 175);
@@ -80,7 +80,7 @@
 }
 
 .theme-red {
-   --color-primary-purple: rgba(244, 91, 73);
+   --color-primary-purple: rgb(238, 92, 70);
   color: var(--color-primary-purple);
   --color-card: rgba(244, 91, 73, 0.2);
   --color-hover-card: rgba(220, 38, 38);
@@ -89,7 +89,7 @@
 }
 
 .theme-green {
-  --color-primary-purple: rgba(39, 192, 100);
+  --color-primary-purple: rgb(92, 201, 122);
   color: var(--color-primary-purple);
   --color-card: rgba(39, 192, 100, 0.2);
   --color-hover-card: rgba(22, 163, 74);
