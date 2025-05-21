@@ -5,13 +5,16 @@
         class="flex justify-between items-center p-2 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10"
       >
         <Logo />
-        <div class="flex items-center space-x-3">
-          <a
-            href="https://cloud.openobserve.ai"
-            class="text-black text-xs"
-            target="_blank"
-            >Log In</a
-          >
+        <div class="flex items-center justify-center space-x-3">
+         <CustomButton
+          variant="secondary"
+          size="small"
+          buttonLink="https://cloud.openobserve.ai"
+          target="_blank"
+          class="border !border-gray-200 !py-1"
+        >
+          Log In
+        </CustomButton>
           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme="light"

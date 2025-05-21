@@ -4,7 +4,7 @@
       :title="title"
       :description="description"
       align="center"
-      class="!mb-3"
+      class="!mb-3c"
     />
     <div
       class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12"
