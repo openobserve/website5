@@ -107,7 +107,7 @@
                   "description": "Connect insights across multiple AWS accounts and services. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/solution-aws/pipeline-aws.png"
+              "image": "/img/solution-aws/cloudwatch-rds-metrics-final.gif"
             }
           },
           {
@@ -653,7 +653,7 @@
                   "description": "Instantly grok Azure metrics with ready-to-use and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/public/img/solution-azure/azure_data_flow.gif"
             }
           },
           {
@@ -671,7 +671,7 @@
                   "description": "Unlock hidden patterns in your Azure environment using SQL queries."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/public/img/solution-azure/azure_logs.gif"
             }
           },
           {
@@ -689,7 +689,7 @@
                   "description": "Connect insights across multiple Azure services with powerful SQL queries. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/public/img/solution-azure/azure_event_hub.png"
             }
           },
           {
@@ -707,7 +707,7 @@
                   "description": "Store your data  with flexible retention policies. Balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/herosection-image.png"
+              "image": "/public/img/solution-azure/azure_dashboard.png"
             }
           }
         ]
@@ -1037,7 +1037,7 @@
                   "description": "Capture and contextualize metrics, logs, and traces through a unified pipeline that preserves relationships between all telemetry signals."
                 }
               ],
-              "image": "/img/solution-openTL/otelcollector_o2.png"
+              "image": "/img/solution-openTL/otel_traces.png"
             }
           },
           {
@@ -1073,7 +1073,7 @@
                   "description": "Unlock actionable insights using familiar SQL and PromQL with robust support for complex aggregations and time-series analysis."
                 }
               ],
-              "image": "/public/img/solution-openTL/opentelemetry_integration.gif"
+              "image": "/img/solution-openTL/otelcollector_o2.png"
             }
           },
           {
@@ -1091,7 +1091,7 @@
                   "description": "Slash troubleshooting time by following distributed traces across services, identifying exactly where and why requests slow down."
                 }
               ],
-              "image": "/img/solution-openTL/otel_traces.png"
+              "image": "/img/solution-openTL/opentelemetry_integration.gif"
             }
           }
         ]
