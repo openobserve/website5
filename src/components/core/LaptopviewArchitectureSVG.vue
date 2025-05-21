@@ -548,7 +548,7 @@
       d="M566.768 715L541.768 700.566V729.434L566.768 715ZM481 715V717.5H544.268V715V712.5H481V715Z"
       fill="#121212"
     />
-    <a href="/downloads" rel="noopener" class="svg-link-downloads">
+    <a href="/downloads#cloud" rel="noopener" class="svg-link-downloads">
       <rect
         class="hover-bg-downloads"
         x="1232"
@@ -564,7 +564,7 @@
         fill="white"
       />
     </a>
-    <a href="/downloads" rel="noopener" class="svg-link-downloads">
+    <a href="/downloads#self-hosted" rel="noopener" class="svg-link-downloads">
       <rect
         class="hover-bg-downloads"
         x="616"
