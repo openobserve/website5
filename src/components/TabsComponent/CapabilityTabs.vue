@@ -1,6 +1,6 @@
 <template>
   <div ref="sectionRef" :class="background ? 'bg-gray-50' : ''">
-    <CustomSection>
+    <CustomSection sectionClass="!pb-0">
         <HeadingSection :title="title" :description="description" align="CENTER"/>
       <div class="w-full">
         <div
