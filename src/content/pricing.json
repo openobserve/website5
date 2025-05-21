@@ -147,8 +147,8 @@
       {
         "__component": "section-cta.homepage-cta",
         "id": 5,
-        "title": "Ready to see OpenObserve in action?",
-        "description": "Schedule a personalized demo with our team to see how OpenObserve can transform your observability strategy.",
+        "title": "Ready to get started?",
+        "description": "Try OpenObserve today and see the difference in your observability stack",
         "primarybtn": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
