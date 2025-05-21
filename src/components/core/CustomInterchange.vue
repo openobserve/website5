@@ -68,10 +68,10 @@ const sectionClasses = computed(() => ({
                 class="w-12 h-12 rounded-full shrink-0"
               />
               <div>
-                <p class="font-semibold text-sm text-gray-900">
+                <p class="font-semibold text-base text-gray-900">
                   {{ cardData?.name }}
                 </p>
-                <p class="text-xs text-gray-500">{{ cardData?.role }}</p>
+                <p class="text-sm text-gray-500">{{ cardData?.role }}</p>
               </div>
             </div>
           </div>
