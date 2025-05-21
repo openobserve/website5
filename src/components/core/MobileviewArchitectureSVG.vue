@@ -398,6 +398,8 @@
           />
         </g>
       </a>
+      <!-- action text -->
+      <a href="https://openobserve.ai/docs/" rel="noopener" target="_blank">
       <path
         d="M91.6533 675.233H723.347C729.067 675.234 733.704 679.871 733.704 685.591V740.284C733.704 746.004 729.067 750.642 723.347 750.642H91.6533C85.9331 750.642 81.296 746.004 81.2959 740.284V685.591C81.296 679.871 85.9332 675.234 91.6533 675.233Z"
         fill="white"
@@ -424,6 +426,7 @@
         d="M369.465 725.479L364.814 720.828L369.465 716.177L368.049 714.761L361.982 720.828L368.049 726.894L369.465 725.479ZM374.722 725.479L379.373 720.828L374.722 716.177L376.138 714.761L382.205 720.828L376.138 726.894L374.722 725.479Z"
         fill="white"
       />
+      </a>
       <a class="svg-link-solutions" href="/kubernetes-observability">
         <rect
           class="hover-bg-solutions"
@@ -690,7 +693,7 @@
         stroke="#CFCFCF"
         stroke-width="0.591866"
       />
-      <a href="/downloads" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads#cloud" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="431.196"
@@ -705,7 +708,7 @@
           fill="white"
         />
       </a>
-      <a href="/downloads" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads#self-hosted" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="98.4814"

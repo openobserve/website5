@@ -32,28 +32,33 @@ import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
 import CustomSection from "../core/CustomSection.vue";
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, onMounted } from "vue";
+interface Tab {
+  value: string;
+  // Add other properties as needed
+}
+
 const props = defineProps<{
-  title: {
-    type: String;
-    required: true;
-  };
-  description: {
-    type: String;
-    required: true;
-  };
-  buttons: {
-    type: Object;
-    required: true;
-  };
-  tabs: {
-    type: Array;
-    required: true;
-  };
+  title: string;
+  description: string;
+  buttons: Record<string, any>;
+  tabs: Tab[];
 }>();
 const activeTab = ref(props.tabs[0]?.value || "");
 
 // Watch for change in main tab to reset subtab
 watch(() => activeTab.value, { immediate: true });
+
+onMounted(() => {
+  const hash = window.location.hash?.replace("#", "");
+  const tabExists = props.tabs.find(tab => tab.value === hash);
+  if (tabExists) {
+    activeTab.value = hash;
+    // Optional: Scroll to the tab
+    setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
+});
 </script>
 <style scoped></style>
