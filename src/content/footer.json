@@ -108,6 +108,11 @@
             "id": 18,
             "text": "Contact Us",
             "link": "/contact-us"
+          },
+            {
+            "id": 19,
+            "text": "Contact Sales",
+            "link": "/contact-sales"
           }
         ]
       },
