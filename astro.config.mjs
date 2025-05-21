@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:3000", //change it with site url
+  site: "https://o2-staging-website.pages.dev", //change it with site url
   integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
