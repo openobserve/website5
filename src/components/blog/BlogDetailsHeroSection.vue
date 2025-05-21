@@ -174,7 +174,7 @@ const socialMedia = ref([
     href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       props.title
     )}&url=${encodeURIComponent(props.shareUrl)}`,
-    icon: "/img/icon/twitter-icon-for-blog.svg",
+    icon: "/img/icon/twitter-icon-blog-individual.svg",
     alt: "Twitter Icon",
     ariaLabel: "Share on Twitter",
   },
