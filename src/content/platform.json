@@ -145,7 +145,7 @@
           "theme": "theme-blue"
         },
         "enterpriseCTA": {
-          "buttonText": "Contact US",
+          "buttonText": "Contact Us",
           "buttonLink": "/contact-us",
           "theme": "theme-blue"
         }

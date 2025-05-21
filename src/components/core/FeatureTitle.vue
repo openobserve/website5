@@ -1,6 +1,6 @@
 <template>
   <div
-    class="gap-4 mb-16 text-3xl md:text-4xl font-bold text-black"
+    class="gap-4 mb-10 text-3xl md:text-4xl font-bold text-black"
     :class="alignClass"
   >
   <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
