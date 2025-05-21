@@ -3,12 +3,13 @@
     class="gap-4 mb-16 text-3xl md:text-4xl font-bold text-black"
     :class="alignClass"
   >
-    <component :is="`h${headingLevel}`" class="leading-tight">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+    <component :is="`h${headingLevel}`" class="leading-tight md:text-right col-span-3">
       <span v-html="title" />
     </component>
 
     <!-- Animated Item -->
-    <div class="relative h-[1.5em] overflow-hidden">
+    <div class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
       <div
         v-for="(item, index) in items"
         :key="index"
@@ -24,7 +25,7 @@
         {{ item }}
       </div>
     </div>
-
+</div>
     <p
       v-if="description"
       :class="['text-sm md:text-lg my-4 text-gray-500', alignClass]"
