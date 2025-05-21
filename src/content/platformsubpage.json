@@ -1103,7 +1103,7 @@
               "title": "Alert Types",
               "features": [
                 {
-                  "title": "Standard Alerts",
+                  "title": "Scheduled Alerts",
                   "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
                 },
                 {
