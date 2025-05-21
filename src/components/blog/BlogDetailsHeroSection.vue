@@ -99,7 +99,7 @@
             <button
               @click="copyToClipboard"
               :class="[
-                'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300',
+                'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 cursor-pointer',
                 'bg-white/10 hover:bg-white/20',
                 copied ? 'ring-2 ring-white' : '',
               ]"
