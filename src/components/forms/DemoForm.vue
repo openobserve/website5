@@ -6,7 +6,8 @@ import * as yup from "yup";
 
 // Form validation
 const schema = yup.object({
-  name: yup.string().required("Name is required"),
+  fname: yup.string().required("First Name is required"),
+  lname: yup.string().required("Last Name is required"),
   email: yup.string().required("Email is required").email("Invalid email"),
   company: yup.string().required("Company name is required"),
   deployment: yup.string().required("Deployment option is required"),
@@ -25,7 +26,8 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     validationSchema: schema,
     validateOnMount: false, // default
     initialValues: {
-      name: "",
+      fname: "",
+      lname: "",
       email: "",
       company: "",
       deployment: "",
@@ -41,7 +43,8 @@ const onSubmit = handleSubmit(async (values) => {
       {
         method: "POST",
         body: JSON.stringify({
-          senderName: values.name,
+          senderFirstName: values.fname,
+          senderLastName: values.lname,
           senderEmail: values.email,
           senderCompany: values.company,
           senderDeployment: values.deployment,
@@ -110,20 +113,43 @@ const reset = () => {
       <template v-else>
         <form @submit.prevent="onSubmit" class="space-y-4">
           <!-- {{ JSON.stringify(errors) }} -->
-          <!-- name -->
-          <div>
-            <label for="email" class="contact-form-label"
-              >Name <span class="text-red-500">*</span></label
-            >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- first name -->
+            <div>
+              <label for="fname" class="contact-form-label">
+                First Name <span class="text-red-500">*</span></label
+              >
 
-            <Field
-              name="name"
-              type="text"
-              placeholder="Your name"
-              as="input"
-              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
-            />
-            <ErrorMessage name="name" class="contact-form-error" />
+              <Field
+                name="fname"
+                type="text"
+                placeholder="John"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.fname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="fname" class="contact-form-error" />
+            </div>
+            <!-- last name -->
+            <div>
+              <label for="lname" class="contact-form-label">
+                Last Name <span class="text-red-500">*</span></label
+              >
+
+              <Field
+                name="lname"
+                type="text"
+                placeholder="Smith"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.lname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="lname" class="contact-form-error" />
+            </div>
           </div>
           <!-- Work Email -->
           <div>
