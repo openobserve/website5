@@ -20,9 +20,9 @@
         >
           {{ title }}
         </h1>
-        <div class="flex items-center text-white/80">
+        <div class="flex flex-col md:flex-row items-start md:items-center text-white/80">
           <span>Published: {{ publishDate }}</span>
-          <span class="mx-4">•</span>
+          <span class="mx-4 hidden md:block">•</span>
           <span>Reading time: {{ calculateReadingTime(content) }}</span>
         </div>
       </article>
