@@ -93,6 +93,24 @@
             }
           },
           {
+            "value": "service-coverage-and-integration",
+            "label": "Service Coverage & Integration",
+            "card": {
+              "title": "Service Coverage & Integration",
+              "features": [
+                {
+                  "title": "Multi-service Support",
+                  "description": "Monitor your entire AWS ecosystem with specialized tooling for every service. Track network traffic with VPC Flow Logs, audit activities with CloudTrail, and gain complete visibility across your infrastructure through CloudWatch dashboards and much more."
+                },
+                {
+                  "title": "Unified Analytics",
+                  "description": "Connect insights across multiple AWS accounts and services. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
+                }
+              ],
+              "image": "/img/solution-aws/pipeline-aws.png"
+            }
+          },
+          {
             "value": "cost-effective-monitoring",
             "label": "Cost-effective Monitoring",
             "card": {
