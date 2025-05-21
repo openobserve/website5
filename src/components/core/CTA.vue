@@ -3,7 +3,7 @@ import CustomButton from "../core/CustomButton.vue";
 
 interface ButtonProps {
   link: string;
-  name: string;
+  text: string;
   target?: string;
 }
 
@@ -27,9 +27,9 @@ const props = defineProps<{
       </p>
 
       <div v-if="primarybtn || secondarybtn" class="flex flex-col sm:flex-row justify-center gap-4">
-        <CustomButton v-if="primarybtn" variant="secondary" size="medium" :buttonText="primarybtn.name"
+        <CustomButton v-if="primarybtn" variant="secondary" size="medium" :buttonText="primarybtn.text"
           :buttonLink="primarybtn.link" :target="primarybtn.target" />
-        <CustomButton v-if="secondarybtn" variant="tertiary" size="medium" :buttonText="secondarybtn.name"
+        <CustomButton v-if="secondarybtn" variant="tertiary" size="medium" :buttonText="secondarybtn.text"
           :buttonLink="secondarybtn.link" :target="secondarybtn.target" />
       </div>
     </div>

@@ -250,14 +250,12 @@
         "id": 4,
         "title": "Ready to Join Us?",
         "description": "We're looking for passionate individuals to help us build the future of observability. Check out our open positions and apply today.",
-        "buttons": [
-          {
-            "text": "View Open Positions",
-            "link": "https://openobserve.zohorecruit.com/jobs/Careers",
-            "target": "_blank",
-            "variant": "secondary"
-          }
-        ]
+        "primarybtn": {
+          "text": "View Open Positions",
+          "link": "https://openobserve.zohorecruit.com/jobs/Careers",
+          "target": "_blank",
+          "variant": "secondary"
+        }
       }
     ],
     "seo": {

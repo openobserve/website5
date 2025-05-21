@@ -295,18 +295,16 @@
         "id": 5,
         "title": "Ready to get started?",
         "description": "Try OpenObserve today and see the difference in your observability stack",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "https://cloud.openobserve.ai/web/login",
-            "variant": "secondary"
-          },
-          {
-            "text": "Schedule Demo",
-            "link": "/demo",
-            "variant": "tertiary"
-          }
-        ]
+        "primarybtn": {
+          "link": "https://cloud.openobserve.ai/web/login",
+          "variant": "secondary",
+          "text": "Get Started For Free"
+        },
+        "secondarybtn": {
+          "link": "/demo",
+          "variant": "tertiary",
+          "text": "Schedule Demo"
+        }
       }
     ],
     "seo": {

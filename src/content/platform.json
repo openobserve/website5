@@ -60,7 +60,7 @@
         "id": 4,
         "align": "center",
         "title": "Key Platform Benefits",
-        "description":"Every capability that is available in OpenObserve Standard tier",
+        "description": "Every capability that is available in OpenObserve Standard tier",
         "data": {
           "standard": [
             {
@@ -155,21 +155,19 @@
         "id": 2,
         "title": "OpenObserve",
         "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "https://cloud.openobserve.ai/web/login",
-            "target": "_blank",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": " https://openobserve.ai/docs/",
-            "target": "_blank",
-            "variant": "tertiary",
-            "description":"Refer Docs"
-          }
-        ]
+        "primarybtn": {
+          "text": "Get Started For Free",
+          "link": "https://cloud.openobserve.ai/web/login",
+          "target": "_blank",
+          "variant": "secondary"
+        },
+        "secondarybtn": {
+          "text": "Learn More",
+          "link": " https://openobserve.ai/docs/",
+          "target": "_blank",
+          "variant": "tertiary",
+          "description": "Refer Docs"
+        }
       }
     ],
     "seo": {
