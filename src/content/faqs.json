@@ -157,10 +157,9 @@
           "variant": "secondary"
         },
         "secondarybtn": {
-          "text": "Learn More",
-          "link": "https://openobserve.ai/docs/",
+          "link": "/demo",
           "variant": "tertiary",
-          "description": "Refer Docs"
+          "text": "Schedule Demo"
         }
       }
     ],
