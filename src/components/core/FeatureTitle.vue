@@ -1,6 +1,6 @@
 <template>
   <div
-    class="gap-4 mb-0 lg:mb-3 text-3xl md:text-4xl font-bold text-black"
+    class="gap-4 mb-6 lg:mb-10 text-3xl md:text-4xl font-bold text-black"
     :class="alignClass"
   >
   <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
@@ -9,7 +9,7 @@
     </component>
 
     <!-- Animated Item -->
-    <div class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
+    <div  v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
       <div
         v-for="(item, index) in items"
         :key="index"
