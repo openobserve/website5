@@ -110,35 +110,43 @@ const reset = () => {
       <template v-else>
         <form @submit.prevent="onSubmit" class="space-y-4">
           <!-- {{ JSON.stringify(errors) }} -->
-          <!-- first name -->
-          <div>
-            <label for="fname" class="contact-form-label">
-              First Name <span class="text-red-500">*</span></label
-            >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- first name -->
+            <div>
+              <label for="fname" class="contact-form-label">
+                First Name <span class="text-red-500">*</span></label
+              >
 
-            <Field
-              name="fname"
-              type="text"
-              placeholder="John"
-              as="input"
-              :class="['contact-form-input', errors.fname ? 'is-invalid' : '']"
-            />
-            <ErrorMessage name="fname" class="contact-form-error" />
-          </div>
-          <!-- last name -->
-          <div>
-            <label for="lname" class="contact-form-label">
-              Last Name <span class="text-red-500">*</span></label
-            >
+              <Field
+                name="fname"
+                type="text"
+                placeholder="John"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.fname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="fname" class="contact-form-error" />
+            </div>
+            <!-- last name -->
+            <div>
+              <label for="lname" class="contact-form-label">
+                Last Name <span class="text-red-500">*</span></label
+              >
 
-            <Field
-              name="lname"
-              type="text"
-              placeholder="Smith"
-              as="input"
-              :class="['contact-form-input', errors.lname ? 'is-invalid' : '']"
-            />
-            <ErrorMessage name="lname" class="contact-form-error" />
+              <Field
+                name="lname"
+                type="text"
+                placeholder="Smith"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.lname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="lname" class="contact-form-error" />
+            </div>
           </div>
           <!-- Company Name -->
           <div>
