@@ -14,7 +14,7 @@ const props = defineProps({
   <!-- <CustomSection sectionClass=""> -->
     <div class="flex flex-col">
       <div v-for="(card, index) in items" :key="index" :class="index % 2 == 0 ? 'bg-gray-50' : ''">
-      <CustomSection sectionClass="!py-8 lg:!py-10">
+      <CustomSection>
         <CustomInterchange
           :heading="card.heading"
           :cardData="card.cardData"
