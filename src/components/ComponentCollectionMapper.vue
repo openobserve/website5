@@ -72,7 +72,7 @@ const componentsMap = computed(() => ({
   "section-features.global-team": CareerGlobalTeam,
   "section-testimonials.employee-testimonials": CareerTestimonials,
   "section-features.technology": CareerTechnology,
-  "section-features.cta": CareerCTA,
+  "section-features.cta": CTA,
   "section-solutions.solutions": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-solutions.capabilities": CapabilityTabs,
@@ -91,7 +91,7 @@ const componentsMap = computed(() => ({
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-hero.solution-sub-hero": SolutionSubPageHeroSection,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
-  "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
+  // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
   "section-features.resources-feature-details": CardWithSideIconResourcePage,
   "section-downloads.downloads-form": DownloadForm,

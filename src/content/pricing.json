@@ -149,18 +149,16 @@
         "id": 5,
         "title": "Ready to see OpenObserve in action?",
         "description": "Schedule a personalized demo with our team to see how OpenObserve can transform your observability strategy.",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "https://cloud.openobserve.ai/web/login",
-            "variant": "secondary"
-          },
-          {
-            "text": "Schedule Demo",
-            "link": "/demo",
-            "variant": "tertiary"
-          }
-        ]
+        "primarybtn": {
+          "text": "Get Started For Free",
+          "link": "https://cloud.openobserve.ai/web/login",
+          "variant": "secondary"
+        },
+        "secondarybtn": {
+          "text": "Schedule Demo",
+          "link": "/demo",
+          "variant": "tertiary"
+        }
       }
     ],
     "seo": {

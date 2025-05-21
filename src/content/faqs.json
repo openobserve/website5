@@ -151,19 +151,17 @@
         "id": 2,
         "title": "OpenObserve",
         "description": "Open-source observability platform designed for modern applications—powerful visibility at a fraction of the cost",
-        "buttons": [
-          {
-            "text": "Get Started For Free",
-            "link": "https://cloud.openobserve.ai/web/login",
-            "variant": "secondary"
-          },
-          {
-            "text": "Learn More",
-            "link": "https://openobserve.ai/docs/",
-            "variant": "tertiary",
-            "description":"Refer Docs"
-          }
-        ]
+        "primarybtn": {
+          "text": "Get Started For Free",
+          "link": "https://cloud.openobserve.ai/web/login",
+          "variant": "secondary"
+        },
+        "secondarybtn": {
+          "text": "Learn More",
+          "link": "https://openobserve.ai/docs/",
+          "variant": "tertiary",
+          "description": "Refer Docs"
+        }
       }
     ],
     "seo": {
