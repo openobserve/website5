@@ -72,7 +72,7 @@ const componentsMap = computed(() => ({
   "section-features.global-team": CareerGlobalTeam,
   "section-testimonials.employee-testimonials": CareerTestimonials,
   "section-features.technology": CareerTechnology,
-  "section-features.cta": CareerCTA,
+  "section-features.cta": CTA,
   "section-solutions.solutions": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-solutions.capabilities": CapabilityTabs,
