@@ -27,20 +27,48 @@
     <template v-else>
       <form @submit.prevent="onSubmit" class="contact-form">
         <div class="contact-form-fields">
-          <div>
-            <label for="name" class="contact-form-label">Name</label>
-            <Field
-              name="name"
-              type="text"
-              placeholder="Your name"
-              as="input"
-              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
-            />
-            <ErrorMessage name="name" class="contact-form-error" />
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- first name -->
+            <div>
+              <label for="fname" class="contact-form-label">
+                First Name <span class="text-red-500">*</span></label
+              >
 
+              <Field
+                name="fname"
+                type="text"
+                placeholder="John"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.fname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="fname" class="contact-form-error" />
+            </div>
+            <!-- last name -->
+            <div>
+              <label for="lname" class="contact-form-label">
+                Last Name <span class="text-red-500">*</span></label
+              >
+
+              <Field
+                name="lname"
+                type="text"
+                placeholder="Smith"
+                as="input"
+                :class="[
+                  'contact-form-input',
+                  errors.lname ? 'is-invalid' : '',
+                ]"
+              />
+              <ErrorMessage name="lname" class="contact-form-error" />
+            </div>
+          </div>
           <div>
-            <label for="email" class="contact-form-label">Email Address</label>
+            <label for="email" class="contact-form-label"
+              >Email Address <span class="text-red-500">*</span></label
+            >
             <Field
               name="email"
               type="email"
@@ -52,32 +80,39 @@
           </div>
 
           <div>
-            <label for="phone" class="contact-form-label">Phone Number</label>
+            <label for="phone" class="contact-form-label"
+              >Phone Number <span class="text-red-500">*</span></label
+            >
             <Field
               name="phone"
               type="tel"
               placeholder="+1 (555) 123-4567"
               as="input"
-              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
+              :class="['contact-form-input', errors.phone ? 'is-invalid' : '']"
             />
             <ErrorMessage name="phone" class="contact-form-error" />
           </div>
 
           <div>
-            <label for="website" class="contact-form-label">Website</label>
+            <label for="website" class="contact-form-label"
+              >Website <span class="text-red-500">*</span></label
+            >
             <Field
               name="website"
               type="url"
               placeholder="https://yourwebsite.com"
               as="input"
-              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
+              :class="[
+                'contact-form-input',
+                errors.website ? 'is-invalid' : '',
+              ]"
             />
             <ErrorMessage name="website" class="contact-form-error" />
           </div>
 
           <div>
             <label for="message" class="contact-form-label"
-              >How Can We Help You?</label
+              >How Can We Help You? <span class="text-red-500">*</span></label
             >
             <Field
               name="message"
@@ -107,8 +142,11 @@
 
         <p class="contact-form-footer">
           By submitting this form, you agree to our
-          <a href="/policies/privacy-policy">Privacy Policy</a>
-          and <a href="/policies/terms-of-service">Terms of Service</a>.
+          <a href="/policies/terms-of-service" target="_blank"
+            >Terms & Conditions</a
+          >
+          and
+          <a href="/policies/privacy-policy" target="_blank">Privacy Policy</a>
         </p>
       </form>
     </template>
@@ -122,13 +160,14 @@ import * as yup from "yup";
 
 // Form validation
 const schema = yup.object({
-  name: yup.string().required("Name is required"),
+  fname: yup.string().required("First Name is required"),
+  lname: yup.string().required("Last Name is required"),
   email: yup.string().required("Email is required").email("Invalid email"),
-   phone: yup
+  phone: yup
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
     .required("Phone number is required"),
-  website: yup.string().url("Invalid URL"),
+  website: yup.string().required("Website is required").url("Invalid URL"),
   message: yup.string().required("Message is required"),
 });
 type FormData = yup.InferType<typeof schema>;
@@ -150,7 +189,8 @@ const onSubmit = handleSubmit(async (values) => {
       {
         method: "POST",
         body: JSON.stringify({
-          senderName: values.name,
+          senderFirstName: values.fname,
+          senderLastName: values.lname,
           senderEmail: values.email,
           senderMobile: values.phone,
           senderWebsite: values.website,
