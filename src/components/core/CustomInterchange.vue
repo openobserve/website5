@@ -47,25 +47,25 @@ const sectionClasses = computed(() => ({
     >
       <!-- client review Section -->
       <div
-        class="h-auto rounded-lg border border-card bg-white shadow-sm p-3 z-10 w-full lg:w-1/2"
+        class="h-auto rounded-lg border border-card bg-white shadow-sm p-6 xl:p-10 z-10 w-full lg:w-1/2"
       >
         <div class="flex items-start gap-4">
           <!-- Icon -->
           <div
-            class="bg-black/5 text-color-primary-blue rounded-full p-2 shrink-0 mt-1"
+            class="bg-black/5 text-color-primary-blue rounded-md p-4 shrink-0 mt-1"
           >
             <Quote class="w-6 h-6" />
           </div>
 
           <!-- Quote + Author Info -->
           <div class="flex flex-col">
-            <p class="text-gray-600 italic text-sm md:text-base leading-relaxed mb-4">
+            <p class="text-gray-600 italic text-base lg:text-lg font-medium mb-4">
               "{{ cardData?.quote }}"
             </p>
             <div class="flex items-center gap-3">
               <CustomImage
                 :src="cardData?.avatar"
-                class="w-8 h-8 rounded-full shrink-0"
+                class="w-12 h-12 rounded-full shrink-0"
               />
               <div>
                 <p class="font-semibold text-sm text-gray-900">
