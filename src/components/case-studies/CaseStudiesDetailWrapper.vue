@@ -8,48 +8,19 @@
         :activeSection="currentSection"
       />
     </div>
-    <div class="lg:hidden w-full block">
-      <div
-        class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
-      >
-        <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
-        <ul class="space-y-4">
-          <li
-            v-for="(item, index) in outcomes"
-            :key="index"
-            class="flex items-start"
-          >
-            <div class="mr-2 mt-1 text-primary-purple">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <span v-html="item"></span>
-          </li>
-        </ul>
-      </div>
-    </div>
+
+    <!-- Blog Content -->
     <div class="lg:flex-1 w-full">
-      <div id="blog-content" class="">
-        <template>
-          <div
-            v-html="htmlContent"
-            class="prose prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600"
-          ></div>
-        </template>
+      <div id="blog-content">
+        <div
+          v-html="htmlContent"
+          class="prose prose-pre:bg-gray-800 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-gray-600"
+        ></div>
       </div>
     </div>
-    <div class="lg:block hidden lg:w-1/5">
+
+    <!-- Key Outcomes (desktop only, if needed elsewhere, you can conditionally render) -->
+    <!-- <div class="lg:block hidden lg:w-1/5">
       <div
         class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
       >
@@ -79,7 +50,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup lang="ts">
@@ -112,21 +83,52 @@ function removeFrontmatter(content: string) {
   return content.replace(/^(---|\+\+\+)[\s\S]+?\1/, "").trim();
 }
 
-// /**
-//  * Convert Markdown to HTML.
-//  */
+// Convert Markdown to HTML and inject Key Outcomes after 1st <p>
 async function processMarkdown(markdownText: string) {
   if (!markdownText) return;
 
   const cleanedContent = removeFrontmatter(markdownText);
-  htmlContent.value = marked(cleanedContent);
-  // await nextTick();
-  // extractHeadingsFromHTML();
+  const rawHtml = marked(cleanedContent);
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(rawHtml, "text/html");
+
+  const paragraphs = doc.querySelectorAll("p");
+
+  if (paragraphs.length > 0) {
+    const keyOutcomesHtml = `
+      <div class="not-prose p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
+        <ul>
+          ${outcomes
+            .map(
+              (item) => `
+            <li class="flex items-start">
+              <div class="mr-2 mt-1 text-primary-purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span>${item}</span>
+            </li>`
+            )
+            .join("")}
+        </ul>
+      </div>
+    `;
+
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = keyOutcomesHtml;
+
+    paragraphs[0].parentNode?.insertBefore(wrapper, paragraphs[0].nextSibling);
+  }
+
+  htmlContent.value = doc.body.innerHTML;
 }
 
-/**
- * Extract headings & assign IDs after HTML is rendered.
- */
+// Extract headings & assign IDs
 async function extractHeadingsFromHTML() {
   await nextTick(); // Ensure the DOM is updated first
   if (typeof window === "undefined") return; // Avoid SSR issues
@@ -136,7 +138,7 @@ async function extractHeadingsFromHTML() {
   headings.value = [];
   const headingElements = container.querySelectorAll("h2, h3,h4, h5, h6");
 
-  headingElements.forEach((heading, index) => {
+  headingElements.forEach((heading) => {
     const level = parseInt(heading.tagName.replace("H", ""), 10);
     const text = heading.textContent.trim();
     const id = slugify(text);
@@ -205,9 +207,7 @@ onMounted(() => {
 });
 
 watch(
-  () => {
-    return headings.value;
-  },
+  () => headings.value,
   () => {
     observeHeadings();
     wrapTablesWithScroll();
