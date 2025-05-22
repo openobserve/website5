@@ -311,7 +311,7 @@
 }
 
 .contact-form-select {
-  @apply mt-1 w-full px-4 py-2 border rounded-md bg-white focus:ring-indigo-500 focus:border-indigo-500;
+  @apply mt-1 w-full px-2 py-2 border rounded-md bg-white focus:ring-indigo-500 focus:border-indigo-500;
 }
 
 /* error */
