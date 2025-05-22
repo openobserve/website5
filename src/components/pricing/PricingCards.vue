@@ -39,7 +39,7 @@
           class="flex items-start gap-2 space-y-1.5"
         >
           <Check class="h-4 w-4 text-primary-green mt-1 shrink-0" />
-          <span>{{ feature }}</span>
+          <span v-html="feature"></span>
         </li>
       </ul>
       <p v-if="item.additionalInfo" class="mt-4 text-sm text-gray-600">{{ item.additionalInfo }}</p>
