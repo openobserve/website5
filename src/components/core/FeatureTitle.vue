@@ -6,18 +6,19 @@
       </component>
 
       <!-- Animated Item -->
-      <div v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
+      <div v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2">
         <div v-for="(item, index) in items" :key="index"
           class="absolute top-0 left-0 w-full transition-all duration-500 ease-in-out" :class="{
-            'opacity-0 translate-y-full z-0':
-              index !== activeIndex && prevIndex !== index,
-            'opacity-0 -translate-y-full z-10':
-              prevIndex === index && index !== activeIndex,
+            'opacity-0 translate-y-full z-0': index !== activeIndex && prevIndex !== index,
+            'opacity-0 -translate-y-full z-10': prevIndex === index && index !== activeIndex,
             'opacity-100 translate-y-0 z-20': index === activeIndex,
           }">
-          {{ item }}
+          <component :is="`h${headingLevel}`" class="leading-tight">
+            {{ item }}
+          </component>
         </div>
       </div>
+
     </div>
     <p v-if="description" :class="['text-sm md:text-lg my-4 text-gray-500', alignClass]">
       {{ description }}
