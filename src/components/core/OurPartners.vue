@@ -6,9 +6,10 @@
       <p class="text-center text-gray-600 text-lg">{{ description }}</p>
 
       <!-- Controls -->
-      <div class="flex justify-between items-center my-6">
+
+      <!-- <div class="flex justify-between items-center my-6">
         <div class="flex space-x-2">
-          <!-- Prev Button -->
+      
           <button
             @click="scrollLeft"
             :disabled="isAtStart"
@@ -23,7 +24,7 @@
             </svg>
           </button>
 
-          <!-- Next Button -->
+          
           <button
             @click="scrollRight"
             :disabled="isAtEnd"
@@ -39,7 +40,7 @@
           </button>
         </div>
 
-        <!-- Optional Button -->
+       
         <div v-if="secondaryButton">
           <a
             :href="secondaryButton.link"
@@ -51,22 +52,17 @@
             </svg>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <!-- Scrollable Container -->
       <div class="overflow-hidden relative">
-        <div
-          ref="scrollContainer"
-          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4"
-        >
-          <div
-            v-for="(logo, index) in images"
-            :key="index"
-            class="flex-shrink-0 rounded-lg border p-4 flex items-center justify-center h-full snap-start w-full sm:w-[220px] xl:w-[19%]"
-          >
+        <div ref="scrollContainer"
+          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4">
+          <div v-for="(logo, index) in images" :key="index"
+            class="flex-shrink-0 rounded-lg border p-4 flex items-center justify-center h-full snap-start w-full sm:w-[220px] xl:w-[19%]">
             <div class="flex  flex-col gap-4 items-center justify-center w-full h-full text-gray-600">
               <img :src="logo.url" :alt="logo.alt" class="h-24 w-24" />
-              <a href="logo.link" target="_blank" class="hover:text-primary-blue hover:underline">{{ logo.text }}</a>
+              <a :href="logo.link" target="_blank" class="hover:text-primary-blue hover:underline">{{ logo.text }}</a>
             </div>
           </div>
         </div>
@@ -125,9 +121,9 @@ onMounted(() => {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 </style>
-
