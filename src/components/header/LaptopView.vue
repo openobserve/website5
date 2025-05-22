@@ -48,10 +48,12 @@
       @mouseenter="onPlatformMenuHover">
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
-          <a class="text-xl font-bold">
+          <!-- <a class="text-xl font-bold">
             {{ items.platform.title }}
-          </a>
-          <div class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4 font-semibold text-gray-600 text-sm">
+          </a> -->
+          <div
+            class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4 font-semibold text-gray-600 text-sm"
+          >
             <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
               <li v-for="(item, index) in items.platform.items" :key="index" class="">
                 <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.title }}</a>
@@ -67,6 +69,7 @@
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
             <div class="flex flex-col space-y-3">
+              <!-- <h4 class="text-xl font-bold">Use Case</h4> -->
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4 font-semibold text-gray-600 text-sm">
                   <li v-for="(item, index) in items.solutions.useCases" :key="index">

@@ -1,6 +1,6 @@
 <template>
   <section class="w-full" :class="background ? 'bg-gray-50' : ''">
-    <CustomSection>
+    <CustomSection sectionClass="!py-5 lg:!py-10">
       <!-- Heading -->
       <HeadingSection
           v-if="title || description"
