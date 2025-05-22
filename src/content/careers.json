@@ -204,7 +204,7 @@
             "color": "bg-blue-700 text-white"
           },
           {
-            "name": "Next.js",
+            "name": "Vue.js",
             "color": "bg-cyan-500 text-white"
           },
           {
@@ -220,28 +220,24 @@
             "color": "bg-blue-800 text-white"
           },
           {
-            "name": "GCP",
+            "name": "Azure",
             "color": "bg-yellow-500 text-white"
           },
           {
-            "name": "Prometheus",
+            "name": "SQL Database",
             "color": "bg-red-500 text-white"
           },
           {
-            "name": "OpenTelemetry",
+            "name": "gRPC",
             "color": "bg-gray-700 text-white"
           },
           {
-            "name": "gRPC",
+            "name": "ArgoCD",
             "color": "bg-pink-600 text-white"
           },
           {
-            "name": "GraphQL",
+            "name": "Terraform",
             "color": "bg-green-700 text-white"
-          },
-          {
-            "name": "Redis",
-            "color": "bg-red-700 text-white"
           }
         ]
       },
