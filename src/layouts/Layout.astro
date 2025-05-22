@@ -74,7 +74,41 @@ const { metaObj } = Astro.props;
           law: {
             regionalLaw: false,
           },
+
+          onInitialise: function (status) {
+            const type = this.options.type;
+            const didConsent = this.hasConsented();
+            if (type === "opt-in" && didConsent) {
+              loadGoogleAnalytics();
+            }
+          },
+
+          onStatusChange: function (status, chosenBefore) {
+            const didConsent = this.hasConsented();
+            if (didConsent) {
+              loadGoogleAnalytics();
+            }
+          },
         });
+
+        function loadGoogleAnalytics() {
+          if (window.gaInitialized) return; // prevent multiple loads
+          window.gaInitialized = true;
+
+          const script = document.createElement("script");
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-3383ZJ2HH7"; // replace with your ID
+          script.async = true;
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag("js", new Date());
+          gtag("config", "G-3383ZJ2HH7"); // replace with your ID
+        }
       });
     </script>
   </body>
