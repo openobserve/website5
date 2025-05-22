@@ -8,5 +8,5 @@ const seoData = about?.data?.seo || {};
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} />
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>
