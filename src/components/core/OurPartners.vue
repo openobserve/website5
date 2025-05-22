@@ -57,7 +57,7 @@
       <div class="overflow-hidden relative">
         <div
           ref="scrollContainer"
-          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-4 pb-4"
+          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4"
         >
           <div
             v-for="(logo, index) in images"
