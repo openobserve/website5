@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="activeTabData"
-    class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-6 gap-6 w-full"
+    class="grid grid-cols-1 lg:grid-cols-6 gap-6 w-full"
   >
     <div
       v-for="(item, index) in activeTabData.items"
