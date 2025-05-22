@@ -58,7 +58,7 @@
               </div>
               <div class="w-full md:w-1/2">
                 <div
-                  class="relative h-[300px] w-full rounded-lg overflow-hidden"
+                  class="relative w-full rounded-lg"
                 >
                   <img
                     :src="tab.card.image"
