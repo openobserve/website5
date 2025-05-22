@@ -1,35 +1,25 @@
 <template>
-  <div
-    class="gap-4 mb-6 lg:mb-10 text-3xl md:text-4xl font-bold text-black"
-    :class="alignClass"
-  >
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
-    <component :is="`h${headingLevel}`" class="leading-tight md:text-right col-span-3">
-      <span v-html="title" />
-    </component>
+  <div class="gap-4 mb-6 lg:mb-10 text-3xl md:text-4xl font-bold text-black" :class="alignClass">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+      <component :is="`h${headingLevel}`" class="leading-tight md:text-right col-span-3">
+        <span v-html="title" />
+      </component>
 
-    <!-- Animated Item -->
-    <div  v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="absolute top-0 left-0 w-full transition-all duration-500 ease-in-out"
-        :class="{
-          'opacity-0 translate-y-full z-0':
-            index !== activeIndex && prevIndex !== index,
-          'opacity-0 -translate-y-full z-10':
-            prevIndex === index && index !== activeIndex,
-          'opacity-100 translate-y-0 z-20': index === activeIndex,
-        }"
-      >
-        {{ item }}
+      <!-- Animated Item -->
+      <div v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">
+        <div v-for="(item, index) in items" :key="index"
+          class="absolute top-0 left-0 w-full transition-all duration-500 ease-in-out" :class="{
+            'opacity-0 translate-y-full z-0':
+              index !== activeIndex && prevIndex !== index,
+            'opacity-0 -translate-y-full z-10':
+              prevIndex === index && index !== activeIndex,
+            'opacity-100 translate-y-0 z-20': index === activeIndex,
+          }">
+          {{ item }}
+        </div>
       </div>
     </div>
-</div>
-    <p
-      v-if="description"
-      :class="['text-sm md:text-lg my-4 text-gray-500', alignClass]"
-    >
+    <p v-if="description" :class="['text-sm md:text-lg my-4 text-gray-500', alignClass]">
       {{ description }}
     </p>
   </div>
@@ -62,11 +52,11 @@ const headingLevel = computed(() => {
 
 const alignClass = computed(
   () =>
-    ({
-      LEFT: "text-left",
-      CENTER: "text-center",
-      RIGHT: "text-right",
-    }[props.align] ?? "text-center")
+  ({
+    LEFT: "text-left",
+    CENTER: "text-center",
+    RIGHT: "text-right",
+  }[props.align] ?? "text-center")
 );
 
 const activeIndex = ref(0);
@@ -97,6 +87,7 @@ onUnmounted(() => {
   opacity: 0;
   transform: translateY(100%);
 }
+
 .slide-cycle-enter-to {
   opacity: 1;
   transform: translateY(0%);
@@ -106,6 +97,7 @@ onUnmounted(() => {
   opacity: 1;
   transform: translateY(0%);
 }
+
 .slide-cycle-leave-to {
   opacity: 0;
   transform: translateY(-100%);
