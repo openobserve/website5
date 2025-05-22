@@ -92,32 +92,6 @@
       },
       {
         "id": 3,
-        "title": "Company",
-        "items": [
-          {
-            "id": 16,
-            "text": "About",
-            "link": "/about"
-          },
-          {
-            "id": 17,
-            "text": "Careers",
-            "link": "/careers"
-          },
-          {
-            "id": 18,
-            "text": "Contact Us",
-            "link": "/contact-us"
-          },
-            {
-            "id": 19,
-            "text": "Contact Sales",
-            "link": "/contact-sales"
-          }
-        ]
-      },
-      {
-        "id": 4,
         "title": "Resources",
         "items": [
           {
@@ -144,6 +118,32 @@
             "id": 24,
             "text": "Downloads",
             "link": "/downloads"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Company",
+        "items": [
+          {
+            "id": 16,
+            "text": "About",
+            "link": "/about"
+          },
+          {
+            "id": 17,
+            "text": "Careers",
+            "link": "/careers"
+          },
+          {
+            "id": 18,
+            "text": "Contact Us",
+            "link": "/contact-us"
+          },
+          {
+            "id": 19,
+            "text": "Contact Sales",
+            "link": "/contact-sales"
           }
         ]
       },
