@@ -150,9 +150,9 @@
                 />
               </div>
               <div class="flex justify-start">
-                <h3 class="text-lg font-bold text-black">
+                <!-- <h3 class="text-lg font-bold text-black">
                   {{ items.platform.title }}
-                </h3>
+                </h3> -->
               </div>
               <ul class="grid grid-cols-1 gap-x-6 gap-y-2">
                 <li
@@ -176,7 +176,7 @@
                 link="/solutions"
               />
               <div class="flex flex-col space-y-3">
-                <h4 class="text-black text-lg font-bold">Use Case</h4>
+                <!-- <h4 class="text-black text-lg font-bold">Use Case</h4> -->
                 <div class="">
                   <ul class="grid grid-cols-1 gap-2">
                     <li
