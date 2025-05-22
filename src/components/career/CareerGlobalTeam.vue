@@ -23,8 +23,8 @@
             ></div>
           </div>
         </div> -->
-       <div class="bg-gray-200 rounded-lg">
-        <CustomImage :image="image" :altText="altText" cssClass="w-full max-h-[50vh] rounded-lg object-cover" />
+       <div class="bg-gray-100 p-3 rounded-lg">
+        <CustomImage :image="image" :altText="altText" cssClass="w-full rounded-lg object-cover" />
          </div>
     </CustomSection>
   </div>

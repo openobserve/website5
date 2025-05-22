@@ -69,10 +69,14 @@ const setActiveSection = (id) => {
 
 // Structure headings into a nested format
 const nestedHeadings = computed(() => {
+  const filteredHeadings = props.headings.filter(
+    (heading) => heading.text.toLowerCase() !== "key outcomes"
+  );
+
   const nested = [];
   let lastParent = null;
 
-  props.headings.forEach((heading) => {
+  filteredHeadings.forEach((heading) => {
     if (heading.level === 2 || heading.level === 3) {
       lastParent = { ...heading, children: [] };
       nested.push(lastParent);
