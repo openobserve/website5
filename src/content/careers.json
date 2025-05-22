@@ -87,6 +87,8 @@
             "iconColor": "theme-green"
           }
         ],
+        "image": "/img/map-global-team-career.svg",
+        "altText": "Global Team Map",
         "mapText": "Work from anywhere in the world",
         "mapDots": [
           {

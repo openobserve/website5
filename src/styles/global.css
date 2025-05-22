@@ -76,7 +76,7 @@
   --color-primary-purple: rgb(60, 168, 251);
   color: var(--color-primary-purple);
   --color-card: rgba(47, 71, 229, 0.2);
-  --color-hover-card: rgba(30, 64, 175);
+  --color-hover-card: rgb(21, 129, 211);
   --color-tabs-background: rgba(69, 164, 243);
   --color-tabs-title-text: rgba(69, 164, 243);
 }

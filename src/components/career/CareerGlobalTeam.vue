@@ -1,33 +1,15 @@
 <template>
   <div class="bg-gradient-to-r from-primary-purple/5 to-primary-blue/5">
-    <CustomSection>
-      <HeadingSection
-        v-if="title || description"
-        :title="title"
-        :description="description"
-        align="center"
-      />
-      <div
-        class="grid gap-6"
-        :class="gridClass"
-      >
-        <div
-          v-for="(feature, index) in features"
-          :key="index"
-          class="text-center"
-        >
-          <Cards
-            :title="feature.title"
-            :description="feature.description"
-            :icon="feature.icon"
-            :theme="feature.iconColor"
-            align="center"
-          />
+    <CustomSection sectionClass="!py-5 lg:!py-10">
+      <HeadingSection v-if="title || description" :title="title" :description="description" align="center" />
+
+      <div class="grid gap-6" :class="gridClass">
+        <div v-for="(feature, index) in features" :key="index" class="text-center">
+          <Cards :title="feature.title" :description="feature.description" :icon="feature.icon"
+            :theme="feature.iconColor" align="center" />
         </div>
       </div>
-
-      <div class="bg-light-gray rounded-lg p-6 mt-12">
-        <div class="h-64 relative bg-white">
+        <!-- <div class="h-64 relative bg-white">
           <div class="absolute inset-0 flex items-center justify-center">
             <p class="text-center">{{ mapText }}</p>
           </div>
@@ -40,16 +22,18 @@
               :style="{ left: dot.x + '%', top: dot.y + '%' }"
             ></div>
           </div>
-        </div>
-      </div>
+        </div> -->
+       <div class="bg-gray-200 rounded-lg">
+        <CustomImage :image="image" :altText="altText" cssClass="w-full max-h-[50vh] rounded-lg object-cover" />
+         </div>
     </CustomSection>
   </div>
 </template>
-
 <script setup lang="ts">
 import Cards from "../core/Cards.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
+import CustomImage from "../core/CustomImage.vue";
 import { computed } from "vue";
 interface GlobalTeamFeature {
   title: string;
@@ -66,6 +50,8 @@ interface MapDot {
 const props = defineProps<{
   title: string;
   description: string;
+  image: string;
+  altText: string;
   features: GlobalTeamFeature[];
   mapText: string;
   mapDots: MapDot[];
