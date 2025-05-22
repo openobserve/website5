@@ -48,15 +48,15 @@
                 "price": "",
                 "period": "",
                 "features": [
-                  "$0.30 per GB for logs, metrics & traces",
-                  "Query Volume - $0.01 per GB",
-                  "Pipelines - $0.10 per GB Data Processed",
-                  "$0.25 per GB for Remote destinations",
-                  "RUM & Session Replay - $1 per 1K sessions",
-                  "Error Tracking - $0.15 per 1K events",
+                  "<strong>$0.30 per GB </strong>for logs, metrics & traces",
+                  "Query Volume - <strong> $0.01 per GB </strong>",
+                  "Pipelines - <strong> $0.10 per GB </strong> Data Processed",
+                  "<strong> $0.25 per GB </strong> for Remote destinations",
+                  "RUM & Session Replay - <strong> $1 per 1K </strong> sessions",
+                  "Error Tracking - <strong> $0.15 per 1K </strong> events",
                   "Unlimited Users",
                   "Role-Based Access Control (RBAC)",
-                  "15-Days Retention"
+                  "<strong> 15-Days </strong> Retention"
                 ],
                 "button": {
                   "text": "Start Cloud Free Trial",
