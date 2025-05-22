@@ -277,10 +277,7 @@ onMounted(() => {
 }
 
 .gradient-hover:hover {
-  background: linear-gradient(to left, #6a76e3, #45a4f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #7782FF;
 }
 
 .social-links {
