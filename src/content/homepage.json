@@ -99,6 +99,7 @@
       {
         "__component": "section-cards.homepage-features",
         "id": 2,
+        "headingTitleLevel": 2,
         "headingLevel": 3,
         "title": "Why OpenObserve?",
         "items": [
