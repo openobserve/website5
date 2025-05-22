@@ -57,6 +57,7 @@ import { ArticlesResources, BlogResources } from "@/utils/constant";
 import LatestArticles from "./articles/LatestArticles.vue";
 import SolutionSubPageHeroSection from "./herosection/SolutionSubPageHeroSection.vue";
 import ContactSalesWrapper from "./wrapper/ContactSalesWrapper.vue";
+import DummyHeroSection from "./animation/DummyHeroSection.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -91,6 +92,7 @@ const componentsMap = computed(() => ({
   "section-story.our-partners": OurPartners,
   "section-hero.platform-sub-hero": HeroSectionWithImage,
   "section-hero.solution-sub-hero": SolutionSubPageHeroSection,
+  "section-hero.dummy-solution-sub-hero":DummyHeroSection,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
