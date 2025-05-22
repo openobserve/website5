@@ -49,6 +49,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
   --accent: 240 4.8% 95.9%;
+
+  /* custom breakpoint  */
+  --breakpoint-3xl: 106.25rem;
 }
 
 /*

@@ -51,27 +51,32 @@
           {
             "url": "/img/partners/nexus.png",
             "alt": "Nexus Venture",
-            "link": "https://nexusvp.com/"
+            "link": "https://nexusvp.com/",
+            "text":"Nexus Venture"
           },
           {
             "url": "/img/partners/dell-technologies.png",
             "alt": "Dell Technologies",
-            "link":"https://www.delltechnologiescapital.com/"
+            "link":"https://www.delltechnologiescapital.com/",
+            "text":"Dell Technologies Capital"
           },
           {
             "url": "/img/partners/secure-octane.png",
             "alt": "SecureOctane",
-            "link":"https://www.secureoctane.com/"
+            "link":"https://www.secureoctane.com/",
+            "text":"Secure Octane"
           },
           {
             "url": "/img/partners/ratio-ventures.png",
             "alt": "Ratio Ventures",
-            "link":"https://www.ratio.ventures/"
+            "link":"https://www.ratio.ventures/",
+            "text":"Ratio Ventures"
           },
           {
             "url": "/img/partners/doug-merrit.png",
             "alt": "Doug Merrit",
-            "link":"https://aviatrix.com/leader/doug-merritt/"
+            "link":"https://aviatrix.com/leader/doug-merritt/",
+            "text":"Doug Merrit Advisor"
           }
         ]
       }

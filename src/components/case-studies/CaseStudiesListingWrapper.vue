@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-4 py-10">
+  <div class="flex flex-col space-y-4">
     <!-- Full-width search bar -->
     <div class="relative w-full">
       <SearchIcon

@@ -1,8 +1,8 @@
 <template>
-  <CustomSection sectionClass="max-w-4xl !py-8">
-    <div class="max-w-7xl mx-auto lg:px-0 px-4">
+  <CustomSection sectionClass="3xl:max-w-4xl !py-8">
+    <div class="lg:mx-auto lg:px-0 px-4">
       <!-- <HeadingSection v-if="title || description" :title="title" :description="description" align="center" /> -->
-       <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl mx-auto">
       <TabsHeader
         :tabs="tabs"
         :activeTab="activeTab"
