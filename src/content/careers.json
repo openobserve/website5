@@ -131,22 +131,22 @@
         "background": true,
         "items": [
           {
-            "quote": "OpenObserve has proven to be a reliable and cost-effective solution built to address real-world challenges.",
-            "name": "Wayne Creel",
-            "role": "CTO, ONEngine",
-            "avatar": "/img/client/wayne-creel.jpg"
+            "quote": "At OpenObserve, Innovation meets passion! What excites me most is the energy, the people, the purpose, and the shared dream of building something truly groundbreaking! Here, every challenge is an opportunity and every voice matters. We grow, we learn and we win together!!",
+            "name": "Vijeeta Mittal",
+            "role": "HR & Operations Specialist",
+            "avatar": "/img/career/vijeeta_0fd45b1867.png"
           },
           {
-            "quote": "[OpenObserve is] super fast, definitely very lightweight, and you can get started with an initial POC in two to three minutes to be honest.",
-            "name": "Ajith Natarajan",
-            "role": "Lead Software Engineer, Radius.ai",
-            "avatar": "/img/client/ajit-natarajan.jpg"
+            "quote": "As a backend engineer, what drew me to OpenObserve was the opportunity to build robust systems in Rust. But what keeps me here is how we're reshaping the way teams handle their observability needs. Every day, we tackle complex distributed systems challenges while keeping performance and cost-efficiency at the forefront.",
+            "name": "Taiming Liu",
+            "role": "Software Engineer",
+            "avatar": "/img/career/taiming_ab405cf9bb.png"
           },
           {
-            "quote": "Today, I think we run our entire production logs through OpenObserve... it’s been a phenomenal journey so far.",
-            "name": "Shailesh Mangal",
-            "role": "CTO, Roambee",
-            "avatar": "/img/client/shailesh-mangal.jpg"
+            "quote": "I had been using OpenObserve for about eight months before joining the company, and I was truly impressed by its innovation and the culture it fosters. What drew me to OpenObserve was the opportunity to work with a team that constantly pushes boundaries and promotes a positive, collaborative environment. Being part of such an innovative and supportive team has been an incredibly rewarding experience.",
+            "name": "Chaitanya Sistla",
+            "role": " Principal Solutions Architect",
+            "avatar": "/img/career/chaitanya_0e2d4335cc.png"
           }
         ],
         "button": {
