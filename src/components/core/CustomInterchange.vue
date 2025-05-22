@@ -91,11 +91,11 @@ const sectionClasses = computed(() => ({
                 <Check
                   class="h-5 w-5 mr-2 bg-card rounded-full p-1 text-color-primary-blue"
                 />
-                <h3
+                <p
                   class="font-inter font-semibold text-sm md:text-base lg:text-lg text-black"
                 >
                   {{ item.title }}
-                </h3>
+                </p>
               </div>
               <p class="font-inter text-sm text-gray-800 pl-7">
                 {{ item.description }}
