@@ -10,7 +10,6 @@
       :class="[
         'col-span-2',
         item.container ?? '',
-        item.container ?? '',
         activeTabData.items.length === 1 ? 'lg:col-span-6' : '',
         activeTabData.items.length === 2 ? 'lg:col-span-3' : '',
       ]"
