@@ -60,7 +60,6 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
   *,
   ::after,
   ::before,
@@ -72,7 +71,7 @@
 
 .theme-blue {
   --color-primary-purple: rgb(60, 168, 251);
-  color: var( --color-primary-purple);
+  color: var(--color-primary-purple);
   --color-card: rgba(47, 71, 229, 0.2);
   --color-hover-card: rgba(30, 64, 175);
   --color-tabs-background: rgba(69, 164, 243);
@@ -80,7 +79,7 @@
 }
 
 .theme-red {
-   --color-primary-purple: rgb(238, 92, 70);
+  --color-primary-purple: rgb(238, 92, 70);
   color: var(--color-primary-purple);
   --color-card: rgba(244, 91, 73, 0.2);
   --color-hover-card: rgba(220, 38, 38);
@@ -195,7 +194,7 @@
   animation: scroll 20s linear infinite;
 }
 
-.animate-scroll>* {
+.animate-scroll > * {
   flex-shrink: 0;
 }
 
@@ -315,7 +314,7 @@
 /* error */
 /* Error border for invalid fields */
 .contact-form-input.is-invalid,
-.contact-form-textarea.is-invalid ,
+.contact-form-textarea.is-invalid,
 .contact-form-select.is-invalid {
   border-color: #ef4444; /* Tailwind red-500 */
   box-shadow: 0 0 0 0px #ef4444;
@@ -479,4 +478,8 @@ h4 {
 h5 {
   font-size: 18px;
   font-weight: 500;
+}
+h6 {
+  font-size: 14px;
+  font-weight: 400;
 }

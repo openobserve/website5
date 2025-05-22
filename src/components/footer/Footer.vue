@@ -119,9 +119,9 @@ onMounted(() => {
               :key="section.title"
               class="min-w-0"
             >
-              <h2 class="text-white font-medium text-xl mb-4">
+              <h5 class="text-white font-medium text-xl mb-4">
                 {{ section.title }}
-              </h2>
+              </h5>
 
               <ul class="space-y-2">
                 <li v-for="item in section.items" :key="item.text">
