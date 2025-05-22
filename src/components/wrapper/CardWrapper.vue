@@ -66,6 +66,7 @@ const props = defineProps({
             :items="card.items"
             class="grid-item"
             :heading-level="headingLevel"
+            :align="card.align"
           />
           <!-- CardWithSideIcon -->
           <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
