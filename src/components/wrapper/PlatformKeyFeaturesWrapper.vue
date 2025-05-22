@@ -74,11 +74,9 @@ const activeTab = ref("standard");
             ? standardCTA?.buttonLink
             : enterpriseCTA?.buttonLink
         "
-        :btn-class="
-          activeTab === 'standard' ? standardCTA?.theme : enterpriseCTA?.theme
-        "
+        :btn-class="`!text-sm ${activeTab === 'standard' ? standardCTA?.theme : enterpriseCTA?.theme}`"
         size="small"
-        class="text-md inline-flex px-10 py-4"
+        class="inline-flex"
         :buttonText="
           activeTab === 'standard'
             ? standardCTA?.buttonText

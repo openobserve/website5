@@ -109,7 +109,7 @@ onMounted(() => {
     </svg>
     <!-- <CustomSection> -->
     <div class="relative container mx-auto px-4 py-6 lg:px-8 xl:px-12">
-      <div class="w-full flex flex-col lg:flex-row justify-between">
+      <div class="w-full flex flex-col lg:flex-row ">
         <div class="w-full lg:w-[85%]">
           <!-- Main Footer Content -->
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 mt-12">
@@ -138,11 +138,11 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="w-full lg:w-[15%]">
+        <div class="w-full lg:w-[15%] flex justify-start">
           <div class="_form_3"></div>
         </div>
       </div>
-      <div class="flex justify-center lg:justify-end py-2">
+      <div class="flex justify-center lg:justify-end py-5">
         <div class="flex items-center gap-6">
           <div class="w-12 h-12 flex-shrink-0">
             <img

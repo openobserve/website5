@@ -174,11 +174,33 @@ function observeHeadings() {
   headingElements.forEach((heading) => observer.observe(heading));
 }
 
+/**
+ * Wrap tables in a scrollable div.
+ */
+ async function wrapTablesWithScroll() {
+  await nextTick(); // Ensure DOM updates first
+  if (typeof window === "undefined") return; // Avoid SSR issues
+
+  const container = document.getElementById("blog-content");
+  if (!container) return;
+
+  container.querySelectorAll("table").forEach((table) => {
+    if (table.parentElement.classList.contains("table-wrapper")) return; // Skip if already wrapped
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "table-wrapper overflow-x-auto w-full";
+
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+}
+
 onMounted(() => {
   processMarkdown(props.content);
   nextTick(() => {
     extractHeadingsFromHTML();
     observeHeadings();
+    wrapTablesWithScroll();
   });
 });
 
@@ -188,6 +210,33 @@ watch(
   },
   () => {
     observeHeadings();
+    wrapTablesWithScroll();
   }
 );
 </script>
+<style scoped>
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-wrapper th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+
+</style>

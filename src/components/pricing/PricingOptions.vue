@@ -1,5 +1,5 @@
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="max-w-4xl !py-8">
     <div class="max-w-7xl mx-auto lg:px-0 px-4">
       <!-- <HeadingSection v-if="title || description" :title="title" :description="description" align="center" /> -->
        <div class="max-w-4xl mx-auto">

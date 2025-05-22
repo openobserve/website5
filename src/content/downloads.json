@@ -71,7 +71,7 @@
                   " Cipher keys (HIPAA, PCI compliance)",
                   "Sensitive Data Redaction"
                 ],
-                "additionalInfo": "For additional volume needs or special requirements, <a href='/contactus' class='underline text-blue-500'>contact our team</a>.",
+                "additionalInfo": "For additional volume needs or special requirements, <a href='/contact-sales' class='underline text-blue-500'>contact our team</a>.",
                 "button": {
                   "text": "Install →",
                   "link": "https://openobserve.ai/docs/openobserve-enterprise-edition-installation-guide",
