@@ -8,6 +8,7 @@ import * as yup from "yup";
 const schema = yup.object({
   fname: yup.string().required("First Name is required"),
   lname: yup.string().required("Last Name is required"),
+  email: yup.string().required("Email is required").email("Invalid email"),
   company: yup.string().required("Company name is required"),
   phone: yup
     .string()
@@ -29,6 +30,7 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     initialValues: {
       fname: "",
       lname: "",
+      email:"",
       company: "",
       phone: "",
       referral: "",
@@ -44,6 +46,7 @@ const onSubmit = handleSubmit(async (values) => {
         body: JSON.stringify({
           senderName: values.fname,
           senderLastName: values.lname,
+          senderEmail: values.email,
           senderCompany: values.company,
           senderMobile: values.phone,
           senderMessage: values.referral,
@@ -147,6 +150,20 @@ const reset = () => {
               />
               <ErrorMessage name="lname" class="contact-form-error" />
             </div>
+          </div>
+          <!-- email -->
+           <div>
+            <label for="email" class="contact-form-label"
+              >Work Email <span class="text-red-500">*</span></label
+            >
+            <Field
+              name="email"
+              type="email"
+              placeholder="your.name@company.com"
+              as="input"
+              :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
+            />
+            <ErrorMessage name="email" class="contact-form-error" />
           </div>
           <!-- Company Name -->
           <div>
