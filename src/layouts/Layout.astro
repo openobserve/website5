@@ -25,9 +25,13 @@ const { metaObj } = Astro.props;
       rel="stylesheet"
       media="all"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+    />
   </head>
   <body class="">
-    <Header navData={navData?.data} client:only/>
+    <Header navData={navData?.data} client:only />
     <main class="pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)]">
       <slot />
     </main>
@@ -40,6 +44,39 @@ const { metaObj } = Astro.props;
       address={FooterData?.data?.address}
       client:only
     />
+    <!-- CookieConsent Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+      defer></script>
+    <script is:inline>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: { background: "#000" },
+            button: { background: "#f1d600" },
+          },
+          theme: "classic",
+          position: "bottom-right",
+          type: "opt-in",
+          content: {
+            message: "We use cookies to ensure you get the best experience.",
+            allow: "Accept",
+            dismiss: "Decline",
+            link: "Privacy Policy",
+            href: "/policies/privacy-policy",
+          },
+          cookie: {
+            name: "cookieconsent_status",
+            expires: 365,
+          },
+          revokable: true,
+          showLink: true,
+          law: {
+            regionalLaw: false,
+          },
+        });
+      });
+    </script>
   </body>
 </html>
 
