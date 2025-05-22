@@ -62,7 +62,7 @@
           <div
             v-for="(logo, index) in images"
             :key="index"
-            class="flex-shrink-0 rounded-lg border p-4 flex items-center justify-center h-full snap-start w-full sm:w-[225px] xl:w-[24%]"
+            class="flex-shrink-0 rounded-lg border p-4 flex items-center justify-center h-full snap-start w-full sm:w-[220px] xl:w-[19%]"
           >
             <div class="flex  flex-col gap-4 items-center justify-center w-full h-full text-gray-600">
               <img :src="logo.url" :alt="logo.alt" class="h-24 w-24" />
