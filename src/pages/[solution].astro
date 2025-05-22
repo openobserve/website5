@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import data from "@/content/solutionsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
-
+import SimpleAnimation from "@/components/animation/SimpleAnimation.vue";
 export async function getStaticPaths() {
   return data.map((item: any) => {
     return {
@@ -26,4 +26,19 @@ const blogData = (await getAllBlogs())
     blogsData={blogData}
     client:load
   />
+  <!-- <div
+    class="pt-20 bg-blue-300 w-full py-20 flex flex-row h-full items-center gap-4 p-6 justify-center"
+  >
+    <div class="text-white w-1/2">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia non quia
+      beatae dignissimos, asperiores sit voluptatibus facere nostrum magnam
+      aliquid quos nobis incidunt omnis corrupti, atque tempora nihil fugit.
+      Expedita recusandae voluptatibus quasi nam repellat porro a, explicabo
+      aliquid repudiandae soluta vero dignissimos eveniet obcaecati?
+      Voluptatibus excepturi exercitationem atque?
+    </div>
+    <div class="w-1/2">
+      <SimpleAnimation client:load />
+    </div>
+  </div> -->
 </Layout>

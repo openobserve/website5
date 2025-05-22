@@ -25,6 +25,23 @@
         "altText": "OpenObserve Dashboard"
       },
       {
+        "__component": "section-hero.dummy-solution-sub-hero",
+        "id": 1,
+         "pageTag": "AWS Monitoring",
+        "title": "AWS Monitoring",
+        "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
+        "primaryButton": {
+          "text": "Start Free Cloud Trial",
+          "link": "https://cloud.openobserve.ai/web/login",
+          "variant": "primary"
+        },
+        "bgImage": "/img/solution-aws/BG.svg",
+        "rightImage": "/img/solution-aws/Group 9269.svg",
+        "mobileBgImage": "/public/img/solution-aws/mobile-view.svg",
+        "mobileRightImage": "/img/solution-aws/Group 9269.svg",
+        "altText": "OpenObserve Dashboard"
+      },
+      {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
