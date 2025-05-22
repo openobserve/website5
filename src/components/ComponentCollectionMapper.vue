@@ -27,7 +27,7 @@ import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
 import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
 import OurStory from "@/components/core/OurStory.vue";
-import OurCommitmentO2 from "@/components/core/OurCommitmentO2.vue";
+import OurCommitmentO2 from "@/components/core/OurCommitment.vue";
 import OurPartners from "@/components/core/OurPartners.vue";
 import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
 // import BlogSection from "./contactus/BlogSection.vue";
