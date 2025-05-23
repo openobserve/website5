@@ -79,40 +79,45 @@ onMounted(() => {
 
     <div class="relative container mx-auto px-4 py-6 lg:px-8 xl:px-12">
       <!-- Main Grid Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-8">
-        <!-- First 2 sections (1 column each) -->
-        <div v-for="(section, index) in firstSections.slice(0, 2)" :key="section.title" class="min-w-0">
-          <h2 class="text-white font-medium text-xl mb-3">
-            {{ section.title }}
-          </h2>
-          <ul class="space-y-2">
-            <li v-for="item in section.items" :key="item.text">
-              <a :href="item.link" :target="item.target"
-                class="gradient-hover text-gray-300 text-base transition duration-300">
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        <!-- Left side - first 2 sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div v-for="(section, index) in firstSections.slice(0, 2)" :key="section.title" class="min-w-0">
+            <h2 class="text-white font-medium text-xl mb-3">
+              {{ section.title }}
+            </h2>
+            <ul class="space-y-2">
+              <li v-for="item in section.items" :key="item.text">
+                <a :href="item.link" :target="item.target"
+                  class="gradient-hover text-gray-300 text-base transition duration-300">
+                  {{ item.text }}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Last 2 sections (1 column each) -->
-        <div v-for="(section, index) in firstSections.slice(2, 4)" :key="section.title" class="min-w-0">
-          <h2 class="text-white font-medium text-xl mb-3">
-            {{ section.title }}
-          </h2>
-          <ul class="space-y-2">
-            <li v-for="item in section.items" :key="item.text">
-              <a :href="item.link" :target="item.target"
-                class="gradient-hover text-gray-300 text-base transition duration-300">
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <!-- Right side - next 2 sections + newsletter -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+          <!-- Next 2 sections -->
+          <div v-for="(section, index) in firstSections.slice(2, 4)" :key="section.title" class="min-w-0">
+            <h2 class="text-white font-medium text-xl mb-3">
+              {{ section.title }}
+            </h2>
+            <ul class="space-y-2">
+              <li v-for="item in section.items" :key="item.text">
+                <a :href="item.link" :target="item.target"
+                  class="gradient-hover text-gray-300 text-base transition duration-300">
+                  {{ item.text }}
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Newsletter section - spans 2 columns on md+ screens -->
-        <div class="md:col-span-2 lg:col-span-2 lg:col-start-4 flex">
-          <div class="_form_3 w-full"></div>
+          <!-- Newsletter section -->
+          <div class="md:col-span-2 lg:col-span-2">
+            <div class="_form_3 w-full flex justify-end"></div>
+          </div>
         </div>
       </div>
 
