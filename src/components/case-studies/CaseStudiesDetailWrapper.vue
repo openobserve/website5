@@ -8,6 +8,37 @@
         :activeSection="currentSection"
       />
     </div>
+    <div class="w-full lg:w-1/5">
+      <div
+        class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
+      >
+        <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
+        <ul class="space-y-4">
+          <li
+            v-for="(item, index) in outcomes"
+            :key="index"
+            class="flex items-start"
+          >
+            <div class="mr-2 mt-1 text-primary-purple">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span v-html="item"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Blog Content -->
     <div class="lg:flex-1 w-full">
@@ -86,46 +117,47 @@ function removeFrontmatter(content: string) {
 // Convert Markdown to HTML and inject Key Outcomes after 1st <p>
 async function processMarkdown(markdownText: string) {
   if (!markdownText) return;
-
   const cleanedContent = removeFrontmatter(markdownText);
-  const rawHtml = marked(cleanedContent);
+  htmlContent.value = marked(cleanedContent)
+  // const rawHtml = marked(cleanedContent);
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(rawHtml, "text/html");
+  // const parser = new DOMParser();
+  // const doc = parser.parseFromString(rawHtml, "text/html");
 
-  const paragraphs = doc.querySelectorAll("p");
+  // const paragraphs = doc.querySelectorAll("p");
 
-  if (paragraphs.length > 0) {
-    const keyOutcomesHtml = `
-      <div class="not-prose p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg">
-        <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
-        <ul>
-          ${outcomes
-            .map(
-              (item) => `
-            <li class="flex items-start">
-              <div class="mr-2 mt-1 text-primary-purple">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-              <span>${item}</span>
-            </li>`
-            )
-            .join("")}
-        </ul>
-      </div>
-    `;
+  // if (paragraphs.length > 0) {
+  //   const keyOutcomesHtml = `
+  //     <div class="not-prose p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg">
+  //       <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
+  //       <ul>
+  //         ${outcomes
+  //           .map(
+  //             (item) => `
+  //           <li class="flex items-start">
+  //             <div class="mr-2 mt-1 text-primary-purple">
+  //               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+  //                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  //                    stroke-linecap="round" stroke-linejoin="round">
+  //                 <polyline points="20 6 9 17 4 12" />
+  //               </svg>
+  //             </div>
+  //             <span>${item}</span>
+  //           </li>`
+  //           )
+  //           .join("")}
+  //       </ul>
+  //     </div>
+  //   `;
 
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = keyOutcomesHtml;
+  //   const wrapper = document.createElement("div");
+  //   wrapper.innerHTML = keyOutcomesHtml;
 
-    paragraphs[0].parentNode?.insertBefore(wrapper, paragraphs[0].nextSibling);
-  }
+  //   paragraphs[0].parentNode?.insertBefore(wrapper, paragraphs[0].nextSibling);
+  // }
 
-  htmlContent.value = doc.body.innerHTML;
+  // htmlContent.value = doc.body.innerHTML;
+
 }
 
 // Extract headings & assign IDs
