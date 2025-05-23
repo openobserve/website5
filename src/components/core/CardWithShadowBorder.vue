@@ -47,7 +47,7 @@ const headingLevel = computed(() => {
         props.theme,
       ]"
     >
-      <span v-html="props.icon" class="h-6 w-6" />
+      <span v-html="props.icon" />
     </div>
 
     <!-- Title -->
