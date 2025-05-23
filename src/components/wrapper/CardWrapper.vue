@@ -35,6 +35,20 @@ const props = defineProps({
     required: false,
   },
 });
+
+function getTag(card) {
+  return card && card.button && card.button.link ? "a" : "div";
+}
+
+function getHref(card) {
+  return card && card.button && card.button.link ? card.button.link : null;
+}
+
+function getTarget(card) {
+  return card && card.button && card.button.target
+    ? card.button.target
+    : null;
+}
 </script>
 
 <template>
@@ -54,23 +68,27 @@ const props = defineProps({
         <!-- Cards Section -->
         <div class="grid-container">
           <!-- CardWithShadowBorder -->
-          <CardWithShadowBorder
-            v-for="(card, index) in items"
-            :key="index"
-            :title="card.title"
-            :description="card.description"
-            :icon="card.icon"
-            :buttonText="card.buttonText"
-            :buttonLink="card.buttonLink"
-            :theme="card.theme"
-            :items="card.items"
-            class="grid-item"
-            :heading-level="headingLevel"
-            :align="card.align"
-          />
-          <!-- CardWithSideIcon -->
-          <!-- <CardWithSideIcon v-for="(card, index) in cardsData2" :key="index" :title="card.title"
-          :description="card.description" :icon="card.icon" :theme="card.theme" :items="card.items" /> -->
+          <template v-for="(card, index) in items" :key="index">
+            <component
+              :is="getTag(card)"
+              :href="getHref(card)"
+              :target="getTarget(card)"
+              class="grid-item block"
+            >
+              <CardWithShadowBorder
+                :title="card.title"
+                :description="card.description"
+                :icon="card.icon"
+                :buttonText="card.buttonText"
+                :buttonLink="card.buttonLink"
+                :theme="card.theme"
+                :items="card.items"
+                :heading-level="headingLevel"
+                :align="card.align"
+                class="w-full"
+              />
+            </component>
+          </template>
         </div>
 
         <!-- View All Button -->

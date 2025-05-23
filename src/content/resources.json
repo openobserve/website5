@@ -15,7 +15,7 @@
       {
         "__component": "section-features.resources-feature-details",
         "id": 3,
-        "title": "",
+        "title": "Quick Start",
         "description": "",
         "data": [
           {
@@ -49,19 +49,34 @@
             "title": "User Guide",
             "description": "Step-by-step instructions for setting up and managing OpenObserve.",
             "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
-            "theme": "theme-blue"
+            "theme": "theme-blue",
+            "button": {
+              "text": "User Guide",
+              "link": "https://openobserve.ai/docs/user-guide",
+              "target": "_blank"
+            }
           },
           {
             "title": "API Reference",
             "description": "Comprehensive API documentation for integrations.",
             "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
-            "theme": "theme-purple"
+            "theme": "theme-purple",
+            "button": {
+              "text": "API Reference",
+              "link": "https://openobserve.ai/docs/api",
+              "target": "_blank"
+            }
           },
           {
             "title": "Function Reference",
             "description": "Detailed information about functions and capabilities.",
             "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
-            "theme": "theme-green"
+            "theme": "theme-green",
+            "button": {
+              "text": "Function Reference",
+              "link": "https://openobserve.ai/docs/user-guide/functions",
+              "target": "_blank"
+            }
           }
         ],
         "button": {
@@ -79,7 +94,10 @@
         "stories": [
           {
             "id": 1,
-            "tags": ["Technology", "Microservices"],
+            "tags": [
+              "Technology",
+              "Microservices"
+            ],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "TechCorp Logo",
             "title": "How TechCorp Reduced Observability Costs by 80%",
@@ -93,7 +111,10 @@
           },
           {
             "id": 2,
-            "tags": ["Financial Services", "Cloud Migration"],
+            "tags": [
+              "Financial Services",
+              "Cloud Migration"
+            ],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "FinanceApp Logo",
             "title": "FinanceApp's Journey to Cloud-Native Observability",
@@ -107,7 +128,10 @@
           },
           {
             "id": 3,
-            "tags": ["E-Commerce", "Peak Season"],
+            "tags": [
+              "E-Commerce",
+              "Peak Season"
+            ],
             "logo": "/img/icon/slack-icon.svg",
             "logoAlt": "ShopNow Logo",
             "title": "How ShopNow Survived Black Friday with OpenObserve",

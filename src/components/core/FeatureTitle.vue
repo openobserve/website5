@@ -1,10 +1,10 @@
 <template>
   <div
     class="gap-4 mb-6 lg:mb-10 text-3xl md:text-4xl font-bold text-black"
-    :class="alignClass"
+     :class="[alignClass, !items.length ? 'text-center' : '']"
   >
   <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
-    <component :is="`h${headingLevel}`" class="leading-tight md:text-right col-span-3">
+    <component :is="`h${headingLevel}`" class="leading-tight col-span-3" :class="[!items.length ? 'text-center col-span-5' : 'md:text-right']">
       <span v-html="title" />
     </component>
 
