@@ -88,8 +88,8 @@
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
             {
-              "title": "Data Retention",
-              "description": "Configurable data retention policies with hot and cold storage options",
+              "title": "Versatile Storage",
+              "description": "Integrate with Amazon S3, Google Cloud Storage, and more for configurable data retention",
               "theme": "theme-green",
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             },
