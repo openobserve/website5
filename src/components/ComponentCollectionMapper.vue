@@ -22,7 +22,6 @@ import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
 import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import CTA from "@/components/core/CTA.vue";
-import CardWithSideIconWrapper from "./wrapper/CardWithSideIconWrapper.vue";
 import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
 import CardWrapper from "@/components/wrapper/CardWrapper.vue";
 import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
@@ -57,6 +56,7 @@ import { ArticlesResources, BlogResources } from "@/utils/constant";
 import LatestArticles from "./articles/LatestArticles.vue";
 import SolutionSubPageHeroSection from "./herosection/SolutionSubPageHeroSection.vue";
 import ContactSalesWrapper from "./wrapper/ContactSalesWrapper.vue";
+import PlatformArchitectureWrapper from "./wrapper/PlatformArchitectureWrapper.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -80,7 +80,7 @@ const componentsMap = computed(() => ({
   "section-solutions.faqs": FaqsWrapper,
   "section-hero.cta-buttons": CTA,
   "section-features.benefits": HomeCardWrapper,
-  "section-features.architecture": CardWithSideIconWrapper,
+  "section-features.architecture": PlatformArchitectureWrapper,
   "section-hero.homepage-hero": HomeHerosection,
   "section-cards.homepage-features": CardWrapper,
   "section-cards.solution-features": CardWithBackgroundWrapper,
