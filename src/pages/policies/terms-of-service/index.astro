@@ -2,7 +2,7 @@
 import CustomSection from "@/components/core/CustomSection.vue";
 import PoliciesHeader from "@/components/policies/PoliciesHeader.vue";
 import Layout from "@/layouts/Layout.astro";
-
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 const metaObj = {
   title:
     "Terms Of Service | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
@@ -12,9 +12,10 @@ const metaObj = {
 <!-- If you're using a layout, wrap this inside a <Layout> component or layout slot. -->
 <Layout metaObj={metaObj}>
   <div class="">
-    <PoliciesHeader
+    <CommonHerosection
       title="Terms of Service"
       description="Last updated: April 17, 2025"
+      align="center"
     />
 
     <CustomSection sectionClass="max-w-4xl !pt-12 !pb-0">
