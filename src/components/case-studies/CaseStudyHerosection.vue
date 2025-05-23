@@ -29,11 +29,11 @@
   </section>
 
   <!-- CaseStudy Cover Image -->
-  <section class="container mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
+  <!-- <section class="container mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 xl:px-11 mb-6">
     <figure class="shadow-xl">
       <img :src="caseStudyImage" :alt="title" class="object-cover w-full h- rounded-lg" />
     </figure>
-  </section>
+  </section> -->
   <!-- </CustomSection> -->
 </template>
 <script setup lang="ts">
