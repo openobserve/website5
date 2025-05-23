@@ -74,7 +74,7 @@ const socialIcon = (name) => {
       <!-- Main Grid Layout - 68%/32% split -->
       <div class="flex flex-col lg:flex-row gap-6 mt-8">
         <!-- Left side - 4 columns (68% width) -->
-        <div class="w-full lg:w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="w-full lg:w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="(section, index) in firstSections" :key="section.title" class="min-w-0">
             <h2 class="text-white font-medium text-xl mb-3">
               {{ section.title }}
@@ -91,7 +91,7 @@ const socialIcon = (name) => {
         </div>
 
         <!-- Right side - newsletter (32% width) -->
-        <div class="w-full lg:w-[32%]">
+        <div class="w-full lg:w-[25%]">
           <div class="newsletter-container">
             <h2 class="text-white font-medium text-xl title">Stay Updated<span class="underline"></span></h2>
             <p class="text-gray-300 text-base transition duration-300 subtitle">Get the latest
@@ -244,8 +244,8 @@ const socialIcon = (name) => {
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   border: none;
-  background-color: white;
-  color: #121212;
+  background-color: #7782FF;
+  color: white;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -253,7 +253,7 @@ const socialIcon = (name) => {
 }
 
 .subscribe-button:hover {
-  background-color: #7782FF;
+  background-color: #6672fa;
   color: white;
 }
 
