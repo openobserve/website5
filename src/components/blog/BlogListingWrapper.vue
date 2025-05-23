@@ -14,10 +14,22 @@
         class="pl-10 w-full border border-primary-gray/20 focus:ring-2 focus:ring-primary-purple focus:outline-none py-3 rounded-md text-base"
       />
     </div>
+    <div class="mt-2 ml-3 text-black text-sm">
+      <template v-if="searchItem.trim()">
+        <p v-show="filteredBlogsData.length > 0">
+          Search results for "<span class="font-bold">{{ searchItem }}</span
+          >"
+        </p>
+        <p v-show="filteredBlogsData.length === 0">
+          No results for "<span class="font-bold">{{ searchItem }}</span
+          >"
+        </p>
+      </template>
+    </div>
     <BlogListing :sectionData="filteredBlogsData" :type="type" />
     <template v-if="shouldPaginate">
-      <!-- v-show="!searchItem.trim()" -->
       <BlogPagination
+        v-show="!searchItem.trim()"
         :totalItems="totalItems"
         :itemsPerPage="ITEMS_PER_PAGE"
         :currentPage="currentPage"
