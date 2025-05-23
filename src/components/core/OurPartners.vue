@@ -57,15 +57,32 @@
       <!-- Scrollable Container -->
       <div class="overflow-hidden relative">
         <div ref="scrollContainer"
-          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4">
+          class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4 items-stretch">
+
           <div v-for="(logo, index) in images" :key="index"
-            class="flex-shrink-0 rounded-lg border p-4 flex items-center justify-center h-full snap-start w-full sm:w-[220px] xl:w-[19%]">
-            <div class="flex  flex-col gap-4 items-center justify-center w-full h-full text-gray-600">
-              <img :src="logo.url" :alt="logo.alt" class="h-24 w-24" />
-              <a :href="logo.link" target="_blank" class="hover:text-primary-blue hover:underline">{{ logo.text }}</a>
+            class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full sm:w-[220px] xl:w-[19%]">
+
+            <!-- Card content wrapper that ensures uniform layout -->
+            <div class="flex flex-col justify-between h-full w-full text-gray-600 items-center text-center gap-2">
+
+              <!-- Image -->
+              <div class="flex justify-center">
+                <img :src="logo.url" :alt="logo.alt" class="h-24 w-24" />
+              </div>
+
+              <!-- Name & Role -->
+              <div class="flex flex-col flex-1">
+                <a :href="logo.link" target="_blank"
+                  class="hover:text-primary-blue hover:underline font-semibold flex items-center justify-start">
+                  {{ logo.name }}
+                </a>
+                <p class="">{{ logo.role || '' }}</p>
+              </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </CustomSection>
   </section>
