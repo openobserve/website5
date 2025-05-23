@@ -18,7 +18,7 @@
         "title": "Our Story",
         "paragraphs": "OpenObserve was founded in 2022 with a vision to make observability more accessible, complete and cost-effective. OpenObserve emerged from the challenges of managing complex distributed systems. Our platform addresses the growing need for unified observability while dramatically reducing storage costs.",
         "image": {
-           "src": "/img/logo.svg",
+          "src": "/img/about/ChatGPT Image May 22, 2025, 04_15_25 PM.png",
           "alt": "OpenObserve founding team"
         }
       },
@@ -34,7 +34,7 @@
         "title": "Our People",
         "paragraphs": "We're problem-solvers scattered across continents who speak the language of systems at scale. Our engineers have battled production fires, optimized query engines, and designed architectures that handle billions of events daily.<br/><br/>We didn't gather because we shared an office—we connected because we shared obsessions. This distributed DNA shapes everything we build: resilient, global, and uncompromising.",
         "image": {
-          "src": "/img/logo.svg",
+          "src": "/img/about/career image.png",
           "alt": "OpenObserve founding team"
         },
         "primaryButton": {
@@ -52,31 +52,31 @@
             "url": "/img/partners/nexus.png",
             "alt": "Nexus Venture",
             "link": "https://nexusvp.com/",
-            "text":"Nexus Venture"
+            "text": "Nexus Venture"
           },
           {
             "url": "/img/partners/dell-technologies.png",
             "alt": "Dell Technologies",
-            "link":"https://www.delltechnologiescapital.com/",
-            "text":"Dell Technologies Capital"
+            "link": "https://www.delltechnologiescapital.com/",
+            "text": "Dell Technologies Capital"
           },
           {
             "url": "/img/partners/secure-octane.png",
             "alt": "SecureOctane",
-            "link":"https://www.secureoctane.com/",
-            "text":"Secure Octane"
+            "link": "https://www.secureoctane.com/",
+            "text": "Secure Octane"
           },
           {
             "url": "/img/partners/ratio-ventures.png",
             "alt": "Ratio Ventures",
-            "link":"https://www.ratio.ventures/",
-            "text":"Ratio Ventures"
+            "link": "https://www.ratio.ventures/",
+            "text": "Ratio Ventures"
           },
           {
             "url": "/img/partners/doug-merrit.png",
             "alt": "Doug Merrit",
-            "link":"https://aviatrix.com/leader/doug-merritt/",
-            "text":"Doug Merrit Advisor"
+            "link": "https://aviatrix.com/leader/doug-merritt/",
+            "text": "Doug Merrit Advisor"
           }
         ]
       }

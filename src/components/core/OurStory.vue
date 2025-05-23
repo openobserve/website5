@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="relative h-64 w-full sm:h-80 md:h-96 lg:h-[28rem] lg:w-1/2 rounded-lg overflow-hidden bg-gray-100">
-          <img :src="image.src" :alt="image.alt" class="object-contain w-full h-full" loading="lazy" />
+          <img :src="image.src" :alt="image.alt" class="w-full h-full" loading="lazy" />
         </div>
       </div>
 
