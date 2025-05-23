@@ -107,7 +107,7 @@
             "description": "Drastically reduce telemetry costs",
             "buttonLink": "#efficiency-section",
             "buttonText": "Prove it",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
             "theme": "theme-blue",
             "align": "center"
           },
@@ -116,7 +116,7 @@
             "description": "Blazing speed meets enterprise reliability",
             "buttonLink": "#performance-section",
             "buttonText": "Prove it",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" />",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"  /> />",
             "theme": "theme-red",
             "align": "center"
           },
@@ -125,7 +125,7 @@
             "description": "Operate at petabyte scale",
             "buttonLink": "#scalability-section",
             "buttonText": "Prove it",
-            "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4\" />",
+            "icon": "<svg class=\"h-6 w-6\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M10.1048 13.424C10.2455 13.764 10.6382 13.9287 10.9608 13.752C12.1622 13.0945 13.1105 12.0558 13.6562 10.7996C14.2019 9.54347 14.3139 8.14142 13.9745 6.81459C13.6352 5.48775 12.8638 4.31163 11.782 3.47172C10.7003 2.63181 9.36971 2.1759 8.00017 2.1759C6.63062 2.1759 5.30004 2.63181 4.21829 3.47172C3.13653 4.31163 2.36515 5.48775 2.0258 6.81459C1.68645 8.14142 1.79845 9.54347 2.34413 10.7996C2.88981 12.0558 3.83812 13.0945 5.0395 13.752C5.36217 13.9287 5.75483 13.764 5.8955 13.424L6.80083 11.2374C6.94217 10.8974 6.77217 10.5134 6.48217 10.2867C6.07732 9.97061 5.78125 9.53603 5.63525 9.04359C5.48925 8.55115 5.50062 8.02542 5.66776 7.53975C5.8349 7.05408 6.14948 6.6327 6.5676 6.33441C6.98573 6.03611 7.48654 5.87577 8.00017 5.87577C8.51379 5.87577 9.0146 6.03611 9.43273 6.33441C9.85086 6.6327 10.1654 7.05408 10.3326 7.53975C10.4997 8.02542 10.5111 8.55115 10.3651 9.04359C10.2191 9.53603 9.92301 9.97061 9.51817 10.2867C9.22817 10.5134 9.05817 10.8974 9.1995 11.2374L10.1048 13.424Z\" stroke=\"#5CC97A\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
             "theme": "theme-green",
             "align": "center"
           }
@@ -159,7 +159,7 @@
           {
             "title": "Open Source",
             "description": "Our code is fully open source, allowing for community contributions, security audits, and complete control over your observability data.",
-            "icon": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\"/>",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2\" /> />",
             "theme": "theme-blue",
             "items": [
               "AGPL-3.0 license",
@@ -170,7 +170,7 @@
           {
             "title": "Open Standards",
             "description": "We embrace and contribute to industry standards, ensuring compatibility and interoperability with your existing tools and workflows.",
-            "icon": "<path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2\"/>",
+            "icon": "<svg class=\"h-6 w-6\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.10434 12.4242C9.24501 12.7642 9.63768 12.9288 9.96034 12.7522C11.1617 12.0947 12.11 11.0559 12.6557 9.79976C13.2014 8.54363 13.3134 7.14158 12.974 5.81474C12.6347 4.4879 11.8633 3.31179 10.7816 2.47187C9.6998 1.63196 8.36922 1.17606 6.99968 1.17606C5.63013 1.17606 4.29956 1.63196 3.2178 2.47187C2.13604 3.31179 1.36466 4.4879 1.02531 5.81474C0.685965 7.14158 0.797964 8.54363 1.34364 9.79976C1.88932 11.0559 2.83763 12.0947 4.03901 12.7522C4.36168 12.9288 4.75434 12.7642 4.89501 12.4242L5.80034 10.2375C5.94168 9.89751 5.77168 9.51351 5.48168 9.28685C5.07683 8.97076 4.78076 8.53618 4.63476 8.04374C4.48876 7.5513 4.50013 7.02557 4.66727 6.5399C4.83441 6.05424 5.14899 5.63286 5.56711 5.33456C5.98524 5.03626 6.48605 4.87593 6.99968 4.87593C7.5133 4.87593 8.01412 5.03626 8.43224 5.33456C8.85037 5.63286 9.16495 6.05424 9.33209 6.5399C9.49923 7.02557 9.51059 7.5513 9.3646 8.04374C9.2186 8.53618 8.92252 8.97076 8.51768 9.28685C8.22768 9.51351 8.05768 9.89751 8.19901 10.2375L9.10434 12.4242Z\" stroke=\"#DE5444\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/> </svg>",
             "theme": "theme-red",
             "items": [
               "OpenTelemetry compatible",

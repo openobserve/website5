@@ -116,6 +116,11 @@
           },
           {
             "id": 24,
+            "text": "Customer Stories",
+            "link": "/customer-stories"
+          },
+          {
+            "id": 25,
             "text": "Downloads",
             "link": "/downloads"
           }
