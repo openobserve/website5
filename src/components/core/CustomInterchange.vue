@@ -49,7 +49,8 @@ const sectionClasses = computed(() => ({
       <div
         class="h-auto rounded-lg border border-card bg-white shadow-sm p-6 xl:p-10 z-10 w-full lg:w-1/2"
       >
-        <div class="flex items-start gap-4">
+        <div class="flex flex-col items-start gap-4">
+         <div class="flex flex-row items-start gap-3">
           <!-- Icon -->
           <div
             class="bg-black/5 text-color-primary-blue rounded-md p-4 shrink-0 mt-1"
@@ -62,7 +63,10 @@ const sectionClasses = computed(() => ({
             <p class="text-gray-600 italic text-base lg:text-lg font-medium mb-4">
               "{{ cardData?.quote }}"
             </p>
-            <div class="flex items-center gap-3">
+          </div>
+          <!-- Author image and name,role,company -->
+          </div>
+            <div class="flex flex-row items-start gap-3 md:ml-16">
               <CustomImage
                 :src="cardData?.avatar"
                 class="w-12 h-12 rounded-full shrink-0"
@@ -74,7 +78,8 @@ const sectionClasses = computed(() => ({
                 <p class="text-sm text-gray-500">{{ cardData?.role }}</p>
               </div>
             </div>
-          </div>
+           
+          
         </div>
       </div>
 
