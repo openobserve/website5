@@ -36,7 +36,7 @@
       <a
         :href="`/customer-stories/${item.slug}`"
         class="text-sm font-medium w-full text-center py-2 px-4 border border-gray-200 hover:bg-gray-50 rounded-md transition-colors duration-200 ease-in-out"
-        >Read Case Study <span class="sr-only">about {{ item.title }}</span></a
+        >Read Story <span class="sr-only">about {{ item.title }}</span></a
       >
     </div>
   </div>
