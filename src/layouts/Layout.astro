@@ -52,29 +52,77 @@ const { metaObj } = Astro.props;
       window.addEventListener("load", function () {
         window.cookieconsent.initialise({
           palette: {
-            popup: { background: "#000" },
-            button: { background: "#f1d600" },
+            popup: {
+              background: "#ffffff",
+              text: "#1f2937",
+            },
+            button: {
+              background: "#6366f1",
+              text: "#ffffff",
+            },
+            highlight: {
+              background: "transparent",
+              border: "#E5E4E2",
+              text: "#000000",
+            },
           },
           theme: "classic",
           position: "bottom-right",
           type: "opt-in",
           content: {
-            message: "We use cookies to ensure you get the best experience.",
-            allow: "Accept",
+            message:
+              "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking 'Accept', you consent to our use of cookies.",
             dismiss: "Decline",
-            link: "Privacy Policy",
-            href: "/policies/privacy-policy",
+            allow: "Accept",
           },
           cookie: {
             name: "cookieconsent_status",
             expires: 365,
           },
           revokable: true,
-          showLink: true,
+          showLink: false,
           law: {
             regionalLaw: false,
           },
 
+          onPopupOpen: function () {
+            const popup = document.querySelector(".cc-window");
+            if (!popup || popup.querySelector(".custom-close-btn")) return;
+            const closeBtn = document.createElement("button");
+            closeBtn.classList.add("custom-close-btn");
+            closeBtn.innerHTML = "&times;";
+            Object.assign(closeBtn.style, {
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              background: "transparent", // Tailwind gray-100
+              border: "none",
+              borderRadius: "9999px", // rounded-full
+              width: "32px",
+              height: "32px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              color: "#6b7280", // Tailwind gray-500
+              cursor: "pointer",
+              zIndex: "1000",
+            });
+
+            closeBtn.addEventListener("mouseover", () => {
+              closeBtn.style.background = "#e5e7eb"; // Tailwind gray-200
+              closeBtn.style.color = "#111827"; // Tailwind gray-900
+            });
+            closeBtn.addEventListener("mouseout", () => {
+              closeBtn.style.color = "#6b7280"; // gray-500
+            });
+
+            closeBtn.addEventListener("click", function () {
+              popup.style.display = "none";
+            });
+            popup.querySelector(".cc-compliance").appendChild(closeBtn);
+          },
           onInitialise: function (status) {
             const type = this.options.type;
             const didConsent = this.hasConsented();

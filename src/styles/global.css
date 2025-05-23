@@ -462,3 +462,36 @@
   word-break: break-word;
   font-weight: 400;
 }
+
+
+/* Ensure the container uses flex so order applies */
+.cc-window .cc-compliance{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem; /* Optional spacing */
+}
+
+ /* Style and position the close button */
+ .cc-window .cc-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+.cc-window .cc-close:hover {
+  color: #111827; /* Tailwind gray-900 */
+}
+
+.cc-color-override-1824421423.cc-window {
+  border: 1px solid #d4d5d7; /* Tailwind gray-500 */
+  border-radius: 0.25rem; /* Tailwind rounded */
+  background-color: #fff; /* Tailwind white */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+}
