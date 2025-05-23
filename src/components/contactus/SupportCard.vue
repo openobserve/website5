@@ -7,7 +7,14 @@
           data.iconColor,
         ]"
       >
-        <span v-html="data.icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-10 w-10"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          v-html="data.icon"
+        />
       </div>
     </div>
     <h3 class="text-lg lg:text-xl font-semibold">{{ data.title }}</h3>
