@@ -20,7 +20,7 @@
         },
         "bgImage": "/img/solution-aws/BG.svg",
         "rightImage": "/img/solution-aws/Group 9269.svg",
-        "mobileBgImage": "/public/img/solution-aws/mobile-view.svg",
+        "mobileBgImage": "/img/solution-aws/mobile-view.svg",
         "mobileRightImage": "/img/solution-aws/Group 9269.svg",
         "altText": "OpenObserve Dashboard"
       },
@@ -215,7 +215,7 @@
         },
         "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
         "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
-        "mobileBgImage": "/public/img/solution-gcp-monitoring/mobile-view.svg",
+        "mobileBgImage": "/img/solution-gcp-monitoring/mobile-view.svg",
         "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
         "altText": "OpenObserve Dashboard"
       },
@@ -266,7 +266,7 @@
                   "description": "Gain complete visibility into your GCP performance. Collect both platform metrics and custom application telemetry through Cloud Monitoring export for comprehensive performance insights."
                 }
               ],
-              "image": "/public/img/solution-gcp-monitoring/gcp_datasources.png"
+              "image": "/img/solution-gcp-monitoring/gcp_datasources.png"
             }
           },
           {
@@ -284,7 +284,7 @@
                   "description": "See your entire GCP ecosystem at work. Track resource utilization, performance trends, and service health with instant visibility that helps you prevent problems before they start."
                 }
               ],
-              "image": "/public/img/solution-gcp-monitoring/gcp_pubsub.png"
+              "image": "/img/solution-gcp-monitoring/gcp_pubsub.png"
             }
           },
           {
@@ -302,7 +302,7 @@
                   "description": "Ask complex questions, get immediate answers. Query logs and metrics using familiar SQL syntax with full support for advanced aggregations and time-series analysis."
                 }
               ],
-              "image": "/public/img/solution-gcp-monitoring/gcp_logs.png"
+              "image": "/img/solution-gcp-monitoring/gcp_logs.png"
             }
           },
           {
@@ -320,7 +320,7 @@
                   "description": "Keep what matters, discard what doesn't. Configure intelligent retention policies and compression settings that balance cost efficiency with ready access to your most important data."
                 }
               ],
-              "image": "/public/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
+              "image": "/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
             }
           }
         ]
@@ -411,7 +411,7 @@
         },
         "bgImage": "/img/solution-database-monitoring/database-2.svg",
         "rightImage": "/img/solution-database-monitoring/database-1.svg",
-        "mobileBgImage": "/public/img/solution-database-monitoring/mobile-view.svg",
+        "mobileBgImage": "/img/solution-database-monitoring/mobile-view.svg",
         "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
         "altText": "OpenObserve Dashboard"
       },
@@ -598,9 +598,9 @@
           "variant": "primary"
         },
         "bgImage": "/img/solution-azure/azure-2.svg",
-        "rightImage": "/public/img/solution-azure/Group 9277.svg",
-        "mobileBgImage": "/public/img/solution-azure/mobile-view.svg",
-        "mobileRightImage": "/public/img/solution-azure/Group 9277.svg",
+        "rightImage": "/img/solution-azure/Group 9277.svg",
+        "mobileBgImage": "/img/solution-azure/mobile-view.svg",
+        "mobileRightImage": "/img/solution-azure/Group 9277.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -650,7 +650,7 @@
                   "description": "Instantly grok Azure metrics with ready-to-use and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/public/img/solution-azure/azure_data_flow.gif"
+              "image": "/img/solution-azure/azure_data_flow.gif"
             }
           },
           {
@@ -668,7 +668,7 @@
                   "description": "Unlock hidden patterns in your Azure environment using SQL queries."
                 }
               ],
-              "image": "/public/img/solution-azure/azure_logs.gif"
+              "image": "/img/solution-azure/azure_logs.gif"
             }
           },
           {
@@ -686,7 +686,7 @@
                   "description": "Connect insights across multiple Azure services with powerful SQL queries. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/public/img/solution-azure/azure_event_hub.png"
+              "image": "/img/solution-azure/azure_event_hub.png"
             }
           },
           {
@@ -704,7 +704,7 @@
                   "description": "Store your data  with flexible retention policies. Balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/public/img/solution-azure/azure_dashboard.png"
+              "image": "/img/solution-azure/azure_dashboard.png"
             }
           }
         ]
@@ -794,8 +794,8 @@
         },
         "bgImage": "/img/solution-kubernates/kubernets-2.svg",
         "rightImage": "/img/solution-kubernates/kubernet-3.svg",
-        "mobileBgImage": "/public/img/solution-kubernates/mobile-view.svg",
-        "mobileRightImage": "/public/img/solution-kubernates/Group 9285.svg",
+        "mobileBgImage": "/img/solution-kubernates/mobile-view.svg",
+        "mobileRightImage": "/img/solution-kubernates/Group 9285.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
@@ -845,7 +845,7 @@
                   "description": "Watch your entire infrastructure breathe through intuitive dashboards that update instantly, showing you application performance and system health as they happen."
                 }
               ],
-              "image": "/public/img/solution-kubernates/k8s_pod_dashboard.png"
+              "image": "/img/solution-kubernates/k8s_pod_dashboard.png"
             }
           },
           {
@@ -863,7 +863,7 @@
                   "description": "See across cluster boundaries with unified visibility that correlates events and reveals how your distributed services truly interact."
                 }
               ],
-              "image": "/public/img/solution-kubernates/k8s_logs.png"
+              "image": "/img/solution-kubernates/k8s_logs.png"
             }
           },
           {
@@ -881,7 +881,7 @@
                   "description": "Turn usage patterns into scaling strategies. Make resource decisions based on real data, not guesswork, to optimize performance and control costs."
                 }
               ],
-              "image": "/public/img/solution-kubernates/k8s_resource_metrics.png"
+              "image": "/img/solution-kubernates/k8s_resource_metrics.png"
             }
           },
           {
@@ -899,7 +899,7 @@
                   "description": " Slash resolution time with instant alerts and comprehensive diagnostics that pinpoint exactly what went wrong and how to fix it the moment issues arise."
                 }
               ],
-              "image": "/public/img/solution-kubernates/k8s_incident.png"
+              "image": "/img/solution-kubernates/k8s_incident.png"
             }
           }
         ]
@@ -982,7 +982,7 @@
         "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
         "rightImage": "/img/solution-openTL/open-telemetry-1.svg",
         "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
-        "mobileRightImage": "/public/img/solution-openTL/Group 9283.svg",
+        "mobileRightImage": "/img/solution-openTL/Group 9283.svg",
         "altText": "OpenObserve Dashboard"
       },
       {
