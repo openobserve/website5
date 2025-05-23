@@ -5,42 +5,8 @@
       <FramedTitle :title="title" />
       <p class="text-center text-gray-600 text-lg">{{ description }}</p>
 
-      <!-- Controls -->
-
-      <!-- <div class="flex justify-between items-center my-6">
-        <div class="flex space-x-2">
-      
-          <button
-            @click="scrollLeft"
-            :disabled="isAtStart"
-            class="p-2 rounded-lg border"
-            :class="{
-              'opacity-50 cursor-not-allowed': isAtStart,
-              'cursor-pointer': !isAtStart,
-            }"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          
-          <button
-            @click="scrollRight"
-            :disabled="isAtEnd"
-            class="p-2 rounded-lg border"
-            :class="{
-              'opacity-50 cursor-not-allowed': isAtEnd,
-              'cursor-pointer': !isAtEnd,
-            }"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-       
+      <!-- Controls (secondary button only) -->
+      <div class="flex justify-end items-center my-6">
         <div v-if="secondaryButton">
           <a
             :href="secondaryButton.link"
@@ -52,15 +18,49 @@
             </svg>
           </a>
         </div>
-      </div> -->
+      </div>
 
-      <!-- Scrollable Container -->
+      <!-- Scrollable Container with Side Arrows -->
       <div class="overflow-hidden relative">
-        <div ref="scrollContainer"
+        <!-- Left Arrow -->
+        <button
+         v-if="showLeftArrow"
+          @click="scrollLeft"
+          :disabled="isAtStart"
+          class="absolute left-5 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity"
+          :class="{
+            'opacity-50 cursor-not-allowed': isAtStart,
+            'cursor-pointer': !isAtStart,
+          }"
+         
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Right Arrow -->
+        <button
+         v-if="showRightArrow"
+          @click="scrollRight"
+          :disabled="isAtEnd"
+          class="absolute right-5 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity"
+          :class="{
+            'opacity-50 cursor-not-allowed': isAtEnd,
+            'cursor-pointer': !isAtEnd,
+          }"
+          style="margin-right: -24px;"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <div ref="scrollContainer"  @scroll="checkArrows"
           class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4 items-stretch">
 
           <div v-for="(logo, index) in images" :key="index"
-            class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full sm:w-[220px] xl:w-[19%]">
+            class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full sm:w-[220px] xl:w-[18.8%]">
 
             <!-- Card content wrapper that ensures uniform layout -->
             <div class="flex flex-col justify-between h-full w-full text-gray-600 items-center text-center gap-2">
@@ -101,21 +101,39 @@ const props = defineProps({
 });
 
 const scrollContainer = ref(null);
+const showLeftArrow = ref(false)
+const showRightArrow = ref(false)
 const scrollAmount = ref(300);
 const isAtStart = ref(true);
 const isAtEnd = ref(false);
 
-function scrollLeft() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: -scrollAmount.value, behavior: "smooth" });
-  }
+const checkArrows = () => {
+  const el = scrollContainer.value
+  if (!el) return
+
+  showLeftArrow.value = el.scrollLeft > 0
+  showRightArrow.value = el.scrollLeft + el.clientWidth < el.scrollWidth
 }
 
-function scrollRight() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: scrollAmount.value, behavior: "smooth" });
-  }
+const scrollLeft = () => {
+  scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' })
 }
+
+const scrollRight = () => {
+  scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' })
+}
+
+// function scrollLeft() {
+//   if (scrollContainer.value) {
+//     scrollContainer.value.scrollBy({ left: -scrollAmount.value, behavior: "smooth" });
+//   }
+// }
+
+// function scrollRight() {
+//   if (scrollContainer.value) {
+//     scrollContainer.value.scrollBy({ left: scrollAmount.value, behavior: "smooth" });
+//   }
+// }
 
 function updateButtonState() {
   const el = scrollContainer.value;
@@ -126,6 +144,8 @@ function updateButtonState() {
 
 onMounted(() => {
   const firstCard = scrollContainer.value?.querySelector("div");
+    checkArrows()
+    window.addEventListener('resize', checkArrows)
   if (firstCard) {
     scrollAmount.value = (firstCard).offsetWidth + 16;
   }
@@ -142,5 +162,10 @@ onMounted(() => {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Ensure arrows are visible and not overlapping content */
+button.absolute {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 </style>
