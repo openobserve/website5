@@ -45,9 +45,7 @@ function getHref(card) {
 }
 
 function getTarget(card) {
-  return card && card.button && card.button.target
-    ? card.button.target
-    : null;
+  return card && card.button && card.button.target ? card.button.target : null;
 }
 </script>
 
@@ -73,7 +71,12 @@ function getTarget(card) {
               :is="getTag(card)"
               :href="getHref(card)"
               :target="getTarget(card)"
-              class="grid-item block"
+              :class="[
+                'grid-item block',
+                card.button?.link
+                  ? 'hover:shadow-xl transition duration-300 ease-in-out'
+                  : '',
+              ]"
             >
               <CardWithShadowBorder
                 :title="card.title"
