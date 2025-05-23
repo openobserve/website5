@@ -79,7 +79,7 @@ onMounted(() => {
 
     <div class="relative container mx-auto px-4 py-6 lg:px-8 xl:px-12">
       <!-- Main Grid Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-8">
         <!-- First 2 sections (1 column each) -->
         <div v-for="(section, index) in firstSections.slice(0, 2)" :key="section.title" class="min-w-0">
           <h2 class="text-white font-medium text-xl mb-3">
