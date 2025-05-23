@@ -47,13 +47,6 @@ const socialIcon = (name) => {
   };
   return icons[name.toLowerCase()];
 };
-
-onMounted(() => {
-  const script = document.createElement("script");
-  script.src = "https://openobserve.activehosted.com/f/embed.php?id=3";
-  script.async = true;
-  document.head.appendChild(script);
-});
 </script>
 <template>
   <footer class="relative bg-primary-black w-full">
@@ -98,8 +91,25 @@ onMounted(() => {
         </div>
 
         <!-- Right side - newsletter (32% width) -->
-        <div class="w-full lg:w-[30%]">
-          <div class="_form_3 w-full"></div>
+        <div class="w-full lg:w-[32%]">
+          <div class="newsletter-container">
+            <h2 class="text-white font-medium text-xl title">Stay Updated<span class="underline"></span></h2>
+            <p class="text-gray-300 text-base transition duration-300 subtitle">Get the latest
+              OpenObserve
+              insights</p>
+
+            <div class="form-container">
+              <input type="email" v-model="email" placeholder="Enter your email" class="email-input"
+                aria-label="Email address" />
+              <button @click="subscribe" class="subscribe-button" :disabled="isLoading">
+                {{ isLoading ? 'Subscribing...' : 'Subscribe' }}
+              </button>
+            </div>
+
+            <p class="disclaimer">
+              By subscribing, you agree to receive product related updates.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -167,5 +177,94 @@ onMounted(() => {
 
 .gradient-hover:hover {
   color: #7782FF;
+}
+
+.newsletter-container {
+  background-color: #121212;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  display: block;
+}
+
+.subtitle {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 1rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    flex-direction: column;
+  }
+}
+
+.email-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #4a90e2;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+  color: #121212;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.subscribe-button:hover {
+  background-color: #7782FF;
+  color: white;
+}
+
+.subscribe-button:active {
+  transform: scale(0.98);
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 400px;
+  margin: 0 auto;
 }
 </style>
