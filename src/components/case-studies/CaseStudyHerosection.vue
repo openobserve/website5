@@ -14,7 +14,7 @@
         <h1 class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
           {{ title }}
         </h1>
-        <div class="flex flex-col md:flex-row items-start md:items-center text-white/80 gap-2 md:gap-6">
+        <!-- <div class="flex flex-col md:flex-row items-start md:items-center text-white/80 gap-2 md:gap-6">
           <div class="flex items-center space-x-2">
             <Calendar class="h-4 w-4" />
             <span>{{ publishDate }}</span>
@@ -23,7 +23,7 @@
             <Clock class="h-4 w-4" />
             <span>{{ calculateReadingTime(content) }}</span>
           </div>
-        </div>
+        </div> -->
       </article>
     </div>
   </section>
