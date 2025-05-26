@@ -184,7 +184,7 @@
           stroke="white" stroke-width="1.99293" stroke-linecap="round" stroke-linejoin="round" />
       </g>
     </a>
-    <a href="/frontend-monitoring" rel="noopener" class="svg-link">
+    <a href="https://openobserve.ai/docs/user-guide/streams/" rel="noopener" target="_blank" class="svg-link">
       <rect x="999.5" y="281.5" width="382" height="275" rx="17.5" fill="white" />
       <rect class="hover-bg" x="999.5" y="281.5" width="382" height="275" rx="17.5" fill="#45A4F3"
         fill-opacity="0.18" />
