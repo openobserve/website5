@@ -37,7 +37,6 @@ const metaObj = {
     description={SlugData?.description}
     blogImage={SlugData?.image?.url || SlugData?.image?.url}
     tags={SlugData?.categories || []}
-    author={author}
     publishDate={new Intl.DateTimeFormat("en-US", {
       weekday: "long",
       year: "numeric",
@@ -47,11 +46,12 @@ const metaObj = {
     content={SlugData?.content}
     shareUrl={`/articles/${slug}`}
     client:load
-  />
+    />
+    <!-- author={author} -->
   <BlogcontentWrapper
     type="articles"
     client:load
     content={SlugData?.content}
-    authors={author}
-  />
+    />
+    <!-- authors={author} -->
 </Layout>

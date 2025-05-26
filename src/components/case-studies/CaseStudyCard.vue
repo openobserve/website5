@@ -16,7 +16,7 @@
         {{ item?.description }}
       </p>
 
-      <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
+      <!-- <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
         <div
           class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
         >
@@ -32,7 +32,7 @@
           <p class="font-medium text-sm">{{ it.name }}</p>
           <p class="text-muted-foreground text-xs">{{ item.publishDate }}</p>
         </div>
-      </div>
+      </div> -->
       <a
         :href="`/customer-stories/${item.slug}`"
         class="text-sm font-medium w-full text-center py-2 px-4 border border-gray-200 hover:bg-gray-50 rounded-md transition-colors duration-200 ease-in-out"

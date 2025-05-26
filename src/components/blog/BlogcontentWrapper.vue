@@ -24,6 +24,10 @@ const props = defineProps({
   bannerData: {
     type: Object,
   },
+  blogImage: {
+    type: String,
+  required: true
+  }
 });
 
 // Reactive variables
@@ -283,50 +287,38 @@ onMounted(() => {
 
 <template>
   <CustomSection>
-    <div
-      class="flex flex-col lg:flex-row container mx-auto space-x-0 md:space-x-10"
-    >
+    <div class="flex flex-col lg:flex-row container mx-auto space-x-0 md:space-x-10">
       <div class="w-full lg:w-[30%] mb-8 order-1 md:order-none">
-        <BlogTableofContent
-          :headings="headings"
-          :activeSection="currentSection"
-        />
+        <BlogTableofContent :headings="headings" :activeSection="currentSection" />
       </div>
-      <div
-        class="flex flex-col w-full lg:w-[70%] text-left order-2 lg:order-none"
-      >
+      <div class="flex flex-col w-full lg:w-[70%] text-left order-2 lg:order-none">
+        <!-- Blog image -->
+        <section class="mb-6">
+          <img :src="blogImage" :alt="title"
+            class="object-cover object-center rounded-lg w-full lg:w-auto bg-white max-h-[60vh] shadow-xl" />
+        </section>
+        <!-- Blog content -->
         <div id="blog-content" class="">
           <template>
-            <div
-              v-html="htmlContent"
-              class="prose prose-lg prose-invert prose-pre:bg-gray-900 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-[#364153] [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-base lg:text-lg"
-            ></div>
+            <div v-html="htmlContent"
+              class="prose prose-lg prose-invert prose-pre:bg-gray-900 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-[#364153] [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-base lg:text-lg">
+            </div>
           </template>
         </div>
-        <div class="py-3">
+        <div class="py-3" v-if="authors">
           <SingleAuthorDetails :type="type" :author="authors" client:load />
         </div>
       </div>
     </div>
   </CustomSection>
   <!-- Image Popup (Updated as per your CSS) -->
-  <div
-    v-if="showPopup"
-    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
-    @click="closePopup"
-  >
-    <button
-      class="absolute top-3 right-3 text-white cursor-pointer z-50"
-      @click="closePopup"
-    >
+  <div v-if="showPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 h-screen"
+    @click="closePopup">
+    <button class="absolute top-3 right-3 text-white cursor-pointer z-50" @click="closePopup">
       ✖
     </button>
     <div class="flex items-center p-8 md:p-[5rem] rounded-lg md:h-screen">
-      <CustomImage
-        :src="popupImageSrc"
-        class="w-full max-h-[90vh] object-contain"
-        @click.stop
-      />
+      <CustomImage :src="popupImageSrc" class="w-full max-h-[90vh] object-contain" @click.stop />
     </div>
   </div>
 </template>

@@ -37,9 +37,9 @@
         v-show="activeTab === tab.value"
       >
         <div
-          class="p-6 flex flex-col md:flex-row items-center justify-between w-full gap-4"
+          class="p-6 flex flex-col lg:flex-row items-center justify-between w-full gap-4"
         >
-          <div class="w-full md:w-1/2">
+          <div class="w-full lg:w-1/2">
             <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
             <p class="text-gray-600 mb-6" v-if="tab.card.description">
               {{ tab.card.description }}
@@ -64,14 +64,12 @@
               </ul>
             </div>
           </div>
-          <div class="w-full md:w-1/2">
-            <div class="relative w-full rounded-lg">
-              <img
-                :src="tab.card.image"
-                :alt="tab.card.title"
-                class="object-cover w-full h-full"
-              />
-            </div>
+          <div class="w-full lg:w-1/2">
+            <div
+                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                  <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
+                    style="image-rendering: auto;" />
+                </div>
           </div>
         </div>
       </div>
