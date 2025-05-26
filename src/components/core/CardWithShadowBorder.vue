@@ -42,7 +42,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
 <template>
  <component :is="dynamicComponent" :href="props?.card?.link" :target="props?.card?.target ? '_blank' : null"
     :class="[
-      'rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', card.button?.link
+      'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', card.button?.link
                   ? 'hover:shadow-xl transition duration-300 ease-in-out'
                   : '',
       ['left', 'center', 'right'].includes(props?.card?.align || 'left')
@@ -104,5 +104,13 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
         </span>
       </CustomButton>
     </div>
+      <!-- Top-right Arrow Icon (Visible only if there's a link) -->
+<div v-if="props?.card?.link" class="absolute top-3 md:top-5 right-3 md:right-5">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+    viewBox="0 0 24 24">
+    <path fill="#000000"
+      d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
+  </svg>
+</div>
   </component>
 </template>
