@@ -18,8 +18,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-aws/BG.svg",
-        "rightImage": "/img/solution-aws/Group 9269.svg",
+        "bgImage": "/img/solution-aws/full-bg.svg",
         "mobileBgImage": "/img/solution-aws/mobile-view.svg",
         "mobileRightImage": "/img/solution-aws/Group 9269.svg",
         "altText": "OpenObserve Dashboard"
@@ -213,8 +212,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-gcp-monitoring/google-cloud-1.svg",
-        "rightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
+        "bgImage": "/img/solution-gcp-monitoring/full-bg.svg",
         "mobileBgImage": "/img/solution-gcp-monitoring/mobile-view.svg",
         "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
         "altText": "OpenObserve Dashboard"
@@ -409,8 +407,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-database-monitoring/database-2.svg",
-        "rightImage": "/img/solution-database-monitoring/database-1.svg",
+        "bgImage": "/img/solution-database-monitoring/full-bg.svg",
         "mobileBgImage": "/img/solution-database-monitoring/mobile-view.svg",
         "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
         "altText": "OpenObserve Dashboard"
@@ -597,8 +594,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-azure/azure-2.svg",
-        "rightImage": "/img/solution-azure/Group 9277.svg",
+        "bgImage": "/img/solution-azure/full-img.svg",
         "mobileBgImage": "/img/solution-azure/mobile-view.svg",
         "mobileRightImage": "/img/solution-azure/Group 9277.svg",
         "altText": "OpenObserve Dashboard"
@@ -792,8 +788,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-kubernates/kubernets-2.svg",
-        "rightImage": "/img/solution-kubernates/kubernet-3.svg",
+        "bgImage": "/img/solution-kubernates/full-img.svg",
         "mobileBgImage": "/img/solution-kubernates/mobile-view.svg",
         "mobileRightImage": "/img/solution-kubernates/Group 9285.svg",
         "altText": "OpenObserve Dashboard"
@@ -979,8 +974,7 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "primary"
         },
-        "bgImage": "/img/solution-openTL/open-telemetry-2.svg",
-        "rightImage": "/img/solution-openTL/open-telemetry-1.svg",
+        "bgImage": "/img/solution-openTL/full-img.svg",
         "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
         "mobileRightImage": "/img/solution-openTL/Group 9283.svg",
         "altText": "OpenObserve Dashboard"
