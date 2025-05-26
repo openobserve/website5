@@ -1199,7 +1199,7 @@
           },
           {
             "question": "What alert management features are available?",
-            "answer": "The platform provides a comprehensive alert management interface where you can: <br/> <ul><li>.Create and edit alert definitions</li><li>Configure notification destinations</li><li>Set up alert conditions and thresholds</li><li>Define evaluation periods and frequencies</li><li>Monitor alert status and history </li><li>Configure silence periods</li><li>Add custom variables for alert context</li></ul>"
+            "answer": "The platform provides a comprehensive alert management interface where you can: <br/> <ul><li>Create and edit alert definitions</li><li>Configure notification destinations</li><li>Set up alert conditions and thresholds</li><li>Define evaluation periods and frequencies</li><li>Monitor alert status and history </li><li>Configure silence periods</li><li>Add custom variables for alert context</li></ul>"
           }
         ]
       },
