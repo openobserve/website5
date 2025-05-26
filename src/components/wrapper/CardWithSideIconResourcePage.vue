@@ -68,7 +68,7 @@ function getTarget(card) {
               :icon="card.icon"
               :theme="card.theme"
               headingLevel="2"
-              class="w-full"
+              class="w-full h-full"
             />
           </component>
         </template>
