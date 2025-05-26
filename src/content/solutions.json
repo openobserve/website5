@@ -43,6 +43,7 @@
             "id": 1,
             "title": "AWS Monitoring",
             "description": "Comprehensive visibility into your AWS infrastructure performance, health, and resource utilization.",
+            "link": "/aws-monitoring",
             "features": [
               "Real-Time Visibility & Insights",
               "Efficient Data Processing",
@@ -58,6 +59,7 @@
             "id": 2,
             "title": "Azure Monitoring",
             "description": "Comprehensive visibility into your Azure infrastructure performance, health, and resource utilization.",
+            "link": "/azure-monitoring",
             "features": [
               "Real-Time Visibility & Insights",
               "Efficient Data Processing",
@@ -73,6 +75,7 @@
             "id": 3,
             "title": "GCP Monitoring",
             "description": "Comprehensive visibility into your GCP infrastructure performance, health, and resource utilization.",
+            "link": "/gcp-monitoring",
             "features": [
               "Data Collection and Analysis",
               "Service Monitoring",
@@ -88,6 +91,7 @@
             "id": 4,
             "title": "Kubernetes Monitoring",
             "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
+            "link": "/kubernetes-observability",
             "features": [
               "Unified Kubernetes Monitoring",
               "Multi-cluster Visibility",
@@ -103,6 +107,7 @@
             "id": 5,
             "title": "Database Monitoring",
             "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
+            "link": "/database-monitoring",
             "features": [
               "Performance Monitoring",
               "Proactive Error Detection & Resolution",
@@ -118,6 +123,7 @@
             "id": 6,
             "title": "OpenTelemetry",
             "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
+            "link": "/opentelemetry",
             "features": [
               "Data Collection",
               "Instrumentation Options",
