@@ -34,7 +34,7 @@ defineProps<{ data: HeroData }>();
         <!-- Left Side -->
         <div class="space-y-8">
           <div class="space-y-4">
-            <span class="inline-block px-3 py-1 text-sm font-medium bg-[#6b76e2] text-white rounded-full">
+            <span class="inline-block px-3 py-1 text-sm font-medium bg-primary-blue text-white rounded-full">
               {{ data.badge }}
             </span>
             <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
