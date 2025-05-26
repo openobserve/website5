@@ -14,7 +14,7 @@ const props = defineProps({
 const itemVariants = {
   hidden: {
     opacity: 0,
-    y: 100,
+    y: 60,
   },
   visible: {
     opacity: 1,
@@ -22,7 +22,7 @@ const itemVariants = {
     transition: {
       duration: 0.3,
       ease: "easeIn",
-      delay: 0.15,
+      delay: 0,
     },
   },
 };
