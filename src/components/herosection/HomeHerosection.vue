@@ -34,7 +34,7 @@ defineProps<{ data: HeroData }>();
         <!-- Left Side -->
         <div class="space-y-8">
           <div class="space-y-4">
-            <span class="inline-block px-3 py-1 text-sm font-medium bg-vibrant-red text-white rounded-full">
+            <span class="inline-block px-3 py-1 text-sm font-medium bg-[#6b76e2] text-white rounded-full">
               {{ data.badge }}
             </span>
             <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
@@ -51,7 +51,7 @@ defineProps<{ data: HeroData }>();
           <div class="flex flex-col sm:flex-row gap-4">
             <a :href="data.primaryButton.link" target="_blank" class="cursor-pointer">
               <button
-                class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer">
+                class="bg-[#6b76e2] hover:bg-[#4f5ee8] text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer">
                 {{ data.primaryButton.text }}
               </button>
             </a>
