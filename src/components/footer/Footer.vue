@@ -2,6 +2,7 @@
 import GithubButton from "vue-github-button";
 import TextGradient from "@/components/core/TextWithGradient.vue";
 import { computed, onMounted } from "vue";
+import CustomButton from "../core/CustomButton.vue";
 const props = defineProps({
   footerData: {
     type: Object,
@@ -73,8 +74,8 @@ const socialIcon = (name) => {
     <div class="relative container mx-auto px-4 py-6 lg:px-8 xl:px-12">
       <!-- Main Grid Layout - 68%/32% split -->
       <div class="flex flex-col lg:flex-row gap-6 mt-8">
-        <!-- Left side - 4 columns (68% width) -->
-        <div class="w-full lg:w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Left side - responsive columns -->
+        <div class="w-full lg:w-[75%] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           <div v-for="(section, index) in firstSections" :key="section.title" class="min-w-0">
             <h2 class="text-white font-medium text-xl mb-3">
               {{ section.title }}
@@ -82,7 +83,7 @@ const socialIcon = (name) => {
             <ul class="space-y-2">
               <li v-for="item in section.items" :key="item.text">
                 <a :href="item.link" :target="item.target"
-                  class="gradient-hover text-gray-300 text-base transition duration-300">
+                  class="inline-block text-gray-300 text-base transition duration-300 hover:text-[#7782FF]">
                   {{ item.text }}
                 </a>
               </li>
@@ -90,23 +91,30 @@ const socialIcon = (name) => {
           </div>
         </div>
 
-        <!-- Right side - newsletter (32% width) -->
-        <div class="w-full lg:w-[25%]">
-          <div class="newsletter-container">
-            <h2 class="text-white font-medium text-xl title">Stay Updated<span class="underline"></span></h2>
-            <p class="text-gray-300 text-base transition duration-300 subtitle">Get the latest
-              OpenObserve
-              insights</p>
+        <!-- Right side - newsletter -->
+        <div class="w-full lg:w-[25%] mt-6 lg:mt-0">
+          <div class="bg-[#121212] text-white rounded-lg text-center mx-auto">
+            <h2 class="text-white font-medium text-xl mb-2 relative inline-block">
+              Stay Updated
+              <span class="absolute bottom-[-5px] left-0 w-full h-0.5 bg-white block"></span>
+            </h2>
+            <p class="text-gray-300 text-base transition duration-300 mb-6">
+              Get the latest OpenObserve insights
+            </p>
 
-            <div class="form-container">
-              <input type="email" v-model="email" placeholder="Enter your email" class="email-input"
+            <div class="flex flex-col gap-2.5 mb-4">
+              <input type="email" v-model="email" placeholder="Enter your email"
+                class="flex-1 px-4 py-3 rounded-full border border-[#4a90e2] bg-transparent text-white text-base outline-none placeholder-[rgba(255,255,255,0.6)]"
                 aria-label="Email address" />
-              <button @click="subscribe" class="subscribe-button" :disabled="isLoading">
+
+              <button @click="subscribe"
+                class="px-6 py-3 rounded-full bg-[#7782FF] text-white text-base font-medium cursor-pointer transition hover:bg-[#6672fa] active:scale-98"
+                :disabled="isLoading">
                 {{ isLoading ? 'Subscribing...' : 'Subscribe' }}
               </button>
             </div>
 
-            <p class="disclaimer">
+            <p class="text-sm text-[rgba(255,255,255,0.6)]">
               By subscribing, you agree to receive product related updates.
             </p>
           </div>
@@ -138,7 +146,7 @@ const socialIcon = (name) => {
       <div
         class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-white">
         <!-- Copyright -->
-        <div class="flex flex-col items-center lg:items-start space-y-0.5">
+        <div class="flex flex-col items-center lg:items-start gap-1">
           <p class="md:mb-0 font-normal text-xs">
             {{ copyRightText }} © {{ getCurrentYear() }}
           </p>
@@ -147,10 +155,12 @@ const socialIcon = (name) => {
           </p>
         </div>
         <div class="flex items-center gap-4">
-          <a :href="termsOfService?.link" :target="termsOfService?.target" class="text-base gradient-hover">
+          <a :href="termsOfService?.link" :target="termsOfService?.target"
+            class="text-base inline-block transition duration-300 hover:text-[#7782FF]">
             {{ termsOfService?.text }}
           </a>
-          <a :href="privacyText?.link" :target="privacyText?.target" class="text-base gradient-hover">
+          <a :href="privacyText?.link" :target="privacyText?.target"
+            class="text-base inline-block transition duration-300 hover:text-[#7782FF]">
             {{ privacyText?.text }}
           </a>
         </div>
@@ -169,102 +179,3 @@ const socialIcon = (name) => {
     </div>
   </footer>
 </template>
-
-<style scoped>
-.gradient-hover {
-  display: inline-block;
-}
-
-.gradient-hover:hover {
-  color: #7782FF;
-}
-
-.newsletter-container {
-  background-color: #121212;
-  color: white;
-  border-radius: 8px;
-  text-align: center;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.title {
-  margin-bottom: 0.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.underline {
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  display: block;
-}
-
-.subtitle {
-  margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.form-container {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-bottom: 1rem;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 480px) {
-  .form-container {
-    flex-direction: column;
-  }
-}
-
-.email-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border-radius: 25px;
-  border: 1px solid #4a90e2;
-  background-color: transparent;
-  color: white;
-  font-size: 1rem;
-  outline: none;
-}
-
-.email-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.subscribe-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  border: none;
-  background-color: #7782FF;
-  color: white;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.subscribe-button:hover {
-  background-color: #6672fa;
-  color: white;
-}
-
-.subscribe-button:active {
-  transform: scale(0.98);
-}
-
-.disclaimer {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  max-width: 400px;
-  margin: 0 auto;
-}
-</style>
