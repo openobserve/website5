@@ -8,7 +8,7 @@
       <input
         v-model="searchItem"
         type="text"
-        placeholder="Search articles..."
+        placeholder="Search customer stories..."
         class="pl-10 w-full border border-primary-gray/20 focus:ring-2 focus:ring-primary-purple focus:outline-none py-3 rounded-md text-base"
       />
     </div>

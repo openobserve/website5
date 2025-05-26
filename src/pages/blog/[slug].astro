@@ -11,6 +11,7 @@ import BlogSection from "@/components/blog/BlogSection.vue";
 import { BlogResources } from "@/utils/constant";
 export async function getStaticPaths() {
   const slugs = (await getAllBlogs()).filter((blog) => !blog.caseStudies);
+  console.log(slugs.length, "SLugsss");
   return slugs.map((it: any) => ({
     params: { slug: it.slug },
   }));

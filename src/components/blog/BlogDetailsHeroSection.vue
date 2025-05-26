@@ -25,9 +25,7 @@
         <div
           class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
         >
-          <!-- Author Info -->
-          <div class="flex items-center flex-wrap gap-3">
-            <!-- Avatars -->
+          <div class="flex items-center flex-wrap gap-3" v-if="author">
             <div class="flex -space-x-3">
               <div
                 v-for="it in author"
@@ -49,7 +47,6 @@
             </div>
 
             <div class="flex flex-col">
-              <!-- Author Names -->
               <address
                 class="not-italic text-white flex flex-wrap items-center gap-1"
               >
@@ -69,7 +66,6 @@
                   >
                 </template>
               </address>
-              <!-- Publish Date and Read Time -->
               <div class="flex flex-wrap gap-4 text-white/80 text-sm">
                 <div class="flex items-center gap-1">
                   <Calendar class="h-4 w-4" />

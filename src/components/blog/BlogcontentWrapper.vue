@@ -305,7 +305,7 @@ onMounted(() => {
             </div>
           </template>
         </div>
-        <div class="py-3">
+        <div class="py-3" v-if="authors">
           <SingleAuthorDetails :type="type" :author="authors" client:load />
         </div>
       </div>
