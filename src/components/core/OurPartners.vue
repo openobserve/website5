@@ -60,7 +60,7 @@
           class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4 items-stretch">
 
           <div v-for="(logo, index) in images" :key="index"
-            class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full sm:w-[220px] xl:w-[18.8%]">
+            class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full sm:w-[220px] xl:w-[23.8%]">
 
             <!-- Card content wrapper that ensures uniform layout -->
             <div class="flex flex-col justify-between h-full w-full text-gray-600 items-center text-center gap-2">
