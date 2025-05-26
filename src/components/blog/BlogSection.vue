@@ -1,5 +1,5 @@
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="!pt-0">
     <div class="">
       <HeadingSection
         :title="sectionData.title"
