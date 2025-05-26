@@ -65,7 +65,7 @@
                   "class": "bg-primary-purple text-white hover:bg-dark-purple",
                   "target": "_blank"
                 },
-                "additionalInfo": "Unlimited free users",
+                "additionalInfo": "",
                 "theme": "bg-primary-purple text-white",
                 "container": "border-primary-purple bg-primary-purple/10"
               },

@@ -53,9 +53,14 @@ const metaObj = {
     client:load
     content={SlugData?.content}
     authors={author}
+    blogImage={SlugData?.image?.url || SlugData?.image?.url}
   />
   <div class="">
-    <BlogSection data={allBlogs.slice(0, 10)} sectionData={BlogResources} client:load />
+    <BlogSection
+      data={allBlogs.slice(0, 10)}
+      sectionData={BlogResources}
+      client:load
+    />
   </div>
   <!-- bannerData={BannerData?.data} -->
 </Layout>

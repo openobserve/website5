@@ -119,7 +119,7 @@
   </section>
 
   <!-- Blog Cover Image -->
-  <section
+  <!-- <section
   class="max-w-7xl mx-auto px-4"
   >
       <img
@@ -127,7 +127,7 @@
         :alt="title"
         class="object-cover object-center rounded-lg bg-white max-h-[60vh] mx-auto shadow-xl"
       />
-  </section>
+  </section> -->
 </template>
 
 <script setup lang="ts">
