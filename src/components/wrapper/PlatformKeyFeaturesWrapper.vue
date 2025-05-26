@@ -57,14 +57,7 @@ const activeTab = ref("standard");
 
     <!-- Card rendering based on activeTab -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-      <CardWithSideIcon
-        v-for="(card, index) in data[activeTab]"
-        :key="index"
-        :title="card.title"
-        :description="card.description"
-        :icon="card.icon"
-        :theme="card.theme"
-      />
+      <CardWithSideIcon v-for="(item, index) in data[activeTab]" :key="index" :card="item" class="w-full h-full" />
     </div>
 
     <div class="text-center mt-12">

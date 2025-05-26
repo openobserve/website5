@@ -244,7 +244,7 @@
         </g>
       </a>
       <!-- change stream button navigation link here -->
-      <a href="/frontend-monitoring" rel="noopener" class="svg-link">
+      <a href="https://openobserve.ai/docs/user-guide/streams/" target="_blank" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="303.296"

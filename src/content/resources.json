@@ -23,33 +23,24 @@
             "description": "Comprehensive guides and references for implementing OpenObserve.",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue",
-             "button": {
-              "text": "View Documentation",
-              "link": "https://openobserve.ai/docs",
-              "target": "_blank"
-            }
+            "link": "https://openobserve.ai/docs",
+            "target": "_blank"
           },
           {
             "title": "Join the Community",
             "description": "Connect with users and developers in our Slack channel for support and collaboration.",
             "theme": "theme-purple",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
-             "button": {
-              "text": "Join the Community",
-              "link": "https://openobserve-community.slack.com/join/shared_invite/zt-349pw0xfa-AAg8m7k_chcsPy3GDYzkjQ#/shared-invite/email",
-              "target": "_blank"
-            }
+            "link": "https://openobserve-community.slack.com/join/shared_invite/zt-349pw0xfa-AAg8m7k_chcsPy3GDYzkjQ#/shared-invite/email",
+            "target": "_blank"
           },
           {
             "title": "FAQs",
             "description": "Quick answers to common questions about OpenObserve configuration and capabilities.",
             "theme": "theme-green",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
-            "button": {
-              "text": "FAQs",
-              "link": "/faqs",
-              "target": "_self"
-            }
+            "link": "/faqs",
+            "target": "_self"
           }
         ]
       },
@@ -65,33 +56,25 @@
             "description": "Step-by-step instructions for setting up and managing OpenObserve.",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" stroke-width=\"2\"/><path d=\"m9 12 2 2 4-4\" stroke-width=\"2 /> />",
             "theme": "theme-blue",
-            "button": {
-              "text": "User Guide",
               "link": "https://openobserve.ai/docs/user-guide",
               "target": "_blank"
-            }
           },
           {
             "title": "API Reference",
             "description": "Comprehensive API documentation for integrations.",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2 /> />",
             "theme": "theme-purple",
-            "button": {
-              "text": "API Reference",
-              "link": "https://openobserve.ai/docs/api",
-              "target": "_blank"
-            }
+             "link": "https://openobserve.ai/docs/api",
+            "target": "_blank"
+            
           },
           {
             "title": "Function Reference",
             "description": "Detailed information about functions and capabilities.",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path d=\"m18 16 4-4-4-4\" stroke-width=\"2\"/><path d=\"m6 8-4 4 4 4\" stroke-width=\"2\"/><path d=\"m14.5 4-5 16\" stroke-width=\"2 /> />",
             "theme": "theme-green",
-            "button": {
-              "text": "Function Reference",
-              "link": "https://openobserve.ai/docs/user-guide/functions",
-              "target": "_blank"
-            }
+            "link": "https://openobserve.ai/docs/user-guide/functions",
+            "target": "_blank"
           }
         ],
         "button": {

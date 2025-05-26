@@ -36,17 +36,6 @@ const props = defineProps({
   },
 });
 
-function getTag(card) {
-  return card && card.button && card.button.link ? "a" : "div";
-}
-
-function getHref(card) {
-  return card && card.button && card.button.link ? card.button.link : null;
-}
-
-function getTarget(card) {
-  return card && card.button && card.button.target ? card.button.target : null;
-}
 </script>
 
 <template>
@@ -64,34 +53,14 @@ function getTarget(card) {
         />
 
         <!-- Cards Section -->
-        <div class="grid-container">
+        <div class="grid-container ">
           <!-- CardWithShadowBorder -->
-          <template v-for="(card, index) in items" :key="index">
-            <component
-              :is="getTag(card)"
-              :href="getHref(card)"
-              :target="getTarget(card)"
-              :class="[
-                'grid-item block',
-                card.button?.link
-                  ? 'hover:shadow-xl transition duration-300 ease-in-out'
-                  : '',
-              ]"
-            >
               <CardWithShadowBorder
-                :title="card.title"
-                :description="card.description"
-                :icon="card.icon"
-                :buttonText="card.buttonText"
-                :buttonLink="card.buttonLink"
-                :theme="card.theme"
-                :items="card.items"
+                v-for="(card, index) in items" :key="index"
+                :card="card"
+                class="w-full grid-item block"
                 :heading-level="headingLevel"
-                :align="card.align"
-                class="w-full"
               />
-            </component>
-          </template>
         </div>
 
         <!-- View All Button -->
