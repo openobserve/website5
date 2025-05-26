@@ -1,21 +1,31 @@
 <script setup lang="ts">
 // with shadow and border and without bg color
-
 import CustomButton from "./CustomButton.vue";
 import { Check } from "lucide-vue-next";
 import { computed } from "vue";
 import { ChevronRight } from "lucide-vue-next";
-const props = defineProps<{
-  title: string;
-  description: string;
-  icon: string;
-  buttonText?: string;
-  buttonLink?: string;
-  align?: string; // Changed from strict union type to string
-  theme?: string;
-  items?: string[];
-  headingLevel?: number; // optional here
-}>();
+
+const props = defineProps({
+  card: {
+    type: Object,
+    required: true,
+  },
+  headingLevel: { 
+    type: Number,
+    required: false,
+  }
+});
+// const props = defineProps<{
+//   title: string;
+//   description: string;
+//   icon: string;
+//   buttonText?: string;
+//   buttonLink?: string;
+//   align?: string; // Changed from strict union type to string
+//   theme?: string;
+//   items?: string[];
+//   headingLevel?: number; // optional here
+// }>();
 
 // Compute heading level with validation and default to 3
 const headingLevel = computed(() => {
@@ -25,16 +35,20 @@ const headingLevel = computed(() => {
     ? props.headingLevel
     : 3;
 });
+// Dynamically determine component type based on the presence of a link
+const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
 </script>
 
 <template>
-  <div
+ <component :is="dynamicComponent" :href="props?.card?.link" :target="props?.card?.target ? '_blank' : null"
     :class="[
-      'rounded-xl p-6 flex flex-col border border-gray-300 shadow-md',
-      ['left', 'center', 'right'].includes(props.align || 'left')
-        ? props.align === 'center'
+      'rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', card.button?.link
+                  ? 'hover:shadow-xl transition duration-300 ease-in-out'
+                  : '',
+      ['left', 'center', 'right'].includes(props?.card?.align || 'left')
+        ? props?.card?.align === 'center'
           ? 'items-center text-center'
-          : props.align === 'right'
+          : props?.card?.align === 'right'
           ? 'items-end text-right'
           : 'items-start text-left'
         : 'items-start text-left', // default if align is not one of the three
@@ -44,10 +58,10 @@ const headingLevel = computed(() => {
     <div
       :class="[
         'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card',
-        props.theme,
+        props?.card?.theme,
       ]"
     >
-      <span v-html="props.icon" />
+      <span v-html="props?.card?.icon" />
     </div>
 
     <!-- Title -->
@@ -55,18 +69,18 @@ const headingLevel = computed(() => {
       :is="`h${headingLevel}`"
       class="text-lg font-semibold text-gray-800"
     >
-      {{ props.title }}
+      {{ props?.card?.title }}
     </component>
 
     <!-- Description -->
     <p class="my-4 text-gray-600 text-sm">
-      {{ props.description }}
+      {{ props?.card?.description }}
     </p>
 
     <!-- Array of Items with Lucide Check Icons -->
-    <ul v-if="props.items" class="space-y-2 text-gray-600 text-sm mt-auto mb-3">
+    <ul v-if="props?.card?.items" class="space-y-2 text-gray-600 text-sm mt-auto mb-3">
       <li
-        v-for="(listItem, listIndex) in props.items"
+        v-for="(listItem, listIndex) in props?.card?.items"
         :key="listIndex"
         class="flex items-start"
       >
@@ -78,17 +92,17 @@ const headingLevel = computed(() => {
     </ul>
 
     <!-- Optional Arrow Link -->
-    <div v-if="props.buttonLink" class="mt-auto">
+    <div v-if="props?.card?.buttonLink" class="mt-auto">
       <CustomButton
         size="small"
-        :buttonLink="props.buttonLink"
-        :btn-class="props.theme"
+        :buttonLink="props?.card?.buttonLink"
+        :btn-class="props?.card?.theme"
       >
         <span class="flex items-center text-sm">
-          {{ props.buttonText }}
+          {{ props?.card?.buttonText }}
           <ChevronRight class="h-4 w-4 ml-2" />
         </span>
       </CustomButton>
     </div>
-  </div>
+  </component>
 </template>

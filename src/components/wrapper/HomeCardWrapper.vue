@@ -28,9 +28,7 @@ const props = defineProps<{
         <HeadingSection :title="props.title" :description="props.description" align="center" />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :title="card.title"
-          :description="card.description" :icon="card.icon" :buttonText="card.buttonText" :buttonLink="card.buttonLink"
-          :theme="card.theme" :items="card.items" :align="props.align":headingLevel="headingLevel" />
+        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :card="{ ...card, align }" :headingLevel="headingLevel" />
 
       </div>
     </CustomSection>
