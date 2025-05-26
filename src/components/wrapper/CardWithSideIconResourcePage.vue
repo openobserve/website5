@@ -23,23 +23,13 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
+    default: () => [],
   },
   background: {
     type: Boolean,
     required: false,
   },
 });
-function getTag(card) {
-  return card && card.button && card.button.link ? "a" : "div";
-}
-
-function getHref(card) {
-  return card && card.button && card.button.link ? card.button.link : null;
-}
-
-function getTarget(card) {
-  return card && card.button && card.button.target ? card.button.target : null;
-}
 </script>
 
 <template>
@@ -55,23 +45,8 @@ function getTarget(card) {
 
       <!-- Card rendering based on activeTab -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <template v-for="(card, index) in data" :key="index">
-          <component
-            :is="getTag(card)"
-            :href="getHref(card)"
-            :target="getTarget(card)"
-            :class="['block',card.button?.link ? 'hover:shadow-xl transition duration-300 ease-in-out' : '']"
-          >
-            <CardWithSideIcon
-              :title="card.title"
-              :description="card.description"
-              :icon="card.icon"
-              :theme="card.theme"
-              headingLevel="2"
-              class="w-full h-full"
+            <CardWithSideIcon v-for="(item, index) in data" :key="index" :card="item" headingLevel="2" class="w-full h-full"
             />
-          </component>
-        </template>
       </div>
     </CustomSection>
   </div>
