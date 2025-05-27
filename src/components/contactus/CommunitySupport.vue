@@ -1,5 +1,5 @@
 <template>
-  <CustomSection sectionClass="!pb-0">
+  <CustomSection sectionClass="">
     <!-- Heading Section -->
     <HeadingSection :title="title" :description="description" align="LEFT" class="!mb-8" />
 

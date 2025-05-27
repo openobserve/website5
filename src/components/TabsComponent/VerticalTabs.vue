@@ -23,7 +23,7 @@ const activeIndex = ref(0);
 
 <template>
   <section class="" :class="background ? 'bg-gray-50' : ''">
-    <CustomSection sectionClass="!pb-0">
+    <CustomSection sectionClass="mb-2">
       <HeadingSection :title="title" :description="description" align="CENTER" />
 
       <div :class="[

@@ -1,6 +1,6 @@
 <template>
   <section id="customer-stories" class="bg-gray-50">
-  <CustomSection>
+  <CustomSection sectionClass="mb-20">
     <HeadingSection
       :title="sectionData.title"
       :description="sectionData.description"
