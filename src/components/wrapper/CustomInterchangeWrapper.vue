@@ -2,7 +2,6 @@
 import CustomInterchange from "../core/CustomInterchange.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { motion } from "motion-v";
-import { ref } from "vue";
 
 const props = defineProps({
   items: {
@@ -11,32 +10,13 @@ const props = defineProps({
   },
 });
 
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: "easeIn",
-      delay: 0,
-    },
-  },
-};
 </script>
 
 <template>
   <div class="flex flex-col">
     <div>
       <!-- Each card tracks its own visibility -->
-      <motion.div
-        :initial="'hidden'"
-        :whileInView="'visible'"
-        :variants="itemVariants"
-        :inViewOptions="{ once: true, amount: 0.1 }"
+      <div
         v-for="(card, index) in items"
         :key="index"
         :class="index % 2 === 0 ? 'bg-gray-50' : ''"
@@ -51,7 +31,7 @@ const itemVariants = {
             :id="card.id"
           />
         </CustomSection>
-      </motion.div>
+      </div>
     </div>
   </div>
 </template>
