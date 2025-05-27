@@ -82,7 +82,7 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="fixed top-full flex justify-center w-[45%] left-[30%] xl:w-auto xl:left-[40%] mx-auto"
+    <div class="fixed top-full flex justify-center w-[45%] left-[30%] xl:w-auto xl:left-[45%] mx-auto"
       v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
