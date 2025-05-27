@@ -134,7 +134,7 @@ const cardVariant = computed(() => {
             </div>
             <!-- Author image and name,role,company -->
           </div>
-          <div class="flex flex-row items-start gap-3 md:ml-16">
+          <div class="flex flex-row items-start gap-3">
             <CustomImage
               :src="cardData?.avatar"
               class="w-12 h-12 rounded-full shrink-0"
