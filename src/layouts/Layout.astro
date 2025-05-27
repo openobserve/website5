@@ -8,6 +8,9 @@ import SEO from "@/components/SEO.astro";
 
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
+
+// Accept class as props
+const { class: sectionClass } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,7 +35,7 @@ const { metaObj } = Astro.props;
   </head>
   <body class="">
     <Header navData={navData?.data} client:only />
-    <main class="pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)]">
+      <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ''}`}>
       <slot />
     </main>
     <Footer
