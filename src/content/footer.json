@@ -149,6 +149,11 @@
             "id": 19,
             "text": "Contact Sales",
             "link": "/contact-sales"
+          },
+          {
+            "id": 20,
+            "text": "Enterprise License",
+            "link": "/enterprise-license"
           }
         ]
       },
