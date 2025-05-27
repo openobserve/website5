@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div v-for="tab in tabs" :key="tab.value" :class="[' w-full h-full gap-6',`grid-cols-1 grid`]">
+    <div v-for="tab in tabs" :key="tab.value" :class="[' w-full h-full gap-6',`grid-cols-1 grid`]" :id="tab.value">
       <div
         v-if="activeTab === tab.value"
         v-for="(item, index) in tab.items"
