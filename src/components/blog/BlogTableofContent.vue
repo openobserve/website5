@@ -93,6 +93,7 @@ const nestedHeadings = computed(() => {
   -webkit-box-shadow: inset 0 0 6px rgb(221, 219, 219);
   border-radius: 10px;
   background-color: #f8f6f6;
+  margin: 4px;
 }
 
 .scrollbar::-webkit-scrollbar {
