@@ -64,13 +64,35 @@ const RightVariant = {
   },
 };
 
+const listContainerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const listItemVariant = {
+  hidden: {
+    opacity: 0,
+      x: props.direction === "right" ? -20 : 20,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
+
 const cardVariant = computed(() => {
   return props.direction === "right" ? RightVariant : LeftVariant;
 });
 
-const listVariant = computed(() => {
-  return props.direction === "right" ? LeftVariant : RightVariant;
-});
 </script>
 
 <template>
@@ -131,15 +153,16 @@ const listVariant = computed(() => {
       <motion.div
         class="w-full lg:w-1/2 z-10 flex flex-col space-y-6"
         :initial="'hidden'"
-        :whileInView="'visible'"
-        :variants="listVariant"
-        :inViewOptions="{ once: true, amount: 0.3 }"
+  :whileInView="'visible'"
+  :variants="listContainerVariant"
+  :inViewOptions="{ once: true, amount: 0.3 }"
       >
         <div v-if="items?.length" class="flex flex-col space-y-6">
-          <div
+          <motion.div
             v-for="(item, index) in items"
             :key="index"
             class="flex items-start"
+             :variants="listItemVariant"
           >
             <div class="space-y-1">
               <div class="flex items-center">
@@ -156,7 +179,7 @@ const listVariant = computed(() => {
                 {{ item.description }}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </div>
