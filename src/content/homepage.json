@@ -11,13 +11,13 @@
         "id": 1,
         "badge": "140x Lower Cost",
         "title": "Lightweight, petabyte-scale observability",
-        "subtitle": "De-escalate your observability costs.",
+        "description": "De-escalate your observability costs.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
           "link": "https://cloud.openobserve.ai/web/login"
         },
         "trustedText": "From Fortune 10 Giants to Innovative Startups: These Companies Rely on OpenObserve",
-        "logos": [
+        "trustedCompanies": [
           {
             "url": "/img/company/alderley-logo.svg",
             "alt": "Alderley"
@@ -97,19 +97,19 @@
         }
       },
       {
-        "__component": "section-cards.homepage-features",
+        "__component": "section-features.benefits",
         "id": 2,
         "headingLevel": 3,
         "title": "Why OpenObserve?",
-        "items": [
+        "align": "center",
+        "data": [
           {
             "title": "Efficiency",
             "description": "Drastically reduce telemetry costs",
             "buttonLink": "#efficiency-section",
             "buttonText": "Prove it",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
-            "theme": "theme-blue",
-            "align": "center"
+            "theme": "theme-blue"
           },
           {
             "title": "Performance",
@@ -117,8 +117,7 @@
             "buttonLink": "#performance-section",
             "buttonText": "Prove it",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"  /> />",
-            "theme": "theme-red",
-            "align": "center"
+            "theme": "theme-red"
           },
           {
             "title": "Scalability",
@@ -126,8 +125,7 @@
             "buttonLink": "#scalability-section",
             "buttonText": "Prove it",
             "icon": "<svg class=\"h-6 w-6\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M10.1048 13.424C10.2455 13.764 10.6382 13.9287 10.9608 13.752C12.1622 13.0945 13.1105 12.0558 13.6562 10.7996C14.2019 9.54347 14.3139 8.14142 13.9745 6.81459C13.6352 5.48775 12.8638 4.31163 11.782 3.47172C10.7003 2.63181 9.36971 2.1759 8.00017 2.1759C6.63062 2.1759 5.30004 2.63181 4.21829 3.47172C3.13653 4.31163 2.36515 5.48775 2.0258 6.81459C1.68645 8.14142 1.79845 9.54347 2.34413 10.7996C2.88981 12.0558 3.83812 13.0945 5.0395 13.752C5.36217 13.9287 5.75483 13.764 5.8955 13.424L6.80083 11.2374C6.94217 10.8974 6.77217 10.5134 6.48217 10.2867C6.07732 9.97061 5.78125 9.53603 5.63525 9.04359C5.48925 8.55115 5.50062 8.02542 5.66776 7.53975C5.8349 7.05408 6.14948 6.6327 6.5676 6.33441C6.98573 6.03611 7.48654 5.87577 8.00017 5.87577C8.51379 5.87577 9.0146 6.03611 9.43273 6.33441C9.85086 6.6327 10.1654 7.05408 10.3326 7.53975C10.4997 8.02542 10.5111 8.55115 10.3651 9.04359C10.2191 9.53603 9.92301 9.97061 9.51817 10.2867C9.22817 10.5134 9.05817 10.8974 9.1995 11.2374L10.1048 13.424Z\" stroke=\"#5CC97A\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
-            "theme": "theme-green",
-            "align": "center"
+            "theme": "theme-green"
           }
         ]
       },
