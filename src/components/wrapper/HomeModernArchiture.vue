@@ -15,18 +15,19 @@ interface Item {
 }
 
 defineProps<{
-  title: string;
-  description?: string;
+  heading?: {
+    title?: string;
+    description?: string;
+  };
   background?: boolean;
   image?: { url: string; alt: string };
-  items: Item[];
 }>();
 </script>
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection sectionClass="!py-3 lg:!py-12">
-    <HeadingSection :title="title" :description="description" class="!mb-2 lg:!mb-2" />
+    <HeadingSection :title="heading?.title" :description="heading?.description" class="!mb-2 lg:!mb-2" />
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="w-full h-full">
 
