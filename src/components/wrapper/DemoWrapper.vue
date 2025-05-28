@@ -31,7 +31,7 @@ const props = defineProps({
               :key="index"
               :title="card.title"
               :description="card.description"
-              :icon="card.icon"
+              :icon="card.image"
               :theme="card.theme"
             />
           </div>

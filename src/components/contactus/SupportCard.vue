@@ -4,7 +4,7 @@
       <div
         :class="[
           'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
-          data.iconColor,
+          data.theme,
         ]"
       >
         <svg
@@ -13,17 +13,18 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          v-html="data.icon"
+          v-html="data.image"
         />
       </div>
     </div>
     <h3 class="text-lg lg:text-xl font-semibold">{{ data.title }}</h3>
     <p class="text-gray-400 flex-grow">{{ data.description }}</p>
     <a
-      :href="data.linkUrl"
+      :href="data.button.link"
       class="text-indigo-400 hover:text-indigo-300 font-medium inline-flex items-center group"
+      target="_blank"
     >
-      {{ data.linkText }}
+      {{ data.button.text }}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1"
@@ -48,10 +49,12 @@ const props = defineProps<{
     id: string;
     title: string;
     description: string;
-    icon: string;
-    linkText: string;
-    linkUrl: string;
-    iconColor: string;
+    image: string;
+    theme: string;
+    button: {
+      text: string;
+      link: string;
+    }
   };
 }>();
 </script>
