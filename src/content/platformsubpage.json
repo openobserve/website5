@@ -247,7 +247,7 @@
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
             "theme": "theme-red",
-            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "OTel-native Metrics",
@@ -266,7 +266,7 @@
           {
             "value": "metrics-collection",
             "title": "Metrics Collection & Analysis",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-metrics/metrics-collection-analysis.svg",
             "card": {
               "title": "Metrics Collection & Analysis",
               "features": [
@@ -285,7 +285,7 @@
           {
             "value": "prometheus-integration",
             "title": "Prometheus Integration",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-metrics/metrices-prometheus-integration.svg",
             "card": {
               "title": "Prometheus Integration",
               "features": [
@@ -304,7 +304,7 @@
           {
             "value": "metrics-processing",
             "title": "Metrics Processing Advanced",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-metrics/metrics-processing.svg",
             "card": {
               "title": "Metrics Processing Advanced",
               "features": [
@@ -323,7 +323,7 @@
           {
             "value": "optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-traces/trace-optimized-storage.svg",
             "card": {
               "title": "Optimized Storage",
               "features": [
@@ -450,7 +450,7 @@
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.45598 8.72463C7.80023 9.38088 7.80023 10.4444 8.45598 11.1006C9.11223 11.7564 10.1757 11.7564 10.8315 11.1006C11.4877 10.4444 11.4877 9.38088 10.8315 8.72463C10.1757 8.06888 9.11223 8.06888 8.45598 8.72463ZM10.2319 10.502C10.1547 10.5793 10.063 10.6406 9.96206 10.6824C9.86114 10.7243 9.75297 10.7458 9.64373 10.7458C9.53449 10.7458 9.42631 10.7243 9.3254 10.6824C9.22448 10.6406 9.1328 10.5793 9.0556 10.502C8.97837 10.4248 8.9171 10.3332 8.8753 10.2323C8.8335 10.1314 8.81198 10.0233 8.81198 9.91407C8.81198 9.80487 8.8335 9.69674 8.8753 9.59586C8.9171 9.49498 8.97837 9.40332 9.0556 9.32613C9.1328 9.24884 9.22448 9.18752 9.3254 9.14569C9.42631 9.10385 9.53449 9.08232 9.64373 9.08232C9.75297 9.08232 9.86114 9.10385 9.96206 9.14569C10.063 9.18752 10.1547 9.24884 10.2319 9.32613C10.5566 9.64938 10.5566 10.1773 10.2319 10.502ZM10.8037 0.459004L9.77435 1.48825C9.67745 1.58589 9.62307 1.71788 9.62307 1.85544C9.62307 1.993 9.67745 2.12499 9.77435 2.22263L13.793 6.24125C13.8906 6.33816 14.0226 6.39254 14.1602 6.39254C14.2977 6.39254 14.4297 6.33816 14.5274 6.24125L15.5566 5.21188C15.7579 5.01063 15.7579 4.67925 15.5566 4.47813L11.5362 0.458879C11.4388 0.362241 11.3072 0.308014 11.17 0.308014C11.0328 0.308014 10.9011 0.362366 10.8037 0.459004ZM3.59223 13.6119C3.67999 13.5237 3.72927 13.4044 3.72927 13.28C3.72927 13.1556 3.67999 13.0363 3.59223 12.9481L3.06935 12.4248C2.98107 12.3371 2.86171 12.2879 2.73729 12.2879C2.61288 12.2879 2.49351 12.3371 2.40523 12.4248L1.32473 13.5059L1.32273 13.5074L1.02635 13.2105C0.862228 13.0464 0.595103 13.0464 0.432603 13.2105C0.268478 13.3745 0.268478 13.6416 0.432603 13.8043L2.21335 15.5845C2.25228 15.6235 2.29852 15.6544 2.34942 15.6755C2.40032 15.6967 2.45488 15.7075 2.50998 15.7075C2.56508 15.7075 2.61964 15.6967 2.67054 15.6755C2.72144 15.6544 2.76767 15.6235 2.8066 15.5845C2.9691 15.4204 2.97073 15.1533 2.8066 14.9913L2.50973 14.6944L2.51173 14.6929L3.59223 13.6119ZM9.0371 3.41413L6.75048 5.70063C6.54735 5.90375 6.54735 6.23825 6.75048 6.44138L8.16248 7.853C9.16048 7.13475 10.56 7.22363 11.4579 8.12213L12.6014 6.9785C12.8041 6.77538 12.8041 6.44138 12.6014 6.23825L9.77748 3.41413C9.72889 3.36549 9.6712 3.3269 9.60769 3.30057C9.54418 3.27424 9.4761 3.26069 9.40735 3.26069C9.3386 3.26069 9.27053 3.27424 9.20702 3.30057C9.14351 3.3269 9.08569 3.36549 9.0371 3.41413ZM7.56873 8.44813L6.73473 7.61413C6.53935 7.41888 6.2191 7.41888 6.02423 7.61413L3.08298 10.5566C2.98916 10.6511 2.93651 10.7789 2.93651 10.9121C2.93651 11.0452 2.98916 11.173 3.08298 11.2675L4.74935 12.934C4.84386 13.0279 4.97166 13.0805 5.10485 13.0805C5.23805 13.0805 5.36584 13.0279 5.46035 12.934L7.35185 11.0394C6.95198 10.2133 7.02373 9.21525 7.56873 8.44813Z\" fill=\"currentColor\"/></svg>",
             "theme": "theme-blue"
           },
           {
@@ -476,7 +476,7 @@
           {
             "value": "trace-collection",
             "title": "Trace Collection",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-traces/trace-collection.svg",
             "card": {
               "title": "Trace Collection",
               "features": [
@@ -495,7 +495,7 @@
           {
             "value": "service-analysis",
             "title": "Service Analysis",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "img/platform-traces/trace-service-analysis.svg",
             "card": {
               "title": "Service Analysis",
               "features": [
@@ -514,7 +514,7 @@
           {
             "value": "trace-analysis",
             "title": "Trace Analysis",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-traces/trace-analysis.svg",
             "card": {
               "title": "Trace Analysis",
               "features": [
@@ -533,7 +533,7 @@
           {
             "value": "optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-traces/trace-optimized-storage.svg",
             "card": {
               "title": "Optimized Storage",
               "features": [
@@ -894,7 +894,7 @@
           {
             "value": "pipeline-types",
             "title": "Pipeline Types",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-pipelines/pipeline-type.svg",
             "card": {
               "title": "Pipeline Types",
               "features": [
@@ -913,7 +913,7 @@
           {
             "value": "data-transformation",
             "title": "Data Transformation",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-pipelines/piplines-data-transformation.svg",
             "card": {
               "title": "Data Transformation",
               "features": [
@@ -932,7 +932,7 @@
           {
             "value": "data-enrichment",
             "title": "Data Enrichment",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-pipelines/pipeline-data-enrichment.svg",
             "card": {
               "title": "Data Enrichment",
               "features": [
@@ -951,7 +951,7 @@
           {
             "value": "pipeline-components",
             "title": "Pipeline Components",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-pipelines/pipeline-component.svg",
             "card": {
               "title": "Pipeline Components",
               "features": [
@@ -1078,20 +1078,20 @@
           {
             "title": "Personalize Notifications",
             "description": "Send notifications to email, Slack, or webhook endpoints for immediate action",
-            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"12\" height=\"14\" viewBox=\"0 0 12 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2.1578 4.13333C2.20258 3.42009 2.51748 2.75072 3.03842 2.26149C3.55936 1.77226 4.24716 1.49995 4.9618 1.49999H5.33314V0.999995C5.33314 0.823184 5.40338 0.653615 5.5284 0.52859C5.65342 0.403566 5.82299 0.333328 5.9998 0.333328C6.17662 0.333328 6.34618 0.403566 6.47121 0.52859C6.59623 0.653615 6.66647 0.823184 6.66647 0.999995V1.49999H7.0378C7.75245 1.49995 8.44025 1.77226 8.96119 2.26149C9.48213 2.75072 9.79703 3.42009 9.8418 4.13333L9.98914 6.48933C10.0461 7.38747 10.3476 8.25292 10.8611 8.99199C10.9674 9.1447 11.0323 9.32231 11.0496 9.50754C11.0669 9.69277 11.0359 9.87931 10.9597 10.049C10.8836 10.2188 10.7648 10.3659 10.6149 10.4761C10.465 10.5863 10.2892 10.6559 10.1045 10.678L7.83314 10.95V11.6667C7.83314 12.1529 7.63998 12.6192 7.29617 12.963C6.95235 13.3068 6.48603 13.5 5.9998 13.5C5.51357 13.5 5.04726 13.3068 4.70344 12.963C4.35962 12.6192 4.16647 12.1529 4.16647 11.6667V10.95L1.89514 10.6773C1.71053 10.6551 1.53481 10.5856 1.38503 10.4754C1.23526 10.3652 1.11653 10.2182 1.04037 10.0486C0.964217 9.87895 0.933229 9.69251 0.950418 9.50737C0.967607 9.32224 1.03239 9.1447 1.13847 8.99199C1.65197 8.25292 1.95351 7.38747 2.01047 6.48933L2.1578 4.13333ZM4.9618 2.49999C4.50152 2.49994 4.05852 2.67531 3.72299 2.9904C3.38746 3.30549 3.18464 3.73661 3.1558 4.196L3.00914 6.552C2.94059 7.63249 2.57771 8.67364 1.9598 9.56266C1.95212 9.57371 1.94742 9.58655 1.94616 9.59995C1.94491 9.61335 1.94714 9.62684 1.95264 9.63912C1.95814 9.6514 1.96673 9.66205 1.97756 9.67003C1.9884 9.67801 2.00111 9.68305 2.01447 9.68466L4.5058 9.984C5.49847 10.1027 6.50114 10.1027 7.4938 9.984L9.98514 9.68466C9.9985 9.68305 10.0112 9.67801 10.022 9.67003C10.0329 9.66205 10.0415 9.6514 10.047 9.63912C10.0525 9.62684 10.0547 9.61335 10.0534 9.59995C10.0522 9.58655 10.0475 9.57371 10.0398 9.56266C9.42213 8.67357 9.05948 7.63243 8.99114 6.552L8.8438 4.196C8.81497 3.73661 8.61215 3.30549 8.27662 2.9904C7.94109 2.67531 7.49809 2.49994 7.0378 2.49999H4.9618ZM5.9998 12.5C5.5398 12.5 5.16647 12.1267 5.16647 11.6667V11.1667H6.83314V11.6667C6.83314 12.1267 6.4598 12.5 5.9998 12.5Z\" fill=\"currentColor\"/></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
             "theme": "theme-red",
-            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "Stay on top of Issues",
             "description": "Identify and fix problems before customers notice",
             "theme": "theme-green",
-            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6.25002 9.75001C6.25002 9.94892 6.32903 10.1397 6.46969 10.2803C6.61034 10.421 6.8011 10.5 7.00002 10.5C7.19893 10.5 7.38969 10.421 7.53034 10.2803C7.671 10.1397 7.75002 9.94892 7.75002 9.75001C7.75002 9.55109 7.671 9.36033 7.53034 9.21968C7.38969 9.07902 7.19893 9.00001 7.00002 9.00001C6.8011 9.00001 6.61034 9.07902 6.46969 9.21968C6.32903 9.36033 6.25002 9.55109 6.25002 9.75001ZM7.37502 8.00001C7.44377 8.00001 7.50002 7.94376 7.50002 7.87501V3.62501C7.50002 3.55626 7.44377 3.50001 7.37502 3.50001H6.62502C6.55627 3.50001 6.50002 3.55626 6.50002 3.62501V7.87501C6.50002 7.94376 6.55627 8.00001 6.62502 8.00001H7.37502ZM13.625 5.06251H12.6985C12.6578 5.06251 12.6203 5.08126 12.5969 5.11407L10.9328 7.40782L10.1531 6.33282C10.1416 6.31672 10.1263 6.30363 10.1086 6.29466C10.091 6.28569 10.0714 6.28109 10.0516 6.28126H9.12502C9.02345 6.28126 8.96408 6.39688 9.02345 6.47969L10.7297 8.83438C10.7531 8.86635 10.7836 8.89235 10.8189 8.91027C10.8542 8.9282 10.8932 8.93754 10.9328 8.93754C10.9724 8.93754 11.0114 8.9282 11.0467 8.91027C11.082 8.89235 11.1126 8.86635 11.136 8.83438L13.7266 5.26094C13.786 5.17813 13.7266 5.06251 13.625 5.06251ZM12.9375 9.84376H11.9344C11.8485 9.84376 11.7688 9.88907 11.7219 9.96094C11.5001 10.3133 11.2391 10.6393 10.9438 10.9328C10.4362 11.4408 9.835 11.8456 9.17345 12.125C8.48762 12.4143 7.75059 12.5625 7.00627 12.5609C6.2547 12.5609 5.52502 12.4141 4.83908 12.125C4.17753 11.8456 3.57636 11.4408 3.06876 10.9328C2.55954 10.4265 2.15404 9.82572 1.87502 9.16407C1.58439 8.47969 1.43752 7.75001 1.43752 7.00001C1.43752 6.25001 1.58439 5.52032 1.87502 4.83594C2.1547 4.17344 2.55626 3.57813 3.06876 3.06719C3.58126 2.55626 4.17658 2.15469 4.83908 1.87501C5.52491 1.58576 6.26194 1.4375 7.00627 1.43907C7.75783 1.43907 8.48751 1.58594 9.17345 1.87501C9.83595 2.15469 10.4313 2.55626 10.9438 3.06719C11.2406 3.36407 11.5 3.68907 11.7219 4.03907C11.7672 4.11251 11.8485 4.15626 11.9344 4.15626H12.9375C13.0313 4.15626 13.0906 4.05782 13.05 3.97501C11.95 1.78907 9.69845 0.281257 7.08908 0.250007C3.35783 0.206257 0.257828 3.25782 0.250015 6.98751C0.242203 10.7203 3.27033 13.75 7.00627 13.75C9.65002 13.75 11.9375 12.2344 13.0485 10.025C13.058 10.006 13.0626 9.98487 13.0617 9.9636C13.0608 9.94234 13.0546 9.92165 13.0434 9.9035C13.0323 9.88535 13.0168 9.87033 12.9982 9.85988C12.9797 9.84942 12.9588 9.84387 12.9375 9.84376Z\" fill=\"currentColor\"/></svg>"
           }
         ]
       },
@@ -1103,7 +1103,7 @@
           {
             "value": "alert-types",
             "title": "Alert Types",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-alerts/alerts-types.svg",
             "card": {
               "title": "Alert Types",
               "features": [
@@ -1122,7 +1122,7 @@
           {
             "value": "alert-configuration",
             "title": "Alert Configuration",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-alerts/alerts-configuration.svg",
             "card": {
               "title": "Alert Configuration",
               "features": [
@@ -1141,7 +1141,7 @@
           {
             "value": "alert-notifications",
             "title": "Alert Notifications",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-alerts/alerts-notification-on-outline.svg",
             "card": {
               "title": "Alert Notifications",
               "features": [
@@ -1160,7 +1160,7 @@
           {
             "value": "alert-controls",
             "title": "Alert Controls",
-            "icon": "/img/icon/slackIcon.svg",
+            "icon": "/img/platform-alerts/alerts-controls.svg",
             "card": {
               "title": "Alert Controls",
               "features": [
