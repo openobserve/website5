@@ -32,7 +32,7 @@ const props = defineProps({
   <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection sectionClass="!pb-0">
       <!-- Heading Section -->
-   c   <HeadingSection
+     <HeadingSection
         :title="heading?.title"
         :description="heading?.description"
         align="center"
