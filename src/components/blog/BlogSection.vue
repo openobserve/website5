@@ -87,10 +87,10 @@
         </a>
       </div>
     </div>
-    <div class="overflow-hidden relative">
+    <div class="overflow-hidden relative w-full">
       <div
         ref="scrollContainer"
-        class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
+        class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory w-full"
       >
         <div
           v-for="post in data"
@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, nextTick } from "vue";
 import BlogCard2 from "@/components/blog/BlogCard2.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
@@ -131,21 +131,27 @@ const isAtEnd = ref(false);
 const authorsMap = ref<Record<string, any>>({});
 
 function scrollLeft() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: -scrollAmount.value,
-      behavior: "smooth",
-    });
-  }
+  if (!scrollContainer.value) return;
+
+  const el = scrollContainer.value;
+  const target = el.scrollLeft - scrollAmount.value;
+
+  el.scrollTo({
+    left: target,
+    behavior: "smooth",
+  });
 }
 
 function scrollRight() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: scrollAmount.value,
-      behavior: "smooth",
-    });
-  }
+  if (!scrollContainer.value) return;
+
+  const el = scrollContainer.value;
+  const target = el.scrollLeft + scrollAmount.value;
+
+  el.scrollTo({
+    left: target,
+    behavior: "smooth",
+  });
 }
 
 function updateButtonState() {
@@ -157,6 +163,10 @@ function updateButtonState() {
 }
 
 onMounted(async () => {
+  nextTick(() => {
+    scrollContainer.value?.scrollBy({ left: 1 });
+    scrollContainer.value?.scrollBy({ left: -1 });
+  });
   try {
     // Now that blogs are fetched, fetch authors
     // authorsMap.value = await fetchAuthorsMapFromBlogs(props.data);
