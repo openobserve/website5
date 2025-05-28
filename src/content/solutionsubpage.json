@@ -755,8 +755,8 @@
     ],
     "seo": {
       "id": 999,
-      "title": "OpenObserve AWS Monitoring | Cloud Observability Platform",
-      "description": "Monitor AWS services with real-time analytics and cost-effective observability. Native integrations with CloudWatch, Kinesis, VPC Flow Logs, and CloudTrail. Start free.",
+      "title": "OpenObserve Azure Monitoring | Cloud Observability Platform",
+      "description": "Monitor Azure services with real-time analytics and cost-effective observability. Native integrations with Azure SSO, Azure AKF, and Microsoft 365 Insights. Start free.",
       "viewport": null,
       "creator": null,
       "publisher": null,

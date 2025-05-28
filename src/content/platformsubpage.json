@@ -19,7 +19,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-logs/logs-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Logs Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -227,7 +227,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-metrics/metrics-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Metrics Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -435,7 +435,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-traces/traces-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Traces Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -643,7 +643,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-frontend-monitoring/frontend-webvitals.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Frontend Monitoring Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -850,7 +850,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-pipelines/pipelines-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Pipelines Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -1057,7 +1057,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-alerts/alert-configure.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": " OpenObserve Alert Dashboard"
       },
       {
         "__component": "section-features.benefits",
@@ -1260,7 +1260,7 @@
           "variant": "secondary"
         },
         "image": "/img/platform-visualization/dashboard-kubernetes.png",
-        "altText": "OpenObserve Dashboard"
+        "altText": "OpenObserve Dashboards & Visualizations"
       },
       {
         "__component": "section-features.benefits",
