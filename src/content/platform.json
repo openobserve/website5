@@ -16,7 +16,7 @@
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
-        "heading":{
+        "heading": {
           "title": "Why OpenObserve?"
         },
         "items": [
@@ -41,29 +41,25 @@
         ]
       },
       {
-        "__component": "section-features.architecture",
+        "__component": "section-features.homepage-architecture",
         "id": 3,
-        "title": "Explore the OpenObserve Platform",
-        "description": "A modern, scalable architecture designed for high performance and low cost",
+        "heading": {
+          "title": "Explore the OpenObserve Platform",
+          "description": "A modern, scalable architecture designed for high performance and low cost"
+        },
         "image": {
           "url": "/img/platform-landing-page/platform-landing-architecture-image.png",
-          "alt": "OpenObserve Architecture Diagram",
-          "width": 1200,
-          "height": 800
-        },
-        "btnValues": {
-          "buttonText": "Get Started with Standard",
-          "buttonLink": "#learn-more",
-          "theme": "theme-blue"
+          "alt": "OpenObserve Architecture Diagram"
         }
       },
       {
         "__component": "section-key-features-benefits.key-features",
         "id": 4,
         "align": "center",
-        "title": "Key Platform Benefits",
-        "description": "Every capability that is available in OpenObserve Standard tier",
-        "data": {
+        "heading": {
+          "title": "Key Platform Benefits",
+          "description": "Every capability that is available in OpenObserve Standard tier"
+        },
           "standard": [
             {
               "title": "140x Lower Storage Costs",
@@ -140,7 +136,7 @@
               "icon": "<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />"
             }
           ]
-        },
+       ,
         "standardCTA": {
           "buttonText": "Get started with OpenObserve Cloud",
           "buttonLink": "/pricing",
