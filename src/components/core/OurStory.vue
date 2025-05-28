@@ -5,7 +5,7 @@
       <div class="flex flex-col-reverse gap-6 lg:flex-row items-center">
         <div class="flex flex-col space-y-4 w-full lg:w-1/2">
           <div class="space-y-4 text-gray-600">
-            <div class="text-base md:text-lg" v-html="paragraphs"></div>
+            <div class="text-base md:text-lg" v-html="paragraph"></div>
           </div>
           <div class="flex justify-start pt-2 md:pt-4" v-if="primaryButton">
             <a :href="primaryButton?.link"
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="relative h-64 w-full sm:h-80 md:h-96 lg:h-[28rem] lg:w-1/2 rounded-lg overflow-hidden bg-gray-100">
-          <img :src="image.src" :alt="image.alt" class="w-full h-full" loading="lazy" />
+          <img :src="image.url" :alt="image.alt" class="w-full h-full" loading="lazy" />
         </div>
       </div>
 
@@ -42,7 +42,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  paragraphs: {
+  paragraph: {
     type: String,
     required: true,
   },

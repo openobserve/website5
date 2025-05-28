@@ -2,8 +2,8 @@
   <section id="our-story">
     <CustomSection>
       <!-- Title with horizontal lines -->
-      <FramedTitle :title="title" />
-      <p class="text-center text-gray-600 text-lg">{{ description }}</p>
+      <FramedTitle :title="heading.title" />
+      <p class="text-center text-gray-600 text-lg">{{ heading.description }}</p>
 
       <!-- Controls (secondary button only) -->
       <div class="flex justify-end items-center my-6">
@@ -94,7 +94,7 @@
           class="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-5 pb-4 items-stretch w-full"
         >
           <div
-            v-for="(logo, index) in images"
+            v-for="(logo, index) in items"
             :key="index"
             class="flex-shrink-0 rounded-lg border p-4 flex flex-col snap-start w-full md:w-[220px] xl:w-[23.7%] 3xl:xl:w-[23.8%]"
           >
@@ -104,7 +104,7 @@
             >
               <!-- Image -->
               <div class="flex justify-center">
-                <img :src="logo.url" :alt="logo.alt" class="h-24 w-24" />
+                <img :src="logo.image.url" :alt="logo.image.alt" class="h-24 w-24" />
               </div>
 
               <!-- Name & Role -->
@@ -132,9 +132,9 @@ import FramedTitle from "./FramedTitle.vue";
 import CustomSection from "./CustomSection.vue";
 
 const props = defineProps({
-  title: { type: String, required: true },
+  heading: { type: Object, required: true },
   description: { type: String, required: true },
-  images: { type: Array, required: true },
+  items: { type: Array, required: true },
   secondaryButton: { type: Object, required: false },
 });
 
