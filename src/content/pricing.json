@@ -145,9 +145,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Pricing FAQs",
+        "heading":{
+          "title": "Pricing FAQs"
+        },
         "background": false,
-        "items": [
+        "faqs": [
           {
             "question": "Does OpenObserve offer a free tier?",
             "answer": "Yes, OpenObserve offers a free tier that includes a limited amount of log storage and ingestion. It's ideal for small projects, testing, or evaluation purposes. Usage beyond the free tier will require a paid plan."

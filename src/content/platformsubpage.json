@@ -50,8 +50,10 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Logs",
-        "description": "Scale from gigabytes to petabytes while dramatically reducing costs.",
+        "heading":{
+          "title": "OpenObserve Logs",
+          "description": "Scale from gigabytes to petabytes while dramatically reducing costs."
+        },
         "background": true,
         "tabs": [
           {
@@ -134,9 +136,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Logs FAQs",
+        "heading":{
+          "title": "Logs FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve handle log ingestion?",
             "answer": "OpenObserve provides multiple ingestion methods for different use cases:<br><ul><li>Direct log shipping via HTTP/HTTPS endpoints with API authentication.</li><li>Integration with industry-standard log forwarders like Vector, Fluentd, and Fluent Bit.</li><li>Kubernetes environments supported through the OpenObserve operator or DaemonSet.</li><li>Cloud provider logs ingested through native integrations such as AWS Kinesis Firehose or GCP Pub/Sub.</li></ul>"
@@ -261,8 +265,10 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Metrics",
-        "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments.",
+        "heading":{
+          "title": "OpenObserve Metrics",
+          "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments."
+        },
         "background": true,
         "tabs": [
           {
@@ -345,9 +351,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Metrics FAQs",
+        "heading":{
+          "title": "Metrics FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect metrics?",
             "answer": "OpenObserve supports multiple collection methods for metrics: *Metrics collection through Prometheus remote write<br/><ul><li>Metrics collection via OTLP protocol using OTel Collector</li><li>Custom metrics ingestion through HTTP API endpoints</li><li>Infrastructure metrics collection through various integrations, including cloud provider services and the OpenObserve collector</li></ul>"
@@ -472,8 +480,10 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Traces",
-        "description": "",
+        "heading":{
+          "title": "OpenObserve Traces",
+          "description": ""
+        },
         "background": true,
         "tabs": [
           {
@@ -556,9 +566,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Traces FAQs",
+        "heading":{
+          "title": "Traces FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect traces?",
             "answer": "OpenObserve collects distributed traces through OpenTelemetry instrumentation. The platform accepts traces via the OTLP protocol, supporting both manual and automatic instrumentation methods. For services already instrumented with OpenTelemetry, you can configure the exporter to send traces directly to OpenObserve. The system maintains trace context across service boundaries using W3C trace context standards."
@@ -686,7 +698,9 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Frontend Monitoring",
+        "heading":{
+          "title": "OpenObserve Frontend Monitoring"
+        },
         "background": true,
         "tabs": [
           {
@@ -769,9 +783,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Frontend Monitoring FAQs",
+        "heading":{
+          "title": "Frontend Monitoring FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How do I get started with Frontend Monitoring?",
             "answer": "Getting started with OpenObserve's RUM is straightforward. Add our JavaScript snippet to your application's entry point eg: `index.js` or `main.js` , and you'll begin collecting user experience data immediately. The snippet automatically captures performance metrics, user interactions, and errors. You can customize the configuration to focus on specific aspects of your application or adjust sampling rates."
@@ -896,7 +912,9 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Observability Pipelines",
+        "heading":{
+          "title": "OpenObserve Observability Pipelines"
+        },
         "background": true,
         "tabs": [
           {
@@ -979,9 +997,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Observability Pipelines FAQs",
+        "heading":{
+          "title": "Observability Pipelines FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What types of pipelines does OpenObserve support?",
             "answer": "OpenObserve supports two main types of pipelines: real-time and scheduled. Real-time pipelines process data as it arrives, transforming and enriching it on the fly. These pipelines can include multiple processing steps using functions, conditions, and stream operations. Scheduled pipelines run at defined intervals, allowing for batch processing and periodic data transformations."
@@ -1107,7 +1127,9 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Alerts",
+        "heading":{
+          "title": "OpenObserve Alerts"
+        },
         "background": true,
         "tabs": [
           {
@@ -1190,9 +1212,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Alerts FAQs",
+        "heading":{
+          "title": "Alerts FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What types of alerts does OpenObserve support?",
             "answer": "OpenObserve provides two main alert types: Scheduled and Real-time.Scheduled alerts run at scheduled intervals, evaluating conditions against your data. Real-time alerts continuously monitor data streams for immediate detection. Both types support SQL queries and quick condition builders for alert definition."
@@ -1313,7 +1337,9 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Dashboards and Visualizations",
+        "heading":{
+          "title": "OpenObserve Dashboards and Visualizations"
+        },
         "background": true,
         "tabs": [
           {
@@ -1396,9 +1422,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Dashboards and Visualizations FAQs",
+        "heading":{
+          "title": "Dashboards and Visualizations FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What visualization types are available?",
             "answer": "OpenObserve supports over 19 chart types for different visualization needs. Time-series data can be displayed using line graphs, area charts, and bar charts. Tables provide detailed data views with sorting and filtering. Heat maps show data density and patterns. Gauge visualizations display current values against thresholds. Each visualization type includes specific configuration options for customizing appearance and behavior."

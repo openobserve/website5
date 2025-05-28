@@ -133,8 +133,10 @@
       },
       {
         "__component": "sections.faq",
-        "title": "AWS Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "AWS Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "How does OpenObserve collect AWS logs and metrics?",
             "answer": "OpenObserve offers multiple ingestion methods:<br><ul><li>Kinesis Data Firehose for log delivery from various AWS services</li><li>Direct CloudWatch integration for metrics</li><li>AWS Lambda function logs through Kinesis Firehose</li><li>Custom metrics via API endpoints</li><li>All AWS services can send their logs via S3 to Openobserve</li></ul>Refer to our detailed setup guides <a href='https://openobserve.ai/blog/tag/aws' target='_blank'>here</a>"
@@ -332,9 +334,11 @@
       },
       {
         "__component": "sections.faq",
-        "title": "GCP Monitoring FAQs",
+        "heading":{
+          "title": "GCP Monitoring FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect GCP data?",
             "answer": "OpenObserve offers two primary collection methods:<br/><ol><li>Cloud Logging export to Pub/Sub: Collect logs from GCP services by creating a sink in Cloud Logging that exports to a Pub/Sub topic. This method supports all standard GCP log types, including audit logs, VPC flow logs, and application logs.</li><li>OpenTelemetry collector: Deploy the collector via Terraform to gather metrics and traces. The collector can be configured to collect both platform metrics and custom application metrics.</li></ol>"
@@ -533,8 +537,10 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Database Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Database Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "What is Database monitoring?",
             "answer": "Database monitoring tracks key performance metrics like cpu utilization, memory utilization , free disk , no. of active connections, etc to ensure optimal database performance, availability, and security. It helps identify and resolve issues quickly, reducing downtime and improving overall efficiency."
@@ -724,8 +730,10 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Azure Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Azure Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "How does OpenObserve collect Azure logs and metrics?",
             "answer": "OpenObserve offers multiple ingestion methods:<br/><ol><li>Azure Event Hub for log delivery from various Azure services</li><li>Azure Monitor Diagnostic Settings for metrics and logs</li><li>Azure Functions logs and metrics through Diagnostic Settings</li><li>Custom metrics via API endpoints</li></ol>"
@@ -923,8 +931,10 @@
       },
       {
         "__component": "sections.faq",
-        "title": "Kubernetes Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Kubernetes Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "What is Kubernetes monitoring?",
             "answer": "Kubernetes monitoring refers to the process of tracking and analyzing the performance, health, and security of Kubernetes clusters, nodes, pods, and containers. It involves collecting and analyzing metrics, logs, events and traces to identify issues, optimize resource utilization, and ensure the reliability and scalability of Kubernetes environments."
@@ -1114,8 +1124,10 @@
       },
       {
         "__component": "sections.faq",
-        "title": "OpenTelemetry FAQs",
-        "items": [
+        "heading":{
+          "title": "OpenTelemetry FAQs"
+        },
+        "faqs": [
           {
             "question": "What is the OpenObserve Collector?",
             "answer": "A pre-configured OpenTelemetry collector distribution with optimized defaults, built-in best practices, and ready-to-use exporters for most common use cases."
