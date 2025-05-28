@@ -14,7 +14,7 @@
             <span>{{ tab.title }}</span>
           </button>
         </div>
-
+          
         <div class="mt-8">
           <div v-for="tab in tabs" :key="'content-' + tab.value" v-show="activeTab === tab.value">
             <div
@@ -52,70 +52,27 @@
 
               <div class="w-full lg:w-1/2">
                 <div
-                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.card.image)">
                   <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
                     style="image-rendering: auto;" />
                 </div>
               </div>
 
             </div>
-            <!-- <div class="grid md:grid-cols-2 gap-6 items-center">
-                  <div>
-                    <p class="mb-4">{{ tab.card.content }}</p>
-                    <ul class="space-y-2 mb-6">
-                      <li
-                        v-for="(feature, index) in tab.card.features"
-                        :key="index"
-                        class="flex items-start"
-                      >
-                        <span
-                          class="bg-primary-purple text-white rounded-full p-1 mr-2 mt-0.5"
-                        >
-                          <svg
-                            class="h-3 w-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M5 13l4 4L19 7"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span>{{ feature }}</span>
-                      </li>
-                    </ul>
-                    <button
-                      class="bg-primary-purple hover:bg-dark-purple text-white py-2 px-4 rounded transition-colors cursor-pointer"
-                    >
-                      {{ tab.card.buttonText }}
-                    </button>
-                  </div>
-                  <div
-                    class="relative h-[300px] w-full rounded-lg overflow-hidden"
-                  >
-                    <img
-                      :src="tab.card.image"
-                      :alt="tab.card.title"
-                      class="object-cover w-full h-full"
-                    />
-                  </div>
-                </div> -->
           </div>
         </div>
       </div>
     </CustomSection>
   </div>
+   <ImagePopup :src="popupImageSrc" :visible="showPopup" @close="showPopup = false" />
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
+import ImagePopup from '@/components/core/ImagePopup.vue' 
+
 const props = defineProps({
   title: String,
   description: String,
@@ -131,6 +88,13 @@ const props = defineProps({
 const activeTab = ref(props.tabs[0]?.value || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
+const showPopup = ref(false)
+const popupImageSrc = ref("")
+
+function openPopup(src) {
+  popupImageSrc.value = src
+  showPopup.value = true
+}
 let interval = null;
 
 // Function to move to the next tab
