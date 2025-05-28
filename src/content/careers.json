@@ -247,9 +247,11 @@
       {
         "__component": "section-features.cta",
         "id": 4,
-        "title": "Ready to Join Us?",
-        "description": "We're looking for passionate individuals to help us build the future of observability. Check out our open positions and apply today.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to Join Us?",
+          "description": "We're looking for passionate individuals to help us build the future of observability. Check out our open positions and apply today."
+        },
+        "primaryButton": {
           "text": "View Open Positions",
           "link": "https://openobserve.zohorecruit.com/jobs/Careers",
           "target": "_blank",
