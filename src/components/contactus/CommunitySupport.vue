@@ -1,7 +1,7 @@
 <template>
   <CustomSection sectionClass="!pb-4">
     <!-- Heading Section -->
-    <HeadingSection :title="title" :description="description" align="LEFT" class="!mb-8" />
+    <HeadingSection :title="heading?.title" :description="heading?.description" align="LEFT" class="!mb-8" />
 
     <!-- Cards Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full pt-10">
@@ -17,8 +17,10 @@ import SupportCard from "@/components/contactus/SupportCard.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import HeadingSection from "@/components/core/HeadingSection.vue";
 const props = defineProps<{
-  title: string;
-  description: string;
+  heading: {
+    title?: string;
+    description?: string;
+  };
   items: Array<any>;
 }>();
 </script>
