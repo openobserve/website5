@@ -45,12 +45,12 @@
         ]
       },
       {
-        "__component": "section-cards.homepage-features",
+        "__component": "section-features.benefits",
         "id": 3,
         "title": "Documentation",
         "headingLevel": 2,
         "description": "",
-        "items": [
+        "data": [
           {
             "title": "User Guide",
             "description": "Step-by-step instructions for setting up and managing OpenObserve.",
