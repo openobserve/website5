@@ -12,8 +12,8 @@
       <h3 class="text-lg font-semibold flex-grow mb-2">
         {{ item?.title }}
       </h3>
-      <p class="text-primary-gray mb-3 text-base line-clamp-3">
-        {{ item?.description }}
+      <p class="text-primary-gray mb-3 text-base">
+        {{ item?.description?.slice(0, 200) }}<span v-if="item?.description?.length > 200">...</span>
       </p>
 
       <!-- <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
