@@ -4,10 +4,6 @@ import CustomImage from "../core/CustomImage.vue";
 import CustomSection from "../core/CustomSection.vue";
 
 const props = defineProps({
-  pageTag: {
-    type: String,
-    required: false,
-  },
   title: {
     type: String,
     required: true,
@@ -17,21 +13,13 @@ const props = defineProps({
     required: true,
   },
   image: {
-    type: String,
+    type: Object,
     required: true,
-  },
-  altText: {
-    type: String,
-    required: false,
   },
   primaryButton: {
     type: Object,
     required: true,
-  },
-  secondaryButton: {
-    type: Object,
-    required: false,
-  },
+  }
 });
 </script>
 
@@ -51,12 +39,10 @@ const props = defineProps({
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
               :buttonLink="primaryButton.link" />
-            <CustomButton v-if="secondaryButton" :variant="secondaryButton.variant" size="medium"
-              :buttonText="secondaryButton.text" :buttonLink="secondaryButton.link" />
           </div>
         </div>
         <div class="w-full lg:w-1/2 h-full">
-          <CustomImage :image="image" :altText="altText" cssClass="rounded-lg" />
+          <CustomImage :image="image?.url" :altText="image?.altText" cssClass="rounded-lg" />
         </div>
       </div>
     </CustomSection>

@@ -10,7 +10,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Logs",
         "title": "Log Management and Analytics",
         "description": "Transform your log data into actionable insights with real-time analysis and industry-leading storage efficiency.",
         "primaryButton": {
@@ -18,8 +17,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-logs/logs-hero.png",
-        "altText": "OpenObserve Logs Dashboard"
+        "image": {
+          "url":"/img/platform-logs/logs-hero.png",
+          "altText": "OpenObserve Logs Dashboard"       
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -220,7 +221,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Metrics",
         "title": "Metrics",
         "description": "Monitor your infrastructure and applications with Prometheus-native metrics and efficient time-series storage.",
         "primaryButton": {
@@ -228,8 +228,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-metrics/metrics-hero.png",
-        "altText": "OpenObserve Metrics Dashboard"
+        "image": {
+          "url":"/img/platform-metrics/metrics-hero.png",
+          "altText": "OpenObserve Metrics Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -430,7 +432,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Traces",
         "title": "Traces",
         "description": "Gain end-to-end visibility into your distributed systems, powered by OpenTelemetry.",
         "primaryButton": {
@@ -438,8 +439,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-traces/traces-hero.png",
+        "image":{
+        "url":"/img/platform-traces/traces-hero.png",
         "altText": "OpenObserve Traces Dashboard"
+        } 
       },
       {
         "__component": "section-features.benefits",
@@ -640,7 +643,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Frontend Monitoring",
         "title": "Frontend Monitoring",
         "description": "Gain insights into application performance, user interactions, and frontend errors.",
         "primaryButton": {
@@ -648,8 +650,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-frontend-monitoring/frontend-webvitals.png",
+        "image":{ 
+        "url": "/img/platform-frontend-monitoring/frontend-webvitals.png",
         "altText": "OpenObserve Frontend Monitoring Dashboard"
+      }
       },
       {
         "__component": "section-features.benefits",
@@ -852,7 +856,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "pipelines",
         "title": "Observability Pipelines",
         "description": "Transform, enrich, redact, reduce, and parse your observability data with real-time and scheduled pipelines.",
         "primaryButton": {
@@ -860,8 +863,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-pipelines/pipelines-hero.png",
+        "image": {
+        "url": "/img/platform-pipelines/pipelines-hero.png",
         "altText": "OpenObserve Pipelines Dashboard"
+       }
       },
       {
         "__component": "section-features.benefits",
@@ -1069,8 +1074,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-alerts/alert-configure.png",
+        "image":{
+         "url": "/img/platform-alerts/alert-configure.png",
         "altText": " OpenObserve Alert Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -1266,7 +1273,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Dashboards and Visualizations",
         "title": "Dashboards and Visualizations",
         "description": "Gain valuable insights and identify patterns from your observability data with real-time, customizable dashboards.",
         "primaryButton": {
@@ -1274,8 +1280,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-visualization/dashboard-kubernetes.png",
+        "image":{
+         "url": "/img/platform-visualization/dashboard-kubernetes.png",
         "altText": "OpenObserve Dashboards & Visualizations"
+        }
       },
       {
         "__component": "section-features.benefits",
