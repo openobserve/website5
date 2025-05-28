@@ -15,8 +15,10 @@
       {
         "__component": "section-features.resources-feature-details",
         "id": 3,
-        "title": "Quick Start",
-        "description": "",
+        "heading":{
+          "title": "Quick Start",
+          "description": ""
+        },
         "data": [
           {
             "title": "Documentation",
