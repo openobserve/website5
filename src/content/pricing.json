@@ -185,14 +185,16 @@
       {
         "__component": "section-cta.homepage-cta",
         "id": 5,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+         "heading": {
+           "title": "Ready to get started?",
+           "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "text": "Schedule Demo",
           "link": "/demo",
           "variant": "tertiary"
