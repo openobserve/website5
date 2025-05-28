@@ -9,14 +9,14 @@ interface Video {
 interface HeroData {
   badge: string;
   title: string;
-  subtitle: string;
+  // subtitle: string;
   description: string;
   primaryButton: {
     text: string;
     link: string;
   };
   trustedText: string;
-  logos: {
+  trustedCompanies: {
     url: string;
     alt: string;
   }[];
@@ -44,11 +44,11 @@ defineProps<{ data: HeroData }>();
               {{ data.title }}
             </h1>
             <h2 class="text-2xl font-medium text-gray-300 -mt-2">
-              {{ data.subtitle }}
-            </h2>
-            <p class="text-xl text-gray-400">
               {{ data.description }}
-            </p>
+            </h2>
+            <!-- <p class="text-xl text-gray-400">
+              {{ data.description }}
+            </p> -->
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 mb-4">
@@ -113,7 +113,7 @@ defineProps<{ data: HeroData }>();
         <div class="w-full overflow-hidden">
           <div class="flex gap-4 lg:gap-6 items-center animate-scroll">
             <div
-              v-for="(logo, index) in data.logos"
+              v-for="(logo, index) in data.trustedCompanies"
               :key="index"
               class="flex-shrink-0 bg-gray-800 rounded-lg p-6 flex items-center justify-center h-12 md:h-16 w-auto"
             >

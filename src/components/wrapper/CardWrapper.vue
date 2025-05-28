@@ -6,12 +6,8 @@ import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import { ArrowRight } from "lucide-vue-next";
 import FeatureTitle from "../core/FeatureTitle.vue";
 const props = defineProps({
-  title: {
-    type: String,
-    required: false,
-  },
-  description: {
-    type: String,
+  heading: {
+    type: Object,
     required: false,
   },
   items: {
@@ -44,9 +40,9 @@ const props = defineProps({
       <div>
         <!-- Heading Section -->
         <FeatureTitle
-          v-if="title || description"
-          :title="title"
-          :description="description"
+          v-if="heading?.title || heading?.description"
+          :title="heading?.title"
+          :description="heading?.description"
           align="center"
           :heading-level="headingLevel"
           :items="titleItems"

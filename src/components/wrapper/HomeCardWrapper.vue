@@ -5,31 +5,36 @@ import HeadingSection from "../core/HeadingSection.vue";
 
 const props = defineProps<{
   align: string; // Changed from strict union type to string
-  title?: string;
-  description?: string;
+  heading?: {
+    title?: string;
+    description?: string;
+  };
   background?: boolean;
-  data: Array<{
+  items: Array<{
     title: string;
     description: string;
-    icon: string;
-    buttonText?: string;
-    buttonLink?: string;
+    image: string;
+    button?: {
+      text?: string;
+      link?: string;
+      target?: string;
+    };
     theme?: string;
     items?: string[];
   }>;
-   headingLevel?: number;
+  headingLevel?: number;
 }>();
 </script>
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection sectionClass="!py-10 lg:!py-12">
-      <div class="" v-if="props.title || props.description">
-        <HeadingSection :title="props.title" :description="props.description" align="center" />
+      <div class="" v-if="props?.heading?.title || props?.heading?.description">
+        <HeadingSection :title="props?.heading?.title" :description="props?.heading?.description" align="center" />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CardWithShadowBorder v-for="(card, index) in props.data" :key="index" :card="{ ...card, align }" :headingLevel="headingLevel" />
-
+        <CardWithShadowBorder v-for="(card, index) in props.items" :key="index" :card="{ ...card, align }"
+          :headingLevel="headingLevel" />
       </div>
     </CustomSection>
   </div>

@@ -28,25 +28,27 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why OpenObserve for AWS Monitoring?",
-        "data": [
+        "heading":{
+            "title": "Why OpenObserve for AWS Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep AWS Observability",
             "description": "Gain deep visibility into the many layers of your AWS environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Reduce monitoring costs significantly with efficient data ingestion and storage while maintaining comprehensive AWS observability.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with AWS services using Kinesis Data Firehose and CloudWatch for efficient log and metric collection.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -163,14 +165,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -222,25 +226,28 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why Use OpenObserve for GCP Monitoring?",
-        "data": [
+        "heading":{
+
+          "title": "Why Use OpenObserve for GCP Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep GCP Observability",
             "description": "Gain deep visibility into the many layers of your GCP environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash GCP telemetry storage costs with OpenObserve’s efficient compression and retention.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with the Cloud Logging export to Pub/Sub or OpenTelemetry collector with Terraform support for efficient telemetry collection.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -358,14 +365,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -417,25 +426,28 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for Database Monitoring?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for Database Monitoring?"
+        },
+        "items": [
           {
             "title": "Unified Insights",
             "description": "See all your databases in a single pane of glass. Track performance, health metrics, and capacity.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Key Metrics Collection",
             "description": "Capture critical database metrics, from query response times to resource utilization patterns, with minimal overhead.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Proactive Performance Visibility",
             "description": "Spot issues before they impact users with dynamic dashboards and instant alerts that keep your databases performing at their peak.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -545,14 +557,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -604,25 +618,28 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why Use OpenObserve for Azure Monitoring?",
-        "data": [
+        "heading":{
+
+          "title": "Why Use OpenObserve for Azure Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep Azure Observability",
             "description": "Gain deep visibility into the many layers of your Azure environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash Azure telemetry storage costs with OpenObserve’s efficient compression and retention.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": " Almost Too-easy Integration",
             "description": "Effortlessly monitor your Azure services with Azure Monitor Diagnostic Settings and Event Hubs exports.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -739,14 +756,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -798,25 +817,28 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for Kubernetes?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for Kubernetes?"
+        },
+        "items": [
           {
             "title": "Complete Kubernetes Observability",
             "description": "Full visibility into containers, workloads, and infrastructure performance across clusters.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Stand Up In Minutes",
             "description": "Monitor your Kubernetes environment instantly with the OpenObserve Collector. Automatically capture metrics, logs, and traces.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Reduce Kubernetes Costs",
             "description": "Identify Kubernetes inefficiencies and optimize resources for immediate cost savings.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -925,14 +947,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -984,25 +1008,28 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for OpenTelemetry?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for OpenTelemetry?"
+        },
+        "items": [
           {
             "title": "Instant Instrumentation",
             "description": "Deploy production-ready observability in minutes with zero-config scripts that automatically collect your telemetry data.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Intelligent Data Streaming",
             "description": "Automatically route and transform all telemetry data through a unified OpenTelemetry collector with minimal configuration.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Complete Observability",
             "description": "Get full-stack observability across your entire infrastructure with minimal configuration or maintenance overhead.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -1123,14 +1150,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"

@@ -26,24 +26,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Significantly Efficient",
             "description": "140x lower storage costs compared to Elasticsearch",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Highly Performant",
             "description": "Run lightning-fast queries across terabytes of data.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "OTel-Native Logs",
             "description": "Standardized collection with zero vendor lock-in.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -177,14 +177,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+         "heading": {
+          "title": "Ready to get started?",
+        "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -234,24 +236,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "OTel-native Metrics",
             "description": "Standardized collection with zero vendor lock-in",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -385,14 +387,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -442,24 +446,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Significantly Efficient",
             "description": "70% lower storage requirements for traces compared to Elasticsearch",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "OTel-Native Traces",
             "description": "Standardized collection with zero vendor lock-in",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -593,14 +597,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -650,24 +656,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Unified Observability",
             "description": "Consolidate your frontend observability alongside your application performance and infrastructure health",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Clear User Insights",
             "description": "See exactly how users experience your site— click-by-click",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Simple Implementation",
             "description": "Add one JavaScript snippet to your HTML and start collecting real user experience data immediately",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -800,14 +806,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -857,24 +865,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Protect Sensitive Data",
             "description": "Strengthen your security posture by automatically redacting and transforming sensitive data",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Reduce Costs",
             "description": "Slash storage expenses by routing data to optimal storage tiers",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": " Improve Data Quality",
             "description": "Make data more valuable and actionable by pre-processing and enriching data",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -1007,14 +1015,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -1064,24 +1074,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Personalize Notifications",
             "description": "Send notifications to email, Slack, or webhook endpoints for immediate action",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Stay on top of Issues",
             "description": "Identify and fix problems before customers notice",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -1210,14 +1220,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -1267,24 +1279,24 @@
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Spot Issues Before Users Do",
             "description": "Identify potential problems before they impact your users.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Resolve Issues Faster",
             "description": "Pinpoint exact issue sources for quicker, more accurate fixes.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "Collaborate Effectively",
             "description": "Monitor systems from a single source of truth for complete visibility.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
@@ -1417,14 +1429,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"

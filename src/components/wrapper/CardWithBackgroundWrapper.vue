@@ -4,12 +4,8 @@ import HeadingSection from "../core/HeadingSection.vue";
 import CardWithBackground from "../core/CardWithBackground.vue";
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
+  heading: {
+    type: Object,
     required: false,
   },
   align: {
@@ -30,8 +26,8 @@ const props = defineProps({
 <template>
    <div :class="background ? 'bg-gray-50' : ''">
   <CustomSection sectionClass="">
-    <div class="" v-if="title || description">
-      <HeadingSection :title="title" :description="description" align="center" />
+    <div class="" v-if="heading?.title || heading?.description">
+      <HeadingSection :title="heading?.title" :description="heading?.description" align="center" />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <CardWithBackground v-for="(card, index) in data" :key="index" :title="card.title" :description="card.description"
