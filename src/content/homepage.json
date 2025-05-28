@@ -132,9 +132,11 @@
       {
         "__component": "section-features.homepage-architecture",
         "id": 3,
-        "title": "Explore the OpenObserve Platform",
+        "heading":{
+          "title": "Explore the OpenObserve Platform",
+          "description": "A modern, scalable architecture designed for high performance and low cost"
+        },
         "background": true,
-        "description": "A modern, scalable architecture designed for high performance and low cost",
         "image": {
           "url": "/img/marketecture-diagram-laptop.svg",
           "alt": "OpenObserve Architecture Diagram"
