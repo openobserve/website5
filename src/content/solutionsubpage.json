@@ -10,18 +10,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "AWS Monitoring",
         "title": "AWS Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-aws/full-bg.svg",
-        "mobileBgImage": "/img/solution-aws/mobile-view.svg",
-        "mobileRightImage": "/img/solution-aws/Group 9269.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-aws/full-bg.svg",
+        "bgImageforMobile": "/img/solution-aws/mobile-view.svg",
+        "Image": "/img/solution-aws/Group 9269.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -210,18 +207,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "GCP Monitoring",
         "title": "GCP Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-gcp-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-gcp-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-gcp-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-gcp-monitoring/mobile-view.svg",
+        "Image": "/img/solution-gcp-monitoring/Group 9270.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -412,18 +406,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Database Monitoring",
         "title": "Database Monitoring",
         "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-database-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-database-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-database-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-database-monitoring/mobile-view.svg",
+        "Image": "/img/solution-database-monitoring/database-1.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -606,18 +597,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Azure Monitoring",
         "title": "Azure Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-azure/full-img.svg",
-        "mobileBgImage": "/img/solution-azure/mobile-view.svg",
-        "mobileRightImage": "/img/solution-azure/Group 9277.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-azure/full-img.svg",
+        "bgImageforMobile": "/img/solution-azure/mobile-view.svg",
+        "Image": "/img/solution-azure/Group 9277.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -807,18 +795,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Kubernetes Monitoring",
         "title": "Kubernetes Monitoring",
         "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-kubernates/full-img.svg",
-        "mobileBgImage": "/img/solution-kubernates/mobile-view.svg",
-        "mobileRightImage": "/img/solution-kubernates/Group 9285.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-kubernates/full-img.svg",
+        "bgImageforMobile": "/img/solution-kubernates/mobile-view.svg",
+        "Image": "/img/solution-kubernates/Group 9285.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -1005,13 +990,11 @@
         "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-openTL/full-img.svg",
-        "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
-        "mobileRightImage": "/img/solution-openTL/Group 9283.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-openTL/full-img.svg",
+        "bgImageforMobile": "/img/solution-openTL/mobile-view.svg",
+        "Image": "/img/solution-openTL/Group 9283.svg"
       },
       {
         "__component": "section-features.benefits",
