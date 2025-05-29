@@ -57,9 +57,12 @@
           </button>
         </div>
       </div>
-      <div v-if="isMenuOpen" class="w-full h-screen bg-white">
+      <div
+        v-if="isMenuOpen"
+        class="w-fullfixed inset-0 z-50 w-full h-screen overflow-y-auto bg-white"
+      >
         <div
-          class="w-full h-full flex flex-col items-center space-y-4 bg-white overflow-y-auto"
+          class="w-full flex flex-col items-center space-y-4 bg-white h-[calc(100vh-86px)] overflow-y-auto"
         >
           <ul class="w-full flex flex-col space-y-4 p-4">
             <li
@@ -77,10 +80,9 @@
                 <img
                   src="/img/icon/submenu-icon.svg"
                   alt="Arrow Icon"
-                  :class="[activeSubMenu === item.title ? 'rotate-90' : '']" 
+                  :class="[activeSubMenu === item.title ? 'rotate-90' : '']"
                   class="w-4 h-4 transform transition-transform duration-300"
                 />
-
               </div>
               <SubMenu
                 v-if="activeSubMenu === item.title"
@@ -126,7 +128,7 @@
   </header>
 </template>
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
 import SubMenu from "../header/SubMenu.vue";
@@ -184,6 +186,7 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
+
 </script>
 <style scoped>
 .card-border {

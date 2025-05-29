@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isVisible" class="flex flex-col space-y-8 text-black mt-4">
+  <div v-show="isVisible" class="flex flex-col space-y-8 text-black mt-4 font-medium">
     <CustomHeaderButton :title="title" :linkTitle="linkTitle" :link="link" />
     <div>
       <ul class="grid grid-cols-1 gap-2 font-semibold text-gray-600 text-base">
