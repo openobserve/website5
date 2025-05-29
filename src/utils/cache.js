@@ -15,8 +15,12 @@ let cache = {
     resourceBlogsCount: 0,
     resourceCategoriesCount: 0,
     resourceAuthorsCount: 0,
-    caseStudiesCount:0
+    caseStudiesCount:0,
+    superiorCategoriesCount: 0,
+    subTagsForSuperiorCategoriesCount: 0,
   },
+  superiorCategories: null,
+  subTagsForSuperiorCategories: null,
 };
 
 export function getCachedData() {
@@ -145,6 +149,34 @@ export async function fetchResourceAuthors() {
 
   cache.resourceAuthors = data;
   cache.len.resourceAuthorsCount = data.length;
+
+  return data;
+}
+
+
+export async function fetchSuperiorCategories() {
+  if (cache.superiorCategories) {
+    return cache.superiorCategories;
+  }
+  const data = await fetchAllPages({ endpoint: "api/categories", query: { "pLevel": 4, populate: "*" , status: "draft"} });
+
+  cache.superiorCategories = data;
+  cache.len.superiorCategoriesCount = data.length;
+
+  return data;
+}
+
+export async function fetchSubTagsForSuperiorCategories() {
+  if (cache.subTagsForSuperiorCategories) {
+    return cache.subTagsForSuperiorCategories;
+  }
+  const data = await fetchAllPages({
+    endpoint: "api/tags",
+    query: { pLevel: 4, populate: "*", status: "draft" },
+  });
+
+  cache.subTagsForSuperiorCategories = data;
+  cache.len.subTagsForSuperiorCategoriesCount = data.length;
 
   return data;
 }

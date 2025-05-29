@@ -1,4 +1,4 @@
-import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
+import { fetchAuthors, fetchCategories, fetchBlogs, fetchSuperiorCategories, fetchSubTagsForSuperiorCategories } from "../cache";
 import { ITEMS_PER_PAGE } from "./constant";
 
 export async function getAuthorDetails(author) {
@@ -245,3 +245,21 @@ export async function getCaseStudiesByPagination(page, pageSize) {
     slug: blog.slug,
   }));
 }
+
+
+export const getAllSuperiorCategories = async () => {
+  const categories = await fetchSuperiorCategories();
+  return categories?.map((cat) => ({
+    name: cat.name,
+  }))
+};
+
+
+export const getAllsubTagsBasedOnSuperiorTag = async (superiorTag) => {
+  const tags = await fetchSubTagsForSuperiorCategories();
+  const subTags = tags?.categories?.filter((tag) => tag.name === superiorTag);
+  return subTags?.map((tag) => ({
+    name: tag.name,
+    slug:tag.slug
+  }))
+};

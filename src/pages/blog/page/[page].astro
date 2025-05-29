@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import { getTotalCounts } from "@/utils/cache";
 import {
   getAllCategories,
+  getAllSuperiorCategories,
+  getAllsubTagsBasedOnSuperiorTag,
   getBlogsByPagination,
   getallBlogsWithoutCaseStudies,
 } from "@/utils/api/blog";
@@ -38,8 +40,10 @@ const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 let suggestionData = await getAllCategories();
 const allBlogsData = await getallBlogsWithoutCaseStudies();
 const count = await getTotalCounts();
+const allSuperiorCategories = await getAllSuperiorCategories();
+const allsubTagsBasedonSuperiorTags = await getAllsubTagsBasedOnSuperiorTag();
 
-const metaObj = { 
+const metaObj = {
   title:
     "Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
   description: "Blog Posts",
@@ -54,10 +58,10 @@ const metaObj = {
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
-      client:only = "vue"
+      client:only="vue"
     />
     <BlogsListingWrapper
       searchBar
@@ -66,7 +70,7 @@ const metaObj = {
       totalItems={count.blogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
-      client:only = "vue"
+      client:only="vue"
     />
   </CustomSection>
 </Layout>

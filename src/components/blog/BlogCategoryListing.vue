@@ -26,13 +26,14 @@
         <span class="text-sm text-primary-gray">Filter by:</span>
       </div>
       <div class="flex flex-wrap gap-2">
-        <span
+        <a
           v-for="tag in allTags"
           :key="tag.name"
+          :href="`/blog/tag/${tag.slug}`"
           class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
         >
           {{ tag.name }}
-        </span>
+      </a>
       </div>
     </div>
   </div>
@@ -45,7 +46,6 @@ import { ref, computed } from "vue";
 const props = defineProps<{
   categories: {
     name: string;
-    slug: string;
   }[];
   allTags: {
     name: string;
