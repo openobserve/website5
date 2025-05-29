@@ -6,15 +6,15 @@
       >
         <Logo />
         <div class="flex items-center justify-center space-x-3">
-         <CustomButton
-          variant="secondary"
-          size="small"
-          buttonLink="https://cloud.openobserve.ai"
-          target="_blank"
-          class="border !border-gray-200 !py-1"
-        >
-          Log In
-        </CustomButton>
+          <CustomButton
+            variant="secondary"
+            size="small"
+            buttonLink="https://cloud.openobserve.ai"
+            target="_blank"
+            class="border !border-gray-200 !py-1"
+          >
+            Log In
+          </CustomButton>
           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme="light"
@@ -59,7 +59,6 @@
       </div>
       <div v-if="isMenuOpen" class="w-full h-screen bg-white">
         <div
-          v-if="!activeSubMenu"
           class="w-full h-full flex flex-col items-center space-y-4 bg-white overflow-y-auto"
         >
           <ul class="w-full flex flex-col space-y-4 p-4">
@@ -70,17 +69,27 @@
             >
               <div
                 class="flex flex-row items-center justify-between w-full cursor-pointer"
-                @click="onSubMenuClick(item)"
+                @click="onSubMenuClick(item.title)"
               >
                 <h4 class="text-gray-500 text-lg md:text-xl font-semibold">
-                  {{ item }}
+                  {{ item.title }}
                 </h4>
                 <img
                   src="/img/icon/submenu-icon.svg"
                   alt="Arrow Icon"
-                  class="w-4 h-4"
+                  :class="[activeSubMenu === item.title ? 'rotate-90' : '']" 
+                  class="w-4 h-4 transform transition-transform duration-300"
                 />
+
               </div>
+              <SubMenu
+                v-if="activeSubMenu === item.title"
+                :isVisible="true"
+                :title="`Full Stack Observability ${item.title}`"
+                :linkTitle="`View ${item.title}`"
+                :link="item.link"
+                :items="item.menus"
+              />
               <div
                 class="w-full flex justify-center h-0.5"
                 style="
@@ -112,117 +121,6 @@
             >
           </div>
         </div>
-        <div
-          v-if="activeSubMenu"
-          style="
-            background-image: url('/img/bg/gradient-bg/mobilenavBg1.svg'),
-              url('/img/bg/gradient-bg/mobilenavBg2.svg.svg');
-            background-position: top, bottom;
-            background-repeat: no-repeat, no-repeat;
-            background-size: cover, cover;
-          "
-          class="h-[calc(100svh-60px)] w-full text-white overflow-y-auto"
-        >
-          <div class="flex items-center px-4 py-2">
-            <button class="text-gray-300 cursor-pointer" @click="closeSubMenu">
-              <img
-                src="/img/icon/navback.svg"
-                alt="Back Icon"
-                class="w-5 h-5"
-              />
-            </button>
-            <h4 class="text-black text-2xl font-semibold ml-2">
-              {{ activeSubMenu }}
-            </h4>
-          </div>
-          <div class="p-4 h-full">
-            <div
-              v-show="activeSubMenu === 'Platform'"
-              class="flex flex-col space-y-4"
-            >
-              <div
-                class="flex flex-col items-center justify-between space-y-4 w-full text-black"
-              >
-                <CustomHeaderButton
-                  title="Full Stack Observability Platform"
-                  linkTitle="View Platform"
-                  link="/platform"
-                />
-              </div>
-              <div class="flex justify-start">
-                <!-- <h3 class="text-lg font-bold text-black">
-                  {{ items.platform.title }}
-                </h3> -->
-              </div>
-              <ul class="grid grid-cols-1 gap-x-6 gap-y-2">
-                <li
-                  v-for="(item, index) in items.platform.items"
-                  :key="index"
-                  class="text-gray-600 text-base font-semibold"
-                >
-                  <a class="block hover:text-black" :href="`/${item.link}`">{{
-                    item.title
-                  }}</a>
-                </li>
-              </ul>
-            </div>
-            <div
-              v-show="activeSubMenu === 'Solutions'"
-              class="flex flex-col space-y-4 text-black"
-            >
-              <CustomHeaderButton
-                title="Full Stack Observability Solutions"
-                linkTitle="View Solutions"
-                link="/solutions"
-              />
-              <div class="flex flex-col space-y-3">
-                <!-- <h4 class="text-black text-lg font-bold">Use Case</h4> -->
-                <div class="">
-                  <ul class="grid grid-cols-1 gap-2">
-                    <li
-                      v-for="(item, index) in items.solutions.useCases"
-                      :key="index"
-                      class="text-gray-600 text-base font-semibold"
-                    >
-                      <a
-                        :href="`/${item.link}`"
-                        class="block hover:text-black"
-                        >{{ item.title }}</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              v-show="activeSubMenu === 'Resources'"
-              class="flex flex-col space-y-4 text-black"
-            >
-              <CustomHeaderButton
-                title="Full Stack Observability Resources"
-                linkTitle="View Resources"
-                link="/resources"
-              />
-              <div class="flex flex-col space-y-3">
-                <div>
-                  <ul class="flex flex-col space-y-2 font-semibold text-gray-600 text-base">
-                    <li
-                      v-for="(item, index) in items.resources.items"
-                      :key="index"
-                    >
-                      <a
-                        :href="item.link"
-                        class="block hover:text-black"
-                        :target="item.target"
-                        >{{ item.title }}</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </header>
@@ -231,13 +129,25 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import Logo from "../core/Logo.vue";
 import CustomButton from "../core/CustomButton.vue";
-import CustomHeaderButton from "./CustomHeaderButton.vue";
+import SubMenu from "../header/SubMenu.vue";
 import GithubButton from "vue-github-button";
-defineProps({
+const props = defineProps({
   items: Object,
   required: true,
 });
-const navHeading = ["Platform", "Solutions", "Resources"];
+const navHeading = [
+  { title: "Platform", menus: props.items.platform.items, link: "/platform" },
+  {
+    title: "Solutions",
+    menus: props.items.solutions.useCases,
+    link: "/solutions",
+  },
+  {
+    title: "Resources",
+    menus: props.items.resources.items,
+    link: "/resources",
+  },
+];
 // Reactive states
 const isMenuOpen = ref(false);
 const activeSubMenu = ref(null); // Tracks the currently active submenu
@@ -252,12 +162,12 @@ const onMenuClick = () => {
   }
 };
 
-const onSubMenuClick = (item) => {
-  activeSubMenu.value = item;
-};
-
-const closeSubMenu = () => {
-  activeSubMenu.value = null;
+/**
+ * Toggles the active submenu on click.
+ * @param {string} itemTitle - The title of the menu item.
+ */
+const onSubMenuClick = (itemTitle) => {
+  activeSubMenu.value = activeSubMenu.value === itemTitle ? null : itemTitle;
 };
 
 const handleClickOutside = (event) => {
