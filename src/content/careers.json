@@ -184,22 +184,19 @@
             "title": "Modern Stack",
             "description": "Our platform is built with Rust, Go, and TypeScript, leveraging the best tools for performance, reliability, and developer experience.",
             "image": "Code",
-            "iconColor": "text-purple-600",
-            "iconBgClass": "bg-purple-100"
+            "theme":"theme-purple"
           },
           {
             "title": "Cloud Native",
             "description": "We embrace Kubernetes, containerization, and cloud-native principles to build scalable, resilient systems.",
             "image": "Globe",
-            "iconColor": "text-blue-600",
-            "iconBgClass": "bg-blue-100"
+            "theme":"theme-blue"
           },
           {
             "title": "Open Source",
             "description": "We believe in the power of open source and contribute back to the community that supports us.",
             "image": "Rocket",
-            "iconColor": "text-green-600",
-            "iconBgClass": "bg-green-100"
+            "theme":"theme-green"
           }
         ],
         "techFeatures": {
