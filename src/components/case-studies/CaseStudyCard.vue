@@ -9,11 +9,15 @@
     <!-- Content section -->
 
     <div class="bg-white p-6 flex-1 flex flex-col">
-      <h3 class="text-lg font-semibold flex-grow mb-2">
+      <component
+        :is="`h${headingLevel}`"
+        class="text-lg font-semibold flex-grow mb-2"
+      >
         {{ item?.title }}
-      </h3>
+      </component>
       <p class="text-primary-gray mb-3 text-base">
-        {{ item?.description?.slice(0, 200) }}<span v-if="item?.description?.length > 200">...</span>
+        {{ item?.description?.slice(0, 200)
+        }}<span v-if="item?.description?.length > 200">...</span>
       </p>
 
       <!-- <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
@@ -44,13 +48,27 @@
 <script setup lang="ts">
 import type { CaseStudies } from "@/types/case-studies";
 import { getInitials } from "@/utils/getInitials";
+import { computed } from "vue";
 import CustomBlurImage from "../core/CustomBlurImage.vue";
 const props = defineProps({
   item: {
     type: Object as () => CaseStudies,
     required: true,
   },
+  headingLevel: {
+    type: Number,
+    required: false,
+  },
 });
+
+const headingLevel = computed(() => {
+  return props.headingLevel &&
+    props.headingLevel >= 1 &&
+    props.headingLevel <= 6
+    ? props.headingLevel
+    : 3;
+});
+
 const getImageUrl = ({ image }: CaseStudies) =>
   image?.formats?.medium?.url ??
   image?.formats?.large?.url ??
