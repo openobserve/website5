@@ -9,7 +9,7 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  tabs: {
+  items: {
     type: Array,
     required: true,
   },
@@ -18,7 +18,7 @@ const props = defineProps({
     required: false,
   },
 });
-const activeTab = ref(props.tabs[0]?.value || "");
+const activeTab = ref(props.items[0]?.title || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
 const showPopup = ref(false)
@@ -32,9 +32,9 @@ let interval = null;
 
 // Function to move to the next tab
 const rotateToNextTab = () => {
-  const currentIndex = tabs.findIndex((tab) => tab.value === activeTab.value);
-  const nextIndex = (currentIndex + 1) % tabs.length;
-  activeTab.value = tabs[nextIndex].value;
+  const currentIndex = items.findIndex((tab) => tab.title === activeTab.title);
+  const nextIndex = (currentIndex + 1) % items.length;
+  activeTab.title = items[nextIndex].title;
 };
 
 const setActiveTab = (tabValue) => {
@@ -89,29 +89,29 @@ onBeforeUnmount(() => {
       <HeadingSection :title="heading?.title" :description="heading?.description" align="CENTER" />
       <div class="w-full">
         <div class="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-0 bg-transparent gap-2">
-          <button v-for="tab in tabs" :key="tab.value" @click="setActiveTab(tab.value)" :class="[
+          <button v-for="tab in items" :key="tab.title" @click="setActiveTab(tab.title)" :class="[
             'py-3 flex flex-col items-center gap-2 font-semibold transition-colors rounded-lg cursor-pointer',
-            activeTab === tab.value
+            activeTab === tab.title
               ? 'bg-primary-purple text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
           ]">
-            <img :src="tab.icon" :alt="tab.title" class="h-5 w-5" />
+            <img :src="tab.tabImage" :alt="tab.title" class="h-5 w-5" />
             <span>{{ tab.title }}</span>
           </button>
         </div>
           
         <div class="mt-8">
-          <div v-for="tab in tabs" :key="'content-' + tab.value" v-show="activeTab === tab.value">
+          <div v-for="tab in items" :key="'content-' + tab.title" v-show="activeTab === tab.title">
             <div
               class="bg-white rounded-lg shadow px-8 py-16 flex flex-col lg:flex-row items-center justify-between w-full gap-4">
               <div class="w-full lg:w-1/2">
-                <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
-                <p class="text-gray-600 mb-6" v-if="tab.card.description">
-                  {{ tab.card.description }}
+                <h2 class="text-2xl font-bold mb-2">{{ tab.title }}</h2>
+                <p class="text-gray-600 mb-6" v-if="tab.description">
+                  {{ tab.description }}
                 </p>
                 <div class="">
                   <ul class="space-y-2 mb-6">
-                    <li v-for="(feature, index) in tab.card.features" :key="index"
+                    <li v-for="(feature, index) in tab.items" :key="index"
                       class="flex flex-col justify-start space-y-2 items-start">
                       <h3 class="text-lg font-semibold text-gray-800 mb-2" v-if="feature.title">
                         {{ feature.title }}
@@ -137,8 +137,8 @@ onBeforeUnmount(() => {
 
               <div class="w-full lg:w-1/2">
                 <div
-                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.card.image)">
-                  <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
+                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.featureImage)">
+                  <img :src="tab.featureImage" :alt="tab.title" class="w-full h-auto object-cover rounded-lg"
                     style="image-rendering: auto;" />
                 </div>
               </div>
