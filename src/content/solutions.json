@@ -10,9 +10,9 @@
       {
         "__component": "section-features.benefits",
         "id": 2,
-        "heading":{
-           "title": ""
-         },
+        "heading": {
+          "title": ""
+        },
         "align": "center",
         "headingLevel": 2,
         "items": [
@@ -38,19 +38,30 @@
       },
       {
         "__component": "section-solutions.solutions",
-        "title": "Explore Our Solutions",
-        "description": "Discover how OpenObserve can address your specific observability needs with our tailored solutions",
+        "heading":{
+          "title": "Explore Our Solutions",
+          "description": "Discover how OpenObserve can address your specific observability needs with our tailored solutions"
+        },
         "items": [
           {
-            "id": 1,
             "title": "AWS Monitoring",
             "description": "Comprehensive visibility into your AWS infrastructure performance, health, and resource utilization.",
-            "link": "/aws-monitoring",
-            "features": [
-              "Real-Time Visibility & Insights",
-              "Efficient Data Processing",
-              "Service Coverage & Integration",
-              "Cost-Effective Monitoring"
+            "primaryButton": {
+              "link": "/aws-monitoring"
+            },
+            "items": [
+              {
+                "title": "Real-Time Visibility & Insights"
+              },
+              {
+                "title": "Efficient Data Processing"
+              },
+              {
+                "title": "Service Coverage & Integration"
+              },
+              {
+                "title": "Cost-Effective Monitoring"
+              }
             ],
             "image": {
               "url": "/img/solution-aws/overview.svg"
@@ -58,15 +69,24 @@
             "theme": "theme-purple"
           },
           {
-            "id": 2,
             "title": "Azure Monitoring",
             "description": "Comprehensive visibility into your Azure infrastructure performance, health, and resource utilization.",
-            "link": "/azure-monitoring",
-            "features": [
-              "Real-Time Visibility & Insights",
-              "Efficient Data Processing",
-              "Service Coverage & Integration",
-              "Cost-Effective Monitoring"
+            "primaryButton":{
+              "link": "/azure-monitoring"
+            },
+            "items": [
+              {
+                "title": "Real-Time Visibility & Insights"
+              },
+              {
+                "title": "Efficient Data Processing"
+              },
+              {
+                "title":  "Service Coverage & Integration"
+              },
+              {
+                "title":"Cost-Effective Monitoring"
+              }  
             ],
             "image": {
               "url": "/img/solution-azure/overview.svg"
@@ -74,15 +94,25 @@
             "theme": "theme-blue"
           },
           {
-            "id": 3,
             "title": "GCP Monitoring",
             "description": "Comprehensive visibility into your GCP infrastructure performance, health, and resource utilization.",
-            "link": "/gcp-monitoring",
-            "features": [
-              "Data Collection and Analysis",
-              "Service Monitoring",
-              "Log Processing",
-              "Resource Management"
+            "primaryButton": {
+              
+              "link": "/gcp-monitoring"
+            },
+            "items": [
+              {
+                "title": "Data Collection and Analysis"
+              },
+              {
+                "title": "Service Monitoring"
+              },
+              {
+                "title":   "Log Processing"
+              },
+              {
+                "title":"Resource Management"
+              }
             ],
             "image": {
               "url": "/img/solution-gcp-monitoring/overview.svg"
@@ -90,15 +120,25 @@
             "theme": "theme-green"
           },
           {
-            "id": 4,
+            
             "title": "Kubernetes Monitoring",
             "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
-            "link": "/kubernetes-observability",
-            "features": [
-              "Unified Kubernetes Monitoring",
-              "Multi-cluster Visibility",
-              "Resource Optimization",
-              "Uptime & Incident Management"
+            "primaryButton": {
+               "link": "/kubernetes-observability"
+            },
+            "items": [
+              {
+                "title": "Unified Kubernetes Monitoring"
+              },
+              {
+                "title":"Multi-cluster Visibility"
+              },
+              {
+                "title":"Resource Optimization"
+              },
+              {
+                "title": "Uptime & Incident Management"
+              }
             ],
             "image": {
               "url": "/img/solution-kubernates/overview.svg"
@@ -106,15 +146,25 @@
             "theme": "theme-red"
           },
           {
-            "id": 5,
+            
             "title": "Database Monitoring",
             "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
-            "link": "/database-monitoring",
-            "features": [
-              "Performance Monitoring",
-              "Proactive Error Detection & Resolution",
-              "Data-Driven Decisions",
-              "Holistic Monitoring & Alerts"
+            "primaryButton":{
+            "link": "/database-monitoring"
+          },
+            "items": [
+              {
+                "title":"Performance Monitoring"
+              },
+              {
+                "title": "Proactive Error Detection & Resolution"
+              },
+              {
+                "title": "Data-Driven Decisions"        
+              },
+              {
+                "title":"Holistic Monitoring & Alerts"         
+              }
             ],
             "image": {
               "url": "/img/solution-database-monitoring/overview.svg"
@@ -122,15 +172,24 @@
             "theme": "theme-blue"
           },
           {
-            "id": 6,
             "title": "OpenTelemetry",
             "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
-            "link": "/opentelemetry",
-            "features": [
-              "Data Collection",
-              "Instrumentation Options",
-              "Data Processing",
-              "Observability Insights"
+            "primaryButton":{
+              "link": "/opentelemetry"
+            },
+            "items": [
+              {
+                "title":  "Data Collection"
+              },
+              {
+                "title":  "Instrumentation Options"
+              },
+              {
+                "title": "Data Processing"
+              },
+              {
+                "title": "Observability Insights"
+              }
             ],
             "image": {
               "url": "/img/solution-openTL/overview.svg"
@@ -146,9 +205,9 @@
       {
         "__component": "section-cta.homepage-cta",
         "id": 6,
-         "heading": {
-           "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability."
+        "heading": {
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
         },
         "primaryButton": {
           "link": "https://cloud.openobserve.ai/web/login",

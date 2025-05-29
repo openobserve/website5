@@ -5,8 +5,10 @@ import CustomSection from "../core/CustomSection.vue";
 import { Check } from "lucide-vue-next";
 
 const props = defineProps({
-  title: String,
-  description: String,
+  heading:{
+    type: Object,
+    required: true,
+  },
   items: {
     type: Array,
     required: true,
@@ -24,7 +26,7 @@ const activeIndex = ref(0);
 <template>
   <section class="" :class="background ? 'bg-gray-50' : ''">
     <CustomSection sectionClass="mb-2">
-      <HeadingSection :title="title" :description="description" align="CENTER" />
+      <HeadingSection :title="heading?.title" :description="heading?.description" align="CENTER" />
 
       <div :class="[
         'flex flex-col lg:flex-row gap-8',
@@ -35,7 +37,7 @@ const activeIndex = ref(0);
           <div class="bg-[#f9fafc] rounded-lg p-4">
             <p class="text-lg font-semibold mb-4 px-2 text-black">Solutions</p>
             <nav class="space-y-1">
-              <button v-for="(solution, index) in items" :key="solution.id" @click="activeIndex = index" :class="[
+              <button v-for="(solution, index) in items" :key="solution.title" @click="activeIndex = index" :class="[
                 'w-full text-left px-4 py-3 rounded-md transition-colors cursor-pointer',
                 activeIndex === index
                   ? 'bg-tabs-background text-white'
@@ -63,7 +65,7 @@ const activeIndex = ref(0);
                 </p>
 
                 <div class="space-y-4 mb-8">
-                  <div v-for="(feature, idx) in items[activeIndex].features" :key="idx"
+                  <div v-for="(feature, idx) in items[activeIndex].items" :key="feature.title"
                     class="flex items-start text-black">
                     <!-- <svg :class="[
                       'w-5 h-5 mr-3 flex-shrink-0 mt-0.5',
@@ -75,11 +77,11 @@ const activeIndex = ref(0);
                     </svg> -->
                     <Check
                       class="rounded-full p-1 w-5 h-5 mr-3 flex-shrink-0 mt-0.5 bg-tabs-background/20 text-tabs-title-text" />
-                    <span>{{ feature }}</span>
+                    <span>{{ feature.title }}</span>
                   </div>
                 </div>
 
-                <a :href="items[activeIndex].link" :class="[
+                <a :href="items[activeIndex].primaryButton.link" :class="[
                   'inline-flex items-center font-medium',
                   'text-tabs-title-text',
                 ]">
