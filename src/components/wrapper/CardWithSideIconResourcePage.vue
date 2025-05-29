@@ -25,6 +25,10 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
+  headingLevel :{
+    type:Number,
+    required:false
+  }
 });
 </script>
 
@@ -41,7 +45,7 @@ const props = defineProps({
 
       <!-- Card rendering based on activeTab -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <CardWithSideIcon v-for="(item, index) in data" :key="index" :card="item" headingLevel="2" class="w-full h-full"
+            <CardWithSideIcon v-for="(item, index) in data" :key="index" :card="item" :headingLevel="headingLevel" class="w-full h-full"
             />
       </div>
     </CustomSection>
