@@ -3,21 +3,21 @@
     <div class="mt-8">
       <div
         v-for="tab in tabs"
-        :key="'content-' + tab.value"
-        v-show="activeTab === tab.value"
+        :key="'content-' + tab.title"
+        v-show="activeTab === tab.title"
       >
         <div
           class="p-6 flex flex-col lg:flex-row items-center justify-between w-full gap-4"
         >
           <div class="w-full lg:w-1/2">
-            <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
-            <p class="text-gray-600 mb-6" v-if="tab.card.description">
-              {{ tab.card.description }}
+            <h2 class="text-2xl font-bold mb-2">{{ tab.title }}</h2>
+            <p class="text-gray-600 mb-6" v-if="tab.description">
+              {{ tab.description }}
             </p>
             <div class="">
               <ul class="space-y-2 mb-6">
                 <li
-                  v-for="(feature, index) in tab.card.features"
+                  v-for="(feature, index) in tab.items"
                   :key="index"
                   class="flex flex-col justify-start space-y-2 items-start"
                 >
@@ -37,7 +37,7 @@
           <div class="w-full lg:w-1/2">
             <div
                   class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.card.image)">
-                  <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
+                  <img :src="tab.featureImage" :alt="tab.title" class="w-full h-auto object-cover rounded-lg"
                     style="image-rendering: auto;" />
                 </div>
           </div>

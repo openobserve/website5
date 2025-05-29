@@ -55,14 +55,11 @@
           "description": "Scale from gigabytes to petabytes while dramatically reducing costs."
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-analytics",
             "title": "Real-Time Analytics",
-            "icon": "/img/platform-logs/real-time-analaytics.svg",
-            "card": {
-              "title": "Real-Time Analytics",
-              "features": [
+            "tabImage": "/img/platform-logs/real-time-analaytics.svg",
+            "items": [
                 {
                   "title": "Instant Ingest-to-dashboard",
                   "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
@@ -72,16 +69,12 @@
                   "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
                 }
               ],
-              "image": "/img/platform-logs/logs-visualizer.png"
-            }
+              "featureImage": "/img/platform-logs/logs-visualizer.png"
           },
           {
-            "value": "powerful-search",
             "title": "Powerful Search",
-            "icon": "/img/platform-logs/powerful-search.svg",
-            "card": {
-              "title": "Powerful Search",
-              "features": [
+            "tabImage": "/img/platform-logs/powerful-search.svg",
+              "items": [
                 {
                   "title": "Instantaneous Text Search",
                   "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
@@ -91,16 +84,12 @@
                   "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
                 }
               ],
-              "image": "/img/platform-logs/logs-sqlquery.png"
-            }
+              "featureImage": "/img/platform-logs/logs-sqlquery.png"
           },
           {
-            "value": "log-processing",
             "title": "Log Processing",
-            "icon": "/img/platform-logs/log-processing.svg",
-            "card": {
-              "title": "Log Processing",
-              "features": [
+            "tabImage": "/img/platform-logs/log-processing.svg",
+            "items": [
                 {
                   "title": " Automated Parsing",
                   "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
@@ -110,16 +99,12 @@
                   "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
                 }
               ],
-              "image": "/img/platform-logs/logs-pipelines.png"
-            }
+              "featureImage": "/img/platform-logs/logs-pipelines.png"
           },
           {
-            "value": "Optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/platform-logs/optimized-storage.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+            "tabImage": "/img/platform-logs/optimized-storage.svg",
+              "items": [
                 {
                   "title": "Industry-Leading Compression",
                   "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
@@ -129,8 +114,7 @@
                   "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
                 }
               ],
-              "image": "/img/platform-logs/logs-settings.png"
-            }
+              "featureImage": "/img/platform-logs/logs-settings.png"
           }
         ]
       },
@@ -270,14 +254,11 @@
           "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments."
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "metrics-collection",
             "title": "Metrics Collection & Analysis",
-            "icon": "/img/platform-metrics/metrics-collection-analysis.svg",
-            "card": {
-              "title": "Metrics Collection & Analysis",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrics-collection-analysis.svg",
+              "items": [
                 {
                   "title": "Effortless Collection",
                   "description": "Ingest metrics from any source with minimal overhead via Prometheus remote-write, OpenTelemetry, or direct API integration."
@@ -287,16 +268,12 @@
                   "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-datasources.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-datasources.png"
           },
           {
-            "value": "prometheus-integration",
             "title": "Prometheus Integration",
-            "icon": "/img/platform-metrics/metrices-prometheus-integration.svg",
-            "card": {
-              "title": "Prometheus Integration",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrices-prometheus-integration.svg",
+            "items": [
                 {
                   "title": "Native Compatibility",
                   "description": "Connect with Prometheus endpoints using full remote write protocol support and your existing configurations."
@@ -306,16 +283,12 @@
                   "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-promql.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-promql.png"
           },
           {
-            "value": "metrics-processing",
             "title": "Metrics Processing Advanced",
-            "icon": "/img/platform-metrics/metrics-processing.svg",
-            "card": {
-              "title": "Metrics Processing Advanced",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrics-processing.svg",
+              "items": [
                 {
                   "title": "Aggregations",
                   "description": "Process time-series data with powerful calculations including rates, moving averages, and percentile analysis using either PromQL or SQL."
@@ -325,16 +298,12 @@
                   "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
                 }
               ],
-              "image": "/img/platform-metrics/dashboard-queryeditor.png"
-            }
+              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
           },
           {
-            "value": "optimized-storage",
-            "title": "Optimized Storage",
-            "icon": "/img/platform-traces/trace-optimized-storage.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+           "title": "Optimized Storage",
+            "tabImage": "/img/platform-traces/trace-optimized-storage.svg",
+              "items": [
                 {
                   "title": "Columnar Storage",
                   "description": "Cut storage costs while maintaining query speed through OpenObserve’s columnar format designed for time-series data."
@@ -344,8 +313,7 @@
                   "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-settings.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-settings.png"
           }
         ]
       },
@@ -485,14 +453,11 @@
           "description": ""
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "trace-collection",
             "title": "Trace Collection",
-            "icon": "/img/platform-traces/trace-collection.svg",
-            "card": {
-              "title": "Trace Collection",
-              "features": [
+            "tabImage": "/img/platform-traces/trace-collection.svg",
+              "items": [
                 {
                   "title": "OpenTelemetry Integration",
                   "description": "Collect traces through native OTLP (OpenTelemetry Protocol). Instrument applications once and export traces directly to OpenObserve—no vendor lock-in."
@@ -502,16 +467,12 @@
                   "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
                 }
               ],
-              "image": "/img/platform-traces/traces-datasources.png"
-            }
+              "featureImage": "/img/platform-traces/traces-datasources.png"
           },
           {
-            "value": "service-analysis",
             "title": "Service Analysis",
-            "icon": "img/platform-traces/trace-service-analysis.svg",
-            "card": {
-              "title": "Service Analysis",
-              "features": [
+            "tabImage": "img/platform-traces/trace-service-analysis.svg",
+              "items": [
                 {
                   "title": "Dependency Mapping",
                   "description": "See your microservices in action. Real-time service maps reveal how your systems truly connect."
@@ -521,16 +482,12 @@
                   "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
                 }
               ],
-              "image": "/img/platform-traces/traces-service-map.png"
-            }
+              "featureImage": "/img/platform-traces/traces-service-map.png"
           },
           {
-            "value": "trace-analysis",
             "title": "Trace Analysis",
-            "icon": "/img/platform-traces/trace-analysis.svg",
-            "card": {
-              "title": "Trace Analysis",
-              "features": [
+            "tabImage": "/img/platform-traces/trace-analysis.svg",
+              "items": [
                 {
                   "title": "Detailed Spans",
                   "description": "Dive deep into every operation—examine spans with precise timing, tags, and logs. One click takes you from overview metrics to the exact problematic trace span."
@@ -540,16 +497,12 @@
                   "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
                 }
               ],
-              "image": "/img/platform-traces/traces-event.png"
-            }
+              "featureImage": "/img/platform-traces/traces-event.png"
           },
           {
-            "value": "optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/platform-traces/trace-optimized-storage.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+            "tabImaage": "/img/platform-traces/trace-optimized-storage.svg",
+              "items": [
                 {
                   "title": "Efficient Storage",
                   "description": "Slash storage costs to 1/140th of Elasticsearch with Apache Parquet's powerful columnar format. Get exceptional compression without sacrificing lightning-fast query performance."
@@ -559,9 +512,8 @@
                   "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
                 }
               ],
-              "image": "/img/platform-traces/traces-settings.png"
+              "featureImage": "/img/platform-traces/traces-settings.png"
             }
-          }
         ]
       },
       {
@@ -702,14 +654,11 @@
           "title": "OpenObserve Frontend Monitoring"
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "user-experience-monitoring",
             "title": "User Experience Monitoring",
-            "icon": "/img/platform-frontend-monitoring/user-experiment-monitoring.svg",
-            "card": {
-              "title": "User Experience Monitoring",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/user-experiment-monitoring.svg",
+              "items": [
                 {
                   "title": "Performance Metrics",
                   "description": "Track vital web metrics that impact your users most —page load times, First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI)."
@@ -719,16 +668,12 @@
                   "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/session-replay.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/session-replay.png"
           },
           {
-            "value": "error-tracking",
             "title": "Error Tracking",
-            "icon": "/img/platform-frontend-monitoring/error-tracking.svg",
-            "card": {
-              "title": "Error Tracking",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/error-tracking.svg",
+              "items": [
                 {
                   "title": "Error Capture",
                   "description": "Catch every frontend issue—with complete stack traces, browser details, and the exact user actions that triggered them."
@@ -738,16 +683,12 @@
                   "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
           },
           {
-            "value": "performance-analysis",
             "title": "Performance Analysis",
-            "icon": "/img/platform-frontend-monitoring/performance-analaysis.svg",
-            "card": {
-              "title": "Performance Analysis",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/performance-analaysis.svg",
+              "items": [
                 {
                   "title": "Core Web Vitals",
                   "description": "Identify experience bottlenecks, track performance across user segments, and deliver pages that respond instantly to every interaction."
@@ -757,16 +698,13 @@
                   "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
           },
           {
-            "value": "quick-implementation",
             "title": "Quick Implementation",
-            "icon": "/img/platform-frontend-monitoring/quick-implementation.svg",
-            "card": {
-              "title": "Quick Implementation",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/quick-implementation.svg",
+           
+              "items": [
                 {
                   "title": "Fast Setup",
                   "description": "Go from zero to monitoring in minutes. Collect real user data instantly and customize your configuration to meet your exact needs."
@@ -776,8 +714,8 @@
                   "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
+            
           }
         ]
       },
@@ -916,14 +854,12 @@
           "title": "OpenObserve Observability Pipelines"
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "pipeline-types",
             "title": "Pipeline Types",
-            "icon": "/img/platform-pipelines/pipeline-type.svg",
-            "card": {
-              "title": "Pipeline Types",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-type.svg",
+            
+              "items": [
                 {
                   "title": "Real-time",
                   "description": "Transform data the instant it arrives. Parse, filter, and enrich streams on-the-fly—turning raw data into immediate insights."
@@ -933,16 +869,14 @@
                   "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-types.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-types.png"
+            
           },
           {
-            "value": "data-transformation",
             "title": "Data Transformation",
-            "icon": "/img/platform-pipelines/piplines-data-transformation.svg",
-            "card": {
-              "title": "Data Transformation",
-              "features": [
+            "tabImage": "/img/platform-pipelines/piplines-data-transformation.svg",
+           
+              "items": [
                 {
                   "title": "VRL Functions",
                   "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
@@ -952,16 +886,15 @@
                   "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-vrlfunction.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-vrlfunction.png"
+            
           },
           {
-            "value": "data-enrichment",
+           
             "title": "Data Enrichment",
-            "icon": "/img/platform-pipelines/pipeline-data-enrichment.svg",
-            "card": {
-              "title": "Data Enrichment",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-data-enrichment.svg",
+          
+              "items": [
                 {
                   "title": "Enrichment Tables",
                   "description": "Transform raw events into context-rich intelligence using simple CSV lookup tables. Instantly add location data, user details, and critical metadata that turns isolated signals into meaningful patterns."
@@ -971,16 +904,15 @@
                   "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
                 }
               ],
-              "image": "/img/platform-pipelines/enrichment-tables.png"
-            }
+              "featureImage": "/img/platform-pipelines/enrichment-tables.png"
+            
           },
           {
-            "value": "pipeline-components",
+           
             "title": "Pipeline Components",
-            "icon": "/img/platform-pipelines/pipeline-component.svg",
-            "card": {
-              "title": "Pipeline Components",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-component.svg",
+           
+              "items": [
                 {
                   "title": "Function Nodes",
                   "description": "Build data processing workflows with VRL function nodes. Execute custom logic for complex transformations and create reusable components that make your data pipelines more efficient and maintainable."
@@ -990,8 +922,8 @@
                   "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-components.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-components.png"
+            
           }
         ]
       },
@@ -1131,14 +1063,12 @@
           "title": "OpenObserve Alerts"
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "alert-types",
             "title": "Alert Types",
-            "icon": "/img/platform-alerts/alerts-types.svg",
-            "card": {
-              "title": "Alert Types",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-types.svg",
+          
+              "items": [
                 {
                   "title": "Scheduled Alerts",
                   "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
@@ -1148,16 +1078,15 @@
                   "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
                 }
               ],
-              "image": "/img/platform-alerts/alert-type.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-type.png"
+            
           },
           {
-            "value": "alert-configuration",
+          
             "title": "Alert Configuration",
-            "icon": "/img/platform-alerts/alerts-configuration.svg",
-            "card": {
-              "title": "Alert Configuration",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-configuration.svg",
+           
+              "items": [
                 {
                   "title": "Flexible Condition Building",
                   "description": "Build alert logic exactly how you need it—use sophisticated SQL for complex scenarios or quick conditions when simplicity matters."
@@ -1167,16 +1096,15 @@
                   "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
                 }
               ],
-              "image": "/img/platform-alerts/alert-configure.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-configure.png"
+            
           },
           {
-            "value": "alert-notifications",
+            
             "title": "Alert Notifications",
-            "icon": "/img/platform-alerts/alerts-notification-on-outline.svg",
-            "card": {
-              "title": "Alert Notifications",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-notification-on-outline.svg",
+            
+              "items": [
                 {
                   "title": "Multiple Notification Destinations",
                   "description": "Deliver alerts exactly where your team needs them—Slack, email, webhooks, and more."
@@ -1186,16 +1114,15 @@
                   "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
                 }
               ],
-              "image": "/img/platform-alerts/alert-destinations.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-destinations.png"
+            
           },
           {
-            "value": "alert-controls",
+           
             "title": "Alert Controls",
-            "icon": "/img/platform-alerts/alerts-controls.svg",
-            "card": {
-              "title": "Alert Controls",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-controls.svg",
+         
+              "items": [
                 {
                   "title": "Advanced Threshold Settings",
                   "description": "Trigger alerts with precision by setting thresholds that respond to evolving data patterns."
@@ -1205,8 +1132,8 @@
                   "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
                 }
               ],
-              "image": "/img/platform-alerts/alert-slack.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-slack.png"
+            
           }
         ]
       },
@@ -1341,14 +1268,13 @@
           "title": "OpenObserve Dashboards and Visualizations"
         },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "real-time-monitoring",
+           
             "title": "Real-Time Monitoring",
-            "icon": "/img/platform-visualization/real-time-monitoring.svg",
-            "card": {
-              "title": "Real-Time Monitoring",
-              "features": [
+            "tabImage": "/img/platform-visualization/real-time-monitoring.svg",
+           
+              "items": [
                 {
                   "title": "Interactive Dashboards",
                   "description": "Visualize your system's heartbeat with 19+ chart types—from heat maps that expose hotspots to time-series graphs that reveal trends. Build comprehensive health views in minutes with intuitive drag-and-drop simplicity."
@@ -1358,16 +1284,15 @@
                   "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
                 }
               ],
-              "image": "/img/platform-metrics/dashboard-queryeditor.png"
-            }
+              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
+            
           },
           {
-            "value": "customizable-views",
+           
             "title": "Customizable Views",
-            "icon": "/img/platform-visualization/customizable-view.svg",
-            "card": {
-              "title": "Customizable Views",
-              "features": [
+            "tabImage": "/img/platform-visualization/customizable-view.svg",
+         
+              "items": [
                 {
                   "title": "Dynamic Filtering",
                   "description": "Quickly evaluate exactly what matters with powerful variable-driven dashboards. Filter multiple panels simultaneously to uncover hidden patterns and identify root causes in seconds."
@@ -1377,16 +1302,15 @@
                   "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-geomap.png"
-            }
+              "featureImage": "/img/platform-visualization/dashboard-geomap.png"
+            
           },
           {
-            "value": "advanced-query-capabilities",
+           
             "title": "Advanced Query Capabilities",
-            "icon": "/img/platform-visualization/advance-query-capabilities.svg",
-            "card": {
-              "title": "Advanced Query Capabilities",
-              "features": [
+            "tabImage": "/img/platform-visualization/advance-query-capabilities.svg",
+          
+              "items": [
                 {
                   "title": "SQL & PromQL Query Language Support",
                   "description": "Harness the full power of SQL and PromQL to build sophisticated analyses that reveal deeper insights. Transform raw data instantly with VRL's precision-engineered functions."
@@ -1396,16 +1320,15 @@
                   "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-promql.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-promql.png"
+            
           },
           {
-            "value": "easy-collaboration",
+            
             "title": "Easy Collaboration",
-            "icon": "/img/platform-visualization/easy-collaboration.svg",
-            "card": {
-              "title": "Easy Collaboration",
-              "features": [
+            "tabImage": "/img/platform-visualization/easy-collaboration.svg",
+            
+              "items": [
                 {
                   "title": "Dashboard Sharing",
                   "description": "Unite your teams around critical visualizations while maintaining precise access controls. Import and export dashboards instantly—turning reliability into a true team sport."
@@ -1415,9 +1338,8 @@
                   "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-drilldown.png"
+              "featureImage": "/img/platform-visualization/dashboard-drilldown.png"
             }
-          }
         ]
       },
       {

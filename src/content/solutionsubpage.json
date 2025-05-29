@@ -10,18 +10,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "AWS Monitoring",
         "title": "AWS Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-aws/full-bg.svg",
-        "mobileBgImage": "/img/solution-aws/mobile-view.svg",
-        "mobileRightImage": "/img/solution-aws/Group 9269.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-aws/full-bg.svg",
+        "bgImageforMobile": "/img/solution-aws/mobile-view.svg",
+        "Image": "/img/solution-aws/Group 9269.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -54,15 +51,14 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key AWS Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key AWS Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-visibility",
-            "label": "Real-Time Visibility & Insights",
-            "card": {
               "title": "Real-Time Visibility & Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Continuous Data Collection",
                   "description": "Capture every AWS operation as it happens through seamless Kinesis Data Firehose and CloudWatch integrations. Monitor your entire AWS ecosystem with zero blind spots from Lambda functions to database clusters."
@@ -72,15 +68,12 @@
                   "description": "Transform complex AWS metrics into instant understanding with pre-built and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/solution-aws/aws_data.gif"
-            }
+              "featureImage": "/img/solution-aws/aws_data.gif"
           },
           {
-            "value": "efficient-data-processing",
-            "label": "Efficient Data Processing",
-            "card": {
+           
               "title": "Efficient Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Automated Log Parsing",
                   "description": "Turn chaotic AWS logs into structured intelligence using Vector Remap Language (VRL). Parse, enrich, redact, and filter raw data to extract the exact insights you need without writing complex code."
@@ -90,15 +83,13 @@
                   "description": "Explore your AWS environment using powerful SQL queries that reveal hidden patterns. Leverage comprehensive parsing and enrichment functions to answer your most complex operational questions."
                 }
               ],
-              "image": "/img/solution-aws/pipeline-aws.png"
-            }
+              "featureImage": "/img/solution-aws/pipeline-aws.png"
+            
           },
           {
-            "value": "service-coverage-and-integration",
-            "label": "Service Coverage & Integration",
-            "card": {
+           
               "title": "Service Coverage & Integration",
-              "features": [
+              "items": [
                 {
                   "title": "Multi-service Support",
                   "description": "Monitor your entire AWS ecosystem with specialized tooling for every service. Track network traffic with VPC Flow Logs, audit activities with CloudTrail, and gain complete visibility across your infrastructure through CloudWatch dashboards and much more."
@@ -108,15 +99,13 @@
                   "description": "Connect insights across multiple AWS accounts and services. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/solution-aws/cloudwatch-rds-metrics-final.gif"
-            }
+              "featureImage": "/img/solution-aws/cloudwatch-rds-metrics-final.gif"
+            
           },
           {
-            "value": "cost-effective-monitoring",
-            "label": "Cost-effective Monitoring",
-            "card": {
+           
               "title": "Cost-effective Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Usage Tracking",
                   "description": "Optimize cloud spending with precision resource monitoring across EC2, RDS, Lambda, and more. Convert usage data into action plans that eliminate waste while maintaining performance."
@@ -126,8 +115,8 @@
                   "description": "Keep the data you need, store it intelligently. Configure retention policies that balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/solution-aws/aws-dashboard.png"
-            }
+              "featureImage": "/img/solution-aws/aws-dashboard.png"
+            
           }
         ]
       },
@@ -210,18 +199,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "GCP Monitoring",
         "title": "GCP Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-gcp-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-gcp-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-gcp-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-gcp-monitoring/mobile-view.svg",
+        "Image": "/img/solution-gcp-monitoring/Group 9270.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -229,7 +215,6 @@
         "align": "center",
         "headingLevel": 2,
         "heading":{
-
           "title": "Why Use OpenObserve for GCP Monitoring?"
         },
         "items": [
@@ -255,15 +240,14 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key GCP Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key GCP Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "data-collection-and-analysis",
-            "label": "Data Collection and Analysis",
-            "card": {
               "title": "Data Collection and Analysis",
-              "features": [
+              "items": [
                 {
                   "title": "Cloud Logging Integration",
                   "description": "Unify your GCP logs through a single pipeline. Export logs seamlessly from Cloud Logging to Pub/Sub, capturing everything from audit trails to VPC flows to application events in a single, centralized stream."
@@ -273,15 +257,12 @@
                   "description": "Gain complete visibility into your GCP performance. Collect both platform metrics and custom application telemetry through Cloud Monitoring export for comprehensive performance insights."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_datasources.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_datasources.png"
           },
           {
-            "value": "service-monitoring",
-            "label": "Service Monitoring",
-            "card": {
+           
               "title": "Service Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Core Services",
                   "description": "Keep your essential GCP services running flawlessly. Monitor Compute Engine, Cloud Run, Cloud Functions, and Cloud SQL with purpose-built dashboards that reveal performance in real time."
@@ -291,15 +272,11 @@
                   "description": "See your entire GCP ecosystem at work. Track resource utilization, performance trends, and service health with instant visibility that helps you prevent problems before they start."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_pubsub.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_pubsub.png"
           },
           {
-            "value": "log-processing",
-            "label": "Log Processing",
-            "card": {
               "title": "Log Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Structured Analysis",
                   "description": "Extract meaning from mountains of log data. Parse GCP logs efficiently with specialized processors optimized for Google Cloud formats and your custom log structures."
@@ -309,15 +286,13 @@
                   "description": "Ask complex questions, get immediate answers. Query logs and metrics using familiar SQL syntax with full support for advanced aggregations and time-series analysis."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_logs.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_logs.png"
+            
           },
           {
-            "value": "resource-management",
-            "label": "Resource Management",
-            "card": {
+           
               "title": "Resource Management",
-              "features": [
+              "items": [
                 {
                   "title": "Performance Tracking",
                   "description": "Optimize your compute resources with precision. Monitor detailed service metrics that drive smarter capacity planning and resource allocation decisions."
@@ -327,9 +302,8 @@
                   "description": "Keep what matters, discard what doesn't. Configure intelligent retention policies and compression settings that balance cost efficiency with ready access to your most important data."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
+              "featureImage": "/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
             }
-          }
         ]
       },
       {
@@ -412,18 +386,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Database Monitoring",
         "title": "Database Monitoring",
         "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-database-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-database-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-database-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-database-monitoring/mobile-view.svg",
+        "Image": "/img/solution-database-monitoring/database-1.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -457,16 +428,15 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Database Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key Database Monitoring Capabilities"
+        },
         "description": "",
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "performance-monitoring",
-            "label": "Performance Monitoring",
-            "card": {
               "title": "Performance Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Workload and Resource Insights",
                   "description": "See exactly who's taxing your database and how. Map request volumes across users and applications while tracking resource consumption patterns that reveal optimization opportunities hidden in your database workloads."
@@ -476,15 +446,12 @@
                   "description": "Expose performance bottlenecks before they slow you down. Turn raw metrics into actionable insights that boost query efficiency and maximize overall database throughput."
                 }
               ],
-              "image": "/img/solution-database-monitoring/database_dashboard.png"
-            }
+              "featureImage": "/img/solution-database-monitoring/database_dashboard.png"
           },
           {
-            "value": "proactive-error-detection",
-            "label": "Proactive Error Detection & Resolution",
-            "card": {
+            
               "title": "Proactive Error Detection & Resolution",
-              "features": [
+              "items": [
                 {
                   "title": "Error Tracking and Alerts",
                   "description": "Catch database issues before your users do. Get instant notifications about performance degradation with intelligent alerts that identify problems at their earliest stages."
@@ -494,15 +461,13 @@
                   "description": "Solve database mysteries with forensic-level diagnostics. Trace error patterns to their source and optimize configurations based on historical performance data that tells the true story."
                 }
               ],
-              "image": "/img/solution-database-monitoring/zookeeper_database_metrics_flow.gif"
-            }
+              "featureImage": "/img/solution-database-monitoring/zookeeper_database_metrics_flow.gif"
+            
           },
           {
-            "value": "data-driven-decisions",
-            "label": "Data-Driven Decisions",
-            "card": {
+           
               "title": "Data-Driven Decisions",
-              "features": [
+              "items": [
                 {
                   "title": "Query Performance Insights",
                   "description": "Target slow queries with surgical precision. Monitor response times and resource consumption to optimize database performance based on real-world usage, not theoretical benchmarks."
@@ -512,15 +477,13 @@
                   "description": "Predict tomorrow's database needs today. Transform historical trends into accurate forecasts that guide resource allocation and scaling decisions with confidence."
                 }
               ],
-              "image": "/img/solution-database-monitoring/database_data.png"
-            }
+              "featureImage": "/img/solution-database-monitoring/database_data.png"
+            
           },
           {
-            "value": "holistic-monitoring-alerts",
-            "label": "Holistic Monitoring & Alerts",
-            "card": {
+          
               "title": "Holistic Monitoring & Alerts",
-              "features": [
+              "items": [
                 {
                   "title": "System-Wide Visibility",
                   "description": "See your database in its true context. Connect database performance metrics with related infrastructure insights for a complete picture of your entire data ecosystem."
@@ -530,8 +493,8 @@
                   "description": "Create alerts as unique as your environment. Build intelligent notification systems based on your specific performance thresholds that respond to developing trends, not just static limits."
                 }
               ],
-              "image": "/img/platform-alerts/alert-configure.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-configure.png"
+            
           }
         ]
       },
@@ -606,18 +569,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Azure Monitoring",
         "title": "Azure Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-azure/full-img.svg",
-        "mobileBgImage": "/img/solution-azure/mobile-view.svg",
-        "mobileRightImage": "/img/solution-azure/Group 9277.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-azure/full-img.svg",
+        "bgImageforMobile": "/img/solution-azure/mobile-view.svg",
+        "Image": "/img/solution-azure/Group 9277.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -651,15 +611,15 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Azure Monitoring Capabilities",
+        "heading":{
+
+          "title": "OpenObserve’s Key Azure Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-visibility-and-insights",
-            "label": "Real-Time Visibility & Insights",
-            "card": {
               "title": "Real-Time Visibility & Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Continuous Data Collection",
                   "description": "Capture every Azure signal as it happens through Event Hubs, Diagnostic Settings, and Azure Monitor integrations. Monitor your entire cloud environment with zero blind spots, maintaining complete visibility across all resources."
@@ -669,15 +629,13 @@
                   "description": "Instantly grok Azure metrics with ready-to-use and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/solution-azure/azure_data_flow.gif"
-            }
+              "featureImage": "/img/solution-azure/azure_data_flow.gif"
+            
           },
           {
-            "value": "efficient-data-processing",
-            "label": "Efficient Data Processing",
-            "card": {
+          
               "title": "Efficient Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Automated Log Parsing",
                   "description": "Turn raw Azure logs into structured insights using Vector Remap Language (VRL). Parse, enrich, and transform chaotic data into clear insights without complex coding or configuration."
@@ -687,15 +645,12 @@
                   "description": "Unlock hidden patterns in your Azure environment using SQL queries."
                 }
               ],
-              "image": "/img/solution-azure/azure_logs.gif"
-            }
+              "featureImage": "/img/solution-azure/azure_logs.gif"
+            
           },
           {
-            "value": "service-coverage-and-integration",
-            "label": "Service Coverage & Integration",
-            "card": {
               "title": "Service Coverage & Integration",
-              "features": [
+              "items": [
                 {
                   "title": "Multi-service Support",
                   "description": "Monitor your entire Azure ecosystem with specialized tooling for every service. Track network traffic with NSG Flow Logs, audit activities with Azure Activity Log, and gain complete visibility across your infrastructure."
@@ -705,15 +660,11 @@
                   "description": "Connect insights across multiple Azure services with powerful SQL queries. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/solution-azure/azure_event_hub.png"
-            }
+              "featureImage": "/img/solution-azure/azure_event_hub.png"
           },
           {
-            "value": "cost-effective-monitoring",
-            "label": "Cost-Effective Monitoring",
-            "card": {
               "title": "Cost-Effective Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Usage Tracking",
                   "description": "Optimize cloud spending with resource monitoring across VMs, Azure SQL Databases, Functions, and more. Convert usage data into action plans that eliminate waste while maintaining performance."
@@ -723,8 +674,7 @@
                   "description": "Store your data  with flexible retention policies. Balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/solution-azure/azure_dashboard.png"
-            }
+              "featureImage": "/img/solution-azure/azure_dashboard.png"
           }
         ]
       },
@@ -807,18 +757,15 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Kubernetes Monitoring",
         "title": "Kubernetes Monitoring",
         "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-kubernates/full-img.svg",
-        "mobileBgImage": "/img/solution-kubernates/mobile-view.svg",
-        "mobileRightImage": "/img/solution-kubernates/Group 9285.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-kubernates/full-img.svg",
+        "bgImageforMobile": "/img/solution-kubernates/mobile-view.svg",
+        "Image": "/img/solution-kubernates/Group 9285.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -852,15 +799,14 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Kubernetes Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key Kubernetes Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "unified-kubernetes-monitoring",
-            "label": "Unified Kubernetes Monitoring",
-            "card": {
               "title": "Unified Kubernetes Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Pod-Level Observability",
                   "description": "See exactly how every pod performs. Track CPU, memory, and network metrics with precision that enables smart capacity planning and performance tuning."
@@ -870,15 +816,11 @@
                   "description": "Watch your entire infrastructure breathe through intuitive dashboards that update instantly, showing you application performance and system health as they happen."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_pod_dashboard.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_pod_dashboard.png"
           },
           {
-            "value": "multi-cluster-visibility",
-            "label": "Multi-cluster Visibility",
-            "card": {
               "title": "Multi-cluster Visibility",
-              "features": [
+              "items": [
                 {
                   "title": "Monitor In-cluster Services",
                   "description": "Gain complete control over in-cluster services with zero blind spots. Capture events across all Kubernetes objects including pods, deployments, HPAs, and more."
@@ -888,15 +830,13 @@
                   "description": "See across cluster boundaries with unified visibility that correlates events and reveals how your distributed services truly interact."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_logs.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_logs.png"
+      
           },
           {
-            "value": "resource-optimization",
-            "label": "Resource Optimization",
-            "card": {
+           
               "title": "Resource Optimization",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Metrics",
                   "description": " Maximize infrastructure ROI by tracking every resource; CPU, memory, and storage—across nodes, pods, and containers."
@@ -906,15 +846,13 @@
                   "description": "Turn usage patterns into scaling strategies. Make resource decisions based on real data, not guesswork, to optimize performance and control costs."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_resource_metrics.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_resource_metrics.png"
+            
           },
           {
-            "value": "uptime-incident-management",
-            "label": "Uptime & Incident Management",
-            "card": {
+           
               "title": "Uptime & Incident Management",
-              "features": [
+              "items": [
                 {
                   "title": "Availability Monitoring",
                   "description": "Keep services running with automated health checks that constantly verify cluster and application availability before users notice any issues."
@@ -924,8 +862,7 @@
                   "description": " Slash resolution time with instant alerts and comprehensive diagnostics that pinpoint exactly what went wrong and how to fix it the moment issues arise."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_incident.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_incident.png"
           }
         ]
       },
@@ -1005,13 +942,11 @@
         "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-openTL/full-img.svg",
-        "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
-        "mobileRightImage": "/img/solution-openTL/Group 9283.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-openTL/full-img.svg",
+        "bgImageforMobile": "/img/solution-openTL/mobile-view.svg",
+        "Image": "/img/solution-openTL/Group 9283.svg"
       },
       {
         "__component": "section-features.benefits",
@@ -1045,15 +980,15 @@
       },
       {
         "__component": "section-solutions.tabs",
-        "title": " OpenObserve ♥️‘s OpenTelemetry",
+        "heading":{
+          "title": " OpenObserve ♥️‘s OpenTelemetry"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "data-collection",
-            "label": "Data Collection",
-            "card": {
+           
               "title": "Data Collection",
-              "features": [
+              "items": [
                 {
                   "title": "Flexible Integration Options",
                   "description": "Deploy in minutes with your choice of standard OpenTelemetry instrumentation or our pre-configured collector for straightforward data ingestion."
@@ -1063,15 +998,13 @@
                   "description": "Capture and contextualize metrics, logs, and traces through a unified pipeline that preserves relationships between all telemetry signals."
                 }
               ],
-              "image": "/img/solution-openTL/otel_traces.png"
-            }
+            "featureImage": "/img/solution-openTL/otel_traces.png"
+            
           },
           {
-            "value": "instrumentation-options",
-            "label": "Instrumentation Options",
-            "card": {
+           
               "title": "Instrumentation Options",
-              "features": [
+              "items": [
                 {
                   "title": "Zero-Code Instrumentation",
                   "description": "Enable distributed tracing instantly with automatic instrumentation for supported frameworks and libraries—no code changes required."
@@ -1081,15 +1014,13 @@
                   "description": "Implement custom instrumentation for granular insights with complete control over data collection and structure."
                 }
               ],
-              "image": "/img/solution-openTL/otel_instrumentation.png"
-            }
+              "featureImage": "/img/solution-openTL/otel_instrumentation.png"
+            
           },
           {
-            "value": "data-processing",
-            "label": "Data Processing",
-            "card": {
+            
               "title": "Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Universal Format Support",
                   "description": "Process all OpenTelemetry data formats through native OTLP protocol integration with built-in conversions for industry-standard formats."
@@ -1099,15 +1030,12 @@
                   "description": "Unlock actionable insights using familiar SQL and PromQL with robust support for complex aggregations and time-series analysis."
                 }
               ],
-              "image": "/img/solution-openTL/otelcollector_o2.png"
-            }
+              "featureImage": "/img/solution-openTL/otelcollector_o2.png"
+            
           },
           {
-            "value": "observability-insights",
-            "label": "Observability Insights",
-            "card": {
               "title": "Observability Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Real-Time Visibility",
                   "description": "Monitor and react to critical application and infrastructure metrics with instant alerts and dashboards that reveal system health at a glance."
@@ -1117,8 +1045,7 @@
                   "description": "Slash troubleshooting time by following distributed traces across services, identifying exactly where and why requests slow down."
                 }
               ],
-              "image": "/img/solution-openTL/opentelemetry_integration.gif"
-            }
+              "featureImage": "/img/solution-openTL/opentelemetry_integration.gif"
           }
         ]
       },
