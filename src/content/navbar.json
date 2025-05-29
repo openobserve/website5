@@ -219,8 +219,8 @@
         },
         {
           "id": 44,
-          "title": "Kubernetes Observability",
-          "link": "kubernetes-observability"
+          "title": "Kubernetes Monitoring",
+          "link": "kubernetes-monitoring"
         },
         {
           "id": 45,

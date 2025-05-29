@@ -1,5 +1,5 @@
 <template>
-  <CustomSection sectionClass="max-w-4xl !pb-0 !pt-10">
+  <CustomSection sectionClass="max-w-4xl !pt-10">
     <HeadingSection
       :title="title"
       :description="description"

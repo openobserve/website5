@@ -8,7 +8,15 @@ import { computed } from "vue";
 const props = defineProps<{
   blog: Blog;
   type: string;
+  headingLevel?: number;
 }>();
+const headingLevel = computed(() => {
+  return props.headingLevel &&
+    props.headingLevel >= 1 &&
+    props.headingLevel <= 6
+    ? props.headingLevel
+    : 3;
+});
 const getImageUrl = ({ image }: Blog) =>
   image?.formats?.medium?.url ??
   image?.formats?.large?.url ??
@@ -48,14 +56,20 @@ const getImageUrl = ({ image }: Blog) =>
             {{ tag.name }}
           </a>
         </div>
-        <h3 class="text-lg font-semibold flex-grow mb-2">
+        <component
+          :is="`h${headingLevel}`"
+          class="text-lg font-semibold flex-grow mb-2"
+        >
           {{ blog?.title }}
-        </h3>
+        </component>
         <p class="text-primary-gray mb-3 text-base line-clamp-3">
           {{ blog?.description }}
         </p>
         <div class="w-full h-px bg-gray-200 my-3" v-if="type === 'blog'"></div>
-        <div class="flex items-center flex-wrap gap-2 mt-auto w-full" v-if="type === 'blog'">
+        <div
+          class="flex items-center flex-wrap gap-2 mt-auto w-full"
+          v-if="type === 'blog'"
+        >
           <!-- Avatars -->
           <div class="flex -space-x-3">
             <div

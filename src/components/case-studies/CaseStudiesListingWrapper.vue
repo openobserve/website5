@@ -17,6 +17,7 @@
         v-for="(item, index) in filteredCaseStudiesData"
         :key="index"
         :item="item"
+        :headingLevel="2"
       />
     </div>
     <template v-if="shouldPaginate">

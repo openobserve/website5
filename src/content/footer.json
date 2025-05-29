@@ -75,8 +75,8 @@
           },
           {
             "id": 11,
-            "text": "Kubernetes Observability",
-            "link": "/kubernetes-observability"
+            "text": "Kubernetes Monitoring",
+            "link": "/kubernetes-monitoring"
           },
           {
             "id": 12,

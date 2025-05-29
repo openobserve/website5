@@ -5,7 +5,7 @@
         <HeadingSection
           :title="sectionData.title"
           description=""
-          align="LEFT"
+          align="CENTER"
           class="!mb-12"
         />
       </div>
