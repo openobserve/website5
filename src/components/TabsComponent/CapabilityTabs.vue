@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
               ? 'bg-primary-purple text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
           ]">
-            <img :src="tab.icon" :alt="tab.title + 'icon'" class="h-5 w-5" />
+            <img :src="tab.icon" :alt="tab.title" class="h-5 w-5" />
             <span>{{ tab.title }}</span>
           </button>
         </div>
