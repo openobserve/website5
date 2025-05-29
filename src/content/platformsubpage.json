@@ -876,7 +876,7 @@
             "title": "Data Transformation",
             "tabImage": "/img/platform-pipelines/piplines-data-transformation.svg",
            
-              "features": [
+              "items": [
                 {
                   "title": "VRL Functions",
                   "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
