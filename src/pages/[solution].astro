@@ -4,6 +4,8 @@ import data from "@/content/solutionsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
 
+const url = Astro.url.pathname;
+const path = url.split("/").filter(Boolean).pop();
 export async function getStaticPaths() {
   return data.map((item: any) => {
     return {
@@ -12,12 +14,28 @@ export async function getStaticPaths() {
     };
   });
 }
-
+const filterblogsMapper = {
+  "aws-monitoring": "aws",
+  "azure-monitoring": "azure",
+  "gcp-monitoring": "gcp",
+  "kubernetes-monitoring": "kubernetes",
+  "database-monitoring": "database",
+  "opentelemetry": "opentelemetry",
+};
+const matchedCategory = filterblogsMapper[path as string] ?? null;
 const { pageData } = Astro.props;
 const seoData = pageData?.seo || {};
-const blogData = (await getAllBlogs())
-  .slice(0, 10)
-  .map(({ content, ...rest }) => rest);
+const allBlogs = await getAllBlogs();
+// Filter blogs where at least one category matches
+const filteredBlogs = matchedCategory
+  ? allBlogs.filter((blog) =>
+      blog.categories?.some(
+        (cat) => cat.slug.toLowerCase() === matchedCategory.toLowerCase()
+      )
+    )
+  : [];
+// Then slice and remove content if needed
+const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
