@@ -19,6 +19,7 @@
           "title": "Quick Start",
           "description": ""
         },
+        "headingLevel":3,
         "data": [
           {
             "title": "Documentation",
@@ -53,7 +54,7 @@
         "heading":{
           "title": "Documentation"
         },
-        "headingLevel": 2,
+        "headingLevel": 3,
         "description": "",
         "items": [
           {
