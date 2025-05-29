@@ -37,14 +37,14 @@ const props = defineProps({
 });
 
 const tabs = [
-  { label: "Standard", value: "standard" },
-  { label: "Enterprise", value: "enterprise" },
+  { title: "Standard", value: "standard" },
+  { title: "Enterprise", value: "enterprise" },
 ];
 
-const activeTab = ref("standard");
+const activeTab = ref(tabs[0].title);
 
 const tabData = computed(() => {
-  return activeTab.value === "standard" ? props.standard : props.enterprise;
+  return activeTab.value === tabs[0].title ? props.standard : props.enterprise;
 });
 
 </script>
