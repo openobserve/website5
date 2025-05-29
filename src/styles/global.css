@@ -72,6 +72,54 @@
   }
 }
 
+.theme-aws {
+   --color-primary-purple: rgb(37, 47, 62);
+  color: var(--color-primary-purple);
+  --color-card: rgba(60, 168, 251, 0.2);
+  --color-hover-card: rgb(37, 47, 62);
+  --color-tabs-background: rgba(37, 47, 62);
+  --color-tabs-title-text: rgba(37, 47, 62);
+}
+.theme-azure {
+  --color-primary-purple: rgb(60, 203, 244);
+  color: var(--color-primary-purple);
+  --color-card: rgba(60, 203, 244, 0.2);
+  --color-hover-card: rgb(60, 203, 244);
+  --color-tabs-background: rgba(60, 203, 244);
+  --color-tabs-title-text: rgba(60, 203, 244);
+}
+.theme-gcp {
+  --color-primary-purple: rgb(52, 168, 83);
+  color: var(--color-primary-purple);
+  --color-card: rgba(52, 168, 83, 0.2);
+  --color-hover-card: rgb(52, 168, 83);
+  --color-tabs-background: rgba(52, 168, 83);
+  --color-tabs-title-text: rgba(52, 168, 83);
+}
+.theme-kubernete {
+  --color-primary-purple: rgb(50, 109, 230);
+  color: var(--color-primary-purple);
+  --color-card: rgba(50, 109, 230, 0.2);
+  --color-hover-card: rgb(50, 109, 230);
+  --color-tabs-background: rgba(50, 109, 230);
+  --color-tabs-title-text: rgba(50, 109, 230);
+}
+.theme-data {
+  --color-primary-purple: rgb(52, 63, 174);
+  color: var(--color-primary-purple);
+  --color-card: rgba(52, 63, 174, 0.2);
+  --color-hover-card: rgb(52, 63, 174);
+  --color-tabs-background: rgba(52, 63, 174);
+  --color-tabs-title-text: rgba(52, 63, 174);
+}
+.theme-opentelemetry {
+  --color-primary-purple: rgb(245, 168, 0);
+  color: var(--color-primary-purple);
+  --color-card: rgba(245, 168, 0, 0.2);
+  --color-hover-card: rgb(245, 168, 0);
+  --color-tabs-background: rgba(245, 168, 0);
+  --color-tabs-title-text: rgba(245, 168, 0);
+}
 .theme-blue {
   --color-primary-purple: rgb(60, 168, 251);
   color: var(--color-primary-purple);
