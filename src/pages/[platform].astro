@@ -26,6 +26,8 @@ const seoData = PageData?.data[0]?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
+
+console.log("PageData", data);
 ---
 
 <Layout metaObj={seoData}>
