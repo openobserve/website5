@@ -15,9 +15,9 @@ export async function getStaticPaths() {
   });
 }
 const filterblogsMapper = {
-  "aws-monitoring": "aws",
-  "azure-monitoring": "azure",
-  "gcp-monitoring": "gcp",
+  // "aws-monitoring": "aws",
+  // "azure-monitoring": "azure",
+  // "gcp-monitoring": "gcp",
   "kubernetes-monitoring": "kubernetes",
   "database-monitoring": "database",
   "opentelemetry": "opentelemetry",
@@ -29,11 +29,13 @@ const allBlogs = await getAllBlogs();
 // Filter blogs where at least one category matches
 const filteredBlogs = matchedCategory
   ? allBlogs.filter((blog) =>
-      blog.categories?.some(
+      blog.tags?.some(
         (cat) => cat.slug.toLowerCase() === matchedCategory.toLowerCase()
       )
     )
-  : [];
+  : allBlogs;
+
+console.log(filteredBlogs, "filteredBlogs");
 // Then slice and remove content if needed
 const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 ---

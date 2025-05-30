@@ -7,6 +7,9 @@ import {
   getAuthorDetails,
 } from "@/utils/api/resources";
 import BlogcontentWrapper from "@/components/blog/BlogcontentWrapper.vue";
+import BlogSection from "@/components/blog/BlogSection.vue";
+import { ArticlesResources } from "@/utils/constant";
+import LatestArticles from "@/components/articles/LatestArticles.vue";
 
 export async function getStaticPaths() {
   const blogs = await getAllResourceBlogs();
@@ -24,6 +27,7 @@ const author = await Promise.all(
     return await getAuthorDetails(authorSlug.slug);
   })
 );
+const allBlogs = await getAllResourceBlogs();
 const metaObj = {
   title: SlugData?.title,
   description: SlugData?.description,
@@ -46,13 +50,20 @@ const metaObj = {
     content={SlugData?.content}
     shareUrl={`/articles/${slug}`}
     client:load
-    />
-    <!-- author={author} -->
+  />
+  <!-- author={author} -->
   <BlogcontentWrapper
     type="articles"
     client:load
     content={SlugData?.content}
     blogImage={SlugData?.image}
+  />
+  <!-- authors={author} -->
+  <div class="-mt-18 lg:-mt-24">
+    <LatestArticles
+      data={allBlogs.slice(0, 3)}
+      sectionData={ArticlesResources}
+      client:load
     />
-    <!-- authors={author} -->
+  </div>
 </Layout>

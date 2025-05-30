@@ -87,5 +87,4 @@ const showTagsBasedOnType = computed(() => {
   return filtersubTagsBasedonSuperiorTag.value;
 });
 
-console.log(showTagsBasedOnType.value)
 </script>
