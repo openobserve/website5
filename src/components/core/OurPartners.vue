@@ -104,7 +104,7 @@
             >
               <!-- Image -->
               <div class="flex justify-center">
-                <img :src="logo.image.url" :alt="logo.image.alt" class="h-24 w-24" />
+                <img :src="logo.image?.url" :alt="logo.image?.alt" class="h-24 w-24" />
               </div>
 
               <!-- Name & Role -->

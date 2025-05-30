@@ -7,7 +7,7 @@
           <div class="space-y-4 text-gray-600">
             <div class="text-base md:text-lg" v-html="paragraph"></div>
           </div>
-          <div class="flex justify-start pt-2 md:pt-4" v-if="primaryButton">
+          <div class="flex justify-start pt-2 md:pt-4" v-if="primaryButton?.link && primaryButton?.text">
             <a :href="primaryButton?.link"
               class="inline-flex items-center text-white bg-primary-purple hover:bg-dark-purple px-4 py-2 md:p-3 rounded-md transition-colors font-medium text-sm md:text-base">
               {{ primaryButton?.text }}
@@ -15,12 +15,12 @@
           </div>
         </div>
         <div class="relative h-64 w-full sm:h-80 md:h-96 lg:h-[28rem] lg:w-1/2 rounded-lg overflow-hidden bg-gray-100">
-          <img :src="image.url" :alt="image.alt" class="w-full h-full" loading="lazy" />
+          <img v-if="image?.url" :src="image?.url" :alt="image?.alt" class="w-full h-full" loading="lazy" />
         </div>
       </div>
 
       <!-- Read more link -->
-      <div class="flex justify-center pt-2 md:pt-4" v-if="secondaryButton">
+      <div class="flex justify-center pt-2 md:pt-4" v-if="secondaryButton?.link && secondaryButton?.text">
         <a :href="secondaryButton?.link"
           class="inline-flex items-center text-purple-600 hover:text-purple-800 transition-colors font-medium mt-2 md:mt-4 text-sm md:text-base">
           {{ secondaryButton?.text }}
