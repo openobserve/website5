@@ -71,13 +71,13 @@ const componentsMap = computed(() => ({
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
-  "section-testimonials.employee-testimonials": CareerTestimonials,
-  "section-features.technology": CareerTechnology,
+  "section-cards.testimonials": CareerTestimonials,
+  "section-features.technologies": CareerTechnology,
   "section-features.cta": CTA,
   "section-features.feature-left-tabs": VerticalTabs,
   "section-features.feature-sub-page-top-tabs": HorizontalTabsWrapper,
   "section-features.tabs-features": CapabilityTabs,
-  "section-solutions.faqs": FaqsWrapper,
+  "section-faqs.fa-qs-page-section": FaqsWrapper,
   "section-hero.cta-buttons": CTA,
   "section-cards.feature1": HomeCardWrapper,
   "section-features.architecture": PlatformArchitectureWrapper,
@@ -109,7 +109,7 @@ const componentsMap = computed(() => ({
   "section-features.home-marketecture-section": HomeModernArchiture,
   "section-cards.customer-stories": CaseStudySection,
   "section-cards.articles": LatestArticles,
-  "section-forms.sales-form": ContactSalesWrapper
+  "section-forms.contact-sales-form": ContactSalesWrapper
 }));
 
 const getComponentProps = (it) => {
