@@ -17,9 +17,7 @@
         "id": 3,
         "tabs": [
           {
-            "value": "openobserve-cloud",
-            "label": "Cloud",
-            "title": "OpenObserve Clouds",
+            "title": "Cloud",
             "items": [
               {
                 "title": "Free",
@@ -91,9 +89,7 @@
             ]
           },
           {
-            "value": "self-hosted",
-            "label": "Self Hosted",
-            "title": "OpenObserve Self-hosted",
+            "title": "Self Hosted",
             "items": [
               {
                 "title": "Download for free",

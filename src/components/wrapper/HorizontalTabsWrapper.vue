@@ -4,9 +4,9 @@
         <HeadingSection :title="heading?.title" :description="heading?.description" align="CENTER" />
       <div>
         <div class="w-full">
-          <TabsHeader :tabs="items" :activeTab="activeTab" @update:activeTab="activeTab = $event"
+          <TabsHeader   :tabs="tabsWithSlugs" :activeTab="activeTab" @update:activeTab="activeTab = $event"
            :gridClass="`grid w-full grid-cols-2 md:grid-cols-${items.length} gap-2`" />
-          <HorizontalTabs :tabs="items" :activeTab="activeTab" />
+          <HorizontalTabs :tabs="tabsWithSlugs" :activeTab="activeTab" />
         </div>
       </div>
     </CustomSection>
@@ -14,11 +14,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref ,computed,watch} from 'vue'
 import TabsHeader from '../core/TabsHeader.vue';
 import HorizontalTabs from '../TabsComponent/HorizontalTabs.vue';
 import HeadingSection from '../core/HeadingSection.vue';
 import CustomSection from '../core/CustomSection.vue';
+import { slugify } from '@/utils/slugify';
 const props = defineProps({
   heading: { 
     type: Object,
@@ -34,5 +35,23 @@ const props = defineProps({
   }
 })
 
-const activeTab = ref(props.items[0]?.title || '')
+// Add `value` to each tab item based on slug
+const tabsWithSlugs = computed(() =>
+  props.items.map(item => ({
+    ...item,
+    value: slugify(item.title)
+  }))
+);
+
+// Set the default active tab
+const activeTab = ref('');
+watch(
+  () => tabsWithSlugs.value,
+  (tabs) => {
+    if (tabs.length && !activeTab.value) {
+      activeTab.value = tabs[0].value;
+    }
+  },
+  { immediate: true }
+);
 </script>
