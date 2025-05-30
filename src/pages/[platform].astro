@@ -1,33 +1,30 @@
 ---
 // src/pages/[slug].astro
 import Layout from "@/layouts/Layout.astro";
+import data from "@/content/platformsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
-import fetchApi from "@/utils/strapi";
 
 export async function getStaticPaths() {
-  const PageData: string[] = await fetchApi({
-    endpoint: "api/platform-pages",
-    query: { pLevel: "4", status: "draft" },
+  return data.map((item: any) => {
+    return {
+      params: { platform: item.slug },
+      props: { pageData: item },
+    };
   });
-  const slugs = PageData?.data;
-  return slugs.map((it: any) => ({
-    params: { id: it.slug },
-  }));
 }
-const { id }: any = Astro.params;
 
-const PageData = await fetchApi({
-  endpoint: "api/platform-pages",
-  query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
-});
-const data = PageData?.data[0]?.body || {};
-const seoData = PageData?.data[0]?.seo || {};
+const { pageData } = Astro.props;
+const seoData = pageData?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
+  <ComponentCollectionMapper
+    data={pageData.body}
+    blogsData={blogData}
+    client:load
+  />
 </Layout>
