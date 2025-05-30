@@ -145,7 +145,7 @@ const socialIcon = (name) => {
             <img
               src="/img/soc.webp"
               class="w-full h-full object-contain grayscale"
-              alt="SOC2 Type 2"
+              alt="SOC 2 Type II"
             />
           </div>
 
