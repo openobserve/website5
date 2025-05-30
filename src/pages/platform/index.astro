@@ -11,5 +11,5 @@ const seoData = PageData?.data?.seo || {};
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data?.data?.body} client:load />
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>

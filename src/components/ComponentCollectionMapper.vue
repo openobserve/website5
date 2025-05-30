@@ -104,7 +104,7 @@ const componentsMap = computed(() => ({
   "section-contact.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
-  "section-key-features-benefits.key-features": PlatformKeyFeaturesWrapper,
+  "section-cards.plaform-key-features": PlatformKeyFeaturesWrapper,
   "section-faqs.frequently-asked-question": CommonFaqWrapper,
   "section-features.home-marketecture-section": HomeModernArchiture,
   "section-cards.customer-stories": CaseStudySection,
