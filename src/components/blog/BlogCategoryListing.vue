@@ -27,7 +27,7 @@
       </div>
       <div class="flex flex-wrap gap-2">
         <a
-          v-for="tag in allTags"
+          v-for="tag in filtersubTagsBasedonSuperiorTag"
           :key="tag.name"
           :href="`/blog/tag/${tag.slug}`"
           class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
@@ -46,6 +46,10 @@ import { ref, computed } from "vue";
 const props = defineProps<{
   categories: {
     name: string;
+    tags: {
+      name: string;
+      slug: string
+    }
   }[];
   allTags: {
     name: string;
@@ -55,13 +59,24 @@ const props = defineProps<{
 }>();
 
 const activeCategory = ref("ALL");
-
 const categoriesWithAll = computed(() => [
-  { name: "ALL", slug: "all" },
+  { name: "ALL"},
   ...props.categories,
 ]);
-
 function setActiveCategory(category: string) {
   activeCategory.value = category;
 }
+
+const filtersubTagsBasedonSuperiorTag = computed(() => {
+  if (activeCategory.value === "ALL") {
+    return props.allTags;
+  }
+
+  const matchedCategory = props.categories.find(
+    (category) => category.name === activeCategory.value
+  );
+
+  return matchedCategory?.tags;
+  
+});
 </script>

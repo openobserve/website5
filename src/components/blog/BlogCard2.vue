@@ -23,6 +23,7 @@ const getImageUrl = ({ image }: Blog) =>
   image?.formats?.small?.url ??
   image?.url ??
   "";
+
 </script>
 
 <template>
@@ -41,14 +42,14 @@ const getImageUrl = ({ image }: Blog) =>
           <div
             class="bg-primary-purple text-white border-none rounded-full px-3 py-1 text-xs"
           >
-            Openobserve
+            {{ blog?.category?.name }}
           </div>
         </div>
       </div>
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
         <div class="min-h-0 flex gap-2 mb-2">
           <a
-            v-for="tag in blog?.categories?.slice(0, 2)"
+            v-for="tag in blog?.tags?.slice(0, 2)"
             :key="tag.slug"
             :href="`/blog/tag/${tag.slug}`"
             class="bg-light-gray text-primary-gray text-sm font-medium rounded-full px-3 py-1 capitalize"

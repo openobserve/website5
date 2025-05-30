@@ -1,8 +1,11 @@
 ---
 import {
   getAllCategories,
+  getAllsubTags,
+  getAllSuperiorCategories,
   getBlogsByPaginationAndCategory,
-  getBlogsCategoryDetails,
+  fetchTagsDetailsForBlog,
+  getallBlogsWithoutCaseStudies,
 } from "@/utils/api/blog";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
@@ -12,7 +15,7 @@ import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 
 // 🚀 Generate Static Paths for each category
 export async function getStaticPaths() {
-  const categories = await getAllCategories();
+  const categories = await getAllsubTags();
 
   return categories.map((category) => ({
     params: { tag: category.slug },
@@ -34,7 +37,10 @@ const metaObj = {
     "Tag | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
 };
 
-const category = await getBlogsCategoryDetails(tag);
+const category = await fetchTagsDetailsForBlog(tag);
+const allSuperiorCategories = await getAllSuperiorCategories();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
+const allBlogsData = await getallBlogsWithoutCaseStudies();
 ---
 
 <Layout metaObj={metaObj}>
@@ -46,10 +52,8 @@ const category = await getBlogsCategoryDetails(tag);
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
-        []}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
-        []}
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
       client:load
     />
@@ -61,6 +65,8 @@ const category = await getBlogsCategoryDetails(tag);
       totalItems={totalBlogs}
       identifier={tag}
       currentPage={currentPage}
+      searchBar
+      allBlogs={allBlogsData}
     />
   </CustomSection>
 </Layout>

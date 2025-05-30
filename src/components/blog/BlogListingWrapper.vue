@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col space-y-4">
     <!-- Full-width search bar -->
-    <div class="relative w-full">
+    <div class="relative w-full" v-show="searchBar">
       <SearchIcon
         class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-gray h-5 w-5"
       />
@@ -94,6 +94,7 @@ watch(searchItem, async (newValue) => {
     props?.blogsData
   );
 });
+
 
 const shouldPaginate = computed(() => {
   return props?.totalItems > ITEMS_PER_PAGE;

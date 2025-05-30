@@ -5,6 +5,9 @@ import {
   getAllAuthors,
   getAuthorDetails,
   getBlogsByPaginationAndAuthor,
+  getAllSuperiorCategories,
+  getAllsubTags,
+  getallBlogsWithoutCaseStudies,
 } from "@/utils/api/blog";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
@@ -38,6 +41,10 @@ const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
   author
 );
 const suggestionData = await getAllCategories();
+const allSuperiorCategories = await getAllSuperiorCategories();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
+const allBlogsData = await getallBlogsWithoutCaseStudies();
+
 const auth = await getAuthorDetails(author);
 
 const metaObj = {
@@ -54,10 +61,8 @@ const metaObj = {
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
-        []}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
-        []}
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
       client:load
     />
@@ -70,6 +75,8 @@ const metaObj = {
       identifier={author}
       currentPage={currentPage}
       totalItems={totalBlogs}
+      searchBar
+      allBlogs={allBlogsData}
     />
   </CustomSection>
 </Layout>

@@ -4,7 +4,7 @@ import { getTotalCounts } from "@/utils/cache";
 import {
   getAllCategories,
   getAllSuperiorCategories,
-  getAllsubTagsBasedOnSuperiorTag,
+  getAllsubTags,
   getBlogsByPagination,
   getallBlogsWithoutCaseStudies,
 } from "@/utils/api/blog";
@@ -41,7 +41,7 @@ let suggestionData = await getAllCategories();
 const allBlogsData = await getallBlogsWithoutCaseStudies();
 const count = await getTotalCounts();
 const allSuperiorCategories = await getAllSuperiorCategories();
-const allsubTagsBasedonSuperiorTags = await getAllsubTagsBasedOnSuperiorTag();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
 
 const metaObj = {
   title:

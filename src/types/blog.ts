@@ -11,11 +11,10 @@ export interface Blog {
   };
   title: string;
   description: string;
-  categories: {
+  tags: {
     name: string;
     slug: string;
   }[];
-  tags: string[];
   date: string;
   authors: {
     name: string;
@@ -25,6 +24,9 @@ export interface Blog {
     };
   }[];
   publishDate: string;
+  category: {
+    name: string;
+  }
 }
 
 export type Author = {

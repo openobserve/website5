@@ -72,7 +72,6 @@ const onSubmit = handleSubmit(async (values) => {
     // Simulate API call delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    console.log(values.email, "submitted data");
 
     // Show success toast
     toastMessage.value = `Subscribed successfully with: ${values.email}`;

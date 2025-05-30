@@ -5,7 +5,7 @@ import {
   getAllCategories,
   getBlogsByPagination,
   getAllSuperiorCategories,
-  getAllsubTagsBasedOnSuperiorTag,
+  getAllsubTags,
 } from "@/utils/api/blog";
 import { getTotalCounts } from "@/utils/cache";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
@@ -17,7 +17,7 @@ import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
 const allSuperiorCategories = await getAllSuperiorCategories();
-const allsubTagsBasedonSuperiorTags = await getAllsubTagsBasedOnSuperiorTag();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 const allBlogsData = await getallBlogsWithoutCaseStudies();
@@ -38,8 +38,9 @@ const metaObj = {
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
-      client:only="vue"
+      client:load
     />
+
     <BlogListingWrapper
       searchBar
       allBlogs={allBlogsData}
