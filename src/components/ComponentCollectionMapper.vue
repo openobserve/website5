@@ -68,6 +68,7 @@ const props = defineProps({
 });
 const componentsMap = computed(() => ({
   "section-hero.resource-hero-section": CommonHeroSection,
+  "section-hero.contact-hero-sectionx": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
@@ -98,10 +99,10 @@ const componentsMap = computed(() => ({
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
-  "section-forms.contact-form": ContactFormWrapper,
+  "section-forms.contact": ContactFormWrapper,
   "section-forms.demo-form": DemoWrapper,
   "section-cards.blog": BlogSection,
-  "section-contact.community-support": CommunitySupport,
+  "section-cards.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
   "section-cards.plaform-key-features": PlatformKeyFeaturesWrapper,
