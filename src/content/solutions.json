@@ -124,7 +124,7 @@
             "title": "Kubernetes Monitoring",
             "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
             "primaryButton": {
-               "link": "/kubernetes-observability"
+               "link": "/kubernetes-monitoring"
             },
             "items": [
               {
