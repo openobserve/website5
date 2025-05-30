@@ -42,25 +42,25 @@ export async function getCaseStudies2() {
 
 export async function getCaseStudies(params) {
   const blogs = await getAllBlogs();
-  // Filter blogs where caseStudies is true
-  const caseStudies = blogs
-    .filter((blog) => blog.caseStudies === true)
+  // Filter blogs where customerStories is true
+  const customerStories = blogs
+    .filter((blog) => blog.customerStories === true)
     .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
-  return caseStudies.slice(0, Math.min(3, caseStudies.length));
+  return customerStories.slice(0, Math.min(3, customerStories.length));
 }
 
 export async function getAllCaseStudies() {
   const blogs = await getAllBlogs();
-  // Filter blogs where caseStudies is true
-  const caseStudies = blogs.filter((blog) => blog.caseStudies === true);
-  return caseStudies;
+  // Filter blogs where customerStories is true
+  const customerStories = blogs.filter((blog) => blog.customerStories === true);
+  return customerStories;
 }
 
 export async function getBlogs(params) {
   const blogs = await getAllBlogs();
   // Filter out case studies from blogs
-  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const filteredBlogs = blogs.filter((blog) => !blog.customerStories);
 
   // Sort blogs by publishDate in descending order
   const sortedBlogs = filteredBlogs.sort(
@@ -97,7 +97,7 @@ export async function getBlogsBySlug(slug) {
 
 export async function getBlogsByAuthor(author) {
   const blogs = await getAllBlogs();
-  const newBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const newBlogs = blogs.filter((blog) => !blog.customerStories);
   return newBlogs.filter((blog) =>
     blog.authors.some((auth) => auth.slug === author)
   );
@@ -107,7 +107,7 @@ export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
 
   // Filter out case studies
-  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const filteredBlogs = blogs.filter((blog) => !blog.customerStories);
 
   // Sort by publishDate descending
   const sortedBlogs = filteredBlogs.sort(
@@ -133,7 +133,7 @@ export async function getBlogsByPagination(page, pageSize) {
 }
 
 const filterBlogsWithoutCaseStudies = (blogs) => {
-  return blogs.filter((blog) => !blog.caseStudies);
+  return blogs.filter((blog) => !blog.customerStories);
 };
 
 const filterBlogsByCategory = (blogs, categorySlug) => {
@@ -229,10 +229,10 @@ export async function getallBlogsWithoutCaseStudies() {
 }
 
 export async function getCaseStudiesByPagination(page, pageSize) {
-  const caseStudies = await getAllCaseStudies();
+  const customerStories = await getAllCaseStudies();
 
   // Sort by publishDate descending
-  const sortedcaseStudies = caseStudies.sort(
+  const sortedcaseStudies = customerStories.sort(
     (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
   );
 
