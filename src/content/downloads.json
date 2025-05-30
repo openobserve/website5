@@ -17,8 +17,7 @@
         "id": 3,
         "title": "Get Started with OpenObserve",
         "description": "Choose the deployment option that best fits your needs and start monitoring your infrastructure and applications today.",
-        "tabs": [
-          {
+        "cloudData": {
             "title": "Cloud",
             "items": [
               {
@@ -37,11 +36,11 @@
                   "link": "https://cloud.openobserve.ai/web/login",
                   "target": "_blank",
                   "class": "bg-primary-purple hover:bg-dark-purple"
-                }
               }
+            }
             ]
           },
-          {
+        "selfHostedData": {
             "title": "Self Hosted",
             "items": [
               {
@@ -79,7 +78,6 @@
               }
             ]
           }
-        ]
       }
     ],
     "seo": {
