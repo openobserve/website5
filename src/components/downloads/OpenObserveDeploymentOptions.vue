@@ -1,13 +1,13 @@
 <template>
   <CustomSection sectionClass="max-w-4xl !pt-10">
     <HeadingSection
-      :title="title"
-      :description="description"
+      :title="heading?.title"
+      :description="heading?.description"
       align="center"
       class="!mb-3c"
     />
     <div
-      class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12" 
+      class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12"
     >
       <!-- <TabsHeader
         :tabs="tabs"
@@ -18,12 +18,13 @@
       <OptionsCard :tabs="tabs" :activeTab="activeTab" /> -->
       <!-- Main Tabs -->
       <TabsHeader
-       :tabs="tabsWithSlugs"
+        :tabs="tabsWithSlugs"
         :activeTab="activeTab"
         @update:activeTab="handleTabChange"
         gridClass="grid w-full justify-center grid-cols-2 gap-2"
       />
-      <OptionsCard :tabs="tabsWithSlugs" :activeTab="activeTab" />
+      <OptionsCardCloud v-if="activeTab === 'cloud'" :data="cloudData" />
+      <OptionsCardSelfHosted v-else :data="selfHostedData" />
     </div>
   </CustomSection>
 </template>
@@ -31,6 +32,8 @@
 import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
+import OptionsCardCloud from "./OptionsCardCloud.vue";
+import OptionsCardSelfHosted from "./OptionsCardSelfHosted.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { computed, ref, watch, onMounted } from "vue";
 import { slugify } from "@/utils/slugify";
@@ -41,20 +44,36 @@ interface Tab {
 }
 
 const props = defineProps<{
-  title: string;
-  description: string;
+  heading: {
+    title: string;
+    description: string;
+  };
   buttons: Record<string, any>;
-  tabs: Tab[];
+  cloudData: {
+    type: Object;
+  };
+  selfHostedData: {
+    type: Object;
+  };
+  // tabs: Tab[];
 }>();
+
+const tabs = [
+  { title: "Cloud" },
+  { title: "Self Hosted" }
+];
 // Convert tabs to include `value` based on the slug
 const tabsWithSlugs = computed(() =>
-  props.tabs.map(tab => ({
+  tabs.map((tab) => ({
     ...tab,
-    value: slugify(tab.title)
+    value: slugify(tab.title),
   }))
 );
 // Initialize activeTab only after determining hash (not immediately to avoid flash)
-const activeTab = ref("");
+const activeTab = ref(tabsWithSlugs.value[0]?.value || "");
+const activeTabData = computed(() =>
+  tabsWithSlugs.value.find((tab) => tab.value === activeTab.value)
+);
 
 // Handle tab change and update URL hash
 function handleTabChange(value: string) {
@@ -65,7 +84,7 @@ function handleTabChange(value: string) {
 // On mount: set correct tab from URL hash if present
 onMounted(() => {
   const hash = window.location.hash.replace("#", "");
-  const found = tabsWithSlugs.value.find(tab => tab.value === hash);
+  const found = tabsWithSlugs.value.find((tab) => tab.value === hash);
   activeTab.value = found?.value || tabsWithSlugs.value[0]?.value || "";
 
   if (found) {
