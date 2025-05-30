@@ -1,6 +1,11 @@
 ---
 import Content from '@/content/pages/o2_enterprise_license.md'; // adjust path as needed
 import Layout from '@/layouts/Layout.astro';
+import fetchApi from '@/utils/strapi';
+const PageData = await fetchApi({
+  endpoint: "api/enterprise-license",
+  query: { pLevel: "5", status: "draft" },
+});
 ---
 
 <Layout>
