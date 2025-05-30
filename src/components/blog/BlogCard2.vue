@@ -23,6 +23,7 @@ const getImageUrl = ({ image }: Blog) =>
   image?.formats?.small?.url ??
   image?.url ??
   "";
+const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog.categories?.slice(0,2));
 </script>
 
 <template>
@@ -37,19 +38,19 @@ const getImageUrl = ({ image }: Blog) =>
               :alt="blog.title"
               class="object-cover transition-transform group-hover:scale-105 w-full h-full absolute inset-0"
               />  -->
-        <div class="absolute top-3 left-3">
+        <div class="absolute top-3 left-3" v-if="type === 'blog'">
           <div
             class="bg-primary-purple text-white border-none rounded-full px-3 py-1 text-xs"
           >
-            Openobserve
+            {{ blog?.category?.name }}
           </div>
         </div>
       </div>
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
+        <div class="min-h-0 flex flex-wrap gap-2 mb-2">
         <div class="flex-grow">
         <div class=" flex gap-2 mb-2.5 flex-wrap">
-          <a
-            v-for="tag in blog?.categories"
+            <a v-for=tag in tags
             :key="tag.slug"
             :href="`/blog/tag/${tag.slug}`"
             class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"

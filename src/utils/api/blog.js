@@ -1,4 +1,10 @@
-import { fetchAuthors, fetchCategories, fetchBlogs } from "../cache";
+import {
+  fetchAuthors,
+  fetchCategories,
+  fetchBlogs,
+  fetchSuperiorCategories,
+  fetchSubTagsForSuperiorCategories,
+} from "../cache";
 import { ITEMS_PER_PAGE } from "./constant";
 
 export async function getAuthorDetails(author) {
@@ -36,25 +42,25 @@ export async function getCaseStudies2() {
 
 export async function getCaseStudies(params) {
   const blogs = await getAllBlogs();
-  // Filter blogs where caseStudies is true
-  const caseStudies = blogs
-    .filter((blog) => blog.caseStudies === true)
+  // Filter blogs where customerStories is true
+  const customerStories = blogs
+    .filter((blog) => blog.customerStories === true)
     .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
-  return caseStudies.slice(0, Math.min(3, caseStudies.length));
+  return customerStories.slice(0, Math.min(3, customerStories.length));
 }
 
 export async function getAllCaseStudies() {
   const blogs = await getAllBlogs();
-  // Filter blogs where caseStudies is true
-  const caseStudies = blogs.filter((blog) => blog.caseStudies === true);
-  return caseStudies;
+  // Filter blogs where customerStories is true
+  const customerStories = blogs.filter((blog) => blog.customerStories === true);
+  return customerStories;
 }
 
 export async function getBlogs(params) {
   const blogs = await getAllBlogs();
   // Filter out case studies from blogs
-  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const filteredBlogs = blogs.filter((blog) => !blog.customerStories);
 
   // Sort blogs by publishDate in descending order
   const sortedBlogs = filteredBlogs.sort(
@@ -91,7 +97,7 @@ export async function getBlogsBySlug(slug) {
 
 export async function getBlogsByAuthor(author) {
   const blogs = await getAllBlogs();
-  const newBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const newBlogs = blogs.filter((blog) => !blog.customerStories);
   return newBlogs.filter((blog) =>
     blog.authors.some((auth) => auth.slug === author)
   );
@@ -101,7 +107,7 @@ export async function getBlogsByPagination(page, pageSize) {
   const blogs = await getAllBlogs();
 
   // Filter out case studies
-  const filteredBlogs = blogs.filter((blog) => !blog.caseStudies);
+  const filteredBlogs = blogs.filter((blog) => !blog.customerStories);
 
   // Sort by publishDate descending
   const sortedBlogs = filteredBlogs.sort(
@@ -120,19 +126,19 @@ export async function getBlogsByPagination(page, pageSize) {
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    category: blog.category,
     slug: blog.slug,
+    tags: blog.tags,
   }));
 }
 
-
 const filterBlogsWithoutCaseStudies = (blogs) => {
-  return blogs.filter((blog) => !blog.caseStudies);
+  return blogs.filter((blog) => !blog.customerStories);
 };
 
 const filterBlogsByCategory = (blogs, categorySlug) => {
   return blogs.filter((blog) =>
-    blog.categories.some((cat) => cat.slug === categorySlug)
+    blog.tags.some((cat) => cat.slug === categorySlug)
   );
 };
 
@@ -166,8 +172,9 @@ export async function getBlogsByPaginationAndCategory(
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    category: blog.category,
     slug: blog.slug,
+    tags: blog.tags,
   }));
 
   return {
@@ -193,8 +200,9 @@ export async function getBlogsByPaginationAndAuthor(page, authorSlug = null) {
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    category: blog.category,
     slug: blog.slug,
+    tags: blog.tags,
   }));
 
   return {
@@ -213,19 +221,18 @@ export async function getallBlogsWithoutCaseStudies() {
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    category: blog.category,
     slug: blog.slug,
+    tags: blog.tags,
   }));
-   return filteredBlogs;
+  return filteredBlogs;
 }
 
-
 export async function getCaseStudiesByPagination(page, pageSize) {
-  const caseStudies = await getAllCaseStudies();
-
+  const customerStories = await getAllCaseStudies();
 
   // Sort by publishDate descending
-  const sortedcaseStudies = caseStudies.sort(
+  const sortedcaseStudies = customerStories.sort(
     (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
   );
 
@@ -241,7 +248,34 @@ export async function getCaseStudiesByPagination(page, pageSize) {
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    category: blog.category,
     slug: blog.slug,
+    tags: blog.tags,
   }));
 }
+
+export const getAllSuperiorCategories = async () => {
+  const categories = await fetchSuperiorCategories();
+  return categories?.map((cat) => ({
+    name: cat.name,
+    tags: cat.tags.map((tag) => {
+      return {
+        name: tag.name,
+        slug: tag.slug,
+      };
+    }),
+  }));
+};
+
+export const getAllsubTags = async () => {
+  const tags = await fetchSubTagsForSuperiorCategories();
+  return tags?.map((tag) => ({
+    name: tag.name,
+    slug: tag.slug,
+  }));
+};
+
+export const fetchTagsDetailsForBlog = async (tag) => {
+  const tags = await fetchSubTagsForSuperiorCategories();
+  return tags.filter((it) => it.slug === tag)[0];
+};

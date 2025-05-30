@@ -4,6 +4,8 @@ import {
   getallBlogsWithoutCaseStudies,
   getAllCategories,
   getBlogsByPagination,
+  getAllSuperiorCategories,
+  getAllsubTags,
 } from "@/utils/api/blog";
 import { getTotalCounts } from "@/utils/cache";
 import { ITEMS_PER_PAGE } from "@/utils/api/constant";
@@ -14,7 +16,8 @@ import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 // Get the current page from URL parameters
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
-
+const allSuperiorCategories = await getAllSuperiorCategories();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
 // Fetch blogs data with the current page
 const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 const allBlogsData = await getallBlogsWithoutCaseStudies();
@@ -29,18 +32,15 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <CommonHerosection
-    title="Blog"
-    description=""
-    align="center"
-  />
+  <CommonHerosection title="Blog" description="" align="center" />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
-      client:only = "vue"
+      client:load
     />
+
     <BlogListingWrapper
       searchBar
       allBlogs={allBlogsData}
@@ -48,7 +48,7 @@ const metaObj = {
       totalItems={count.blogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
-      client:only = "vue"
+      client:only="vue"
     />
   </CustomSection>
 </Layout>

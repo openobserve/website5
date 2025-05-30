@@ -1,7 +1,10 @@
 ---
 import {
   getAllAuthors,
+  getallBlogsWithoutCaseStudies,
   getAllCategories,
+  getAllsubTags,
+  getAllSuperiorCategories,
   getAuthorDetails,
   getBlogsByPaginationAndAuthor,
 } from "@/utils/api/blog";
@@ -31,6 +34,9 @@ const auth = await getAuthorDetails(author);
 
 // ✅ Fetch other required data
 const suggestionData = await getAllCategories();
+const allSuperiorCategories = await getAllSuperiorCategories();
+const allsubTagsBasedonSuperiorTags = await getAllsubTags();
+const allBlogsData = await getallBlogsWithoutCaseStudies();
 
 const metaObj = {
   title:
@@ -39,21 +45,22 @@ const metaObj = {
 ---
 
 <Layout metaObj={metaObj}>
-  <CommonHerosection 
+  <CommonHerosection
     title="Blog"
     description={`Post by the author: ${auth?.name}`}
     align="center"
   />
   <CustomSection sectionClass="">
     <BlogCategoryListing
-      categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
-        []}
-      allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) || []}
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
       client:load
     />
 
     <BlogsListingWrapper
+      searchBar
+      allBlogs={allBlogsData}
       type="blog"
       blogsData={blogs}
       totalItems={totalBlogs}

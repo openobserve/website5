@@ -6,7 +6,6 @@ export const handleBlogSearch = async (
   if (!searchText?.trim()) {
     return blogsWithPagination; // Return paginated blogs if no search text
   }
-
   const filteredBlogs =
     allBlogs?.filter((blog) =>
       blog.title.toLowerCase().includes(searchText.toLowerCase())
