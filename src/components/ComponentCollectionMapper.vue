@@ -75,7 +75,7 @@ const componentsMap = computed(() => ({
   "section-features.technology": CareerTechnology,
   "section-features.cta": CTA,
   "section-features.feature-left-tabs": VerticalTabs,
-  "section-solutions.tabs": HorizontalTabsWrapper,
+  "section-features.feature-sub-page-top-tabs": HorizontalTabsWrapper,
   "section-features.tabs-features": CapabilityTabs,
   "section-solutions.faqs": FaqsWrapper,
   "section-hero.cta-buttons": CTA,
