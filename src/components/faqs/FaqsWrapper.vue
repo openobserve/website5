@@ -2,15 +2,15 @@
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
     <CustomSection sectionClass="max-w-4xl">
-      <!-- <HeadingSection :title="title" :description="description" align="CENTER" v-if="title || description" /> -->
+      <HeadingSection :title="title" :description="description" align="CENTER" v-if="title || description" />
       <!-- Add SearchBar component here -->
       <TabsHeader v-if="tabItems.length > 0" :tabs="tabItems" :activeTab="activeTab" @update:activeTab="updateActiveTab"
         gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2 mt-5" />
       <SearchBar @search="handleSearch" />
 
-      <FaqList v-if="filteredfaqs.length > 0" :faqList="filteredfaqs"  :key="activeTab.title"  />
+      <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions"  :key="activeTab"  />
       <div v-else class="text-center text-gray-500">
-        No faqs found for your search
+        No questions found for your search
       </div>
     </CustomSection>
   </div>
@@ -26,14 +26,14 @@ import CustomSection from '../core/CustomSection.vue'
 import { slugify } from '@/utils/slugify'
 
 const props = defineProps({
-  // title: {
-  //   type: String,
-  //   default: ''
-  // },
-  // description: {
-  //   type: String,
-  //   default: ''
-  // },
+  title: {
+    type: String,
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
+  },
   items: {
     type: Array,
     default: () => []
@@ -46,12 +46,12 @@ const props = defineProps({
 
 const tabItems = computed(() => {
   return props.items.map(item => ({
-    title: item.title,
-    value: slugify(item.title)
+    title: item.label,
+    value: slugify(item.label)
   }))
 })
 const searchTerm = ref('')
-const activeTab = ref(tabItems.value[0]?.title || '')
+const activeTab = ref(tabItems.value[0]?.value || '')
 
 // Create tab items
 
@@ -66,23 +66,24 @@ const handleSearch = (term) => {
   searchTerm.value = term
 }
 
-// Filter faqs based on active tab and search term
-const filteredfaqs = computed(() => {
+// Filter questions based on active tab and search term
+const filteredQuestions = computed(() => {
   if (!activeTab.value) return []
 
-  // Get faqs for active category
+  // Get questions for active category
   const activeCategory = props.items.find(
-    item => slugify(item.title) === activeTab.value
+    item => slugify(item.label) === activeTab.value
   )
-  let faqs = activeCategory?.faqs || []
+  let questions = activeCategory?.faqs || []
+
   // Apply search filter if there's a search term
   if (searchTerm.value) {
-    faqs = faqs.filter(q =>
+    questions = questions.filter(q =>
       q.question.toLowerCase().includes(searchTerm.value) ||
       (q.answer && q.answer.toLowerCase().includes(searchTerm.value))
     )
   }
 
-  return faqs
+  return questions
 })
 </script>
