@@ -25,11 +25,10 @@ const props = defineProps({
     type: Object,
   },
   blogImage: {
-    type: String,
+    type: Object,
   required: true
   }
 });
-
 // Reactive variables
 const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
@@ -294,7 +293,7 @@ onMounted(() => {
       <div class="flex flex-col w-full lg:w-[70%] text-left order-2 lg:order-none">
         <!-- Blog image -->
         <section class="mb-6">
-          <img :src="blogImage" :alt="title"
+          <img :src="blogImage?.url" :alt="blogImage?.alternativeText||blogImage?.name"
             class="object-cover object-center rounded-lg w-full lg:w-auto bg-white max-h-[60vh] shadow-xl" />
         </section>
         <!-- Blog content -->

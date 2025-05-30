@@ -3,8 +3,8 @@
     <div class="mt-8">
       <div
         v-for="tab in tabs"
-        :key="'content-' + tab.title"
-        v-show="activeTab === tab.title"
+        :key="'content-' + tab.value"
+        v-show="activeTab === tab.value"
       >
         <div
           class="p-6 flex flex-col lg:flex-row items-center justify-between w-full gap-4"
@@ -36,22 +36,31 @@
           </div>
           <div class="w-full lg:w-1/2">
             <div
-                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.card.image)">
-                  <img :src="tab.featureImage" :alt="tab.title" class="w-full h-auto object-cover rounded-lg"
-                    style="image-rendering: auto;" />
-                </div>
+              class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in"
+              @click="openPopup(tab.featureImage)"
+            >
+              <img
+                :src="tab.featureImage"
+                :alt="tab.title"
+                class="w-full h-auto object-cover rounded-lg"
+                style="image-rendering: auto"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-    <ImagePopup :src="popupImageSrc" :visible="showPopup" @close="showPopup = false" />
-
+  <ImagePopup
+    :src="popupImageSrc"
+    :visible="showPopup"
+    @close="showPopup = false"
+  />
 </template>
 
 <script setup>
 import { CheckCircle } from "lucide-vue-next";
-import ImagePopup from '@/components/core/ImagePopup.vue' 
+import ImagePopup from "@/components/core/ImagePopup.vue";
 import { ref } from "vue";
 defineProps({
   tabs: {
@@ -64,12 +73,12 @@ defineProps({
   },
 });
 
-const showPopup = ref(false)
-const popupImageSrc = ref("")
+const showPopup = ref(false);
+const popupImageSrc = ref("");
 
 function openPopup(src) {
-  popupImageSrc.value = src
-  showPopup.value = true
+  popupImageSrc.value = src;
+  showPopup.value = true;
 }
 </script>
 

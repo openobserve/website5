@@ -8,15 +8,11 @@ const props = defineProps({
     type: Object,
     required: false,
   },
-  image: {
-    type: String,
+  button: {
+    type: Object,
     required: false,
   },
-  btnValues: {
-    type: String,
-    required: false,
-  },
-  data: {
+  items: {
     type: Array,
     required: true,
     default: () => [],
@@ -45,7 +41,7 @@ const props = defineProps({
 
       <!-- Card rendering based on activeTab -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <CardWithSideIcon v-for="(item, index) in data" :key="index" :card="item" :headingLevel="headingLevel" class="w-full h-full"
+            <CardWithSideIcon v-for="(item, index) in items" :key="index" :card="item" :headingLevel="headingLevel" class="w-full h-full"
             />
       </div>
     </CustomSection>

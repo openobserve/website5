@@ -1,26 +1,27 @@
 <template>
-  <div
-    :key="item.slug"
-    class="flex flex-col overflow-hidden rounded-lg shadow-md"
-  >
-    <div class="relative h-48 overflow-hidden">
-      <CustomBlurImage :image="getImageUrl(item)" :altText="item.title" />
-    </div>
-    <!-- Content section -->
+  <a :href="`/customer-stories/${item.slug}`" class="w-full border hover:border-primary-purple rounded-lg transistion-colors duration-300 ease-in-out">
+    <div
+      :key="item.slug"
+      class="flex flex-col overflow-hidden rounded-lg shadow-md h-full"
+    >
+      <div class="relative h-48 overflow-hidden">
+        <CustomBlurImage :image="getImageUrl(item)" :altText="item.title" />
+      </div>
+      <!-- Content section -->
 
-    <div class="bg-white p-6 flex-1 flex flex-col">
-      <component
-        :is="`h${headingLevel}`"
-        class="text-lg font-semibold flex-grow mb-2"
-      >
-        {{ item?.title }}
-      </component>
-      <p class="text-primary-gray mb-3 text-base">
-        {{ item?.description?.slice(0, 200)
-        }}<span v-if="item?.description?.length > 200">...</span>
-      </p>
+      <div class="bg-white p-6 flex-1 flex flex-col">
+        <component
+          :is="`h${headingLevel}`"
+          class="text-lg font-semibold flex-grow mb-2"
+        >
+          {{ item?.title }}
+        </component>
+        <p class="text-primary-gray mb-3 text-base">
+          {{ item?.description?.slice(0, 200)
+          }}<span v-if="item?.description?.length > 200">...</span>
+        </p>
 
-      <!-- <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
+        <!-- <div class="flex items-center mt-auto mb-6 gap-2" v-for="it in item.authors">
         <div
           class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
         >
@@ -37,13 +38,9 @@
           <p class="text-muted-foreground text-xs">{{ item.publishDate }}</p>
         </div>
       </div> -->
-      <a
-        :href="`/customer-stories/${item.slug}`"
-        class="text-sm font-medium w-full text-center py-2 px-4 border border-gray-200 hover:bg-gray-50 rounded-md transition-colors duration-200 ease-in-out"
-        >Read Story <span class="sr-only">about {{ item.title }}</span></a
-      >
+      </div>
     </div>
-  </div>
+  </a>
 </template>
 <script setup lang="ts">
 import type { CaseStudies } from "@/types/case-studies";

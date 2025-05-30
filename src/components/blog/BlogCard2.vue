@@ -48,11 +48,12 @@ const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog
       </div>
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
         <div class="min-h-0 flex flex-wrap gap-2 mb-2">
-          <a
-            v-for="tag in tags"
+        <div class="flex-grow">
+        <div class=" flex gap-2 mb-2.5 flex-wrap">
+            <a v-for=tag in tags
             :key="tag.slug"
             :href="`/blog/tag/${tag.slug}`"
-            class="bg-light-gray text-primary-gray text-sm font-medium rounded-full px-3 py-1 capitalize"
+            class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"
           >
             {{ tag.name }}
           </a>
@@ -66,6 +67,7 @@ const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog
         <p class="text-primary-gray mb-3 text-base line-clamp-3">
           {{ blog?.description }}
         </p>
+        </div>
         <div class="w-full h-px bg-gray-200 my-3" v-if="type === 'blog'"></div>
         <div
           class="flex items-center flex-wrap gap-2 mt-auto w-full"

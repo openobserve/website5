@@ -18,8 +18,8 @@
           "variant": "secondary"
         },
         "image": {
-          "url":"/img/platform-logs/logs-hero.png",
-          "altText": "OpenObserve Logs Dashboard"       
+          "url": "/img/platform-logs/logs-hero.png",
+          "altText": "OpenObserve Logs Dashboard"
         }
       },
       {
@@ -50,7 +50,7 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Logs",
           "description": "Scale from gigabytes to petabytes while dramatically reducing costs."
         },
@@ -60,69 +60,67 @@
             "title": "Real-Time Analytics",
             "tabImage": "/img/platform-logs/real-time-analaytics.svg",
             "items": [
-                {
-                  "title": "Instant Ingest-to-dashboard",
-                  "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
-                },
-                {
-                  "title": "Log-centric Visualizations",
-                  "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
-                }
-              ],
-              "featureImage": "/img/platform-logs/logs-visualizer.png"
+              {
+                "title": "Instant Ingest-to-dashboard",
+                "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
+              },
+              {
+                "title": "Log-centric Visualizations",
+                "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
+              }
+            ],
+            "featureImage": "/img/platform-logs/logs-visualizer.png"
           },
           {
             "title": "Powerful Search",
             "tabImage": "/img/platform-logs/powerful-search.svg",
-              "items": [
-                {
-                  "title": "Instantaneous Text Search",
-                  "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
-                },
-                {
-                  "title": "Simple, Yet Precise Queries",
-                  "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
-                }
-              ],
-              "featureImage": "/img/platform-logs/logs-sqlquery.png"
+            "items": [
+              {
+                "title": "Instantaneous Text Search",
+                "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
+              },
+              {
+                "title": "Simple, Yet Precise Queries",
+                "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
+              }
+            ],
+            "featureImage": "/img/platform-logs/logs-sqlquery.png"
           },
           {
             "title": "Log Processing",
             "tabImage": "/img/platform-logs/log-processing.svg",
             "items": [
-                {
-                  "title": " Automated Parsing",
-                  "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
-                },
-                {
-                  "title": "Flexible Transformation Pipeline",
-                  "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
-                }
-              ],
-              "featureImage": "/img/platform-logs/logs-pipelines.png"
+              {
+                "title": " Automated Parsing",
+                "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
+              },
+              {
+                "title": "Flexible Transformation Pipeline",
+                "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
+              }
+            ],
+            "featureImage": "/img/platform-logs/logs-pipelines.png"
           },
           {
             "title": "Optimized Storage",
             "tabImage": "/img/platform-logs/optimized-storage.svg",
-              "items": [
-                {
-                  "title": "Industry-Leading Compression",
-                  "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
-                },
-                {
-                  "title": "Retention Management",
-                  "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
-                }
-              ],
-              "featureImage": "/img/platform-logs/logs-settings.png"
+            "items": [
+              {
+                "title": "Industry-Leading Compression",
+                "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
+              },
+              {
+                "title": "Retention Management",
+                "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
+              }
+            ],
+            "featureImage": "/img/platform-logs/logs-settings.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Logs FAQs"
-        },
+        "label": "Logs FAQs",
         "background": true,
         "faqs": [
           {
@@ -166,9 +164,9 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-         "heading": {
+        "heading": {
           "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability."
+          "description": "Try OpenObserve today for more efficient and performant observability."
         },
         "primaryButton": {
           "text": "Get Started For Free",
@@ -217,7 +215,7 @@
           "variant": "secondary"
         },
         "image": {
-          "url":"/img/platform-metrics/metrics-hero.png",
+          "url": "/img/platform-metrics/metrics-hero.png",
           "altText": "OpenObserve Metrics Dashboard"
         }
       },
@@ -237,7 +235,7 @@
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
             "theme": "theme-red",
-            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_742_41)\"><path d=\"M14.4861 3.143C14.7414 3.21479 14.9576 3.38501 15.0874 3.61623C15.2172 3.84744 15.2498 4.12073 15.1781 4.376L10.7481 20.164C10.7127 20.2905 10.6526 20.4087 10.5715 20.512C10.4903 20.6152 10.3896 20.7015 10.2751 20.7659C10.1606 20.8302 10.0346 20.8714 9.90419 20.887C9.77378 20.9027 9.64157 20.8925 9.51511 20.857C9.38865 20.8215 9.27041 20.7615 9.16714 20.6804C9.06387 20.5992 8.9776 20.4985 8.91325 20.384C8.8489 20.2695 8.80773 20.1435 8.79209 20.0131C8.77645 19.8827 8.78665 19.7505 8.82211 19.624L13.2521 3.836C13.2875 3.70942 13.3476 3.59107 13.4288 3.48771C13.51 3.38435 13.6108 3.29803 13.7254 3.23366C13.84 3.1693 13.9662 3.12816 14.0967 3.1126C14.2273 3.09705 14.3596 3.10738 14.4861 3.143ZM7.20711 7.05C7.39458 7.23753 7.4999 7.49184 7.4999 7.757C7.4999 8.02217 7.39458 8.27647 7.20711 8.464L3.67211 12L7.20711 15.535C7.30002 15.6278 7.37373 15.7381 7.42404 15.8594C7.47435 15.9807 7.50027 16.1108 7.50031 16.2421C7.50036 16.3735 7.47453 16.5036 7.42431 16.6249C7.37409 16.7463 7.30046 16.8566 7.20761 16.9495C7.11477 17.0424 7.00453 17.1161 6.8832 17.1664C6.76187 17.2167 6.63181 17.2427 6.50046 17.2427C6.36912 17.2428 6.23904 17.2169 6.11768 17.1667C5.99631 17.1165 5.88602 17.0428 5.79311 16.95L1.55011 12.707C1.36264 12.5195 1.25732 12.2652 1.25732 12C1.25732 11.7348 1.36264 11.4805 1.55011 11.293L5.79311 7.05C5.98064 6.86253 6.23495 6.75722 6.50011 6.75722C6.76528 6.75722 7.01958 6.86253 7.20711 7.05ZM16.7931 8.464C16.6976 8.37176 16.6214 8.26141 16.569 8.13941C16.5166 8.0174 16.489 7.88618 16.4879 7.7534C16.4867 7.62062 16.512 7.48894 16.5623 7.36605C16.6126 7.24315 16.6868 7.1315 16.7807 7.03761C16.8746 6.94371 16.9863 6.86946 17.1092 6.81918C17.2321 6.7689 17.3637 6.7436 17.4965 6.74475C17.6293 6.74591 17.7605 6.77349 17.8825 6.8259C18.0045 6.87831 18.1149 6.95449 18.2071 7.05L22.4501 11.293C22.6376 11.4805 22.7429 11.7348 22.7429 12C22.7429 12.2652 22.6376 12.5195 22.4501 12.707L18.2071 16.95C18.0195 17.1375 17.765 17.2428 17.4998 17.2427C17.2345 17.2426 16.9801 17.1371 16.7926 16.9495C16.6051 16.7619 16.4998 16.5074 16.4999 16.2421C16.5 15.9769 16.6055 15.7225 16.7931 15.535L20.3281 12L16.7931 8.464Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_742_41\"><rect width=\"24\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>"
           },
           {
             "title": "OTel-native Metrics",
@@ -249,7 +247,7 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Metrics",
           "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments."
         },
@@ -258,70 +256,68 @@
           {
             "title": "Metrics Collection & Analysis",
             "tabImage": "/img/platform-metrics/metrics-collection-analysis.svg",
-              "items": [
-                {
-                  "title": "Effortless Collection",
-                  "description": "Ingest metrics from any source with minimal overhead via Prometheus remote-write, OpenTelemetry, or direct API integration."
-                },
-                {
-                  "title": "Real-Time Insights",
-                  "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/metrics-datasources.png"
+            "items": [
+              {
+                "title": "Effortless Collection",
+                "description": "Ingest metrics from any source with minimal overhead via Prometheus remote-write, OpenTelemetry, or direct API integration."
+              },
+              {
+                "title": "Real-Time Insights",
+                "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/metrics-datasources.png"
           },
           {
             "title": "Prometheus Integration",
             "tabImage": "/img/platform-metrics/metrices-prometheus-integration.svg",
             "items": [
-                {
-                  "title": "Native Compatibility",
-                  "description": "Connect with Prometheus endpoints using full remote write protocol support and your existing configurations."
-                },
-                {
-                  "title": "Flexible Querying",
-                  "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/metrics-promql.png"
+              {
+                "title": "Native Compatibility",
+                "description": "Connect with Prometheus endpoints using full remote write protocol support and your existing configurations."
+              },
+              {
+                "title": "Flexible Querying",
+                "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/metrics-promql.png"
           },
           {
             "title": "Metrics Processing Advanced",
             "tabImage": "/img/platform-metrics/metrics-processing.svg",
-              "items": [
-                {
-                  "title": "Aggregations",
-                  "description": "Process time-series data with powerful calculations including rates, moving averages, and percentile analysis using either PromQL or SQL."
-                },
-                {
-                  "title": "Downsampling",
-                  "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
+            "items": [
+              {
+                "title": "Aggregations",
+                "description": "Process time-series data with powerful calculations including rates, moving averages, and percentile analysis using either PromQL or SQL."
+              },
+              {
+                "title": "Downsampling",
+                "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
           },
           {
-           "title": "Optimized Storage",
+            "title": "Optimized Storage",
             "tabImage": "/img/platform-traces/trace-optimized-storage.svg",
-              "items": [
-                {
-                  "title": "Columnar Storage",
-                  "description": "Cut storage costs while maintaining query speed through OpenObserve’s columnar format designed for time-series data."
-                },
-                {
-                  "title": "Configurable Retention",
-                  "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/metrics-settings.png"
+            "items": [
+              {
+                "title": "Columnar Storage",
+                "description": "Cut storage costs while maintaining query speed through OpenObserve’s columnar format designed for time-series data."
+              },
+              {
+                "title": "Configurable Retention",
+                "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/metrics-settings.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Metrics FAQs"
-        },
+        "label": "Metrics FAQs",
         "background": true,
         "faqs": [
           {
@@ -365,7 +361,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },
@@ -415,10 +411,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image":{
-        "url":"/img/platform-traces/traces-hero.png",
-        "altText": "OpenObserve Traces Dashboard"
-        } 
+        "image": {
+          "url": "/img/platform-traces/traces-hero.png",
+          "altText": "OpenObserve Traces Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -448,7 +444,7 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Traces",
           "description": ""
         },
@@ -457,70 +453,68 @@
           {
             "title": "Trace Collection",
             "tabImage": "/img/platform-traces/trace-collection.svg",
-              "items": [
-                {
-                  "title": "OpenTelemetry Integration",
-                  "description": "Collect traces through native OTLP (OpenTelemetry Protocol). Instrument applications once and export traces directly to OpenObserve—no vendor lock-in."
-                },
-                {
-                  "title": "Auto-instrumentation",
-                  "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
-                }
-              ],
-              "featureImage": "/img/platform-traces/traces-datasources.png"
+            "items": [
+              {
+                "title": "OpenTelemetry Integration",
+                "description": "Collect traces through native OTLP (OpenTelemetry Protocol). Instrument applications once and export traces directly to OpenObserve—no vendor lock-in."
+              },
+              {
+                "title": "Auto-instrumentation",
+                "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
+              }
+            ],
+            "featureImage": "/img/platform-traces/traces-datasources.png"
           },
           {
             "title": "Service Analysis",
             "tabImage": "img/platform-traces/trace-service-analysis.svg",
-              "items": [
-                {
-                  "title": "Dependency Mapping",
-                  "description": "See your microservices in action. Real-time service maps reveal how your systems truly connect."
-                },
-                {
-                  "title": "Performance Insights",
-                  "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
-                }
-              ],
-              "featureImage": "/img/platform-traces/traces-service-map.png"
+            "items": [
+              {
+                "title": "Dependency Mapping",
+                "description": "See your microservices in action. Real-time service maps reveal how your systems truly connect."
+              },
+              {
+                "title": "Performance Insights",
+                "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
+              }
+            ],
+            "featureImage": "/img/platform-traces/traces-service-map.png"
           },
           {
             "title": "Trace Analysis",
             "tabImage": "/img/platform-traces/trace-analysis.svg",
-              "items": [
-                {
-                  "title": "Detailed Spans",
-                  "description": "Dive deep into every operation—examine spans with precise timing, tags, and logs. One click takes you from overview metrics to the exact problematic trace span."
-                },
-                {
-                  "title": "Context Propagation",
-                  "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
-                }
-              ],
-              "featureImage": "/img/platform-traces/traces-event.png"
+            "items": [
+              {
+                "title": "Detailed Spans",
+                "description": "Dive deep into every operation—examine spans with precise timing, tags, and logs. One click takes you from overview metrics to the exact problematic trace span."
+              },
+              {
+                "title": "Context Propagation",
+                "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
+              }
+            ],
+            "featureImage": "/img/platform-traces/traces-event.png"
           },
           {
             "title": "Optimized Storage",
             "tabImaage": "/img/platform-traces/trace-optimized-storage.svg",
-              "items": [
-                {
-                  "title": "Efficient Storage",
-                  "description": "Slash storage costs to 1/140th of Elasticsearch with Apache Parquet's powerful columnar format. Get exceptional compression without sacrificing lightning-fast query performance."
-                },
-                {
-                  "title": "Flexible Retention",
-                  "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
-                }
-              ],
-              "featureImage": "/img/platform-traces/traces-settings.png"
-            }
+            "items": [
+              {
+                "title": "Efficient Storage",
+                "description": "Slash storage costs to 1/140th of Elasticsearch with Apache Parquet's powerful columnar format. Get exceptional compression without sacrificing lightning-fast query performance."
+              },
+              {
+                "title": "Flexible Retention",
+                "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
+              }
+            ],
+            "featureImage": "/img/platform-traces/traces-settings.png"
+          }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Traces FAQs"
-        },
+        "label": "Traces FAQs",
         "background": true,
         "faqs": [
           {
@@ -564,7 +558,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },
@@ -614,10 +608,10 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image":{ 
-        "url": "/img/platform-frontend-monitoring/frontend-webvitals.png",
-        "altText": "OpenObserve Frontend Monitoring Dashboard"
-      }
+        "image": {
+          "url": "/img/platform-frontend-monitoring/frontend-webvitals.png",
+          "altText": "OpenObserve Frontend Monitoring Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -628,8 +622,7 @@
           {
             "title": "Unified Observability",
             "description": "Consolidate your frontend observability alongside your application performance and infrastructure health",
-            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_667_53)\"><path d=\"M13.7094 9.86666C13.305 11.1153 12.5023 12.1968 11.4243 12.9455C10.3463 13.6943 9.05262 14.0689 7.74138 14.012C6.43014 13.9551 5.17372 13.4698 4.16467 12.6305C3.15561 11.7913 2.44958 10.6443 2.15478 9.36533L3.28945 9.14133L1.12945 6.90666L-0.0012207 9.796L1.19478 9.56133C1.52856 11.0627 2.3475 12.4123 3.52503 13.4016C4.70257 14.391 6.17316 14.965 7.70956 15.0349C9.24595 15.1049 10.7626 14.6669 12.0252 13.7886C13.2878 12.9104 14.2259 11.6408 14.6948 10.176L13.7094 9.86666ZM14.8241 6.48C14.4902 4.97873 13.6711 3.62922 12.4935 2.64002C11.3158 1.65081 9.8452 1.07697 8.30882 1.00717C6.77244 0.93737 5.25584 1.37549 3.99336 2.25384C2.73089 3.13218 1.79282 4.40186 1.32411 5.86666L2.27478 6.176C2.67912 4.92738 3.48172 3.84578 4.55958 3.09694C5.63744 2.34811 6.93111 1.97334 8.24234 2.03009C9.55356 2.08683 10.81 2.57194 11.8192 3.41108C12.8283 4.25023 13.5345 5.39712 13.8294 6.676L12.6948 6.90133L14.8548 9.13066L15.9988 6.24533L14.8241 6.48Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.56012 7.90667C5.77878 4.80267 10.2214 4.80267 11.4401 7.90667C10.2214 11.0107 5.77878 11.0107 4.56012 7.90667ZM12.4734 7.82267C11.0601 3.49734 4.94012 3.49734 3.52678 7.82267C3.50898 7.8768 3.50898 7.93521 3.52678 7.98934C4.94012 12.316 11.0601 12.316 12.4734 7.98934C12.4913 7.93521 12.4913 7.8768 12.4734 7.82267Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8 7.39999C7.93434 7.39999 7.86932 7.41293 7.80866 7.43805C7.748 7.46318 7.69288 7.50001 7.64645 7.54644C7.60002 7.59287 7.56319 7.64799 7.53806 7.70865C7.51293 7.76931 7.5 7.83433 7.5 7.89999C7.5 7.96565 7.51293 8.03067 7.53806 8.09134C7.56319 8.152 7.60002 8.20712 7.64645 8.25355C7.69288 8.29998 7.748 8.33681 7.80866 8.36193C7.86932 8.38706 7.93434 8.39999 8 8.39999C8.13261 8.39999 8.25979 8.34732 8.35355 8.25355C8.44732 8.15978 8.5 8.0326 8.5 7.89999C8.5 7.76739 8.44732 7.64021 8.35355 7.54644C8.25979 7.45267 8.13261 7.39999 8 7.39999ZM6.5 7.89999C6.5 7.50217 6.65804 7.12064 6.93934 6.83933C7.22064 6.55803 7.60218 6.39999 8 6.39999C8.39782 6.39999 8.77936 6.55803 9.06066 6.83933C9.34196 7.12064 9.5 7.50217 9.5 7.89999C9.5 8.29782 9.34196 8.67935 9.06066 8.96065C8.77936 9.24196 8.39782 9.39999 8 9.39999C7.60218 9.39999 7.22064 9.24196 6.93934 8.96065C6.65804 8.67935 6.5 8.29782 6.5 7.89999Z\" fill=\"currentColor\"/></g><defs><clipPath id=\"clip0_667_53\"><rect width=\"16\" height=\"16\" fill=\"white\"/></clipPath></defs></svg>"
-,
+            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_667_53)\"><path d=\"M13.7094 9.86666C13.305 11.1153 12.5023 12.1968 11.4243 12.9455C10.3463 13.6943 9.05262 14.0689 7.74138 14.012C6.43014 13.9551 5.17372 13.4698 4.16467 12.6305C3.15561 11.7913 2.44958 10.6443 2.15478 9.36533L3.28945 9.14133L1.12945 6.90666L-0.0012207 9.796L1.19478 9.56133C1.52856 11.0627 2.3475 12.4123 3.52503 13.4016C4.70257 14.391 6.17316 14.965 7.70956 15.0349C9.24595 15.1049 10.7626 14.6669 12.0252 13.7886C13.2878 12.9104 14.2259 11.6408 14.6948 10.176L13.7094 9.86666ZM14.8241 6.48C14.4902 4.97873 13.6711 3.62922 12.4935 2.64002C11.3158 1.65081 9.8452 1.07697 8.30882 1.00717C6.77244 0.93737 5.25584 1.37549 3.99336 2.25384C2.73089 3.13218 1.79282 4.40186 1.32411 5.86666L2.27478 6.176C2.67912 4.92738 3.48172 3.84578 4.55958 3.09694C5.63744 2.34811 6.93111 1.97334 8.24234 2.03009C9.55356 2.08683 10.81 2.57194 11.8192 3.41108C12.8283 4.25023 13.5345 5.39712 13.8294 6.676L12.6948 6.90133L14.8548 9.13066L15.9988 6.24533L14.8241 6.48Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.56012 7.90667C5.77878 4.80267 10.2214 4.80267 11.4401 7.90667C10.2214 11.0107 5.77878 11.0107 4.56012 7.90667ZM12.4734 7.82267C11.0601 3.49734 4.94012 3.49734 3.52678 7.82267C3.50898 7.8768 3.50898 7.93521 3.52678 7.98934C4.94012 12.316 11.0601 12.316 12.4734 7.98934C12.4913 7.93521 12.4913 7.8768 12.4734 7.82267Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8 7.39999C7.93434 7.39999 7.86932 7.41293 7.80866 7.43805C7.748 7.46318 7.69288 7.50001 7.64645 7.54644C7.60002 7.59287 7.56319 7.64799 7.53806 7.70865C7.51293 7.76931 7.5 7.83433 7.5 7.89999C7.5 7.96565 7.51293 8.03067 7.53806 8.09134C7.56319 8.152 7.60002 8.20712 7.64645 8.25355C7.69288 8.29998 7.748 8.33681 7.80866 8.36193C7.86932 8.38706 7.93434 8.39999 8 8.39999C8.13261 8.39999 8.25979 8.34732 8.35355 8.25355C8.44732 8.15978 8.5 8.0326 8.5 7.89999C8.5 7.76739 8.44732 7.64021 8.35355 7.54644C8.25979 7.45267 8.13261 7.39999 8 7.39999ZM6.5 7.89999C6.5 7.50217 6.65804 7.12064 6.93934 6.83933C7.22064 6.55803 7.60218 6.39999 8 6.39999C8.39782 6.39999 8.77936 6.55803 9.06066 6.83933C9.34196 7.12064 9.5 7.50217 9.5 7.89999C9.5 8.29782 9.34196 8.67935 9.06066 8.96065C8.77936 9.24196 8.39782 9.39999 8 9.39999C7.60218 9.39999 7.22064 9.24196 6.93934 8.96065C6.65804 8.67935 6.5 8.29782 6.5 7.89999Z\" fill=\"currentColor\"/></g><defs><clipPath id=\"clip0_667_53\"><rect width=\"16\" height=\"16\" fill=\"white\"/></clipPath></defs></svg>",
             "theme": "theme-blue"
           },
           {
@@ -637,20 +630,18 @@
             "description": "See exactly how users experience your site— click-by-click",
             "theme": "theme-red",
             "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.0001 5.33334C13.0334 5.33334 12.4934 6.29334 12.7134 7.00668L10.3467 9.38001C10.1467 9.32001 9.85341 9.32001 9.65341 9.38001L7.95341 7.68001C8.18008 6.96668 7.64008 6.00001 6.66675 6.00001C5.70008 6.00001 5.15341 6.96001 5.38008 7.68001L2.34008 10.7133C1.62675 10.4933 0.666748 11.0333 0.666748 12C0.666748 12.7333 1.26675 13.3333 2.00008 13.3333C2.96675 13.3333 3.50675 12.3733 3.28675 11.66L6.32008 8.62001C6.52008 8.68001 6.81342 8.68001 7.01342 8.62001L8.71342 10.32C8.48675 11.0333 9.02675 12 10.0001 12C10.9667 12 11.5134 11.04 11.2867 10.32L13.6601 7.95334C14.3734 8.17334 15.3334 7.63334 15.3334 6.66668C15.3334 5.93334 14.7334 5.33334 14.0001 5.33334Z\" fill=\"currentColor\"/><path d=\"M10.0001 6L10.6267 4.62L12.0001 4L10.6267 3.38L10.0001 2L9.38675 3.38L8.00008 4L9.38675 4.62L10.0001 6ZM2.33341 7.33333L2.66675 6L4.00008 5.66667L2.66675 5.33333L2.33341 4L2.00008 5.33333L0.666748 5.66667L2.00008 6L2.33341 7.33333Z\" fill=\"currentColor\"/></svg>"
-
           },
           {
             "title": "Simple Implementation",
             "description": "Add one JavaScript snippet to your HTML and start collecting real user experience data immediately",
             "theme": "theme-green",
             "image": "<svg width=\"16\" height=\"14\" viewBox=\"0 0 16 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.3335 7H5.3395M7.99683 7H8.0035M10.6608 7H10.6668M12.0002 13C12.8215 13 13.4875 12.2327 13.4875 11.286C13.4875 9.78733 13.4208 8.79133 14.4488 7.606C14.7395 7.27133 14.7395 6.72867 14.4488 6.394C13.4208 5.20933 13.4875 4.21267 13.4875 2.714C13.4875 1.76733 12.8215 1 12.0002 1M4.00016 13C3.17883 13 2.51283 12.2327 2.51283 11.286C2.51283 9.78733 2.5795 8.79133 1.5515 7.606C1.26083 7.27133 1.26083 6.72867 1.5515 6.394C2.55683 5.23533 2.51283 4.22667 2.51283 2.71333C2.51283 1.76733 3.17883 1 4.00016 1\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
-
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Frontend Monitoring"
         },
         "background": true,
@@ -658,72 +649,68 @@
           {
             "title": "User Experience Monitoring",
             "tabImage": "/img/platform-frontend-monitoring/user-experiment-monitoring.svg",
-              "items": [
-                {
-                  "title": "Performance Metrics",
-                  "description": "Track vital web metrics that impact your users most —page load times, First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI)."
-                },
-                {
-                  "title": "User Journey Analysis",
-                  "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
-                }
-              ],
-              "featureImage": "/img/platform-frontend-monitoring/session-replay.png"
+            "items": [
+              {
+                "title": "Performance Metrics",
+                "description": "Track vital web metrics that impact your users most —page load times, First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI)."
+              },
+              {
+                "title": "User Journey Analysis",
+                "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
+              }
+            ],
+            "featureImage": "/img/platform-frontend-monitoring/session-replay.png"
           },
           {
             "title": "Error Tracking",
             "tabImage": "/img/platform-frontend-monitoring/error-tracking.svg",
-              "items": [
-                {
-                  "title": "Error Capture",
-                  "description": "Catch every frontend issue—with complete stack traces, browser details, and the exact user actions that triggered them."
-                },
-                {
-                  "title": "Impact Analysis",
-                  "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
-                }
-              ],
-              "featureImage": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
+            "items": [
+              {
+                "title": "Error Capture",
+                "description": "Catch every frontend issue—with complete stack traces, browser details, and the exact user actions that triggered them."
+              },
+              {
+                "title": "Impact Analysis",
+                "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
+              }
+            ],
+            "featureImage": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
           },
           {
             "title": "Performance Analysis",
             "tabImage": "/img/platform-frontend-monitoring/performance-analaysis.svg",
-              "items": [
-                {
-                  "title": "Core Web Vitals",
-                  "description": "Identify experience bottlenecks, track performance across user segments, and deliver pages that respond instantly to every interaction."
-                },
-                {
-                  "title": "Resource Load Time",
-                  "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
-                }
-              ],
-              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
+            "items": [
+              {
+                "title": "Core Web Vitals",
+                "description": "Identify experience bottlenecks, track performance across user segments, and deliver pages that respond instantly to every interaction."
+              },
+              {
+                "title": "Resource Load Time",
+                "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
+              }
+            ],
+            "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
           },
           {
             "title": "Quick Implementation",
             "tabImage": "/img/platform-frontend-monitoring/quick-implementation.svg",
-           
-              "items": [
-                {
-                  "title": "Fast Setup",
-                  "description": "Go from zero to monitoring in minutes. Collect real user data instantly and customize your configuration to meet your exact needs."
-                },
-                {
-                  "title": "Flexible Integration",
-                  "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
-                }
-              ],
-              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
-            
+            "items": [
+              {
+                "title": "Fast Setup",
+                "description": "Go from zero to monitoring in minutes. Collect real user data instantly and customize your configuration to meet your exact needs."
+              },
+              {
+                "title": "Flexible Integration",
+                "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
+              }
+            ],
+            "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Frontend Monitoring FAQs"
-        },
+        "label": "Frontend Monitoring FAQs",
         "background": true,
         "faqs": [
           {
@@ -767,7 +754,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },
@@ -818,9 +805,9 @@
           "variant": "secondary"
         },
         "image": {
-        "url": "/img/platform-pipelines/pipelines-hero.png",
-        "altText": "OpenObserve Pipelines Dashboard"
-       }
+          "url": "/img/platform-pipelines/pipelines-hero.png",
+          "altText": "OpenObserve Pipelines Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
@@ -850,7 +837,7 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Observability Pipelines"
         },
         "background": true,
@@ -858,80 +845,68 @@
           {
             "title": "Pipeline Types",
             "tabImage": "/img/platform-pipelines/pipeline-type.svg",
-            
-              "items": [
-                {
-                  "title": "Real-time",
-                  "description": "Transform data the instant it arrives. Parse, filter, and enrich streams on-the-fly—turning raw data into immediate insights."
-                },
-                {
-                  "title": "Scheduled",
-                  "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
-                }
-              ],
-              "featureImage": "/img/platform-pipelines/pipelines-types.png"
-            
+            "items": [
+              {
+                "title": "Real-time",
+                "description": "Transform data the instant it arrives. Parse, filter, and enrich streams on-the-fly—turning raw data into immediate insights."
+              },
+              {
+                "title": "Scheduled",
+                "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
+              }
+            ],
+            "featureImage": "/img/platform-pipelines/pipelines-types.png"
           },
           {
             "title": "Data Transformation",
             "tabImage": "/img/platform-pipelines/piplines-data-transformation.svg",
-           
-              "items": [
-                {
-                  "title": "VRL Functions",
-                  "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
-                },
-                {
-                  "title": "Data Parsing",
-                  "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
-                }
-              ],
-              "featureImage": "/img/platform-pipelines/pipelines-vrlfunction.png"
-            
+            "items": [
+              {
+                "title": "VRL Functions",
+                "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
+              },
+              {
+                "title": "Data Parsing",
+                "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
+              }
+            ],
+            "featureImage": "/img/platform-pipelines/pipelines-vrlfunction.png"
           },
           {
-           
             "title": "Data Enrichment",
             "tabImage": "/img/platform-pipelines/pipeline-data-enrichment.svg",
-          
-              "items": [
-                {
-                  "title": "Enrichment Tables",
-                  "description": "Transform raw events into context-rich intelligence using simple CSV lookup tables. Instantly add location data, user details, and critical metadata that turns isolated signals into meaningful patterns."
-                },
-                {
-                  "title": "Dynamic Lookups",
-                  "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
-                }
-              ],
-              "featureImage": "/img/platform-pipelines/enrichment-tables.png"
-            
+            "items": [
+              {
+                "title": "Enrichment Tables",
+                "description": "Transform raw events into context-rich intelligence using simple CSV lookup tables. Instantly add location data, user details, and critical metadata that turns isolated signals into meaningful patterns."
+              },
+              {
+                "title": "Dynamic Lookups",
+                "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
+              }
+            ],
+            "featureImage": "/img/platform-pipelines/enrichment-tables.png"
           },
           {
-           
             "title": "Pipeline Components",
             "tabImage": "/img/platform-pipelines/pipeline-component.svg",
-           
-              "items": [
-                {
-                  "title": "Function Nodes",
-                  "description": "Build data processing workflows with VRL function nodes. Execute custom logic for complex transformations and create reusable components that make your data pipelines more efficient and maintainable."
-                },
-                {
-                  "title": "Stream Operations",
-                  "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
-                }
-              ],
-              "featureImage": "/img/platform-pipelines/pipelines-components.png"
-            
+            "items": [
+              {
+                "title": "Function Nodes",
+                "description": "Build data processing workflows with VRL function nodes. Execute custom logic for complex transformations and create reusable components that make your data pipelines more efficient and maintainable."
+              },
+              {
+                "title": "Stream Operations",
+                "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
+              }
+            ],
+            "featureImage": "/img/platform-pipelines/pipelines-components.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Observability Pipelines FAQs"
-        },
+        "label": "Observability Pipelines FAQs",
         "background": true,
         "faqs": [
           {
@@ -975,7 +950,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },
@@ -1026,9 +1001,9 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image":{
-         "url": "/img/platform-alerts/alert-configure.png",
-        "altText": " OpenObserve Alert Dashboard"
+        "image": {
+          "url": "/img/platform-alerts/alert-configure.png",
+          "altText": " OpenObserve Alert Dashboard"
         }
       },
       {
@@ -1047,7 +1022,7 @@
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
             "theme": "theme-red",
-            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_742_41)\"><path d=\"M14.4861 3.143C14.7414 3.21479 14.9576 3.38501 15.0874 3.61623C15.2172 3.84744 15.2498 4.12073 15.1781 4.376L10.7481 20.164C10.7127 20.2905 10.6526 20.4087 10.5715 20.512C10.4903 20.6152 10.3896 20.7015 10.2751 20.7659C10.1606 20.8302 10.0346 20.8714 9.90419 20.887C9.77378 20.9027 9.64157 20.8925 9.51511 20.857C9.38865 20.8215 9.27041 20.7615 9.16714 20.6804C9.06387 20.5992 8.9776 20.4985 8.91325 20.384C8.8489 20.2695 8.80773 20.1435 8.79209 20.0131C8.77645 19.8827 8.78665 19.7505 8.82211 19.624L13.2521 3.836C13.2875 3.70942 13.3476 3.59107 13.4288 3.48771C13.51 3.38435 13.6108 3.29803 13.7254 3.23366C13.84 3.1693 13.9662 3.12816 14.0967 3.1126C14.2273 3.09705 14.3596 3.10738 14.4861 3.143ZM7.20711 7.05C7.39458 7.23753 7.4999 7.49184 7.4999 7.757C7.4999 8.02217 7.39458 8.27647 7.20711 8.464L3.67211 12L7.20711 15.535C7.30002 15.6278 7.37373 15.7381 7.42404 15.8594C7.47435 15.9807 7.50027 16.1108 7.50031 16.2421C7.50036 16.3735 7.47453 16.5036 7.42431 16.6249C7.37409 16.7463 7.30046 16.8566 7.20761 16.9495C7.11477 17.0424 7.00453 17.1161 6.8832 17.1664C6.76187 17.2167 6.63181 17.2427 6.50046 17.2427C6.36912 17.2428 6.23904 17.2169 6.11768 17.1667C5.99631 17.1165 5.88602 17.0428 5.79311 16.95L1.55011 12.707C1.36264 12.5195 1.25732 12.2652 1.25732 12C1.25732 11.7348 1.36264 11.4805 1.55011 11.293L5.79311 7.05C5.98064 6.86253 6.23495 6.75722 6.50011 6.75722C6.76528 6.75722 7.01958 6.86253 7.20711 7.05ZM16.7931 8.464C16.6976 8.37176 16.6214 8.26141 16.569 8.13941C16.5166 8.0174 16.489 7.88618 16.4879 7.7534C16.4867 7.62062 16.512 7.48894 16.5623 7.36605C16.6126 7.24315 16.6868 7.1315 16.7807 7.03761C16.8746 6.94371 16.9863 6.86946 17.1092 6.81918C17.2321 6.7689 17.3637 6.7436 17.4965 6.74475C17.6293 6.74591 17.7605 6.77349 17.8825 6.8259C18.0045 6.87831 18.1149 6.95449 18.2071 7.05L22.4501 11.293C22.6376 11.4805 22.7429 11.7348 22.7429 12C22.7429 12.2652 22.6376 12.5195 22.4501 12.707L18.2071 16.95C18.0195 17.1375 17.765 17.2428 17.4998 17.2427C17.2345 17.2426 16.9801 17.1371 16.7926 16.9495C16.6051 16.7619 16.4998 16.5074 16.4999 16.2421C16.5 15.9769 16.6055 15.7225 16.7931 15.535L20.3281 12L16.7931 8.464Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_742_41\"><rect width=\"24\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>"
           },
           {
             "title": "Stay on top of Issues",
@@ -1059,7 +1034,7 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Alerts"
         },
         "background": true,
@@ -1067,81 +1042,68 @@
           {
             "title": "Alert Types",
             "tabImage": "/img/platform-alerts/alerts-types.svg",
-          
-              "items": [
-                {
-                  "title": "Scheduled Alerts",
-                  "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
-                },
-                {
-                  "title": "Real-time Alerts",
-                  "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
-                }
-              ],
-              "featureImage": "/img/platform-alerts/alert-type.png"
-            
+            "items": [
+              {
+                "title": "Scheduled Alerts",
+                "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
+              },
+              {
+                "title": "Real-time Alerts",
+                "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
+              }
+            ],
+            "featureImage": "/img/platform-alerts/alert-type.png"
           },
           {
-          
             "title": "Alert Configuration",
             "tabImage": "/img/platform-alerts/alerts-configuration.svg",
-           
-              "items": [
-                {
-                  "title": "Flexible Condition Building",
-                  "description": "Build alert logic exactly how you need it—use sophisticated SQL for complex scenarios or quick conditions when simplicity matters."
-                },
-                {
-                  "title": "Aggregation Support",
-                  "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
-                }
-              ],
-              "featureImage": "/img/platform-alerts/alert-configure.png"
-            
+            "items": [
+              {
+                "title": "Flexible Condition Building",
+                "description": "Build alert logic exactly how you need it—use sophisticated SQL for complex scenarios or quick conditions when simplicity matters."
+              },
+              {
+                "title": "Aggregation Support",
+                "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
+              }
+            ],
+            "featureImage": "/img/platform-alerts/alert-configure.png"
           },
           {
-            
             "title": "Alert Notifications",
             "tabImage": "/img/platform-alerts/alerts-notification-on-outline.svg",
-            
-              "items": [
-                {
-                  "title": "Multiple Notification Destinations",
-                  "description": "Deliver alerts exactly where your team needs them—Slack, email, webhooks, and more."
-                },
-                {
-                  "title": "Smart Silence Periods",
-                  "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
-                }
-              ],
-              "featureImage": "/img/platform-alerts/alert-destinations.png"
-            
+            "items": [
+              {
+                "title": "Multiple Notification Destinations",
+                "description": "Deliver alerts exactly where your team needs them—Slack, email, webhooks, and more."
+              },
+              {
+                "title": "Smart Silence Periods",
+                "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
+              }
+            ],
+            "featureImage": "/img/platform-alerts/alert-destinations.png"
           },
           {
-           
             "title": "Alert Controls",
             "tabImage": "/img/platform-alerts/alerts-controls.svg",
-         
-              "items": [
-                {
-                  "title": "Advanced Threshold Settings",
-                  "description": "Trigger alerts with precision by setting thresholds that respond to evolving data patterns."
-                },
-                {
-                  "title": "Frequency Optimization",
-                  "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
-                }
-              ],
-              "featureImage": "/img/platform-alerts/alert-slack.png"
-            
+            "items": [
+              {
+                "title": "Advanced Threshold Settings",
+                "description": "Trigger alerts with precision by setting thresholds that respond to evolving data patterns."
+              },
+              {
+                "title": "Frequency Optimization",
+                "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
+              }
+            ],
+            "featureImage": "/img/platform-alerts/alert-slack.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Alerts FAQs"
-        },
+        "label": "Alerts FAQs",
         "background": true,
         "faqs": [
           {
@@ -1181,7 +1143,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },
@@ -1231,9 +1193,9 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image":{
-         "url": "/img/platform-visualization/dashboard-kubernetes.png",
-        "altText": "OpenObserve Dashboards & Visualizations"
+        "image": {
+          "url": "/img/platform-visualization/dashboard-kubernetes.png",
+          "altText": "OpenObserve Dashboards & Visualizations"
         }
       },
       {
@@ -1264,89 +1226,76 @@
       },
       {
         "__component": "section-solutions.capabilities",
-        "heading":{
+        "heading": {
           "title": "OpenObserve Dashboards and Visualizations"
         },
         "background": true,
         "items": [
           {
-           
             "title": "Real-Time Monitoring",
             "tabImage": "/img/platform-visualization/real-time-monitoring.svg",
-           
-              "items": [
-                {
-                  "title": "Interactive Dashboards",
-                  "description": "Visualize your system's heartbeat with 19+ chart types—from heat maps that expose hotspots to time-series graphs that reveal trends. Build comprehensive health views in minutes with intuitive drag-and-drop simplicity."
-                },
-                {
-                  "title": "Continuous Updates",
-                  "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
-            
+            "items": [
+              {
+                "title": "Interactive Dashboards",
+                "description": "Visualize your system's heartbeat with 19+ chart types—from heat maps that expose hotspots to time-series graphs that reveal trends. Build comprehensive health views in minutes with intuitive drag-and-drop simplicity."
+              },
+              {
+                "title": "Continuous Updates",
+                "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
           },
           {
-           
             "title": "Customizable Views",
             "tabImage": "/img/platform-visualization/customizable-view.svg",
-         
-              "items": [
-                {
-                  "title": "Dynamic Filtering",
-                  "description": "Quickly evaluate exactly what matters with powerful variable-driven dashboards. Filter multiple panels simultaneously to uncover hidden patterns and identify root causes in seconds."
-                },
-                {
-                  "title": "Built-in + Custom Charts",
-                  "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
-                }
-              ],
-              "featureImage": "/img/platform-visualization/dashboard-geomap.png"
-            
+            "items": [
+              {
+                "title": "Dynamic Filtering",
+                "description": "Quickly evaluate exactly what matters with powerful variable-driven dashboards. Filter multiple panels simultaneously to uncover hidden patterns and identify root causes in seconds."
+              },
+              {
+                "title": "Built-in + Custom Charts",
+                "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
+              }
+            ],
+            "featureImage": "/img/platform-visualization/dashboard-geomap.png"
           },
           {
-           
             "title": "Advanced Query Capabilities",
             "tabImage": "/img/platform-visualization/advance-query-capabilities.svg",
-          
-              "items": [
-                {
-                  "title": "SQL & PromQL Query Language Support",
-                  "description": "Harness the full power of SQL and PromQL to build sophisticated analyses that reveal deeper insights. Transform raw data instantly with VRL's precision-engineered functions."
-                },
-                {
-                  "title": "Codeless Query Builder",
-                  "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
-                }
-              ],
-              "featureImage": "/img/platform-metrics/metrics-promql.png"
-            
+            "items": [
+              {
+                "title": "SQL & PromQL Query Language Support",
+                "description": "Harness the full power of SQL and PromQL to build sophisticated analyses that reveal deeper insights. Transform raw data instantly with VRL's precision-engineered functions."
+              },
+              {
+                "title": "Codeless Query Builder",
+                "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
+              }
+            ],
+            "featureImage": "/img/platform-metrics/metrics-promql.png"
           },
           {
-            
             "title": "Easy Collaboration",
             "tabImage": "/img/platform-visualization/easy-collaboration.svg",
-            
-              "items": [
-                {
-                  "title": "Dashboard Sharing",
-                  "description": "Unite your teams around critical visualizations while maintaining precise access controls. Import and export dashboards instantly—turning reliability into a true team sport."
-                },
-                {
-                  "title": "Drill-Down Analysis",
-                  "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
-                }
-              ],
-              "featureImage": "/img/platform-visualization/dashboard-drilldown.png"
-            }
+            "items": [
+              {
+                "title": "Dashboard Sharing",
+                "description": "Unite your teams around critical visualizations while maintaining precise access controls. Import and export dashboards instantly—turning reliability into a true team sport."
+              },
+              {
+                "title": "Drill-Down Analysis",
+                "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
+              }
+            ],
+            "featureImage": "/img/platform-visualization/dashboard-drilldown.png"
+          }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Dashboards and Visualizations FAQs"
-        },
+        "label": "Dashboards and Visualizations FAQs",
         "background": true,
         "faqs": [
           {
@@ -1390,7 +1339,7 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "heading":{
+        "heading": {
           "title": "Ready to get started?",
           "description": "Try OpenObserve today for more efficient and performant observability."
         },

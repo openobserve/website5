@@ -52,7 +52,7 @@ const activeIndex = ref(0);
         </div>
 
         <!-- Solution Content -->
-        <div class="lg:w-3/4">
+        <div class="lg:w-3/4" :key="activeIndex">
           <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
             <div class="grid md:grid-cols-2 gap-0">
               <!-- Left Column: Content -->

@@ -15,170 +15,169 @@
       {
         "__component": "section-pricing.pricing-options",
         "id": 3,
-        "tabs": [
+        "cloud": [
           {
-            "value": "openobserve-cloud",
-            "label": "Cloud",
-            "title": "OpenObserve Clouds",
-            "items": [
+            "title": "Free",
+            "description": "Self-managed, cloud-based OpenObserve",
+            "bottomDescription": "",
+            "features": [
               {
-                "title": "Free",
-                "description": "Self-managed, cloud-based OpenObserve",
-                "price": "",
-                "period": "",
-                "features": [
-                  "Full Stack Observability including metrics,logs, and traces",
-                  "Community Support",
-                  "High Availability",
-                  "Multi-tenancy",
-                  "Dynamic schema  and schema  evolution",
-                  "Advanced  multilingual GUI"
-                ],
-                "button": {
-                  "text": "Deploy on Heroku",
-                  "link": "https://openobserve.ai/blog/deploy-openobserve-on-heroku/",
-                  "class": "theme-outline",
-                  "target": "_blank"
-                },
-                "additionalInfo": ""
+                "title": "Full Stack Observability including metrics,logs, and traces"
               },
-              {
-                "title": "Standard Cloud",
-                "description": "No licensing costs, pay-as-you-go",
-                "price": "",
-                "period": "",
-                "features": [
-                  "<strong>$0.30 per GB </strong>for logs, metrics & traces",
-                  "Query Volume - <strong> $0.01 per GB </strong>",
-                  "Pipelines - <strong> $0.10 per GB </strong> Data Processed",
-                  "<strong> $0.30 per GB </strong> for Remote destinations",
-                  "RUM & Session Replay - <strong> $1 per 1K </strong> sessions",
-                  "Error Tracking - <strong> $0.15 per 1K </strong> events",
-                  "Unlimited Users",
-                  "Action Script - <strong> $1 per 1k </strong> runs",
-                  "Role-Based Access Control (RBAC)",
-                  "<strong> 15-Days </strong> Retention"
-                ],
-                "button": {
-                  "text": "Start Cloud Free Trial",
-                  "link": "https://cloud.openobserve.ai/web/login",
-                  "class": "bg-primary-purple text-white hover:bg-dark-purple",
-                  "target": "_blank"
-                },
-                "additionalInfo": "",
-                "theme": "bg-primary-purple text-white",
-                "container": "border-primary-purple bg-primary-purple/10"
-              },
-              {
-                "title": "Enterprise Cloud",
-                "description": "Advanced functionality and support for Enterprise demands",
-                "price": "",
-                "features": [
-                  "Everything in Standard, plus:",
-                  "Extended Data Retention",
-                  "Priority Support",
-                  "SSO (Single Sign On) with Custom Auth Providers (Okta, Microsoft Entra, etc)",
-                  "SLA Guarantees"
-                ],
-                "additionalInfo": "High-volume needs? Let's talk scale! Contact us for tailored solutionsand volume discounts!",
-                "button": {
-                  "text": "Contact Sales",
-                  "link": "/contact-sales",
-                  "class": "theme-outline",
-                  "target": "_self"
-                }
-              }
-            ]
+              { "title": "Community Support" },
+              { "title": "High Availability" },
+              { "title": "Multi-tenancy" },
+              { "title": "Dynamic schema  and schema  evolution" },
+              { "title": "Advanced  multilingual GUI" }
+            ],
+            "primaryButton": {
+              "text": "Deploy on Heroku",
+              "link": "https://openobserve.ai/blog/deploy-openobserve-on-heroku/",
+              "theme": "theme-outline",
+              "target": "_blank"
+            }
           },
           {
-            "value": "self-hosted",
-            "label": "Self Hosted",
-            "title": "OpenObserve Self-hosted",
-            "items": [
+            "title": "Standard Cloud",
+            "description": "No licensing costs, pay-as-you-go",
+            "bottomDescription": "",
+            "features": [
               {
-                "title": "Download for free",
-                "description": "",
-                "price": "",
-                "period": "",
-                "features": [
-                  "Full Stack Observability including metrics, logs, and traces",
-                  "Community Support",
-                  "High Availability",
-                  "Multi-tenancy",
-                  "Dynamic schema and schema evolution",
-                  "Advanced multilingual GUI"
-                ],
-                "button": {
-                  "text": "Download",
-                  "link": "https://openobserve.ai/docs/quickstart/#self-hosted-installation",
-                  "target": "_blank",
-                  "class": "theme-outline"
-                }
+                "title": "<strong>$0.30 per GB</strong> for logs, metrics & traces"
+              },
+              { "title": "Query Volume - <strong>$0.01 per GB</strong>" },
+              {
+                "title": "Pipelines - <strong>$0.10 per GB</strong> Data Processed"
               },
               {
-                "title": "Enterprise",
-                "description": "Free for up to 200 GB of ingestion per day.",
-                "price": "",
-                "features": [
-                  "Extended Data Retention",
-                  "SSO (Single Sign On)",
-                  "Role-Based Access Control (RBAC)",
-                  "Federated search / Super cluster",
-                  "Query Management",
-                  "Workload management (QoS)",
-                  "Audit Trail",
-                  "Sensitive Data Redaction",
-                  "Cipher keys (HIPAA, PCI compliance)"
-                ],
-                "button": {
-                  "text": "Download",
-                  "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
-                  "target": "_blank",
-                  "class": "bg-primary-purple text-white hover:bg-dark-purple"
-                },
-                "theme": "bg-primary-purple text-white",
-                "container": "border-primary-purple bg-primary-purple/10"
-              }
-            ]
+                "title": "<strong>$0.30 per GB</strong> for Remote destinations"
+              },
+              {
+                "title": "RUM & Session Replay - <strong>$1 per 1K</strong> sessions"
+              },
+              {
+                "title": "Error Tracking - <strong>$0.15 per 1K</strong> events"
+              },
+              { "title": "Unlimited Users" },
+              { "title": "Action Script - <strong>$1 per 1K</strong> runs" },
+              { "title": "Role-Based Access Control (RBAC)" },
+              { "title": "<strong>15-Days</strong> Retention" }
+            ],
+            "primaryButton": {
+              "text": "Start Cloud Free Trial",
+              "link": "https://cloud.openobserve.ai/web/login",
+              "theme": "bg-primary-purple text-white hover:bg-dark-purple",
+              "target": "_blank"
+            }
+          },
+          {
+            "title": "Enterprise Cloud",
+            "description": "Advanced functionality and support for Enterprise demands",
+            "bottomDescription": "High-volume needs? Let's talk scale! Contact us for tailored solutionsand volume discounts!",
+            "features": [
+              { "title": "Everything in Standard, plus:" },
+              { "title": "Extended Data Retention" },
+              { "title": "Priority Support" },
+              {
+                "title": "SSO (Single Sign On) with Custom Auth Providers (Okta, Microsoft Entra, etc)"
+              },
+              { "title": "SLA Guarantees" }
+            ],
+            "primaryButton": {
+              "text": "Contact Sales",
+              "link": "/contact-sales",
+              "theme": "theme-outline",
+              "target": "_self"
+            }
+          }
+        ],
+        "selfHosted": [
+          {
+            "title": "Download for free",
+            "description": "",
+            "bottomDescription": "",
+            "features": [
+              {
+                "title": "Full Stack Observability including metrics, logs, and traces"
+              },
+              { "title": "Community Support" },
+              { "title": "High Availability" },
+              { "title": "Multi-tenancy" },
+              { "title": "Dynamic schema and schema evolution" },
+              { "title": "Advanced multilingual GUI" }
+            ],
+            "primaryButton": {
+              "text": "Download",
+              "link": "https://openobserve.ai/docs/quickstart/#self-hosted-installation",
+              "target": "_blank",
+              "theme": "theme-outline"
+            }
+          },
+          {
+            "title": "Enterprise",
+            "description": "Free for up to 200 GB of ingestion per day.",
+            "bottomDescription": "",
+            "features": [
+              { "title": "Extended Data Retention" },
+              { "title": "SSO (Single Sign On)" },
+              { "title": "Role-Based Access Control (RBAC)" },
+              { "title": "Federated search / Super cluster" },
+              { "title": "Query Management" },
+              { "title": "Workload management (QoS)" },
+              { "title": "Audit Trail" },
+              { "title": "Sensitive Data Redaction" },
+              { "title": "Cipher keys (HIPAA, PCI compliance)" }
+            ],
+            "primaryButton": {
+              "text": "Download",
+              "link": "https://gallery.ecr.aws/zinclabs/openobserve-enterprise",
+              "target": "_blank",
+              "theme": "bg-primary-purple text-white hover:bg-dark-purple"
+            }
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "heading":{
-          "title": "Pricing FAQs"
-        },
-        "background": false,
+        "label": "Pricing FAQs",
         "faqs": [
           {
+            "__component": "components_elements_faq_items",
             "question": "Does OpenObserve offer a free tier?",
             "answer": "Yes, OpenObserve offers a free tier that includes a limited amount of log storage and ingestion. It's ideal for small projects, testing, or evaluation purposes. Usage beyond the free tier will require a paid plan."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "What are the available pricing plans?",
             "answer": "OpenObserve offers flexible pricing plans:<br><ul><li><strong>Free Tier:</strong> Basic features with limited storage and ingestion rate.</li><li><strong>Standard:</strong> Includes higher retention, alerts, and dashboard features.</li><li><strong>Enterprise:</strong> Advanced analytics, extended retention, custom integrations, and premium support.</li></ul>"
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "How is pricing calculated?",
             "answer": "Pricing is typically based on data ingestion volume (e.g., GB/day), retention period, and feature set. Some plans may include limits on dashboard usage, queries, or team members."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "What happens when I exceed the limits of my plan?",
             "answer": "If you exceed your plan’s ingestion or storage limits, overage charges may apply, or your data ingestion may be throttled. You can upgrade your plan at any time to avoid service disruption."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "Is there a trial available for premium features?",
             "answer": "Yes, OpenObserve provides a free trial of premium features so users can evaluate the platform before committing to a paid plan. You can enable the trial from your dashboard."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "Can I change my plan later?",
             "answer": "Yes, plans are flexible. You can upgrade, downgrade, or cancel your subscription at any time through the billing settings in your account."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "Does OpenObserve offer usage-based billing?",
             "answer": "Yes, OpenObserve supports usage-based billing, which means you only pay for the data you ingest and store. This helps optimize cost for varying workloads."
           },
           {
+            "__component": "components_elements_faq_items",
             "question": "Are there discounts for startups or non-profits?",
             "answer": "OpenObserve offers discounts for eligible startups, educational institutions, and non-profit organizations. You can contact the sales team to apply for special pricing."
           }
@@ -187,9 +186,9 @@
       {
         "__component": "section-cta.homepage-cta",
         "id": 5,
-         "heading": {
-           "title": "Ready to get started?",
-           "description": "Try OpenObserve today for more efficient and performant observability."
+        "heading": {
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
         },
         "primaryButton": {
           "text": "Get Started For Free",

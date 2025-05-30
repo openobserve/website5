@@ -15,8 +15,8 @@
       <section class="rounded-lg mb-6">
         <figure class="shadow-xl">
           <img
-            :src="caseStudyImage"
-            alt="Case Study Cover Image"
+            :src="caseStudyImage?.url"
+            :alt="caseStudyImage?.alternativeText ||caseStudyImage?.name"
             class="object-cover w-full h- rounded-lg"
           />
         </figure>
@@ -105,7 +105,7 @@ const props = defineProps({
     required: true,
   },
   caseStudyImage: {
-    type: String,
+    type: Object,
     required: true,
   },
 });

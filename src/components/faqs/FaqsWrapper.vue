@@ -23,6 +23,7 @@ import TabsHeader from '../core/TabsHeader.vue'
 import HeadingSection from '../core/HeadingSection.vue'
 import SearchBar from './SearchBar.vue'
 import CustomSection from '../core/CustomSection.vue'
+import { slugify } from '@/utils/slugify'
 
 const props = defineProps({
   title: {
@@ -45,8 +46,8 @@ const props = defineProps({
 
 const tabItems = computed(() => {
   return props.items.map(item => ({
-    label: item.label,
-    value: item.id.toString()
+    title: item.label,
+    value: slugify(item.label)
   }))
 })
 const searchTerm = ref('')
@@ -71,9 +72,9 @@ const filteredQuestions = computed(() => {
 
   // Get questions for active category
   const activeCategory = props.items.find(
-    item => item.id.toString() === activeTab.value
+    item => slugify(item.label) === activeTab.value
   )
-  let questions = activeCategory?.questions || []
+  let questions = activeCategory?.faqs || []
 
   // Apply search filter if there's a search term
   if (searchTerm.value) {

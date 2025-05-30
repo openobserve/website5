@@ -40,7 +40,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
       props?.card?.theme
     ]">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-        v-html="props?.card?.icon" />
+        v-html="props?.card?.image" />
     </div>
 
     <!-- Text content -->

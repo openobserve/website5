@@ -41,10 +41,10 @@ const tabs = [
   { title: "Enterprise", value: "enterprise" },
 ];
 
-const activeTab = ref(tabs[0].title);
+const activeTab = ref(tabs[0].value);
 
 const tabData = computed(() => {
-  return activeTab.value === tabs[0].title ? props.standard : props.enterprise;
+  return activeTab.value === tabs[0].value ? props.standard : props.enterprise;
 });
 
 </script>

@@ -17,10 +17,8 @@
         "id": 3,
         "title": "Get Started with OpenObserve",
         "description": "Choose the deployment option that best fits your needs and start monitoring your infrastructure and applications today.",
-        "tabs": [
-          {
-            "value": "cloud",
-            "label": "Cloud",
+        "cloudData": {
+            "title": "Cloud",
             "items": [
               {
                 "title": "OpenObserve Cloud",
@@ -38,19 +36,18 @@
                   "link": "https://cloud.openobserve.ai/web/login",
                   "target": "_blank",
                   "class": "bg-primary-purple hover:bg-dark-purple"
-                }
               }
+            }
             ]
           },
-          {
-            "value": "self-hosted",
-            "label": "Self Hosted",
+        "selfHostedData": {
+            "title": "Self Hosted",
             "items": [
               {
                 "value": "quick-start",
                 "label": "Quick Start",
                 "title": "Quick Start Installation",
-                "description": "<img src='/img/icon/docker.svg' class='w-5 h-5 inline mr-2 mb-1'/>Docker<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> <img src='/img/icon/downloading.svg' class='w-4 h-4 inline mr-2 mb-1'/>Download<br/>Binaries can be downloaded from the releases page for the appropriate platform.<br/><br/><img src='/img/icon/ha-clustering.svg' class='w-4 h-4 inline mr-2 mb-1'/>High Availability(HA) Deployment<br/>If you are looking for a Highly Available installation then head over to <a href='https://openobserve.ai/docs/ha_deployment/' class='underline text-blue-500'>HA Deployment</a> section.",
+                "description": "<img src='/img/icon/docker.svg' alt='Docker' class='w-5 h-5 inline mr-2 mb-1'/>Docker<br/><br/><div class=\"code-inline\">docker run -d \\\n--name openobserve \\\n-p 5080:5080 \\\n-e ZO_ROOT_USER_EMAIL=root@example.com \\\n-e ZO_ROOT_USER_PASSWORD=complexpass#123 \\\nopenobserve/openobserve:latest</div> <br/><br/> <img src='/img/icon/downloading.svg' alt='Download' class='w-4 h-4 inline mr-2 mb-1'/>Download<br/>Binaries can be downloaded from the releases page for the appropriate platform.<br/><br/><img src='/img/icon/ha-clustering.svg' alt='HA' class='w-4 h-4 inline mr-2 mb-1'/>High Availability(HA) Deployment<br/>If you are looking for a Highly Available installation then head over to <a href='https://openobserve.ai/docs/ha_deployment/' class='underline text-blue-500'>HA Deployment</a> section.",
                 "features": [],
                 "button": {},
                 "additionalInfo": ""
@@ -81,7 +78,6 @@
               }
             ]
           }
-        ]
       }
     ],
     "seo": {
