@@ -11,8 +11,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="space-y-6">
           <div v-for="(feature, index) in features" :key="index" class="flex items-start space-x-4">
-            <div class="p-2 rounded-full mt-1" :class="feature.iconBgClass">
-              <component :is="getIconComponent(feature.image)" class="h-5 w-5" :class="feature.iconColor" />
+            <div class="p-2 rounded-full mt-1 bg-card" :class="feature.theme">
+              <component :is="getIconComponent(feature.image)" class="h-5 w-5" :class="feature.theme" />
             </div>
             <div>
               <h3 class="text-xl font-bold">{{ feature.title }}</h3>
@@ -49,9 +49,8 @@ import CustomSection from '@/components/core/CustomSection.vue';
 interface TechFeature {
   title: string;
   description: string;
-  iconClass: string;
-  iconColor: string;
-  iconBgClass: string;
+  image: string; // This should match the iconClass in the original code
+  theme: string;
 }
 
 interface TechTag {

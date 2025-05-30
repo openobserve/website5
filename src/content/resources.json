@@ -20,11 +20,11 @@
           "description": ""
         },
         "headingLevel":3,
-        "data": [
+        "items": [
           {
             "title": "Documentation",
             "description": "Comprehensive guides and references for implementing OpenObserve.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue",
             "link": "https://openobserve.ai/docs",
             "target": "_blank"
@@ -33,7 +33,7 @@
             "title": "Join the Community",
             "description": "Connect with users and developers in our Slack channel for support and collaboration.",
             "theme": "theme-purple",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
             "link": "https://openobserve-community.slack.com/join/shared_invite/zt-349pw0xfa-AAg8m7k_chcsPy3GDYzkjQ#/shared-invite/email",
             "target": "_blank"
           },
@@ -41,7 +41,7 @@
             "title": "FAQs",
             "description": "Quick answers to common questions about OpenObserve configuration and capabilities.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />",
             "link": "/faqs",
             "target": "_self"
           }

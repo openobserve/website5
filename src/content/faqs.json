@@ -19,8 +19,8 @@
         "items": [
           {
             "id": 1,
-            "title": "General",
-            "questions": [
+            "label": "General",
+            "faqs": [
               {
                 "question": "What is OpenObserve?",
                 "answer": "OpenObserve is a cloud-native observability platform designed for logs, metrics, and traces. It's built to be highly efficient, cost-effective, and scalable for modern applications and infrastructure."
@@ -41,8 +41,8 @@
           },
           {
             "id": 2,
-            "title": "Technical",
-            "questions": [
+            "label": "Technical",
+            "faqs": [
               {
                 "question": "What programming languages and technologies does OpenObserve use?",
                 "answer": "OpenObserve is primarily built with Rust for the backend services, which provides excellent performance and memory efficiency. The frontend uses modern JavaScript frameworks."
@@ -63,8 +63,8 @@
           },
           {
             "id": 3,
-            "title": "Pricing",
-            "questions": [
+            "label": "Pricing",
+            "faqs": [
               {
                 "question": "How is OpenObserve priced?",
                 "answer": "OpenObserve offers both open-source and cloud options. The open-source version is free to use. For OpenObserve Cloud, we offer usage-based pricing that scales with your needs, typically at a fraction of the cost of comparable solutions."
@@ -85,8 +85,8 @@
           },
           {
             "id": 4,
-            "title": "Support",
-            "questions": [
+            "label": "Support",
+            "faqs": [
               {
                 "question": "What support options are available?",
                 "answer": "We offer community support through our Discord channel and GitHub for the open-source version. For OpenObserve Cloud customers, we provide email support, with additional options for premium support with SLAs available on higher-tier plans."

@@ -46,8 +46,8 @@ const props = defineProps({
 
 const tabItems = computed(() => {
   return props.items.map(item => ({
-    title: item.title,
-    value: slugify(item.title)
+    title: item.label,
+    value: slugify(item.label)
   }))
 })
 const searchTerm = ref('')
@@ -72,9 +72,9 @@ const filteredQuestions = computed(() => {
 
   // Get questions for active category
   const activeCategory = props.items.find(
-    item => slugify(item.title) === activeTab.value
+    item => slugify(item.label) === activeTab.value
   )
-  let questions = activeCategory?.questions || []
+  let questions = activeCategory?.faqs || []
 
   // Apply search filter if there's a search term
   if (searchTerm.value) {
