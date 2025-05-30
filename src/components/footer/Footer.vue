@@ -145,12 +145,12 @@ const socialIcon = (name) => {
             <img
               src="/img/soc.webp"
               class="w-full h-full object-contain grayscale"
-              alt="SOC 2 Type II"
+              alt="Official AICPA SOC badge"
             />
           </div>
 
           <div class="flex flex-col text-white">
-            <h2 class="text-sm sm:text-base whitespace-nowrap">SOC2 Type 2</h2>
+            <h2 class="text-sm sm:text-base whitespace-nowrap">SOC2 Type II</h2>
             <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
           </div>
 
@@ -211,7 +211,7 @@ const socialIcon = (name) => {
               <img
                 :src="socialIcon(item.name)"
                 class="w-6 h-6"
-                :alt="item.name + ' icon'"
+                :alt="item.name"
               />
             </a>
           </div>
