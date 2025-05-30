@@ -6,7 +6,7 @@ import fetchApi from "@/utils/strapi";
 import { marked } from "marked";
 import { slugify } from "@/utils/slugify";
 const PageData = await fetchApi({
-  endpoint: "api/enterprise-license",
+  endpoint: "api/terms-of-service-page",
   query: { pLevel: "2", status: "draft" },
 });
 const data = PageData?.data || {};
@@ -15,11 +15,9 @@ const rawContent = data?.content || ""; // Ensure this is a string
 const renderer = new marked.Renderer();
 
 renderer.heading = (text, level) => {
-  console.log(text, "text", "level", level);
   const headingId = text.text;
   const headingLevel = text.depth;
   const id = slugify(headingId);
-  console.log(id, "id");
   return `<h${headingLevel} id="${id}">${text.text}</h${headingLevel}>`;
 };
 
@@ -42,7 +40,6 @@ const metaObj = {
 };
 ---
 
-<!-- If you're using a layout, wrap this inside a <Layout> component or layout slot. -->
 <Layout metaObj={metaObj}>
   <div class="">
     <CommonHerosection
