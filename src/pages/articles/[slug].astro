@@ -35,7 +35,7 @@ const metaObj = {
     type="articles"
     title={SlugData?.title}
     description={SlugData?.description}
-    blogImage={SlugData?.image?.url || SlugData?.image?.url}
+    blogImage={SlugData?.image}
     tags={SlugData?.categories || []}
     publishDate={new Intl.DateTimeFormat("en-US", {
       weekday: "long",
@@ -52,7 +52,7 @@ const metaObj = {
     type="articles"
     client:load
     content={SlugData?.content}
-    blogImage={SlugData?.image?.url || SlugData?.image?.url}
+    blogImage={SlugData?.image}
     />
     <!-- authors={author} -->
 </Layout>

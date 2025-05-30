@@ -23,7 +23,7 @@
         {{ item.badge }}
       </span>
       <div class="flex flex-col justify-between items-start gap-2">
-        <h3 class="text-lg lg:text-2xl font-bold">{{ item.title }}</h3>
+        <h2 class="text-lg lg:text-2xl font-bold">{{ item.title }}</h2>
         <p class="text-sm text-gray-600">{{ item.description }}</p>
       </div>
       <div class="mt-4" v-if="item?.price">

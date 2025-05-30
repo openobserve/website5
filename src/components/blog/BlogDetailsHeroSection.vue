@@ -104,7 +104,7 @@
             >
               <img
                 src="/img/icon/link-icon-for-blog.svg"
-                alt="Copy Icon"
+                alt="Copy"
                 class="h-4 w-4"
               />
             </button>
@@ -170,7 +170,7 @@ const socialMedia = ref([
       props.title
     )}&url=${encodeURIComponent(props.shareUrl)}`,
     icon: "/img/icon/twitter-icon-blog-individual.svg",
-    alt: "Twitter Icon",
+    alt: "Twitter",
     ariaLabel: "Share on Twitter",
   },
   {
@@ -179,7 +179,7 @@ const socialMedia = ref([
       props.shareUrl
     )}`,
     icon: "/img/icon/linkdin-icon-for-blog.svg",
-    alt: "LinkedIn Icon",
+    alt: "LinkedIn",
     ariaLabel: "Share on LinkedIn",
   },
   {
@@ -188,7 +188,7 @@ const socialMedia = ref([
       props.shareUrl
     )}`,
     icon: "/img/icon/facebook-icon.svg",
-    alt: "Facebook Icon",
+    alt: "Facebook",
     ariaLabel: "Share on Facebook",
   },
 ]);
