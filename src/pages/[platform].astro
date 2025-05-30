@@ -6,16 +6,17 @@ import { getAllBlogs } from "@/utils/api/blog";
 import fetchApi from "@/utils/strapi";
 
 export async function getStaticPaths() {
+  console.log("getStaticPaths called for platform pages");
   const PageData: string[] = await fetchApi({
     endpoint: "api/platform-pages",
     query: { pLevel: "4", status: "draft" },
   });
   const slugs = PageData?.data;
   return slugs.map((it: any) => ({
-    params: { id: it.slug },
+    params: { platform: it.slug },
   }));
 }
-const { id }: any = Astro.params;
+const { platform: id }: any = Astro.params;
 
 const PageData = await fetchApi({
   endpoint: "api/platform-pages",
@@ -23,13 +24,12 @@ const PageData = await fetchApi({
 });
 const data = PageData?.data[0]?.body || {};
 const seoData = PageData?.data[0]?.seo || {};
-const blogData = (await getAllBlogs())
-  .slice(0, 10)
-  .map(({ content, ...rest }) => rest);
-
-console.log("PageData", data);
+// const blogData = (await getAllBlogs())
+//   .slice(0, 10)
+//   .map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
+  <!-- <ComponentCollectionMapper data={data} blogsData={blogData} client:load /> -->
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>

@@ -5,8 +5,17 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import { getAllBlogs } from "@/utils/api/blog";
 import fetchApi from "@/utils/strapi";
 
-const url = Astro.url.pathname;
-const path = url.split("/").filter(Boolean).pop();
+export async function getStaticPaths() {
+  const PageData: string[] = await fetchApi({
+    endpoint: "api/solution-pages",
+    query: { pLevel: "4", status: "draft" },
+  });
+  const slugs = PageData?.data;
+  return slugs.map((it: any) => ({
+    params: { solution: it.slug },
+  }));
+}
+const { solution: id }: any = Astro.params;
 const PageData = await fetchApi({
   endpoint: "api/solution-pages",
   query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
@@ -23,7 +32,7 @@ const filterblogsMapper = {
   "gcp-monitoring": "gcp",
   "kubernetes-monitoring": "kubernetes",
   "database-monitoring": "database",
-  "opentelemetry": "opentelemetry",
+  opentelemetry: "opentelemetry",
 };
 const matchedCategory = filterblogsMapper[path as string] ?? null;
 const { pageData } = Astro.props;
@@ -42,9 +51,5 @@ const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper
-    data={data}
-    blogsData={blogData}
-    client:load
-  />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
 </Layout>
