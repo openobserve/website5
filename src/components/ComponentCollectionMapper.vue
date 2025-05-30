@@ -67,14 +67,14 @@ const props = defineProps({
   bannerData: { type: Object, required: false },
 });
 const componentsMap = computed(() => ({
-  "section-hero.common-hero": CommonHeroSection,
+  "section-hero.resource-hero-section": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
   "section-testimonials.employee-testimonials": CareerTestimonials,
   "section-features.technology": CareerTechnology,
   "section-features.cta": CTA,
-  "section-solutions.solutions": VerticalTabs,
+  "section-features.feature-left-tabs": VerticalTabs,
   "section-solutions.tabs": HorizontalTabsWrapper,
   "section-features.tabs-features": CapabilityTabs,
   "section-solutions.faqs": FaqsWrapper,

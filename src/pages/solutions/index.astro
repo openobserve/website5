@@ -9,11 +9,12 @@ const PageData = await fetchApi({
 });
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
-const blogData = (await getAllBlogs())
-  .slice(0, 10)
-  .map(({ content, ...rest }) => rest);
+// const blogData = (await getAllBlogs())
+//   .slice(0, 10)
+//   .map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
+  <!-- <ComponentCollectionMapper data={data} blogsData={blogData} client:load /> -->
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>
