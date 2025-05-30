@@ -58,7 +58,6 @@ const activeTab = ref(tabItems.value[0]?.title || '')
 // Update active tab and reset search
 const updateActiveTab = (tabValue) => {
   activeTab.value = tabValue
-  console.log('Active tab changed to:', activeTab.value)
   searchTerm.value = '' // Reset search when changing tabs
 }
 
@@ -69,14 +68,12 @@ const handleSearch = (term) => {
 
 // Filter faqs based on active tab and search term
 const filteredfaqs = computed(() => {
-  console.log("Active Tab:=====", activeTab)
   if (!activeTab.value) return []
 
   // Get faqs for active category
   const activeCategory = props.items.find(
     item => slugify(item.title) === activeTab.value
   )
-  console.log('Active Category:', activeCategory)
   let faqs = activeCategory?.faqs || []
   // Apply search filter if there's a search term
   if (searchTerm.value) {
