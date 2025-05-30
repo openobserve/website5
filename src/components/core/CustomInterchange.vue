@@ -23,13 +23,13 @@ const props = defineProps({
   },
   direction: {
     type: String,
-    default: "left",
-    validator: (value) => ["left", "right"].includes(value),
+    default: "LEFT",
+    validator: (value) => ["LEFT", "RIGHT"].includes(value),
   },
 });
 
 const sectionClasses = computed(() => ({
-  "lg:flex-row-reverse": props.direction === "right",
+  "lg:flex-row-reverse": props.direction === "RIGHT",
 }));
 
 const LeftVariant = {
@@ -76,7 +76,7 @@ const listContainerVariant = {
 const listItemVariant = {
   hidden: {
     opacity: 0,
-      x: props.direction === "right" ? -20 : 20,
+      x: props.direction === "RIGHT" ? -20 : 20,
   },
   visible: {
     opacity: 1,
@@ -90,7 +90,7 @@ const listItemVariant = {
 };
 
 const cardVariant = computed(() => {
-  return props.direction === "right" ? RightVariant : LeftVariant;
+  return props.direction === "RIGHT" ? RightVariant : LeftVariant;
 });
 
 </script>
