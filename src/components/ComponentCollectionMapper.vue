@@ -95,7 +95,7 @@ const componentsMap = computed(() => ({
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
-  "section-features.resources-feature-details": CardWithSideIconResourcePage,
+  "section-cards.feature3": CardWithSideIconResourcePage,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,

@@ -10,29 +10,23 @@ const PageData = await fetchApi({
 });
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
-const blogData = (await getAllBlogs())
-  .slice(0, 10)
-  .map(({ content, ...rest }) => rest);
-const allCaseStudiesData = await getAllCaseStudies();
-const caseData = allCaseStudiesData
-  .slice(0, 3)
-  .map(({ content, ...rest }) => rest);
-const allowedSlugs = [
-  "elasticsearch-matching",
-  "otel-exporters-introduction",
-  "iis-logging-basics",
-];
-const allArticlesData = (await getAllResourceBlogs())
-  .map(({ content, ...rest }) => rest)
-  .filter((it: any) => allowedSlugs.includes(it.slug));
+// const blogData = (await getAllBlogs())
+//   .slice(0, 10)
+//   .map(({ content, ...rest }) => rest);
+// const allCaseStudiesData = await getAllCaseStudies();
+// const caseData = allCaseStudiesData
+//   .slice(0, 3)
+//   .map(({ content, ...rest }) => rest);
+// const allowedSlugs = [
+//   "elasticsearch-matching",
+//   "otel-exporters-introduction",
+//   "iis-logging-basics",
+// ];
+// const allArticlesData = (await getAllResourceBlogs())
+//   .map(({ content, ...rest }) => rest)
+//   .filter((it: any) => allowedSlugs.includes(it.slug));
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper
-    data={data}
-    blogsData={blogData}
-    caseStudyData={caseData}
-    articlesData={allArticlesData}
-    client:load
-  />
+  <ComponentCollectionMapper data={data} client:load />
 </Layout>
