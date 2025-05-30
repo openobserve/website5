@@ -18,7 +18,7 @@
             :title="feature.title"
             :description="feature.description"
             :icon="feature.image"
-            :theme="feature.iconColor"
+            :theme="feature.theme"
             align="center"
           />
         </div>
@@ -56,7 +56,8 @@ import { computed } from "vue";
 interface GlobalTeamFeature {
   title: string;
   description: string;
-  icon: string;
+  image: string;
+  theme: string;
 }
 
 interface MapDot {
