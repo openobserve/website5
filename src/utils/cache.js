@@ -1,4 +1,5 @@
 import fetchApi from "./strapi";
+import qs from 'qs';
 
 let cache = {
   categories: null,
@@ -7,7 +8,7 @@ let cache = {
   resourceBlogs: null,
   resourceCategories: null,
   resourceAuthors: null,
-  caseStudies:null,
+  caseStudies: null,
   len: {
     authorsCount: 0,
     blogsCount: 0,
@@ -15,7 +16,7 @@ let cache = {
     resourceBlogsCount: 0,
     resourceCategoriesCount: 0,
     resourceAuthorsCount: 0,
-    caseStudiesCount:0,
+    caseStudiesCount: 0,
     superiorCategoriesCount: 0,
     subTagsForSuperiorCategoriesCount: 0,
   },
@@ -93,15 +94,21 @@ export async function fetchBlogs() {
   if (cache.blogs) {
     return cache.blogs;
   }
+  const queryString = qs.stringify({
+    populate: {
+      authors: {
+        populate: ['image']
+      },
+      category: true,
+      image: true,
+      tags: true
+    }
+  }, { encodeValuesOnly: true });
+
   const data = await fetchAllPages({
-    endpoint: "api/blog-pages",
-    query: { populate: "*" },
-    // query: {
-    //   "populate[authors][populate]": "image",
-    //   "populate[categories]": true,
-    //   "populate[image]": true,
-    // },
+    endpoint: `api/blog-pages?${queryString}`,
   });
+
 
   cache.blogs = data;
   cache.len.blogsCount = data.length;
