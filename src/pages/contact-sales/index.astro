@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import fetchApi from "@/utils/strapi";
-const PageData = await fetchApi({
-  endpoint: "api/contact-sale",
-  query: { pLevel: "4", status: "draft" },
-});
-const data = PageData?.data?.body || {};
-const seoData = PageData?.data?.seo || {};
+import contactSales from "@/content/contact-sales.json";
+
+const data = contactSales?.data?.body || {};
+const seoData = contactSales?.data?.seo || {};
 ---
 
 <Layout metaObj={seoData}>
