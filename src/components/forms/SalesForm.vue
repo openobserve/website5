@@ -3,6 +3,7 @@ import { ref } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import { useForm, useField, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useSegment } from "@/composables/useSegment";
 
 // Form validation
 const schema = yup.object({
@@ -18,6 +19,9 @@ const schema = yup.object({
 });
 type FormData = yup.InferType<typeof schema>;
 
+// Segment tracking
+const { trackSalesInquiry } = useSegment();
+
 const status = ref({
   submitted: false,
   error: false,
@@ -30,7 +34,7 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     initialValues: {
       fname: "",
       lname: "",
-      email:"",
+      email: "",
       company: "",
       phone: "",
       referral: "",
@@ -39,6 +43,17 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
   try {
+    // Track sales inquiry in Segment
+    await trackSalesInquiry({
+      firstName: values.fname,
+      lastName: values.lname,
+      email: values.email,
+      company: values.company,
+      phone: values.phone,
+      referralSource: values.referral,
+      source: "sales_form",
+    });
+
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
@@ -152,7 +167,7 @@ const reset = () => {
             </div>
           </div>
           <!-- email -->
-           <div>
+          <div>
             <label for="email" class="contact-form-label"
               >Work Email <span class="text-red-500">*</span></label
             >
