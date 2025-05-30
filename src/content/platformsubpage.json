@@ -237,7 +237,7 @@
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
             "theme": "theme-red",
-            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" class=\"h-5 w-5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "OTel-native Metrics",
@@ -1047,7 +1047,7 @@
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
             "theme": "theme-red",
-            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" class=\"h-5 w-5\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "Stay on top of Issues",
