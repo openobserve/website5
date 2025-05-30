@@ -1,15 +1,78 @@
 ---
-import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
+import CustomSection from "@/components/core/CustomSection.vue";
 import Layout from "@/layouts/Layout.astro";
-import policies from "@/content/privacy-policies.json";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import fetchApi from "@/utils/strapi";
+import { marked } from "marked";
+import { slugify } from "@/utils/slugify";
+const PageData = await fetchApi({
+  endpoint: "api/privicy-policy-page",
+  query: { pLevel: "2", status: "draft" },
+});
+const data = PageData?.data || {};
+const rawContent = data?.content || ""; // Ensure this is a string
+
+const renderer = new marked.Renderer();
+
+renderer.heading = (text, level) => {
+  const headingId = text.text;
+  const headingLevel = text.depth;
+  const id = slugify(headingId);
+  return `<h${headingLevel} id="${id}">${text.text}</h${headingLevel}>`;
+};
+
+const htmlContent = marked.parse(rawContent, { renderer });
+
+// Extract headings for TOC as before
+const tokens = marked.lexer(rawContent);
+const tocItems = tokens
+  .filter((token) => token.type === "heading")
+  .map((token) => ({
+    text: token.text,
+    slug: slugify(token.text),
+    level: token.depth,
+  }));
 const metaObj = {
   title:
     "Privacy Policy | OpenObserve",
     description:"Learn how we collect, use, and share your personal information. This page details our privacy practices, including how we protect your data and your rights."
 };
-const data = policies?.data?.body || {};
 ---
 
 <Layout metaObj={metaObj}>
-  <ComponentCollectionMapper data={data} client:load />
+  <div class="">
+    <CommonHerosection
+      title={data?.title}
+      description="Last updated: April 17, 2025"
+      align="CENTER"
+    />
+
+    <CustomSection sectionClass="max-w-4xl !pt-12 !pb-0">
+      <div class="bg-light-gray rounded-lg p-6 mb-10">
+        <h2 class="text-xl font-semibold text-primary-black mb-4">
+          Table of Contents
+        </h2>
+        <nav class="space-y-2">
+          {
+            tocItems.map(({ text, slug }, index) => (
+              <a
+                href={`#${slug}`}
+                class="block text-primary-purple hover:underline"
+              >
+                {text}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </CustomSection>
+    <CustomSection sectionClass="max-w-4xl !py-0 mb-8">
+      <div class="space-y-10">
+        <div
+          set:html={htmlContent}
+          class="prose prose-lg prose-invert prose-pre:bg-gray-900 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-[#364153] [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-base lg:text-lg"
+        />
+      </div>
+    </CustomSection>
+  </div>
 </Layout>
