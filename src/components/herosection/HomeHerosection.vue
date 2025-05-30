@@ -72,13 +72,13 @@ defineProps<{ data: HeroData }>();
             class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg"
           ></div>
           <div class="relative rounded-xl overflow-hidden group cursor-pointer">
-            <div class="aspect-video w-full">
+            <!-- <div class="aspect-video w-full">
               <img
                 :src="data.video.thumbnail"
                 alt="OpenObserve Demo Video"
                 class="object-cover w-full h-full"
               />
-            </div>
+            </div> -->
             <div
               class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors"
             >
@@ -94,13 +94,13 @@ defineProps<{ data: HeroData }>();
                 </svg>
               </div>
             </div>
-            <div
+            <!-- <div
               class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4"
             >
               <p class="text-white font-medium">
                 {{ data.video.label }}
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
