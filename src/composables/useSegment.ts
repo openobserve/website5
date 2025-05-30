@@ -234,7 +234,7 @@ export const useSegment = () => {
     formData: TrackEventData,
     userId?: string
   ): Promise<void> => {
-    const eventName = `Form Submitted - ${formType}`;
+    const eventName = `O2 Website Form Submitted - ${formType}`;
     await track(
       eventName,
       {
@@ -250,7 +250,7 @@ export const useSegment = () => {
     userId?: string
   ): Promise<void> => {
     await track(
-      "Newsletter Signup",
+      "O2 Website - Newsletter Signup",
       {
         email,
         source: "website",
