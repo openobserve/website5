@@ -76,7 +76,7 @@ const listContainerVariant = {
 const listItemVariant = {
   hidden: {
     opacity: 0,
-      x: props.direction === "right" ? -20 : 20,
+    x: props.direction === "right" ? -20 : 20,
   },
   visible: {
     opacity: 1,
@@ -92,7 +92,6 @@ const listItemVariant = {
 const cardVariant = computed(() => {
   return props.direction === "right" ? RightVariant : LeftVariant;
 });
-
 </script>
 
 <template>
@@ -138,6 +137,7 @@ const cardVariant = computed(() => {
             <CustomImage
               :src="cardData?.avatar"
               class="w-12 h-12 rounded-full shrink-0"
+              :altText="cardData?.name"
             />
             <div>
               <p class="font-semibold text-base text-gray-900">
@@ -153,16 +153,16 @@ const cardVariant = computed(() => {
       <motion.div
         class="w-full lg:w-1/2 z-10 flex flex-col space-y-6"
         :initial="'hidden'"
-  :whileInView="'visible'"
-  :variants="listContainerVariant"
-  :inViewOptions="{ once: true, amount: 0.3 }"
+        :whileInView="'visible'"
+        :variants="listContainerVariant"
+        :inViewOptions="{ once: true, amount: 0.3 }"
       >
         <div v-if="items?.length" class="flex flex-col space-y-6">
           <motion.div
             v-for="(item, index) in items"
             :key="index"
             class="flex items-start"
-             :variants="listItemVariant"
+            :variants="listItemVariant"
           >
             <div class="space-y-1">
               <div class="flex items-center">

@@ -32,7 +32,7 @@
               :src="
                 isMenuOpen ? '/img/icon/close.svg' : '/img/icon/navmenu.svg'
               "
-              alt="Mobile View Menu Icon"
+              alt="Mobile View Menu "
               class=""
             />
           </div>
