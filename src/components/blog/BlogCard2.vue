@@ -23,7 +23,9 @@ const getImageUrl = ({ image }: Blog) =>
   image?.formats?.small?.url ??
   image?.url ??
   "";
-const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog.categories?.slice(0,2));
+const tags = computed(() =>
+  props.type === "blog" ? props.blog.tags : props.blog.categories?.slice(0, 2)
+);
 </script>
 
 <template>
@@ -48,25 +50,27 @@ const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog
       </div>
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
         <div class="min-h-0 flex flex-wrap gap-2 mb-2">
-        <div class="flex-grow">
-        <div class=" flex gap-2 mb-2.5 flex-wrap">
-            <a v-for=tag in tags
-            :key="tag.slug"
-            :href="`/blog/tag/${tag.slug}`"
-            class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"
+          <div class="flex-grow">
+            <div class="flex gap-2 mb-2.5 flex-wrap">
+              <a
+                v-for="tag in tags"
+                :key="tag.slug"
+                :href="`/blog/tag/${tag.slug}`"
+                class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"
+              >
+                {{ tag.name }}
+              </a>
+            </div>
+          </div>
+          <component
+            :is="`h${headingLevel}`"
+            class="text-lg font-semibold flex-grow mb-2"
           >
-            {{ tag.name }}
-          </a>
-        </div>
-        <component
-          :is="`h${headingLevel}`"
-          class="text-lg font-semibold flex-grow mb-2"
-        >
-          {{ blog?.title }}
-        </component>
-        <p class="text-primary-gray mb-3 text-base line-clamp-3">
-          {{ blog?.description }}
-        </p>
+            {{ blog?.title }}
+          </component>
+          <p class="text-primary-gray mb-3 text-base line-clamp-3">
+            {{ blog?.description }}
+          </p>
         </div>
         <div class="w-full h-px bg-gray-200 my-3" v-if="type === 'blog'"></div>
         <div
