@@ -76,7 +76,7 @@ defineProps<{ data: HeroData }>();
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/C0GH5Ox8NnY"
+                src="https://www.youtube.com/embed/C0GH5Ox8NnY?rel=0"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
