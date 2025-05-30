@@ -6,7 +6,9 @@
       align="center"
       class="!mb-3c"
     />
-    <div class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12">
+    <div
+      class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12"
+    >
       <!-- Tabs Header -->
       <TabsHeader
         :tabs="tabs"
@@ -22,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
@@ -46,8 +48,14 @@ const props = defineProps<{
 
 // Reactive tabs array
 const tabs = computed(() => [
-  { title: props.cloudData?.title, value: slugify(props.cloudData?.title || "cloud") },
-  { title: props.selfHostedData?.title, value: slugify(props.selfHostedData?.title || "self-hosted") }
+  {
+    title: props.cloudData?.title,
+    value: slugify(props.cloudData?.title || "cloud"),
+  },
+  {
+    title: props.selfHostedData?.title,
+    value: slugify(props.selfHostedData?.title || "self-hosted"),
+  },
 ]);
 
 // Active tab state
@@ -65,11 +73,19 @@ const tabData = computed(() => {
 // Tab change handler
 function handleTabChange(value: string) {
   activeTab.value = value;
+  history.replaceState(null, "", `#${value}`);
 }
+// Set initial tab on mount using hash if exists
+onMounted(() => {
+  const hash = window.location.hash.replace("#", "");
+  const found = tabs.value.find((tab) => tab.value === hash);
+  activeTab.value = found?.value || tabs.value[0]?.value || "";
 
-// Debug: Watch for tab data updates
-watch(tabData, (newVal) => {
-  console.log("Tab Data updated:", newVal);
+  if (found) {
+    setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
 });
 </script>
 
