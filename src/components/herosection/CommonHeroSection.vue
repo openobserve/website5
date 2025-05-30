@@ -12,8 +12,8 @@ defineProps({
     required: false,
   },
   align: {
-    type: String as () => "left" | "center" | "right",
-    default: "left",
+    type: String as () => "LEFT" | "CENTER" | "RIGHT",
+    default: "LEFT",
   },
   primaryButton: {
     type: Object,
@@ -28,9 +28,9 @@ defineProps({
       <div
         class="max-w-full container mx-auto flex flex-col px-4"
         :class="{
-          'items-start text-left': align === 'left',
-          'items-center text-center': align === 'center',
-          'items-end text-right': align === 'right',
+          'items-start text-left': align === 'LEFT',
+          'items-center text-center': align === 'CENTER',
+          'items-end text-right': align === 'RIGHT',
         }"
       >
         <h1
