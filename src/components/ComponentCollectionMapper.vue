@@ -90,7 +90,7 @@ const componentsMap = computed(() => ({
   "section-story.our-commitment": OurCommitmentO2,
   "section-story.our-partners": OurPartners,
   "section-hero.solutions-hero-section": HeroSectionWithImage,
-  "section-hero.solution-sub-hero": SolutionSubPageHeroSection,
+  "section-hero.solution-subpage-herosection": SolutionSubPageHeroSection,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
