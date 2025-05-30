@@ -19,8 +19,7 @@
         "description": "Choose the deployment option that best fits your needs and start monitoring your infrastructure and applications today.",
         "tabs": [
           {
-            "value": "cloud",
-            "label": "Cloud",
+            "title": "Cloud",
             "items": [
               {
                 "title": "OpenObserve Cloud",
@@ -43,8 +42,7 @@
             ]
           },
           {
-            "value": "self-hosted",
-            "label": "Self Hosted",
+            "title": "Self Hosted",
             "items": [
               {
                 "value": "quick-start",
