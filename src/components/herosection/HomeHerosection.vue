@@ -32,7 +32,7 @@ defineProps<{ data: HeroData }>();
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <!-- Left Side -->
         <div class="flex flex-col h-full items-start justify-center gap-8">
-          <div class=" space-y-4 lg:space-y-4">
+          <div class="space-y-4 lg:space-y-4">
             <span
               class="inline-block px-3 py-1 text-sm font-medium bg-green-400/50 text-white rounded-full mt-2"
             >
@@ -73,33 +73,16 @@ defineProps<{ data: HeroData }>();
           ></div>
           <div class="relative rounded-xl overflow-hidden group cursor-pointer">
             <div class="aspect-video w-full">
-              <img
-                :src="data.video.thumbnail"
-                alt="OpenObserve Demo Video"
-                class="object-cover w-full h-full"
-              />
-            </div>
-            <div
-              class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors"
-            >
-              <div
-                class="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform"
-              >
-                <svg
-                  class="h-8 w-8 text-purple-500 ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-            <div
-              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4"
-            >
-              <p class="text-white font-medium">
-                {{ data.video.label }}
-              </p>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/C0GH5Ox8NnY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                class="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
