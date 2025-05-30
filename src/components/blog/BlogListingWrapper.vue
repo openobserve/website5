@@ -87,6 +87,15 @@ const props = defineProps({
 
 const searchItem = ref(""); // type in the search box
 const filteredBlogsData = ref(props?.blogsData);
+
+// update filterdblogs data when blogsdata changes
+watch(
+  () => props?.blogsData,
+  () => {
+    filteredBlogsData.value = props?.blogsData;
+  }
+);
+
 watch(searchItem, async (newValue) => {
   filteredBlogsData.value = await handleBlogSearch(
     newValue,
@@ -94,7 +103,6 @@ watch(searchItem, async (newValue) => {
     props?.blogsData
   );
 });
-
 
 const shouldPaginate = computed(() => {
   return props?.totalItems > ITEMS_PER_PAGE;

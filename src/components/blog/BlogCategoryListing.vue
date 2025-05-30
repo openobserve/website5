@@ -48,8 +48,8 @@ const props = defineProps<{
     name: string;
     tags: {
       name: string;
-      slug: string
-    }
+      slug: string;
+    }[];
   }[];
   allTags: {
     name: string;
@@ -65,7 +65,12 @@ const categoriesWithAll = computed(() => [
 ]);
 function setActiveCategory(category: string) {
   activeCategory.value = category;
+  // Emit event to parent
+  emit('update:activeCategory', category);
 }
+
+// Add defineEmits for event emission
+const emit = defineEmits(['update:activeCategory']);
 
 const filtersubTagsBasedonSuperiorTag = computed(() => {
   if (activeCategory.value === "ALL") {
