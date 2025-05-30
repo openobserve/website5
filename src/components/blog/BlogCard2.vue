@@ -23,7 +23,7 @@ const getImageUrl = ({ image }: Blog) =>
   image?.formats?.small?.url ??
   image?.url ??
   "";
-const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog.categories);
+const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog.categories?.slice(0,2));
 </script>
 
 <template>
@@ -49,7 +49,7 @@ const tags = computed(() => props.type === "blog" ? props.blog.tags : props.blog
       <div class="p-6 flex flex-col justify-start md:items-start flex-grow">
         <div class="min-h-0 flex flex-wrap gap-2 mb-2">
           <a
-            v-for="tag in tags?.slice(0, 2)"
+            v-for="tag in tags"
             :key="tag.slug"
             :href="`/blog/tag/${tag.slug}`"
             class="bg-light-gray text-primary-gray text-sm font-medium rounded-full px-3 py-1 capitalize"
