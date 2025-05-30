@@ -427,7 +427,7 @@
         fill="white"
       />
       </a>
-      <a class="svg-link-solutions" href="/kubernetes-observability">
+      <a class="svg-link-solutions" href="/kubernetes-monitoring">
         <rect
           class="hover-bg-solutions"
           x="443.261"
