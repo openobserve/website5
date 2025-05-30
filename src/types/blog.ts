@@ -1,5 +1,5 @@
 export interface Blog {
-  id :string,
+  id: string;
   slug: string;
   image?: {
     formats?: {
@@ -26,7 +26,11 @@ export interface Blog {
   publishDate: string;
   category: {
     name: string;
-  }
+  };
+  categories: {
+    name: string;
+    slug: string
+  }[];
 }
 
 export type Author = {

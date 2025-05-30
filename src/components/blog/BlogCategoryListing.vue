@@ -1,7 +1,7 @@
 <template>
   <!-- Category Tabs -->
-  <div class="border-b border-border mb-8">
-    <div class="flex overflow-x-auto scrollbar-hide space-x-1 sm:space-x-2">
+  <div class="border-b border-border mb-8" v-show="type === 'blog'">
+    <div class="flex overflow-x-auto scrollbar-hide space-x-1 sm:space-x-2" >
       <button
         v-for="category in categoriesWithAll"
         :key="category.name"
@@ -27,9 +27,9 @@
       </div>
       <div class="flex flex-wrap gap-2">
         <a
-          v-for="tag in filtersubTagsBasedonSuperiorTag"
+          v-for="tag in showTagsBasedOnType"
           :key="tag.name"
-          :href="`/blog/tag/${tag.slug}`"
+          :href="`/${type}/tag/${tag.slug}`"
           class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
         >
           {{ tag.name }}
@@ -79,4 +79,13 @@ const filtersubTagsBasedonSuperiorTag = computed(() => {
   return matchedCategory?.tags;
   
 });
+
+const showTagsBasedOnType = computed(() => {
+  if (props.type === "articles") {
+    return props.allTags;
+  }
+  return filtersubTagsBasedonSuperiorTag.value;
+});
+
+console.log(showTagsBasedOnType.value)
 </script>
