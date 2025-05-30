@@ -10,7 +10,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Logs",
         "title": "Log Management and Analytics",
         "description": "Transform your log data into actionable insights with real-time analysis and industry-leading storage efficiency.",
         "primaryButton": {
@@ -18,48 +17,49 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-logs/logs-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "image": {
+          "url":"/img/platform-logs/logs-hero.png",
+          "altText": "OpenObserve Logs Dashboard"       
+        }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Significantly Efficient",
             "description": "140x lower storage costs compared to Elasticsearch",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Highly Performant",
             "description": "Run lightning-fast queries across terabytes of data.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"15\" height=\"16\" viewBox=\"0 0 15 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2.332 6.00001V0.666672H12L14.3333 3.00001V15.3333H1.66667M11 0.666672V4.00001H14.3333M1 12.6667L4.33333 9.33334L7 12L11.3333 7.66667M11.6667 11.3333V7.33334H7.66667\" stroke=\"currentColor\" stroke-width=\"1.33333\"/></svg>"
           },
           {
             "title": "OTel-Native Logs",
             "description": "Standardized collection with zero vendor lock-in.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Logs",
-        "description": "Scale from gigabytes to petabytes while dramatically reducing costs.",
+        "heading":{
+          "title": "OpenObserve Logs",
+          "description": "Scale from gigabytes to petabytes while dramatically reducing costs."
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-analytics",
             "title": "Real-Time Analytics",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Real-Time Analytics",
-              "features": [
+            "tabImage": "/img/platform-logs/real-time-analaytics.svg",
+            "items": [
                 {
                   "title": "Instant Ingest-to-dashboard",
                   "description": "Get answers the moment logs arrive, sub-second results even across petabytes of data."
@@ -69,16 +69,12 @@
                   "description": "Build customized logging dashboards in minutes with our drag-and-drop interface that updates live and shares with one click."
                 }
               ],
-              "image": "/img/platform-logs/logs-visualizer.png"
-            }
+              "featureImage": "/img/platform-logs/logs-visualizer.png"
           },
           {
-            "value": "powerful-search",
             "title": "Powerful Search",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Powerful Search",
-              "features": [
+            "tabImage": "/img/platform-logs/powerful-search.svg",
+              "items": [
                 {
                   "title": "Instantaneous Text Search",
                   "description": "Find specific log entries across massive datasets in seconds with intelligent pattern matching that surfaces relevant results first."
@@ -88,16 +84,12 @@
                   "description": "Utilize SQL to run precise queries and complex aggregations across all your log sources."
                 }
               ],
-              "image": "/img/platform-logs/logs-sqlquery.png"
-            }
+              "featureImage": "/img/platform-logs/logs-sqlquery.png"
           },
           {
-            "value": "log-processing",
             "title": "Log Processing",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Log Processing",
-              "features": [
+            "tabImage": "/img/platform-logs/log-processing.svg",
+            "items": [
                 {
                   "title": " Automated Parsing",
                   "description": "Convert raw logs into structured data automatically with intelligent built-in parsing capabilities for common formats, including JSON, CSV, Syslog, CEF, nginx, and more."
@@ -107,16 +99,12 @@
                   "description": "Enrich, filter, and reshape logs during ingestion with Vector Remap Language—maintaining peak performance while handling any log format."
                 }
               ],
-              "image": "/img/platform-logs/logs-pipelines.png"
-            }
+              "featureImage": "/img/platform-logs/logs-pipelines.png"
           },
           {
-            "value": "Optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+            "tabImage": "/img/platform-logs/optimized-storage.svg",
+              "items": [
                 {
                   "title": "Industry-Leading Compression",
                   "description": "Slash log storage costs by up to 140x compared to Elasticsearch with our advanced columnar storage and Parquet format."
@@ -126,16 +114,17 @@
                   "description": "Configure custom log retention policies per data source, keeping valuable logs accessible longer without escalating costs."
                 }
               ],
-              "image": "/img/platform-logs/logs-settings.png"
-            }
+              "featureImage": "/img/platform-logs/logs-settings.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Logs FAQs",
+        "heading":{
+          "title": "Logs FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve handle log ingestion?",
             "answer": "OpenObserve provides multiple ingestion methods for different use cases:<br><ul><li>Direct log shipping via HTTP/HTTPS endpoints with API authentication.</li><li>Integration with industry-standard log forwarders like Vector, Fluentd, and Fluent Bit.</li><li>Kubernetes environments supported through the OpenObserve operator or DaemonSet.</li><li>Cloud provider logs ingested through native integrations such as AWS Kinesis Firehose or GCP Pub/Sub.</li></ul>"
@@ -177,14 +166,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+         "heading": {
+          "title": "Ready to get started?",
+        "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -218,7 +209,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Metrics",
         "title": "Metrics",
         "description": "Monitor your infrastructure and applications with Prometheus-native metrics and efficient time-series storage.",
         "primaryButton": {
@@ -226,48 +216,49 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-metrics/metrics-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "image": {
+          "url":"/img/platform-metrics/metrics-hero.png",
+          "altText": "OpenObserve Metrics Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Multilingual Queries",
             "description": "Query metrics with either SQL or PromQL",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "OTel-native Metrics",
             "description": "Standardized collection with zero vendor lock-in",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Metrics",
-        "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments.",
+        "heading":{
+          "title": "OpenObserve Metrics",
+          "description": "Efficient collection, storage, and analysis capabilities for modern, cloud-native environments."
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "metrics-collection",
             "title": "Metrics Collection & Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Metrics Collection & Analysis",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrics-collection-analysis.svg",
+              "items": [
                 {
                   "title": "Effortless Collection",
                   "description": "Ingest metrics from any source with minimal overhead via Prometheus remote-write, OpenTelemetry, or direct API integration."
@@ -277,16 +268,12 @@
                   "description": "Visualize and analyze metrics instantly without cardinality limits, enabling immediate detection of performance trends."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-datasources.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-datasources.png"
           },
           {
-            "value": "prometheus-integration",
             "title": "Prometheus Integration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Prometheus Integration",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrices-prometheus-integration.svg",
+            "items": [
                 {
                   "title": "Native Compatibility",
                   "description": "Connect with Prometheus endpoints using full remote write protocol support and your existing configurations."
@@ -296,16 +283,12 @@
                   "description": "Use familiar PromQL syntax or switch to SQL - your team's expertise remains valuable without new learning curves."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-promql.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-promql.png"
           },
           {
-            "value": "metrics-processing",
             "title": "Metrics Processing Advanced",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Metrics Processing Advanced",
-              "features": [
+            "tabImage": "/img/platform-metrics/metrics-processing.svg",
+              "items": [
                 {
                   "title": "Aggregations",
                   "description": "Process time-series data with powerful calculations including rates, moving averages, and percentile analysis using either PromQL or SQL."
@@ -315,16 +298,12 @@
                   "description": "Optimize query performance for historical data through automatic downsampling of longer period requests."
                 }
               ],
-              "image": "/img/platform-metrics/dashboard-queryeditor.png"
-            }
+              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
           },
           {
-            "value": "optimized-storage",
-            "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+           "title": "Optimized Storage",
+            "tabImage": "/img/platform-traces/trace-optimized-storage.svg",
+              "items": [
                 {
                   "title": "Columnar Storage",
                   "description": "Cut storage costs while maintaining query speed through OpenObserve’s columnar format designed for time-series data."
@@ -334,16 +313,17 @@
                   "description": "Define custom retention periods for each data source, ensuring you keep only what you need for as long as you need it."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-settings.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-settings.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Metrics FAQs",
+        "heading":{
+          "title": "Metrics FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect metrics?",
             "answer": "OpenObserve supports multiple collection methods for metrics: *Metrics collection through Prometheus remote write<br/><ul><li>Metrics collection via OTLP protocol using OTel Collector</li><li>Custom metrics ingestion through HTTP API endpoints</li><li>Infrastructure metrics collection through various integrations, including cloud provider services and the OpenObserve collector</li></ul>"
@@ -385,14 +365,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -426,7 +408,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Traces",
         "title": "Traces",
         "description": "Gain end-to-end visibility into your distributed systems, powered by OpenTelemetry.",
         "primaryButton": {
@@ -434,48 +415,49 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-traces/traces-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "image":{
+        "url":"/img/platform-traces/traces-hero.png",
+        "altText": "OpenObserve Traces Dashboard"
+        } 
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Correlated Telemetry",
             "description": "Visualize and troubleshoot metrics, logs, and traces in a single pane of glass",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.45598 8.72463C7.80023 9.38088 7.80023 10.4444 8.45598 11.1006C9.11223 11.7564 10.1757 11.7564 10.8315 11.1006C11.4877 10.4444 11.4877 9.38088 10.8315 8.72463C10.1757 8.06888 9.11223 8.06888 8.45598 8.72463ZM10.2319 10.502C10.1547 10.5793 10.063 10.6406 9.96206 10.6824C9.86114 10.7243 9.75297 10.7458 9.64373 10.7458C9.53449 10.7458 9.42631 10.7243 9.3254 10.6824C9.22448 10.6406 9.1328 10.5793 9.0556 10.502C8.97837 10.4248 8.9171 10.3332 8.8753 10.2323C8.8335 10.1314 8.81198 10.0233 8.81198 9.91407C8.81198 9.80487 8.8335 9.69674 8.8753 9.59586C8.9171 9.49498 8.97837 9.40332 9.0556 9.32613C9.1328 9.24884 9.22448 9.18752 9.3254 9.14569C9.42631 9.10385 9.53449 9.08232 9.64373 9.08232C9.75297 9.08232 9.86114 9.10385 9.96206 9.14569C10.063 9.18752 10.1547 9.24884 10.2319 9.32613C10.5566 9.64938 10.5566 10.1773 10.2319 10.502ZM10.8037 0.459004L9.77435 1.48825C9.67745 1.58589 9.62307 1.71788 9.62307 1.85544C9.62307 1.993 9.67745 2.12499 9.77435 2.22263L13.793 6.24125C13.8906 6.33816 14.0226 6.39254 14.1602 6.39254C14.2977 6.39254 14.4297 6.33816 14.5274 6.24125L15.5566 5.21188C15.7579 5.01063 15.7579 4.67925 15.5566 4.47813L11.5362 0.458879C11.4388 0.362241 11.3072 0.308014 11.17 0.308014C11.0328 0.308014 10.9011 0.362366 10.8037 0.459004ZM3.59223 13.6119C3.67999 13.5237 3.72927 13.4044 3.72927 13.28C3.72927 13.1556 3.67999 13.0363 3.59223 12.9481L3.06935 12.4248C2.98107 12.3371 2.86171 12.2879 2.73729 12.2879C2.61288 12.2879 2.49351 12.3371 2.40523 12.4248L1.32473 13.5059L1.32273 13.5074L1.02635 13.2105C0.862228 13.0464 0.595103 13.0464 0.432603 13.2105C0.268478 13.3745 0.268478 13.6416 0.432603 13.8043L2.21335 15.5845C2.25228 15.6235 2.29852 15.6544 2.34942 15.6755C2.40032 15.6967 2.45488 15.7075 2.50998 15.7075C2.56508 15.7075 2.61964 15.6967 2.67054 15.6755C2.72144 15.6544 2.76767 15.6235 2.8066 15.5845C2.9691 15.4204 2.97073 15.1533 2.8066 14.9913L2.50973 14.6944L2.51173 14.6929L3.59223 13.6119ZM9.0371 3.41413L6.75048 5.70063C6.54735 5.90375 6.54735 6.23825 6.75048 6.44138L8.16248 7.853C9.16048 7.13475 10.56 7.22363 11.4579 8.12213L12.6014 6.9785C12.8041 6.77538 12.8041 6.44138 12.6014 6.23825L9.77748 3.41413C9.72889 3.36549 9.6712 3.3269 9.60769 3.30057C9.54418 3.27424 9.4761 3.26069 9.40735 3.26069C9.3386 3.26069 9.27053 3.27424 9.20702 3.30057C9.14351 3.3269 9.08569 3.36549 9.0371 3.41413ZM7.56873 8.44813L6.73473 7.61413C6.53935 7.41888 6.2191 7.41888 6.02423 7.61413L3.08298 10.5566C2.98916 10.6511 2.93651 10.7789 2.93651 10.9121C2.93651 11.0452 2.98916 11.173 3.08298 11.2675L4.74935 12.934C4.84386 13.0279 4.97166 13.0805 5.10485 13.0805C5.23805 13.0805 5.36584 13.0279 5.46035 12.934L7.35185 11.0394C6.95198 10.2133 7.02373 9.21525 7.56873 8.44813Z\" fill=\"currentColor\"/></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Significantly Efficient",
             "description": "70% lower storage requirements for traces compared to Elasticsearch",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": "OTel-Native Traces",
             "description": "Standardized collection with zero vendor lock-in",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Traces",
-        "description": "",
+        "heading":{
+          "title": "OpenObserve Traces",
+          "description": ""
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "trace-collection",
             "title": "Trace Collection",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Trace Collection",
-              "features": [
+            "tabImage": "/img/platform-traces/trace-collection.svg",
+              "items": [
                 {
                   "title": "OpenTelemetry Integration",
                   "description": "Collect traces through native OTLP (OpenTelemetry Protocol). Instrument applications once and export traces directly to OpenObserve—no vendor lock-in."
@@ -485,16 +467,12 @@
                   "description": "Capture distributed traces using zero-code auto-instrumentation configured by the OpenObserve collector."
                 }
               ],
-              "image": "/img/platform-traces/traces-datasources.png"
-            }
+              "featureImage": "/img/platform-traces/traces-datasources.png"
           },
           {
-            "value": "service-analysis",
             "title": "Service Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Service Analysis",
-              "features": [
+            "tabImage": "img/platform-traces/trace-service-analysis.svg",
+              "items": [
                 {
                   "title": "Dependency Mapping",
                   "description": "See your microservices in action. Real-time service maps reveal how your systems truly connect."
@@ -504,16 +482,12 @@
                   "description": "Spot troublemakers instantly with latency heatmaps and error trend analysis. Compare trace durations across versions to catch performance drops before users do."
                 }
               ],
-              "image": "/img/platform-traces/traces-service-map.png"
-            }
+              "featureImage": "/img/platform-traces/traces-service-map.png"
           },
           {
-            "value": "trace-analysis",
             "title": "Trace Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Trace Analysis",
-              "features": [
+            "tabImage": "/img/platform-traces/trace-analysis.svg",
+              "items": [
                 {
                   "title": "Detailed Spans",
                   "description": "Dive deep into every operation—examine spans with precise timing, tags, and logs. One click takes you from overview metrics to the exact problematic trace span."
@@ -523,16 +497,12 @@
                   "description": "Follow requests anywhere with seamless W3C trace context support. Visualize complete transaction journeys through your stack with intuitive flame graphs and revealing waterfall diagrams."
                 }
               ],
-              "image": "/img/platform-traces/traces-event.png"
-            }
+              "featureImage": "/img/platform-traces/traces-event.png"
           },
           {
-            "value": "optimized-storage",
             "title": "Optimized Storage",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Optimized Storage",
-              "features": [
+            "tabImaage": "/img/platform-traces/trace-optimized-storage.svg",
+              "items": [
                 {
                   "title": "Efficient Storage",
                   "description": "Slash storage costs to 1/140th of Elasticsearch with Apache Parquet's powerful columnar format. Get exceptional compression without sacrificing lightning-fast query performance."
@@ -542,16 +512,17 @@
                   "description": " Set retention policies your way—no complex tiered storage needed. OpenObserve leverages object storage as your hot tier, making data management simple and cost-effective."
                 }
               ],
-              "image": "/img/platform-traces/traces-settings.png"
+              "featureImage": "/img/platform-traces/traces-settings.png"
             }
-          }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Traces FAQs",
+        "heading":{
+          "title": "Traces FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect traces?",
             "answer": "OpenObserve collects distributed traces through OpenTelemetry instrumentation. The platform accepts traces via the OTLP protocol, supporting both manual and automatic instrumentation methods. For services already instrumented with OpenTelemetry, you can configure the exporter to send traces directly to OpenObserve. The system maintains trace context across service boundaries using W3C trace context standards."
@@ -593,14 +564,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -634,7 +607,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Frontend Monitoring",
         "title": "Frontend Monitoring",
         "description": "Gain insights into application performance, user interactions, and frontend errors.",
         "primaryButton": {
@@ -642,47 +614,51 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-frontend-monitoring/frontend-webvitals.png",
-        "altText": "OpenObserve Dashboard"
+        "image":{ 
+        "url": "/img/platform-frontend-monitoring/frontend-webvitals.png",
+        "altText": "OpenObserve Frontend Monitoring Dashboard"
+      }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Unified Observability",
             "description": "Consolidate your frontend observability alongside your application performance and infrastructure health",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_667_53)\"><path d=\"M13.7094 9.86666C13.305 11.1153 12.5023 12.1968 11.4243 12.9455C10.3463 13.6943 9.05262 14.0689 7.74138 14.012C6.43014 13.9551 5.17372 13.4698 4.16467 12.6305C3.15561 11.7913 2.44958 10.6443 2.15478 9.36533L3.28945 9.14133L1.12945 6.90666L-0.0012207 9.796L1.19478 9.56133C1.52856 11.0627 2.3475 12.4123 3.52503 13.4016C4.70257 14.391 6.17316 14.965 7.70956 15.0349C9.24595 15.1049 10.7626 14.6669 12.0252 13.7886C13.2878 12.9104 14.2259 11.6408 14.6948 10.176L13.7094 9.86666ZM14.8241 6.48C14.4902 4.97873 13.6711 3.62922 12.4935 2.64002C11.3158 1.65081 9.8452 1.07697 8.30882 1.00717C6.77244 0.93737 5.25584 1.37549 3.99336 2.25384C2.73089 3.13218 1.79282 4.40186 1.32411 5.86666L2.27478 6.176C2.67912 4.92738 3.48172 3.84578 4.55958 3.09694C5.63744 2.34811 6.93111 1.97334 8.24234 2.03009C9.55356 2.08683 10.81 2.57194 11.8192 3.41108C12.8283 4.25023 13.5345 5.39712 13.8294 6.676L12.6948 6.90133L14.8548 9.13066L15.9988 6.24533L14.8241 6.48Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.56012 7.90667C5.77878 4.80267 10.2214 4.80267 11.4401 7.90667C10.2214 11.0107 5.77878 11.0107 4.56012 7.90667ZM12.4734 7.82267C11.0601 3.49734 4.94012 3.49734 3.52678 7.82267C3.50898 7.8768 3.50898 7.93521 3.52678 7.98934C4.94012 12.316 11.0601 12.316 12.4734 7.98934C12.4913 7.93521 12.4913 7.8768 12.4734 7.82267Z\" fill=\"currentColor\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8 7.39999C7.93434 7.39999 7.86932 7.41293 7.80866 7.43805C7.748 7.46318 7.69288 7.50001 7.64645 7.54644C7.60002 7.59287 7.56319 7.64799 7.53806 7.70865C7.51293 7.76931 7.5 7.83433 7.5 7.89999C7.5 7.96565 7.51293 8.03067 7.53806 8.09134C7.56319 8.152 7.60002 8.20712 7.64645 8.25355C7.69288 8.29998 7.748 8.33681 7.80866 8.36193C7.86932 8.38706 7.93434 8.39999 8 8.39999C8.13261 8.39999 8.25979 8.34732 8.35355 8.25355C8.44732 8.15978 8.5 8.0326 8.5 7.89999C8.5 7.76739 8.44732 7.64021 8.35355 7.54644C8.25979 7.45267 8.13261 7.39999 8 7.39999ZM6.5 7.89999C6.5 7.50217 6.65804 7.12064 6.93934 6.83933C7.22064 6.55803 7.60218 6.39999 8 6.39999C8.39782 6.39999 8.77936 6.55803 9.06066 6.83933C9.34196 7.12064 9.5 7.50217 9.5 7.89999C9.5 8.29782 9.34196 8.67935 9.06066 8.96065C8.77936 9.24196 8.39782 9.39999 8 9.39999C7.60218 9.39999 7.22064 9.24196 6.93934 8.96065C6.65804 8.67935 6.5 8.29782 6.5 7.89999Z\" fill=\"currentColor\"/></g><defs><clipPath id=\"clip0_667_53\"><rect width=\"16\" height=\"16\" fill=\"white\"/></clipPath></defs></svg>"
+,
             "theme": "theme-blue"
           },
           {
             "title": "Clear User Insights",
             "description": "See exactly how users experience your site— click-by-click",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.0001 5.33334C13.0334 5.33334 12.4934 6.29334 12.7134 7.00668L10.3467 9.38001C10.1467 9.32001 9.85341 9.32001 9.65341 9.38001L7.95341 7.68001C8.18008 6.96668 7.64008 6.00001 6.66675 6.00001C5.70008 6.00001 5.15341 6.96001 5.38008 7.68001L2.34008 10.7133C1.62675 10.4933 0.666748 11.0333 0.666748 12C0.666748 12.7333 1.26675 13.3333 2.00008 13.3333C2.96675 13.3333 3.50675 12.3733 3.28675 11.66L6.32008 8.62001C6.52008 8.68001 6.81342 8.68001 7.01342 8.62001L8.71342 10.32C8.48675 11.0333 9.02675 12 10.0001 12C10.9667 12 11.5134 11.04 11.2867 10.32L13.6601 7.95334C14.3734 8.17334 15.3334 7.63334 15.3334 6.66668C15.3334 5.93334 14.7334 5.33334 14.0001 5.33334Z\" fill=\"currentColor\"/><path d=\"M10.0001 6L10.6267 4.62L12.0001 4L10.6267 3.38L10.0001 2L9.38675 3.38L8.00008 4L9.38675 4.62L10.0001 6ZM2.33341 7.33333L2.66675 6L4.00008 5.66667L2.66675 5.33333L2.33341 4L2.00008 5.33333L0.666748 5.66667L2.00008 6L2.33341 7.33333Z\" fill=\"currentColor\"/></svg>"
+
           },
           {
             "title": "Simple Implementation",
             "description": "Add one JavaScript snippet to your HTML and start collecting real user experience data immediately",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"16\" height=\"14\" viewBox=\"0 0 16 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.3335 7H5.3395M7.99683 7H8.0035M10.6608 7H10.6668M12.0002 13C12.8215 13 13.4875 12.2327 13.4875 11.286C13.4875 9.78733 13.4208 8.79133 14.4488 7.606C14.7395 7.27133 14.7395 6.72867 14.4488 6.394C13.4208 5.20933 13.4875 4.21267 13.4875 2.714C13.4875 1.76733 12.8215 1 12.0002 1M4.00016 13C3.17883 13 2.51283 12.2327 2.51283 11.286C2.51283 9.78733 2.5795 8.79133 1.5515 7.606C1.26083 7.27133 1.26083 6.72867 1.5515 6.394C2.55683 5.23533 2.51283 4.22667 2.51283 2.71333C2.51283 1.76733 3.17883 1 4.00016 1\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Frontend Monitoring",
+        "heading":{
+          "title": "OpenObserve Frontend Monitoring"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "user-experience-monitoring",
             "title": "User Experience Monitoring",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "User Experience Monitoring",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/user-experiment-monitoring.svg",
+              "items": [
                 {
                   "title": "Performance Metrics",
                   "description": "Track vital web metrics that impact your users most —page load times, First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Time to Interactive (TTI)."
@@ -692,16 +668,12 @@
                   "description": "Reveal how real users navigate your application. Uncover common paths, optimize critical workflows, and eliminate friction points with powerful session replay."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/session-replay.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/session-replay.png"
           },
           {
-            "value": "error-tracking",
             "title": "Error Tracking",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Error Tracking",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/error-tracking.svg",
+              "items": [
                 {
                   "title": "Error Capture",
                   "description": "Catch every frontend issue—with complete stack traces, browser details, and the exact user actions that triggered them."
@@ -711,16 +683,12 @@
                   "description": "Pinpoint which errors hurt users most. Spot patterns across browsers and devices, then prioritize fixes based on real business impact—not just technical severity."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-error-tracking.png"
           },
           {
-            "value": "performance-analysis",
             "title": "Performance Analysis",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Performance Analysis",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/performance-analaysis.svg",
+              "items": [
                 {
                   "title": "Core Web Vitals",
                   "description": "Identify experience bottlenecks, track performance across user segments, and deliver pages that respond instantly to every interaction."
@@ -730,16 +698,13 @@
                   "description": "Expose slow-loading assets and API calls that frustrate users. Pinpoint exactly which resources and backend dependencies are stealing precious milliseconds from your frontend performance."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-hero.png"
           },
           {
-            "value": "quick-implementation",
             "title": "Quick Implementation",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Quick Implementation",
-              "features": [
+            "tabImage": "/img/platform-frontend-monitoring/quick-implementation.svg",
+           
+              "items": [
                 {
                   "title": "Fast Setup",
                   "description": "Go from zero to monitoring in minutes. Collect real user data instantly and customize your configuration to meet your exact needs."
@@ -749,16 +714,18 @@
                   "description": "Implement with any frontend framework. Capture custom events that reveal the true story behind user behavior and application performance."
                 }
               ],
-              "image": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
-            }
+              "featureImage": "/img/platform-frontend-monitoring/frontend-monitoring-integration.png"
+            
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Frontend Monitoring FAQs",
+        "heading":{
+          "title": "Frontend Monitoring FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How do I get started with Frontend Monitoring?",
             "answer": "Getting started with OpenObserve's RUM is straightforward. Add our JavaScript snippet to your application's entry point eg: `index.js` or `main.js` , and you'll begin collecting user experience data immediately. The snippet automatically captures performance metrics, user interactions, and errors. You can customize the configuration to focus on specific aspects of your application or adjust sampling rates."
@@ -800,14 +767,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -841,7 +810,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "pipelines",
         "title": "Observability Pipelines",
         "description": "Transform, enrich, redact, reduce, and parse your observability data with real-time and scheduled pipelines.",
         "primaryButton": {
@@ -849,47 +817,49 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-pipelines/pipelines-hero.png",
-        "altText": "OpenObserve Dashboard"
+        "image": {
+        "url": "/img/platform-pipelines/pipelines-hero.png",
+        "altText": "OpenObserve Pipelines Dashboard"
+       }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Protect Sensitive Data",
             "description": "Strengthen your security posture by automatically redacting and transforming sensitive data",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Reduce Costs",
             "description": "Slash storage expenses by routing data to optimal storage tiers",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           },
           {
             "title": " Improve Data Quality",
             "description": "Make data more valuable and actionable by pre-processing and enriching data",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Observability Pipelines",
+        "heading":{
+          "title": "OpenObserve Observability Pipelines"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "pipeline-types",
             "title": "Pipeline Types",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Pipeline Types",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-type.svg",
+            
+              "items": [
                 {
                   "title": "Real-time",
                   "description": "Transform data the instant it arrives. Parse, filter, and enrich streams on-the-fly—turning raw data into immediate insights."
@@ -899,16 +869,14 @@
                   "description": "Orchestrate batch transformations precisely when you need them. Aggregate massive datasets, convert logs to actionable metrics, and process data on your timeline."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-types.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-types.png"
+            
           },
           {
-            "value": "data-transformation",
             "title": "Data Transformation",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Data Transformation",
-              "features": [
+            "tabImage": "/img/platform-pipelines/piplines-data-transformation.svg",
+           
+              "items": [
                 {
                   "title": "VRL Functions",
                   "description": "Bend data to your will with Vector Remap Language (VRL). Build custom transformations that parse, enrich, and filter your data streams with powerful functions that handle even your most complex logic requirements."
@@ -918,16 +886,15 @@
                   "description": "Discover insights regardless of data format. Transform chaotic logs into structured gold using pre-built parsing functions—making even the most complex data instantly queryable."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-vrlfunction.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-vrlfunction.png"
+            
           },
           {
-            "value": "data-enrichment",
+           
             "title": "Data Enrichment",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Data Enrichment",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-data-enrichment.svg",
+          
+              "items": [
                 {
                   "title": "Enrichment Tables",
                   "description": "Transform raw events into context-rich intelligence using simple CSV lookup tables. Instantly add location data, user details, and critical metadata that turns isolated signals into meaningful patterns."
@@ -937,16 +904,15 @@
                   "description": "Connect your data to the world with real-time API enrichment. Pull in vital external context that elevates your observability data from interesting metrics to business-changing insights."
                 }
               ],
-              "image": "/img/platform-pipelines/enrichment-tables.png"
-            }
+              "featureImage": "/img/platform-pipelines/enrichment-tables.png"
+            
           },
           {
-            "value": "pipeline-components",
+           
             "title": "Pipeline Components",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Pipeline Components",
-              "features": [
+            "tabImage": "/img/platform-pipelines/pipeline-component.svg",
+           
+              "items": [
                 {
                   "title": "Function Nodes",
                   "description": "Build data processing workflows with VRL function nodes. Execute custom logic for complex transformations and create reusable components that make your data pipelines more efficient and maintainable."
@@ -956,16 +922,18 @@
                   "description": "Master your data flows with flexible stream operations. Filter, clone, and route streams to multiple destinations—ensuring every bit of data reaches exactly where it needs to go."
                 }
               ],
-              "image": "/img/platform-pipelines/pipelines-components.png"
-            }
+              "featureImage": "/img/platform-pipelines/pipelines-components.png"
+            
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Observability Pipelines FAQs",
+        "heading":{
+          "title": "Observability Pipelines FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What types of pipelines does OpenObserve support?",
             "answer": "OpenObserve supports two main types of pipelines: real-time and scheduled. Real-time pipelines process data as it arrives, transforming and enriching it on the fly. These pipelines can include multiple processing steps using functions, conditions, and stream operations. Scheduled pipelines run at defined intervals, allowing for batch processing and periodic data transformations."
@@ -1007,14 +975,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -1056,47 +1026,49 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-alerts/alert-configure.png",
-        "altText": "OpenObserve Dashboard"
+        "image":{
+         "url": "/img/platform-alerts/alert-configure.png",
+        "altText": " OpenObserve Alert Dashboard"
+        }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Personalize Notifications",
             "description": "Send notifications to email, Slack, or webhook endpoints for immediate action",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"12\" height=\"14\" viewBox=\"0 0 12 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2.1578 4.13333C2.20258 3.42009 2.51748 2.75072 3.03842 2.26149C3.55936 1.77226 4.24716 1.49995 4.9618 1.49999H5.33314V0.999995C5.33314 0.823184 5.40338 0.653615 5.5284 0.52859C5.65342 0.403566 5.82299 0.333328 5.9998 0.333328C6.17662 0.333328 6.34618 0.403566 6.47121 0.52859C6.59623 0.653615 6.66647 0.823184 6.66647 0.999995V1.49999H7.0378C7.75245 1.49995 8.44025 1.77226 8.96119 2.26149C9.48213 2.75072 9.79703 3.42009 9.8418 4.13333L9.98914 6.48933C10.0461 7.38747 10.3476 8.25292 10.8611 8.99199C10.9674 9.1447 11.0323 9.32231 11.0496 9.50754C11.0669 9.69277 11.0359 9.87931 10.9597 10.049C10.8836 10.2188 10.7648 10.3659 10.6149 10.4761C10.465 10.5863 10.2892 10.6559 10.1045 10.678L7.83314 10.95V11.6667C7.83314 12.1529 7.63998 12.6192 7.29617 12.963C6.95235 13.3068 6.48603 13.5 5.9998 13.5C5.51357 13.5 5.04726 13.3068 4.70344 12.963C4.35962 12.6192 4.16647 12.1529 4.16647 11.6667V10.95L1.89514 10.6773C1.71053 10.6551 1.53481 10.5856 1.38503 10.4754C1.23526 10.3652 1.11653 10.2182 1.04037 10.0486C0.964217 9.87895 0.933229 9.69251 0.950418 9.50737C0.967607 9.32224 1.03239 9.1447 1.13847 8.99199C1.65197 8.25292 1.95351 7.38747 2.01047 6.48933L2.1578 4.13333ZM4.9618 2.49999C4.50152 2.49994 4.05852 2.67531 3.72299 2.9904C3.38746 3.30549 3.18464 3.73661 3.1558 4.196L3.00914 6.552C2.94059 7.63249 2.57771 8.67364 1.9598 9.56266C1.95212 9.57371 1.94742 9.58655 1.94616 9.59995C1.94491 9.61335 1.94714 9.62684 1.95264 9.63912C1.95814 9.6514 1.96673 9.66205 1.97756 9.67003C1.9884 9.67801 2.00111 9.68305 2.01447 9.68466L4.5058 9.984C5.49847 10.1027 6.50114 10.1027 7.4938 9.984L9.98514 9.68466C9.9985 9.68305 10.0112 9.67801 10.022 9.67003C10.0329 9.66205 10.0415 9.6514 10.047 9.63912C10.0525 9.62684 10.0547 9.61335 10.0534 9.59995C10.0522 9.58655 10.0475 9.57371 10.0398 9.56266C9.42213 8.67357 9.05948 7.63243 8.99114 6.552L8.8438 4.196C8.81497 3.73661 8.61215 3.30549 8.27662 2.9904C7.94109 2.67531 7.49809 2.49994 7.0378 2.49999H4.9618ZM5.9998 12.5C5.5398 12.5 5.16647 12.1267 5.16647 11.6667V11.1667H6.83314V11.6667C6.83314 12.1267 6.4598 12.5 5.9998 12.5Z\" fill=\"currentColor\"/></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Multilingual Support",
             "description": "Configure alerts using SQL for logs and traces, or PromQL for metrics",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"13\" height=\"12\" viewBox=\"0 0 13 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.66667 10.6667L10 4.66666L12.3333 10.6667M8.25 9.33333H11.75M1 2.66666H5.66667M5.66667 2.66666H7M5.66667 2.66666C5.66667 3.75333 5.138 5.28399 4.174 6.43666M4.174 6.43666C3.52667 7.21333 2.68067 7.81666 1.66667 8M4.174 6.43666L2.33333 4.66666M4.174 6.43666L5.8 8M4 2.54533V1.33333\" stroke=\"currentColor\" stroke-width=\"1.33333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
           },
           {
             "title": "Stay on top of Issues",
             "description": "Identify and fix problems before customers notice",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6.25002 9.75001C6.25002 9.94892 6.32903 10.1397 6.46969 10.2803C6.61034 10.421 6.8011 10.5 7.00002 10.5C7.19893 10.5 7.38969 10.421 7.53034 10.2803C7.671 10.1397 7.75002 9.94892 7.75002 9.75001C7.75002 9.55109 7.671 9.36033 7.53034 9.21968C7.38969 9.07902 7.19893 9.00001 7.00002 9.00001C6.8011 9.00001 6.61034 9.07902 6.46969 9.21968C6.32903 9.36033 6.25002 9.55109 6.25002 9.75001ZM7.37502 8.00001C7.44377 8.00001 7.50002 7.94376 7.50002 7.87501V3.62501C7.50002 3.55626 7.44377 3.50001 7.37502 3.50001H6.62502C6.55627 3.50001 6.50002 3.55626 6.50002 3.62501V7.87501C6.50002 7.94376 6.55627 8.00001 6.62502 8.00001H7.37502ZM13.625 5.06251H12.6985C12.6578 5.06251 12.6203 5.08126 12.5969 5.11407L10.9328 7.40782L10.1531 6.33282C10.1416 6.31672 10.1263 6.30363 10.1086 6.29466C10.091 6.28569 10.0714 6.28109 10.0516 6.28126H9.12502C9.02345 6.28126 8.96408 6.39688 9.02345 6.47969L10.7297 8.83438C10.7531 8.86635 10.7836 8.89235 10.8189 8.91027C10.8542 8.9282 10.8932 8.93754 10.9328 8.93754C10.9724 8.93754 11.0114 8.9282 11.0467 8.91027C11.082 8.89235 11.1126 8.86635 11.136 8.83438L13.7266 5.26094C13.786 5.17813 13.7266 5.06251 13.625 5.06251ZM12.9375 9.84376H11.9344C11.8485 9.84376 11.7688 9.88907 11.7219 9.96094C11.5001 10.3133 11.2391 10.6393 10.9438 10.9328C10.4362 11.4408 9.835 11.8456 9.17345 12.125C8.48762 12.4143 7.75059 12.5625 7.00627 12.5609C6.2547 12.5609 5.52502 12.4141 4.83908 12.125C4.17753 11.8456 3.57636 11.4408 3.06876 10.9328C2.55954 10.4265 2.15404 9.82572 1.87502 9.16407C1.58439 8.47969 1.43752 7.75001 1.43752 7.00001C1.43752 6.25001 1.58439 5.52032 1.87502 4.83594C2.1547 4.17344 2.55626 3.57813 3.06876 3.06719C3.58126 2.55626 4.17658 2.15469 4.83908 1.87501C5.52491 1.58576 6.26194 1.4375 7.00627 1.43907C7.75783 1.43907 8.48751 1.58594 9.17345 1.87501C9.83595 2.15469 10.4313 2.55626 10.9438 3.06719C11.2406 3.36407 11.5 3.68907 11.7219 4.03907C11.7672 4.11251 11.8485 4.15626 11.9344 4.15626H12.9375C13.0313 4.15626 13.0906 4.05782 13.05 3.97501C11.95 1.78907 9.69845 0.281257 7.08908 0.250007C3.35783 0.206257 0.257828 3.25782 0.250015 6.98751C0.242203 10.7203 3.27033 13.75 7.00627 13.75C9.65002 13.75 11.9375 12.2344 13.0485 10.025C13.058 10.006 13.0626 9.98487 13.0617 9.9636C13.0608 9.94234 13.0546 9.92165 13.0434 9.9035C13.0323 9.88535 13.0168 9.87033 12.9982 9.85988C12.9797 9.84942 12.9588 9.84387 12.9375 9.84376Z\" fill=\"currentColor\"/></svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Alerts",
+        "heading":{
+          "title": "OpenObserve Alerts"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "alert-types",
             "title": "Alert Types",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Types",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-types.svg",
+          
+              "items": [
                 {
                   "title": "Scheduled Alerts",
                   "description": "Detect meaningful patterns and catch gradual drifts that instant checks might miss."
@@ -1106,16 +1078,15 @@
                   "description": "Catch issues the moment they occur. Continuously monitor your most important data streams to detect and respond to critical problems before they impact your users."
                 }
               ],
-              "image": "/img/platform-alerts/alert-type.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-type.png"
+            
           },
           {
-            "value": "alert-configuration",
+          
             "title": "Alert Configuration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Configuration",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-configuration.svg",
+           
+              "items": [
                 {
                   "title": "Flexible Condition Building",
                   "description": "Build alert logic exactly how you need it—use sophisticated SQL for complex scenarios or quick conditions when simplicity matters."
@@ -1125,16 +1096,15 @@
                   "description": "Eliminate alert noise with intelligent thresholds. Configure precise aggregation windows that catch real issues while filtering out momentary spikes and false positives."
                 }
               ],
-              "image": "/img/platform-alerts/alert-configure.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-configure.png"
+            
           },
           {
-            "value": "alert-notifications",
+            
             "title": "Alert Notifications",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Notifications",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-notification-on-outline.svg",
+            
+              "items": [
                 {
                   "title": "Multiple Notification Destinations",
                   "description": "Deliver alerts exactly where your team needs them—Slack, email, webhooks, and more."
@@ -1144,16 +1114,15 @@
                   "description": "End alert storms and notification fatigue with intelligent suppression rules. Define custom quiet periods that filter out noise."
                 }
               ],
-              "image": "/img/platform-alerts/alert-destinations.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-destinations.png"
+            
           },
           {
-            "value": "alert-controls",
+           
             "title": "Alert Controls",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Alert Controls",
-              "features": [
+            "tabImage": "/img/platform-alerts/alerts-controls.svg",
+         
+              "items": [
                 {
                   "title": "Advanced Threshold Settings",
                   "description": "Trigger alerts with precision by setting thresholds that respond to evolving data patterns."
@@ -1163,16 +1132,18 @@
                   "description": "Fine-tune alert frequency to strike the perfect balance between early detection and resource efficiency."
                 }
               ],
-              "image": "/img/platform-alerts/alert-slack.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-slack.png"
+            
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Alerts FAQs",
+        "heading":{
+          "title": "Alerts FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What types of alerts does OpenObserve support?",
             "answer": "OpenObserve provides two main alert types: Scheduled and Real-time.Scheduled alerts run at scheduled intervals, evaluating conditions against your data. Real-time alerts continuously monitor data streams for immediate detection. Both types support SQL queries and quick condition builders for alert definition."
@@ -1210,14 +1181,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -1251,7 +1224,6 @@
       {
         "__component": "section-hero.platform-sub-hero",
         "id": 1,
-        "pageTag": "Dashboards and Visualizations",
         "title": "Dashboards and Visualizations",
         "description": "Gain valuable insights and identify patterns from your observability data with real-time, customizable dashboards.",
         "primaryButton": {
@@ -1259,47 +1231,50 @@
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "image": "/img/platform-visualization/dashboard-kubernetes.png",
-        "altText": "OpenObserve Dashboard"
+        "image":{
+         "url": "/img/platform-visualization/dashboard-kubernetes.png",
+        "altText": "OpenObserve Dashboards & Visualizations"
+        }
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "data": [
+        "items": [
           {
             "title": "Spot Issues Before Users Do",
             "description": "Identify potential problems before they impact your users.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"16\" height=\"15\" viewBox=\"0 0 16 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.0645 2.936C9.45839 2.32964 8.68598 1.91671 7.84507 1.74948C7.00416 1.58226 6.13254 1.66824 5.34051 1.99656C4.54848 2.32487 3.87165 2.88076 3.39566 3.59388C2.91968 4.307 2.66593 5.14529 2.66654 6.00267L2.66721 6.66933H1.33387V6.00267C1.33353 5.09895 1.54933 4.20826 1.96327 3.40491C2.37721 2.60157 2.97728 1.90888 3.71341 1.38465C4.44955 0.860422 5.30038 0.519857 6.19492 0.391377C7.08946 0.262897 8.00175 0.350228 8.85567 0.646083C9.70959 0.941939 10.4804 1.43774 11.1037 2.0921C11.727 2.74647 12.1847 3.54042 12.4388 4.4077C12.6928 5.27499 12.7357 6.19045 12.5639 7.07769C12.3921 7.96493 12.0106 8.79821 11.4512 9.508L15.0139 13.0713L14.0712 14.014L10.5085 10.4507C9.50927 11.2395 8.27299 11.668 6.99988 11.6667H6.33321V10.3333H6.99988C7.85689 10.3333 8.69464 10.0791 9.40721 9.60295C10.1198 9.1268 10.6752 8.45004 11.0031 7.65826C11.3311 6.86648 11.4169 5.99523 11.2497 5.15468C11.0825 4.31413 10.6699 3.54203 10.0639 2.936M1.11454 7.838L2.99988 9.724L4.88588 7.838L5.82854 8.78133L3.94321 10.6667L5.82854 12.552L4.88588 13.4953L2.99988 11.6093L1.11454 13.4953L0.171875 12.552L2.05721 10.6667L0.171875 8.78133L1.11454 7.838Z\" fill=\"currentColor\"/></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Resolve Issues Faster",
             "description": "Pinpoint exact issue sources for quicker, more accurate fixes.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"15\" height=\"15\" viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12.6571 2.05C12.7049 2.00388 12.743 1.9487 12.7692 1.8877C12.7954 1.8267 12.8092 1.76109 12.8098 1.6947C12.8103 1.62831 12.7977 1.56247 12.7725 1.50102C12.7474 1.43957 12.7103 1.38375 12.6633 1.3368C12.6164 1.28986 12.5606 1.25273 12.4991 1.22759C12.4377 1.20245 12.3718 1.1898 12.3054 1.19037C12.239 1.19095 12.1734 1.20474 12.1124 1.23095C12.0514 1.25715 11.9963 1.29524 11.9501 1.343L11.5841 1.709C10.7301 0.969189 9.70959 0.447126 8.60991 0.187413C7.51022 -0.0722998 6.36401 -0.0619425 5.2692 0.2176C4.17439 0.497143 3.16352 1.03756 2.32296 1.79269C1.4824 2.54781 0.837126 3.49519 0.442276 4.55389C0.0474272 5.6126 -0.0852643 6.75115 0.0555385 7.87228C0.196341 8.99341 0.606453 10.0638 1.25084 10.992C1.89522 11.9202 2.75472 12.6786 3.7559 13.2024C4.75709 13.7262 5.8702 13.9999 7.00013 14C6.76082 13.6817 6.5604 13.3359 6.40313 12.97C5.46756 12.8764 4.56707 12.5643 3.77429 12.0588C2.98151 11.5533 2.31863 10.8685 1.83912 10.0597C1.35961 9.25093 1.07689 8.34077 1.01375 7.40265C0.95062 6.46453 1.10885 5.52471 1.47567 4.65897C1.84249 3.79324 2.40764 3.02583 3.12554 2.41864C3.84343 1.81145 4.69398 1.38148 5.60858 1.1634C6.52319 0.945321 7.47624 0.945242 8.39088 1.16317C9.30552 1.3811 10.1561 1.81093 10.8741 2.418L10.1641 3.128C9.57391 2.64606 8.88134 2.30541 8.13933 2.13205C7.39732 1.95869 6.6255 1.95722 5.88284 2.12774C5.14018 2.29827 4.44631 2.63628 3.85425 3.11596C3.26219 3.59564 2.78759 4.2043 2.46672 4.89544C2.14585 5.58657 1.98718 6.3419 2.00285 7.10373C2.01852 7.86556 2.2081 8.61373 2.55712 9.29109C2.90613 9.96845 3.40535 10.5571 4.01663 11.012C4.62791 11.4669 5.33509 11.7762 6.08413 11.916C6.02047 11.5725 5.99299 11.2232 6.00213 10.874C5.06181 10.6283 4.24301 10.0488 3.6986 9.24375C3.15418 8.43865 2.92134 7.46294 3.04355 6.49876C3.16576 5.53458 3.63465 4.64782 4.36271 4.00401C5.09078 3.36019 6.02825 3.00332 7.00013 3C7.88864 2.99834 8.75215 3.29404 9.45313 3.84L8.73813 4.554C8.12506 4.11682 7.36999 3.92617 6.62286 4.01991C5.87573 4.11366 5.19117 4.48493 4.7051 5.06003C4.21903 5.63512 3.96701 6.37198 3.99906 7.12428C4.03112 7.87659 4.34491 8.58934 4.87813 9.121C4.92456 9.16749 4.97968 9.20438 5.04036 9.22956C5.10104 9.25475 5.16608 9.26773 5.23178 9.26778C5.29748 9.26783 5.36254 9.25493 5.42326 9.22983C5.48397 9.20473 5.53915 9.16792 5.58563 9.1215C5.63212 9.07508 5.66901 9.01995 5.6942 8.95927C5.71938 8.8986 5.73237 8.83355 5.73241 8.76785C5.73246 8.70216 5.71956 8.63709 5.69447 8.57638C5.66937 8.51566 5.63256 8.46049 5.58613 8.414C5.24197 8.06978 5.03516 7.61186 5.00446 7.12606C4.97376 6.64027 5.12128 6.15996 5.41936 5.77514C5.71745 5.39033 6.14564 5.12744 6.62368 5.03573C7.10173 4.94403 7.59681 5.02981 8.01613 5.277L7.25913 6.034C7.0465 5.977 6.821 5.99177 6.61761 6.076C6.41422 6.16023 6.24431 6.30922 6.13423 6.49987C6.02415 6.69051 5.98005 6.91215 6.00878 7.13041C6.03751 7.34867 6.13746 7.55135 6.29312 7.70701C6.44879 7.86267 6.65147 7.96262 6.86973 7.99135C7.08799 8.02008 7.30963 7.97599 7.50027 7.86591C7.69091 7.75583 7.8399 7.58592 7.92414 7.38253C8.00837 7.17914 8.02313 6.95364 7.96613 6.741L9.12113 5.586L11.5811 3.126C12.3669 4.05157 12.8518 5.19474 12.9711 6.403C13.3381 6.561 13.6841 6.763 14.0001 7C14.0001 5.364 13.4301 3.729 12.2901 2.416L12.6571 2.05ZM15.0001 11C15.0001 12.0609 14.5787 13.0783 13.8286 13.8284C13.0784 14.5786 12.061 15 11.0001 15C9.93927 15 8.92185 14.5786 8.17171 13.8284C7.42156 13.0783 7.00013 12.0609 7.00013 11C7.00013 9.93913 7.42156 8.92172 8.17171 8.17157C8.92185 7.42143 9.93927 7 11.0001 7C12.061 7 13.0784 7.42143 13.8286 8.17157C14.5787 8.92172 15.0001 9.93913 15.0001 11ZM13.3541 9.646C13.4479 9.73976 13.5005 9.86692 13.5005 9.9995C13.5005 10.1321 13.4479 10.2592 13.3541 10.353L10.8541 12.853C10.8077 12.8996 10.7525 12.9365 10.6918 12.9617C10.631 12.9869 10.5659 12.9999 10.5001 12.9999C10.4344 12.9999 10.3692 12.9869 10.3085 12.9617C10.2478 12.9365 10.1926 12.8996 10.1461 12.853L9.14613 11.853C9.05238 11.7591 8.99976 11.6318 8.99986 11.4991C8.99995 11.3665 9.05275 11.2393 9.14663 11.1455C9.24052 11.0517 9.36781 10.9991 9.50049 10.9992C9.63317 10.9993 9.76038 11.0521 9.85413 11.146L10.5001 11.793L12.6461 9.646C12.6926 9.59944 12.7478 9.56249 12.8085 9.53729C12.8692 9.51208 12.9344 9.49911 13.0001 9.49911C13.0659 9.49911 13.131 9.51208 13.1918 9.53729C13.2525 9.56249 13.3077 9.59944 13.3541 9.646Z\" fill=\"currentColor\"/></svg>"
           },
           {
             "title": "Collaborate Effectively",
             "description": "Monitor systems from a single source of truth for complete visibility.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 9.5V9H1V9.5C1 10.4283 1.36875 11.3185 2.02513 11.9749C2.6815 12.6313 3.57174 13 4.5 13H6V12H4.5C3.83696 12 3.20107 11.7366 2.73223 11.2678C2.26339 10.7989 2 10.163 2 9.5ZM11 4.5V5H12V4.5C12 3.57174 11.6313 2.6815 10.9749 2.02513C10.3185 1.36875 9.42826 1 8.5 1H7V2H8.5C8.8283 2 9.15339 2.06467 9.45671 2.1903C9.76002 2.31594 10.0356 2.50009 10.2678 2.73223C10.4999 2.96438 10.6841 3.23998 10.8097 3.54329C10.9353 3.84661 11 4.1717 11 4.5ZM4.5 4.5H1.5C1.10218 4.5 0.720644 4.65804 0.43934 4.93934C0.158035 5.22064 0 5.60218 0 6V7H1V6C1 5.86739 1.05268 5.74022 1.14645 5.64645C1.24021 5.55268 1.36739 5.5 1.5 5.5H4.5C4.63261 5.5 4.75979 5.55268 4.85355 5.64645C4.94732 5.74022 5 5.86739 5 6V7H6V6C6 5.60218 5.84196 5.22064 5.56066 4.93934C5.27936 4.65804 4.89782 4.5 4.5 4.5ZM3 4C3.39556 4 3.78224 3.8827 4.11114 3.66294C4.44004 3.44318 4.69638 3.13082 4.84776 2.76537C4.99913 2.39992 5.03874 1.99778 4.96157 1.60982C4.8844 1.22186 4.69392 0.865492 4.41421 0.585787C4.13451 0.306082 3.77814 0.115601 3.39018 0.0384303C3.00222 -0.0387401 2.60009 0.000866562 2.23463 0.152242C1.86918 0.303617 1.55682 0.559962 1.33706 0.88886C1.1173 1.21776 1 1.60444 1 2C1 2.53043 1.21071 3.03914 1.58579 3.41421C1.96086 3.78929 2.46957 4 3 4ZM3 1C3.19778 1 3.39112 1.05865 3.55557 1.16853C3.72002 1.27841 3.84819 1.43459 3.92388 1.61732C3.99957 1.80004 4.01937 2.00111 3.98079 2.19509C3.9422 2.38907 3.84696 2.56726 3.70711 2.70711C3.56725 2.84696 3.38907 2.9422 3.19509 2.98079C3.00111 3.01937 2.80004 2.99957 2.61732 2.92388C2.43459 2.84819 2.27841 2.72002 2.16853 2.55557C2.05865 2.39112 2 2.19778 2 2C2 1.73478 2.10536 1.48043 2.29289 1.29289C2.48043 1.10536 2.73478 1 3 1ZM12.5 11.5H9.5C9.10218 11.5 8.72064 11.658 8.43934 11.9393C8.15804 12.2206 8 12.6022 8 13V14H9V13C9 12.8674 9.05268 12.7402 9.14645 12.6464C9.24021 12.5527 9.36739 12.5 9.5 12.5H12.5C12.6326 12.5 12.7598 12.5527 12.8536 12.6464C12.9473 12.7402 13 12.8674 13 13V14H14V13C14 12.6022 13.842 12.2206 13.5607 11.9393C13.2794 11.658 12.8978 11.5 12.5 11.5ZM9 9C9 9.39556 9.1173 9.78224 9.33706 10.1111C9.55682 10.44 9.86918 10.6964 10.2346 10.8478C10.6001 10.9991 11.0022 11.0387 11.3902 10.9616C11.7781 10.8844 12.1345 10.6939 12.4142 10.4142C12.6939 10.1345 12.8844 9.77814 12.9616 9.39018C13.0387 9.00222 12.9991 8.60009 12.8478 8.23463C12.6964 7.86918 12.44 7.55682 12.1111 7.33706C11.7822 7.1173 11.3956 7 11 7C10.4696 7 9.96086 7.21071 9.58579 7.58579C9.21071 7.96086 9 8.46957 9 9ZM12 9C12 9.19778 11.9414 9.39112 11.8315 9.55557C11.7216 9.72002 11.5654 9.84819 11.3827 9.92388C11.2 9.99957 10.9989 10.0194 10.8049 9.98079C10.6109 9.9422 10.4327 9.84696 10.2929 9.70711C10.153 9.56726 10.0578 9.38907 10.0192 9.19509C9.98063 9.00111 10.0004 8.80004 10.0761 8.61732C10.1518 8.43459 10.28 8.27841 10.4444 8.16853C10.6089 8.05865 10.8022 8 11 8C11.2652 8 11.5196 8.10536 11.7071 8.29289C11.8946 8.48043 12 8.73478 12 9Z\" fill=\"currentColor\"/></svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.capabilities",
-        "title": "OpenObserve Dashboards and Visualizations",
+        "heading":{
+          "title": "OpenObserve Dashboards and Visualizations"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "real-time-monitoring",
+           
             "title": "Real-Time Monitoring",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Real-Time Monitoring",
-              "features": [
+            "tabImage": "/img/platform-visualization/real-time-monitoring.svg",
+           
+              "items": [
                 {
                   "title": "Interactive Dashboards",
                   "description": "Visualize your system's heartbeat with 19+ chart types—from heat maps that expose hotspots to time-series graphs that reveal trends. Build comprehensive health views in minutes with intuitive drag-and-drop simplicity."
@@ -1309,16 +1284,15 @@
                   "description": "Stay perpetually informed with live data streams that keep you ahead of developing issues. Fine-tune refresh rates for each dashboard or panel to match your critical monitoring needs."
                 }
               ],
-              "image": "/img/platform-metrics/dashboard-queryeditor.png"
-            }
+              "featureImage": "/img/platform-metrics/dashboard-queryeditor.png"
+            
           },
           {
-            "value": "customizable-views",
+           
             "title": "Customizable Views",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Customizable Views",
-              "features": [
+            "tabImage": "/img/platform-visualization/customizable-view.svg",
+         
+              "items": [
                 {
                   "title": "Dynamic Filtering",
                   "description": "Quickly evaluate exactly what matters with powerful variable-driven dashboards. Filter multiple panels simultaneously to uncover hidden patterns and identify root causes in seconds."
@@ -1328,16 +1302,15 @@
                   "description": "Choose from 19 various out-of-the-box visualizations. Then unleash your creativity with custom charts that transform complex data into exactly the visuals your team needs—limitless possibilities await."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-geomap.png"
-            }
+              "featureImage": "/img/platform-visualization/dashboard-geomap.png"
+            
           },
           {
-            "value": "advanced-query-capabilities",
+           
             "title": "Advanced Query Capabilities",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Advanced Query Capabilities",
-              "features": [
+            "tabImage": "/img/platform-visualization/advance-query-capabilities.svg",
+          
+              "items": [
                 {
                   "title": "SQL & PromQL Query Language Support",
                   "description": "Harness the full power of SQL and PromQL to build sophisticated analyses that reveal deeper insights. Transform raw data instantly with VRL's precision-engineered functions."
@@ -1347,16 +1320,15 @@
                   "description": "Create complex dashboards without writing a single line of code. Drag, drop, and deploy professional visualizations in minutes—no query language expertise required."
                 }
               ],
-              "image": "/img/platform-metrics/metrics-promql.png"
-            }
+              "featureImage": "/img/platform-metrics/metrics-promql.png"
+            
           },
           {
-            "value": "easy-collaboration",
+            
             "title": "Easy Collaboration",
-            "icon": "/img/icon/slackIcon.svg",
-            "card": {
-              "title": "Easy Collaboration",
-              "features": [
+            "tabImage": "/img/platform-visualization/easy-collaboration.svg",
+            
+              "items": [
                 {
                   "title": "Dashboard Sharing",
                   "description": "Unite your teams around critical visualizations while maintaining precise access controls. Import and export dashboards instantly—turning reliability into a true team sport."
@@ -1366,16 +1338,17 @@
                   "description": "Zoom from bird's-eye metrics to granular logs without losing your place. Preserve vital context across views to cut investigation time in half and resolve issues before they escalate."
                 }
               ],
-              "image": "/img/platform-visualization/dashboard-drilldown.png"
+              "featureImage": "/img/platform-visualization/dashboard-drilldown.png"
             }
-          }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Dashboards and Visualizations FAQs",
+        "heading":{
+          "title": "Dashboards and Visualizations FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "What visualization types are available?",
             "answer": "OpenObserve supports over 19 chart types for different visualization needs. Time-series data can be displayed using line graphs, area charts, and bar charts. Tables provide detailed data views with sorting and filtering. Heat maps show data density and patterns. Gauge visualizations display current values against thresholds. Each visualization type includes specific configuration options for customizing appearance and behavior."
@@ -1417,14 +1390,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"

@@ -15,8 +15,11 @@
       {
         "__component": "section-features.resources-feature-details",
         "id": 3,
-        "title": "Quick Start",
-        "description": "",
+        "heading":{
+          "title": "Quick Start",
+          "description": ""
+        },
+        "headingLevel":3,
         "data": [
           {
             "title": "Documentation",
@@ -48,13 +51,16 @@
         "__component": "section-cards.homepage-features",
         "id": 3,
         "title": "Documentation",
-        "headingLevel": 2,
+        "heading":{
+          "title": "Documentation"
+        },
+        "headingLevel": 3,
         "description": "",
         "items": [
           {
             "title": "User Guide",
             "description": "Step-by-step instructions for setting up and managing OpenObserve.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue",
             "link": "https://openobserve.ai/docs/user-guide",
             "target": "_blank"
@@ -62,7 +68,7 @@
           {
             "title": "API Reference",
             "description": "Comprehensive API documentation for integrations.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-purple",
             "link": "https://openobserve.ai/docs/api",
             "target": "_blank"
@@ -70,7 +76,7 @@
           {
             "title": "Function Reference",
             "description": "Detailed information about functions and capabilities.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-green",
             "link": "https://openobserve.ai/docs/user-guide/functions",
             "target": "_blank"

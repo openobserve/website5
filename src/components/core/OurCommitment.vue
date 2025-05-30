@@ -12,7 +12,7 @@
       <div class="bg-light-gray rounded-lg p-4 sm:p-6 md:p-8 shadow-sm border border-border mx-auto w-full">
         <!-- Text content -->
         <div class="space-y-4 text-gray-600">
-          <div class="text-base sm:text-lg mb-3 sm:mb-4 md:mb-6" v-html="paragraphs"></div>
+          <div class="text-base sm:text-lg mb-3 sm:mb-4 md:mb-6" v-html="paragraph"></div>
         </div>
       </div>
     </CustomSection>
@@ -28,7 +28,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  paragraphs: {
+  paragraph: {
     type: String,
     required: true,
   }

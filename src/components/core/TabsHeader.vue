@@ -6,7 +6,7 @@
           'bg-white border focus:outline-none text-primary-purple shadow-md': activeTab === tab.value,
           'bg-gray-100 focus:outline-none text-gray-700 hover:bg-gray-200': activeTab !== tab.value
         }">
-        {{ tab.label }}
+        {{ tab.title }}
       </button>
     </div>
   </div>

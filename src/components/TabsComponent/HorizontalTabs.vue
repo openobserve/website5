@@ -1,35 +1,5 @@
 <template>
   <div>
-    <!-- <div v-if="activeTab === tab.value" class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-
-        <div class="space-y-4">
-          <span
-            class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white bg-tabs-background text"
-            :class="tab.badge.theme">
-            {{ tab.badge.text }}
-          </span>
-          <h3 class="text-2xl font-bold">{{ tab.title }}</h3>
-          <p class="text-gray-500">
-            {{ tab.description }}
-          </p>
-          <ul class="space-y-2">
-            <li v-for="(feature, index) in tab.features" :key="index" class="flex items-center gap-2">
-              <CheckCircle class="h-5 w-5 text-primary-green" />
-              <span>{{ feature }}</span>
-            </li>
-          </ul>
-          <button
-            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors"
-            :class="tab.button.class">
-            {{ tab.button.text }}
-          </button>
-        </div>
-        <div class="flex justify-center">
-          <div class="h-auto w-full max-w-[500px] max-h-[400px] aspect-w-1 aspect-h-1">
-            <img :src="tab.image?.url" :alt="tab.image?.alt" class="object-contain rounded-lg shadow-lg w-full h-full" />
-          </div>
-        </div>
-      </div> -->
     <div class="mt-8">
       <div
         v-for="tab in tabs"
@@ -40,14 +10,14 @@
           class="p-6 flex flex-col lg:flex-row items-center justify-between w-full gap-4"
         >
           <div class="w-full lg:w-1/2">
-            <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
-            <p class="text-gray-600 mb-6" v-if="tab.card.description">
-              {{ tab.card.description }}
+            <h2 class="text-2xl font-bold mb-2">{{ tab.title }}</h2>
+            <p class="text-gray-600 mb-6" v-if="tab.description">
+              {{ tab.description }}
             </p>
             <div class="">
               <ul class="space-y-2 mb-6">
                 <li
-                  v-for="(feature, index) in tab.card.features"
+                  v-for="(feature, index) in tab.items"
                   :key="index"
                   class="flex flex-col justify-start space-y-2 items-start"
                 >
@@ -66,20 +36,32 @@
           </div>
           <div class="w-full lg:w-1/2">
             <div
-                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-                  <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
-                    style="image-rendering: auto;" />
-                </div>
+              class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in"
+              @click="openPopup(tab.featureImage)"
+            >
+              <img
+                :src="tab.featureImage"
+                :alt="tab.title"
+                class="w-full h-auto object-cover rounded-lg"
+                style="image-rendering: auto"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <ImagePopup
+    :src="popupImageSrc"
+    :visible="showPopup"
+    @close="showPopup = false"
+  />
 </template>
 
 <script setup>
 import { CheckCircle } from "lucide-vue-next";
-
+import ImagePopup from "@/components/core/ImagePopup.vue";
+import { ref } from "vue";
 defineProps({
   tabs: {
     type: Array,
@@ -90,6 +72,14 @@ defineProps({
     required: true,
   },
 });
+
+const showPopup = ref(false);
+const popupImageSrc = ref("");
+
+function openPopup(src) {
+  popupImageSrc.value = src;
+  showPopup.value = true;
+}
 </script>
 
 <style scoped>

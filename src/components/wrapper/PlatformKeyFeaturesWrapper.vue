@@ -1,25 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import CustomButton from "../core/CustomButton.vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
-defineProps({
-  title: {
-    type: String,
-    required: true,
+const props = defineProps({
+  heading:{
+    type: Object,
+    required: false,
   },
-  description: {
-    type: String,
+  tabs:{
+    type: Array,
     required: false,
   },
   align: {
     type: String,
     default: "center",
   },
-  data: {
-    type: Object,
+  standard:{
+    type: Array,
+    required: true,
+  },
+  enterprise:{
+    type: Array,
     required: true,
   },
   standardCTA: {
@@ -33,16 +37,21 @@ defineProps({
 });
 
 const tabs = [
-  { label: "Standard", value: "standard" },
-  { label: "Enterprise", value: "enterprise" },
+  { title: "Standard", value: "standard" },
+  { title: "Enterprise", value: "enterprise" },
 ];
 
-const activeTab = ref("standard");
+const activeTab = ref(tabs[0].value);
+
+const tabData = computed(() => {
+  return activeTab.value === tabs[0].value ? props.standard : props.enterprise;
+});
+
 </script>
 <template>
   <CustomSection class="">
     <!-- Heading Section -->
-    <HeadingSection :title="title" :description="description" align="center" />
+    <HeadingSection :title="heading?.title" :description="heading?.description" align="center" />
     <!-- Centered Tabs -->
     <div class="flex justify-center">
       <div class="w-full">
@@ -57,7 +66,7 @@ const activeTab = ref("standard");
 
     <!-- Card rendering based on activeTab -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-      <CardWithSideIcon v-for="(item, index) in data[activeTab]" :key="index" :card="item" class="w-full h-full" />
+      <CardWithSideIcon v-for="(item, index) in tabData" :key="index" :card="item" class="w-full h-full" />
     </div>
 
     <div class="text-center mt-12">

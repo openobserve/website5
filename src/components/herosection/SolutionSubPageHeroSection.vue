@@ -3,7 +3,6 @@ import CustomButton from "../core/CustomButton.vue";
 import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
-  pageTag: String,
   title: {
     type: String,
     required: true,
@@ -12,19 +11,22 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  bgImage: {
-    type: String,
-    required: true,
-  },
-  rightImage: String,
-  altText: String,
   primaryButton: {
     type: Object,
     required: true,
   },
-  secondaryButton: Object,
-  mobileBgImage: String,
-  mobileRightImage: String,
+  bgImageforLaptop: {
+    type: String,
+    required: true,
+  },
+  bgImageforMobile: {
+    type: String,
+    required: true,
+  },
+  Image: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 
@@ -34,12 +36,12 @@ const props = defineProps({
     <div class="absolute inset-0 z-0">
       <!-- Desktop Background -->
       <div class="hidden lg:block w-full h-full bg-cover bg-no-repeat bg-center"
-        :style="{ backgroundImage: `url(${bgImage})` }">
+        :style="{ backgroundImage: `url(${bgImageforLaptop})` }">
       </div>
 
       <!-- Mobile Background -->
-      <div v-if="mobileBgImage" class="lg:hidden w-full h-full bg-cover bg-center"
-        :style="{ backgroundImage: `url(${mobileBgImage})` }"></div>
+      <div v-if="bgImageforMobile" class="lg:hidden w-full h-full bg-cover bg-center"
+        :style="{ backgroundImage: `url(${bgImageforMobile})` }"></div>
     </div>
 
     <!-- Content Container -->
@@ -55,25 +57,23 @@ const props = defineProps({
             {{ description }}
           </p>
           <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
-            <CustomButton :variant="primaryButton.variant" size="medium" :buttonText="primaryButton.text"
+            <CustomButton variant="primary" size="medium" :buttonText="primaryButton.text"
               :buttonLink="primaryButton.link" />
-            <CustomButton v-if="secondaryButton" :variant="secondaryButton.variant" size="medium"
-              :buttonText="secondaryButton.text" :buttonLink="secondaryButton.link" />
           </div>
         </div>
 
         <!-- Right Image -->
         <div class="w-full lg:w-1/2 mt-8 sm:mt-10 lg:mt-0 flex justify-center lg:justify-end">
           <!-- Desktop/laptop image -->
-          <div v-if="rightImage" class="hidden lg:block w-full max-w-[90%] h-auto">
-            <CustomImage class="w-full h-full object-contain max-h-[50vh]" :src="rightImage"
-              :alt="altText || 'Overlay Image'" />
-          </div>
+          <!-- <div v-if="Image" class="hidden lg:block w-full max-w-[90%] h-auto">
+            <CustomImage class="w-full h-full object-contain max-h-[50vh]" :src="Image"
+              :alt="title || 'Overlay Image'" />
+          </div> -->
 
           <!-- Mobile/tablet image -->
-          <div v-if="mobileRightImage" class="block lg:hidden w-full max-w-[70%] sm:max-w-[300px] h-auto">
-            <CustomImage class="w-full h-full object-contain opacity-80" :src="mobileRightImage"
-              :alt="altText || 'Overlay Image'" />
+          <div v-if="Image" class="block lg:hidden w-full max-w-[70%] sm:max-w-[300px] h-auto">
+            <CustomImage class="w-full h-full object-contain opacity-80" :src="Image"
+              :alt="title || 'Overlay Image'" />
           </div>
         </div>
       </div>

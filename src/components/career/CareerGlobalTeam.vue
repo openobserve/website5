@@ -1,15 +1,29 @@
 <template>
   <div class="bg-gradient-to-r from-primary-purple/5 to-primary-blue/5">
     <CustomSection sectionClass="!py-5 lg:!py-10">
-      <HeadingSection v-if="title || description" :title="title" :description="description" align="center" />
+      <HeadingSection
+        v-if="heading?.title || heading?.description"
+        :title="heading.title"
+        :description="heading.description"
+        align="center"
+      />
 
       <div class="grid gap-6" :class="gridClass">
-        <div v-for="(feature, index) in features" :key="index" class="text-center">
-          <Cards :title="feature.title" :description="feature.description" :icon="feature.icon"
-            :theme="feature.iconColor" align="center" />
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="text-center"
+        >
+          <Cards
+            :title="feature.title"
+            :description="feature.description"
+            :icon="feature.image"
+            :theme="feature.iconColor"
+            align="center"
+          />
         </div>
       </div>
-        <!-- <div class="h-64 relative bg-white">
+      <!-- <div class="h-64 relative bg-white">
           <div class="absolute inset-0 flex items-center justify-center">
             <p class="text-center">{{ mapText }}</p>
           </div>
@@ -23,9 +37,13 @@
             ></div>
           </div>
         </div> -->
-       <div class="bg-gray-100 p-3 rounded-lg">
-        <CustomImage :image="image" :altText="altText" cssClass="w-full rounded-lg object-cover" />
-         </div>
+      <div class="bg-gray-100 p-3 rounded-lg">
+        <CustomImage
+          :image="image?.url"
+          :altText="image?.alt"
+          cssClass="w-full rounded-lg object-cover"
+        />
+      </div>
     </CustomSection>
   </div>
 </template>
@@ -48,26 +66,30 @@ interface MapDot {
 }
 
 const props = defineProps<{
-  title: string;
-  description: string;
-  image: string;
-  altText: string;
+  heading: {
+    title: string;
+    description: string;
+  };
   features: GlobalTeamFeature[];
+  image: {
+    url: string;
+    alt: string;
+  };
   mapText: string;
   mapDots: MapDot[];
 }>();
 
 const gridClass = computed(() => {
-  const count = props?.features?.length
+  const count = props?.features?.length;
 
   if (count >= 3) {
-    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+    return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
   } else if (count === 2) {
-    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
+    return "grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
   } else if (count === 1) {
-    return 'grid-cols-1'
+    return "grid-cols-1";
   } else {
-    return ''
+    return "";
   }
-})
+});
 </script>

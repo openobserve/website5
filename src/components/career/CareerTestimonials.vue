@@ -3,9 +3,9 @@
     <CustomSection sectionClass="!py-5 lg:!py-10">
       <!-- Heading -->
       <HeadingSection
-          v-if="title || description"
-          :title="title"
-          :description="description"
+          v-if="heading?.title || heading?.description"
+          :title="heading.title"
+          :description="heading.description"
           align="center"
           class="!mb-12"
         />
@@ -16,7 +16,7 @@
           <p class="italic text-muted-foreground text-left">"{{ testimonial.quote }}"</p>
           <div class="flex items-center space-x-4 mt-4">
             <div class="w-12 h-12 rounded-full overflow-hidden">
-              <img :src="testimonial.avatar" :alt="testimonial.name" class="w-12 h-12 rounded-full object-cover">
+              <img :src="testimonial.image.url" :alt="testimonial.image.alt" class="w-12 h-12 rounded-full object-cover">
             </div>
             <div>
               <p class="font-bold text-left">{{ testimonial.name }}</p>
@@ -27,11 +27,11 @@
       </div>
 
        <div class="mt-12 flex justify-center">
-        <a :href="button.link" :target="button.target|| '_self'">
+        <a :href="primaryButton.link" :target="primaryButton.target|| '_self'">
           <button
             class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors bg-white text-primary-purple hover:bg-accent  cursor-pointer"
           >
-            {{ button.text }}
+            {{ primaryButton.text }}
           </button>
         </a>
       </div>
@@ -46,15 +46,17 @@ interface Testimonial {
   quote: string;
   name: string;
   role: string;
-  avatar?: string;
+  image?: Object;
 }
 
 defineProps<{
-  title: string;
-  description: string;
+  heading: {
+    title: string;
+    description: string;
+  },
   items: Testimonial[];
   background?: boolean;
-  button:{
+  primaryButton:{
     text: string;
     link: string;
     target?: string;

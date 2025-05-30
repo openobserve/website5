@@ -104,7 +104,7 @@ const cardVariant = computed(() => {
     />
 
     <div
-      class="w-full flex flex-col lg:flex-row justify-center items-center gap-12"
+      class="w-full flex flex-col lg:flex-row justify-center items-center gap-12 overflow-x-hidden"
       :class="sectionClasses"
     >
       <!-- client review Section -->

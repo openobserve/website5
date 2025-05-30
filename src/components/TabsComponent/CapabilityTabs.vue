@@ -1,125 +1,15 @@
-<template>
-  <div ref="sectionRef" :class="background ? 'bg-gray-50' : ''">
-    <CustomSection sectionClass="!pb-0">
-      <HeadingSection :title="title" :description="description" align="CENTER" />
-      <div class="w-full">
-        <div class="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-0 bg-transparent gap-2">
-          <button v-for="tab in tabs" :key="tab.value" @click="setActiveTab(tab.value)" :class="[
-            'py-3 flex flex-col items-center gap-2 font-semibold transition-colors rounded-lg cursor-pointer',
-            activeTab === tab.value
-              ? 'bg-primary-purple text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-          ]">
-            <img :src="tab.icon" :alt="tab.title + 'icon'" class="h-5 w-5" />
-            <span>{{ tab.title }}</span>
-          </button>
-        </div>
-
-        <div class="mt-8">
-          <div v-for="tab in tabs" :key="'content-' + tab.value" v-show="activeTab === tab.value">
-            <div
-              class="bg-white rounded-lg shadow px-8 py-16 flex flex-col lg:flex-row items-center justify-between w-full gap-4">
-              <div class="w-full lg:w-1/2">
-                <h2 class="text-2xl font-bold mb-2">{{ tab.card.title }}</h2>
-                <p class="text-gray-600 mb-6" v-if="tab.card.description">
-                  {{ tab.card.description }}
-                </p>
-                <div class="">
-                  <ul class="space-y-2 mb-6">
-                    <li v-for="(feature, index) in tab.card.features" :key="index"
-                      class="flex flex-col justify-start space-y-2 items-start">
-                      <h3 class="text-lg font-semibold text-gray-800 mb-2" v-if="feature.title">
-                        {{ feature.title }}
-                      </h3>
-                      <p class="text-gray-600 mb-2" v-if="feature.description">
-                        {{ feature.description }}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- <div class="w-full md:w-1/2">
-                <div
-                  class="w-full rounded-lg"
-                >
-                  <img
-                    :src="tab.card.image"
-                    :alt="tab.card.title"
-                    class="object-cover w-full h-full"
-                  />
-                </div>
-              </div> -->
-
-              <div class="w-full lg:w-1/2">
-                <div
-                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-                  <img :src="tab.card.image" :alt="tab.card.title" class="w-full h-auto object-cover rounded-lg"
-                    style="image-rendering: auto;" />
-                </div>
-              </div>
-
-            </div>
-            <!-- <div class="grid md:grid-cols-2 gap-6 items-center">
-                  <div>
-                    <p class="mb-4">{{ tab.card.content }}</p>
-                    <ul class="space-y-2 mb-6">
-                      <li
-                        v-for="(feature, index) in tab.card.features"
-                        :key="index"
-                        class="flex items-start"
-                      >
-                        <span
-                          class="bg-primary-purple text-white rounded-full p-1 mr-2 mt-0.5"
-                        >
-                          <svg
-                            class="h-3 w-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M5 13l4 4L19 7"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span>{{ feature }}</span>
-                      </li>
-                    </ul>
-                    <button
-                      class="bg-primary-purple hover:bg-dark-purple text-white py-2 px-4 rounded transition-colors cursor-pointer"
-                    >
-                      {{ tab.card.buttonText }}
-                    </button>
-                  </div>
-                  <div
-                    class="relative h-[300px] w-full rounded-lg overflow-hidden"
-                  >
-                    <img
-                      :src="tab.card.image"
-                      :alt="tab.card.title"
-                      class="object-cover w-full h-full"
-                    />
-                  </div>
-                </div> -->
-          </div>
-        </div>
-      </div>
-    </CustomSection>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
+import ImagePopup from '@/components/core/ImagePopup.vue' 
+
 const props = defineProps({
-  title: String,
-  description: String,
-  tabs: {
+  heading: {
+    type: Object,
+    required: true,
+  },
+  items: {
     type: Array,
     required: true,
   },
@@ -128,16 +18,23 @@ const props = defineProps({
     required: false,
   },
 });
-const activeTab = ref(props.tabs[0]?.value || "");
+const activeTab = ref(props.items[0]?.title || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
+const showPopup = ref(false)
+const popupImageSrc = ref("")
+
+function openPopup(src) {
+  popupImageSrc.value = src
+  showPopup.value = true
+}
 let interval = null;
 
 // Function to move to the next tab
 const rotateToNextTab = () => {
-  const currentIndex = tabs.findIndex((tab) => tab.value === activeTab.value);
-  const nextIndex = (currentIndex + 1) % tabs.length;
-  activeTab.value = tabs[nextIndex].value;
+  const currentIndex = items.findIndex((tab) => tab.title === activeTab.title);
+  const nextIndex = (currentIndex + 1) % items.length;
+  activeTab.title = items[nextIndex].title;
 };
 
 const setActiveTab = (tabValue) => {
@@ -186,6 +83,74 @@ onBeforeUnmount(() => {
   }
 });
 </script>
+<template>
+  <div ref="sectionRef" :class="background ? 'bg-gray-50' : ''">
+    <CustomSection sectionClass="!pb-0">
+      <HeadingSection :title="heading?.title" :description="heading?.description" align="CENTER" />
+      <div class="w-full">
+        <div class="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-0 bg-transparent gap-2">
+          <button v-for="tab in items" :key="tab.title" @click="setActiveTab(tab.title)" :class="[
+            'py-3 flex flex-col items-center gap-2 font-semibold transition-colors rounded-lg cursor-pointer',
+            activeTab === tab.title
+              ? 'bg-primary-purple text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+          ]">
+            <img :src="tab.tabImage" :alt="tab.title" class="h-5 w-5" />
+            <span>{{ tab.title }}</span>
+          </button>
+        </div>
+          
+        <div class="mt-8">
+          <div v-for="tab in items" :key="'content-' + tab.title" v-show="activeTab === tab.title">
+            <div
+              class="bg-white rounded-lg shadow px-8 py-16 flex flex-col lg:flex-row items-center justify-between w-full gap-4">
+              <div class="w-full lg:w-1/2">
+                <h2 class="text-2xl font-bold mb-2">{{ tab.title }}</h2>
+                <p class="text-gray-600 mb-6" v-if="tab.description">
+                  {{ tab.description }}
+                </p>
+                <div class="">
+                  <ul class="space-y-2 mb-6">
+                    <li v-for="(feature, index) in tab.items" :key="index"
+                      class="flex flex-col justify-start space-y-2 items-start">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2" v-if="feature.title">
+                        {{ feature.title }}
+                      </h3>
+                      <p class="text-gray-600 mb-2" v-if="feature.description">
+                        {{ feature.description }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- <div class="w-full md:w-1/2">
+                <div
+                  class="w-full rounded-lg"
+                >
+                  <img
+                    :src="tab.card.image"
+                    :alt="tab.card.title"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+              </div> -->
+
+              <div class="w-full lg:w-1/2">
+                <div
+                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.featureImage)">
+                  <img :src="tab.featureImage" :alt="tab.title" class="w-full h-auto object-cover rounded-lg"
+                    style="image-rendering: auto;" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </CustomSection>
+  </div>
+   <ImagePopup :src="popupImageSrc" :visible="showPopup" @close="showPopup = false" />
+</template>
 
 <style scoped>
 /* Add any custom styles here if needed */

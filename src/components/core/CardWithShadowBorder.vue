@@ -61,7 +61,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
         props?.card?.theme,
       ]"
     >
-      <span v-html="props?.card?.icon" />
+      <span v-html="props?.card?.image" />
     </div>
 
     <!-- Title -->

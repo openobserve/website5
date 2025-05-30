@@ -22,7 +22,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <img :src="image?.url || image || '/img/default_project_image.png'" :alt="image?.alternativeText || 'Default Image'"
+  <img :src="image?.url || image || '/img/default_project_image.png'" :alt="altText || 'Default Image'"
     :class="cssClass" loading="lazy" />
 </template>
 

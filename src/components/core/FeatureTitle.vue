@@ -4,9 +4,9 @@
      :class="[alignClass, !items.length ? 'text-center' : '']"
   >
   <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
-    <component :is="`h${headingLevel}`" class="leading-tight col-span-3" :class="[!items.length ? 'text-center col-span-5' : 'md:text-right']">
+    <h2 class="leading-tight col-span-3" :class="[!items.length ? 'text-center col-span-5' : 'md:text-right']">
       <span v-html="title" />
-    </component>
+    </h2>
 
     <!-- Animated Item -->
     <div  v-if="items.length" class="relative h-[1.5em] overflow-hidden md:text-left col-span-2 mt-1">

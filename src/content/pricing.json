@@ -17,9 +17,7 @@
         "id": 3,
         "tabs": [
           {
-            "value": "openobserve-cloud",
-            "label": "Cloud",
-            "title": "OpenObserve Clouds",
+            "title": "Cloud",
             "items": [
               {
                 "title": "Free",
@@ -91,9 +89,7 @@
             ]
           },
           {
-            "value": "self-hosted",
-            "label": "Self Hosted",
-            "title": "OpenObserve Self-hosted",
+            "title": "Self Hosted",
             "items": [
               {
                 "title": "Download for free",
@@ -144,16 +140,59 @@
         ]
       },
       {
+        "__component": "sections.faq",
+        "heading":{
+          "title": "Pricing FAQs"
+        },
+        "background": false,
+        "faqs": [
+          {
+            "question": "Does OpenObserve offer a free tier?",
+            "answer": "Yes, OpenObserve offers a free tier that includes a limited amount of log storage and ingestion. It's ideal for small projects, testing, or evaluation purposes. Usage beyond the free tier will require a paid plan."
+          },
+          {
+            "question": "What are the available pricing plans?",
+            "answer": "OpenObserve offers flexible pricing plans:<br><ul><li><strong>Free Tier:</strong> Basic features with limited storage and ingestion rate.</li><li><strong>Standard:</strong> Includes higher retention, alerts, and dashboard features.</li><li><strong>Enterprise:</strong> Advanced analytics, extended retention, custom integrations, and premium support.</li></ul>"
+          },
+          {
+            "question": "How is pricing calculated?",
+            "answer": "Pricing is typically based on data ingestion volume (e.g., GB/day), retention period, and feature set. Some plans may include limits on dashboard usage, queries, or team members."
+          },
+          {
+            "question": "What happens when I exceed the limits of my plan?",
+            "answer": "If you exceed your plan’s ingestion or storage limits, overage charges may apply, or your data ingestion may be throttled. You can upgrade your plan at any time to avoid service disruption."
+          },
+          {
+            "question": "Is there a trial available for premium features?",
+            "answer": "Yes, OpenObserve provides a free trial of premium features so users can evaluate the platform before committing to a paid plan. You can enable the trial from your dashboard."
+          },
+          {
+            "question": "Can I change my plan later?",
+            "answer": "Yes, plans are flexible. You can upgrade, downgrade, or cancel your subscription at any time through the billing settings in your account."
+          },
+          {
+            "question": "Does OpenObserve offer usage-based billing?",
+            "answer": "Yes, OpenObserve supports usage-based billing, which means you only pay for the data you ingest and store. This helps optimize cost for varying workloads."
+          },
+          {
+            "question": "Are there discounts for startups or non-profits?",
+            "answer": "OpenObserve offers discounts for eligible startups, educational institutions, and non-profit organizations. You can contact the sales team to apply for special pricing."
+          }
+        ]
+      },
+      {
         "__component": "section-cta.homepage-cta",
         "id": 5,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+         "heading": {
+           "title": "Ready to get started?",
+           "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "text": "Schedule Demo",
           "link": "/demo",
           "variant": "tertiary"

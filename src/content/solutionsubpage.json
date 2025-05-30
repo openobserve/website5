@@ -10,57 +10,55 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "AWS Monitoring",
         "title": "AWS Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-aws/full-bg.svg",
-        "mobileBgImage": "/img/solution-aws/mobile-view.svg",
-        "mobileRightImage": "/img/solution-aws/Group 9269.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-aws/full-bg.svg",
+        "bgImageforMobile": "/img/solution-aws/mobile-view.svg",
+        "Image": "/img/solution-aws/Group 9269.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why OpenObserve for AWS Monitoring?",
-        "data": [
+        "heading":{
+            "title": "Why OpenObserve for AWS Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep AWS Observability",
             "description": "Gain deep visibility into the many layers of your AWS environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 40 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_33)\"><path d=\"M11.3141 8.69601C11.3141 9.18809 11.3672 9.58699 11.4598 9.87954C11.5775 10.2087 11.719 10.5286 11.8835 10.8369C11.9497 10.9432 11.9761 11.0496 11.9761 11.1428C11.9761 11.2756 11.8967 11.4086 11.7246 11.5417L10.8905 12.1001C10.7713 12.1799 10.6521 12.2198 10.5461 12.2198C10.4138 12.2198 10.2813 12.1533 10.1489 12.0336C9.97032 11.8412 9.81072 11.6319 9.6723 11.4086C9.53985 11.1828 9.40739 10.9299 9.26181 10.6242C8.22892 11.8474 6.93133 12.459 5.36903 12.4591C4.25689 12.4591 3.36968 12.1399 2.72083 11.5018C2.07214 10.8634 1.74115 10.0124 1.74115 8.94871C1.74115 7.81852 2.13836 6.90103 2.94607 6.20958C3.75362 5.51813 4.82623 5.1724 6.19001 5.1724C6.64017 5.1724 7.10361 5.21224 7.59345 5.27875C8.08345 5.34526 8.58657 5.45161 9.11624 5.5713V4.60063C9.11624 3.58997 8.90427 2.88534 8.49378 2.4731C8.07017 2.06087 7.35509 1.86134 6.33558 1.86134C5.87214 1.86134 5.39558 1.91467 4.90558 2.03436C4.41559 2.15405 3.93902 2.30024 3.47558 2.48644C3.26378 2.57946 3.10492 2.63263 3.01214 2.6593C2.91936 2.68597 2.85329 2.69914 2.80033 2.69914C2.61493 2.69914 2.5223 2.56612 2.5223 2.28691V1.6353C2.5223 1.4226 2.54885 1.26307 2.61493 1.17005C2.68115 1.07687 2.80033 0.98385 2.98574 0.890831C3.44913 0.651353 4.0052 0.451876 4.65395 0.292399C5.30295 0.119537 5.99148 0.0398503 6.71968 0.0398503C8.29541 0.0398503 9.44738 0.398752 10.1889 1.11687C10.9171 1.83483 11.2879 2.92518 11.2879 4.38793V8.69601H11.3141ZM5.93837 10.7172C6.37542 10.7172 6.82558 10.6375 7.30214 10.4778C7.77886 10.3183 8.20263 10.0257 8.56001 9.62683C8.77197 9.37428 8.93083 9.09507 9.01018 8.77585C9.08968 8.45679 9.14263 8.07106 9.14263 7.61899V7.06056C8.74108 6.96247 8.33438 6.88701 7.92444 6.83452C7.51163 6.78191 7.09596 6.75525 6.67985 6.75467C5.79264 6.75467 5.14394 6.92754 4.70705 7.28659C4.27017 7.64565 4.0582 8.15091 4.0582 8.81569C4.0582 9.44063 4.21706 9.90604 4.54804 10.2253C4.86591 10.5577 5.32935 10.7172 5.93837 10.7172ZM16.5707 12.1533C16.3323 12.1533 16.1735 12.1134 16.0676 12.0202C15.9617 11.9406 15.8689 11.7544 15.7895 11.5018L12.678 1.22322C12.5984 0.957183 12.5587 0.784321 12.5587 0.691301C12.5587 0.478595 12.6646 0.358752 12.8766 0.358752H14.1741C14.4256 0.358752 14.5979 0.398752 14.6905 0.491772C14.7964 0.571615 14.8759 0.757811 14.9553 1.01036L17.1797 9.81303L19.2453 1.01036C19.3115 0.744478 19.391 0.571615 19.4967 0.491772C19.6028 0.412086 19.7882 0.358909 20.0266 0.358909H21.0858C21.3372 0.358909 21.5095 0.398752 21.6153 0.491772C21.7213 0.571615 21.814 0.757811 21.8669 1.01036L23.959 9.91938L26.2495 1.01036C26.3289 0.744478 26.4217 0.571615 26.5143 0.491772C26.6202 0.412086 26.7923 0.358909 27.0307 0.358909H28.262C28.474 0.358909 28.5931 0.465262 28.5931 0.691301C28.5931 0.757811 28.5799 0.824321 28.5666 0.904007C28.5533 0.983693 28.5269 1.0902 28.474 1.23656L25.2828 11.515C25.2035 11.781 25.1108 11.9539 25.0048 12.0336C24.8989 12.1134 24.7268 12.1666 24.5018 12.1666H23.3631C23.1115 12.1666 22.9394 12.1268 22.8333 12.0336C22.7274 11.9406 22.6348 11.7677 22.5818 11.5018L20.5294 2.92518L18.4904 11.4883C18.4243 11.7544 18.3448 11.9272 18.2389 12.0202C18.133 12.1134 17.9476 12.1533 17.7094 12.1533H16.5707ZM33.5849 12.5123C32.8964 12.5123 32.2079 12.4325 31.5459 12.2729C30.8838 12.1134 30.3676 11.9404 30.0233 11.7412C29.8113 11.6213 29.6656 11.4885 29.6128 11.3688C29.5613 11.2514 29.5343 11.1247 29.5333 10.9964V10.3183C29.5333 10.0391 29.6392 9.90605 29.8379 9.90605C29.919 9.90635 29.9995 9.91986 30.0763 9.94605C30.1556 9.97271 30.2748 10.0257 30.4072 10.0789C30.8748 10.2856 31.3631 10.4416 31.8636 10.5443C32.3823 10.6499 32.9102 10.7034 33.4394 10.7038C34.2735 10.7038 34.9223 10.5577 35.3725 10.2651C35.8227 9.97256 36.061 9.54714 36.061 9.00189C36.061 8.62965 35.9418 8.32377 35.7035 8.07106C35.4651 7.81836 35.0149 7.59248 34.3663 7.37961L32.4463 6.78134C31.4797 6.47546 30.7648 6.02338 30.3277 5.42495C29.8908 4.83985 29.6658 4.1884 29.6658 3.49695C29.6658 2.93852 29.7849 2.44649 30.0233 2.02087C30.2615 1.59546 30.5794 1.22322 30.9766 0.930674C31.3738 0.624791 31.824 0.398752 32.3536 0.239223C32.8831 0.0796934 33.4392 0.0131836 34.0218 0.0131836C34.3131 0.0131836 34.6177 0.0265169 34.909 0.0663601C35.2136 0.106203 35.4917 0.15938 35.7697 0.212556C36.0345 0.279066 36.2861 0.345576 36.5245 0.425419C36.7627 0.505105 36.9481 0.584844 37.0805 0.664635C37.2659 0.771144 37.3982 0.877497 37.4777 0.997184C37.5572 1.10354 37.5969 1.24978 37.5969 1.43593V2.06087C37.5969 2.34009 37.491 2.48644 37.2923 2.48644C37.1864 2.48644 37.0143 2.4331 36.7894 2.32675C36.0344 1.98103 35.187 1.80816 34.2471 1.80816C33.4923 1.80816 32.8964 1.92785 32.4859 2.18056C32.0756 2.4331 31.8636 2.81883 31.8636 3.36393C31.8636 3.73632 31.9961 4.05538 32.2609 4.30809C32.5256 4.56079 33.0156 4.81334 33.7174 5.03938L35.5976 5.63781C36.5509 5.94369 37.2394 6.3691 37.6499 6.9142C38.0604 7.4593 38.259 8.0844 38.259 8.77585C38.259 9.34761 38.1397 9.8662 37.9146 10.3183C37.6764 10.7704 37.3586 11.1693 36.9481 11.4885C36.5376 11.8209 36.0477 12.0602 35.4784 12.2331C34.8825 12.4193 34.2602 12.5123 33.5849 12.5123Z\" fill=\"#252F3E\"/><path d=\"M36.0874 18.9745C31.7313 22.2058 25.4021 23.9211 19.9603 23.9211C12.3336 23.9211 5.46177 21.0887 0.271438 16.3816C-0.139052 16.0094 0.231608 15.5041 0.721447 15.7965C6.33555 19.0677 13.2605 21.0489 20.4237 21.0489C25.2565 21.0489 30.5661 20.0384 35.452 17.964C36.1802 17.6315 36.8025 18.4428 36.0874 18.9745ZM37.9015 16.9002C37.3454 16.1822 34.2205 16.5545 32.8038 16.7273C32.38 16.7807 32.3138 16.4083 32.6979 16.1291C35.187 14.3738 39.2785 14.8792 39.7551 15.4641C40.2318 16.0625 39.6226 20.1713 37.2923 22.1393C36.9349 22.4451 36.5906 22.2856 36.7495 21.8867C37.279 20.5702 38.4575 17.605 37.9015 16.9002Z\" fill=\"#FF9900\"/></g><defs><clipPath id=\"clip0_674_33\"><rect width=\"40\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Reduce monitoring costs significantly with efficient data ingestion and storage while maintaining comprehensive AWS observability.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"19\" height=\"24\" viewBox=\"0 0 19 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_103)\"><path d=\"M14.0753 11.3684H18.4061V7.0376\" stroke=\"#EE5C46\" stroke-width=\"1.14286\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18.4061 11.3685L12.2888 5.25121C12.1876 5.15202 12.0515 5.09646 11.9098 5.09646C11.7681 5.09646 11.6321 5.15202 11.5309 5.25121L9.04065 7.74144C8.93946 7.84063 8.80341 7.89619 8.6617 7.89619C8.52 7.89619 8.38395 7.84063 8.28276 7.74144L4.33087 3.78955\" stroke=\"#EE5C46\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g><g clip-path=\"url(#clip1_674_103)\"><path d=\"M3.47371 18.7899V21.3951H12.1579V15.3162H10.4211V14.4478H12.4697C12.6634 14.4478 12.7337 14.4677 12.804 14.5059C12.8743 14.5428 12.9318 14.6 12.969 14.6701C13.0064 14.7404 13.0264 14.8108 13.0264 15.0044V21.7069C13.0264 21.9006 13.0064 21.9709 12.9682 22.0412C12.9313 22.1115 12.8741 22.169 12.804 22.2062C12.7337 22.2436 12.6634 22.2636 12.4697 22.2636H3.16194C2.96829 22.2636 2.89794 22.2436 2.8276 22.2054C2.75734 22.1685 2.69984 22.1113 2.6626 22.0412C2.62613 21.9709 2.60529 21.9006 2.60529 21.7078V18.7899H3.47371Z\" fill=\"#EE5C46\"/><path d=\"M10.4211 12.7107H1.73683V18.7897H10.4211V12.7107ZM11.2895 12.3989V19.1014C11.2895 19.2951 11.2695 19.3654 11.2313 19.4358C11.1944 19.506 11.1372 19.5635 11.0672 19.6008C10.9968 19.6381 10.9265 19.6581 10.7328 19.6581H1.42507C1.23141 19.6581 1.16107 19.6381 1.09072 19.5999C1.02046 19.563 0.962958 19.5058 0.925724 19.4358C0.88925 19.3654 0.868408 19.2951 0.868408 19.1023V12.3989C0.868408 12.2053 0.888382 12.1349 0.926593 12.0646C0.963456 11.9943 1.02066 11.9368 1.09072 11.8996C1.16107 11.8631 1.23141 11.8423 1.4242 11.8423H10.7319C10.9256 11.8423 10.9959 11.8623 11.0663 11.9005C11.1366 11.9373 11.1941 11.9945 11.2313 12.0646C11.2686 12.1349 11.2886 12.2053 11.2886 12.3989H11.2895Z\" fill=\"#EE5C46\"/><path d=\"M6.07895 17.9212C5.50315 17.9212 4.95094 17.6925 4.54379 17.2853C4.13663 16.8782 3.9079 16.326 3.9079 15.7502C3.9079 15.1744 4.13663 14.6221 4.54379 14.215C4.95094 13.8078 5.50315 13.5791 6.07895 13.5791C6.65475 13.5791 7.20697 13.8078 7.61412 14.215C8.02127 14.6221 8.25001 15.1744 8.25001 15.7502C8.25001 16.326 8.02127 16.8782 7.61412 17.2853C7.20697 17.6925 6.65475 17.9212 6.07895 17.9212ZM6.07895 17.0528C6.42443 17.0528 6.75576 16.9155 7.00005 16.6713C7.24435 16.427 7.38159 16.0956 7.38159 15.7502C7.38159 15.4047 7.24435 15.0733 7.00005 14.8291C6.75576 14.5848 6.42443 14.4475 6.07895 14.4475C5.73347 14.4475 5.40214 14.5848 5.15785 14.8291C4.91356 15.0733 4.77632 15.4047 4.77632 15.7502C4.77632 16.0956 4.91356 16.427 5.15785 16.6713C5.40214 16.9155 5.73347 17.0528 6.07895 17.0528Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_674_103\"><rect width=\"15.1579\" height=\"15.1579\" fill=\"white\" transform=\"translate(3.78949)\"/></clipPath><clipPath id=\"clip1_674_103\"><rect width=\"13.8948\" height=\"13.8948\" fill=\"white\" transform=\"translate(0 10.1055)\"/></clipPath></defs></svg>"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with AWS services using Kinesis Data Firehose and CloudWatch for efficient log and metric collection.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22.2807 6.2193C22.211 6.14957 22.1283 6.09425 22.0373 6.05651C21.9462 6.01877 21.8486 5.99934 21.7501 5.99934C21.6515 5.99934 21.5539 6.01877 21.4628 6.05651C21.3718 6.09425 21.2891 6.14957 21.2194 6.2193L18.0001 9.43962L14.5604 5.99993L17.7807 2.78055C17.9214 2.63982 18.0005 2.44895 18.0005 2.24993C18.0005 2.05091 17.9214 1.86003 17.7807 1.7193C17.6399 1.57857 17.4491 1.49951 17.2501 1.49951C17.051 1.49951 16.8602 1.57857 16.7194 1.7193L13.5001 4.93962L11.0307 2.4693C10.8899 2.32857 10.6991 2.24951 10.5001 2.24951C10.301 2.24951 10.1102 2.32857 9.96943 2.4693C9.82869 2.61003 9.74963 2.80091 9.74963 2.99993C9.74963 3.19895 9.82869 3.38982 9.96943 3.53055L10.5647 4.12493L5.59599 9.09368C5.24775 9.4419 4.97151 9.85531 4.78304 10.3103C4.59457 10.7653 4.49757 11.2529 4.49757 11.7454C4.49757 12.2379 4.59457 12.7255 4.78304 13.1805C4.97151 13.6355 5.24775 14.0489 5.59599 14.3971L7.0688 15.8699L2.46943 20.4693C2.39974 20.539 2.34447 20.6217 2.30676 20.7128C2.26904 20.8038 2.24963 20.9014 2.24963 20.9999C2.24963 21.0985 2.26904 21.1961 2.30676 21.2871C2.34447 21.3781 2.39974 21.4609 2.46943 21.5306C2.61016 21.6713 2.80103 21.7503 3.00005 21.7503C3.0986 21.7503 3.19618 21.7309 3.28722 21.6932C3.37827 21.6555 3.46099 21.6002 3.53068 21.5306L8.13286 16.9284L9.60568 18.4012C9.9539 18.7494 10.3673 19.0257 10.8223 19.2141C11.2773 19.4026 11.7649 19.4996 12.2574 19.4996C12.7499 19.4996 13.2375 19.4026 13.6925 19.2141C14.1475 19.0257 14.5609 18.7494 14.9091 18.4012L19.8779 13.4324L20.4722 14.0277C20.5419 14.0974 20.6246 14.1527 20.7157 14.1904C20.8067 14.2281 20.9043 14.2475 21.0029 14.2475C21.1014 14.2475 21.199 14.2281 21.29 14.1904C21.3811 14.1527 21.4638 14.0974 21.5335 14.0277C21.6032 13.9581 21.6584 13.8753 21.6962 13.7843C21.7339 13.6932 21.7533 13.5957 21.7533 13.4971C21.7533 13.3986 21.7339 13.301 21.6962 13.2099C21.6584 13.1189 21.6032 13.0362 21.5335 12.9665L19.0604 10.4999L22.2807 7.28055C22.3504 7.2109 22.4057 7.12818 22.4435 7.03713C22.4812 6.94609 22.5006 6.84849 22.5006 6.74993C22.5006 6.65137 22.4812 6.55377 22.4435 6.46272C22.4057 6.37168 22.3504 6.28896 22.2807 6.2193ZM13.8488 17.3437C13.6399 17.5527 13.3918 17.7186 13.1187 17.8317C12.8456 17.9449 12.553 18.0031 12.2574 18.0031C11.9618 18.0031 11.6691 17.9449 11.3961 17.8317C11.123 17.7186 10.8749 17.5527 10.666 17.3437L6.6563 13.334C6.44724 13.125 6.28141 12.877 6.16826 12.6039C6.05511 12.3308 5.99688 12.0382 5.99688 11.7426C5.99688 11.447 6.05511 11.1543 6.16826 10.8813C6.28141 10.6082 6.44724 10.3601 6.6563 10.1512L11.6251 5.18243L18.8147 12.3749L13.8488 17.3437Z\" fill=\"#5BC979\"/></svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key AWS Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key AWS Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-visibility",
-            "label": "Real-Time Visibility & Insights",
-            "card": {
               "title": "Real-Time Visibility & Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Continuous Data Collection",
                   "description": "Capture every AWS operation as it happens through seamless Kinesis Data Firehose and CloudWatch integrations. Monitor your entire AWS ecosystem with zero blind spots from Lambda functions to database clusters."
@@ -70,15 +68,12 @@
                   "description": "Transform complex AWS metrics into instant understanding with pre-built and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/solution-aws/aws_data.gif"
-            }
+              "featureImage": "/img/solution-aws/aws_data.gif"
           },
           {
-            "value": "efficient-data-processing",
-            "label": "Efficient Data Processing",
-            "card": {
+           
               "title": "Efficient Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Automated Log Parsing",
                   "description": "Turn chaotic AWS logs into structured intelligence using Vector Remap Language (VRL). Parse, enrich, redact, and filter raw data to extract the exact insights you need without writing complex code."
@@ -88,15 +83,13 @@
                   "description": "Explore your AWS environment using powerful SQL queries that reveal hidden patterns. Leverage comprehensive parsing and enrichment functions to answer your most complex operational questions."
                 }
               ],
-              "image": "/img/solution-aws/pipeline-aws.png"
-            }
+              "featureImage": "/img/solution-aws/pipeline-aws.png"
+            
           },
           {
-            "value": "service-coverage-and-integration",
-            "label": "Service Coverage & Integration",
-            "card": {
+           
               "title": "Service Coverage & Integration",
-              "features": [
+              "items": [
                 {
                   "title": "Multi-service Support",
                   "description": "Monitor your entire AWS ecosystem with specialized tooling for every service. Track network traffic with VPC Flow Logs, audit activities with CloudTrail, and gain complete visibility across your infrastructure through CloudWatch dashboards and much more."
@@ -106,15 +99,13 @@
                   "description": "Connect insights across multiple AWS accounts and services. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/solution-aws/cloudwatch-rds-metrics-final.gif"
-            }
+              "featureImage": "/img/solution-aws/cloudwatch-rds-metrics-final.gif"
+            
           },
           {
-            "value": "cost-effective-monitoring",
-            "label": "Cost-effective Monitoring",
-            "card": {
+           
               "title": "Cost-effective Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Usage Tracking",
                   "description": "Optimize cloud spending with precision resource monitoring across EC2, RDS, Lambda, and more. Convert usage data into action plans that eliminate waste while maintaining performance."
@@ -124,15 +115,17 @@
                   "description": "Keep the data you need, store it intelligently. Configure retention policies that balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/solution-aws/aws-dashboard.png"
-            }
+              "featureImage": "/img/solution-aws/aws-dashboard.png"
+            
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "AWS Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "AWS Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "How does OpenObserve collect AWS logs and metrics?",
             "answer": "OpenObserve offers multiple ingestion methods:<br><ul><li>Kinesis Data Firehose for log delivery from various AWS services</li><li>Direct CloudWatch integration for metrics</li><li>AWS Lambda function logs through Kinesis Firehose</li><li>Custom metrics via API endpoints</li><li>All AWS services can send their logs via S3 to Openobserve</li></ul>Refer to our detailed setup guides <a href='https://openobserve.ai/blog/tag/aws' target='_blank'>here</a>"
@@ -163,14 +156,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -204,57 +199,55 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "GCP Monitoring",
         "title": "GCP Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-gcp-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-gcp-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-gcp-monitoring/Group 9270.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-gcp-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-gcp-monitoring/mobile-view.svg",
+        "Image": "/img/solution-gcp-monitoring/Group 9270.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why Use OpenObserve for GCP Monitoring?",
-        "data": [
+        "heading":{
+          "title": "Why Use OpenObserve for GCP Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep GCP Observability",
             "description": "Gain deep visibility into the many layers of your GCP environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.7481 8.30519H15.371L17.1463 6.52991L17.2335 5.77623C16.2165 4.87861 14.9875 4.25508 13.6625 3.96451C12.3375 3.67395 10.9603 3.72596 9.66104 4.11562C8.36175 4.50528 7.18324 5.21973 6.23684 6.19148C5.29044 7.16324 4.60738 8.36021 4.2522 9.66935C4.44997 9.5883 4.66904 9.57516 4.87508 9.63199L8.42564 9.04639C8.42564 9.04639 8.60628 8.74743 8.69972 8.76615C9.46048 7.93063 10.5118 7.4175 11.6386 7.33181C12.7653 7.24611 13.8821 7.59433 14.7605 8.30519H14.7481Z\" fill=\"#F44336\"/><path d=\"M19.6752 9.66967C19.2671 8.16704 18.4293 6.81617 17.2647 5.78271L14.773 8.27439C15.2923 8.69868 15.7084 9.23535 15.9901 9.84391C16.2717 10.4525 16.4115 11.1171 16.3988 11.7875V12.2298C16.6916 12.2273 16.982 12.2829 17.2533 12.3932C17.5245 12.5035 17.7712 12.6665 17.9791 12.8726C18.187 13.0788 18.352 13.3241 18.4647 13.5944C18.5773 13.8646 18.6353 14.1546 18.6353 14.4474C18.6353 14.7402 18.5773 15.0301 18.4647 15.3003C18.352 15.5706 18.187 15.8159 17.9791 16.0221C17.7712 16.2282 17.5245 16.3912 17.2533 16.5015C16.982 16.6118 16.6916 16.6674 16.3988 16.6649H11.9637L11.5215 17.1134V19.7732L11.9637 20.2154H16.3988C17.6373 20.2251 18.846 19.8358 19.8461 19.1053C20.8463 18.3747 21.5847 17.3417 21.9521 16.1589C22.3196 14.9762 22.2966 13.7066 21.8866 12.5379C21.4765 11.3692 20.7011 10.3635 19.6752 9.66967Z\" fill=\"#448AFF\"/><path d=\"M7.52236 20.1903H11.9574V16.6398H7.52236C7.20639 16.6396 6.89413 16.5716 6.60668 16.4404L5.9838 16.6335L4.19604 18.4087L4.04028 19.0317C5.04278 19.7888 6.26611 20.1959 7.52236 20.1903Z\" fill=\"#43A047\"/><path d=\"M7.52246 8.67289C6.32077 8.68006 5.15133 9.06238 4.17747 9.76644C3.20361 10.4705 2.47397 11.4612 2.09045 12.6C1.70693 13.7389 1.68869 14.9691 2.03828 16.1188C2.38787 17.2686 3.08782 18.2804 4.04038 19.013L6.61302 16.4405C6.28606 16.2928 5.9998 16.068 5.77882 15.7854C5.55785 15.5027 5.40874 15.1707 5.34431 14.8178C5.27987 14.4648 5.30203 14.1015 5.40888 13.759C5.51573 13.4165 5.70408 13.1051 5.95777 12.8514C6.21146 12.5977 6.52291 12.4094 6.8654 12.3025C7.20789 12.1957 7.57119 12.1735 7.92413 12.2379C8.27706 12.3024 8.6091 12.4515 8.89174 12.6724C9.17438 12.8934 9.39918 13.1797 9.54686 13.5066L12.1195 10.934C11.5795 10.2281 10.8836 9.65666 10.0861 9.2644C9.28863 8.87215 8.4112 8.6697 7.52246 8.67289Z\" fill=\"#FFC107\"/></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash GCP telemetry storage costs with OpenObserve’s efficient compression and retention.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"19\" height=\"24\" viewBox=\"0 0 19 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_103)\"><path d=\"M14.0753 11.3684H18.4061V7.0376\" stroke=\"#EE5C46\" stroke-width=\"1.14286\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18.4061 11.3685L12.2888 5.25121C12.1876 5.15202 12.0515 5.09646 11.9098 5.09646C11.7681 5.09646 11.6321 5.15202 11.5309 5.25121L9.04065 7.74144C8.93946 7.84063 8.80341 7.89619 8.6617 7.89619C8.52 7.89619 8.38395 7.84063 8.28276 7.74144L4.33087 3.78955\" stroke=\"#EE5C46\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g><g clip-path=\"url(#clip1_674_103)\"><path d=\"M3.47371 18.7899V21.3951H12.1579V15.3162H10.4211V14.4478H12.4697C12.6634 14.4478 12.7337 14.4677 12.804 14.5059C12.8743 14.5428 12.9318 14.6 12.969 14.6701C13.0064 14.7404 13.0264 14.8108 13.0264 15.0044V21.7069C13.0264 21.9006 13.0064 21.9709 12.9682 22.0412C12.9313 22.1115 12.8741 22.169 12.804 22.2062C12.7337 22.2436 12.6634 22.2636 12.4697 22.2636H3.16194C2.96829 22.2636 2.89794 22.2436 2.8276 22.2054C2.75734 22.1685 2.69984 22.1113 2.6626 22.0412C2.62613 21.9709 2.60529 21.9006 2.60529 21.7078V18.7899H3.47371Z\" fill=\"#EE5C46\"/><path d=\"M10.4211 12.7107H1.73683V18.7897H10.4211V12.7107ZM11.2895 12.3989V19.1014C11.2895 19.2951 11.2695 19.3654 11.2313 19.4358C11.1944 19.506 11.1372 19.5635 11.0672 19.6008C10.9968 19.6381 10.9265 19.6581 10.7328 19.6581H1.42507C1.23141 19.6581 1.16107 19.6381 1.09072 19.5999C1.02046 19.563 0.962958 19.5058 0.925724 19.4358C0.88925 19.3654 0.868408 19.2951 0.868408 19.1023V12.3989C0.868408 12.2053 0.888382 12.1349 0.926593 12.0646C0.963456 11.9943 1.02066 11.9368 1.09072 11.8996C1.16107 11.8631 1.23141 11.8423 1.4242 11.8423H10.7319C10.9256 11.8423 10.9959 11.8623 11.0663 11.9005C11.1366 11.9373 11.1941 11.9945 11.2313 12.0646C11.2686 12.1349 11.2886 12.2053 11.2886 12.3989H11.2895Z\" fill=\"#EE5C46\"/><path d=\"M6.07895 17.9212C5.50315 17.9212 4.95094 17.6925 4.54379 17.2853C4.13663 16.8782 3.9079 16.326 3.9079 15.7502C3.9079 15.1744 4.13663 14.6221 4.54379 14.215C4.95094 13.8078 5.50315 13.5791 6.07895 13.5791C6.65475 13.5791 7.20697 13.8078 7.61412 14.215C8.02127 14.6221 8.25001 15.1744 8.25001 15.7502C8.25001 16.326 8.02127 16.8782 7.61412 17.2853C7.20697 17.6925 6.65475 17.9212 6.07895 17.9212ZM6.07895 17.0528C6.42443 17.0528 6.75576 16.9155 7.00005 16.6713C7.24435 16.427 7.38159 16.0956 7.38159 15.7502C7.38159 15.4047 7.24435 15.0733 7.00005 14.8291C6.75576 14.5848 6.42443 14.4475 6.07895 14.4475C5.73347 14.4475 5.40214 14.5848 5.15785 14.8291C4.91356 15.0733 4.77632 15.4047 4.77632 15.7502C4.77632 16.0956 4.91356 16.427 5.15785 16.6713C5.40214 16.9155 5.73347 17.0528 6.07895 17.0528Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_674_103\"><rect width=\"15.1579\" height=\"15.1579\" fill=\"white\" transform=\"translate(3.78949)\"/></clipPath><clipPath id=\"clip1_674_103\"><rect width=\"13.8948\" height=\"13.8948\" fill=\"white\" transform=\"translate(0 10.1055)\"/></clipPath></defs></svg>"
           },
           {
             "title": "Almost Too-easy Integration",
             "description": "Easy setup with the Cloud Logging export to Pub/Sub or OpenTelemetry collector with Terraform support for efficient telemetry collection.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22.2807 6.2193C22.211 6.14957 22.1283 6.09425 22.0373 6.05651C21.9462 6.01877 21.8486 5.99934 21.7501 5.99934C21.6515 5.99934 21.5539 6.01877 21.4628 6.05651C21.3718 6.09425 21.2891 6.14957 21.2194 6.2193L18.0001 9.43962L14.5604 5.99993L17.7807 2.78055C17.9214 2.63982 18.0005 2.44895 18.0005 2.24993C18.0005 2.05091 17.9214 1.86003 17.7807 1.7193C17.6399 1.57857 17.4491 1.49951 17.2501 1.49951C17.051 1.49951 16.8602 1.57857 16.7194 1.7193L13.5001 4.93962L11.0307 2.4693C10.8899 2.32857 10.6991 2.24951 10.5001 2.24951C10.301 2.24951 10.1102 2.32857 9.96943 2.4693C9.82869 2.61003 9.74963 2.80091 9.74963 2.99993C9.74963 3.19895 9.82869 3.38982 9.96943 3.53055L10.5647 4.12493L5.59599 9.09368C5.24775 9.4419 4.97151 9.85531 4.78304 10.3103C4.59457 10.7653 4.49757 11.2529 4.49757 11.7454C4.49757 12.2379 4.59457 12.7255 4.78304 13.1805C4.97151 13.6355 5.24775 14.0489 5.59599 14.3971L7.0688 15.8699L2.46943 20.4693C2.39974 20.539 2.34447 20.6217 2.30676 20.7128C2.26904 20.8038 2.24963 20.9014 2.24963 20.9999C2.24963 21.0985 2.26904 21.1961 2.30676 21.2871C2.34447 21.3781 2.39974 21.4609 2.46943 21.5306C2.61016 21.6713 2.80103 21.7503 3.00005 21.7503C3.0986 21.7503 3.19618 21.7309 3.28722 21.6932C3.37827 21.6555 3.46099 21.6002 3.53068 21.5306L8.13286 16.9284L9.60568 18.4012C9.9539 18.7494 10.3673 19.0257 10.8223 19.2141C11.2773 19.4026 11.7649 19.4996 12.2574 19.4996C12.7499 19.4996 13.2375 19.4026 13.6925 19.2141C14.1475 19.0257 14.5609 18.7494 14.9091 18.4012L19.8779 13.4324L20.4722 14.0277C20.5419 14.0974 20.6246 14.1527 20.7157 14.1904C20.8067 14.2281 20.9043 14.2475 21.0029 14.2475C21.1014 14.2475 21.199 14.2281 21.29 14.1904C21.3811 14.1527 21.4638 14.0974 21.5335 14.0277C21.6032 13.9581 21.6584 13.8753 21.6962 13.7843C21.7339 13.6932 21.7533 13.5957 21.7533 13.4971C21.7533 13.3986 21.7339 13.301 21.6962 13.2099C21.6584 13.1189 21.6032 13.0362 21.5335 12.9665L19.0604 10.4999L22.2807 7.28055C22.3504 7.2109 22.4057 7.12818 22.4435 7.03713C22.4812 6.94609 22.5006 6.84849 22.5006 6.74993C22.5006 6.65137 22.4812 6.55377 22.4435 6.46272C22.4057 6.37168 22.3504 6.28896 22.2807 6.2193ZM13.8488 17.3437C13.6399 17.5527 13.3918 17.7186 13.1187 17.8317C12.8456 17.9449 12.553 18.0031 12.2574 18.0031C11.9618 18.0031 11.6691 17.9449 11.3961 17.8317C11.123 17.7186 10.8749 17.5527 10.666 17.3437L6.6563 13.334C6.44724 13.125 6.28141 12.877 6.16826 12.6039C6.05511 12.3308 5.99688 12.0382 5.99688 11.7426C5.99688 11.447 6.05511 11.1543 6.16826 10.8813C6.28141 10.6082 6.44724 10.3601 6.6563 10.1512L11.6251 5.18243L18.8147 12.3749L13.8488 17.3437Z\" fill=\"#5BC979\"/></svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key GCP Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key GCP Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "data-collection-and-analysis",
-            "label": "Data Collection and Analysis",
-            "card": {
               "title": "Data Collection and Analysis",
-              "features": [
+              "items": [
                 {
                   "title": "Cloud Logging Integration",
                   "description": "Unify your GCP logs through a single pipeline. Export logs seamlessly from Cloud Logging to Pub/Sub, capturing everything from audit trails to VPC flows to application events in a single, centralized stream."
@@ -264,15 +257,12 @@
                   "description": "Gain complete visibility into your GCP performance. Collect both platform metrics and custom application telemetry through Cloud Monitoring export for comprehensive performance insights."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_datasources.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_datasources.png"
           },
           {
-            "value": "service-monitoring",
-            "label": "Service Monitoring",
-            "card": {
+           
               "title": "Service Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Core Services",
                   "description": "Keep your essential GCP services running flawlessly. Monitor Compute Engine, Cloud Run, Cloud Functions, and Cloud SQL with purpose-built dashboards that reveal performance in real time."
@@ -282,15 +272,11 @@
                   "description": "See your entire GCP ecosystem at work. Track resource utilization, performance trends, and service health with instant visibility that helps you prevent problems before they start."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_pubsub.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_pubsub.png"
           },
           {
-            "value": "log-processing",
-            "label": "Log Processing",
-            "card": {
               "title": "Log Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Structured Analysis",
                   "description": "Extract meaning from mountains of log data. Parse GCP logs efficiently with specialized processors optimized for Google Cloud formats and your custom log structures."
@@ -300,15 +286,13 @@
                   "description": "Ask complex questions, get immediate answers. Query logs and metrics using familiar SQL syntax with full support for advanced aggregations and time-series analysis."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/gcp_logs.png"
-            }
+              "featureImage": "/img/solution-gcp-monitoring/gcp_logs.png"
+            
           },
           {
-            "value": "resource-management",
-            "label": "Resource Management",
-            "card": {
+           
               "title": "Resource Management",
-              "features": [
+              "items": [
                 {
                   "title": "Performance Tracking",
                   "description": "Optimize your compute resources with precision. Monitor detailed service metrics that drive smarter capacity planning and resource allocation decisions."
@@ -318,16 +302,17 @@
                   "description": "Keep what matters, discard what doesn't. Configure intelligent retention policies and compression settings that balance cost efficiency with ready access to your most important data."
                 }
               ],
-              "image": "/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
+              "featureImage": "/img/solution-gcp-monitoring/google_workspaces_dashboard.png"
             }
-          }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "GCP Monitoring FAQs",
+        "heading":{
+          "title": "GCP Monitoring FAQs"
+        },
         "background": true,
-        "items": [
+        "faqs": [
           {
             "question": "How does OpenObserve collect GCP data?",
             "answer": "OpenObserve offers two primary collection methods:<br/><ol><li>Cloud Logging export to Pub/Sub: Collect logs from GCP services by creating a sink in Cloud Logging that exports to a Pub/Sub topic. This method supports all standard GCP log types, including audit logs, VPC flow logs, and application logs.</li><li>OpenTelemetry collector: Deploy the collector via Terraform to gather metrics and traces. The collector can be configured to collect both platform metrics and custom application metrics.</li></ol>"
@@ -358,14 +343,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -399,58 +386,57 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Database Monitoring",
         "title": "Database Monitoring",
         "description": "Optimize database operations with real-time insights that reduce costs and ensure peak performance.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-database-monitoring/full-bg.svg",
-        "mobileBgImage": "/img/solution-database-monitoring/mobile-view.svg",
-        "mobileRightImage": "/img/solution-database-monitoring/database-1.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-database-monitoring/full-bg.svg",
+        "bgImageforMobile": "/img/solution-database-monitoring/mobile-view.svg",
+        "Image": "/img/solution-database-monitoring/database-1.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for Database Monitoring?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for Database Monitoring?"
+        },
+        "items": [
           {
             "title": "Unified Insights",
             "description": "See all your databases in a single pane of glass. Track performance, health metrics, and capacity.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M10 16C11.6667 16 13.0833 15.4167 14.25 14.25C15.4167 13.0833 16 11.6667 16 10C16 8.33333 15.4167 6.91667 14.25 5.75C13.0833 4.58333 11.6667 4 10 4C8.33333 4 6.91667 4.58333 5.75 5.75C4.58333 6.91667 4 8.33333 4 10C4 11.6667 4.58333 13.0833 5.75 14.25C6.91667 15.4167 8.33333 16 10 16ZM9 13V6H11V13H9ZM5.5 13V8H7.5V13H5.5ZM12.5 13V9H14.5V13H12.5ZM20.6 22L14.925 16.325C14.2417 16.8583 13.4833 17.271 12.65 17.563C11.8167 17.855 10.9333 18.0007 10 18C7.76667 18 5.875 17.225 4.325 15.675C2.775 14.125 2 12.2333 2 10C2 7.76667 2.775 5.875 4.325 4.325C5.875 2.775 7.76667 2 10 2C12.2333 2 14.125 2.775 15.675 4.325C17.225 5.875 18 7.76667 18 10C18 10.9333 17.8543 11.8167 17.563 12.65C17.2717 13.4833 16.859 14.2417 16.325 14.925L22 20.6L20.6 22Z\" fill=\"#3CA8FA\"/>\n</svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Key Metrics Collection",
             "description": "Capture critical database metrics, from query response times to resource utilization patterns, with minimal overhead.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_66)\"><path d=\"M3 18C3.79565 18 4.55871 18.3161 5.12132 18.8787C5.68393 19.4413 6 20.2044 6 21C6 21.7956 5.68393 22.5587 5.12132 23.1213C4.55871 23.6839 3.79565 24 3 24C2.20435 24 1.44129 23.6839 0.87868 23.1213C0.316071 22.5587 0 21.7956 0 21C0 20.2044 0.316071 19.4413 0.87868 18.8787C1.44129 18.3161 2.20435 18 3 18ZM21 18C21.7956 18 22.5587 18.3161 23.1213 18.8787C23.6839 19.4413 24 20.2044 24 21C24 21.7956 23.6839 22.5587 23.1213 23.1213C22.5587 23.6839 21.7956 24 21 24C20.2044 24 19.4413 23.6839 18.8787 23.1213C18.3161 22.5587 18 21.7956 18 21C18 20.2044 18.3161 19.4413 18.8787 18.8787C19.4413 18.3161 20.2044 18 21 18ZM3 19.5C2.60218 19.5 2.22064 19.658 1.93934 19.9393C1.65804 20.2206 1.5 20.6022 1.5 21C1.5 21.3978 1.65804 21.7794 1.93934 22.0607C2.22064 22.342 2.60218 22.5 3 22.5C3.39782 22.5 3.77936 22.342 4.06066 22.0607C4.34196 21.7794 4.5 21.3978 4.5 21C4.5 20.6022 4.34196 20.2206 4.06066 19.9393C3.77936 19.658 3.39782 19.5 3 19.5ZM21 19.5C20.6022 19.5 20.2206 19.658 19.9393 19.9393C19.658 20.2206 19.5 20.6022 19.5 21C19.5 21.3978 19.658 21.7794 19.9393 22.0607C20.2206 22.342 20.6022 22.5 21 22.5C21.3978 22.5 21.7794 22.342 22.0607 22.0607C22.342 21.7794 22.5 21.3978 22.5 21C22.5 20.6022 22.342 20.2206 22.0607 19.9393C21.7794 19.658 21.3978 19.5 21 19.5ZM12.75 6.75V11.25H17.25V12.75H12.75V17.25H11.25V12.75H6.75V11.25H11.25V6.75H12.75ZM3 0C3.79565 0 4.55871 0.316071 5.12132 0.87868C5.68393 1.44129 6 2.20435 6 3C6 3.79565 5.68393 4.55871 5.12132 5.12132C4.55871 5.68393 3.79565 6 3 6C2.20435 6 1.44129 5.68393 0.87868 5.12132C0.316071 4.55871 0 3.79565 0 3C0 2.20435 0.316071 1.44129 0.87868 0.87868C1.44129 0.316071 2.20435 0 3 0ZM21 0C21.7956 0 22.5587 0.316071 23.1213 0.87868C23.6839 1.44129 24 2.20435 24 3C24 3.79565 23.6839 4.55871 23.1213 5.12132C22.5587 5.68393 21.7956 6 21 6C20.2044 6 19.4413 5.68393 18.8787 5.12132C18.3161 4.55871 18 3.79565 18 3C18 2.20435 18.3161 1.44129 18.8787 0.87868C19.4413 0.316071 20.2044 0 21 0ZM21 1.5C20.6022 1.5 20.2206 1.65804 19.9393 1.93934C19.658 2.22064 19.5 2.60218 19.5 3C19.5 3.39782 19.658 3.77936 19.9393 4.06066C20.2206 4.34196 20.6022 4.5 21 4.5C21.3978 4.5 21.7794 4.34196 22.0607 4.06066C22.342 3.77936 22.5 3.39782 22.5 3C22.5 2.60218 22.342 2.22064 22.0607 1.93934C21.7794 1.65804 21.3978 1.5 21 1.5ZM3 1.5C2.60218 1.5 2.22064 1.65804 1.93934 1.93934C1.65804 2.22064 1.5 2.60218 1.5 3C1.5 3.39782 1.65804 3.77936 1.93934 4.06066C2.22064 4.34196 2.60218 4.5 3 4.5C3.39782 4.5 3.77936 4.34196 4.06066 4.06066C4.34196 3.77936 4.5 3.39782 4.5 3C4.5 2.60218 4.34196 2.22064 4.06066 1.93934C3.77936 1.65804 3.39782 1.5 3 1.5Z\" fill=\"#EE5C46\"/><path d=\"M15.8085 21.7875C15.885 22.2953 16.0335 22.779 16.245 23.2275C14.8883 23.7394 13.4501 24.0011 12 24C10.5053 24 9.075 23.727 7.755 23.2275C7.96575 22.779 8.115 22.2953 8.1915 21.7875C9.372 22.248 10.6568 22.5 12 22.5C13.3433 22.5 14.628 22.248 15.8085 21.7875ZM23.2275 7.755C23.7394 9.11171 24.0011 10.55 24 12C24 13.4948 23.727 14.925 23.2275 16.245C22.771 16.0311 22.286 15.8841 21.7875 15.8085C22.248 14.628 22.5 13.3433 22.5 12C22.5 10.6568 22.248 9.372 21.7875 8.1915C22.286 8.1159 22.771 7.96889 23.2275 7.755ZM0.772503 7.755C1.221 7.96575 1.70475 8.115 2.2125 8.1915C1.7408 9.40581 1.49919 10.6973 1.5 12C1.5 13.3433 1.752 14.628 2.2125 15.8085C1.71403 15.8841 1.22905 16.0311 0.772503 16.245C0.26064 14.8883 -0.00108949 13.4501 3.40857e-06 12C3.40857e-06 10.5053 0.273003 9.075 0.772503 7.755ZM12 3.40857e-06C13.4948 3.40857e-06 14.925 0.273003 16.245 0.772503C16.0311 1.22905 15.8841 1.71403 15.8085 2.2125C14.5942 1.7408 13.3027 1.49919 12 1.5C10.6568 1.5 9.372 1.752 8.1915 2.2125C8.1159 1.71403 7.96889 1.22905 7.755 0.772503C9.11171 0.26064 10.55 -0.00108949 12 3.40857e-06Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_674_66\"><rect width=\"24\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>"
           },
           {
             "title": "Proactive Performance Visibility",
             "description": "Spot issues before they impact users with dynamic dashboards and instant alerts that keep your databases performing at their peak.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_674_69)\">\n<path d=\"M20.564 14.8001C19.9573 16.673 18.7533 18.2953 17.1363 19.4184C15.5194 20.5415 13.5788 21.1034 11.6119 21.0181C9.64509 20.9327 7.76046 20.2048 6.24688 18.9459C4.73329 17.687 3.67425 15.9665 3.23205 14.0481L4.93405 13.7121L1.69405 10.3601L-0.00195312 14.6941L1.79205 14.3421C2.29272 16.5941 3.52112 18.6185 5.28743 20.1025C7.05374 21.5865 9.25962 22.4475 11.5642 22.5524C13.8688 22.6574 16.1438 22.0004 18.0377 20.683C19.9315 19.3657 21.3388 17.4612 22.042 15.2641L20.564 14.8001ZM22.236 9.72006C21.7351 7.46816 20.5065 5.4439 18.7401 3.96009C16.9736 2.47629 14.7677 1.61553 12.4631 1.51082C10.1585 1.40612 7.88363 2.06331 5.98992 3.38083C4.09621 4.69835 2.6891 6.60286 1.98605 8.80006L3.41205 9.26406C4.01856 7.39114 5.22245 5.76874 6.83925 4.64548C8.45604 3.52223 10.3965 2.96009 12.3634 3.0452C14.3302 3.13031 16.2149 3.85798 17.7286 5.11669C19.2423 6.37541 20.3016 8.09574 20.744 10.0141L19.042 10.3521L22.282 13.6961L23.998 9.36806L22.236 9.72006Z\" fill=\"#5BC979\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.84005 11.8602C8.66805 7.20416 15.3321 7.20416 17.1601 11.8602C15.3321 16.5162 8.66805 16.5162 6.84005 11.8602ZM18.7101 11.7342C16.5901 5.24616 7.41005 5.24616 5.29005 11.7342C5.26334 11.8154 5.26334 11.903 5.29005 11.9842C7.41005 18.4742 16.5901 18.4742 18.7101 11.9842C18.7368 11.903 18.7368 11.8154 18.7101 11.7342Z\" fill=\"#5BC979\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 11.1001C11.9015 11.1001 11.804 11.1195 11.713 11.1572C11.622 11.1949 11.5393 11.2501 11.4697 11.3198C11.4 11.3894 11.3448 11.4721 11.3071 11.5631C11.2694 11.6541 11.25 11.7516 11.25 11.8501C11.25 11.9486 11.2694 12.0461 11.3071 12.1371C11.3448 12.2281 11.4 12.3108 11.4697 12.3804C11.5393 12.4501 11.622 12.5053 11.713 12.543C11.804 12.5807 11.9015 12.6001 12 12.6001C12.1989 12.6001 12.3897 12.5211 12.5303 12.3804C12.671 12.2398 12.75 12.049 12.75 11.8501C12.75 11.6512 12.671 11.4604 12.5303 11.3198C12.3897 11.1791 12.1989 11.1001 12 11.1001ZM9.75 11.8501C9.75 11.2534 9.98705 10.6811 10.409 10.2591C10.831 9.83715 11.4033 9.6001 12 9.6001C12.5967 9.6001 13.169 9.83715 13.591 10.2591C14.0129 10.6811 14.25 11.2534 14.25 11.8501C14.25 12.4468 14.0129 13.0191 13.591 13.4411C13.169 13.863 12.5967 14.1001 12 14.1001C11.4033 14.1001 10.831 13.863 10.409 13.4411C9.98705 13.0191 9.75 12.4468 9.75 11.8501Z\" fill=\"#5BC979\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_674_69\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Database Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key Database Monitoring Capabilities"
+        },
         "description": "",
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "performance-monitoring",
-            "label": "Performance Monitoring",
-            "card": {
               "title": "Performance Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Workload and Resource Insights",
                   "description": "See exactly who's taxing your database and how. Map request volumes across users and applications while tracking resource consumption patterns that reveal optimization opportunities hidden in your database workloads."
@@ -460,15 +446,12 @@
                   "description": "Expose performance bottlenecks before they slow you down. Turn raw metrics into actionable insights that boost query efficiency and maximize overall database throughput."
                 }
               ],
-              "image": "/img/solution-database-monitoring/database_dashboard.png"
-            }
+              "featureImage": "/img/solution-database-monitoring/database_dashboard.png"
           },
           {
-            "value": "proactive-error-detection",
-            "label": "Proactive Error Detection & Resolution",
-            "card": {
+            
               "title": "Proactive Error Detection & Resolution",
-              "features": [
+              "items": [
                 {
                   "title": "Error Tracking and Alerts",
                   "description": "Catch database issues before your users do. Get instant notifications about performance degradation with intelligent alerts that identify problems at their earliest stages."
@@ -478,15 +461,13 @@
                   "description": "Solve database mysteries with forensic-level diagnostics. Trace error patterns to their source and optimize configurations based on historical performance data that tells the true story."
                 }
               ],
-              "image": "/img/solution-database-monitoring/zookeeper_database_metrics_flow.gif"
-            }
+              "featureImage": "/img/solution-database-monitoring/zookeeper_database_metrics_flow.gif"
+            
           },
           {
-            "value": "data-driven-decisions",
-            "label": "Data-Driven Decisions",
-            "card": {
+           
               "title": "Data-Driven Decisions",
-              "features": [
+              "items": [
                 {
                   "title": "Query Performance Insights",
                   "description": "Target slow queries with surgical precision. Monitor response times and resource consumption to optimize database performance based on real-world usage, not theoretical benchmarks."
@@ -496,15 +477,13 @@
                   "description": "Predict tomorrow's database needs today. Transform historical trends into accurate forecasts that guide resource allocation and scaling decisions with confidence."
                 }
               ],
-              "image": "/img/solution-database-monitoring/database_data.png"
-            }
+              "featureImage": "/img/solution-database-monitoring/database_data.png"
+            
           },
           {
-            "value": "holistic-monitoring-alerts",
-            "label": "Holistic Monitoring & Alerts",
-            "card": {
+          
               "title": "Holistic Monitoring & Alerts",
-              "features": [
+              "items": [
                 {
                   "title": "System-Wide Visibility",
                   "description": "See your database in its true context. Connect database performance metrics with related infrastructure insights for a complete picture of your entire data ecosystem."
@@ -514,15 +493,17 @@
                   "description": "Create alerts as unique as your environment. Build intelligent notification systems based on your specific performance thresholds that respond to developing trends, not just static limits."
                 }
               ],
-              "image": "/img/platform-alerts/alert-configure.png"
-            }
+              "featureImage": "/img/platform-alerts/alert-configure.png"
+            
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Database Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Database Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "What is Database monitoring?",
             "answer": "Database monitoring tracks key performance metrics like cpu utilization, memory utilization , free disk , no. of active connections, etc to ensure optimal database performance, availability, and security. It helps identify and resolve issues quickly, reducing downtime and improving overall efficiency."
@@ -545,14 +526,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -586,57 +569,57 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Azure Monitoring",
         "title": "Azure Monitoring",
         "description": "Gain deep insights into your cloud infrastructure performance, troubleshoot issues efficiently, and optimize your operations.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-azure/full-img.svg",
-        "mobileBgImage": "/img/solution-azure/mobile-view.svg",
-        "mobileRightImage": "/img/solution-azure/Group 9277.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-azure/full-img.svg",
+        "bgImageforMobile": "/img/solution-azure/mobile-view.svg",
+        "Image": "/img/solution-azure/Group 9277.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why Use OpenObserve for Azure Monitoring?",
-        "data": [
+        "heading":{
+
+          "title": "Why Use OpenObserve for Azure Monitoring?"
+        },
+        "items": [
           {
             "title": "Deep Azure Observability",
             "description": "Gain deep visibility into the many layers of your Azure environment for faster troubleshooting and proactive issue prevention.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_19)\"><path d=\"M8.05231 0.838235H15.0632L7.78539 22.4015C7.71066 22.6231 7.56825 22.8158 7.37825 22.9522C7.18825 23.0886 6.96022 23.162 6.72631 23.1619H1.27032C1.09312 23.1619 0.918463 23.1197 0.760793 23.0389C0.603123 22.958 0.466964 22.8408 0.363569 22.6969C0.260133 22.553 0.192485 22.3865 0.166233 22.2112C0.139981 22.036 0.155882 21.857 0.212617 21.6891L6.99324 1.59851C7.06806 1.3769 7.21047 1.18433 7.40045 1.04788C7.59044 0.911441 7.81841 0.837999 8.05231 0.837891V0.838235Z\" fill=\"url(#paint0_linear_674_19)\"/><path d=\"M18.24 15.3013H7.12255C7.01917 15.3011 6.91813 15.332 6.8326 15.3901C6.74708 15.4482 6.68105 15.5307 6.64311 15.6269C6.60518 15.723 6.59711 15.8284 6.61995 15.9292C6.6428 16.0301 6.69549 16.1217 6.77117 16.1921L13.9149 22.86C14.123 23.0538 14.3968 23.1617 14.6812 23.1618H20.9764L18.24 15.3013Z\" fill=\"#0078D4\"/><path d=\"M8.05227 0.8379C7.81579 0.836904 7.58518 0.911598 7.39419 1.05106C7.2032 1.19052 7.06184 1.38743 6.99078 1.613L0.221019 21.6705C0.160625 21.839 0.141688 22.0196 0.16581 22.197C0.189932 22.3743 0.256404 22.5433 0.359605 22.6895C0.462806 22.8358 0.599704 22.955 0.758723 23.0372C0.917743 23.1194 1.09421 23.162 1.27321 23.1616H6.87016C7.07862 23.1244 7.27346 23.0325 7.43477 22.8953C7.59608 22.7582 7.71807 22.5806 7.78828 22.3808L9.13823 18.4021L13.9606 22.8999C14.1627 23.067 14.4161 23.1594 14.6783 23.1616H20.9501L18.1993 15.3011L10.1808 15.303L15.0884 0.8379H8.05227Z\" fill=\"url(#paint1_linear_674_19)\"/><path d=\"M17.0069 1.59713C16.9321 1.37586 16.7899 1.1836 16.6002 1.0474C16.4104 0.911206 16.1828 0.837931 15.9492 0.837891H8.13586C8.36939 0.837967 8.59702 0.911259 8.78672 1.04745C8.97642 1.18365 9.11865 1.37589 9.19339 1.59713L15.9742 21.6886C16.031 21.8565 16.0469 22.0356 16.0207 22.2109C15.9945 22.3862 15.927 22.5527 15.8236 22.6967C15.7202 22.8407 15.5841 22.958 15.4263 23.0389C15.2686 23.1198 15.0939 23.162 14.9167 23.1619H22.7303C22.9075 23.1618 23.0821 23.1195 23.2397 23.0386C23.3974 22.9576 23.5334 22.8403 23.6368 22.6964C23.7401 22.5524 23.8076 22.3859 23.8339 22.2107C23.8601 22.0355 23.8443 21.8565 23.7877 21.6886L17.0069 1.59713Z\" fill=\"url(#paint2_linear_674_19)\"/></g><defs><linearGradient id=\"paint0_linear_674_19\" x1=\"10.6076\" y1=\"2.49251\" x2=\"3.32678\" y2=\"24.0017\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#114A8B\"/><stop offset=\"1\" stop-color=\"#0669BC\"/></linearGradient><linearGradient id=\"paint1_linear_674_19\" x1=\"12.8819\" y1=\"12.516\" x2=\"11.1978\" y2=\"13.0854\" gradientUnits=\"userSpaceOnUse\"><stop stop-opacity=\"0.3\"/><stop offset=\"0.071\" stop-opacity=\"0.2\"/><stop offset=\"0.321\" stop-opacity=\"0.1\"/><stop offset=\"0.623\" stop-opacity=\"0.05\"/><stop offset=\"1\" stop-opacity=\"0\"/></linearGradient><linearGradient id=\"paint2_linear_674_19\" x1=\"11.9557\" y1=\"1.86475\" x2=\"19.9479\" y2=\"23.1573\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#3CCBF4\"/><stop offset=\"1\" stop-color=\"#2892DF\"/></linearGradient><clipPath id=\"clip0_674_19\"><rect width=\"24\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Telemetry Cost Optimization",
             "description": "Slash Azure telemetry storage costs with OpenObserve’s efficient compression and retention.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"19\" height=\"24\" viewBox=\"0 0 19 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_103)\"><path d=\"M14.0753 11.3684H18.4061V7.0376\" stroke=\"#EE5C46\" stroke-width=\"1.14286\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18.4061 11.3685L12.2888 5.25121C12.1876 5.15202 12.0515 5.09646 11.9098 5.09646C11.7681 5.09646 11.6321 5.15202 11.5309 5.25121L9.04065 7.74144C8.93946 7.84063 8.80341 7.89619 8.6617 7.89619C8.52 7.89619 8.38395 7.84063 8.28276 7.74144L4.33087 3.78955\" stroke=\"#EE5C46\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g><g clip-path=\"url(#clip1_674_103)\"><path d=\"M3.47371 18.7899V21.3951H12.1579V15.3162H10.4211V14.4478H12.4697C12.6634 14.4478 12.7337 14.4677 12.804 14.5059C12.8743 14.5428 12.9318 14.6 12.969 14.6701C13.0064 14.7404 13.0264 14.8108 13.0264 15.0044V21.7069C13.0264 21.9006 13.0064 21.9709 12.9682 22.0412C12.9313 22.1115 12.8741 22.169 12.804 22.2062C12.7337 22.2436 12.6634 22.2636 12.4697 22.2636H3.16194C2.96829 22.2636 2.89794 22.2436 2.8276 22.2054C2.75734 22.1685 2.69984 22.1113 2.6626 22.0412C2.62613 21.9709 2.60529 21.9006 2.60529 21.7078V18.7899H3.47371Z\" fill=\"#EE5C46\"/><path d=\"M10.4211 12.7107H1.73683V18.7897H10.4211V12.7107ZM11.2895 12.3989V19.1014C11.2895 19.2951 11.2695 19.3654 11.2313 19.4358C11.1944 19.506 11.1372 19.5635 11.0672 19.6008C10.9968 19.6381 10.9265 19.6581 10.7328 19.6581H1.42507C1.23141 19.6581 1.16107 19.6381 1.09072 19.5999C1.02046 19.563 0.962958 19.5058 0.925724 19.4358C0.88925 19.3654 0.868408 19.2951 0.868408 19.1023V12.3989C0.868408 12.2053 0.888382 12.1349 0.926593 12.0646C0.963456 11.9943 1.02066 11.9368 1.09072 11.8996C1.16107 11.8631 1.23141 11.8423 1.4242 11.8423H10.7319C10.9256 11.8423 10.9959 11.8623 11.0663 11.9005C11.1366 11.9373 11.1941 11.9945 11.2313 12.0646C11.2686 12.1349 11.2886 12.2053 11.2886 12.3989H11.2895Z\" fill=\"#EE5C46\"/><path d=\"M6.07895 17.9212C5.50315 17.9212 4.95094 17.6925 4.54379 17.2853C4.13663 16.8782 3.9079 16.326 3.9079 15.7502C3.9079 15.1744 4.13663 14.6221 4.54379 14.215C4.95094 13.8078 5.50315 13.5791 6.07895 13.5791C6.65475 13.5791 7.20697 13.8078 7.61412 14.215C8.02127 14.6221 8.25001 15.1744 8.25001 15.7502C8.25001 16.326 8.02127 16.8782 7.61412 17.2853C7.20697 17.6925 6.65475 17.9212 6.07895 17.9212ZM6.07895 17.0528C6.42443 17.0528 6.75576 16.9155 7.00005 16.6713C7.24435 16.427 7.38159 16.0956 7.38159 15.7502C7.38159 15.4047 7.24435 15.0733 7.00005 14.8291C6.75576 14.5848 6.42443 14.4475 6.07895 14.4475C5.73347 14.4475 5.40214 14.5848 5.15785 14.8291C4.91356 15.0733 4.77632 15.4047 4.77632 15.7502C4.77632 16.0956 4.91356 16.427 5.15785 16.6713C5.40214 16.9155 5.73347 17.0528 6.07895 17.0528Z\" fill=\"#EE5C46\"/></g><defs><clipPath id=\"clip0_674_103\"><rect width=\"15.1579\" height=\"15.1579\" fill=\"white\" transform=\"translate(3.78949)\"/></clipPath><clipPath id=\"clip1_674_103\"><rect width=\"13.8948\" height=\"13.8948\" fill=\"white\" transform=\"translate(0 10.1055)\"/></clipPath></defs></svg>"
           },
           {
             "title": " Almost Too-easy Integration",
             "description": "Effortlessly monitor your Azure services with Azure Monitor Diagnostic Settings and Event Hubs exports.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 21H23V9H5M19 15H1V3H19\" stroke=\"#5BC979\" stroke-width=\"1.33333\"/></svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Azure Monitoring Capabilities",
+        "heading":{
+
+          "title": "OpenObserve’s Key Azure Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "realtime-visibility-and-insights",
-            "label": "Real-Time Visibility & Insights",
-            "card": {
               "title": "Real-Time Visibility & Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Continuous Data Collection",
                   "description": "Capture every Azure signal as it happens through Event Hubs, Diagnostic Settings, and Azure Monitor integrations. Monitor your entire cloud environment with zero blind spots, maintaining complete visibility across all resources."
@@ -646,15 +629,13 @@
                   "description": "Instantly grok Azure metrics with ready-to-use and customizable visualizations. Spot trends, identify anomalies, and make decisions with confidence using real-time, interactive dashboards."
                 }
               ],
-              "image": "/img/solution-azure/azure_data_flow.gif"
-            }
+              "featureImage": "/img/solution-azure/azure_data_flow.gif"
+            
           },
           {
-            "value": "efficient-data-processing",
-            "label": "Efficient Data Processing",
-            "card": {
+          
               "title": "Efficient Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Automated Log Parsing",
                   "description": "Turn raw Azure logs into structured insights using Vector Remap Language (VRL). Parse, enrich, and transform chaotic data into clear insights without complex coding or configuration."
@@ -664,15 +645,12 @@
                   "description": "Unlock hidden patterns in your Azure environment using SQL queries."
                 }
               ],
-              "image": "/img/solution-azure/azure_logs.gif"
-            }
+              "featureImage": "/img/solution-azure/azure_logs.gif"
+            
           },
           {
-            "value": "service-coverage-and-integration",
-            "label": "Service Coverage & Integration",
-            "card": {
               "title": "Service Coverage & Integration",
-              "features": [
+              "items": [
                 {
                   "title": "Multi-service Support",
                   "description": "Monitor your entire Azure ecosystem with specialized tooling for every service. Track network traffic with NSG Flow Logs, audit activities with Azure Activity Log, and gain complete visibility across your infrastructure."
@@ -682,15 +660,11 @@
                   "description": "Connect insights across multiple Azure services with powerful SQL queries. Correlate events and metrics to reveal the true story behind incidents, dramatically reducing mean time to resolution."
                 }
               ],
-              "image": "/img/solution-azure/azure_event_hub.png"
-            }
+              "featureImage": "/img/solution-azure/azure_event_hub.png"
           },
           {
-            "value": "cost-effective-monitoring",
-            "label": "Cost-Effective Monitoring",
-            "card": {
               "title": "Cost-Effective Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Usage Tracking",
                   "description": "Optimize cloud spending with resource monitoring across VMs, Azure SQL Databases, Functions, and more. Convert usage data into action plans that eliminate waste while maintaining performance."
@@ -700,15 +674,16 @@
                   "description": "Store your data  with flexible retention policies. Balance historical insights with infrastructure costs, maintaining complete visibility without unnecessary expense."
                 }
               ],
-              "image": "/img/solution-azure/azure_dashboard.png"
-            }
+              "featureImage": "/img/solution-azure/azure_dashboard.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Azure Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Azure Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "How does OpenObserve collect Azure logs and metrics?",
             "answer": "OpenObserve offers multiple ingestion methods:<br/><ol><li>Azure Event Hub for log delivery from various Azure services</li><li>Azure Monitor Diagnostic Settings for metrics and logs</li><li>Azure Functions logs and metrics through Diagnostic Settings</li><li>Custom metrics via API endpoints</li></ol>"
@@ -739,14 +714,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -755,8 +732,8 @@
     ],
     "seo": {
       "id": 999,
-      "title": "OpenObserve AWS Monitoring | Cloud Observability Platform",
-      "description": "Monitor AWS services with real-time analytics and cost-effective observability. Native integrations with CloudWatch, Kinesis, VPC Flow Logs, and CloudTrail. Start free.",
+      "title": "OpenObserve Azure Monitoring | Cloud Observability Platform",
+      "description": "Monitor Azure services with real-time analytics and cost-effective observability. Native integrations with Azure SSO, Azure AKF, and Microsoft 365 Insights. Start free.",
       "viewport": null,
       "creator": null,
       "publisher": null,
@@ -772,7 +749,7 @@
   {
     "id": 6,
     "documentId": "aikgj6v9m29x6azwjv7vw6gj",
-    "slug": "kubernetes-observability",
+    "slug": "kubernetes-monitoring",
     "createdAt": "2025-01-30T15:18:48.596Z",
     "updatedAt": "2025-03-03T09:57:24.893Z",
     "publishedAt": null,
@@ -780,57 +757,56 @@
       {
         "__component": "section-hero.solution-sub-hero",
         "id": 1,
-        "pageTag": "Kubernetes Monitoring",
         "title": "Kubernetes Monitoring",
         "description": "Complete Kubernetes visibility, from cluster to pod, in minutes.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-kubernates/full-img.svg",
-        "mobileBgImage": "/img/solution-kubernates/mobile-view.svg",
-        "mobileRightImage": "/img/solution-kubernates/Group 9285.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-kubernates/full-img.svg",
+        "bgImageforMobile": "/img/solution-kubernates/mobile-view.svg",
+        "Image": "/img/solution-kubernates/Group 9285.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for Kubernetes?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for Kubernetes?"
+        },
+        "items": [
           {
             "title": "Complete Kubernetes Observability",
             "description": "Full visibility into containers, workloads, and infrastructure performance across clusters.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_674_43)\"><path d=\"M11.9167 0.358481C11.7046 0.369245 11.4968 0.421899 11.3054 0.513356L2.96151 4.49998C2.74557 4.60312 2.55583 4.75318 2.40639 4.93901C2.25694 5.12485 2.15162 5.34168 2.09826 5.57342L0.0400735 14.5284C-0.00744476 14.7347 -0.0127624 14.9484 0.0244352 15.1567C0.0616328 15.3651 0.14059 15.564 0.256636 15.7415C0.284795 15.785 0.315081 15.827 0.347386 15.8675L6.12239 23.048C6.27187 23.2338 6.46164 23.3839 6.67759 23.487C6.89355 23.5901 7.13015 23.6436 7.36982 23.6435L16.6312 23.6413C16.8708 23.6415 17.1073 23.5881 17.3233 23.4852C17.5392 23.3823 17.729 23.2325 17.8786 23.0469L23.6516 15.8655C23.8011 15.6796 23.9065 15.4627 23.9599 15.2308C24.0133 14.999 24.0134 14.7582 23.96 14.5264L21.8983 5.57136C21.8449 5.33959 21.7396 5.12271 21.5902 4.93684C21.4407 4.75097 21.251 4.60089 21.035 4.49773L12.6903 0.513356C12.4496 0.398297 12.1836 0.345043 11.9167 0.358481Z\" fill=\"#326CE5\"/><path d=\"M11.9954 3.40186V3.40373C11.7194 3.40636 11.4959 3.65423 11.4959 3.96098C11.4959 3.96623 11.4969 3.97073 11.4969 3.97486C11.4965 4.01648 11.4946 4.06673 11.4959 4.10311C11.5025 4.28048 11.5409 4.41586 11.5644 4.57842C11.5962 4.84467 11.6047 5.05598 11.6064 5.26973L11.6131 5.23898C11.6101 5.08917 11.6027 4.93948 11.591 4.79011C11.6171 5.02036 11.636 5.23336 11.6259 5.42611C11.6231 5.36517 11.6144 5.29917 11.6135 5.24198L11.6067 5.27273C11.6073 5.33779 11.6247 5.42086 11.6197 5.48329C11.6082 5.53767 11.5651 5.57611 11.5321 5.62242L11.5274 5.64511C11.5599 5.60254 11.5938 5.56186 11.6137 5.51404C11.5886 5.59336 11.5349 5.66329 11.4811 5.71917C11.4961 5.69592 11.5085 5.67004 11.5261 5.64698L11.531 5.62448C11.5038 5.66254 11.4884 5.71017 11.4588 5.73886L11.4577 5.73998L11.4457 5.94998C11.143 5.97511 10.8425 6.02122 10.5462 6.08798C9.29771 6.37043 8.16187 7.01904 7.28412 7.95079C7.22862 7.91292 7.13412 7.84579 7.10599 7.82479L7.10505 7.82386L7.10318 7.82423C7.01355 7.83623 6.92505 7.86304 6.8088 7.79554C6.58624 7.64554 6.38299 7.43798 6.1368 7.18804C6.02412 7.06861 5.94237 6.95442 5.80793 6.83911C5.77737 6.81267 5.73105 6.77723 5.69693 6.75042C5.59716 6.67005 5.47429 6.62373 5.3463 6.61823C5.19162 6.61298 5.04255 6.67336 4.94505 6.79579C4.77162 7.01329 4.8273 7.34573 5.06843 7.53829L5.07593 7.54317C5.10855 7.56998 5.14905 7.60429 5.17943 7.62679C5.3223 7.73198 5.45262 7.78598 5.5938 7.86923C5.89268 8.05373 6.13943 8.20636 6.33555 8.39029C6.41093 8.47036 6.42443 8.61342 6.43493 8.67623V8.67773L6.59374 8.81911C5.73855 10.108 5.34218 11.6991 5.57524 13.3202L5.36843 13.381L5.36768 13.3821C5.31237 13.4535 5.23418 13.5644 5.15487 13.5972C4.89874 13.6778 4.60962 13.7074 4.26049 13.744C4.09699 13.7577 3.95562 13.7498 3.78124 13.7828C3.7428 13.7903 3.68937 13.8038 3.64755 13.8135L3.64324 13.8147L3.63574 13.8167C3.33949 13.8885 3.14824 14.1612 3.21012 14.4302C3.27143 14.6993 3.5613 14.8626 3.85962 14.7983L3.86693 14.7972H3.8673C3.87105 14.7962 3.87443 14.7944 3.87668 14.7938C3.91793 14.7848 3.96968 14.7749 4.00605 14.7649C4.17724 14.719 4.30118 14.6519 4.45474 14.5932C4.78474 14.4747 5.05812 14.3757 5.32418 14.3372C5.4333 14.3286 5.54993 14.4051 5.60862 14.4379L5.61012 14.4387L5.82612 14.4017C6.32749 15.9531 7.37599 17.2067 8.70349 17.9946L8.61349 18.2106L8.61405 18.2125C8.64668 18.2969 8.6823 18.4107 8.65849 18.4922C8.56174 18.7427 8.39599 19.0077 8.20699 19.3034C8.11549 19.4399 8.02137 19.5462 7.93887 19.7029C7.9188 19.7406 7.89387 19.798 7.87474 19.8374C7.74537 20.1139 7.84024 20.433 8.08905 20.5529C8.33937 20.6734 8.64968 20.5461 8.78412 20.2692L8.78543 20.2677V20.2658C8.80418 20.227 8.8308 20.1762 8.84712 20.1394C8.91799 19.977 8.9418 19.8381 8.99149 19.6817H8.99093C9.1233 19.3493 9.19605 19.0017 9.37699 18.7859C9.42574 18.7277 9.50599 18.7049 9.58999 18.6824L9.59187 18.6816L9.70437 18.4784C11.1856 19.0478 12.8246 19.052 14.3086 18.49C14.3409 18.5468 14.3982 18.6522 14.4142 18.6794L14.4149 18.6805L14.4164 18.6812C14.5023 18.7092 14.5942 18.723 14.6696 18.8342C14.8049 19.0662 14.8979 19.341 15.0112 19.6733C15.0609 19.8293 15.0856 19.9686 15.1565 20.131C15.1728 20.1685 15.1996 20.22 15.2184 20.2592C15.3524 20.5371 15.6637 20.6648 15.9146 20.5442C16.1632 20.4242 16.2581 20.1055 16.1289 19.8289C16.1097 19.7895 16.0833 19.7318 16.0636 19.6941C15.9809 19.5374 15.8868 19.4322 15.7955 19.2957C15.6061 19 15.4499 18.7547 15.353 18.504C15.3131 18.3756 15.3597 18.297 15.3916 18.2125L15.3927 18.2099L15.3909 18.208C15.3843 18.198 15.3786 18.1875 15.374 18.1765C15.366 18.1586 15.3585 18.1404 15.3515 18.1221C15.3365 18.0827 15.3215 18.0392 15.3095 18.0104C16.6891 17.1947 17.7069 15.8944 18.1857 14.3925C18.2508 14.4027 18.3601 14.4216 18.3957 14.4287L18.3976 14.4291L18.3993 14.4284C18.4747 14.3787 18.5418 14.3147 18.6759 14.3254C18.9419 14.3639 19.2151 14.463 19.5455 14.5815C19.6987 14.64 19.8228 14.7085 19.9942 14.7542C20.0306 14.764 20.0823 14.7732 20.1236 14.7822C20.1258 14.7827 20.129 14.7844 20.1329 14.7854H20.1333L20.1408 14.7861C20.4389 14.85 20.729 14.6871 20.7903 14.418C20.8516 14.149 20.6607 13.8765 20.3643 13.8051C20.3217 13.7954 20.261 13.7787 20.219 13.7706C20.0446 13.7376 19.9034 13.7459 19.7396 13.7322C19.3908 13.6956 19.1017 13.666 18.8452 13.5854C18.7426 13.5454 18.6686 13.4219 18.6318 13.3701L18.6307 13.369L18.4308 13.3109C18.5376 12.5344 18.5021 11.7449 18.3258 10.9812C18.1492 10.2098 17.8325 9.47733 17.3915 8.82023C17.4436 8.77298 17.5387 8.68879 17.5662 8.66348L17.5676 8.66236V8.66048C17.5758 8.57048 17.5687 8.47861 17.6604 8.38036C17.8563 8.19661 18.1036 8.04342 18.4023 7.85929C18.5437 7.77604 18.6749 7.72223 18.8174 7.61686C18.8501 7.59286 18.8939 7.55536 18.9277 7.52817C19.1688 7.33579 19.2247 7.00354 19.0511 6.78586C18.8776 6.56836 18.5414 6.54829 18.3005 6.74048C18.2664 6.76767 18.2199 6.80273 18.1891 6.82917C18.0547 6.94504 17.9716 7.05904 17.8591 7.17848C17.6129 7.42879 17.4095 7.6371 17.1867 7.78711C17.0917 7.84223 16.9509 7.82329 16.8862 7.81936H16.8847L16.6964 7.95417C15.6136 6.82017 14.1408 6.09492 12.5546 5.95317C12.5499 5.87983 12.5459 5.80645 12.5426 5.73304V5.73154L12.5414 5.73042C12.4758 5.66798 12.3989 5.61604 12.3794 5.48329V5.48292C12.3579 5.21517 12.3939 4.92661 12.4357 4.57842C12.4591 4.41586 12.4979 4.28029 12.5043 4.10311C12.506 4.06261 12.5034 4.00429 12.5034 3.96098C12.5034 3.65254 12.2778 3.40186 11.9994 3.40186H11.9954ZM5.40012 6.63323C5.42662 6.63698 5.45274 6.64236 5.47849 6.64936C5.45278 6.64213 5.42659 6.63674 5.40012 6.63323ZM11.3697 7.28479L11.2222 9.89667L11.2115 9.90211L11.2111 9.90454C11.2107 9.91392 11.2085 9.92236 11.2074 9.93135C11.2012 9.98754 11.1844 10.0421 11.1581 10.092C11.1512 10.1053 11.1436 10.1182 11.1354 10.1309C11.1012 10.1807 11.0572 10.2229 11.006 10.255C10.9929 10.2634 10.9784 10.27 10.9644 10.2771C10.913 10.3014 10.8574 10.3158 10.8007 10.3195C10.7922 10.32 10.7842 10.3221 10.7757 10.3221C10.7664 10.3221 10.7581 10.318 10.7489 10.3172C10.6865 10.3113 10.6262 10.2919 10.5721 10.2602C10.5637 10.2554 10.5545 10.2525 10.5464 10.2473L10.5453 10.2514L10.5461 10.2473C10.5378 10.2422 10.5269 10.2443 10.5191 10.2385L10.5168 10.2366L10.5127 10.2392L8.37124 8.72104C8.38868 8.70398 8.40724 8.68842 8.42505 8.67154C8.61409 8.49172 8.81655 8.32655 9.03068 8.17748C9.07512 8.14654 9.11937 8.11523 9.16474 8.08561C9.39255 7.937 9.6318 7.80671 9.88024 7.69598C9.92524 7.67592 9.97155 7.65773 10.0171 7.63879C10.2631 7.53728 10.5166 7.45503 10.7754 7.39279C10.7979 7.38717 10.82 7.38023 10.8429 7.37517C10.9509 7.35079 11.0607 7.33654 11.1701 7.31911L11.1712 7.31442H11.1719L11.1708 7.31911C11.2374 7.30861 11.303 7.29286 11.3697 7.28479ZM12.6309 7.28517C12.6678 7.28967 12.704 7.29792 12.7407 7.30336C12.9404 7.33293 13.1383 7.374 13.3332 7.42636C13.4105 7.44711 13.4871 7.46961 13.5629 7.49386C13.7566 7.55578 13.9465 7.62891 14.1316 7.71286C14.2019 7.74473 14.2714 7.77817 14.3401 7.81317C14.5229 7.90658 14.7001 8.01063 14.8707 8.12479C14.935 8.16804 14.9984 8.21286 15.0611 8.25923C15.2244 8.3797 15.3807 8.50954 15.5291 8.64811C15.5561 8.67323 15.5847 8.69629 15.6112 8.72217L13.4838 10.2304L13.4763 10.2276L13.4744 10.2291C13.466 10.2351 13.4568 10.2375 13.4482 10.243C13.3979 10.2748 13.3416 10.2961 13.2828 10.3056C13.2684 10.3079 13.2541 10.3112 13.2397 10.3118C13.1761 10.3143 13.1128 10.3031 13.0541 10.2788C13.0369 10.2721 13.0203 10.2641 13.0044 10.255C12.9496 10.2247 12.9019 10.1832 12.8645 10.1331C12.8551 10.1202 12.848 10.1057 12.8401 10.0919C12.8114 10.0405 12.7931 9.98398 12.7861 9.92554C12.785 9.91523 12.7812 9.90623 12.7805 9.89573V9.89367L12.7784 9.89254L12.6309 7.28517ZM17.8194 9.57717C17.9109 9.76354 17.9932 9.95386 18.0663 10.1481C17.9931 9.954 17.9107 9.76347 17.8194 9.57717ZM7.58637 9.70654L9.54199 11.4555L9.53974 11.466L9.54162 11.4675C9.71787 11.6207 9.74224 11.8857 9.59655 12.0681C9.5913 12.0747 9.5838 12.0788 9.57818 12.085C9.52793 12.1407 9.4643 12.1826 9.3933 12.2069C9.38524 12.2097 9.37868 12.2149 9.37062 12.2172L9.36799 12.2175L9.36574 12.2264L6.85943 12.9501C6.85568 12.9154 6.85568 12.8807 6.85249 12.846C6.83379 12.6376 6.82803 12.4282 6.83524 12.219C6.83762 12.1465 6.84155 12.0742 6.84705 12.0019C6.8628 11.7937 6.89142 11.5866 6.93274 11.3819C6.94787 11.3056 6.96493 11.2297 6.98393 11.154C7.03361 10.9528 7.0956 10.7548 7.16955 10.5612C7.1958 10.4919 7.2238 10.4234 7.25355 10.3555C7.33626 10.1631 7.43081 9.97607 7.53668 9.79542C7.55355 9.76617 7.56855 9.73542 7.58637 9.70654ZM16.3992 9.70786C16.4174 9.73748 16.4322 9.76861 16.4499 9.79842C16.5568 9.9806 16.6526 10.1691 16.7367 10.3628C16.7649 10.4277 16.7926 10.4929 16.8181 10.5589C16.8957 10.7602 16.9608 10.9661 17.0131 11.1754C17.0216 11.2082 17.0326 11.2403 17.0401 11.2735C17.1695 11.8364 17.2014 12.3983 17.1485 12.9415L14.6296 12.2159L14.6276 12.2052L14.6249 12.2044C14.6165 12.2022 14.6092 12.198 14.6011 12.1952C14.5467 12.1765 14.4965 12.1476 14.453 12.1099C14.442 12.1004 14.4314 12.0904 14.4211 12.0799C14.3801 12.0353 14.3488 11.9827 14.3291 11.9254C14.324 11.9108 14.3208 11.8958 14.3172 11.8806C14.3049 11.8257 14.303 11.769 14.3116 11.7134C14.3133 11.7042 14.3135 11.6954 14.3154 11.6862C14.3172 11.6777 14.3225 11.6704 14.3247 11.662C14.3456 11.5911 14.3842 11.5268 14.4371 11.4752C14.4434 11.469 14.4472 11.461 14.4539 11.4552L14.4558 11.4533L14.4547 11.4477L16.3992 9.70786ZM18.1295 10.3275C18.1916 10.5085 18.2456 10.6922 18.2915 10.8784C18.2456 10.6925 18.1915 10.5087 18.1295 10.3275ZM11.6 11.5935H12.3991L12.896 12.2149L12.7179 12.9899L11.9997 13.3349L11.2803 12.9884L11.1016 12.2136L11.6 11.5935ZM14.1738 13.7301C14.2076 13.7282 14.2407 13.7316 14.2737 13.7376L14.2764 13.7382L14.2807 13.7325L16.8734 14.1709C16.8614 14.2047 16.8459 14.2367 16.8331 14.2703C16.7593 14.4633 16.6742 14.6519 16.5781 14.8349C16.5426 14.9029 16.5056 14.97 16.4669 15.0362C16.3615 15.216 16.2455 15.3893 16.1195 15.5552C16.074 15.6152 16.0272 15.674 15.9792 15.7317C15.8453 15.8921 15.7019 16.0443 15.5499 16.1877C15.4954 16.2389 15.4396 16.2889 15.3826 16.3377C15.2252 16.4731 15.0599 16.5991 14.8876 16.7149C14.8576 16.735 14.8295 16.7571 14.7993 16.7766L13.7934 14.3453L13.7962 14.3412L13.7954 14.3391C13.7917 14.3307 13.7906 14.3219 13.7874 14.3134C13.7685 14.2599 13.7599 14.2034 13.7621 14.1467C13.7628 14.1315 13.7632 14.1164 13.7654 14.1014C13.7747 14.042 13.796 13.9853 13.8281 13.9345C13.8365 13.921 13.8464 13.9088 13.8562 13.8962C13.8915 13.8525 13.9348 13.8157 13.9837 13.7879C13.9917 13.7834 13.9985 13.7775 14.0067 13.7736C14.0609 13.7475 14.1176 13.7327 14.1738 13.7301ZM9.80318 13.7406L9.80562 13.741C9.81124 13.741 9.81687 13.7425 9.82287 13.7429C9.90583 13.7484 9.98552 13.7773 10.0527 13.8263C10.0656 13.8355 10.0779 13.8454 10.0895 13.8559C10.1512 13.9115 10.196 13.9834 10.2187 14.0633C10.2202 14.0689 10.2228 14.0744 10.2243 14.0802C10.2449 14.17 10.2365 14.2639 10.1999 14.3485L10.199 14.3507L10.2065 14.3601L9.21087 16.767C9.1818 16.7483 9.15462 16.7273 9.1263 16.708C8.95399 16.5922 8.7887 16.4663 8.6313 16.3309C8.57455 16.2819 8.51885 16.2317 8.46424 16.1804C8.31346 16.0384 8.17121 15.8876 8.03824 15.7289C7.98949 15.6704 7.94199 15.6109 7.89574 15.5505C7.77224 15.3883 7.6583 15.219 7.55449 15.0435C7.51364 14.9743 7.47444 14.9041 7.43693 14.833C7.34221 14.6538 7.25794 14.4693 7.18455 14.2804C7.17143 14.2465 7.15568 14.2137 7.1433 14.1794L9.71337 13.7432L9.71768 13.7489L9.7203 13.7479C9.7478 13.7429 9.7753 13.7405 9.80318 13.7406ZM11.9838 14.7983C11.9947 14.7979 12.0052 14.8007 12.0161 14.8011C12.0644 14.8031 12.1121 14.8131 12.1571 14.8309C12.1672 14.8349 12.1781 14.8365 12.1878 14.8414V14.8418C12.2712 14.8812 12.3397 14.9462 12.3834 15.0274L12.3845 15.0297H12.3944L13.6614 17.3196C13.6096 17.3369 13.5569 17.352 13.5046 17.3676C13.4427 17.3861 13.3804 17.4034 13.3179 17.4195C13.2648 17.4334 13.2121 17.4477 13.1585 17.4599C13.1352 17.4653 13.1116 17.4685 13.088 17.4734C12.8298 17.5284 12.5678 17.5636 12.3042 17.5785C12.2517 17.5815 12.1996 17.5851 12.1471 17.5866C11.8764 17.594 11.6056 17.58 11.3371 17.5448C11.2846 17.538 11.2321 17.5289 11.18 17.5204C10.9223 17.4788 10.6681 17.4177 10.4197 17.3376C10.3959 17.3299 10.3715 17.3241 10.3477 17.316L11.6118 15.0308H11.6137L11.615 15.0285C11.6199 15.0195 11.6272 15.0126 11.6326 15.0042C11.6626 14.957 11.7012 14.9159 11.7462 14.8829C11.7616 14.8716 11.7779 14.8614 11.795 14.8521C11.8446 14.8259 11.8986 14.8093 11.9544 14.803C11.9645 14.802 11.9737 14.7987 11.9838 14.7983ZM14.1905 18.5213C13.9899 18.5928 13.7862 18.6542 13.5796 18.7056C13.7861 18.6541 13.99 18.5926 14.1905 18.5213Z\" fill=\"white\"/></g><defs><clipPath id=\"clip0_674_43\"><rect width=\"24\" height=\"24\" fill=\"white\"/></clipPath></defs></svg>",
             "theme": "theme-blue"
           },
           {
             "title": "Stand Up In Minutes",
             "description": "Monitor your Kubernetes environment instantly with the OpenObserve Collector. Automatically capture metrics, logs, and traces.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10.8346 0.274391C11.1898 0.103426 11.5789 0.0146484 11.9731 0.0146484C12.3673 0.0146484 12.7564 0.103426 13.1116 0.274391L20.6056 3.88339C21.3256 4.22989 21.8491 4.88539 22.0261 5.66389L23.8771 13.7744C23.9647 14.1587 23.9646 14.5579 23.8768 14.9422C23.7891 15.3266 23.6159 15.6862 23.3701 15.9944L18.5206 22.0754C18.3346 22.3087 18.0635 22.4586 17.767 22.4921C17.4705 22.5256 17.1729 22.4399 16.9396 22.2539C16.7062 22.0679 16.5564 21.7969 16.5229 21.5004C16.4894 21.2039 16.5751 20.9062 16.7611 20.6729L21.6106 14.5919C21.646 14.5479 21.671 14.4964 21.6837 14.4413C21.6965 14.3862 21.6966 14.329 21.6841 14.2739L19.8331 6.16489C19.8205 6.10976 19.7956 6.05818 19.7603 6.01402C19.725 5.96986 19.6801 5.93426 19.6291 5.90989L12.1351 2.30389C12.0843 2.27943 12.0287 2.26673 11.9723 2.26673C11.916 2.26673 11.8603 2.27943 11.8096 2.30389L4.31707 5.90989C4.26604 5.93426 4.22118 5.96986 4.18585 6.01402C4.15052 6.05818 4.12564 6.10976 4.11307 6.16489L2.26207 14.2724C2.24956 14.3275 2.24968 14.3847 2.26241 14.4398C2.27513 14.4949 2.30014 14.5464 2.33557 14.5904L7.18507 20.6714C7.37105 20.9047 7.45673 21.2024 7.42325 21.4989C7.38978 21.7954 7.23989 22.0664 7.00657 22.2524C6.77324 22.4384 6.47559 22.5241 6.1791 22.4906C5.8826 22.4571 5.61155 22.3072 5.42557 22.0739L0.576067 15.9944C0.330284 15.6862 0.157078 15.3266 0.0693071 14.9422C-0.018464 14.5579 -0.018546 14.1587 0.0690671 13.7744L1.92007 5.66389C2.00791 5.27948 2.18122 4.91979 2.42714 4.61154C2.67306 4.3033 2.98527 4.05442 3.34057 3.88339L10.8346 0.274391ZM7.83007 16.7399C7.61939 16.9508 7.50106 17.2368 7.50106 17.5349C7.50106 17.833 7.61939 18.119 7.83007 18.3299L11.2051 21.7049L12.0001 22.4999L12.7951 21.7049L16.1701 18.3299C16.2806 18.2269 16.3693 18.1027 16.4307 17.9647C16.4922 17.8267 16.5253 17.6777 16.528 17.5267C16.5306 17.3756 16.5028 17.2256 16.4463 17.0855C16.3897 16.9454 16.3055 16.8182 16.1986 16.7113C16.0918 16.6045 15.9645 16.5203 15.8245 16.4637C15.6844 16.4071 15.5343 16.3793 15.3833 16.382C15.2322 16.3847 15.0833 16.4177 14.9453 16.4792C14.8073 16.5407 14.6831 16.6294 14.5801 16.7399L13.1251 18.1949V8.80489L14.5801 10.2599C14.6831 10.3704 14.8073 10.4591 14.9453 10.5206C15.0833 10.5821 15.2322 10.6151 15.3833 10.6178C15.5343 10.6204 15.6844 10.5927 15.8245 10.5361C15.9645 10.4795 16.0918 10.3953 16.1986 10.2884C16.3055 10.1816 16.3897 10.0544 16.4463 9.91429C16.5028 9.77421 16.5306 9.62416 16.528 9.47311C16.5253 9.32205 16.4922 9.17308 16.4307 9.03508C16.3693 8.89709 16.2806 8.77288 16.1701 8.66989L12.7951 5.29489L12.0001 4.49989L11.2051 5.29489L7.83007 8.66989C7.63135 8.88315 7.52316 9.16522 7.5283 9.45667C7.53345 9.74813 7.65151 10.0262 7.85763 10.2323C8.06375 10.4384 8.34183 10.5565 8.63328 10.5617C8.92474 10.5668 9.20681 10.4586 9.42007 10.2599L10.8751 8.80489V18.1949L9.42007 16.7399C9.20913 16.5292 8.92319 16.4109 8.62507 16.4109C8.32694 16.4109 8.04101 16.5292 7.83007 16.7399Z\" fill=\"#EE5C46\"/></svg>"
           },
           {
             "title": "Reduce Kubernetes Costs",
             "description": "Identify Kubernetes inefficiencies and optimize resources for immediate cost savings.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"19\" height=\"24\" viewBox=\"0 0 19 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_674_62)\">\n<path d=\"M14.0747 11.3684H18.4055V7.0376\" stroke=\"#43A047\" stroke-width=\"1.14286\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M18.4058 11.3685L12.2885 5.25121C12.1873 5.15202 12.0512 5.09646 11.9095 5.09646C11.7678 5.09646 11.6318 5.15202 11.5306 5.25121L9.04035 7.74144C8.93915 7.84063 8.8031 7.89619 8.6614 7.89619C8.5197 7.89619 8.38365 7.84063 8.28245 7.74144L4.33057 3.78955\" stroke=\"#43A047\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</g>\n<g clip-path=\"url(#clip1_674_62)\">\n<path d=\"M3.47389 18.7899V21.3951H12.1581V15.3162H10.4213V14.4478H12.4699C12.6635 14.4478 12.7339 14.4677 12.8042 14.5059C12.8745 14.5428 12.932 14.6 12.9692 14.6701C13.0066 14.7404 13.0265 14.8108 13.0265 15.0044V21.7069C13.0265 21.9006 13.0066 21.9709 12.9684 22.0412C12.9315 22.1115 12.8743 22.169 12.8042 22.2062C12.7339 22.2436 12.6635 22.2636 12.4699 22.2636H3.16213C2.96847 22.2636 2.89813 22.2436 2.82778 22.2054C2.75752 22.1685 2.70002 22.1113 2.66278 22.0412C2.62631 21.9709 2.60547 21.9006 2.60547 21.7078V18.7899H3.47389Z\" fill=\"#43A047\"/>\n<path d=\"M10.4213 12.7107H1.73707V18.7897H10.4213V12.7107ZM11.2897 12.3989V19.1014C11.2897 19.2951 11.2697 19.3654 11.2315 19.4358C11.1947 19.506 11.1375 19.5635 11.0674 19.6008C10.9971 19.6381 10.9267 19.6581 10.7331 19.6581H1.42531C1.23165 19.6581 1.16131 19.6381 1.09097 19.5999C1.02071 19.563 0.963202 19.5058 0.925968 19.4358C0.889494 19.3654 0.868652 19.2951 0.868652 19.1023V12.3989C0.868652 12.2053 0.888626 12.1349 0.926837 12.0646C0.963701 11.9943 1.0209 11.9368 1.09097 11.8996C1.16131 11.8631 1.23165 11.8423 1.42444 11.8423H10.7322C10.9258 11.8423 10.9962 11.8623 11.0665 11.9005C11.1368 11.9373 11.1943 11.9945 11.2315 12.0646C11.2689 12.1349 11.2888 12.2053 11.2888 12.3989H11.2897Z\" fill=\"#43A047\"/>\n<path d=\"M6.07877 17.9212C5.50297 17.9212 4.95075 17.6925 4.5436 17.2853C4.13645 16.8782 3.90771 16.326 3.90771 15.7502C3.90771 15.1744 4.13645 14.6221 4.5436 14.215C4.95075 13.8078 5.50297 13.5791 6.07877 13.5791C6.65457 13.5791 7.20679 13.8078 7.61394 14.215C8.02109 14.6221 8.24983 15.1744 8.24983 15.7502C8.24983 16.326 8.02109 16.8782 7.61394 17.2853C7.20679 17.6925 6.65457 17.9212 6.07877 17.9212ZM6.07877 17.0528C6.42425 17.0528 6.75558 16.9155 6.99987 16.6713C7.24416 16.427 7.3814 16.0956 7.3814 15.7502C7.3814 15.4047 7.24416 15.0733 6.99987 14.8291C6.75558 14.5848 6.42425 14.4475 6.07877 14.4475C5.73329 14.4475 5.40196 14.5848 5.15767 14.8291C4.91338 15.0733 4.77614 15.4047 4.77614 15.7502C4.77614 16.0956 4.91338 16.427 5.15767 16.6713C5.40196 16.9155 5.73329 17.0528 6.07877 17.0528Z\" fill=\"#43A047\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_674_62\">\n<rect width=\"15.1579\" height=\"15.1579\" fill=\"white\" transform=\"translate(3.78906)\"/>\n</clipPath>\n<clipPath id=\"clip1_674_62\">\n<rect width=\"13.8948\" height=\"13.8948\" fill=\"white\" transform=\"translate(0 10.1055)\"/>\n</clipPath>\n</defs>\n</svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": "OpenObserve’s Key Kubernetes Monitoring Capabilities",
+        "heading":{
+          "title": "OpenObserve’s Key Kubernetes Monitoring Capabilities"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "unified-kubernetes-monitoring",
-            "label": "Unified Kubernetes Monitoring",
-            "card": {
               "title": "Unified Kubernetes Monitoring",
-              "features": [
+              "items": [
                 {
                   "title": "Pod-Level Observability",
                   "description": "See exactly how every pod performs. Track CPU, memory, and network metrics with precision that enables smart capacity planning and performance tuning."
@@ -840,15 +816,11 @@
                   "description": "Watch your entire infrastructure breathe through intuitive dashboards that update instantly, showing you application performance and system health as they happen."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_pod_dashboard.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_pod_dashboard.png"
           },
           {
-            "value": "multi-cluster-visibility",
-            "label": "Multi-cluster Visibility",
-            "card": {
               "title": "Multi-cluster Visibility",
-              "features": [
+              "items": [
                 {
                   "title": "Monitor In-cluster Services",
                   "description": "Gain complete control over in-cluster services with zero blind spots. Capture events across all Kubernetes objects including pods, deployments, HPAs, and more."
@@ -858,15 +830,13 @@
                   "description": "See across cluster boundaries with unified visibility that correlates events and reveals how your distributed services truly interact."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_logs.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_logs.png"
+      
           },
           {
-            "value": "resource-optimization",
-            "label": "Resource Optimization",
-            "card": {
+           
               "title": "Resource Optimization",
-              "features": [
+              "items": [
                 {
                   "title": "Resource Metrics",
                   "description": " Maximize infrastructure ROI by tracking every resource; CPU, memory, and storage—across nodes, pods, and containers."
@@ -876,15 +846,13 @@
                   "description": "Turn usage patterns into scaling strategies. Make resource decisions based on real data, not guesswork, to optimize performance and control costs."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_resource_metrics.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_resource_metrics.png"
+            
           },
           {
-            "value": "uptime-incident-management",
-            "label": "Uptime & Incident Management",
-            "card": {
+           
               "title": "Uptime & Incident Management",
-              "features": [
+              "items": [
                 {
                   "title": "Availability Monitoring",
                   "description": "Keep services running with automated health checks that constantly verify cluster and application availability before users notice any issues."
@@ -894,15 +862,16 @@
                   "description": " Slash resolution time with instant alerts and comprehensive diagnostics that pinpoint exactly what went wrong and how to fix it the moment issues arise."
                 }
               ],
-              "image": "/img/solution-kubernates/k8s_incident.png"
-            }
+              "featureImage": "/img/solution-kubernates/k8s_incident.png"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "Kubernetes Monitoring FAQs",
-        "items": [
+        "heading":{
+          "title": "Kubernetes Monitoring FAQs"
+        },
+        "faqs": [
           {
             "question": "What is Kubernetes monitoring?",
             "answer": "Kubernetes monitoring refers to the process of tracking and analyzing the performance, health, and security of Kubernetes clusters, nodes, pods, and containers. It involves collecting and analyzing metrics, logs, events and traces to identify issues, optimize resource utilization, and ensure the reliability and scalability of Kubernetes environments."
@@ -925,14 +894,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"
@@ -971,52 +942,53 @@
         "description": "Quickly and easily instrument OpenTelemetry for metrics, logs, and traces.",
         "primaryButton": {
           "text": "Start Free Cloud Trial",
-          "link": "https://cloud.openobserve.ai/web/login",
-          "variant": "primary"
+          "link": "https://cloud.openobserve.ai/web/login"
         },
-        "bgImage": "/img/solution-openTL/full-img.svg",
-        "mobileBgImage": "/img/solution-openTL/mobile-view.svg",
-        "mobileRightImage": "/img/solution-openTL/Group 9283.svg",
-        "altText": "OpenObserve Dashboard"
+        "bgImageforLaptop": "/img/solution-openTL/full-img.svg",
+        "bgImageforMobile": "/img/solution-openTL/mobile-view.svg",
+        "Image": "/img/solution-openTL/Group 9283.svg"
       },
       {
         "__component": "section-features.benefits",
         "id": 3,
         "align": "center",
         "headingLevel": 2,
-        "title": "Why use OpenObserve for OpenTelemetry?",
-        "data": [
+        "heading":{
+
+          "title": "Why use OpenObserve for OpenTelemetry?"
+        },
+        "items": [
           {
             "title": "Instant Instrumentation",
             "description": "Deploy production-ready observability in minutes with zero-config scripts that automatically collect your telemetry data.",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
+            "image": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"  /> />",
             "theme": "theme-blue"
           },
           {
             "title": "Intelligent Data Streaming",
             "description": "Automatically route and transform all telemetry data through a unified OpenTelemetry collector with minimal configuration.",
             "theme": "theme-red",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.116 22.385C14.694 22.385 14.3383 22.2403 14.049 21.951C13.7597 21.6617 13.6153 21.3063 13.616 20.885C13.616 20.553 13.7107 20.2593 13.9 20.004C14.09 19.7487 14.3287 19.568 14.616 19.462V13.282C14.3287 13.176 14.09 12.9997 13.9 12.753C13.71 12.5063 13.615 12.217 13.615 11.885C13.615 11.463 13.7597 11.1073 14.049 10.818C14.3383 10.5287 14.694 10.384 15.116 10.384C15.538 10.384 15.8933 10.5287 16.182 10.818C16.4707 11.1073 16.6153 11.4627 16.616 11.884C16.616 12.2167 16.521 12.5063 16.331 12.753C16.141 12.9997 15.9027 13.1763 15.616 13.283V16.985L19.577 15.66C19.705 15.6213 19.8077 15.5507 19.885 15.448C19.9623 15.3453 20.0007 15.2237 20 15.083V13.283C19.7133 13.1763 19.475 12.9997 19.285 12.753C19.095 12.5063 19 12.217 19 11.885C19 11.463 19.1447 11.1073 19.434 10.818C19.7227 10.5293 20.078 10.385 20.5 10.385C20.922 10.385 21.2773 10.5293 21.566 10.818C21.8553 11.1073 22 11.463 22 11.885C22 12.217 21.905 12.5063 21.715 12.753C21.5257 12.9997 21.2873 13.1763 21 13.283V15.077C21 15.4337 20.9007 15.7517 20.702 16.031C20.5033 16.3103 20.234 16.5037 19.894 16.611L15.616 18.027V19.462C15.9027 19.5687 16.141 19.7493 16.331 20.004C16.521 20.2587 16.616 20.552 16.616 20.884C16.616 21.306 16.4713 21.6617 16.182 21.951C15.8927 22.2403 15.5373 22.385 15.116 22.385ZM4.616 19C4.15533 19 3.771 18.846 3.463 18.538C3.155 18.23 3.00067 17.8453 3 17.384V6.616C3 6.15533 3.15433 5.771 3.463 5.463C3.77167 5.155 4.15567 5.00067 4.615 5H8.925C9.14033 5 9.34967 5.04333 9.553 5.13C9.75633 5.218 9.93033 5.33433 10.075 5.479L11.596 7H20.5C20.6427 7 20.7617 7.04767 20.857 7.143C20.9523 7.23833 21 7.35733 21 7.5C21 7.64267 20.9523 7.76167 20.857 7.857C20.7617 7.95233 20.6427 8 20.5 8H11.194L9.194 6H4.615C4.43567 6 4.28833 6.05767 4.173 6.173C4.05767 6.28833 4 6.436 4 6.616V17.385C4 17.5643 4.05767 17.7117 4.173 17.827C4.28833 17.9423 4.436 18 4.616 18H10.731C10.873 18 10.992 18.0477 11.088 18.143C11.184 18.2383 11.2317 18.3573 11.231 18.5C11.2303 18.6427 11.1827 18.7617 11.088 18.857C10.9933 18.9523 10.8743 19 10.731 19H4.616Z\" fill=\"#EE5C46\"/></svg>"
           },
           {
             "title": "Complete Observability",
             "description": "Get full-stack observability across your entire infrastructure with minimal configuration or maintenance overhead.",
             "theme": "theme-green",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" /> />"
+            "image": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_674_69)\">\n<path d=\"M20.564 14.8001C19.9573 16.673 18.7533 18.2953 17.1363 19.4184C15.5194 20.5415 13.5788 21.1034 11.6119 21.0181C9.64509 20.9327 7.76046 20.2048 6.24688 18.9459C4.73329 17.687 3.67425 15.9665 3.23205 14.0481L4.93405 13.7121L1.69405 10.3601L-0.00195312 14.6941L1.79205 14.3421C2.29272 16.5941 3.52112 18.6185 5.28743 20.1025C7.05374 21.5865 9.25962 22.4475 11.5642 22.5524C13.8688 22.6574 16.1438 22.0004 18.0377 20.683C19.9315 19.3657 21.3388 17.4612 22.042 15.2641L20.564 14.8001ZM22.236 9.72006C21.7351 7.46816 20.5065 5.4439 18.7401 3.96009C16.9736 2.47629 14.7677 1.61553 12.4631 1.51082C10.1585 1.40612 7.88363 2.06331 5.98992 3.38083C4.09621 4.69835 2.6891 6.60286 1.98605 8.80006L3.41205 9.26406C4.01856 7.39114 5.22245 5.76874 6.83925 4.64548C8.45604 3.52223 10.3965 2.96009 12.3634 3.0452C14.3302 3.13031 16.2149 3.85798 17.7286 5.11669C19.2423 6.37541 20.3016 8.09574 20.744 10.0141L19.042 10.3521L22.282 13.6961L23.998 9.36806L22.236 9.72006Z\" fill=\"#5BC979\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.84005 11.8602C8.66805 7.20416 15.3321 7.20416 17.1601 11.8602C15.3321 16.5162 8.66805 16.5162 6.84005 11.8602ZM18.7101 11.7342C16.5901 5.24616 7.41005 5.24616 5.29005 11.7342C5.26334 11.8154 5.26334 11.903 5.29005 11.9842C7.41005 18.4742 16.5901 18.4742 18.7101 11.9842C18.7368 11.903 18.7368 11.8154 18.7101 11.7342Z\" fill=\"#5BC979\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 11.1001C11.9015 11.1001 11.804 11.1195 11.713 11.1572C11.622 11.1949 11.5393 11.2501 11.4697 11.3198C11.4 11.3894 11.3448 11.4721 11.3071 11.5631C11.2694 11.6541 11.25 11.7516 11.25 11.8501C11.25 11.9486 11.2694 12.0461 11.3071 12.1371C11.3448 12.2281 11.4 12.3108 11.4697 12.3804C11.5393 12.4501 11.622 12.5053 11.713 12.543C11.804 12.5807 11.9015 12.6001 12 12.6001C12.1989 12.6001 12.3897 12.5211 12.5303 12.3804C12.671 12.2398 12.75 12.049 12.75 11.8501C12.75 11.6512 12.671 11.4604 12.5303 11.3198C12.3897 11.1791 12.1989 11.1001 12 11.1001ZM9.75 11.8501C9.75 11.2534 9.98705 10.6811 10.409 10.2591C10.831 9.83715 11.4033 9.6001 12 9.6001C12.5967 9.6001 13.169 9.83715 13.591 10.2591C14.0129 10.6811 14.25 11.2534 14.25 11.8501C14.25 12.4468 14.0129 13.0191 13.591 13.4411C13.169 13.863 12.5967 14.1001 12 14.1001C11.4033 14.1001 10.831 13.863 10.409 13.4411C9.98705 13.0191 9.75 12.4468 9.75 11.8501Z\" fill=\"#5BC979\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_674_69\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>"
           }
         ]
       },
       {
         "__component": "section-solutions.tabs",
-        "title": " OpenObserve ♥️‘s OpenTelemetry",
+        "heading":{
+          "title": " OpenObserve ♥️‘s OpenTelemetry"
+        },
         "background": true,
-        "tabs": [
+        "items": [
           {
-            "value": "data-collection",
-            "label": "Data Collection",
-            "card": {
+           
               "title": "Data Collection",
-              "features": [
+              "items": [
                 {
                   "title": "Flexible Integration Options",
                   "description": "Deploy in minutes with your choice of standard OpenTelemetry instrumentation or our pre-configured collector for straightforward data ingestion."
@@ -1026,15 +998,13 @@
                   "description": "Capture and contextualize metrics, logs, and traces through a unified pipeline that preserves relationships between all telemetry signals."
                 }
               ],
-              "image": "/img/solution-openTL/otel_traces.png"
-            }
+            "featureImage": "/img/solution-openTL/otel_traces.png"
+            
           },
           {
-            "value": "instrumentation-options",
-            "label": "Instrumentation Options",
-            "card": {
+           
               "title": "Instrumentation Options",
-              "features": [
+              "items": [
                 {
                   "title": "Zero-Code Instrumentation",
                   "description": "Enable distributed tracing instantly with automatic instrumentation for supported frameworks and libraries—no code changes required."
@@ -1044,15 +1014,13 @@
                   "description": "Implement custom instrumentation for granular insights with complete control over data collection and structure."
                 }
               ],
-              "image": "/img/solution-openTL/otel_instrumentation.png"
-            }
+              "featureImage": "/img/solution-openTL/otel_instrumentation.png"
+            
           },
           {
-            "value": "data-processing",
-            "label": "Data Processing",
-            "card": {
+            
               "title": "Data Processing",
-              "features": [
+              "items": [
                 {
                   "title": "Universal Format Support",
                   "description": "Process all OpenTelemetry data formats through native OTLP protocol integration with built-in conversions for industry-standard formats."
@@ -1062,15 +1030,12 @@
                   "description": "Unlock actionable insights using familiar SQL and PromQL with robust support for complex aggregations and time-series analysis."
                 }
               ],
-              "image": "/img/solution-openTL/otelcollector_o2.png"
-            }
+              "featureImage": "/img/solution-openTL/otelcollector_o2.png"
+            
           },
           {
-            "value": "observability-insights",
-            "label": "Observability Insights",
-            "card": {
               "title": "Observability Insights",
-              "features": [
+              "items": [
                 {
                   "title": "Real-Time Visibility",
                   "description": "Monitor and react to critical application and infrastructure metrics with instant alerts and dashboards that reveal system health at a glance."
@@ -1080,15 +1045,16 @@
                   "description": "Slash troubleshooting time by following distributed traces across services, identifying exactly where and why requests slow down."
                 }
               ],
-              "image": "/img/solution-openTL/opentelemetry_integration.gif"
-            }
+              "featureImage": "/img/solution-openTL/opentelemetry_integration.gif"
           }
         ]
       },
       {
         "__component": "sections.faq",
-        "title": "OpenTelemetry FAQs",
-        "items": [
+        "heading":{
+          "title": "OpenTelemetry FAQs"
+        },
+        "faqs": [
           {
             "question": "What is the OpenObserve Collector?",
             "answer": "A pre-configured OpenTelemetry collector distribution with optimized defaults, built-in best practices, and ready-to-use exporters for most common use cases."
@@ -1123,14 +1089,16 @@
       {
         "__component": "section-hero.cta-buttons",
         "id": 2,
-        "title": "Ready to get started?",
-        "description": "Try OpenObserve today for more efficient and performant observability.",
-        "primarybtn": {
+        "heading":{
+          "title": "Ready to get started?",
+          "description": "Try OpenObserve today for more efficient and performant observability."
+        },
+        "primaryButton": {
           "text": "Get Started For Free",
           "link": "https://cloud.openobserve.ai/web/login",
           "variant": "secondary"
         },
-        "secondarybtn": {
+        "secondaryButton": {
           "link": "/demo",
           "variant": "tertiary",
           "text": "Schedule Demo"

@@ -1,5 +1,5 @@
 <template>
-  <CustomSection sectionClass="max-w-4xl !pb-0 !pt-10">
+  <CustomSection sectionClass="max-w-4xl !pt-10">
     <HeadingSection
       :title="title"
       :description="description"
@@ -7,7 +7,7 @@
       class="!mb-3c"
     />
     <div
-      class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12"
+      class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12" 
     >
       <!-- <TabsHeader
         :tabs="tabs"
@@ -18,12 +18,12 @@
       <OptionsCard :tabs="tabs" :activeTab="activeTab" /> -->
       <!-- Main Tabs -->
       <TabsHeader
-        :tabs="tabs"
+       :tabs="tabsWithSlugs"
         :activeTab="activeTab"
-        @update:activeTab="activeTab = $event"
+        @update:activeTab="handleTabChange"
         gridClass="grid w-full justify-center grid-cols-2 gap-2"
       />
-      <OptionsCard :tabs="tabs" :activeTab="activeTab" />
+      <OptionsCard :tabs="tabsWithSlugs" :activeTab="activeTab" />
     </div>
   </CustomSection>
 </template>
@@ -33,8 +33,10 @@ import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { computed, ref, watch, onMounted } from "vue";
+import { slugify } from "@/utils/slugify";
 interface Tab {
-  value: string;
+  value?: string;
+  title: string;
   // Add other properties as needed
 }
 
@@ -44,17 +46,29 @@ const props = defineProps<{
   buttons: Record<string, any>;
   tabs: Tab[];
 }>();
-const activeTab = ref(props.tabs[0]?.value || "");
+// Convert tabs to include `value` based on the slug
+const tabsWithSlugs = computed(() =>
+  props.tabs.map(tab => ({
+    ...tab,
+    value: slugify(tab.title)
+  }))
+);
+// Initialize activeTab only after determining hash (not immediately to avoid flash)
+const activeTab = ref("");
 
-// Watch for change in main tab to reset subtab
-watch(() => activeTab.value, { immediate: true });
+// Handle tab change and update URL hash
+function handleTabChange(value: string) {
+  activeTab.value = value;
+  history.replaceState(null, "", `#${value}`);
+}
 
+// On mount: set correct tab from URL hash if present
 onMounted(() => {
-  const hash = window.location.hash?.replace("#", "");
-  const tabExists = props.tabs.find(tab => tab.value === hash);
-  if (tabExists) {
-    activeTab.value = hash;
-    // Optional: Scroll to the tab
+  const hash = window.location.hash.replace("#", "");
+  const found = tabsWithSlugs.value.find(tab => tab.value === hash);
+  activeTab.value = found?.value || tabsWithSlugs.value[0]?.value || "";
+
+  if (found) {
     setTimeout(() => {
       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
     }, 100);

@@ -5,18 +5,8 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import { getAllBlogs } from "@/utils/api/blog";
 import fetchApi from "@/utils/strapi";
 
-export async function getStaticPaths() {
-  const PageData: string[] = await fetchApi({
-    endpoint: "api/solution-pages",
-    query: { pLevel: "4", status: "draft" },
-  });
-  const slugs = PageData?.data;
-  return slugs.map((it: any) => ({
-    params: { id: it.slug },
-  }));
-}
-const { id }: any = Astro.params;
-
+const url = Astro.url.pathname;
+const path = url.split("/").filter(Boolean).pop();
 const PageData = await fetchApi({
   endpoint: "api/solution-pages",
   query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
@@ -26,6 +16,29 @@ const seoData = PageData?.data[0]?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
+
+const filterblogsMapper = {
+  "aws-monitoring": "aws",
+  "azure-monitoring": "azure",
+  "gcp-monitoring": "gcp",
+  "kubernetes-monitoring": "kubernetes",
+  "database-monitoring": "database",
+  "opentelemetry": "opentelemetry",
+};
+const matchedCategory = filterblogsMapper[path as string] ?? null;
+const { pageData } = Astro.props;
+const seoData = pageData?.seo || {};
+const allBlogs = await getAllBlogs();
+// Filter blogs where at least one category matches
+const filteredBlogs = matchedCategory
+  ? allBlogs.filter((blog) =>
+      blog.categories?.some(
+        (cat) => cat.slug.toLowerCase() === matchedCategory.toLowerCase()
+      )
+    )
+  : [];
+// Then slice and remove content if needed
+const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>

@@ -1,32 +1,44 @@
 <!-- FaqList.vue -->
 <template>
   <div class="space-y-6">
-    <div v-for="(faq, index) in faqList" :key="index" class="border-b border-gray-200 pb-6 last:border-0">
-      <button @click="toggle(index)"
-        class="w-full text-left font-medium text-lg md:text-xl flex justify-between items-start lg:items-center hover:text-primary-purple transition-colors cursor-pointer">
-        <h2 class="flex-grow">{{ faq.question }}</h2>
-        <span class="text-primary-purple text-2xl font-light flex-shrink-0">
-          {{ activeIndex === index ? '-' : '+' }}
-        </span>
+    <div
+      v-for="(faq, index) in faqList"
+      :key="index"
+      class="border-b border-gray-200 pb-6 last:border-0"
+    >
+      <button
+        @click="toggle(index)"
+        class="w-full text-left font-medium text-lg md:text-xl flex gap-2 justify-between items-start md:items-center hover:text-primary-purple transition-colors cursor-pointer"
+      >
+        <h2 class="flex-grow leading-snug">{{ faq.question }}</h2>
+        <div class="shrink-0 flex items-center">
+          <component
+            :is="activeIndex === index ? Minus : Plus"
+            class="text-primary-purple w-4 h-4 md:w-5 md:h-5 md:mt-0 mt-1"
+          />
+        </div>
       </button>
-      <p v-if="activeIndex === index" v-html="faq.answer"
-        class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray max-w-none">
-      </p>
+
+      <p
+        v-if="activeIndex === index"
+        v-html="faq.answer"
+        class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray max-w-none"
+      ></p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
+import { ref } from "vue";
+import { Minus, Plus } from "lucide-vue-next";
 defineProps({
-  faqList: Array
-})
+  faqList: Array,
+});
 
-const activeIndex = ref(null)
+const activeIndex = ref(null);
 
 function toggle(index) {
-  activeIndex.value = activeIndex.value === index ? null : index
+  activeIndex.value = activeIndex.value === index ? null : index;
 }
 </script>
 
