@@ -1,11 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import resourcepage from "@/content/resources.json";
 import { getAllBlogs, getAllCaseStudies } from "@/utils/api/blog";
 import { getAllResourceBlogs } from "@/utils/api/resources";
-const data = resourcepage?.data?.body || {};
-const seoData = resourcepage?.data?.seo || {};
+import fetchApi from "@/utils/strapi";
+const PageData = await fetchApi({
+  endpoint: "api/resource-landing-page",
+  query: { pLevel: "4", status: "draft" },
+});
+const data = PageData?.data?.body || {};
+const seoData = PageData?.data?.seo || {};
+const allowedSlugs = [
+  "elasticsearch-matching",
+  "otel-exporters-introduction",
+  "iis-logging-basics",
+];
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
@@ -13,11 +22,6 @@ const allCaseStudiesData = await getAllCaseStudies();
 const caseData = allCaseStudiesData
   .slice(0, 3)
   .map(({ content, ...rest }) => rest);
-const allowedSlugs = [
-  "elasticsearch-matching",
-  "otel-exporters-introduction",
-  "iis-logging-basics",
-];
 const allArticlesData = (await getAllResourceBlogs())
   .map(({ content, ...rest }) => rest)
   .filter((it: any) => allowedSlugs.includes(it.slug));

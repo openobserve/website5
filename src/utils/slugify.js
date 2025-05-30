@@ -1,6 +1,7 @@
 export function slugify(title) {
   return title
     .toString()
+    .replace(/^\d+\.?\s*/, "") // Remove leading numbers, optional dot, and space
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "") // Remove accents
     .toLowerCase()

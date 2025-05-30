@@ -1,13 +1,19 @@
 ---
 import "@/styles/global.css";
 import navData from "@/content/navbar.json";
-import FooterData from "@/content/footer.json";
+// import FooterData from "@/content/footer.json";
 import Footer from "@/components/footer/Footer.vue";
+import fetchApi from "../utils/strapi";
 import Header from "@/components/header/Header.vue";
 import SEO from "@/components/SEO.astro";
 
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
+
+const FooterData = await fetchApi({
+  endpoint: "api/footer",
+  query: { pLevel: "4", status: "draft" },
+});
 
 // Accept class as props
 const { class: sectionClass } = Astro.props;
@@ -20,7 +26,11 @@ const { class: sectionClass } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <SEO title={metaObj?.title} description={metaObj?.description} canonicalURL={metaObj?.canonicalURL}/>
+    <SEO
+      title={metaObj?.title}
+      description={metaObj?.description}
+      canonicalURL={metaObj?.canonicalURL}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,7 +45,9 @@ const { class: sectionClass } = Astro.props;
   </head>
   <body class="">
     <Header navData={navData?.data} client:only />
-      <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ''}`}>
+    <main
+      class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}
+    >
       <slot />
     </main>
     <Footer

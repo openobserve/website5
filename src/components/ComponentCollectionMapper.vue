@@ -67,49 +67,50 @@ const props = defineProps({
   bannerData: { type: Object, required: false },
 });
 const componentsMap = computed(() => ({
-  "section-hero.common-hero": CommonHeroSection,
+  "section-hero.resource-hero-section": CommonHeroSection,
+  "section-hero.contact-hero-sectionx": CommonHeroSection,
   "section-text.mission-statement": CareerMission,
   "section-cards.career-benefits": CareerBenefitsWrapper,
   "section-features.global-team": CareerGlobalTeam,
-  "section-testimonials.employee-testimonials": CareerTestimonials,
-  "section-features.technology": CareerTechnology,
+  "section-cards.testimonials": CareerTestimonials,
+  "section-features.technologies": CareerTechnology,
   "section-features.cta": CTA,
-  "section-solutions.solutions": VerticalTabs,
-  "section-solutions.tabs": HorizontalTabsWrapper,
-  "section-solutions.capabilities": CapabilityTabs,
-  "section-solutions.faqs": FaqsWrapper,
+  "section-features.feature-left-tabs": VerticalTabs,
+  "section-features.feature-sub-page-top-tabs": HorizontalTabsWrapper,
+  "section-features.tabs-features": CapabilityTabs,
+  "section-faqs.fa-qs-page-section": FaqsWrapper,
   "section-hero.cta-buttons": CTA,
-  "section-features.benefits": HomeCardWrapper,
+  "section-cards.feature1": HomeCardWrapper,
   "section-features.architecture": PlatformArchitectureWrapper,
   "section-hero.homepage-hero": HomeHerosection,
-  "section-cards.homepage-features": CardWrapper,
+  "section-cards.feature4": CardWrapper,
   "section-cards.solution-features": CardWithBackgroundWrapper,
-  "section-cta.homepage-cta": CTA,
-  "section-features.homepage-feature-details": CustomInterchangeWrapper,
-  "section-story.our-story": OurStory,
-  "section-story.our-commitment": OurCommitmentO2,
-  "section-story.our-partners": OurPartners,
-  "section-hero.platform-sub-hero": HeroSectionWithImage,
-  "section-hero.solution-sub-hero": SolutionSubPageHeroSection,
+  "section-cta.banner": CTA,
+  "section-features.homepage-feature": CustomInterchangeWrapper,
+  "section-features.our-story": OurStory,
+  "section-features.our-commitment": OurCommitmentO2,
+  "section-cards.our-partners": OurPartners,
+  "section-hero.solutions-hero-section": HeroSectionWithImage,
+  "section-hero.solution-subpage-herosection": SolutionSubPageHeroSection,
   "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
   // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
-  "section-features.resources-feature-details": CardWithSideIconResourcePage,
+  "section-cards.feature3": CardWithSideIconResourcePage,
   "section-downloads.downloads-form": DownloadForm,
   "section-downloads.deployment-options": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
-  "section-forms.contact-form": ContactFormWrapper,
+  "section-forms.contact": ContactFormWrapper,
   "section-forms.demo-form": DemoWrapper,
   "section-cards.blog": BlogSection,
-  "section-contact.community-support": CommunitySupport,
+  "section-cards.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,
   "section-policies.summary": SummaryWrapper,
-  "section-key-features-benefits.key-features": PlatformKeyFeaturesWrapper,
-  "sections.faq": CommonFaqWrapper,
-  "section-features.homepage-architecture": HomeModernArchiture,
-  "section-cards.customer-stories": CaseStudySection,
+  "section-cards.plaform-key-features": PlatformKeyFeaturesWrapper,
+  "section-faqs.frequently-asked-question": CommonFaqWrapper,
+  "section-features.home-marketecture-section": HomeModernArchiture,
+  "section-cards.case-studies": CaseStudySection,
   "section-cards.articles": LatestArticles,
-  "section-forms.sales-form": ContactSalesWrapper
+  "section-forms.contact-sales-form": ContactSalesWrapper
 }));
 
 const getComponentProps = (it) => {
@@ -118,7 +119,7 @@ const getComponentProps = (it) => {
       return { ...it, data: props.blogsData, sectionData: BlogResources };
     case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
-    case "section-cards.customer-stories":
+    case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
     case "section-cards.articles":
       return { ...it, data: props.articlesData, sectionData: ArticlesResources };

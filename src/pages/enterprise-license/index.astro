@@ -1,10 +1,40 @@
 ---
-import Content from '@/content/pages/o2_enterprise_license.md'; // adjust path as needed
-import Layout from '@/layouts/Layout.astro';
+import CustomSection from "@/components/core/CustomSection.vue";
+import Layout from "@/layouts/Layout.astro";
+import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import fetchApi from "@/utils/strapi";
+import { marked } from "marked";
+import { slugify } from "@/utils/slugify";
+const PageData = await fetchApi({
+  endpoint: "api/enterprise-license",
+  query: { pLevel: "2", status: "draft" },
+});
+const data = PageData?.data || {};
+const rawContent = data?.content || ""; // Ensure this is a string
+
+const renderer = new marked.Renderer();
+
+renderer.heading = (text, level) => {
+  const headingId = text.text;
+  const headingLevel = text.depth;
+  const id = slugify(headingId);
+  return `<h${headingLevel} id="${id}">${text.text}</h${headingLevel}>`;
+};
+
+const htmlContent = marked.parse(rawContent, { renderer });
+
 ---
 
+<!-- If you're using a layout, wrap this inside a <Layout> component or layout slot. -->
 <Layout>
-  <article class="prose container mx-auto max-w-4xl p-8 ">
-    <Content />
-  </article>
+  <div class="">
+    <CustomSection sectionClass="max-w-4xl !py-0 mb-8 mt-4">
+      <div class="space-y-10">
+        <div
+          set:html={htmlContent}
+          class="prose prose-lg prose-invert prose-pre:bg-gray-900 prose-pre:max-h-96 max-w-none break-words prose-table:w-full prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 text-[#364153] [--tw-prose-body:theme(colors.black)] [--tw-prose-headings:theme(colors.black)] [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)] text-base lg:text-lg"
+        />
+      </div>
+    </CustomSection>
+  </div>
 </Layout>

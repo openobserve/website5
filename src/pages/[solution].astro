@@ -1,49 +1,62 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import data from "@/content/solutionsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
+import fetchApi from "@/utils/strapi";
 
-const url = Astro.url.pathname;
-const path = url.split("/").filter(Boolean).pop();
 export async function getStaticPaths() {
-  return data.map((item: any) => {
-    return {
-      params: { solution: item.slug },
-      props: { pageData: item },
-    };
+  const PageData: string[] = await fetchApi({
+    endpoint: "api/solution-pages",
+    query: { pLevel: "4", status: "draft" },
   });
+  const slugs = PageData?.data;
+  return slugs.map((it: any) => ({
+    params: { solution: it.slug },
+  }));
 }
-const filterblogsMapper = {
-  // "aws-monitoring": "aws",
-  // "azure-monitoring": "azure",
-  // "gcp-monitoring": "gcp",
+
+const { solution: id } = Astro.params;
+const PageData = await fetchApi({
+  endpoint: "api/solution-pages",
+  query: {
+    pLevel: "4",
+    status: "draft",
+    "filters[slug][$eq]": id,
+  },
+});
+
+const data = PageData?.data[0]?.body || {};
+const seoData = PageData?.data[0]?.seo || {};
+
+const filterblogsMapper: Record<string, string> = {
+  "aws-monitoring": "aws",
+  "azure-monitoring": "azure",
+  "gcp-monitoring": "gcp",
   "kubernetes-monitoring": "kubernetes",
   "database-monitoring": "database",
-  "opentelemetry": "opentelemetry",
+  opentelemetry: "opentelemetry",
 };
-const matchedCategory = filterblogsMapper[path as string] ?? null;
-const { pageData } = Astro.props;
-const seoData = pageData?.seo || {};
+
+const matchedCategory = id ? filterblogsMapper[id] : null;
 const allBlogs = await getAllBlogs();
-// Filter blogs where at least one category matches
+
+// Filter blogs where at least one tag matches the category
 const filteredBlogs = matchedCategory
   ? allBlogs.filter((blog) =>
       blog.tags?.some(
-        (cat) => cat.slug.toLowerCase() === matchedCategory.toLowerCase()
+        (tag: any) => tag.slug?.toLowerCase() === matchedCategory.toLowerCase()
       )
     )
   : allBlogs;
 
-console.log(filteredBlogs, "filteredBlogs");
-// Then slice and remove content if needed
-const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
+// Prepare blog data by removing content and limiting to 10
+const finalBlogs = (filteredBlogs.length > 0 ? filteredBlogs : allBlogs).slice(
+  0,
+  10
+);
+const blogData = finalBlogs.map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper
-    data={pageData.body}
-    blogsData={blogData}
-    client:load
-  />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
 </Layout>

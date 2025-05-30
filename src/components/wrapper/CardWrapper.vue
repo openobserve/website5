@@ -5,6 +5,7 @@ import CardWithShadowBorder from "../core/CardWithShadowBorder.vue";
 import CardWithSideIcon from "../core/CardWithSideIcon.vue";
 import { ArrowRight } from "lucide-vue-next";
 import FeatureTitle from "../core/FeatureTitle.vue";
+import { computed } from "vue";
 const props = defineProps({
   heading: {
     type: Object,
@@ -28,9 +29,14 @@ const props = defineProps({
   },
   titleItems: {
     type: Array,
+    default: () => [],
     required: false,
   },
+
 });
+const titleString = computed(() => {
+  return props.titleItems.map(item => item.title || item);
+})
 
 </script>
 
@@ -39,33 +45,21 @@ const props = defineProps({
     <CustomSection sectionClass="">
       <div>
         <!-- Heading Section -->
-        <FeatureTitle
-          v-if="heading?.title || heading?.description"
-          :title="heading?.title"
-          :description="heading?.description"
-          align="center"
-          :heading-level="headingLevel"
-          :items="titleItems"
-        />
+        <FeatureTitle v-if="heading?.title || heading?.description" :title="heading?.title"
+          :description="heading?.description" align="center" :heading-level="headingLevel" :items="titleString" />
 
         <!-- Cards Section -->
         <div class="grid-container ">
           <!-- CardWithShadowBorder -->
-              <CardWithShadowBorder
-                v-for="(card, index) in items" :key="index"
-                :card="card"
-                class="w-full grid-item block"
-                :heading-level="headingLevel"
-              />
+          <CardWithShadowBorder v-for="(card, index) in items" :key="index" :card="card" class="w-full grid-item block"
+            :heading-level="headingLevel" />
         </div>
 
         <!-- View All Button -->
         <div class="mt-12 flex justify-center w-full" v-if="button">
-          <a :href="button.link" :target="button.target || '_self'" class="">
-            <button
-              :class="button.class"
-              class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-            >
+          <a :href="button?.link" :target="button?.target || '_self'" class="">
+            <button :class="button?.class"
+              class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer">
               {{ button.text }}
               <ArrowRight class="ml-2 h-4 w-4" />
             </button>
@@ -114,6 +108,7 @@ const props = defineProps({
 }
 
 @media (min-width: 1024px) {
+
   /* Optional: Add a counter if you need to display item numbers */
   .grid-item:last-child:nth-child(3n - 1) {
     grid-column-end: -2;

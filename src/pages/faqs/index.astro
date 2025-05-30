@@ -1,10 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import homepage from "@/content/faqs.json";
-
-const data = homepage?.data?.body || {};
-const seoData = homepage?.data?.seo || {};
+import fetchApi from "@/utils/strapi";
+const PageData = await fetchApi({
+  endpoint: "api/faq",
+  query: { pLevel: "4", status: "draft" },
+});
+const data = PageData?.data?.body || {};
+const seoData = PageData?.data?.seo || {};
 ---
 
 <Layout metaObj={seoData}>

@@ -26,7 +26,7 @@ const props = defineProps({
             :heading="card.heading"
             :cardData="card.cardData"
             :items="card.items"
-            :direction="card.direction || 'left'"
+            :direction="card.direction || 'LEFT'"
             :theme="card.theme"
             :id="card.id"
           />

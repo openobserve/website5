@@ -3,9 +3,8 @@ import HeadingSection from "../core/HeadingSection.vue";
 import FaqList from "./FaqList.vue";
 import CustomSection from "../core/CustomSection.vue";
 defineProps({
- label: {
-    type: String,
-    required: true,
+ heading: {
+  
   },
   faqs: {
     type: Array,
@@ -22,7 +21,7 @@ defineProps({
   <div :class="background ? 'bg-gray-50' : ''" class="">
     <div class="max-w-4xl mx-auto px-4 py-12 space-y-2">
       <HeadingSection
-        :title="label"
+        :title="heading?.title"
         align="CENTER"
       />
       <div class="pt-8">

@@ -36,6 +36,8 @@ const props = defineProps({
   },
 });
 
+console.log("PlatformKeyFeaturesWrapper props", props.standardCTA, props.enterpriseCTA);
+
 const tabs = [
   { title: "Standard", value: "standard" },
   { title: "Enterprise", value: "enterprise" },
@@ -73,16 +75,16 @@ const tabData = computed(() => {
       <CustomButton
         :buttonLink="
           activeTab === 'standard'
-            ? standardCTA?.buttonLink
-            : enterpriseCTA?.buttonLink
+            ? standardCTA?.link
+            : enterpriseCTA?.link
         "
         :btn-class="`!text-sm ${activeTab === 'standard' ? standardCTA?.theme : enterpriseCTA?.theme}`"
         size="small"
         class="inline-flex"
         :buttonText="
           activeTab === 'standard'
-            ? standardCTA?.buttonText
-            : enterpriseCTA?.buttonText
+            ? standardCTA?.text
+            : enterpriseCTA?.text
         "
       />
     </div>

@@ -1,18 +1,21 @@
 ---
 // Import the content and types
-import contactus from "@/content/contactus.json";
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
-
+import fetchApi from "@/utils/strapi";
+const PageData = await fetchApi({
+  endpoint: "api/contact-us",
+  query: { pLevel: "4", status: "draft" },
+});
 // Type-check the imported content
-const data = contactus?.data?.body || {};
-const seoData = contactus?.data?.seo || {};
+const data = PageData?.data?.body || {};
+const seoData = PageData?.data?.seo || {};
 const blogData = (await getAllBlogs())
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
+  <ComponentCollectionMapper data={data} blogs={blogData} client:load />
 </Layout>
