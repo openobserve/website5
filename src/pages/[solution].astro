@@ -3,17 +3,20 @@ import Layout from "@/layouts/Layout.astro";
 import data from "@/content/solutionsubpage.json";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import { getAllBlogs } from "@/utils/api/blog";
+import fetchApi from "@/utils/strapi";
 
 const url = Astro.url.pathname;
 const path = url.split("/").filter(Boolean).pop();
-export async function getStaticPaths() {
-  return data.map((item: any) => {
-    return {
-      params: { solution: item.slug },
-      props: { pageData: item },
-    };
-  });
-}
+const PageData = await fetchApi({
+  endpoint: "api/solution-pages",
+  query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
+});
+const data = PageData?.data[0]?.body || {};
+const seoData = PageData?.data[0]?.seo || {};
+const blogData = (await getAllBlogs())
+  .slice(0, 10)
+  .map(({ content, ...rest }) => rest);
+
 const filterblogsMapper = {
   "aws-monitoring": "aws",
   "azure-monitoring": "azure",
@@ -40,7 +43,7 @@ const blogData = filteredBlogs.slice(0, 10).map(({ content, ...rest }) => rest);
 
 <Layout metaObj={seoData}>
   <ComponentCollectionMapper
-    data={pageData.body}
+    data={data}
     blogsData={blogData}
     client:load
   />
