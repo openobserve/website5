@@ -43,7 +43,7 @@ const metaObj = {
     type="blog"
     title={SlugData?.title}
     blogImage={SlugData?.image?.url || SlugData?.image?.url}
-    tags={SlugData?.categories || []}
+    tags={SlugData?.tags || []}
     author={author}
     publishDate={new Intl.DateTimeFormat("en-US", {
       weekday: "long",
