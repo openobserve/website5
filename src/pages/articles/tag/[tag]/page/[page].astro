@@ -10,6 +10,7 @@ import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
 
 export async function getStaticPaths() {
   const categories = await getAllResourceCategories();
@@ -58,7 +59,7 @@ const allArticlesData = await getAllResourcesLists();
     align="CENTER"
   />
   <CustomSection sectionClass="">
-    <BlogCategoryListing
+    <!-- <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length)) ||
         []}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length)) ||
@@ -76,6 +77,17 @@ const allArticlesData = await getAllResourcesLists();
       totalItems={totalBlogs}
       searchBar
       allBlogs={allArticlesData}
+    /> -->
+    <BlogPageWrapper
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
+      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      type="articles"
+      allBlogs={allArticlesData}
+      blogsData={blogs}
+      currentPage={currentPage}
+      client:only="vue"
+      subType="tag"
+      identifier={tag}
     />
   </CustomSection>
 </Layout>

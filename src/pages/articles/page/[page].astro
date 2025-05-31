@@ -12,6 +12,7 @@ import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
@@ -53,7 +54,7 @@ const metaObj = {
 <Layout metaObj={metaObj}>
   <CommonHerosection title="Articles" description="" align="CENTER" />
   <CustomSection sectionClass="">
-    <BlogCategoryListing
+    <!-- <BlogCategoryListing
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={suggestionData.slice(0, Math.min(12, suggestionData.length))}
       type="articles"
@@ -67,6 +68,15 @@ const metaObj = {
       currentPage={currentPage}
       blogsData={blogsData}
       client:load
+    /> -->
+    <BlogPageWrapper
+      categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
+      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      type="articles"
+      allBlogs={allArticles}
+      blogsData={blogsData}
+      currentPage={currentPage}
+      client:only="vue"
     />
   </CustomSection>
 </Layout>
