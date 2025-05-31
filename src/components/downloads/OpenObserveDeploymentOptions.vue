@@ -1,24 +1,32 @@
 <template>
   <CustomSection sectionClass="max-w-4xl !pt-10">
     <HeadingSection
-      :title="title"
-      :description="description"
+      :title="heading?.title"
+      :description="heading?.description"
       align="center"
-      class="!mb-3c"
-    />
+      class="!mb-4"
+      />
     <div
       class="w-full flex flex-col gap-4 items-center h-full justify-center lg:px-12"
     >
       <!-- Tabs Header -->
-      <TabsHeader
+      <!-- <TabsHeader
         :tabs="tabs"
+        :activeTab="activeTab"
+        @update:activeTab="activeTab = $event"
+        gridClass="grid w-full justify-center grid-cols-2 gap-2"
+      />
+      <OptionsCard :tabs="tabs" :activeTab="activeTab" /> -->
+      <!-- Main Tabs -->
+      <TabsHeader
+        :tabs="tabsWithSlugs"
         :activeTab="activeTab"
         @update:activeTab="handleTabChange"
         gridClass="grid w-full justify-center grid-cols-2 gap-2"
         :key="activeTab"
       />
-      <!-- Options Card -->
-      <OptionsCard :tabs="tabData" v-model="activeTab" />
+      <OptionsCardCloud v-if="activeTab === 'cloud'" :data="cloudData" />
+      <OptionsCardSelfHosted v-else :data="selfHostedData" />
     </div>
   </CustomSection>
 </template>
@@ -28,49 +36,45 @@ import { computed, onMounted, ref, watch } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import TabsHeader from "../core/TabsHeader.vue";
 import OptionsCard from "./OptionsCard.vue";
+import OptionsCardCloud from "./OptionsCardCloud.vue";
+import OptionsCardSelfHosted from "./OptionsCardSelfHosted.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { slugify } from "@/utils/slugify";
 
 // Props definition
 const props = defineProps<{
-  title: string;
-  description: string;
+  heading: {
+    title: string;
+    description: string;
+  };
   buttons: Record<string, any>;
   cloudData: {
-    title: string;
-    items: any[];
+    type: Object;
   };
   selfHostedData: {
-    title: string;
-    items: any[];
+    type: Object;
   };
+  // tabs: Tab[];
 }>();
 
-// Reactive tabs array
-const tabs = computed(() => [
-  {
-    title: props.cloudData?.title,
-    value: slugify(props.cloudData?.title || "cloud"),
-  },
-  {
-    title: props.selfHostedData?.title,
-    value: slugify(props.selfHostedData?.title || "self-hosted"),
-  },
-]);
+const tabs = [
+  { title: "Cloud" },
+  { title: "Self Hosted" }
+];
+// Convert tabs to include `value` based on the slug
+const tabsWithSlugs = computed(() =>
+  tabs.map((tab) => ({
+    ...tab,
+    value: slugify(tab.title),
+  }))
+);
+// Initialize activeTab only after determining hash (not immediately to avoid flash)
+const activeTab = ref(tabsWithSlugs.value[0]?.value || "");
+const activeTabData = computed(() =>
+  tabsWithSlugs.value.find((tab) => tab.value === activeTab.value)
+);
 
-// Active tab state
-const activeTab = ref(tabs.value[0]?.value || "cloud");
-
-// Computed tab data based on active tab
-const tabData = computed(() => {
-  if (activeTab.value === tabs.value[0].value) {
-    return props.cloudData?.items || [];
-  } else {
-    return props.selfHostedData?.items || [];
-  }
-});
-
-// Tab change handler
+// Handle tab change and update URL hash
 function handleTabChange(value: string) {
   activeTab.value = value;
   history.replaceState(null, "", `#${value}`);
@@ -78,8 +82,8 @@ function handleTabChange(value: string) {
 // Set initial tab on mount using hash if exists
 onMounted(() => {
   const hash = window.location.hash.replace("#", "");
-  const found = tabs.value.find((tab) => tab.value === hash);
-  activeTab.value = found?.value || tabs.value[0]?.value || "";
+  const found = tabsWithSlugs.value.find((tab) => tab.value === hash);
+  activeTab.value = found?.value || tabsWithSlugs.value[0]?.value || "";
 
   if (found) {
     setTimeout(() => {

@@ -96,8 +96,8 @@ const componentsMap = computed(() => ({
   // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
   // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
   "section-cards.feature3": CardWithSideIconResourcePage,
-  "section-downloads.downloads-form": DownloadForm,
-  "section-downloads.deployment-options": OpenObserveDeploymentOptions,
+  "section-forms.download-contact-form": DownloadForm,
+  "section-tabs.download-tabs": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
   "section-forms.contact": ContactFormWrapper,
   "section-forms.demo-form": DemoWrapper,

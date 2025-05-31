@@ -1,5 +1,5 @@
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="!pt-10">
     <div class="contact-form-card">
       <!-- <HeadingSection :title="title" :description="description" align="center" /> -->
       <div class="w-full mb-16 text-center">
