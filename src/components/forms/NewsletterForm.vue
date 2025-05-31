@@ -41,7 +41,7 @@
   <transition name="fade">
     <div
       v-if="showToast"
-      class="fixed bottom-5 right-2 transform  bg-primary-purple text-white p-6 rounded-lg shadow-lg z-50"
+      class="fixed bottom-5 right-2 transform bg-primary-purple text-white p-6 rounded-lg shadow-lg z-50"
     >
       {{ toastMessage }}
     </div>
@@ -51,6 +51,8 @@
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { ref } from "vue";
+import { useSegment } from "@/composables/useSegment";
+
 // Form validation
 const schema = yup.object({
   email: yup.string().required("Email is required").email("Invalid email"),
@@ -64,11 +66,19 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
       email: "",
     },
   });
+
+// Segment tracking
+const { trackNewsletterSignup } = useSegment();
+
 // Toast state
 const toastMessage = ref("");
 const showToast = ref(false);
+
 const onSubmit = handleSubmit(async (values) => {
   try {
+    // Track newsletter signup in Segment before/during submission
+    await trackNewsletterSignup(values.email);
+
     // Simulate API call delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
@@ -85,6 +95,8 @@ const onSubmit = handleSubmit(async (values) => {
     // Reset form if needed
     resetForm();
   } catch (error) {
+    console.error("Newsletter signup error:", error);
+
     // Show error toast or handle error here
     toastMessage.value = "Something went wrong, please try again.";
     showToast.value = true;

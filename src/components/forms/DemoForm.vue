@@ -3,6 +3,7 @@ import { ref } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import { useForm, useField, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useSegment } from "@/composables/useSegment";
 
 // Form validation
 const schema = yup.object({
@@ -15,6 +16,9 @@ const schema = yup.object({
   referral: yup.string().required("Referral source is required"),
 });
 type FormData = yup.InferType<typeof schema>;
+
+// Segment tracking
+const { trackDemoRequest } = useSegment();
 
 const status = ref({
   submitted: false,
@@ -38,6 +42,18 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
   try {
+    // Track demo request in Segment
+    await trackDemoRequest({
+      firstName: values.fname,
+      lastName: values.lname,
+      email: values.email,
+      company: values.company,
+      deployment: values.deployment,
+      dataVolume: values.volume,
+      referralSource: values.referral,
+      source: "demo_form",
+    });
+
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
