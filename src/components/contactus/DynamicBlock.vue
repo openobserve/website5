@@ -25,7 +25,6 @@ const blockComponent = computed(() => {
     case 'blogSection':
       return BlogSection;
     default:
-      console.warn(`Unknown block type: ${props.block.type}`);
       return 'div'; // Fallback to a div if type is unknown
   }
 });

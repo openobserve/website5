@@ -122,7 +122,6 @@ const props = defineProps({
     default: () => {},
   }, //used for button and title
 });
-console.log(props.data, props.sectionData, "props.data, props.sectionData");
 const scrollContainer = ref<HTMLElement | null>(null);
 
 const scrollAmount = ref(300);
