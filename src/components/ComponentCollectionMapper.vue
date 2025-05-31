@@ -99,7 +99,7 @@ const componentsMap = computed(() => ({
   "section-cards.feature3": CardWithSideIconResourcePage,
   "section-forms.download-contact-form": DownloadForm,
   "section-tabs.download-tabs": OpenObserveDeploymentOptions,
-  "section-pricing.pricing-options": PricingOptions,
+  "section-tabs.pricing-tabs": PricingOptions,
   "section-forms.contact": ContactFormWrapper,
   "section-forms.demo-page-form": DemoWrapper,
   "section-cards.blog": BlogSection,
