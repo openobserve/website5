@@ -2,9 +2,15 @@
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
 import demo from "@/content/demo.json";
+import fetchApi from "@/utils/strapi";
+import { getAllBlogs } from "@/utils/api/blog";
+const PageData = await fetchApi({
+  endpoint: "api/demo-page",
+  query: { pLevel: "4", status: "draft" },
+});
+const data = PageData?.data?.body || {};
+const seoData = PageData?.data?.seo || {};
 
-const data = demo?.data?.body || {};
-const seoData = demo?.data?.seo || {};
 ---
 
 <Layout metaObj={seoData}>

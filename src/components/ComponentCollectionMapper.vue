@@ -66,6 +66,7 @@ const props = defineProps({
   articlesData: { type: Array, required: false },
   bannerData: { type: Object, required: false },
 });
+
 const componentsMap = computed(() => ({
   "section-hero.resource-hero-section": CommonHeroSection,
   "section-hero.contact-hero-sectionx": CommonHeroSection,
@@ -100,7 +101,7 @@ const componentsMap = computed(() => ({
   "section-tabs.download-tabs": OpenObserveDeploymentOptions,
   "section-pricing.pricing-options": PricingOptions,
   "section-forms.contact": ContactFormWrapper,
-  "section-forms.demo-form": DemoWrapper,
+  "section-forms.demo-page-form": DemoWrapper,
   "section-cards.blog": BlogSection,
   "section-cards.community-support": CommunitySupport,
   "section-policies.table-of-contents": TOC,

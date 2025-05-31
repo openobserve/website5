@@ -17,5 +17,5 @@ const blogData = (await getAllBlogs())
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper data={data} blogs={blogData} client:load />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
 </Layout>
