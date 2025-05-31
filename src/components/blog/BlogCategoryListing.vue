@@ -26,14 +26,16 @@
         <span class="text-sm text-primary-gray">Filter by:</span>
       </div>
       <div class="flex flex-wrap gap-2">
-        <a
+        <!-- :href="`/${type}/tag/${tag.slug}`" -->
+        <span
           v-for="tag in showTagsBasedOnType"
           :key="tag.name"
-          :href="`/${type}/tag/${tag.slug}`"
-          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
-        >
+          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm  cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
+          @click="setHighlightedTag(tag.slug)"
+          :class="highlightedTag === tag.slug ? 'bg-primary-purple text-white' : ''"
+          >
           {{ tag.name }}
-      </a>
+        </span>
       </div>
     </div>
   </div>
@@ -56,21 +58,31 @@ const props = defineProps<{
     slug: string;
   }[];
   type: "blog" | "articles";
+  selectedTag: string
 }>();
 
 const activeCategory = ref("ALL");
+const highlightedTag = ref(props.selectedTag ?? '');
 const categoriesWithAll = computed(() => [
   { name: "ALL"},
   ...props.categories,
 ]);
 function setActiveCategory(category: string) {
   activeCategory.value = category;
+  highlightedTag.value = '';
   // Emit event to parent
   emit('update:activeCategory', category);
 }
 
+function setHighlightedTag(tag: string) {
+  highlightedTag.value = tag;
+  // Emit event to parent
+  emit('update:activeTag', tag);
+}
+
 // Add defineEmits for event emission
-const emit = defineEmits(['update:activeCategory']);
+const emit = defineEmits(['update:activeCategory', 'update:activeTag']);
+
 
 const filtersubTagsBasedonSuperiorTag = computed(() => {
   if (activeCategory.value === "ALL") {

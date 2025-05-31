@@ -36,7 +36,6 @@ const props = defineProps({
   },
 });
 
-console.log("PlatformKeyFeaturesWrapper props", props.standardCTA, props.enterpriseCTA);
 
 const tabs = [
   { title: "Standard", value: "standard" },

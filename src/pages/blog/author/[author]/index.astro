@@ -13,6 +13,7 @@ import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
@@ -51,7 +52,7 @@ const metaObj = {
     align="center"
   />
   <CustomSection sectionClass="">
-    <BlogCategoryListing
+    <!-- <BlogCategoryListing
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
@@ -65,6 +66,17 @@ const metaObj = {
       blogsData={blogs}
       totalItems={totalBlogs}
       client:load
+      subType="author"
+      identifier={author}
+    /> -->
+    <BlogPageWrapper
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
+      type="blog"
+      allBlogs={allBlogsData}
+      blogsData={blogs}
+      currentPage={currentPage}
+      client:only="vue"
       subType="author"
       identifier={author}
     />

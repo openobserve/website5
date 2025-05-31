@@ -14,6 +14,7 @@ import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
@@ -60,7 +61,7 @@ const metaObj = {
     align="center"
   />
   <CustomSection sectionClass="">
-    <BlogCategoryListing
+    <!-- <BlogCategoryListing
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
@@ -77,6 +78,17 @@ const metaObj = {
       totalItems={totalBlogs}
       searchBar
       allBlogs={allBlogsData}
+    /> -->
+    <BlogPageWrapper
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
+      type="blog"
+      allBlogs={allBlogsData}
+      blogsData={blogs}
+      currentPage={currentPage}
+      client:only="vue"
+      subType="author"
+      identifier={author}
     />
   </CustomSection>
 </Layout>

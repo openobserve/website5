@@ -12,6 +12,7 @@ import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
+import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
 
 // 🚀 Generate Static Paths for each category
 export async function getStaticPaths() {
@@ -51,7 +52,7 @@ const allBlogsData = await getallBlogsWithoutCaseStudies();
     client:load
   />
   <CustomSection sectionClass="">
-    <BlogCategoryListing
+    <!-- <BlogCategoryListing
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
@@ -67,6 +68,17 @@ const allBlogsData = await getallBlogsWithoutCaseStudies();
       currentPage={currentPage}
       searchBar
       allBlogs={allBlogsData}
+    /> -->
+    <BlogPageWrapper
+      categories={allSuperiorCategories}
+      allTags={allsubTagsBasedonSuperiorTags}
+      type="blog"
+      allBlogs={allBlogsData}
+      blogsData={blogs}
+      currentPage={currentPage}
+      client:only="vue"
+      subType="tag"
+      identifier={tag}
     />
   </CustomSection>
 </Layout>
