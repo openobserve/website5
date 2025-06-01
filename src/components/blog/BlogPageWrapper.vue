@@ -10,13 +10,15 @@
     />
     <BlogListingWrapper
       :searchBar="true"
-      :allBlogs="filteredAllBlogs"
+      :allBlogs="allBlogs"
       :type="type"
-      :totalItems="filteredAllBlogs?.length"
+      :totalItems="filteredBlogs.length"
       :currentPage="currentPage"
-      :blogsData="paginatedBlogs"
+      :blogsData="currentDisplayBlogs"
       :sub-type="subType"
       :identifier="identifier"
+      :activeCategory="selectedCategory"
+      :activeTagsStr="selectedTag"
     />
   </div>
 </template>
@@ -39,8 +41,7 @@ const props = defineProps<{
 }>();
 
 const selectedCategory = ref('ALL');
-const highlightedTag = props.subType === 'tag' ? props.identifier : '';
-const selectedTag = ref(highlightedTag);
+const selectedTag = ref(props.subType === 'tag' ? props.identifier : '');
 
 function onCategoryChange(category: string) {
   selectedCategory.value = category;
@@ -50,57 +51,44 @@ function onCategoryChange(category: string) {
 function onTagChange(tag: string) {
   selectedTag.value = tag;
 }
-function filterBlogsByCategory(blogs: any[], category: string) {
-  if (!Array.isArray(blogs)) {
-    return [];
+
+const hasActiveFilters = computed(() => {
+  return selectedCategory.value !== 'ALL' || selectedTag.value !== '';
+});
+
+// Filter the blogs based on category and tags
+const filteredBlogs = computed(() => {
+  // Start with current page blogs when filters are active, otherwise use all blogs
+  let result = hasActiveFilters.value ? props.blogsData : props.allBlogs;
+  result = result || [];
+
+  if (selectedCategory.value !== 'ALL') {
+    result = result.filter(blog => 
+      blog.category === selectedCategory.value || 
+      (blog.category && blog.category.name === selectedCategory.value)
+    );
   }
-  if (category === 'ALL') {
-    return blogs;
+
+  if (selectedTag.value) {
+    const activeTags = selectedTag.value.split(',').filter(t => t);
+    if (activeTags.length > 0) {
+      result = result.filter(blog => 
+        blog.tags && blog.tags.some((t: any) => activeTags.includes(t.slug))
+      );
+    }
   }
-  const filtered = blogs.filter(blog =>
-    blog.category === category || (blog.category && blog.category.name === category)
-  );
-  return filtered;
-}
 
-// Filter blogs by tag (within the already category-filtered blogs)
-function filterBlogsByTag(blogs: any[], tag: string) {
-  if (!Array.isArray(blogs)) return [];
-  if (!tag) return blogs;
-  return blogs.filter(blog =>
-    blog.tags && blog.tags.some((t: any) => t.slug === tag)
-  );
-}
-
-// const ITEMS_PER_PAGE =  props.allBlogs && props.allBlogs.length > 0 ? 10 : 0;
-
-// Final filtered blogs based on both category and tag
-const filteredAllBlogs = computed(() => {
-  const categoryFiltered = filterBlogsByCategory(props.allBlogs, selectedCategory.value);
-  const tagFiltered = filterBlogsByTag(categoryFiltered, selectedTag.value);
-  return tagFiltered;
+  return result;
 });
 
+// Determine which blogs to display based on filters and pagination
+const currentDisplayBlogs = computed(() => {
+  // If there are active filters, show filtered results without pagination
+  if (hasActiveFilters.value) {
+    return filteredBlogs.value;
+  }
 
-// const paginatedBlogs = computed(() => {
-//   const start = (props.currentPage - 1) * ITEMS_PER_PAGE;
-//   console.log(start, "start");
-//   const end = start + ITEMS_PER_PAGE;
-//   console.log(end, "end");
-//   console.log(filteredAllBlogs.value.slice(start, end), "filteredAllBlogs.value.slice(start, end)");
-//   return filteredAllBlogs.value.slice(start, end);
-// });
-const totalPages = computed(() => {
-  return Math.ceil(filteredAllBlogs.value.length / ITEMS_PER_PAGE) || 1;
-});
-
-const validCurrentPage = computed(() => {
-  return Math.min(props.currentPage, totalPages.value);
-});
-
-const paginatedBlogs = computed(() => {
-  const start = (validCurrentPage.value - 1) * ITEMS_PER_PAGE;
-  const end = start + ITEMS_PER_PAGE;
-  return filteredAllBlogs.value.slice(start, end);
+  // If no filters, show paginated results from props.blogsData
+  return props.blogsData || [];
 });
 </script>

@@ -16,9 +16,11 @@ import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page) : 1;
 const allSuperiorCategories = await getAllSuperiorCategories();
+console.log("allSuperiorCategories", allSuperiorCategories);
 const allsubTagsBasedonSuperiorTags = await getAllsubTags();
 const blogsData = await getBlogsByPagination(currentPage, ITEMS_PER_PAGE);
 const allBlogsData = await getallBlogsWithoutCaseStudies();
+console.log("allBlogsData", allBlogsData[0]);
 const suggestionData = await getAllCategories();
 const count = await getTotalCounts();
 
