@@ -10,7 +10,7 @@
     />
     <BlogListingWrapper
       :searchBar="true"
-      :allBlogs="allBlogs"
+      :allBlogs="hasActiveFilters ? filteredBlogs : allBlogs"
       :type="type"
       :totalItems="filteredBlogs.length"
       :currentPage="currentPage"
@@ -80,7 +80,7 @@ const filteredBlogs = computed(() => {
 
 // Determine which blogs to display
 const currentDisplayBlogs = computed(() => {
-  // If there are active filters, show all filtered results
+  // Always show filtered results if filters are active
   if (hasActiveFilters.value) {
     return filteredBlogs.value;
   }

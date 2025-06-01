@@ -105,11 +105,12 @@ const searchResults = ref<Blog[]>([]);
 
 watch(searchItem, async (newValue) => {
   if (newValue.trim()) {
-    // Search in all blogs
+    // Search in either filtered blogs or all blogs depending on if filters are active
+    const sourceBlogs = props.hasActiveFilters ? props.blogsData : props.allBlogs;
     searchResults.value = await handleBlogSearch(
       newValue,
-      props.allBlogs,
-      props.allBlogs
+      sourceBlogs,
+      sourceBlogs
     );
   } else {
     searchResults.value = [];
