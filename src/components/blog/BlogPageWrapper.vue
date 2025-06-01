@@ -17,8 +17,7 @@
       :blogsData="currentDisplayBlogs"
       :sub-type="subType"
       :identifier="identifier"
-      :activeCategory="selectedCategory"
-      :activeTagsStr="selectedTag"
+      :hasActiveFilters="hasActiveFilters"
     />
   </div>
 </template>
@@ -56,11 +55,9 @@ const hasActiveFilters = computed(() => {
   return selectedCategory.value !== 'ALL' || selectedTag.value !== '';
 });
 
-// Filter the blogs based on category and tags
+// Always filter from all blogs when filters are active
 const filteredBlogs = computed(() => {
-  // Start with current page blogs when filters are active, otherwise use all blogs
-  let result = hasActiveFilters.value ? props.blogsData : props.allBlogs;
-  result = result || [];
+  let result = props.allBlogs || [];
 
   if (selectedCategory.value !== 'ALL') {
     result = result.filter(blog => 
@@ -81,13 +78,13 @@ const filteredBlogs = computed(() => {
   return result;
 });
 
-// Determine which blogs to display based on filters and pagination
+// Determine which blogs to display
 const currentDisplayBlogs = computed(() => {
-  // If there are active filters, show filtered results without pagination
+  // If there are active filters, show all filtered results
   if (hasActiveFilters.value) {
     return filteredBlogs.value;
   }
-
+  
   // If no filters, show paginated results from props.blogsData
   return props.blogsData || [];
 });

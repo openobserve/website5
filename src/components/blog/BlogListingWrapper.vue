@@ -93,6 +93,11 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
+  hasActiveFilters: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
 });
 
 const searchItem = ref("");
@@ -119,6 +124,9 @@ const displayedBlogs = computed(() => {
 });
 
 const shouldShowPagination = computed(() => {
-  return props.totalItems > ITEMS_PER_PAGE && !searchItem.value.trim();
+  // Hide pagination if search is active or any other filter is active
+  return props.totalItems > ITEMS_PER_PAGE && 
+         !searchItem.value.trim() && 
+         !props.hasActiveFilters;
 });
 </script>
