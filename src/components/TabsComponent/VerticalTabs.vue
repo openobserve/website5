@@ -5,7 +5,7 @@ import CustomSection from "../core/CustomSection.vue";
 import { Check } from "lucide-vue-next";
 
 const props = defineProps({
-  heading:{
+  heading: {
     type: Object,
     required: true,
   },
@@ -19,6 +19,16 @@ const props = defineProps({
   },
 });
 
+// Static theme classes
+const themes = [
+  'theme-purple',
+  'theme-blue',
+  'theme-green',
+  'theme-red',
+  'theme-blue',
+  'theme-purple'
+];
+
 // Use the first item's title (or index) as key
 const activeIndex = ref(0);
 </script>
@@ -30,7 +40,7 @@ const activeIndex = ref(0);
 
       <div :class="[
         'flex flex-col lg:flex-row gap-8',
-        props?.items?.[activeIndex]?.theme,
+        themes[activeIndex % themes.length] // Cycle through themes
       ]">
         <!-- Left Navigation -->
         <div class="lg:w-1/4">
