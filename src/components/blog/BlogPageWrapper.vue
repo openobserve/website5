@@ -59,9 +59,14 @@ const hasActiveFilters = computed(() => {
 const filteredBlogs = computed(() => {
   let result = props.allBlogs || [];
 
-  if (selectedCategory.value !== 'ALL') {
-    result = result.filter(blog => 
-      blog.category === selectedCategory.value || 
+  // Only filter by category if selectedCategory is not 'ALL' and at least one blog has a category
+  if (
+    selectedCategory.value &&
+    selectedCategory.value !== 'ALL' &&
+    result.some(blog => blog.category)
+  ) {
+    result = result.filter(blog =>
+      blog.category === selectedCategory.value ||
       (blog.category && blog.category.name === selectedCategory.value)
     );
   }
@@ -69,7 +74,7 @@ const filteredBlogs = computed(() => {
   if (selectedTag.value) {
     const activeTags = selectedTag.value.split(',').filter(t => t);
     if (activeTags.length > 0) {
-      result = result.filter(blog => 
+      result = result.filter(blog =>
         blog.tags && blog.tags.some((t: any) => activeTags.includes(t.slug))
       );
     }
@@ -88,4 +93,5 @@ const currentDisplayBlogs = computed(() => {
   // If no filters, show paginated results from props.blogsData
   return props.blogsData || [];
 });
+
 </script>

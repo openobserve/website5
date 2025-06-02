@@ -38,7 +38,7 @@ export async function getResourceBlogsByPagination(page, pageSize) {
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    tags: blog.tags,
     slug: blog.slug,
   }));
 }
@@ -61,13 +61,13 @@ export async function getCategoryDetails(tag) {
 export async function getResourceBlogsByCategory(category) {
   const resourceBlogs = await getAllResourceBlogs();
   return resourceBlogs.filter((blog) =>
-    blog.categories.some((cat) => cat.slug === category)
+    blog.tags.some((cat) => cat.slug === category)
   );
 }
 
 const filterResourceByCategory = (blogs, categorySlug) => {
   return blogs.filter((blog) =>
-    blog.categories.some((cat) => cat.slug === categorySlug)
+    blog.tags.some((cat) => cat.slug === categorySlug)
   );
 };
 
@@ -99,7 +99,7 @@ export async function getResourcesByPaginationAndCategory(
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    tags: blog.tags,
     slug: blog.slug,
   }));
 
@@ -129,7 +129,7 @@ export async function getResourcesByPaginationAndAuthor(
     image: blog.image,
     authors: blog.authors,
     publishDate: blog.publishDate,
-    categories: blog.categories,
+    tags: blog.tags,
     slug: blog.slug,
   }));
 
@@ -148,9 +148,9 @@ export const getAllResourcesLists = async () => {
     image: resource.image,
     slug: resource.slug,
     publishDate: resource.publishDate,
-    categories: resource.categories,
-    authors: resource.authors
-  }))  
+    tags: resource.tags,
+    authors: resource.authors,
+  }));  
 
   return resourcesData
 } 
