@@ -4,6 +4,7 @@ import CustomButton from "./CustomButton.vue";
 import { Check } from "lucide-vue-next";
 import { computed } from "vue";
 import { ChevronRight } from "lucide-vue-next";
+import CustomImage from "./CustomImage.vue";
 
 const props = defineProps({
   card: {
@@ -57,7 +58,9 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
       'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card',
       props?.card?.theme,
     ]">
-      <span v-html="props?.card?.image" />
+      <!-- <span v-html="props?.card?.url" /> -->
+      <CustomImage v-if="props?.card?.image?.url" :src="props?.card?.image?.url"
+        :alt="props?.card?.image?.alternativeText" />
     </div>
 
     <!-- Title -->
@@ -80,7 +83,8 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
 
     <!-- Optional Arrow Link -->
     <div v-if="props?.card?.button" class="mt-auto">
-      <CustomButton size="small" :buttonLink="props?.card?.link" :btn-class="props?.card?.button?.theme || 'bg-primary text-white hover:bg-primary-dark'">
+      <CustomButton size="small" :buttonLink="props?.card?.link"
+        :btn-class="props?.card?.button?.theme || 'bg-primary text-white hover:bg-primary-dark'">
         <span class="flex items-center text-sm">
           {{ props?.card?.button?.text }}
           <ChevronRight class="h-4 w-4 ml-2" />

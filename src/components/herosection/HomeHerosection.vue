@@ -16,14 +16,11 @@ interface HeroData {
     link: string;
   };
   trustedText: string;
-  trustedCompanies: {
-    url: string;
-    alt: string;
-  }[];
+  trustedCompanies: Object;
   video: Video;
 }
 
-defineProps<{ data: HeroData }>();
+const props = defineProps<{ data: HeroData }>();
 </script>
 
 <template>
@@ -33,14 +30,10 @@ defineProps<{ data: HeroData }>();
         <!-- Left Side -->
         <div class="flex flex-col h-full items-start justify-center gap-8">
           <div class="space-y-4 lg:space-y-4">
-            <span
-              class="inline-block px-3 py-1 text-sm font-medium bg-green-400/50 text-white rounded-full mt-2"
-            >
+            <span class="inline-block px-3 py-1 text-sm font-medium bg-green-400/50 text-white rounded-full mt-2">
               {{ data.badge }}
             </span>
-            <h1
-              class="text-3xl font-bold tracking-tight sm:text-5xl text-white leading-tight"
-            >
+            <h1 class="text-3xl font-bold tracking-tight sm:text-5xl text-white leading-tight">
               {{ data.title }}
             </h1>
             <h2 class="text-2xl font-medium text-gray-300 -mt-2">
@@ -52,14 +45,9 @@ defineProps<{ data: HeroData }>();
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 mb-4">
-            <a
-              :href="data.primaryButton.link"
-              target="_blank"
-              class="cursor-pointer"
-            >
+            <a :href="data.primaryButton.link" target="_blank" class="cursor-pointer">
               <button
-                class="bg-[#6b76e2] hover:bg-[#4f5ee8] text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer"
-              >
+                class="bg-[#6b76e2] hover:bg-[#4f5ee8] text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer">
                 {{ data.primaryButton.text }}
               </button>
             </a>
@@ -68,21 +56,14 @@ defineProps<{ data: HeroData }>();
 
         <!-- Right Side (Video Card) -->
         <div class="relative">
-          <div
-            class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg"
-          ></div>
+          <div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg">
+          </div>
           <div class="relative rounded-xl overflow-hidden group cursor-pointer">
             <div class="aspect-video w-full">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/C0GH5Ox8NnY?rel=0"
-                title="YouTube video player"
-                frameborder="0"
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/C0GH5Ox8NnY?rel=0"
+                title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                class="w-full h-full"
-              ></iframe>
+                allowfullscreen class="w-full h-full"></iframe>
             </div>
           </div>
         </div>
@@ -95,12 +76,9 @@ defineProps<{ data: HeroData }>();
         </div>
         <div class="w-full overflow-hidden">
           <div class="flex gap-4 lg:gap-6 items-center animate-scroll">
-            <div
-              v-for="(logo, index) in data.trustedCompanies"
-              :key="index"
-              class="flex-shrink-0 bg-gray-800 rounded-lg p-6 flex items-center justify-center h-12 md:h-16 w-auto"
-            >
-              <img :src="logo.url" :alt="logo.alt" class="h-8 w-auto" />
+            <div v-for="(logo, index) in data.trustedCompanies" :key="index"
+              class="flex-shrink-0 bg-gray-800 rounded-lg p-6 flex items-center justify-center h-12 md:h-16 w-auto">
+              <img :src="logo.Image.url" :alt="logo.Image.alt" class="h-8 w-auto" />
             </div>
           </div>
         </div>

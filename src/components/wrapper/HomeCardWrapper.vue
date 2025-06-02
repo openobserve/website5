@@ -13,7 +13,7 @@ const props = defineProps<{
   items: Array<{
     title: string;
     description: string;
-    image: string;
+    image: Object;
     button?: {
       text?: string;
       link?: string;
@@ -24,6 +24,7 @@ const props = defineProps<{
   }>;
   headingLevel?: number;
 }>();
+
 </script>
 
 <template>
