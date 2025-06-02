@@ -11,7 +11,7 @@
                 alt="icon"
                 class="w-5 md:w-6 h-5 md:h-6"
             /></span>
-            <span class="text-base flex items-center">Docker</span>
+            <span class="text-lg lex items-center text-black">Docker</span>
           </li>
         </ul>
       </div>
@@ -30,10 +30,10 @@
                 <img
                   src="/img/icon/downloading.svg"
                   alt="icon"
-                  class="w-5 md:w-6 h-5 md:h-6"
+                  class="w-5 md:w-6 h-5 md:h-6 "
                 />
               </span>
-              <span class="text-base">Downloads</span>
+              <span class="text-lg font-medium text-black">Downloads</span>
             </div>
             <div
               class="text-md font-normal text-gray-600 mt-2"
@@ -53,7 +53,7 @@
                   class="w-4 md:w-5 h-4 md:h-5"
                 />
               </span>
-              <span class="text-base">High Availability(HA) Deployment</span>
+              <span class="text-lg font-medium text-black">High Availability(HA) Deployment</span>
             </div>
             <div
               class="text-md font-normal text-gray-600 mt-2 v-html-content"

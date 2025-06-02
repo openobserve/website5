@@ -72,7 +72,7 @@ const props = defineProps({
 
           <!-- Mobile/tablet image -->
           <div v-if="Image" class="block lg:hidden w-full max-w-[70%] sm:max-w-[300px] h-auto">
-            <CustomImage class="w-full h-full object-contain opacity-80" :src="Image"
+            <CustomImage class="w-full h-full object-contain opacity-80" :src="Image?.url"
               :alt="title || 'Overlay Image'" />
           </div>
         </div>
