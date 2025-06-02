@@ -30,28 +30,27 @@ const tocItems = tokens
     level: token.depth,
   }));
 const htmlContent = marked.parse(rawContent, { renderer });
-
 ---
 
 <!-- If you're using a layout, wrap this inside a <Layout> component or layout slot. -->
 <Layout>
   <div class="">
-     <CommonHerosection
+    <CommonHerosection
       title={data?.title}
-      description="Last updated: April 17, 2025"
+      description={`Last updated: ${data?.modifiedAt}`}
       align="CENTER"
     />
-      <CustomSection sectionClass="max-w-4xl !pt-12 !pb-0">
+    <CustomSection sectionClass="max-w-4xl !pt-12 !pb-0">
       <div class="bg-light-gray rounded-lg p-6 mb-10">
         <h2 class="text-xl font-semibold text-primary-black mb-4">
           Table of Contents
         </h2>
         <nav class="space-y-2">
           {
-            tocItems.map(({ text, slug }, index) => (
+            tocItems.map(({ text, slug, level }, index) => (
               <a
                 href={`#${slug}`}
-                class="block text-primary-purple hover:underline"
+                class={`block text-primary-purple hover:underline pl-${(level - 1) * 2}`}
               >
                 {text}
               </a>
