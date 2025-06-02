@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <BlogCategoryListing
+  <div>    <BlogCategoryListing
       :categories="categories"
-      :allTags="allTags"
+      :allTags="filteredTags"
       :type="type"
       @update:activeCategory="onCategoryChange"
       @update:activeTag="onTagChange"
       :selectedTag="selectedTag"
+      :currentPageTag="currentTag"
     />
     <BlogListingWrapper
       :searchBar="true"
-      :allBlogs="hasActiveFilters ? filteredBlogs : allBlogs"
+      :allBlogs="allBlogs"
       :type="type"
-      :totalItems="filteredBlogs.length"
+      :totalItems="displayTotalItems"
       :currentPage="currentPage"
       :blogsData="currentDisplayBlogs"
       :sub-type="subType"
       :identifier="identifier"
       :hasActiveFilters="hasActiveFilters"
+      :isSpecialPage="isSpecialPage"
     />
   </div>
 </template>
@@ -37,10 +38,14 @@ const props = defineProps<{
   currentPage: number;
   subType?: string;
   identifier?: string;
+  totalItems: number;
 }>();
 
 const selectedCategory = ref('ALL');
-const selectedTag = ref(props.subType === 'tag' ? props.identifier : '');
+const selectedTag = ref(''); // Always start with no tag selected
+
+// Check if this is a special page (author or tag page)
+const isSpecialPage = computed(() => props.subType === 'author' || props.subType === 'tag');
 
 function onCategoryChange(category: string) {
   selectedCategory.value = category;
@@ -55,43 +60,161 @@ const hasActiveFilters = computed(() => {
   return selectedCategory.value !== 'ALL' || selectedTag.value !== '';
 });
 
-// Always filter from all blogs when filters are active
+interface BlogTag {
+  slug: string;
+  name: string;
+}
+
+interface BlogAuthor {
+  slug: string;
+  name?: string;
+}
+
+interface Blog {
+  authors?: BlogAuthor[];
+  category?: { name: string } | string;
+  tags?: BlogTag[];
+  title?: string;
+  slug?: string;
+  date?: string;
+}
+
+// Helper function to get category name
+function getCategoryName(category: string | { name: string } | undefined): string {
+  if (!category) return '';
+  if (typeof category === 'string') return category;
+  return category.name;
+}
+
+// Filter blogs based on category and tags
 const filteredBlogs = computed(() => {
-  let result = props.allBlogs || [];
+  let result: Blog[] = [];
+  // For author pages
+  if (props.subType === 'author') {
+    if (!hasActiveFilters.value) {
+      // If no filters are active, use the paginated data      result = props.blogsData;
+    } else {      // When filters are active, first get all author's blogs
+      result = props.allBlogs.filter(blog => {        const isAuthorMatch = blog.authors?.some((author: BlogAuthor) => author.slug === props.identifier);
+        return isAuthorMatch;
+      });
+      // Apply category filter if active
+      if (selectedCategory.value !== 'ALL') {
+        result = result.filter(blog => {
+          const rawCategory = blog.category;
+          const categoryName = getCategoryName(blog.category);
+          return categoryName === selectedCategory.value;
+        });
 
-  // Only filter by category if selectedCategory is not 'ALL' and at least one blog has a category
-  if (
-    selectedCategory.value &&
-    selectedCategory.value !== 'ALL' &&
-    result.some(blog => blog.category)
-  ) {
-    result = result.filter(blog =>
-      blog.category === selectedCategory.value ||
-      (blog.category && blog.category.name === selectedCategory.value)
-    );
-  }
+      }
 
-  if (selectedTag.value) {
-    const activeTags = selectedTag.value.split(',').filter(t => t);
-    if (activeTags.length > 0) {
-      result = result.filter(blog =>
-        blog.tags && blog.tags.some((t: any) => activeTags.includes(t.slug))
-      );
+      // Apply tag filter if active
+      if (selectedTag.value) {
+        const tags = selectedTag.value.split(',').filter(Boolean);
+        if (tags.length > 0) {
+          result = result.filter(blog => 
+            blog.tags?.some((tag: BlogTag) => tags.includes(tag.slug))
+          );
+
+        }
+      }
+    }  } else if (props.subType === 'tag') {
+    // For tag pages
+    if (!hasActiveFilters.value) {
+      // Use paginated and sorted data when no filters
+      result = props.blogsData;
+    } else {
+      // First get all blogs with the current tag
+      result = [...props.allBlogs]
+        .filter(blog => blog.tags?.some((tag: BlogTag) => tag.slug === props.identifier))
+        .sort((a, b) => {
+          // Sort by date if available, fallback to title
+          const dateA = new Date(a.date || '').getTime() || 0;
+          const dateB = new Date(b.date || '').getTime() || 0;
+          if (dateA === dateB) {
+            return (a.title || '').localeCompare(b.title || '');
+          }
+          return dateB - dateA; // Latest first
+        });
+      
+      if (selectedCategory.value !== 'ALL') {
+        result = result.filter(blog => {
+          return getCategoryName(blog.category) === selectedCategory.value;
+        });
+      }
+
+      if (selectedTag.value) {
+        const tags = selectedTag.value.split(',').filter(Boolean);
+        if (tags.length > 0) {
+          result = result.filter(blog => 
+            blog.tags?.some((tag: BlogTag) => tags.includes(tag.slug))
+          );
+        }
+      }
+    }
+  } else {
+    // Keep existing blog page logic unchanged
+    result = hasActiveFilters.value ? props.allBlogs : props.blogsData;
+
+    if (selectedCategory.value !== 'ALL') {
+      result = result.filter(blog => {
+        return getCategoryName(blog.category) === selectedCategory.value;
+      });
+    }
+
+    if (selectedTag.value) {
+      const tags = selectedTag.value.split(',').filter(Boolean);
+      if (tags.length > 0) {
+        result = result.filter(blog => 
+          blog.tags?.some((tag: BlogTag) => tags.includes(tag.slug))
+        );
+      }
     }
   }
 
   return result;
 });
 
+// Ensure we're passing the correct total items count
+const displayTotalItems = computed(() => {
+  if (hasActiveFilters.value) {
+    // When filters are active, pass the filtered count
+    return filteredBlogs.value.length;
+  }
+  
+  // For special pages, use their specific total
+  if (props.subType === 'author' || props.subType === 'tag') {
+    return props.totalItems;
+  }
+  
+  // For main blog page, use the total from props
+  return props.totalItems;
+});
+
 // Determine which blogs to display
 const currentDisplayBlogs = computed(() => {
-  // Always show filtered results if filters are active
   if (hasActiveFilters.value) {
+    // When filters are active, show all filtered results
     return filteredBlogs.value;
   }
   
-  // If no filters, show paginated results from props.blogsData
-  return props.blogsData || [];
+  // Otherwise use the paginated blogs from props
+  return props.blogsData;
 });
 
+const currentTag = computed(() => {
+  if (props.subType === 'tag' && props.identifier) {
+    // Find the current tag details from allTags
+    return props.allTags.find(t => t.slug === props.identifier);
+  }
+  return null;
+});
+
+// Filter out the current tag from allTags for tag pages
+const filteredTags = computed(() => {
+  if (props.subType === 'tag' && props.identifier) {
+    // Remove the current tag from the list if it exists
+    return props.allTags.filter(t => t.slug !== props.identifier);
+  }
+  return props.allTags;
+});
 </script>

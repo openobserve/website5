@@ -6,6 +6,7 @@ import {
   getAllsubTags,
   getAllSuperiorCategories,
   getAuthorDetails,
+  getBlogsByAuthor,
   getBlogsByPaginationAndAuthor,
 } from "@/utils/api/blog";
 import Layout from "@/layouts/Layout.astro";
@@ -14,6 +15,7 @@ import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
+import { ITEMS_PER_PAGE } from "@/utils/api/constant";
 
 // 🚀 Step 1: Generate dynamic paths for categories
 export async function getStaticPaths() {
@@ -23,52 +25,42 @@ export async function getStaticPaths() {
   }));
 }
 
-// 🚀 Step 2: Get `categorySlug` from URL
+// 🚀 Step 2: Get params from URL
 const { author } = Astro.params;
-const currentPage = 1;
-const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+const url = new URL(Astro.request.url);
+const pageParam = url.searchParams.get("page");
+const currentPage = pageParam ? parseInt(pageParam) : 1;
+
+// Get author's blogs with pagination
+const { blogs, totalBlogs, allBlogs } = await getBlogsByPaginationAndAuthor(
   currentPage,
-  author
+  author as string
 );
 
 const auth = await getAuthorDetails(author);
 
 // ✅ Fetch other required data
-const suggestionData = await getAllCategories();
 const allSuperiorCategories = await getAllSuperiorCategories();
 const allsubTagsBasedonSuperiorTags = await getAllsubTags();
-const allBlogsData = await getallBlogsWithoutCaseStudies();
+
+// For author page, get all blogs by this author
+const allBlogsData = allBlogs || [];
+
+console.log("Author Blogs Data:", allBlogsData);
 
 const metaObj = {
-  title:
-    "Author | Blog | Open Source Observability Platform for Logs, Metrics, Traces, and More – Your Ultimate Dashboard for Alerts and Insights",
+  title: `${auth?.name} - Author | OpenObserve Blog`,
+  description: `Read blog posts by ${auth?.name} on OpenObserve - Open Source Observability Platform for Logs, Metrics, Traces, and More`,
 };
 ---
 
 <Layout metaObj={metaObj}>
   <CommonHerosection
     title="Blog"
-    description={`Post by the author: ${auth?.name}`}
+    description={`Posts by ${auth?.name}`}
     align="CENTER"
   />
   <CustomSection sectionClass="">
-    <!-- <BlogCategoryListing
-      categories={allSuperiorCategories}
-      allTags={allsubTagsBasedonSuperiorTags}
-      type="blog"
-      client:load
-    />
-
-    <BlogsListingWrapper
-      searchBar
-      allBlogs={allBlogsData}
-      type="blog"
-      blogsData={blogs}
-      totalItems={totalBlogs}
-      client:load
-      subType="author"
-      identifier={author}
-    /> -->
     <BlogPageWrapper
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
@@ -76,6 +68,7 @@ const metaObj = {
       allBlogs={allBlogsData}
       blogsData={blogs}
       currentPage={currentPage}
+      totalItems={totalBlogs}
       client:only="vue"
       subType="author"
       identifier={author}

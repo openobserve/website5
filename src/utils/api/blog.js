@@ -177,8 +177,20 @@ export async function getBlogsByPaginationAndCategory(
     tags: blog.tags,
   }));
 
+  filteredBlogs = filteredBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    category: blog.category,
+    slug: blog.slug,
+    tags: blog.tags,
+  }));
+
   return {
     blogs: paginatedBlogs,
+    allBlogs: filteredBlogs,
     totalBlogs: filteredBlogs.length,
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };
@@ -205,8 +217,20 @@ export async function getBlogsByPaginationAndAuthor(page, authorSlug = null) {
     tags: blog.tags,
   }));
 
+  filteredBlogs = filteredBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    category: blog.category,
+    slug: blog.slug,
+    tags: blog.tags,
+  }));
+
   return {
     blogs: paginatedBlogs,
+    allBlogs: filteredBlogs,
     totalBlogs: filteredBlogs.length,
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };

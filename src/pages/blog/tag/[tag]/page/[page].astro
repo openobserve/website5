@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 const { page, tag } = Astro.params;
 const currentPage = parseInt(page);
 
-const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+const { blogs, totalBlogs, allBlogs } = await getBlogsByPaginationAndCategory(
   currentPage,
   tag
 );
@@ -49,7 +49,7 @@ const suggestionData = await getAllCategories();
 const category = await fetchTagsDetailsForBlog(tag);
 const allSuperiorCategories = await getAllSuperiorCategories();
 const allsubTagsBasedonSuperiorTags = await getAllsubTags();
-const allBlogsData = await getallBlogsWithoutCaseStudies();
+const allBlogsData = allBlogs || [];
 
 const metaObj = {
   title:
@@ -93,6 +93,7 @@ const metaObj = {
       client:only="vue"
       subType="tag"
       identifier={tag}
+      totalItems={totalBlogs}
     />
   </CustomSection>
 </Layout>

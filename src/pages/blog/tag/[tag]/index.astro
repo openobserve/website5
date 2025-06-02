@@ -28,7 +28,7 @@ const { tag } = Astro.params;
 const currentPage = 1;
 const suggestionData = await getAllCategories();
 
-const { blogs, totalBlogs } = await getBlogsByPaginationAndCategory(
+const { blogs, totalBlogs, allBlogs } = await getBlogsByPaginationAndCategory(
   currentPage,
   tag
 );
@@ -41,7 +41,7 @@ const metaObj = {
 const category = await fetchTagsDetailsForBlog(tag);
 const allSuperiorCategories = await getAllSuperiorCategories();
 const allsubTagsBasedonSuperiorTags = await getAllsubTags();
-const allBlogsData = await getallBlogsWithoutCaseStudies();
+const allBlogsData = allBlogs || [];
 ---
 
 <Layout metaObj={metaObj}>
@@ -79,6 +79,7 @@ const allBlogsData = await getallBlogsWithoutCaseStudies();
       client:only="vue"
       subType="tag"
       identifier={tag}
+      totalItems={totalBlogs}
     />
   </CustomSection>
 </Layout>

@@ -37,14 +37,17 @@ export async function getStaticPaths() {
 // Get the current page from Astro props
 const { page, author } = Astro.params;
 const currentPage = parseInt(page);
-const { blogs, totalBlogs } = await getBlogsByPaginationAndAuthor(
+// Get author's blogs with pagination
+const { blogs, totalBlogs, allBlogs } = await getBlogsByPaginationAndAuthor(
   currentPage,
-  author
+  author as string
 );
 const suggestionData = await getAllCategories();
 const allSuperiorCategories = await getAllSuperiorCategories();
 const allsubTagsBasedonSuperiorTags = await getAllsubTags();
-const allBlogsData = await getallBlogsWithoutCaseStudies();
+
+// For author page, get all blogs by this author
+const allBlogsData = allBlogs || [];
 
 const auth = await getAuthorDetails(author);
 
@@ -89,6 +92,7 @@ const metaObj = {
       client:only="vue"
       subType="author"
       identifier={author}
+      totalItems={totalBlogs}
     />
   </CustomSection>
 </Layout>

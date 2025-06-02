@@ -38,7 +38,11 @@
       </template>
     </div>
     <BlogListing :sectionData="displayedBlogs" :type="type" />
-    <template v-if="shouldShowPagination">
+    
+    <div 
+      class="pagination-container"
+      v-if="shouldShowPagination"
+    >
       <BlogPagination
         :totalItems="totalItems"
         :itemsPerPage="ITEMS_PER_PAGE"
@@ -46,9 +50,8 @@
         :type="type"
         :subType="subType"
         :identifier="identifier"
-        client:load
       />
-    </template>
+    </div>
   </div>
 </template>
 
@@ -97,16 +100,45 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  isSpecialPage: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 });
 
 const searchItem = ref("");
 const searchResults = ref<Blog[]>([]);
 
+const totalPages = computed(() => Math.max(1, Math.ceil(props.totalItems / ITEMS_PER_PAGE)));
+
+const shouldShowPagination = computed(() => {
+  
+  // Always hide pagination when searching
+  if (searchItem.value.trim()) {
+    return false;
+  }
+  
+  // Always hide pagination when filters are active
+  if (props.hasActiveFilters) {
+    return false;
+  }
+  
+  // Show pagination if:
+  // 1. We have a valid totalItems count
+  // 2. We have more items than can fit on one page
+  // 3. Either it's a special page (author/tag) OR we're on the main blog page
+  const hasSufficientItems = props.totalItems > ITEMS_PER_PAGE;
+  const isValidPage = props.totalItems > 0 && props.currentPage > 0;
+  
+  return hasSufficientItems && isValidPage;
+});
+
 watch(searchItem, async (newValue) => {
   if (newValue.trim()) {
-    // Search in either filtered blogs or all blogs depending on if filters are active
-    const sourceBlogs = props.hasActiveFilters ? props.blogsData : props.allBlogs;
+    // For special pages or when filters are active, search within current displayed blogs
+    const sourceBlogs = props.hasActiveFilters || props.isSpecialPage ? props.blogsData : props.allBlogs;
     searchResults.value = await handleBlogSearch(
       newValue,
       sourceBlogs,
@@ -119,15 +151,17 @@ watch(searchItem, async (newValue) => {
 
 const displayedBlogs = computed(() => {
   if (searchItem.value.trim()) {
+    // Return search results
     return searchResults.value;
   }
+  // Return the current blog set
   return props.blogsData;
 });
-
-const shouldShowPagination = computed(() => {
-  // Hide pagination if search is active or any other filter is active
-  return props.totalItems > ITEMS_PER_PAGE && 
-         !searchItem.value.trim() && 
-         !props.hasActiveFilters;
-});
 </script>
+
+<style scoped>
+.pagination-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+</style>
