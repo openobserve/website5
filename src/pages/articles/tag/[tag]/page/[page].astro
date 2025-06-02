@@ -44,6 +44,16 @@ const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
 );
 
 const suggestionData = await getAllResourceCategories();
+// Get top 15 tags
+let allTags = suggestionData.slice(0, 15);
+
+// Check if the current slug is a tag, and if it's missing in the top 15
+if (tag && !allTags.find(tag => tag.slug === tag)) {
+  const matchingTag = suggestionData.find(tag => tag.slug === tag);
+  if (matchingTag) {
+    allTags.push(matchingTag); // Ensure selected tag is included
+  }
+}
 const metaObj = {
   title:
     "Tag | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
@@ -80,7 +90,7 @@ const allArticlesData = await getAllResourcesLists();
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      allTags={allTags}
       type="articles"
       allBlogs={allArticlesData}
       blogsData={blogs}
