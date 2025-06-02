@@ -12,6 +12,7 @@ import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import Layout from "@/layouts/Layout.astro";
 import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
+import { getPaginatedTags } from "@/utils/paginateTags";
 
 // Get the current page from URL parameters
 const { page } = Astro.params;
@@ -31,6 +32,9 @@ const metaObj = {
   description:
     "Stay updated with the latest in observability, monitoring best practices, and platform updates. Read technical guides and success stories from the OpenObserve team.",
 };
+
+// Get paginated tags for the current page
+const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
 ---
 
 <Layout metaObj={metaObj}>
@@ -53,7 +57,7 @@ const metaObj = {
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      allTags={paginatedTags}
       type="articles"
       allBlogs={allArticlesData}
       blogsData={blogsData}

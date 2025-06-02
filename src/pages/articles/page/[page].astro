@@ -13,6 +13,7 @@ import BlogsListingWrapper from "@/components/blog/BlogListingWrapper.vue";
 import CustomSection from "@/components/core/CustomSection.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
+import { getPaginatedTags } from "@/utils/paginateTags";
 
 // Generate static paths for pagination
 export async function getStaticPaths() {
@@ -43,6 +44,7 @@ const allArticles = await getAllResourcesLists();
 // Fetch categories for suggestions
 const suggestionData = await getAllResourceCategories();
 const count = await getTotalCounts();
+const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
 
 const metaObj = {
   title: "Articles | OpenObserve Open Source Observability Platform",
@@ -71,7 +73,7 @@ const metaObj = {
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      allTags={paginatedTags}
       type="articles"
       allBlogs={allArticles}
       blogsData={blogsData}
