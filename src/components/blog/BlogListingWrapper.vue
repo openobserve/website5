@@ -2,7 +2,9 @@
   <div class="flex flex-col space-y-4">
     <!-- Full-width search bar -->
     <div class="relative w-full" v-show="searchBar">
-      <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-gray h-5 w-5">
+      <div
+        class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-gray h-5 w-5"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -30,19 +32,24 @@
     <div class="mt-2 ml-3 text-black text-sm">
       <template v-if="searchItem.trim()">
         <p v-show="displayedBlogs.length > 0">
-          Search results for "<span class="font-bold">{{ searchItem }}</span>"
+          Search results for "<span class="font-bold">{{ searchItem }}</span
+          >"
         </p>
         <p v-show="displayedBlogs.length === 0">
-          No results for "<span class="font-bold">{{ searchItem }}</span>"
+          No results for "<span class="font-bold">{{ searchItem }}</span
+          >"
         </p>
       </template>
     </div>
-    <BlogListing :sectionData="displayedBlogs" :type="type" />
-    
-    <div 
-      class="pagination-container"
-      v-if="shouldShowPagination"
+    <!-- Show centered "No result found" if not searching and no blogs -->
+    <div
+      v-if="!searchItem.trim() && displayedBlogs.length === 0"
+      class="flex justify-center items-center min-h-[200px] text-lg text-gray-500"
     >
+      No result found
+    </div>
+    <BlogListing v-else :sectionData="displayedBlogs" :type="type" />
+    <div class="pagination-container" v-if="shouldShowPagination">
       <BlogPagination
         :totalItems="totalItems"
         :itemsPerPage="ITEMS_PER_PAGE"
@@ -99,46 +106,53 @@ const props = defineProps({
   hasActiveFilters: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   isSpecialPage: {
     type: Boolean,
     required: false,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const searchItem = ref("");
 const searchResults = ref<Blog[]>([]);
 
-const totalPages = computed(() => Math.max(1, Math.ceil(props.totalItems / ITEMS_PER_PAGE)));
+const totalPages = computed(() =>
+  Math.max(1, Math.ceil(props.totalItems / ITEMS_PER_PAGE))
+);
 
 const shouldShowPagination = computed(() => {
-  
   // Always hide pagination when searching
   if (searchItem.value.trim()) {
     return false;
   }
-  
+
   // Always hide pagination when filters are active
   if (props.hasActiveFilters) {
     return false;
   }
-  
+
   // Show pagination if:
   // 1. We have a valid totalItems count
   // 2. We have more items than can fit on one page
   // 3. Either it's a special page (author/tag) OR we're on the main blog page
   const hasSufficientItems = props.totalItems > ITEMS_PER_PAGE;
   const isValidPage = props.totalItems > 0 && props.currentPage > 0;
-  
+
   return hasSufficientItems && isValidPage;
 });
 
 watch(searchItem, async (newValue) => {
   if (newValue.trim()) {
-    // For special pages or when filters are active, search within current displayed blogs
-    const sourceBlogs = props.hasActiveFilters || props.isSpecialPage ? props.blogsData : props.allBlogs;
+    // For articles, always search in all blogs
+    // For blogs, use displayed blogs only for special pages or active filters
+    const sourceBlogs =
+      props.type === "articles"
+        ? props.allBlogs
+        : props.hasActiveFilters || props.isSpecialPage
+        ? props.blogsData
+        : props.allBlogs;
     searchResults.value = await handleBlogSearch(
       newValue,
       sourceBlogs,

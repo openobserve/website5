@@ -84,9 +84,9 @@ const allArticlesData = await getAllResourcesLists();
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={paginatedTags}
       type="articles"
-      allBlogs={allArticlesData}
-      blogsData={blogs}
+      allBlogs={allArticlesData}      blogsData={blogs}
       currentPage={currentPage}
+      totalItems={totalBlogs}
       client:only="vue"
       subType="tag"
       identifier={tag}

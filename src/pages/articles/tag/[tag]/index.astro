@@ -27,9 +27,9 @@ const { tag } = Astro.params;
 const currentPage = 1;
 // ✅ Fetch Additional Data
 const suggestionData = await getAllResourceCategories();
-const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
+const paginatedTags = getPaginatedTags(suggestionData, currentPage, tag,15);
 const category = await getCategoryDetails(tag);
-const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
+const { blogs, totalBlogs, allBlogs } = await getResourcesByPaginationAndCategory(
   currentPage,
   tag
 );
@@ -38,7 +38,7 @@ const metaObj = {
     "Tag | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
 };
 
-const allArticlesData = await getAllResourcesLists();
+const allArticlesData = allBlogs || [];
 ---
 
 <Layout metaObj={metaObj}>
@@ -71,9 +71,9 @@ const allArticlesData = await getAllResourcesLists();
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={paginatedTags}
       type="articles"
-      allBlogs={allArticlesData}
-      blogsData={blogs}
+      allBlogs={allArticlesData}      blogsData={blogs}
       currentPage={currentPage}
+      totalItems={totalBlogs}
       client:only="vue"
       subType="tag"
       identifier={tag}

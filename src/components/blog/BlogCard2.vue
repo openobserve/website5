@@ -58,7 +58,7 @@ const tags = computed(() => {
               <a
                 v-for="tag in tags"
                 :key="tag.slug"
-                :href="`/blog/tag/${tag.slug}`"
+                :href="`/${type}/tag/${tag.slug}`"
                 class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"
               >
                 {{ tag.name }}

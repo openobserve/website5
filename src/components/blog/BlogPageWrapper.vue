@@ -1,6 +1,5 @@
-<template>
-  <div>    <BlogCategoryListing
-      :categories="categories"
+<template>  <div>    <BlogCategoryListing
+      :categories="props.type === 'articles' ? [] : categories"
       :allTags="filteredTags"
       :type="type"
       @update:activeCategory="onCategoryChange"
@@ -57,6 +56,11 @@ function onTagChange(tag: string) {
 }
 
 const hasActiveFilters = computed(() => {
+  // For articles, only consider tag filters
+  if (props.type === 'articles') {
+    return selectedTag.value !== '';
+  }
+  // For blogs, consider both category and tag filters
   return selectedCategory.value !== 'ALL' || selectedTag.value !== '';
 });
 
@@ -89,22 +93,25 @@ function getCategoryName(category: string | { name: string } | undefined): strin
 // Filter blogs based on category and tags
 const filteredBlogs = computed(() => {
   let result: Blog[] = [];
+
   // For author pages
   if (props.subType === 'author') {
     if (!hasActiveFilters.value) {
-      // If no filters are active, use the paginated data      result = props.blogsData;
-    } else {      // When filters are active, first get all author's blogs
-      result = props.allBlogs.filter(blog => {        const isAuthorMatch = blog.authors?.some((author: BlogAuthor) => author.slug === props.identifier);
+      // If no filters are active, use the paginated data
+      result = props.blogsData;
+    } else {
+      // When filters are active, first get all author's blogs
+      result = props.allBlogs.filter(blog => {
+        const isAuthorMatch = blog.authors?.some((author: BlogAuthor) => author.slug === props.identifier);
         return isAuthorMatch;
       });
-      // Apply category filter if active
-      if (selectedCategory.value !== 'ALL') {
+      
+      // Only apply category filter for blogs, not articles
+      if (props.type !== 'articles' && selectedCategory.value !== 'ALL') {
         result = result.filter(blog => {
-          const rawCategory = blog.category;
           const categoryName = getCategoryName(blog.category);
           return categoryName === selectedCategory.value;
         });
-
       }
 
       // Apply tag filter if active
@@ -114,16 +121,16 @@ const filteredBlogs = computed(() => {
           result = result.filter(blog => 
             blog.tags?.some((tag: BlogTag) => tags.includes(tag.slug))
           );
-
         }
       }
-    }  } else if (props.subType === 'tag') {
+    }
+  } else if (props.subType === 'tag') {
     // For tag pages
     if (!hasActiveFilters.value) {
       // Use paginated and sorted data when no filters
       result = props.blogsData;
     } else {
-      // First get all blogs with the current tag
+      // First get all blogs/articles with the current tag
       result = [...props.allBlogs]
         .filter(blog => blog.tags?.some((tag: BlogTag) => tag.slug === props.identifier))
         .sort((a, b) => {
@@ -136,7 +143,8 @@ const filteredBlogs = computed(() => {
           return dateB - dateA; // Latest first
         });
       
-      if (selectedCategory.value !== 'ALL') {
+      // Only apply category filter for blogs, not articles
+      if (props.type !== 'articles' && selectedCategory.value !== 'ALL') {
         result = result.filter(blog => {
           return getCategoryName(blog.category) === selectedCategory.value;
         });
@@ -150,12 +158,18 @@ const filteredBlogs = computed(() => {
           );
         }
       }
+    }  } else {
+    // Main listing page logic
+    // For articles, always use allBlogs when filters are active
+    // For blogs, use allBlogs only when category/tag filters are active
+    if (props.type === 'articles') {
+      result = hasActiveFilters.value ? props.allBlogs : props.blogsData;
+    } else {
+      result = hasActiveFilters.value ? props.allBlogs : props.blogsData;
     }
-  } else {
-    // Keep existing blog page logic unchanged
-    result = hasActiveFilters.value ? props.allBlogs : props.blogsData;
 
-    if (selectedCategory.value !== 'ALL') {
+    // Only apply category filter for blogs, not articles
+    if (props.type !== 'articles' && selectedCategory.value !== 'ALL') {
       result = result.filter(blog => {
         return getCategoryName(blog.category) === selectedCategory.value;
       });
@@ -178,15 +192,12 @@ const filteredBlogs = computed(() => {
 const displayTotalItems = computed(() => {
   if (hasActiveFilters.value) {
     // When filters are active, pass the filtered count
+    // This affects pagination visibility in BlogListingWrapper
     return filteredBlogs.value.length;
   }
   
-  // For special pages, use their specific total
-  if (props.subType === 'author' || props.subType === 'tag') {
-    return props.totalItems;
-  }
-  
-  // For main blog page, use the total from props
+  // For special pages (author/tag) and main pages (blog/articles)
+  // use the total from props to ensure proper pagination
   return props.totalItems;
 });
 
@@ -216,5 +227,10 @@ const filteredTags = computed(() => {
     return props.allTags.filter(t => t.slug !== props.identifier);
   }
   return props.allTags;
+});
+
+const shouldShowCategories = computed(() => {
+  // Only show categories for blogs, not for articles
+  return props.type !== 'articles';
 });
 </script>

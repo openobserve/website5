@@ -73,11 +73,11 @@ const metaObj = {
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={paginatedTags}
-      type="articles"
+      allTags={paginatedTags}      type="articles"
       allBlogs={allArticles}
       blogsData={blogsData}
       currentPage={currentPage}
+      totalItems={count.resourceBlogsCount}
       client:only="vue"
     />
   </CustomSection>
