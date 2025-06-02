@@ -19,7 +19,7 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
-  button: {
+  primaryButton: {
     type: Object,
     required: false,
   },
@@ -56,11 +56,11 @@ const titleString = computed(() => {
         </div>
 
         <!-- View All Button -->
-        <div class="mt-12 flex justify-center w-full" v-if="button">
-          <a :href="button?.link" :target="button?.target || '_self'" class="">
-            <button :class="button?.class"
+        <div class="mt-12 flex justify-center w-full" v-if="primaryButton">
+          <a :href="primaryButton?.link" :target="primaryButton?.target || '_self'" class="">
+            <button :class="primaryButton?.theme || 'bg-primary text-primary-foreground'"
               class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer">
-              {{ button.text }}
+              {{ primaryButton.text }}
               <ArrowRight class="ml-2 h-4 w-4" />
             </button>
           </a>

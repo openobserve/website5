@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import CustomImage from './CustomImage.vue';
 
 // Card with left side icon, without shadow and border
 const props = defineProps({
@@ -17,14 +18,14 @@ const headingLevel = computed(() => {
     ? props.headingLevel
     : 3;
 });
-// Dynamically determine component type based on the presence of a link
-const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
+// Dynamically determine component type based on the presence of a cardLink
+const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 </script>
 
 <template>
-  <component :is="dynamicComponent" :href="props?.card?.link" :target="props?.card?.target ? '_blank' : null" :class="[
+  <component :is="dynamicComponent" :href="props?.card?.cardLink" :target="props?.card?.target ? '_blank' : null" :class="[
     'relative flex items-start gap-4 rounded-xl border border-gray-300 shadow-md p-6',
-    props?.card?.link ? 'hover:shadow-xl transition duration-300 ease-in-out' : '',
+    props?.card?.cardLink ? 'hover:shadow-xl transition duration-300 ease-in-out' : '',
     ['left', 'center', 'right'].includes(props.card?.align || 'left')
       ? props?.card?.align === 'center'
         ? 'items-center text-center'
@@ -39,8 +40,10 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
       'bg-card', // Added dark mode support
       props?.card?.theme
     ]">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-        v-html="props?.card?.image" />
+      <CustomImage v-if="props?.card?.image?.url" :src="props?.card?.image?.url"
+        :alt="props?.card?.image?.alternativeText" class="h-6 w-6 object-contain" />
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        v-html="props?.card?.image" /> -->
     </div>
 
     <!-- Text content -->
@@ -55,8 +58,8 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
         {{ props?.card?.description }}
       </p>
     </div>
-    <!-- Top-right Arrow Icon (Visible only if there's a link) -->
-<div v-if="props?.card?.link" class="absolute top-3 md:top-5 right-3 md:right-5">
+    <!-- Top-right Arrow Icon (Visible only if there's a cardLink) -->
+<div v-if="props?.card?.cardLink" class="absolute top-3 md:top-5 right-3 md:right-5">
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
     viewBox="0 0 24 24">
     <path fill="#000000"
