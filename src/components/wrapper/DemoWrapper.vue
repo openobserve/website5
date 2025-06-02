@@ -4,38 +4,34 @@ import CustomSection from "../core/CustomSection.vue";
 import DemoForm from "../forms/DemoForm.vue";
 
 const props = defineProps({
-    title: {
-        type: String,
-        required: true,
-    },
+  title: {
+    type: String,
+    required: true,
+  },
   items: {
     type: Array,
     required: true,
   },
 });
+
 </script>
 
 <template>
-    <CustomSection>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-        <!-- Left: Demo Form -->
-          <DemoForm />
+  <CustomSection>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- Left: Demo Form -->
+      <DemoForm />
 
-        <!-- Right: Why Choose Section -->
-        <div class="flex flex-col bg-white p-3 rounded-md"  style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+      <!-- Right: Why Choose Section -->
+      <div class="flex flex-col bg-white p-3 rounded-md" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
 
-          <h2 class="text-xl md:text-2xl xl:text-3xl  font-semibold text-black text-left">{{ title }}</h2>
-          <div class="mt-6 space-y-6">
-            <CardForDemoWrapper
-              v-for="(card, index) in items"
-              :key="index"
-              :title="card.title"
-              :description="card.description"
-              :icon="card.image"
-              :theme="card.theme"
-            />
-          </div>
+        <h2 class="text-xl md:text-2xl xl:text-3xl  font-semibold text-black text-left">{{ title }}</h2>
+        <div class="mt-6 space-y-6">
+          <CardForDemoWrapper v-for="(card, index) in items" :key="index" :title="card.title"
+            :description="card.description" :icon="card?.image?.url" :altText="card?.image?.alternativeText"
+            :theme="card.theme" />
         </div>
       </div>
-    </CustomSection>
+    </div>
+  </CustomSection>
 </template>

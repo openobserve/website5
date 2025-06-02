@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import CustomImage from './CustomImage.vue';
+
 // Card with left side icon, without shadow and border
 
 const props = defineProps<{
   title: string;
   description: string;
   icon: string;
+  altText?: string;
   align?: string; // Changed from strict union type to string
   theme?: string;
   items?: string[];
@@ -28,8 +31,9 @@ const props = defineProps<{
       'bg-card', // Added dark mode support
       props.theme
     ]">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-        v-html="props.icon" />
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        v-html="props.icon" /> -->
+      <CustomImage v-if="props?.icon" :src="props?.icon" :alt="props?.altText" />
     </div>
 
     <!-- Text content -->
