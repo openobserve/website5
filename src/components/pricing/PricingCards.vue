@@ -48,10 +48,10 @@
       </ul>
 
       <p
-        v-if="item.additionalInfo"
+        v-if="item.bottomDescription"
         class="mt-4 text-sm text-gray-600"
       >
-        {{ item.additionalInfo }}
+        {{ item.bottomDescription }}
       </p>
 
       <a
