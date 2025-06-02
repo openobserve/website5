@@ -12,7 +12,6 @@ const props = defineProps({
     default: '',
   },
 });
-console.log("Header props:", props.navData);
 </script>
 
 

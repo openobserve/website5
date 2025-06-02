@@ -35,7 +35,6 @@ const props = defineProps({
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <!-- Desktop Background -->
-       {{ console.log(bgImageForLaptop) }}
       <div class="hidden lg:block w-full h-full bg-cover bg-no-repeat bg-center"
         :style="{ backgroundImage: `url(${bgImageForLaptop?.url})` }">
       </div>
