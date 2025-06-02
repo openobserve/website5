@@ -1,8 +1,8 @@
 <template>
-  <a :href="`/customer-stories/${item.slug}`" class="w-full border hover:border-primary-purple rounded-lg transistion-colors duration-300 ease-in-out">
+  <a :href="`/customer-stories/${item.slug}`" class="group">
     <div
       :key="item.slug"
-      class="flex flex-col overflow-hidden rounded-lg shadow-md h-full"
+      class="flex flex-col overflow-hidden rounded-lg shadow-md h-full border border-border hover:border-primary-purple transition-colors duration-300"
     >
       <div class="relative h-48 overflow-hidden">
         <CustomBlurImage :image="getImageUrl(item)" :altText="item.title" />
