@@ -22,7 +22,7 @@ const props = defineProps<{
     theme?: string;
     items?: string[];
   }>;
-  headingLevel?: number;
+  headingLevel?: string;
 }>();
 
 </script>
@@ -35,7 +35,7 @@ const props = defineProps<{
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CardWithShadowBorder v-for="(card, index) in props.items" :key="index" :card="{ ...card, align }"
-          :headingLevel="headingLevel" />
+          :headingLevel="props.headingLevel" />
       </div>
     </CustomSection>
   </div>

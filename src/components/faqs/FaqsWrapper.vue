@@ -8,7 +8,7 @@
         gridClass="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 gap-2 mt-5" />
       <SearchBar @search="handleSearch" :key="activeTab" />
 
-      <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions"  :key="activeTab"  />
+      <FaqList v-if="filteredQuestions.length > 0" :faqList="filteredQuestions"  :key="activeTab" headingLevel="H2" />
       <div v-else class="text-center text-gray-500">
         No questions found for your search
       </div>
