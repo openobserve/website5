@@ -157,6 +157,7 @@
 import { ref } from "vue";
 import { useForm, useField, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useSegment } from "@/composables/useSegment";
 
 // Form validation
 const schema = yup.object({
@@ -175,6 +176,9 @@ const { handleSubmit, errors, resetForm, isSubmitting } = useForm<FormData>({
   validationSchema: schema,
 });
 
+// Segment tracking
+const { trackContactFormSubmission } = useSegment();
+
 const status = ref({
   submitted: false,
   error: false,
@@ -184,6 +188,17 @@ const status = ref({
 const onSubmit = handleSubmit(async (values) => {
   status.value = { submitted: false, error: false, message: "" };
   try {
+    // Track contact form submission in Segment
+    await trackContactFormSubmission({
+      firstName: values.fname,
+      lastName: values.lname,
+      email: values.email,
+      phone: values.phone,
+      website: values.website,
+      message: values.message,
+      source: "contact_form",
+    });
+
     const response = await fetch(
       "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
       {
@@ -214,6 +229,7 @@ const onSubmit = handleSubmit(async (values) => {
     }
     resetForm();
   } catch (e) {
+    console.error("Contact form submission error:", e);
     status.value = {
       submitted: false,
       error: true,
