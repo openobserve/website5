@@ -26,6 +26,7 @@
                     v-if="feature.title"
                   >
                     {{ feature.title }}
+                  
                   </h3>
                   <p class="text-gray-600 mb-2" v-if="feature.description">
                     {{ feature.description }}

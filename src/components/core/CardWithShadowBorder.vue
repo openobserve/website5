@@ -16,6 +16,7 @@ const props = defineProps({
     required: false,
   }
 });
+
 // const props = defineProps<{
 //   title: string;
 //   description: string;
@@ -41,6 +42,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
 </script>
 
 <template>
+  {{ console.log(props?.card) }}
   <component :is="dynamicComponent" :href="props?.card?.link" :target="props?.card?.target ? '_blank' : null" :class="[
     'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', props.card?.link
       ? 'hover:shadow-xl transition duration-300 ease-in-out'
