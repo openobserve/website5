@@ -38,7 +38,7 @@
           v-if="showLeftArrow"
           @click="scrollLeft"
           :disabled="isAtStart"
-          class="absolute top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity"
+          class="absolute top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity text-white bg-primary-blue"
           :class="{
             'opacity-50 cursor-not-allowed': isAtStart,
             'cursor-pointer': !isAtStart,
@@ -65,7 +65,7 @@
           v-if="showRightArrow"
           @click="scrollRight"
           :disabled="isAtEnd"
-          class="absolute right-5 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity"
+          class="absolute right-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md transition-opacity text-white bg-primary-blue"
           :class="{
             'opacity-50 cursor-not-allowed': isAtEnd,
             'cursor-pointer': !isAtEnd,
