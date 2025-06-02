@@ -72,13 +72,14 @@ const tags = computed(() => {
           >
             {{ blog?.title }}
           </component>
-          <p class="text-primary-gray mb-3 text-base line-clamp-3">
+          <p class="text-primary-gray mb-3 text-base line-clamp-3 flex-grow">
             {{ blog?.description }}
           </p>
         </div>
+        <div class="flex flex-col items-end w-full mt-auto">
         <div class="w-full h-px bg-gray-200 my-3" v-if="type === 'blog'"></div>
         <div
-          class="flex items-center flex-wrap gap-2 mt-auto w-full"
+          class="flex items-center flex-wrap gap-2 w-full"
           v-if="type === 'blog'"
         >
           <!-- Avatars -->
@@ -121,6 +122,7 @@ const tags = computed(() => {
               blog?.publishDate
             }}</span>
           </div>
+        </div>
         </div>
       </div>
     </div>
