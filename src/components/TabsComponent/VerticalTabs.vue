@@ -3,9 +3,10 @@ import { ref } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { Check } from "lucide-vue-next";
+import CustomImage from "../core/CustomImage.vue";
 
 const props = defineProps({
-  heading:{
+  heading: {
     type: Object,
     required: true,
   },
@@ -54,7 +55,7 @@ const activeIndex = ref(0);
         <!-- Solution Content -->
         <div class="lg:w-3/4" :key="activeIndex">
           <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
-            <div class="grid md:grid-cols-2 gap-0">
+            <div class="grid md:grid-cols-2 gap-0 items-center">
               <!-- Left Column: Content -->
               <div class="p-8">
                 <h2 :class="['text-2xl font-bold mb-4', 'text-tabs-title-text']">
@@ -87,9 +88,11 @@ const activeIndex = ref(0);
               </div>
 
               <!-- Right Column: Image -->
-              <div class="h-full min-h-[300px] bg-gray-100 flex items-center justify-center">
-                <img :src="items?.[activeIndex]?.image?.url || '/placeholder.svg'" :alt="items?.[activeIndex]?.title"
-                  class="object-contain max-w-full max-h-full" />
+              <div class="h-full flex items-center justify-center">
+                <div class="w-full ">
+                  <CustomImage v-if="items?.[activeIndex]?.image?.url" :src="items?.[activeIndex]?.image?.url"
+                    :alt="items?.[activeIndex]?.title" class="object-contain w-full h-auto rounded-lg shadow-sm" />
+                </div>
               </div>
             </div>
           </div>
