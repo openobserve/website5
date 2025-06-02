@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-4">
+  <div class="mx-4 w-full space-y-4">
     <div class="border rounded-lg p-4 space-y-4">
       <h3 class="text-2xl font-bold">{{ data.title }}</h3>
       <div class="flex-grow">
