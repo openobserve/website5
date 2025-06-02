@@ -42,7 +42,7 @@ const props = defineProps({
           </div>
         </div>
         <div class="w-full lg:w-1/2 h-full">
-          <CustomImage :image="image?.url" :altText="image?.altText" cssClass="rounded-lg" />
+          <CustomImage :image="image?.url" :altText="image?.alternativeText" cssClass="rounded-lg" />
         </div>
       </div>
     </CustomSection>
