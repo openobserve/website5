@@ -160,6 +160,12 @@
   @apply border border-input bg-transparent hover:bg-accent hover:text-accent-foreground;
 }
 
+.theme-pricing-button {
+  @apply border bg-primary-purple text-white hover:bg-dark-purple transition-colors duration-300 ease-in-out;
+}
+.theme-pricing-card {
+  @apply border border-primary-purple bg-primary-purple/10
+}
 @layer base {
   :root {
     --background: 0 100% 50%;

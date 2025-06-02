@@ -12,6 +12,7 @@
         item.container ?? '',
         items.length === 1 ? 'lg:col-span-6' : '',
         items.length === 2 ? 'lg:col-span-3' : '',
+        item.cardTheme
       ]"
     >
       <!-- Badge -->
@@ -60,7 +61,7 @@
       >
         <button
           :class="item.primaryButton.theme"
-          class="mt-4 w-full py-2 rounded-md text-sm cursor-pointer"
+          class="mt-4 w-full py-2 rounded-md text-sm cursor-pointer theme-pricing"
         >
           {{ item.primaryButton.text }}
         </button>
@@ -96,6 +97,7 @@ interface PricingItem {
   container?: string;
   badge?: string;
   theme?: string;
+  cardTheme?: string;
 }
 
 defineProps<{
