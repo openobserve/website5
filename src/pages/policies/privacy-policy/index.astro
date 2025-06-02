@@ -37,9 +37,10 @@ const metaObj = {
   description:
     "Learn how we collect, use, and share your personal information. This page details our privacy practices, including how we protect your data and your rights.",
 };
+const metaData = PageData?.data?.seo || metaObj;
 ---
 
-<Layout metaObj={metaObj}>
+<Layout metaObj={metaData}>
   <div class="">
     <CommonHerosection
       title={data?.title}

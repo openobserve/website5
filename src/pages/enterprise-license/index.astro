@@ -30,10 +30,16 @@ const tocItems = tokens
     level: token.depth,
   }));
 const htmlContent = marked.parse(rawContent, { renderer });
+const metaObj = {
+  title: "Enterprise License | OpenObserve",
+  description:
+    "Explore OpenObserve's Enterprise License offerings designed for large-scale deployments. Learn about enterprise features, support, and compliance options tailored for your organization.",
+};
+const metaData = PageData?.data?.seo || metaObj;
 ---
 
 <!-- If you're using a layout, wrap this inside a <Layout> component or layout slot. -->
-<Layout>
+<Layout metaObj={metaData}>
   <div class="">
     <CommonHerosection
       title={data?.title}
