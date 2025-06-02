@@ -27,7 +27,7 @@ const { tag } = Astro.params;
 const currentPage = 1;
 // ✅ Fetch Additional Data
 const suggestionData = await getAllResourceCategories();
-const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
+const paginatedTags = getPaginatedTags(suggestionData, currentPage, tag,15);
 const category = await getCategoryDetails(tag);
 const { blogs, totalBlogs, allBlogs } = await getResourcesByPaginationAndCategory(
   currentPage,
