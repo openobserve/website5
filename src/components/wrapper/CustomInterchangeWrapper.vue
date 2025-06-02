@@ -9,8 +9,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-console.log("CustomInterchangeWrapper items:", props.items);
 </script>
 
 <template>
