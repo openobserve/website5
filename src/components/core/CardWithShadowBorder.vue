@@ -5,38 +5,19 @@ import { Check } from "lucide-vue-next";
 import { computed } from "vue";
 import { ChevronRight } from "lucide-vue-next";
 import CustomImage from "./CustomImage.vue";
-
+import {getValidHeadingTag} from "@/utils/getHeadingTag";
 const props = defineProps({
   card: {
     type: Object,
     required: true,
   },
   headingLevel: {
-    type: Number,
+    type: String,
     required: false,
   }
 });
 
-// const props = defineProps<{
-//   title: string;
-//   description: string;
-//   icon: string;
-//   buttonText?: string;
-//   buttonLink?: string;
-//   align?: string; // Changed from strict union type to string
-//   theme?: string;
-//   items?: string[];
-//   headingLevel?: number; // optional here
-// }>();
-
-// Compute heading level with validation and default to 3
-const headingLevel = computed(() => {
-  return props.headingLevel &&
-    props.headingLevel >= 1 &&
-    props.headingLevel <= 6
-    ? props.headingLevel
-    : 3;
-});
+const headingTag = computed(() => getValidHeadingTag(props.headingLevel));
 // Dynamically determine component type based on the presence of a link
 const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 </script>
@@ -65,7 +46,7 @@ const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
     </div>
 
     <!-- Title -->
-    <component :is="`h${headingLevel}`" class="text-lg font-semibold text-gray-800">
+    <component :is="headingTag" class="text-lg font-semibold text-gray-800">
       {{ props?.card?.title }}
     </component>
 
@@ -84,7 +65,7 @@ const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 
     <!-- Optional button for individual card with Arrow -->
     <div v-if="props?.card?.button" class="mt-auto">
-      <CustomButton size="small" :buttonLink="props?.card?.link"
+      <CustomButton size="small" :buttonLink="props?.card?.button?.link"
         :btn-class="props?.card?.button?.theme || 'bg-primary text-white hover:bg-primary-dark'">
         <span class="flex items-center text-sm">
           {{ props?.card?.button?.text }}

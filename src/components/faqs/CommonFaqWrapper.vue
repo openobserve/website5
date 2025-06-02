@@ -4,7 +4,8 @@ import FaqList from "./FaqList.vue";
 import CustomSection from "../core/CustomSection.vue";
 defineProps({
  heading: {
-  
+    type: Object,
+    required: false,
   },
   faqs: {
     type: Array,
@@ -15,6 +16,7 @@ defineProps({
     default: false,
   },
 });
+
 </script>
 <template>
   <!-- <CustomSection sectionClass="!py-10 !mx-0 !px-0"> -->
@@ -25,7 +27,7 @@ defineProps({
         align="CENTER"
       />
       <div class="pt-8">
-        <FaqList :faqList="faqs" />
+        <FaqList :faqList="faqs" headingLevel="H3" />
       </div>
     </div>
   </div>

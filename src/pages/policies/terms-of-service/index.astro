@@ -38,13 +38,14 @@ const metaObj = {
   description:
     "Learn about our terms and conditions, including account information, intellectual property rights, privacy policies, and more. Read our Terms of Service now.",
 };
+const metaData = PageData?.data?.seo || metaObj;
 ---
 
-<Layout metaObj={metaObj}>
+<Layout metaObj={metaData}>
   <div class="">
     <CommonHerosection
       title={data?.title}
-      description="Last updated: April 17, 2025"
+      description={`Last updated: ${data?.modifiedAt}`}
       align="CENTER"
     />
 
@@ -55,10 +56,10 @@ const metaObj = {
         </h2>
         <nav class="space-y-2">
           {
-            tocItems.map(({ text, slug }, index) => (
+            tocItems.map(({ text, slug, level }, index) => (
               <a
                 href={`#${slug}`}
-                class="block text-primary-purple hover:underline"
+                class={`block text-primary-purple hover:underline pl-${(level - 1) * 2}`}
               >
                 {text}
               </a>

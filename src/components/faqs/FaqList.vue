@@ -10,7 +10,7 @@
         @click="toggle(index)"
         class="w-full text-left font-medium text-lg md:text-xl flex gap-2 justify-between items-start md:items-center hover:text-primary-purple transition-colors cursor-pointer"
       >
-        <h2 class="flex-grow leading-snug">{{ faq.question }}</h2>
+        <component :is="headingTag" class="flex-grow leading-snug">{{ faq.question }}</component>
         <div class="shrink-0 flex items-center">
           <component
             :is="activeIndex === index ? Minus : Plus"
@@ -29,12 +29,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { Minus, Plus } from "lucide-vue-next";
-defineProps({
+import {getValidHeadingTag} from "@/utils/getHeadingTag";
+const props = defineProps({
   faqList: Array,
+  headingLevel : {
+    type: String,
+    required: false
+  }
 });
-
+const headingTag = computed(() => getValidHeadingTag(props.headingLevel));
 const activeIndex = ref(null);
 
 function toggle(index) {
