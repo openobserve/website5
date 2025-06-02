@@ -88,7 +88,7 @@ export async function getAllCategories() {
 
 export async function getAllBlogs() {
   const blogs = await fetchBlogs();
-  return blogs;
+  return blogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 }
 export async function getBlogsBySlug(slug) {
   const blogs = await getAllBlogs();
