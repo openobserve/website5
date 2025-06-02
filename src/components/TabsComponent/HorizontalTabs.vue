@@ -41,8 +41,8 @@
               @click="openPopup(tab.featureImage.url)"
             >
               <img
-                :src="tab.featureImage.url"
-                :alt="tab.featureImage.alternativeText||tab.title"
+                :src="tab?.featureImage?.url"
+                :alt="tab?.featureImage?.alternativeText||tab.title"
                 class="w-full h-auto object-cover rounded-lg"
                 style="image-rendering: auto"
               />
