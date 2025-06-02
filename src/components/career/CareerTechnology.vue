@@ -19,20 +19,15 @@
           >
             <div 
               v-if="feature?.theme" 
-              class="p-2 rounded-full mt-1"
-              :class="{
-                'bg-purple-100': feature.theme === 'theme-purple',
-                'bg-blue-100': feature.theme === 'theme-blue',
-                'bg-green-100': feature.theme === 'theme-green'
-              }"
-            >
-              <Rocket 
-                class="h-5 w-5"
-                :class="{
-                  'text-purple-600': feature.theme === 'theme-purple',
-                  'text-blue-600': feature.theme === 'theme-blue',
-                  'text-green-600': feature.theme === 'theme-green'
-                }" 
+              :class="[
+        'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
+        feature.theme,
+      ]">
+              <CustomImage 
+                v-if="feature?.image?.url" 
+                :src="feature.image?.url" 
+                alt="Feature Image" 
+                class="w-full rounded-lg object-cover"
               />
             </div>
             <div>
@@ -76,10 +71,9 @@
 </template>
 
 <script setup lang="ts">
-import { Rocket } from 'lucide-vue-next';
 import HeadingSection from '@/components/core/HeadingSection.vue';
 import CustomSection from '@/components/core/CustomSection.vue';
-
+import CustomImage from '@/components/core/CustomImage.vue';
 interface Feature {
   id?: number;
   title?: string;
@@ -87,7 +81,7 @@ interface Feature {
   cardLink?: string | null;
   target?: string | null;
   theme?: string | null;
-  image?: any | null;
+  image?: Object;
   button?: any | null;
 }
 
