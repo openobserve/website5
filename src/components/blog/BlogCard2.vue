@@ -55,14 +55,13 @@ const tags = computed(() => {
       <div class="pt-6 px-6 pb-3 flex flex-col justify-start md:items-start flex-grow">
         <div class="min-h-0 flex flex-col gap-2 mb-2">
             <div class="flex gap-2 mb-2.5 flex-wrap">
-              <a
+              <span
                 v-for="tag in tags"
                 :key="tag.slug"
-                :href="`/${type}/tag/${tag.slug}`"
                 class="bg-light-gray text-primary-gray text-base font-medium rounded-full px-3 py-1 capitalize"
               >
                 {{ tag.name }}
-              </a>
+            </span>
             </div>
           <component
             :is="`h${headingLevel}`"
