@@ -22,28 +22,28 @@
   <div class="mb-8 space-y-6">
     <div class="flex flex-wrap items-center gap-3">
       <div class="flex gap-2 items-center">
-        <FilterIcon class="text-primary-gray h-4 w-4" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-gray">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
         <span class="text-sm text-primary-gray">Filter by:</span>
       </div>
       <div class="flex flex-wrap gap-2">
-        <!-- :href="`/${type}/tag/${tag.slug}`" -->
-        <span
+        <button
           v-for="tag in showTagsBasedOnType"
           :key="tag.name"
-          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm  cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
-          @click="setHighlightedTag(tag.slug)"
-          :class="highlightedTag === tag.slug ? 'bg-primary-purple text-white' : ''"
-          >
+          class="px-3 py-1 border border-gray-300 rounded-full font-semibold text-sm cursor-pointer hover:bg-primary-purple hover:text-white transition-colors capitalize"
+          @click="toggleTag(tag.slug)"
+          :class="selectedTags.includes(tag.slug) ? 'bg-primary-purple text-white' : ''"
+        >
           {{ tag.name }}
-        </span>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { FilterIcon } from "lucide-vue-next";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 
 const props = defineProps<{
   categories: {
@@ -58,50 +58,61 @@ const props = defineProps<{
     slug: string;
   }[];
   type: "blog" | "articles";
-  selectedTag: string
+  selectedTag: string;
 }>();
 
 const activeCategory = ref("ALL");
-const highlightedTag = ref(props.selectedTag ?? '');
+const selectedTags = ref<string[]>([]);
+
+// Initialize selectedTags with selectedTag if provided
+watch(() => props.selectedTag, (newTag) => {
+  if (newTag) {
+    selectedTags.value = newTag.split(',').filter(t => t);
+  } else {
+    selectedTags.value = [];
+  }
+}, { immediate: true });
+
 const categoriesWithAll = computed(() => [
-  { name: "ALL"},
-  ...props.categories,
+  { name: "ALL" },
+  ...(props.categories || []),
 ]);
+
 function setActiveCategory(category: string) {
   activeCategory.value = category;
-  highlightedTag.value = '';
-  // Emit event to parent
+  selectedTags.value = [];
   emit('update:activeCategory', category);
+  emit('update:activeTag', '');
 }
 
-function setHighlightedTag(tag: string) {
-  highlightedTag.value = tag;
-  // Emit event to parent
-  emit('update:activeTag', tag);
+function toggleTag(tag: string) {
+  const index = selectedTags.value.indexOf(tag);
+  if (index === -1) {
+    selectedTags.value.push(tag);
+  } else {
+    selectedTags.value.splice(index, 1);
+  }
+  emit('update:activeTag', selectedTags.value.join(','));
 }
 
-// Add defineEmits for event emission
 const emit = defineEmits(['update:activeCategory', 'update:activeTag']);
-
 
 const filtersubTagsBasedonSuperiorTag = computed(() => {
   if (activeCategory.value === "ALL") {
-    return props.allTags;
+    return props.allTags || [];
   }
 
-  const matchedCategory = props.categories.find(
+  const matchedCategory = props.categories?.find(
     (category) => category.name === activeCategory.value
   );
 
-  return matchedCategory?.tags;
-  
+  return matchedCategory?.tags || [];
 });
 
 const showTagsBasedOnType = computed(() => {
   if (props.type === "articles") {
-    return props.allTags;
+    return props.allTags || [];
   }
-  return filtersubTagsBasedonSuperiorTag.value;
+  return filtersubTagsBasedonSuperiorTag.value || [];
 });
-
 </script>
