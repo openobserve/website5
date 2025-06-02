@@ -11,6 +11,7 @@ import CustomSection from "@/components/core/CustomSection.vue";
 import BlogCategoryListing from "@/components/blog/BlogCategoryListing.vue";
 import CommonHerosection from "@/components/herosection/CommonHeroSection.vue";
 import BlogPageWrapper from "@/components/blog/BlogPageWrapper.vue";
+import { getPaginatedTags } from "@/utils/paginateTags";
 
 // 🚀 Fetch All Categories and Blogs
 export async function getStaticPaths() {
@@ -26,13 +27,8 @@ const { tag } = Astro.params;
 const currentPage = 1;
 // ✅ Fetch Additional Data
 const suggestionData = await getAllResourceCategories();
-// Get top 15 tags
-let allTags = suggestionData.slice(0, 15);
+const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
 const category = await getCategoryDetails(tag);
-// Check if the current slug is a tag, and if it's missing in the top 15
-if (tag && !allTags.find((tag) => tag.slug === tag)) {
-    allTags.push(category); // Ensure selected tag is included
-}
 const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
   currentPage,
   tag
@@ -73,7 +69,7 @@ const allArticlesData = await getAllResourcesLists();
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={allTags}
+      allTags={paginatedTags}
       type="articles"
       allBlogs={allArticlesData}
       blogsData={blogs}
