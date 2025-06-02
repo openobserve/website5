@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import navData from "@/content/navbar.json";
+// import navData from "@/content/navbar.json";
 // import FooterData from "@/content/footer.json";
 import Footer from "@/components/footer/Footer.vue";
 import fetchApi from "../utils/strapi";
@@ -12,6 +12,11 @@ const { metaObj } = Astro.props;
 
 const FooterData = await fetchApi({
   endpoint: "api/footer",
+  query: { pLevel: "4", status: "draft" },
+});
+
+const navData = await fetchApi({
+  endpoint: "api/navbar",
   query: { pLevel: "4", status: "draft" },
 });
 

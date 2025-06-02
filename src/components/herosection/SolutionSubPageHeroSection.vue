@@ -15,12 +15,12 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  bgImageforLaptop: {
+  bgImageForLaptop: {
     type: String,
     required: true,
   },
-  bgImageforMobile: {
-    type: String,
+  bgImageForMobile: {
+    type: Object,
     required: true,
   },
   Image: {
@@ -36,12 +36,12 @@ const props = defineProps({
     <div class="absolute inset-0 z-0">
       <!-- Desktop Background -->
       <div class="hidden lg:block w-full h-full bg-cover bg-no-repeat bg-center"
-        :style="{ backgroundImage: `url(${bgImageforLaptop})` }">
+        :style="{ backgroundImage: `url(${bgImageForLaptop?.url})` }">
       </div>
 
       <!-- Mobile Background -->
-      <div v-if="bgImageforMobile" class="lg:hidden w-full h-full bg-cover bg-center"
-        :style="{ backgroundImage: `url(${bgImageforMobile})` }"></div>
+      <div v-if="bgImageForMobile" class="lg:hidden w-full h-full bg-cover bg-center"
+        :style="{ backgroundImage: `url(${bgImageForMobile?.url})` }"></div>
     </div>
 
     <!-- Content Container -->

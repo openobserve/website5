@@ -9,7 +9,7 @@
             class="block hover:text-black"
             :target="item.target || '_self'"
           >
-            {{ item.title }}
+            {{ item.text }}
           </a>
         </li>
       </ul>

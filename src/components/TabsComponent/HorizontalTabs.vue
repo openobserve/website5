@@ -26,6 +26,7 @@
                     v-if="feature.title"
                   >
                     {{ feature.title }}
+                  
                   </h3>
                   <p class="text-gray-600 mb-2" v-if="feature.description">
                     {{ feature.description }}
@@ -40,8 +41,8 @@
               @click="openPopup(tab.featureImage.url)"
             >
               <img
-                :src="tab.featureImage.url"
-                :alt="tab.featureImage.alternativeText||tab.title"
+                :src="tab?.featureImage?.url"
+                :alt="tab?.featureImage?.alternativeText||tab.title"
                 class="w-full h-auto object-cover rounded-lg"
                 style="image-rendering: auto"
               />
