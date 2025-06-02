@@ -25,7 +25,6 @@ const props = defineProps<{
   headingLevel?: number;
 }>();
 
-console.log(props.items)
 </script>
 
 <template>
