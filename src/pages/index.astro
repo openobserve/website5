@@ -4,7 +4,7 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import fetchApi from "@/utils/strapi";
 const PageData = await fetchApi({
   endpoint: "api/homepage",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "5", status: "draft" },
 });
 const data = PageData?.data?.body || {};
 const metaData = PageData?.data?.seo || {};
