@@ -24,6 +24,7 @@ const blogsData = await getResourceBlogsByPagination(
 );
 const allArticlesData = await getAllResourcesLists();
 const suggestionData = await getAllResourceCategories();
+
 const count = await getTotalCounts();
 const metaObj = {
   title: "Articles | OpenObserve Open Source Observability Platform",

@@ -82,7 +82,7 @@ export async function getAllCategories() {
       name: cat.name,
       slug: cat.slug,
     };
-  });
+  }).sort((a, b) => a.order - b.order);
   return categories;
 }
 

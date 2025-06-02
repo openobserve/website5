@@ -26,6 +26,13 @@ const { tag } = Astro.params;
 const currentPage = 1;
 // ✅ Fetch Additional Data
 const suggestionData = await getAllResourceCategories();
+// Get top 15 tags
+let allTags = suggestionData.slice(0, 15);
+const category = await getCategoryDetails(tag);
+// Check if the current slug is a tag, and if it's missing in the top 15
+if (tag && !allTags.find((tag) => tag.slug === tag)) {
+    allTags.push(category); // Ensure selected tag is included
+}
 const { blogs, totalBlogs } = await getResourcesByPaginationAndCategory(
   currentPage,
   tag
@@ -35,7 +42,6 @@ const metaObj = {
     "Tag | Articles | Open Source Observability Platform for Logs, Metrics, Traces, and More - Your Ultimate Dashboard for Alerts and Insights",
 };
 
-const category = await getCategoryDetails(tag);
 const allArticlesData = await getAllResourcesLists();
 ---
 
@@ -67,7 +73,7 @@ const allArticlesData = await getAllResourcesLists();
     /> -->
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
-      allTags={suggestionData.slice(0, Math.min(15, suggestionData.length))}
+      allTags={allTags}
       type="articles"
       allBlogs={allArticlesData}
       blogsData={blogs}

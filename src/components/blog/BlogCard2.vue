@@ -23,9 +23,13 @@ const getImageUrl = ({ image }: Blog) =>
   image?.formats?.small?.url ??
   image?.url ??
   "";
-const tags = computed(() =>
-  props.type === "blog" ? props.blog.tags : props.blog.categories?.slice(0, 2)
-);
+
+const tags = computed(() => {
+  return props?.type === "blog"
+    ? props.blog?.tags?.slice(0, 3) || []
+      : props.blog.tags?.slice(0, 2) || [];
+      
+});
 </script>
 
 <template>
