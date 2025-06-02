@@ -65,7 +65,7 @@ const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 
     <!-- Optional button for individual card with Arrow -->
     <div v-if="props?.card?.button" class="mt-auto">
-      <CustomButton size="small" :buttonLink="props?.card?.link"
+      <CustomButton size="small" :buttonLink="props?.card?.button?.link"
         :btn-class="props?.card?.button?.theme || 'bg-primary text-white hover:bg-primary-dark'">
         <span class="flex items-center text-sm">
           {{ props?.card?.button?.text }}
