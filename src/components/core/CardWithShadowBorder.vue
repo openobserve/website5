@@ -38,12 +38,12 @@ const headingLevel = computed(() => {
     : 3;
 });
 // Dynamically determine component type based on the presence of a link
-const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
+const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 </script>
 
 <template>
-  <component :is="dynamicComponent" :href="props?.card?.link" :target="props?.card?.target ? '_blank' : null" :class="[
-    'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', props.card?.link
+  <component :is="dynamicComponent" :href="props?.card?.cardLink" :target="props?.card?.target ? '_blank' : null" :class="[
+    'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', props.card?.cardLink
       ? 'hover:shadow-xl transition duration-300 ease-in-out'
       : '',
     ['LEFT', 'CENTER', 'RIGHT'].includes(props?.card?.align || 'LEFT')
@@ -82,7 +82,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
       </li>
     </ul>
 
-    <!-- Optional Arrow Link -->
+    <!-- Optional button for individual card with Arrow -->
     <div v-if="props?.card?.button" class="mt-auto">
       <CustomButton size="small" :buttonLink="props?.card?.link"
         :btn-class="props?.card?.button?.theme || 'bg-primary text-white hover:bg-primary-dark'">
@@ -93,7 +93,7 @@ const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
       </CustomButton>
     </div>
     <!-- Top-right Arrow Icon (Visible only if there's a link) -->
-    <div v-if="props?.card?.link" class="absolute top-3 md:top-5 right-3 md:right-5">
+    <div v-if="props?.card?.cardLink" class="absolute top-3 md:top-5 right-3 md:right-5">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
         <path fill="#000000"
           d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
