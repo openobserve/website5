@@ -24,6 +24,7 @@ const props = defineProps<{
   }>;
   headingLevel?: number;
 }>();
+
 </script>
 
 <template>
