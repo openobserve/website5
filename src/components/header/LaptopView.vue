@@ -55,8 +55,8 @@
             class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4 font-semibold text-gray-600 text-sm"
           >
             <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
-              <li v-for="(item, index) in items.platform.items" :key="index" class="">
-                <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.title }}</a>
+              <li v-for="(item, index) in items.platformData" :key="index" class="">
+                <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.text }}</a>
               </li>
             </ul>
           </div>
@@ -72,8 +72,8 @@
               <!-- <h4 class="text-xl font-bold">Use Case</h4> -->
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4 font-semibold text-gray-600 text-sm">
-                  <li v-for="(item, index) in items.solutions.useCases" :key="index">
-                    <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.title }}</a>
+                  <li v-for="(item, index) in items.solutionData" :key="index">
+                    <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.text }}</a>
                   </li>
                 </ul>
               </div>
@@ -89,8 +89,8 @@
           <div class="flex flex-row space-x-14">
             <div>
               <ul class="flex flex-col space-y-4 font-semibold text-gray-600 text-sm">
-                <li v-for="(item, index) in items.resources.items" :key="index" class="w-full">
-                  <a :href="item.link" class="w-full block hover:text-black" :target="item.target">{{ item.title }}</a>
+                <li v-for="(item, index) in items.resoucesData" :key="index" class="w-full">
+                  <a :href="item.link" class="w-full block hover:text-black" :target="item.target">{{ item.text }}</a>
                 </li>
               </ul>
             </div>
@@ -126,7 +126,6 @@ defineProps({
     required: true,
   },
 });
-
 const isPlatformMenuOpen = ref(false);
 const isSolutionMenuOpen = ref(false);
 const isResourcesMenuOpen = ref(false);

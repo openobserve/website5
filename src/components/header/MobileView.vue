@@ -138,15 +138,15 @@ const props = defineProps({
   required: true,
 });
 const navHeading = [
-  { title: "Platform", menus: props.items.platform.items, link: "/platform" },
+  { title: "Platform", menus: props.items.platformData, link: "/platform" },
   {
     title: "Solutions",
-    menus: props.items.solutions.useCases,
+    menus: props.items.solutionData,
     link: "/solutions",
   },
   {
     title: "Resources",
-    menus: props.items.resources.items,
+    menus: props.items.resoucesData,
     link: "/resources",
   },
 ];
@@ -169,6 +169,7 @@ const onMenuClick = () => {
  * @param {string} itemTitle - The title of the menu item.
  */
 const onSubMenuClick = (itemTitle) => {
+
   activeSubMenu.value = activeSubMenu.value === itemTitle ? null : itemTitle;
 };
 
