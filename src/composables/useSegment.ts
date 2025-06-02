@@ -67,6 +67,14 @@ let anonymousId: string | null = null;
 const getAnonymousId = (): string => {
   if (anonymousId) return anonymousId;
 
+  // Check if we're in a browser environment
+  if (typeof window === "undefined" || typeof localStorage === "undefined") {
+    // Generate a temporary ID for SSR
+    anonymousId =
+      "anon_" + Math.random().toString(36).substr(2, 9) + "_" + Date.now();
+    return anonymousId;
+  }
+
   // Try to get from localStorage first
   const stored = localStorage.getItem("segment_anonymous_id");
   if (stored) {
@@ -127,6 +135,12 @@ const initializeSegment = async (): Promise<void> => {
     return;
   }
 
+  // Skip initialization during SSR
+  if (typeof window === "undefined") {
+    console.log("Segment: Skipping initialization during SSR");
+    return;
+  }
+
   const config = getSegmentConfig();
 
   if (!config.proxyUrl) {
@@ -154,8 +168,12 @@ const initializeSegment = async (): Promise<void> => {
 
 // Composable function
 export const useSegment = () => {
-  // Initialize on first use if not already done
-  if (!isInitialized.value && !isLoading.value) {
+  // Initialize on first use if not already done (only in browser)
+  if (
+    typeof window !== "undefined" &&
+    !isInitialized.value &&
+    !isLoading.value
+  ) {
     initializeSegment();
   }
 
@@ -165,6 +183,12 @@ export const useSegment = () => {
     data?: TrackEventData,
     userId?: string
   ): Promise<void> => {
+    // Skip if not in browser environment
+    if (typeof window === "undefined") {
+      console.log("Segment: Skipping track during SSR");
+      return;
+    }
+
     try {
       const message: SegmentTrackMessage = {
         user: userId ? { userId } : { anonymousId: getAnonymousId() },
@@ -193,6 +217,12 @@ export const useSegment = () => {
     userId: string,
     traits?: IdentifyTraits
   ): Promise<void> => {
+    // Skip if not in browser environment
+    if (typeof window === "undefined") {
+      console.log("Segment: Skipping identify during SSR");
+      return;
+    }
+
     try {
       // Transform traits to match expected format
       const transformedTraits: any = {};
