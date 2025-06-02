@@ -103,8 +103,19 @@ export async function getResourcesByPaginationAndCategory(
     slug: blog.slug,
   }));
 
+  filteredBlogs = filteredBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    tags: blog.tags,
+    slug: blog.slug,
+  }));
+
   return {
     blogs: paginatedBlogs,
+    allBlogs: filteredBlogs,
     totalBlogs: filteredBlogs.length,
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };
@@ -133,8 +144,19 @@ export async function getResourcesByPaginationAndAuthor(
     slug: blog.slug,
   }));
 
+  filteredBlogs = filteredBlogs.map((blog) => ({
+    title: blog.title,
+    description: blog.description,
+    image: blog.image,
+    authors: blog.authors,
+    publishDate: blog.publishDate,
+    tags: blog.tags,
+    slug: blog.slug,
+  }));
+
   return {
     blogs: paginatedBlogs,
+    allBlogs: filteredBlogs,
     totalBlogs: filteredBlogs.length,
     totalPages: Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE),
   };

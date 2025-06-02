@@ -137,8 +137,11 @@ const shouldShowPagination = computed(() => {
 
 watch(searchItem, async (newValue) => {
   if (newValue.trim()) {
-    // For special pages or when filters are active, search within current displayed blogs
-    const sourceBlogs = props.hasActiveFilters || props.isSpecialPage ? props.blogsData : props.allBlogs;
+    // For articles, always search in all blogs
+    // For blogs, use displayed blogs only for special pages or active filters
+    const sourceBlogs = props.type === 'articles' 
+      ? props.allBlogs
+      : (props.hasActiveFilters || props.isSpecialPage ? props.blogsData : props.allBlogs);
     searchResults.value = await handleBlogSearch(
       newValue,
       sourceBlogs,

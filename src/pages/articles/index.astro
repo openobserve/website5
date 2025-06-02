@@ -58,10 +58,10 @@ const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
     <BlogPageWrapper
       categories={suggestionData.slice(0, Math.min(5, suggestionData.length))}
       allTags={paginatedTags}
-      type="articles"
-      allBlogs={allArticlesData}
+      type="articles"      allBlogs={allArticlesData}
       blogsData={blogsData}
       currentPage={currentPage}
+      totalItems={count.resourceBlogsCount}
       client:only="vue"
     />
   </CustomSection>

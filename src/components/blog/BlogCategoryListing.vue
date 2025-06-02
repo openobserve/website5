@@ -1,6 +1,5 @@
-<template>
-  <!-- Category Tabs -->
-  <div class="border-b border-border mb-8" v-show="type === 'blog'">
+<template>  <!-- Category Tabs -->
+  <div class="border-b border-border mb-8" v-show="categories.length > 0">
     <div class="flex overflow-x-auto scrollbar-hide space-x-1 sm:space-x-2" >
       <button
         v-for="category in categoriesWithAll"
