@@ -10,7 +10,6 @@ const props = defineProps({
   },
 });
 
-console.log("CustomInterchangeWrapper items:", props.items);
 </script>
 
 <template>

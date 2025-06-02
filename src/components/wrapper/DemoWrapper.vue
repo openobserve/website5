@@ -14,7 +14,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.items)
 </script>
 
 <template>
@@ -29,7 +28,8 @@ console.log(props.items)
         <h2 class="text-xl md:text-2xl xl:text-3xl  font-semibold text-black text-left">{{ title }}</h2>
         <div class="mt-6 space-y-6">
           <CardForDemoWrapper v-for="(card, index) in items" :key="index" :title="card.title"
-            :description="card.description" :icon="card?.image?.url" :altText="card?.image?.alternativeText" :theme="card.theme" />
+            :description="card.description" :icon="card?.image?.url" :altText="card?.image?.alternativeText"
+            :theme="card.theme" />
         </div>
       </div>
     </div>
