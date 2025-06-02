@@ -39,7 +39,6 @@ const headingLevel = computed(() => {
 });
 // Dynamically determine component type based on the presence of a link
 const dynamicComponent = computed(() => (props?.card?.link ? "a" : "div"));
-console.log(props?.card?.image?.url, props?.card?.image?.alternativeText)
 </script>
 
 <template>
