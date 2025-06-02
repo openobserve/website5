@@ -38,7 +38,7 @@
           <div class="w-full lg:w-1/2">
             <div
               class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in"
-              @click="openPopup(tab.featureImage.url)"
+              @click="openPopup(tab.featureImage?.url)"
             >
               <img
                 :src="tab?.featureImage?.url"

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // without shadow, border and background color 
 
-
+import CustomImage from "./CustomImage.vue";
 import CustomButton from "./CustomButton.vue";
 import { Check } from 'lucide-vue-next';
 import { computed } from 'vue';
@@ -9,7 +9,7 @@ import { computed } from 'vue';
 const props = defineProps<{
   title: string;
   description: string;
-  icon: string;
+  icon: any;
   buttonText?: string;
   buttonLink?: string;
   align?: 'left' | 'center' | 'right';
@@ -38,8 +38,8 @@ const headingLevel = computed(() => {
       'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
       props.theme
     ]">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-        v-html="props.icon" />
+      <CustomImage v-if="props?.icon?.url" :src="props?.icon?.url"
+        :alt="props?.icon?.alternativeText" />
     </div>
 
     <!-- Title -->
