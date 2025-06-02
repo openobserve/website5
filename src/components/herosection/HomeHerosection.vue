@@ -16,7 +16,7 @@ declare global {
 interface TrustedCompany {
   Image: {
     url: string;
-    alt: string;
+    alternativeText: string;
   };
 }
 
@@ -170,7 +170,7 @@ onMounted(() => {
             >
               <img
                 :src="logo.Image.url"
-                :alt="logo.Image.alt"
+                :alt="logo.Image.alternativeText || 'Trusted Company Logo'"
                 class="h-8 w-auto"
               />
             </div>

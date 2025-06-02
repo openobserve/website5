@@ -53,8 +53,7 @@ const tags = computed(() => {
         </div>
       </div>
       <div class="pt-6 px-6 pb-3 flex flex-col justify-start md:items-start flex-grow">
-        <div class="min-h-0 flex flex-wrap gap-2 mb-2">
-          <div class="flex-grow">
+        <div class="min-h-0 flex flex-col gap-2 mb-2">
             <div class="flex gap-2 mb-2.5 flex-wrap">
               <a
                 v-for="tag in tags"
@@ -65,7 +64,6 @@ const tags = computed(() => {
                 {{ tag.name }}
               </a>
             </div>
-          </div>
           <component
             :is="`h${headingLevel}`"
             class="text-lg font-semibold flex-grow mb-2"
