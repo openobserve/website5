@@ -4,7 +4,6 @@
     <div>
       <ul class="grid grid-cols-1 gap-2 font-semibold text-gray-600 text-base">
         <li v-for="(item, index) in items" :key="index">
-          {{ console.log(item) }}
           <a
             :href="item.link.startsWith('/') ? item.link : '/' + item.link"
             class="block hover:text-black"
