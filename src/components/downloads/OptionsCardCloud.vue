@@ -9,7 +9,7 @@
       </li>
     </ul>
     <a :href="data.primaryButton.link" :target="data.primaryButton.target">
-      <button class="bg-primary-purple text-white w-full px-4 py-2 rounded-md">
+      <button class="bg-primary-purple hover:bg-dark-purple text-white w-full px-4 py-2 rounded-md">
         {{ data.primaryButton.text }}
       </button>
     </a>
