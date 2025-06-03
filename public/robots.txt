@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://website-staging.zinc.dev//sitemap-index.xml
+Sitemap: https://website-staging.zinc.dev/sitemap-index.xml
