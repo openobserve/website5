@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import ImagePopup from '@/components/core/ImagePopup.vue' 
@@ -27,7 +27,23 @@ const popupImageSrc = ref("")
 function openPopup(src) {
   popupImageSrc.value = src
   showPopup.value = true
+  window.addEventListener("keydown", handleKeydown)
 }
+
+const closeDialog = () => {
+  showPopup.value = false;
+  window.removeEventListener("keydown", handleKeydown);
+};
+
+// Handle Escape key press
+const handleKeydown = (event) => {
+  if (event.key === "Escape") {
+    closeDialog();
+  }
+};
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 let interval = null;
 
 // Function to move to the next tab

@@ -55,14 +55,14 @@
   <ImagePopup
     :src="popupImageSrc"
     :visible="showPopup"
-    @close="showPopup = false"
+     @close="closeDialog"
   />
 </template>
 
 <script setup>
 import { CheckCircle } from "lucide-vue-next";
 import ImagePopup from "@/components/core/ImagePopup.vue";
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 defineProps({
   tabs: {
     type: Array,
@@ -80,7 +80,22 @@ const popupImageSrc = ref("");
 function openPopup(src) {
   popupImageSrc.value = src;
   showPopup.value = true;
+  window.addEventListener("keydown", handleKeydown);
 }
+const closeDialog = () => {
+  showPopup.value = false;
+  window.removeEventListener("keydown", handleKeydown);
+};
+
+// Handle Escape key press
+const handleKeydown = (event) => {
+  if (event.key === "Escape") {
+    closeDialog();
+  }
+};
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 </script>
 
 <style scoped>
