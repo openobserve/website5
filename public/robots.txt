@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://openobserve.ai/sitemap-index.xml
+Sitemap: https://o2-staging-website.pages.dev/sitemap-index.xml
