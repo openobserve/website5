@@ -16,6 +16,11 @@ const props = defineProps({
     required: false,
     default: "",
   },
+  loading :{
+    type: String,
+    required: false,
+    default: "lazy",
+  }
 });
 
 
@@ -23,6 +28,6 @@ const props = defineProps({
 
 <template>
   <img :src="image?.url || image || '/img/default_project_image.png'" :alt="altText || 'Default Image'"
-    :class="cssClass" loading="lazy" />
+    :class="cssClass" :loading="loading" />
 </template>
 
