@@ -7,7 +7,7 @@ import { marked } from "marked";
 import { slugify } from "@/utils/slugify";
 const PageData = await fetchApi({
   endpoint: "api/enterprise-license",
-  query: { pLevel: "2", status: "draft" },
+  query: { pLevel: "2" },
 });
 const data = PageData?.data || {};
 const rawContent = data?.content || ""; // Ensure this is a string

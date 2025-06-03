@@ -7,7 +7,7 @@ import fetchApi from "@/utils/strapi";
 
 const PageData = await fetchApi({
   endpoint: "api/career-page",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4" },
 });
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
