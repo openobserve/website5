@@ -100,12 +100,12 @@ const { class: sectionClass } = Astro.props;
             name: "cookieconsent_status",
             expires: 365,
           },
-          revokable: false,
+          revokable: true,
+          // revokeBtn: false,
           showLink: false,
           law: {
-            regionalLaw: false,
+            regionalLaw: false, // Disable regional law
           },
-
           onPopupOpen: function () {
             const popup = document.querySelector(".cc-window");
             if (!popup || popup.querySelector(".custom-close-btn")) return;
@@ -130,7 +130,6 @@ const { class: sectionClass } = Astro.props;
               cursor: "pointer",
               zIndex: "1000",
             });
-
             closeBtn.addEventListener("mouseover", () => {
               closeBtn.style.background = "#e5e7eb"; // Tailwind gray-200
               closeBtn.style.color = "#111827"; // Tailwind gray-900
@@ -138,45 +137,49 @@ const { class: sectionClass } = Astro.props;
             closeBtn.addEventListener("mouseout", () => {
               closeBtn.style.color = "#6b7280"; // gray-500
             });
-
             closeBtn.addEventListener("click", function () {
               popup.style.display = "none";
             });
             popup.querySelector(".cc-compliance").appendChild(closeBtn);
           },
+
           onInitialise: function (status) {
             const type = this.options.type;
             const didConsent = this.hasConsented();
             if (type === "opt-in" && didConsent) {
-              loadGoogleAnalytics();
+              loadGTM();
             }
           },
 
           onStatusChange: function (status, chosenBefore) {
             const didConsent = this.hasConsented();
             if (didConsent) {
-              loadGoogleAnalytics();
+              loadGTM();
             }
           },
         });
 
-        function loadGoogleAnalytics() {
-          if (window.gaInitialized) return; // prevent multiple loads
-          window.gaInitialized = true;
+        function loadGTM() {
+          if (window.gtmInitialized) return;
+          window.gtmInitialized = true;
 
+          // Inject GTM script
           const script = document.createElement("script");
-          script.src =
-            "https://www.googletagmanager.com/gtag/js?id=G-3383ZJ2HH7"; // replace with your ID
           script.async = true;
+          script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-5RDZ55LR"; // Replace with your GTM ID
           document.head.appendChild(script);
 
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
+          // Inject noscript fallback
+          if (!document.getElementById("gtm-noscript")) {
+            const iframe = document.createElement("iframe");
+            iframe.src =
+              "https://www.googletagmanager.com/ns.html?id=GTM-5RDZ55LR"; // Replace with your GTM ID
+            iframe.height = "0";
+            iframe.width = "0";
+            iframe.style = "display:none;visibility:hidden";
+            iframe.id = "gtm-noscript";
+            document.body.prepend(iframe);
           }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-3383ZJ2HH7"); // replace with your ID
         }
       });
     </script>
