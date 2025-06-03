@@ -44,6 +44,7 @@
             'cursor-pointer': !isAtStart,
           }"
         >
+          <span class="sr-only"> Previous </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -72,6 +73,7 @@
           }"
           style="margin-right: -24px"
         >
+          <span class="sr-only"> Next </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -104,7 +106,11 @@
             >
               <!-- Image -->
               <div class="flex justify-center">
-                <img :src="logo.image?.url" :alt="logo.image?.alt" class="h-24 w-24" />
+                <img
+                  :src="logo.image?.url"
+                  :alt="logo.image?.alt"
+                  class="h-24 w-24"
+                />
               </div>
 
               <!-- Name & Role -->
@@ -127,7 +133,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted,nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import FramedTitle from "./FramedTitle.vue";
 import CustomSection from "./CustomSection.vue";
 

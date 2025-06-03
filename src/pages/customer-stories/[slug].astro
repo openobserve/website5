@@ -29,6 +29,7 @@ const author = await Promise.all(
 const allCaseStudies = await getAllCaseStudies();
 const metaObj = {
   title: SlugData?.title,
+  image: SlugData?.image?.url,
 };
 ---
 
