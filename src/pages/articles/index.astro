@@ -62,7 +62,7 @@ const paginatedTags = getPaginatedTags(suggestionData, currentPage, 15);
       blogsData={blogsData}
       currentPage={currentPage}
       totalItems={count.resourceBlogsCount}
-      client:only="vue"
+      client:load="vue"
     />
   </CustomSection>
 </Layout>

@@ -87,7 +87,7 @@ const allArticlesData = await getAllResourcesLists();
       allBlogs={allArticlesData}      blogsData={blogs}
       currentPage={currentPage}
       totalItems={totalBlogs}
-      client:only="vue"
+      client:load="vue"
       subType="tag"
       identifier={tag}
     />
