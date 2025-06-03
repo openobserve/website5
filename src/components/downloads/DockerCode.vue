@@ -44,13 +44,13 @@ const copyCode = () => {
     >
       <img
         v-show="copied"
-        src="/img/icon/copiedIcon.svg"
+        src="/img/icon/copied.svg"
         alt="copy icon"
         class="w-4 h-4 md:w-5 md:h-5"
       />
       <img
         v-show="!copied"
-        src="/img/icon/copyIcon.svg"
+        src="/img/icon/copy.svg"
         alt="copy icon"
         class="w-4 h-4 md:w-5 md:h-5"
       />
