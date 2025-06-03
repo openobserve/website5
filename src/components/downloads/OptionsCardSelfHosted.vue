@@ -85,7 +85,7 @@
 
       <a :href="data.selfHostedButton.link" target="_blank">
         <button
-          class="bg-primary-purple hover:bg-dark-purple text-white w-full px-4 py-2 rounded-md"
+          class="bg-primary-purple hover:bg-dark-purple text-white w-full px-4 py-2 rounded-md cursor-pointer"
         >
           {{ data.selfHostedButton.text }}
         </button>
