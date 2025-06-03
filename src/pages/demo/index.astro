@@ -6,11 +6,10 @@ import fetchApi from "@/utils/strapi";
 import { getAllBlogs } from "@/utils/api/blog";
 const PageData = await fetchApi({
   endpoint: "api/demo-page",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4" },
 });
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
-
 ---
 
 <Layout metaObj={seoData}>

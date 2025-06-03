@@ -4,7 +4,7 @@ import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vu
 import fetchApi from "@/utils/strapi";
 const PageData = await fetchApi({
   endpoint: "api/contact-sale",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4" },
 });
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};

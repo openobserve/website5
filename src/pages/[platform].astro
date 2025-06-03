@@ -7,10 +7,9 @@ import { getAllBlogs } from "@/utils/api/blog";
 import fetchApi from "@/utils/strapi";
 
 export async function getStaticPaths() {
-
   const PageData: string[] = await fetchApi({
     endpoint: "api/platform-pages",
-    query: { pLevel: "4", status: "draft" },
+    query: { pLevel: "4" },
   });
   const slugs = PageData?.data;
   return slugs.map((it: any) => ({
@@ -31,10 +30,6 @@ const blogData = (await getAllBlogs())
 ---
 
 <Layout metaObj={seoData}>
-  <ComponentCollectionMapper
-    data={data}
-    blogsData={blogData}
-    client:load
-  />
+  <ComponentCollectionMapper data={data} blogsData={blogData} client:load />
   <!-- <ComponentCollectionMapper data={data} client:load /> -->
 </Layout>

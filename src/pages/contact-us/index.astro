@@ -6,7 +6,7 @@ import { getAllBlogs } from "@/utils/api/blog";
 import fetchApi from "@/utils/strapi";
 const PageData = await fetchApi({
   endpoint: "api/contact-us",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4" },
 });
 // Type-check the imported content
 const data = PageData?.data?.body || {};
