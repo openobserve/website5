@@ -18,10 +18,10 @@ const {
   publishedTime,
   modifiedTime,
 } = Astro.props;
-console.log(image,"image");
+
 // Fallback logic for image
 const ogImage = typeof image === 'string' && image.trim() !== '' ? image : '/o2-seo-image.png';
-console.log(ogImage,"ogImage");
+
 ---
 
 <!-- General Meta Tags -->
