@@ -29,9 +29,16 @@ export function getCachedData() {
 }
 
 export async function getTotalCounts() {
+  await fetchAuthors();
+  await fetchBlogs();
+  await fetchCategories();
+  await fetchResourceBlogs();
+  await fetchResourceCategories();
+  await fetchResourceAuthors();
+  await fetchSuperiorCategories();
+  await fetchSubTagsForSuperiorCategories();
   return cache.len;
 }
-
 async function fetchAllPages({ endpoint, query = {} }) {
   let page = 1;
   let totalPages = 1;
@@ -139,7 +146,6 @@ export async function fetchResourceBlogs() {
 
   cache.resourceBlogs = data;
   cache.len.resourceBlogsCount = data.length;
-
   return data;
 }
 
