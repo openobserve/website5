@@ -1,0 +1,53 @@
+name: Deploy to S3 and Invalidate CloudFront
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [strapi-cms]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Create .env File
+        uses: 'DamianReeves/write-file-action@master'
+        with:
+          path: ./.env
+          write-mode: overwrite
+          contents: ${{ secrets.ENV_FILE }}
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Generate static files
+        run: npm run build
+
+      - name: Configure AWS with OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::325553860333:role/github-website-deployment
+          aws-region: us-west-2
+
+      - name: Sync files to S3
+        run: |
+          aws s3 sync ./dist s3://openobserve-prod-website/ --exclude=".git/*" --exclude="assets/*"
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id E2GZJM0TJIDFRM --paths "/*"
