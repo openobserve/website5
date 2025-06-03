@@ -38,7 +38,7 @@ const props = defineProps({
           <!-- Button -->
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <CustomButton variant="secondary" size="medium" :buttonText="primaryButton.text"
-              :buttonLink="primaryButton.link" />
+              :buttonLink="primaryButton.link" :target="primaryButton.target" />
           </div>
         </div>
         <div class="w-full lg:w-1/2 h-full">

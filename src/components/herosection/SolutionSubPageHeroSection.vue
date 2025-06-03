@@ -31,7 +31,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="relative w-full min-h-[70vh] flex items-center overflow-hidden">
+  <div class="relative w-full min-h-[60vh] flex items-center overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <!-- Desktop Background -->
@@ -58,7 +58,7 @@ const props = defineProps({
           </p>
           <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
             <CustomButton variant="primary" size="medium" :buttonText="primaryButton.text"
-              :buttonLink="primaryButton.link" />
+              :buttonLink="primaryButton.link" :target="primaryButton?.target"/>
           </div>
         </div>
 
