@@ -31,7 +31,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="relative w-full min-h-[50vh] flex items-center overflow-hidden">
+  <div class="relative w-full min-h-[55vh] flex items-center overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <!-- Desktop Background -->
