@@ -9,7 +9,7 @@
         align="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Features Column -->
         <div class="space-y-6">
           <div 
@@ -20,7 +20,7 @@
             <div 
               v-if="feature?.theme" 
               :class="[
-        'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
+        'p-2 rounded-full flex items-center justify-center w-10 h-10 shrink-0 bg-card',
         feature.theme,
       ]">
               <CustomImage 
