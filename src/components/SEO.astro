@@ -12,12 +12,14 @@ interface Props {
 const {
   title = "Default Title",
   description = "Default description of your website",
-  image = "/o2-seo-image.png", // Add a default OG image in your public folder
+  image,
   canonicalURL = Astro.url.href,
   type = "website",
   publishedTime,
   modifiedTime,
 } = Astro.props;
+// Fallback logic for image
+const ogImage = image || "/o2-seo-image.png";
 ---
 
 <!-- General Meta Tags -->
@@ -31,14 +33,14 @@ const {
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(ogImage, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
 
 <!-- Article Specific Tags -->
 {

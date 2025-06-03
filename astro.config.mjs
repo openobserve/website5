@@ -1,14 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-
 import vue from "@astrojs/vue";
 import tailwindcss from "@tailwindcss/vite";
-
 import sitemap from "@astrojs/sitemap";
-
+ const baseUrl = import.meta.env.PUBLIC_APP_BASE_URL;
 // https://astro.build/config
 export default defineConfig({
-  site: "https://website-staging.zinc.dev/", //change it with site url
+  site: baseUrl, //change it with site url
   integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
