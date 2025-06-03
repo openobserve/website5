@@ -155,7 +155,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useForm, useField, Field, ErrorMessage } from "vee-validate";
+import { useForm,Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { useSegment } from "@/composables/useSegment";
 
