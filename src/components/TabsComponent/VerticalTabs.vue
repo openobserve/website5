@@ -20,8 +20,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.items);
-
 // Use the first item's title (or index) as key
 const activeIndex = ref(0);
 </script>
