@@ -19,12 +19,12 @@ export const generatePageNavLink = (type, subType, identifier, currentPage) => {
   const pageType = type === "blog" ? "blog" : "articles";
 
   if (subType === "author" && identifier) {
-    return `/${pageType}/author/${identifier}${pageSegment}`;
+    return `/${pageType}/author/${identifier}${pageSegment}/`;
   } else if (subType === "tag" && identifier) {
-    return `/${pageType}/tag/${identifier}${pageSegment}`;
+    return `/${pageType}/tag/${identifier}${pageSegment}/`;
   } else if (type === "blog") {
-    return `/blog${pageSegment}`;
+    return `/blog${pageSegment}/`;
   } else if (type === "articles") {
-    return `/articles${pageSegment}`;
+    return `/articles${pageSegment}/`;
   }
 };

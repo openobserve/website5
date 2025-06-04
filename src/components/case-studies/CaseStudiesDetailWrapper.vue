@@ -16,13 +16,14 @@
         <figure class="shadow-xl">
           <img
             :src="caseStudyImage?.url"
-            :alt="caseStudyImage?.alternativeText ||caseStudyImage?.name"
+            :alt="caseStudyImage?.alternativeText || caseStudyImage?.name"
             class="object-cover w-full h- rounded-lg"
           />
         </figure>
       </section>
       <div class="lg:hidden block w-full mb-6">
         <div
+          v-if="outcomes.length > 0"
           class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
         >
           <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
@@ -47,7 +48,7 @@
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <span v-html="item"></span>
+              <span v-html="item.description"></span>
             </li>
           </ul>
         </div>
@@ -63,6 +64,7 @@
     <!-- Key Outcomes (desktop only, if needed elsewhere, you can conditionally render) -->
     <div class="lg:block hidden lg:w-1/5">
       <div
+        v-if="outcomes.length > 0"
         class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
       >
         <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
@@ -87,7 +89,7 @@
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <span v-html="item"></span>
+            <span v-html="item.description"></span>
           </li>
         </ul>
       </div>
@@ -99,6 +101,9 @@ import { nextTick, onMounted, ref, watch } from "vue";
 import BlogTableofContent from "../blog/BlogTableofContent.vue";
 import { marked } from "marked";
 import { slugify } from "@/utils/slugify";
+interface Outcome {
+  description: string;
+}
 const props = defineProps({
   content: {
     type: String,
@@ -108,14 +113,18 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  outcomes: {
+    type: Array as () => Outcome[],
+    required: false,
+  },
 });
-const outcomes = [
-  "<strong>70%</strong> reduction in observability costs",
-  "<strong>4x</strong> increase in data retention period",
-  "<strong>50%</strong> reduction in query latency",
-  "<strong>8 weeks</strong> to complete migration",
-  "<strong>Zero</strong> service disruptions during transition",
-];
+// const outcomes = [
+//   "<strong>70%</strong> reduction in observability costs",
+//   "<strong>4x</strong> increase in data retention period",
+//   "<strong>50%</strong> reduction in query latency",
+//   "<strong>8 weeks</strong> to complete migration",
+//   "<strong>Zero</strong> service disruptions during transition",
+// ];
 const htmlContent = ref(""); // Stores rendered markdown
 const headings = ref([]);
 const emit = defineEmits(["update-headings"]);

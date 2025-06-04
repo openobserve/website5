@@ -1,5 +1,5 @@
 import fetchApi from "./strapi";
-import qs from 'qs';
+import qs from "qs";
 
 let cache = {
   categories: null,
@@ -101,21 +101,24 @@ export async function fetchBlogs() {
   if (cache.blogs) {
     return cache.blogs;
   }
-  const queryString = qs.stringify({
-    populate: {
-      authors: {
-        populate: ['image']
+  const queryString = qs.stringify(
+    {
+      populate: {
+        authors: {
+          populate: ["image"],
+        },
+        keyOutcomes: true,
+        category: true,
+        image: true,
+        tags: true,
       },
-      category: true,
-      image: true,
-      tags: true
-    }
-  }, { encodeValuesOnly: true });
+    },
+    { encodeValuesOnly: true }
+  );
 
   const data = await fetchAllPages({
     endpoint: `api/blog-pages?${queryString}`,
   });
-
 
   cache.blogs = data;
   cache.len.blogsCount = data.length;
@@ -166,12 +169,14 @@ export async function fetchResourceAuthors() {
   return data;
 }
 
-
 export async function fetchSuperiorCategories() {
   if (cache.superiorCategories) {
     return cache.superiorCategories;
   }
-  const data = await fetchAllPages({ endpoint: "api/categories", query: { "pLevel": 4, populate: "*" } });
+  const data = await fetchAllPages({
+    endpoint: "api/categories",
+    query: { pLevel: 4, populate: "*" },
+  });
 
   cache.superiorCategories = data;
   cache.len.superiorCategoriesCount = data.length;
