@@ -46,11 +46,10 @@ const { class: sectionClass } = Astro.props;
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
     />
-  </head>  <body class="">
+  </head>
+  <body class="">
     <Header navData={navData?.data} client:load />
-    <main
-      class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}
-    >
+    <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}>
       <slot />
     </main>
     <Footer
@@ -63,11 +62,29 @@ const { class: sectionClass } = Astro.props;
       client:load
     />
     <!-- CookieConsent Script -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-      defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" defer
+    ></script>
     <script is:inline>
       window.addEventListener("load", function () {
+        // Initialize default consent state BEFORE GTM loads
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+
+        // Set default denied state
+        gtag("consent", "default", {
+          analytics_storage: "denied",
+          ad_storage: "denied",
+          functionality_storage: "denied",
+          personalization_storage: "denied",
+          security_storage: "granted", // Usually always granted
+          wait_for_update: 500, // Wait 500ms for consent update
+        });
+
+        loadGTM();
+
         window.cookieconsent.initialise({
           palette: {
             popup: {
@@ -143,18 +160,29 @@ const { class: sectionClass } = Astro.props;
           onInitialise: function (status) {
             const type = this.options.type;
             const didConsent = this.hasConsented();
-            if (type === "opt-in" && didConsent) {
-              loadGTM();
-            }
+            updateConsent(didConsent);
           },
 
           onStatusChange: function (status, chosenBefore) {
             const didConsent = this.hasConsented();
-            if (didConsent) {
-              loadGTM();
-            }
+            updateConsent(didConsent);
           },
         });
+
+        function updateConsent(consent) {
+          gtag("consent", "update", {
+            analytics_storage: consent ? "granted" : "denied",
+            ad_storage: consent ? "granted" : "denied",
+            functionality_storage: consent ? "granted" : "denied",
+            personalization_storage: consent ? "granted" : "denied",
+            security_storage: "granted", // Usually always granted
+          });
+
+          // Manually push the GTM consent update event
+          window.dataLayer.push({
+            event: "gtm.consent_update",
+          });
+        }
 
         function loadGTM() {
           if (window.gtmInitialized) return;
@@ -169,8 +197,7 @@ const { class: sectionClass } = Astro.props;
           // Inject noscript fallback
           if (!document.getElementById("gtm-noscript")) {
             const iframe = document.createElement("iframe");
-            iframe.src =
-              "https://www.googletagmanager.com/ns.html?id=GTM-5RDZ55LR"; // Replace with your GTM ID
+            iframe.src = "https://www.googletagmanager.com/ns.html?id=GTM-5RDZ55LR"; // Replace with your GTM ID
             iframe.height = "0";
             iframe.width = "0";
             iframe.style = "display:none;visibility:hidden";
