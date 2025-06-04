@@ -111,7 +111,7 @@
           >
             <a
               class="p-4 bg-white bg-opacity-40 card-border w-full lg:w-[40%] flex justify-center text-black cursor-pointer text-sm"
-              href="/pricing"
+              href="/pricing/"
               >Pricing</a
             >
             <CustomButton

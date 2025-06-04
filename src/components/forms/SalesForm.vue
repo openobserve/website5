@@ -241,11 +241,11 @@ const reset = () => {
 
           <p class="contact-form-footer">
             By submitting this form, you agree to our
-            <a href="/policies/terms-of-service" target="_blank"
+            <a href="/policies/terms-of-service/" target="_blank"
               >Terms & Conditions</a
             >
             and
-            <a href="/policies/privacy-policy" target="_blank"
+            <a href="/policies/privacy-policy/" target="_blank"
               >Privacy Policy</a
             >
           </p>

@@ -6,7 +6,7 @@
     <ul class="space-y-2 ml-2">
       <li v-for="(heading, index) in nestedHeadings" :key="index">
         <a
-          :href="`#${heading.id}`"
+          :href="`#${heading.id}/`"
           class="block text-sm lg:text-base font-medium hover:text-primary-purple"
           :class="{
             'text-primary-purple': currentSection === heading.id,
@@ -23,7 +23,7 @@
             :key="subIndex"
           >
             <a
-              :href="`#${subHeading.id}`"
+              :href="`#${subHeading.id}/`"
               class="block text-sm font-normal hover:text-primary-purple"
               :class="{
                 'text-primary-purple': currentSection === subHeading.id,

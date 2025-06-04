@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/customer-stories/${item.slug}`" class="group">
+  <a :href="`/customer-stories/${item.slug}/`" class="group">
     <div
       :key="item.slug"
       class="flex flex-col overflow-hidden rounded-lg shadow-md h-full border border-border hover:border-primary-purple transition-colors duration-300"
