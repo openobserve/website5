@@ -168,7 +168,7 @@ const socialMedia = ref([
     name: "twitter",
     href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       props.title
-    )}&url=${encodeURIComponent(props.shareUrl)}`,
+    )}&url=${encodeURIComponent(shareUrl)}`,
     icon: "/img/icon/twitter-icon-blog-individual.svg",
     alt: "Twitter",
     ariaLabel: "Share on Twitter",
@@ -176,7 +176,7 @@ const socialMedia = ref([
   {
     name: "linkedin",
     href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      props.shareUrl
+      shareUrl
     )}`,
     icon: "/img/icon/linkdin-icon-for-blog.svg",
     alt: "LinkedIn",
@@ -185,7 +185,7 @@ const socialMedia = ref([
   {
     name: "facebook",
     href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      props.shareUrl
+      shareUrl
     )}`,
     icon: "/img/icon/facebook-icon.svg",
     alt: "Facebook",
