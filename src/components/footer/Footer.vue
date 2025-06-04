@@ -147,6 +147,8 @@ const socialIcon = (name) => {
               class="w-full h-full object-contain grayscale"
               alt="Official AICPA SOC badge"
               loading="lazy"
+              width="48"
+              height="48"
             />
           </div>
 
