@@ -15,7 +15,7 @@ const schema = yup.object({
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
     .required("Phone number is required"),
-  referral: yup.string().required("Referral source is required"),
+  referral: yup.string().required("Please specify how you heard about us"),
 });
 type FormData = yup.InferType<typeof schema>;
 

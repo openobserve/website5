@@ -13,7 +13,7 @@ const schema = yup.object({
   company: yup.string().required("Company name is required"),
   deployment: yup.string().required("Deployment option is required"),
   volume: yup.string().required("Data volume is required"),
-  referral: yup.string().required("Referral source is required"),
+  referral: yup.string().required("Please specify how you heard about us"),
 });
 type FormData = yup.InferType<typeof schema>;
 
