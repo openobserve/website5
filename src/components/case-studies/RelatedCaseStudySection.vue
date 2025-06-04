@@ -172,7 +172,7 @@ onMounted(async () => {
     // Now that blogs are fetched, fetch authors
     // authorsMap.value = await fetchAuthorsMapFromBlogs(props.data);
   } catch (err) {
-    console.error("Failed to fetch blogs:", err);
+    // console.error("Failed to fetch blogs:", err);
   } finally {
     const firstCard = scrollContainer.value?.querySelector("div");
     if (firstCard) {

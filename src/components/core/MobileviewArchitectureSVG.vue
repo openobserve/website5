@@ -244,7 +244,7 @@
         </g>
       </a>
       <!-- change stream button navigation link here -->
-      <a href="https://openobserve.ai/docs/user-guide/streams/" target="_blank" rel="noopener" class="svg-link">
+      <a href="/docs/user-guide/streams/" target="_blank" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="303.296"
@@ -399,7 +399,7 @@
         </g>
       </a>
       <!-- action text -->
-      <a href="https://openobserve.ai/docs/user-guide/actions/actions-in-openobserve/" rel="noopener" target="_blank">
+      <a href="/docs/user-guide/actions/actions-in-openobserve/" rel="noopener" target="_blank">
       <path
         d="M91.6533 675.233H723.347C729.067 675.234 733.704 679.871 733.704 685.591V740.284C733.704 746.004 729.067 750.642 723.347 750.642H91.6533C85.9331 750.642 81.296 746.004 81.2959 740.284V685.591C81.296 679.871 85.9332 675.234 91.6533 675.233Z"
         fill="white"

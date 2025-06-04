@@ -95,7 +95,7 @@ const onSubmit = handleSubmit(async (values) => {
     // Reset form if needed
     resetForm();
   } catch (error) {
-    console.error("Newsletter signup error:", error);
+    // console.error("Newsletter signup error:", error);
 
     // Show error toast or handle error here
     toastMessage.value = "Something went wrong, please try again.";

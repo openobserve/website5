@@ -229,7 +229,7 @@ const onSubmit = handleSubmit(async (values) => {
     }
     resetForm();
   } catch (e) {
-    console.error("Contact form submission error:", e);
+    // console.error("Contact form submission error:", e);
     status.value = {
       submitted: false,
       error: true,

@@ -122,9 +122,9 @@ const sendToProxy = async (
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
 
-    console.log("Segment: Event sent successfully", message);
+    // console.log("Segment: Event sent successfully", message);
   } catch (error) {
-    console.error("Segment: Failed to send event to proxy:", error);
+    // console.error("Segment: Failed to send event to proxy:", error);
     throw error;
   }
 };
@@ -137,14 +137,14 @@ const initializeSegment = async (): Promise<void> => {
 
   // Skip initialization during SSR
   if (typeof window === "undefined") {
-    console.log("Segment: Skipping initialization during SSR");
+    // console.log("Segment: Skipping initialization during SSR");
     return;
   }
 
   const config = getSegmentConfig();
 
   if (!config.proxyUrl) {
-    console.warn("Segment: Proxy URL not provided, skipping initialization");
+    // console.warn("Segment: Proxy URL not provided, skipping initialization");
     return;
   }
 
@@ -155,12 +155,12 @@ const initializeSegment = async (): Promise<void> => {
     getAnonymousId();
 
     isInitialized.value = true;
-    console.log(
-      "Segment: Initialized successfully with proxy:",
-      config.proxyUrl
-    );
+    // console.log(
+    //   "Segment: Initialized successfully with proxy:",
+    //   config.proxyUrl
+    // );
   } catch (error) {
-    console.error("Failed to initialize Segment:", error);
+    // console.error("Failed to initialize Segment:", error);
   } finally {
     isLoading.value = false;
   }
@@ -185,7 +185,7 @@ export const useSegment = () => {
   ): Promise<void> => {
     // Skip if not in browser environment
     if (typeof window === "undefined") {
-      console.log("Segment: Skipping track during SSR");
+      // console.log("Segment: Skipping track during SSR");
       return;
     }
 
@@ -200,15 +200,15 @@ export const useSegment = () => {
 
       const config = getSegmentConfig();
       if (!config.proxyUrl) {
-        console.warn("Segment: Proxy URL not configured, skipping event");
+        // console.warn("Segment: Proxy URL not configured, skipping event");
         return;
       }
       const proxyUrl = config.proxyUrl + "/v1/track";
 
       await sendToProxy(proxyUrl, message);
-      console.log("Segment: Tracked event:", eventName, data);
+      // console.log("Segment: Tracked event:", eventName, data);
     } catch (error) {
-      console.error("Segment: Failed to track event:", eventName, error);
+      // console.error("Segment: Failed to track event:", eventName, error);
     }
   };
 
@@ -219,7 +219,7 @@ export const useSegment = () => {
   ): Promise<void> => {
     // Skip if not in browser environment
     if (typeof window === "undefined") {
-      console.log("Segment: Skipping identify during SSR");
+      // console.log("Segment: Skipping identify during SSR");
       return;
     }
 
@@ -246,15 +246,15 @@ export const useSegment = () => {
 
       const config = getSegmentConfig();
       if (!config.proxyUrl) {
-        console.warn("Segment: Proxy URL not configured, skipping event");
+        // console.warn("Segment: Proxy URL not configured, skipping event");
         return;
       }
       const proxyUrl = config.proxyUrl + "/v1/identify";
 
       await sendToProxy(proxyUrl, message);
-      console.log("Segment: Identified user:", userId, transformedTraits);
+      // console.log("Segment: Identified user:", userId, transformedTraits);
     } catch (error) {
-      console.error("Segment: Failed to identify user:", userId, error);
+      // console.error("Segment: Failed to identify user:", userId, error);
     }
   };
 
