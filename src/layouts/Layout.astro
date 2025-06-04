@@ -48,7 +48,18 @@ const { class: sectionClass } = Astro.props;
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
     />
-  </head>  <body class="">
+    <script src="/js/zinc.js" is:inline defer async></script>
+    <script src="/js/clarity.js" is:inline defer async></script>
+    <script src="/js/vector_co.js" is:inline defer async></script>
+    <script src="/js/rb2b.js" is:inline defer async></script>
+    <script
+      src="https://plausible.io/js/script.js"
+      is:inline
+      defer
+      async
+      data-domain="openobserve.ai"></script>
+  </head>
+  <body class="">
     <Header navData={navData?.data} client:load />
     <main
       class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}
@@ -165,7 +176,8 @@ const { class: sectionClass } = Astro.props;
           // Inject GTM script
           const script = document.createElement("script");
           script.async = true;
-          script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-5RDZ55LR"; // Replace with your GTM ID
+          script.src =
+            "https://www.googletagmanager.com/gtm.js?id=GTM-5RDZ55LR"; // Replace with your GTM ID
           document.head.appendChild(script);
 
           // Inject noscript fallback
