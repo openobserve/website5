@@ -12,7 +12,7 @@
         {{ post.description }}
       </p>
       <a
-        :href="`/blog/${post.slug}`"
+        :href="`/blog/${post.slug}/`"
         class="text-indigo-400 hover:text-indigo-300 text-sm mt-auto inline-flex items-center font-medium group"
       >
         Read more

@@ -7,7 +7,7 @@
           <a
             v-for="tag in tags"
             :key="tag.slug"
-            :href="`/${type}/tag/${tag.slug}`"
+            :href="`/${type}/tag/${tag.slug}/`"
             class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize"
           >
             {{ tag.name }}
@@ -55,7 +55,7 @@
                   :key="`name-${it.name}`"
                 >
                   <a
-                    :href="`/${type}/author/${it.slug}`"
+                    :href="`/${type}/author/${it.slug}/`"
                     class="font-medium hover:underline"
                     >{{ it.name }}</a
                   >

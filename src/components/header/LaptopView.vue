@@ -5,25 +5,25 @@
       <nav>
         <ul class="flex items-center space-x-0.5 w-full font-semibold text-base">
           <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
-            <a href="/platform" class="px-3 py-2 rounded-lg transition-all"
+            <a href="/platform/" class="px-3 py-2 rounded-lg transition-all"
               :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Platform
             </a>
           </li>
           <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
-            <a href="/solutions" class="px-3 py-2 rounded-lg transition-all"
+            <a href="/solutions/" class="px-3 py-2 rounded-lg transition-all"
               :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Solutions
             </a>
           </li>
           <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
-            <a href="/resources" class="px-3 py-2 rounded-lg transition-all"
+            <a href="/resources/" class="px-3 py-2 rounded-lg transition-all"
               :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'">
               Resources
             </a>
           </li>
           <li class="relative">
-            <a href="/pricing"
+            <a href="/pricing/"
               class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple">Pricing</a>
           </li>
         </ul>

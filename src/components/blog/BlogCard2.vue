@@ -33,7 +33,7 @@ const tags = computed(() => {
 </script>
 
 <template>
-  <a :key="blog.slug" :href="`/${type}/${blog.slug}`" class="group">
+  <a :key="blog.slug" :href="`/${type}/${blog.slug}/`" class="group">
     <div
       class="rounded-lg overflow-hidden border border-border hover:border-primary-purple transition-colors flex flex-col h-full"
     >

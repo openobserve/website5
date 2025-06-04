@@ -27,7 +27,7 @@
         stroke="#CFCFCF"
         stroke-width="0.591866"
       />
-      <a href="/frontend-monitoring" rel="noopener" class="svg-link">
+      <a href="/frontend-monitoring/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="81.2959"
@@ -67,7 +67,7 @@
           />
         </g>
       </a>
-      <a href="/metrics" rel="noopener" class="svg-link">
+      <a href="/metrics/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="81.2959"
@@ -113,7 +113,7 @@
           fill="white"
         />
       </a>
-      <a href="/logs" rel="noopener" class="svg-link">
+      <a href="/logs/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="81.2959"
@@ -151,7 +151,7 @@
           fill="white"
         />
       </a>
-      <a href="/traces" rel="noopener" class="svg-link">
+      <a href="/traces/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="81.2959"
@@ -282,7 +282,7 @@
           fill="white"
         />
       </a>
-      <a href="/visualization-and-dashboards" rel="noopener" class="svg-link">
+      <a href="/visualization-and-dashboards/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="525.296"
@@ -320,7 +320,7 @@
           fill="white"
         />
       </a>
-      <a href="/pipelines" rel="noopener" class="svg-link">
+      <a href="/pipelines/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="303.296"
@@ -358,7 +358,7 @@
           fill="white"
         />
       </a>
-      <a href="/alerts" rel="noopener" class="svg-link">
+      <a href="/alerts/" rel="noopener" class="svg-link">
         <rect
           class="hover-bg"
           x="525.296"
@@ -427,7 +427,7 @@
         fill="white"
       />
       </a>
-      <a class="svg-link-solutions" href="/kubernetes-monitoring">
+      <a class="svg-link-solutions" href="/kubernetes-monitoring/">
         <rect
           class="hover-bg-solutions"
           x="443.261"
@@ -446,7 +446,7 @@
           fill="#F5F5F5"
         />
       </a>
-      <a class="svg-link-solutions" href="/azure-monitoring">
+      <a class="svg-link-solutions" href="/azure-monitoring/">
         <rect
           class="hover-bg-solutions"
           x="142"
@@ -473,7 +473,7 @@
           fill="url(#paint5_linear_137_147)"
         />
       </a>
-      <a class="svg-link-solutions" href="/aws-monitoring">
+      <a class="svg-link-solutions" href="/aws-monitoring/">
         <rect
           class="hover-bg-solutions"
           x="204.146"
@@ -500,7 +500,7 @@
           fill="#FF9900"
         />
       </a>
-      <a class="svg-link-solutions" href="/gcp-monitoring">
+      <a class="svg-link-solutions" href="/gcp-monitoring/">
         <rect
           class="hover-bg-solutions"
           x="276.946"
@@ -551,7 +551,7 @@
           fill="#5F6368"
         />
       </a>
-      <a class="svg-link-solutions" href="/opentelemetry">
+      <a class="svg-link-solutions" href="/opentelemetry/">
         <rect
           class="hover-bg-solutions"
           x="505.406"
@@ -570,7 +570,7 @@
           fill="#425CC7"
         />
       </a>
-      <a class="svg-link-solutions" href="/database-monitoring">
+      <a class="svg-link-solutions" href="/database-monitoring/">
         <rect
           class="hover-bg-solutions"
           x="618.453"
@@ -693,7 +693,7 @@
         stroke="#CFCFCF"
         stroke-width="0.591866"
       />
-      <a href="/downloads#cloud" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads#cloud/" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="431.196"
@@ -708,7 +708,7 @@
           fill="white"
         />
       </a>
-      <a href="/downloads#self-hosted" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads#self-hosted/" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="98.4814"
