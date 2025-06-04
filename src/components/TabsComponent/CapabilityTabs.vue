@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
-import ImagePopup from '@/components/core/ImagePopup.vue' 
+import ImagePopup from '@/components/core/ImagePopup.vue'
 
 const props = defineProps({
   heading: {
@@ -11,13 +11,14 @@ const props = defineProps({
   },
   items: {
     type: Array,
-    required: true,
+    required: false,
   },
   background: {
     type: Boolean,
     required: false,
   },
 });
+
 const activeTab = ref(props.items[0]?.title || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
@@ -35,22 +36,23 @@ const closeDialog = () => {
   window.removeEventListener("keydown", handleKeydown);
 };
 
-// Handle Escape key press
 const handleKeydown = (event) => {
   if (event.key === "Escape") {
     closeDialog();
   }
 };
+
 onUnmounted(() => {
   window.removeEventListener("keydown", handleKeydown);
 });
+
 let interval = null;
 
-// Function to move to the next tab
+// Fixed: Access items through props and use activeTab.value
 const rotateToNextTab = () => {
-  const currentIndex = items.findIndex((tab) => tab.title === activeTab.title);
-  const nextIndex = (currentIndex + 1) % items.length;
-  activeTab.title = items[nextIndex].title;
+  const currentIndex = props.items.findIndex((tab) => tab.title === activeTab.value);
+  const nextIndex = (currentIndex + 1) % props.items.length;
+  activeTab.value = props.items[nextIndex].title;
 };
 
 const setActiveTab = (tabValue) => {
@@ -60,12 +62,11 @@ const setActiveTab = (tabValue) => {
   }
 };
 
-// Set up auto-rotation
 onMounted(() => {
   if (autoRotate.value) {
     interval = setInterval(() => {
       rotateToNextTab();
-    }, 3000);
+    }, 10000);
   }
 
   const sectionElement = sectionRef.value;
@@ -75,7 +76,6 @@ onMounted(() => {
   }
 });
 
-// Stop auto-rotation when user interacts with the section
 const handleInteraction = () => {
   if (autoRotate.value) {
     autoRotate.value = false;
@@ -86,7 +86,6 @@ const handleInteraction = () => {
   }
 };
 
-// Clean up
 onBeforeUnmount(() => {
   if (interval) {
     clearInterval(interval);
