@@ -1,51 +1,98 @@
 <template>
   <header class="sticky top-0 z-50 w-full">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex justify-between items-center py-2">
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex justify-between items-center py-2"
+    >
       <Logo />
       <nav>
         <ul class="flex items-center space-x-0.5 w-full font-semibold text-base">
-          <li class="relative" @mouseenter="onPlatformMenuHover" @mouseleave="onPlatformMenuMouseLeave">
-            <a href="/platform/" class="px-3 py-2 rounded-lg transition-all"
-              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onPlatformMenuHover"
+            @mouseleave="onPlatformMenuMouseLeave"
+          >
+            <a
+              href="/platform/"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isPlatformMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Platform
             </a>
           </li>
-          <li class="relative" @mouseenter="onSolutionMenuHover" @mouseleave="onSolutionMenuMouseLeave">
-            <a href="/solutions/" class="px-3 py-2 rounded-lg transition-all"
-              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onSolutionMenuHover"
+            @mouseleave="onSolutionMenuMouseLeave"
+          >
+            <a
+              href="/solutions/"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isSolutionMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Solutions
             </a>
           </li>
-          <li class="relative" @mouseenter="onResourcesMenuHover" @mouseleave="onResourcesMenuMouseLeave">
-            <a href="/resources/" class="px-3 py-2 rounded-lg transition-all"
-              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'">
+          <li
+            class="relative"
+            @mouseenter="onResourcesMenuHover"
+            @mouseleave="onResourcesMenuMouseLeave"
+          >
+            <a
+              href="/resources/"
+              class="px-3 py-2 rounded-lg transition-all"
+              :class="isResourcesMenuOpen ? 'theme-purple' : 'bg-transparent'"
+            >
               Resources
             </a>
           </li>
           <li class="relative">
-            <a href="/pricing/"
-              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple">Pricing</a>
+            <a
+              href="/pricing/"
+              class="px-3 py-2 rounded-lg transition-all bg-transparent hover:text-primary-purple"
+              >Pricing</a
+            >
           </li>
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
-        <CustomButton variant="primary" size="small" buttonLink="/demo/"
-          class="transition-opacity duration-500 ease-in-out" :class="showStickyButton
+        <CustomButton
+          variant="primary"
+          size="small"
+          buttonLink="/demo/"
+          class="transition-opacity duration-500 ease-in-out"
+          :class="
+            showStickyButton
               ? 'opacity-100 pointer-events-auto'
               : 'opacity-0 pointer-events-none'
-            ">
+          "
+        >
           Get Demo
         </CustomButton>
-        <CustomButton variant="secondary" size="small" buttonLink="https://cloud.openobserve.ai" target="_blank"
-          class="border !border-gray-200">
+        <CustomButton
+          variant="secondary"
+          size="small"
+          buttonLink="https://cloud.openobserve.ai"
+          target="_blank"
+          class="border !border-gray-200"
+        >
           Log In
         </CustomButton>
-        <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="light" data-size="large"
-          data-show-count="true" aria-label="Star openobserve/openobserve on GitHub" class="pt-1.5">Star</GithubButton>
+        <GithubButton
+          href="https://github.com/openobserve/openobserve"
+          data-color-scheme="light"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star openobserve/openobserve on GitHub"
+          class="pt-1.5"
+          >Star</GithubButton
+        >
       </div>
     </div>
-    <div class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto" v-if="isPlatformMenuOpen"
-      @mouseenter="onPlatformMenuHover">
+    <div
+      class="fixed top-full flex justify-center left-[15%] xl:left-1/4 w-auto mx-auto"
+      v-if="isPlatformMenuOpen"
+      @mouseenter="onPlatformMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onPlatformMenuMouseLeave">
         <div>
           <!-- <a class="text-xl font-bold">
@@ -56,15 +103,20 @@
           >
             <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
               <li v-for="(item, index) in items.platformData" :key="index" class="">
-                <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.text }}</a>
+                <a :href="`${item.link}`" class="w-full block hover:text-black">{{
+                  item.text
+                }}</a>
               </li>
             </ul>
           </div>
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="fixed top-full flex justify-center w-[45%] left-1/4 xl:w-auto xl:left-2/6 mx-auto"
-      v-if="isSolutionMenuOpen" @mouseenter="onSolutionMenuHover">
+    <div
+      class="fixed top-full flex justify-center w-[45%] left-1/4 xl:w-auto xl:left-2/6 mx-auto"
+      v-if="isSolutionMenuOpen"
+      @mouseenter="onSolutionMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onSolutionMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row w-full space-x-4">
@@ -73,7 +125,9 @@
               <div class="mt-3">
                 <ul class="grid grid-cols-2 gap-4 font-semibold text-gray-600 text-sm">
                   <li v-for="(item, index) in items.solutionData" :key="index">
-                    <a :href="`/${item.link}`" class="w-full block hover:text-black">{{ item.text }}</a>
+                    <a :href="`${item.link}`" class="w-full block hover:text-black">{{
+                      item.text
+                    }}</a>
                   </li>
                 </ul>
               </div>
@@ -82,15 +136,27 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="fixed top-full flex justify-center w-[45%] left-[30%] xl:w-auto xl:left-[45%] mx-auto"
-      v-if="isResourcesMenuOpen" @mouseenter="onResourcesMenuHover">
+    <div
+      class="fixed top-full flex justify-center w-[45%] left-[30%] xl:w-auto xl:left-[45%] mx-auto"
+      v-if="isResourcesMenuOpen"
+      @mouseenter="onResourcesMenuHover"
+    >
       <CustomHoverHeader @mouseleave="onResourcesMenuMouseLeave">
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
             <div>
               <ul class="flex flex-col space-y-4 font-semibold text-gray-600 text-sm">
-                <li v-for="(item, index) in items.resoucesData" :key="index" class="w-full">
-                  <a :href="item.link" class="w-full block hover:text-black" :target="item.target">{{ item.text }}</a>
+                <li
+                  v-for="(item, index) in items.resoucesData"
+                  :key="index"
+                  class="w-full"
+                >
+                  <a
+                    :href="item.link"
+                    class="w-full block hover:text-black"
+                    :target="item.target"
+                    >{{ item.text }}</a
+                  >
                 </li>
               </ul>
             </div>
@@ -98,13 +164,20 @@
         </div>
       </CustomHoverHeader>
     </div>
-    <div class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2" v-if="isOpenSearch"
-      @click.stop>
+    <div
+      class="absolute top-full translate-x-[54%] bg-[#23282C] rounded-lg p-3 w-full lg:w-1/2"
+      v-if="isOpenSearch"
+      @click.stop
+    >
       <div
-        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer">
+        class="flex flex-row w-full space-x-2 justify-between items-center bg-black text-white border-[0.5px] h-10 rounded-lg px-2 border-gray-50 focus-within:border-sky-500 hover:bg-gray-700 cursor-pointer"
+      >
         <img src="/img/icon/search.svg" alt="Search Icon" class="" />
-        <input type="text" class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
-          placeholder="Search here" />
+        <input
+          type="text"
+          class="w-full bg-transparent focus:outline-none text-white text-sm bg-none placeholder-white"
+          placeholder="Search here"
+        />
         <button @click="isOpenSearch = false" class="text-white">
           <img src="/img/icon/close.svg" alt="Search Icon" class="" />
         </button>
