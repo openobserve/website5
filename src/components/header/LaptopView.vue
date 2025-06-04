@@ -29,7 +29,7 @@
         </ul>
       </nav>
       <div class="flex items-center space-x-2">
-        <CustomButton variant="primary" size="small" buttonLink="/demo"
+        <CustomButton variant="primary" size="small" buttonLink="/demo/"
           class="transition-opacity duration-500 ease-in-out" :class="showStickyButton
               ? 'opacity-100 pointer-events-auto'
               : 'opacity-0 pointer-events-none'

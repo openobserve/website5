@@ -118,7 +118,7 @@
               class="w-full"
               variant="primary"
               size="large"
-              buttonLink="/demo"
+              buttonLink="/demo/"
               >Get Demo</CustomButton
             >
           </div>
