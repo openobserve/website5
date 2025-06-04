@@ -62,7 +62,7 @@ const metaObj = {
       categories={allSuperiorCategories}
       allTags={allsubTagsBasedonSuperiorTags}
       type="blog"
-      client:only="vue"
+      client:load="vue"
     />
     <BlogsListingWrapper
       searchBar
@@ -71,7 +71,7 @@ const metaObj = {
       totalItems={count.blogsCount}
       currentPage={currentPage}
       blogsData={blogsData}
-      client:only="vue"
+      client:load="vue"
     /> -->
     <BlogPageWrapper
       categories={allSuperiorCategories}
@@ -81,7 +81,7 @@ const metaObj = {
       blogsData={blogsData}
       currentPage={currentPage}
       totalItems={count.blogsCount}
-      client:only="vue"
+      client:load="vue"
     />
   </CustomSection>
 </Layout>
