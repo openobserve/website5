@@ -12,5 +12,9 @@ export default defineConfig({
   integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
-  }
+  },
+   prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
 });

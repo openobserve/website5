@@ -1,7 +1,7 @@
 <template>
   <div>
-    <component v-for="(it, index) in data" :key="it.id || `${it.__component}-${index}`"
-      :is="componentsMap[it.__component]" v-bind="getComponentProps(it)" />
+    <component v-for="(it, index) in data" :key="index" :is="componentsMap[it.__component]"
+      v-bind="getComponentProps(it)" />
   </div>
 </template>
 
