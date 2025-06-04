@@ -19,6 +19,7 @@ let cache = {
     caseStudiesCount: 0,
     superiorCategoriesCount: 0,
     subTagsForSuperiorCategoriesCount: 0,
+    nonCustomerStoriesCount: 0
   },
   superiorCategories: null,
   subTagsForSuperiorCategories: null,
@@ -122,6 +123,7 @@ export async function fetchBlogs() {
 
   cache.blogs = data;
   cache.len.blogsCount = data.length;
+  cache.len.nonCustomerStoriesCount = data.filter((blog) => !blog.customerStories).length;
 
   return data;
 }
