@@ -42,7 +42,7 @@ const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
     ]">
       <!-- <span v-html="props?.card?.url" /> -->
       <CustomImage v-if="props?.card?.image?.url" :src="props?.card?.image?.url"
-        :alt="props?.card?.image?.alternativeText" />
+        :alt="props?.card?.image?.alternativeText" height="24" width="24" />
     </div>
 
     <!-- Title -->
