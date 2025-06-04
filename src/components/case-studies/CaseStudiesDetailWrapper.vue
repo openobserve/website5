@@ -16,13 +16,14 @@
         <figure class="shadow-xl">
           <img
             :src="caseStudyImage?.url"
-            :alt="caseStudyImage?.alternativeText ||caseStudyImage?.name"
+            :alt="caseStudyImage?.alternativeText || caseStudyImage?.name"
             class="object-cover w-full h- rounded-lg"
           />
         </figure>
       </section>
       <div class="lg:hidden block w-full mb-6">
         <div
+          v-if="outcomes.length > 0"
           class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
         >
           <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
@@ -47,7 +48,7 @@
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <span v-html="item"></span>
+              <span v-html="item.description"></span>
             </li>
           </ul>
         </div>
@@ -63,6 +64,7 @@
     <!-- Key Outcomes (desktop only, if needed elsewhere, you can conditionally render) -->
     <div class="lg:block hidden lg:w-1/5">
       <div
+        v-if="outcomes.length > 0"
         class="p-6 border-l-4 border-l-primary-purple shadow-md bg-white rounded-lg"
       >
         <h3 class="text-xl font-bold mb-4">Key Outcomes</h3>
@@ -114,7 +116,7 @@ const props = defineProps({
   outcomes: {
     type: Array as () => Outcome[],
     required: false,
-  }
+  },
 });
 // const outcomes = [
 //   "<strong>70%</strong> reduction in observability costs",
