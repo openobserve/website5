@@ -5,7 +5,7 @@
       <ul class="grid grid-cols-1 gap-2 font-semibold text-gray-600 text-base">
         <li v-for="(item, index) in items" :key="index">
           <a
-            :href="item.link"
+            :href="'/' + item.link"
             class="block hover:text-black"
             :target="item.target || '_self'"
           >
