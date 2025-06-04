@@ -94,6 +94,7 @@ const tags = computed(() => {
                   :src="it.image.url"
                   :alt="it.name"
                   class="h-full w-full object-cover"
+                  loading="lazy"
                 />
                 <span v-else>{{ getInitials(it.name) }}</span>
               </div>
