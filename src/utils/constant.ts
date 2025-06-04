@@ -12,7 +12,7 @@ export const BlogResources: RESOURCES = {
     description: "",
     button: {
         text: "View all posts",
-        link: "/blog",
+        link: "/blog/",
     },
 };
 
@@ -21,7 +21,7 @@ export const ArticlesResources: RESOURCES = {
     description: "",
     button: {
         text: "View all articles",
-        link: "/articles",
+        link: "/articles/",
     },
 };
 
@@ -30,6 +30,6 @@ export const CaseStudiesResources: RESOURCES = {
     description: "",
     button: {
         text: "View all customer stories",
-        link: "/customer-stories",
+        link: "/customer-stories/",
     },
 };
