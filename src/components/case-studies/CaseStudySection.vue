@@ -41,7 +41,7 @@ const sectionData = reactive({
     "See how customers are transforming their observability with OpenObserve.",
   button: {
     text: "View Customer Stories",
-    link: "/customer-stories",
+    link: "/customer-stories/",
   },
 });
 </script>
