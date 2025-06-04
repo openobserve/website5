@@ -20,7 +20,7 @@ const { platform: id }: any = Astro.params;
 
 const PageData = await fetchApi({
   endpoint: "api/platform-pages",
-  query: { pLevel: "4", status: "draft", "filters[slug][$eq]": id },
+  query: { pLevel: "4","filters[slug][$eq]": id },
 });
 const data = PageData?.data[0]?.body || {};
 const seoData = PageData?.data[0]?.seo || {};

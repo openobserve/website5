@@ -11,12 +11,12 @@ const { metaObj } = Astro.props;
 
 const navData = await cachedFetchApi({
   endpoint: "api/navbar",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4" },
 });
 
 const FooterData = await cachedFetchApi({
   endpoint: "api/footer",
-  query: { pLevel: "4", status: "draft" },
+  query: { pLevel: "4"},
 });
 // Accept class as props
 const { class: sectionClass } = Astro.props;
