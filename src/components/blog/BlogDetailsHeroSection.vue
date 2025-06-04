@@ -155,7 +155,7 @@ const props = defineProps<{
 const copied = ref(false);
 
 const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
-const shareUrl = `${apiUrl}${props.shareUrl}`;
+const shareUrl = `${apiUrl}${props.shareUrl}/`;
 const copyToClipboard = () => {
   navigator.clipboard.writeText(shareUrl);
   copied.value = true;
