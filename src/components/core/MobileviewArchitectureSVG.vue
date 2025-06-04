@@ -693,7 +693,7 @@
         stroke="#CFCFCF"
         stroke-width="0.591866"
       />
-      <a href="/downloads#cloud" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads/#cloud" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="431.196"
@@ -708,7 +708,7 @@
           fill="white"
         />
       </a>
-      <a href="/downloads#self-hosted" rel="noopener" class="svg-link-downloads">
+      <a href="/downloads/#self-hosted" rel="noopener" class="svg-link-downloads">
         <rect
           class="hover-bg-downloads"
           x="98.4814"
