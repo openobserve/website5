@@ -40,7 +40,7 @@ const copyCode = () => {
     <!-- Copy Button -->
     <button
       @click="copyCode"
-      class="absolute top-1 right-1 md:top-3 md:right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition"
+      class="absolute top-1 right-1 md:top-3 md:right-3 sm:top-4 sm:right-4 bg-gray-700 hover:bg-gray-600 p-2 rounded-lg shadow-lg transition cursor-pointer"
     >
       <img
         v-show="copied"
