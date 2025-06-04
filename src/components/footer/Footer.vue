@@ -160,7 +160,7 @@ const socialIcon = (name) => {
           <div class="flex flex-wrap justify-center md:justify-start gap-2">
             <GithubButton
               href="https://github.com/openobserve/openobserve"
-              data-color-scheme=""
+              data-color-scheme="light"
               data-size="large"
               data-show-count="true"
               aria-label="Star openobserve/openobserve on GitHub"
