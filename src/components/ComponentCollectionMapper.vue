@@ -1,62 +1,17 @@
 <template>
   <div>
-    <component v-for="(it, index) in data" :key="index" :is="componentsMap[it.__component]"
-      v-bind="getComponentProps(it)" />
+    <component
+      v-for="(it, index) in data"
+      :key="index"
+      :is="componentsMap[it.__component]"
+      v-bind="getComponentProps(it)"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
-
-// Import all possible section components
-import CareerHero from "@/components/career/CareerHero.vue";
-import CareerMission from "@/components/career/CareerMission.vue";
-import CareerGlobalTeam from "@/components/career/CareerGlobalTeam.vue";
-import CareerTestimonials from "@/components/career/CareerTestimonials.vue";
-import CareerTechnology from "@/components/career/CareerTechnology.vue";
-import CareerCTA from "@/components/career/CareerCTA.vue";
-import VerticalTabs from "@/components/TabsComponent/VerticalTabs.vue";
-import FaqsWrapper from "./faqs/FaqsWrapper.vue";
-import HorizontalTabsWrapper from "./wrapper/HorizontalTabsWrapper.vue";
-import CapabilityTabs from "./TabsComponent/CapabilityTabs.vue";
-import HomeCardWrapper from "@/components/wrapper/HomeCardWrapper.vue";
-import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
-import CTA from "@/components/core/CTA.vue";
-import HomeHerosection from "@/components/herosection/HomeHerosection.vue";
-import CardWrapper from "@/components/wrapper/CardWrapper.vue";
-import CustomInterchangeWrapper from "@/components/wrapper/CustomInterchangeWrapper.vue";
-import OurStory from "@/components/core/OurStory.vue";
-import OurCommitmentO2 from "@/components/core/OurCommitment.vue";
-import OurPartners from "@/components/core/OurPartners.vue";
-import HeroSectionWithImage from "./herosection/HeroSectionWithImage.vue";
-// import BlogSection from "./contactus/BlogSection.vue";
-import CareerBenefitsWrapper from "./career/CareerBenefitsWrapper.vue";
-import DownloadForm from "@/components/downloads/DownloadForm.vue";
-import OpenObserveDeploymentOptions from "./downloads/OpenObserveDeploymentOptions.vue";
-import CardWithBackgroundWrapper from "./wrapper/CardWithBackgroundWrapper.vue";
-import HomeCardComprehensiveWrapper from "./wrapper/HomeCardComprehensiveWrapper.vue";
-import PricingOptions from "./pricing/PricingOptions.vue";
-import SuccessStories from "./core/SuccessStories.vue";
-import CardWithSideIconResourcePage from "./wrapper/CardWithSideIconResourcePage.vue";
-import CardWithoutBorderWrapper from "./wrapper/CardWithoutBorderWrapper.vue";
-import ContactForm from "./forms/ContactForm.vue";
-import BlogSection from "./blog/BlogSection.vue";
-import CommunitySupport from "./contactus/CommunitySupport.vue";
-import TOC from "./policies/TOC.vue";
-import SummaryWrapper from "./policies/SummaryWrapper.vue";
-import PoliciesHeader from "./policies/PoliciesHeader.vue";
-import DemoForm from "./forms/DemoForm.vue";
-import DemoWrapper from "./wrapper/DemoWrapper.vue";
-import PlatformKeyFeaturesWrapper from "./wrapper/PlatformKeyFeaturesWrapper.vue";
-import CommonFaqWrapper from "./faqs/CommonFaqWrapper.vue";
-import ContactFormWrapper from "./contactus/ContactFormWrapper.vue";
-import HomeModernArchiture from "./wrapper/HomeModernArchiture.vue";
-import CaseStudySection from "@/components/case-studies/CaseStudySection.vue";
+import { computed, defineAsyncComponent } from "vue";
 import { ArticlesResources, BlogResources } from "@/utils/constant";
-import LatestArticles from "./articles/LatestArticles.vue";
-import SolutionSubPageHeroSection from "./herosection/SolutionSubPageHeroSection.vue";
-import ContactSalesWrapper from "./wrapper/ContactSalesWrapper.vue";
-import PlatformArchitectureWrapper from "./wrapper/PlatformArchitectureWrapper.vue";
 
 const props = defineProps({
   data: { type: Array, required: true },
@@ -68,58 +23,54 @@ const props = defineProps({
 });
 
 const componentsMap = computed(() => ({
-  "section-hero.resource-hero-section": CommonHeroSection,
-  "section-hero.contact-hero-sectionx": CommonHeroSection,
-  "section-text.mission-statement": CareerMission,
-  "section-cards.career-benefits": CareerBenefitsWrapper,
-  "section-features.global-team": CareerGlobalTeam,
-  "section-cards.testimonials": CareerTestimonials,
-  "section-features.technologies": CareerTechnology,
-  "section-features.cta": CTA,
-  "section-features.feature-left-tabs": VerticalTabs,
-  "section-features.feature-sub-page-top-tabs": HorizontalTabsWrapper,
-  "section-features.tabs-features": CapabilityTabs,
-  "section-faqs.fa-qs-page-section": FaqsWrapper,
-  "section-hero.cta-buttons": CTA,
-  "section-cards.feature1": HomeCardWrapper,
-  "section-features.architecture": PlatformArchitectureWrapper,
-  "section-hero.homepage-hero": HomeHerosection,
-  "section-cards.feature4": CardWrapper,
-  "section-cards.solution-features": CardWithBackgroundWrapper,
-  "section-cta.banner": CTA,
-  "section-features.homepage-feature": CustomInterchangeWrapper,
-  "section-features.our-story": OurStory,
-  "section-features.our-commitment": OurCommitmentO2,
-  "section-cards.our-partners": OurPartners,
-  "section-hero.solutions-hero-section": HeroSectionWithImage,
-  "section-hero.solution-subpage-herosection": SolutionSubPageHeroSection,
-  "section-features.paltofrm-sub-benefits": CardWithoutBorderWrapper,
-  // "section-cards.homepage-comprehensive-features": HomeCardComprehensiveWrapper,
-  // "section-content.success-stories": SuccessStories, //removed this and add CaseStudySection
-  "section-cards.feature3": CardWithSideIconResourcePage,
-  "section-forms.download-contact-form": DownloadForm,
-  "section-tabs.download-tabs": OpenObserveDeploymentOptions,
-  "section-tabs.pricing-tabs": PricingOptions,
-  "section-forms.contact": ContactFormWrapper,
-  "section-forms.demo-page-form": DemoWrapper,
-  "section-cards.blog": BlogSection,
-  "section-cards.community-support": CommunitySupport,
-  "section-policies.table-of-contents": TOC,
-  "section-policies.summary": SummaryWrapper,
-  "section-cards.plaform-key-features": PlatformKeyFeaturesWrapper,
-  "section-faqs.frequently-asked-question": CommonFaqWrapper,
-  "section-features.home-marketecture-section": HomeModernArchiture,
-  "section-cards.case-studies": CaseStudySection,
-  "section-cards.articles": LatestArticles,
-  "section-forms.contact-sales-form": ContactSalesWrapper
+  "section-hero.resource-hero-section": defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue")),
+  "section-hero.contact-hero-sectionx": defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue")),
+  "section-text.mission-statement": defineAsyncComponent(() => import("@/components/career/CareerMission.vue")),
+  "section-cards.career-benefits": defineAsyncComponent(() => import("@/components/career/CareerBenefitsWrapper.vue")),
+  "section-features.global-team": defineAsyncComponent(() => import("@/components/career/CareerGlobalTeam.vue")),
+  "section-cards.testimonials": defineAsyncComponent(() => import("@/components/career/CareerTestimonials.vue")),
+  "section-features.technologies": defineAsyncComponent(() => import("@/components/career/CareerTechnology.vue")),
+  "section-features.cta": defineAsyncComponent(() => import("@/components/core/CTA.vue")),
+  "section-features.feature-left-tabs": defineAsyncComponent(() => import("@/components/TabsComponent/VerticalTabs.vue")),
+  "section-features.feature-sub-page-top-tabs": defineAsyncComponent(() => import("@/components/wrapper/HorizontalTabsWrapper.vue")),
+  "section-features.tabs-features": defineAsyncComponent(() => import("@/components/TabsComponent/CapabilityTabs.vue")),
+  "section-faqs.fa-qs-page-section": defineAsyncComponent(() => import("@/components/faqs/FaqsWrapper.vue")),
+  "section-hero.cta-buttons": defineAsyncComponent(() => import("@/components/core/CTA.vue")),
+  "section-cards.feature1": defineAsyncComponent(() => import("@/components/wrapper/HomeCardWrapper.vue")),
+  "section-features.architecture": defineAsyncComponent(() => import("@/components/wrapper/PlatformArchitectureWrapper.vue")),
+  "section-hero.homepage-hero": defineAsyncComponent(() => import("@/components/herosection/HomeHerosection.vue")),
+  "section-cards.feature4": defineAsyncComponent(() => import("@/components/wrapper/CardWrapper.vue")),
+  "section-cards.solution-features": defineAsyncComponent(() => import("@/components/wrapper/CardWithBackgroundWrapper.vue")),
+  "section-cta.banner": defineAsyncComponent(() => import("@/components/core/CTA.vue")),
+  "section-features.homepage-feature": defineAsyncComponent(() => import("@/components/wrapper/CustomInterchangeWrapper.vue")),
+  "section-features.our-story": defineAsyncComponent(() => import("@/components/core/OurStory.vue")),
+  "section-features.our-commitment": defineAsyncComponent(() => import("@/components/core/OurCommitment.vue")),
+  "section-cards.our-partners": defineAsyncComponent(() => import("@/components/core/OurPartners.vue")),
+  "section-hero.solutions-hero-section": defineAsyncComponent(() => import("@/components/herosection/HeroSectionWithImage.vue")),
+  "section-hero.solution-subpage-herosection": defineAsyncComponent(() => import("@/components/herosection/SolutionSubPageHeroSection.vue")),
+  "section-features.paltofrm-sub-benefits": defineAsyncComponent(() => import("@/components/wrapper/CardWithoutBorderWrapper.vue")),
+  "section-cards.feature3": defineAsyncComponent(() => import("@/components/wrapper/CardWithSideIconResourcePage.vue")),
+  "section-forms.download-contact-form": defineAsyncComponent(() => import("@/components/downloads/DownloadForm.vue")),
+  "section-tabs.download-tabs": defineAsyncComponent(() => import("@/components/downloads/OpenObserveDeploymentOptions.vue")),
+  "section-tabs.pricing-tabs": defineAsyncComponent(() => import("@/components/pricing/PricingOptions.vue")),
+  "section-forms.contact": defineAsyncComponent(() => import("@/components/contactus/ContactFormWrapper.vue")),
+  "section-forms.demo-page-form": defineAsyncComponent(() => import("@/components/wrapper/DemoWrapper.vue")),
+  "section-cards.blog": defineAsyncComponent(() => import("@/components/blog/BlogSection.vue")),
+  "section-cards.community-support": defineAsyncComponent(() => import("@/components/contactus/CommunitySupport.vue")),
+  "section-policies.table-of-contents": defineAsyncComponent(() => import("@/components/policies/TOC.vue")),
+  "section-policies.summary": defineAsyncComponent(() => import("@/components/policies/SummaryWrapper.vue")),
+  "section-cards.plaform-key-features": defineAsyncComponent(() => import("@/components/wrapper/PlatformKeyFeaturesWrapper.vue")),
+  "section-faqs.frequently-asked-question": defineAsyncComponent(() => import("@/components/faqs/CommonFaqWrapper.vue")),
+  "section-features.home-marketecture-section": defineAsyncComponent(() => import("@/components/wrapper/HomeModernArchiture.vue")),
+  "section-cards.case-studies": defineAsyncComponent(() => import("@/components/case-studies/CaseStudySection.vue")),
+  "section-cards.articles": defineAsyncComponent(() => import("@/components/articles/LatestArticles.vue")),
+  "section-forms.contact-sales-form": defineAsyncComponent(() => import("@/components/wrapper/ContactSalesWrapper.vue")),
 }));
 
 const getComponentProps = (it) => {
   switch (it.__component) {
     case "section-cards.blog":
       return { ...it, data: props.blogsData, sectionData: BlogResources };
-    case "section-cards.case-studies":
-      return { ...it, data: props.caseStudyData };
     case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
     case "section-cards.articles":
@@ -130,8 +81,6 @@ const getComponentProps = (it) => {
       return { ...it, ...props.bannerData };
     case "section-hero.homepage-hero":
       return { data: it };
-    case "section-cards.blog":
-      return { ...it, data: props.blogsData };
     default:
       return it;
   }
