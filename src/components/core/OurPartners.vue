@@ -108,7 +108,7 @@
               <div class="flex justify-center">
                 <img
                   :src="logo.image?.url"
-                  :alt="logo.image?.alt"
+                  :alt="logo.image?.alternativeText"
                   class="h-24 w-24"
                 />
               </div>
