@@ -41,7 +41,7 @@ const props = defineProps({
               :buttonLink="primaryButton.link" :target="primaryButton.target" />
           </div>
         </div>
-        <div class="w-full lg:w-1/2 h-full">
+        <div class="w-full lg:w-1/2 min-h-[53.4vw] md:min-h-[27vw] h-full">
           <CustomImage :image="image?.url" :altText="image?.alternativeText" cssClass="rounded-lg" loading="eager" fetchpriority="high" />
         </div>
       </div>

@@ -72,89 +72,167 @@ const props = defineProps({
 function getComponentForKey(key) {
   switch (key) {
     case "section-hero.resource-hero-section":
-      return defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/herosection/CommonHeroSection.vue")
+      );
     case "section-hero.contact-hero-sectionx":
-      return defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/herosection/CommonHeroSection.vue")
+      );
     case "section-text.mission-statement":
-      return defineAsyncComponent(() => import("@/components/career/CareerMission.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/career/CareerMission.vue")
+      );
     case "section-cards.career-benefits":
-      return defineAsyncComponent(() => import("@/components/career/CareerBenefitsWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/career/CareerBenefitsWrapper.vue")
+      );
     case "section-features.global-team":
-      return defineAsyncComponent(() => import("@/components/career/CareerGlobalTeam.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/career/CareerGlobalTeam.vue")
+      );
     case "section-cards.testimonials":
-      return defineAsyncComponent(() => import("@/components/career/CareerTestimonials.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/career/CareerTestimonials.vue")
+      );
     case "section-features.technologies":
-      return defineAsyncComponent(() => import("@/components/career/CareerTechnology.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/career/CareerTechnology.vue")
+      );
     case "section-features.cta":
       return defineAsyncComponent(() => import("@/components/core/CTA.vue"));
     case "section-features.feature-left-tabs":
-      return defineAsyncComponent(() => import("@/components/TabsComponent/VerticalTabs.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/TabsComponent/VerticalTabs.vue")
+      );
     case "section-features.feature-sub-page-top-tabs":
-      return defineAsyncComponent(() => import("@/components/wrapper/HorizontalTabsWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/HorizontalTabsWrapper.vue")
+      );
     case "section-features.tabs-features":
-      return defineAsyncComponent(() => import("@/components/TabsComponent/CapabilityTabs.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/TabsComponent/CapabilityTabs.vue")
+      );
     case "section-faqs.fa-qs-page-section":
-      return defineAsyncComponent(() => import("@/components/faqs/FaqsWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/faqs/FaqsWrapper.vue")
+      );
     case "section-hero.cta-buttons":
       return defineAsyncComponent(() => import("@/components/core/CTA.vue"));
     case "section-cards.feature1":
-      return defineAsyncComponent(() => import("@/components/wrapper/HomeCardWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/HomeCardWrapper.vue")
+      );
     case "section-features.architecture":
-      return defineAsyncComponent(() => import("@/components/wrapper/PlatformArchitectureWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/PlatformArchitectureWrapper.vue")
+      );
     case "section-hero.homepage-hero":
-      return defineAsyncComponent(() => import("@/components/herosection/HomeHerosection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/herosection/HomeHerosection.vue")
+      );
     case "section-cards.feature4":
-      return defineAsyncComponent(() => import("@/components/wrapper/CardWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/CardWrapper.vue")
+      );
     case "section-cards.solution-features":
-      return defineAsyncComponent(() => import("@/components/wrapper/CardWithBackgroundWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/CardWithBackgroundWrapper.vue")
+      );
     case "section-cta.banner":
       return defineAsyncComponent(() => import("@/components/core/CTA.vue"));
     case "section-features.homepage-feature":
-      return defineAsyncComponent(() => import("@/components/wrapper/CustomInterchangeWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/CustomInterchangeWrapper.vue")
+      );
     case "section-features.our-story":
-      return defineAsyncComponent(() => import("@/components/core/OurStory.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/core/OurStory.vue")
+      );
     case "section-features.our-commitment":
-      return defineAsyncComponent(() => import("@/components/core/OurCommitment.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/core/OurCommitment.vue")
+      );
     case "section-cards.our-partners":
-      return defineAsyncComponent(() => import("@/components/core/OurPartners.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/core/OurPartners.vue")
+      );
     case "section-hero.solutions-hero-section":
-      return defineAsyncComponent(() => import("@/components/herosection/HeroSectionWithImage.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/herosection/HeroSectionWithImage.vue")
+      );
     case "section-hero.solution-subpage-herosection":
-      return defineAsyncComponent(() => import("@/components/herosection/SolutionSubPageHeroSection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/herosection/SolutionSubPageHeroSection.vue")
+      );
     case "section-features.paltofrm-sub-benefits":
-      return defineAsyncComponent(() => import("@/components/wrapper/CardWithoutBorderWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/CardWithoutBorderWrapper.vue")
+      );
     case "section-cards.feature3":
-      return defineAsyncComponent(() => import("@/components/wrapper/CardWithSideIconResourcePage.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/CardWithSideIconResourcePage.vue")
+      );
     case "section-forms.download-contact-form":
-      return defineAsyncComponent(() => import("@/components/downloads/DownloadForm.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/DownloadForm.vue")
+      );
     case "section-tabs.download-tabs":
-      return defineAsyncComponent(() => import("@/components/downloads/OpenObserveDeploymentOptions.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/OpenObserveDeploymentOptions.vue")
+      );
     case "section-tabs.pricing-tabs":
-      return defineAsyncComponent(() => import("@/components/pricing/PricingOptions.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/pricing/PricingOptions.vue")
+      );
     case "section-forms.contact":
-      return defineAsyncComponent(() => import("@/components/contactus/ContactFormWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/contactus/ContactFormWrapper.vue")
+      );
     case "section-forms.demo-page-form":
-      return defineAsyncComponent(() => import("@/components/wrapper/DemoWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/DemoWrapper.vue")
+      );
     case "section-cards.blog":
-      return defineAsyncComponent(() => import("@/components/blog/BlogSection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/blog/BlogSection.vue")
+      );
     case "section-cards.community-support":
-      return defineAsyncComponent(() => import("@/components/contactus/CommunitySupport.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/contactus/CommunitySupport.vue")
+      );
     case "section-policies.table-of-contents":
-      return defineAsyncComponent(() => import("@/components/policies/TOC.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/policies/TOC.vue")
+      );
     case "section-policies.summary":
-      return defineAsyncComponent(() => import("@/components/policies/SummaryWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/policies/SummaryWrapper.vue")
+      );
     case "section-cards.plaform-key-features":
-      return defineAsyncComponent(() => import("@/components/wrapper/PlatformKeyFeaturesWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/PlatformKeyFeaturesWrapper.vue")
+      );
     case "section-faqs.frequently-asked-question":
-      return defineAsyncComponent(() => import("@/components/faqs/CommonFaqWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/faqs/CommonFaqWrapper.vue")
+      );
     case "section-features.home-marketecture-section":
-      return defineAsyncComponent(() => import("@/components/wrapper/HomeModernArchiture.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/HomeModernArchiture.vue")
+      );
     case "section-cards.case-studies":
-      return defineAsyncComponent(() => import("@/components/case-studies/CaseStudySection.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/case-studies/CaseStudySection.vue")
+      );
     case "section-cards.articles":
-      return defineAsyncComponent(() => import("@/components/articles/LatestArticles.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/articles/LatestArticles.vue")
+      );
     case "section-forms.contact-sales-form":
-      return defineAsyncComponent(() => import("@/components/wrapper/ContactSalesWrapper.vue"));
+      return defineAsyncComponent(() =>
+        import("@/components/wrapper/ContactSalesWrapper.vue")
+      );
     default:
       return undefined;
   }
@@ -167,7 +245,11 @@ const getComponentProps = (it) => {
     case "section-cards.case-studies":
       return { ...it, data: props.caseStudyData };
     case "section-cards.articles":
-      return { ...it, data: props.articlesData, sectionData: ArticlesResources };
+      return {
+        ...it,
+        data: props.articlesData,
+        sectionData: ArticlesResources,
+      };
     case "section-cards.resources-blogs":
       return { ...it, items: props.blogs };
     case "section-cta.banner":
