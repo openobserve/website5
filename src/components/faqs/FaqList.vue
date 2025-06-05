@@ -4,13 +4,15 @@
     <div
       v-for="(faq, index) in faqList"
       :key="index"
-      class="border-b border-gray-200 pb-6 last:border-0"
+      class="border-b border-gray-200 pb-6 last:border-0 faq-item"
     >
       <button
         @click="toggle(index)"
         class="w-full text-left font-medium text-lg md:text-xl flex gap-2 justify-between items-start md:items-center hover:text-primary-purple transition-colors cursor-pointer"
       >
-        <component :is="headingTag" class="flex-grow leading-snug">{{ faq.question }}</component>
+        <component :is="headingTag" class="flex-grow leading-snug">{{
+          faq.question
+        }}</component>
         <div class="shrink-0 flex items-center">
           <component
             :is="activeIndex === index ? Minus : Plus"
@@ -29,27 +31,65 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, nextTick } from "vue";
 import { Minus, Plus } from "lucide-vue-next";
-import {getValidHeadingTag} from "@/utils/getHeadingTag";
+import { getValidHeadingTag } from "@/utils/getHeadingTag";
 const props = defineProps({
   faqList: Array,
-  headingLevel : {
+  headingLevel: {
     type: String,
-    required: false
-  }
+    required: false,
+  },
 });
 const headingTag = computed(() => getValidHeadingTag(props.headingLevel));
 const activeIndex = ref(null);
 
+// function toggle(index) {
+//   activeIndex.value = activeIndex.value === index ? null : index;
+// }
+
 function toggle(index) {
-  activeIndex.value = activeIndex.value === index ? null : index;
+  if (activeIndex.value === index) {
+    activeIndex.value = null;
+    return;
+  }
+
+  activeIndex.value = index;
+
+  nextTick(() => {
+    nextTick(() => {
+      const faqElements = document.querySelectorAll(".faq-item");
+      const el = faqElements[index];
+
+      if (!el) return;
+
+      // Use IntersectionObserver to check visibility
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          const isFullyVisible = entry.intersectionRatio === 1;
+
+          if (!isFullyVisible) {
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 90; // offset for header, etc.
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+
+          observer.disconnect(); // stop observing after first check
+        },
+        {
+          rootMargin: "-100px 0px 0px 0px",
+          threshold: 1.0, // fully visible
+        }
+      );
+
+      observer.observe(el);
+    });
+  });
 }
 </script>
-
 <style>
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
