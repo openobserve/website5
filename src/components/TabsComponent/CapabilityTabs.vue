@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, computed, nextTick } from "vue";
+import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import ImagePopup from '@/components/core/ImagePopup.vue'
@@ -12,38 +12,28 @@ const props = defineProps({
   items: {
     type: Array,
     required: false,
-    default: () => []
   },
   background: {
     type: Boolean,
     required: false,
-    default: false
   },
 });
 
-// Computed for better reactivity
-const activeTabIndex = ref(0);
+const activeTab = ref(props.items[0]?.title || "");
 const autoRotate = ref(true);
 const sectionRef = ref(null);
-const showPopup = ref(false);
-const popupImageSrc = ref("");
-
-// Use computed for active tab to avoid array searches
-const activeTab = computed(() => props.items[activeTabIndex.value]);
-
-// Memoize tab content to avoid re-rendering
-const tabContentKey = computed(() => `tab-${activeTabIndex.value}`);
+const showPopup = ref(false)
+const popupImageSrc = ref("")
 
 function openPopup(src) {
-  if (!src) return;
-  popupImageSrc.value = src;
-  showPopup.value = true;
-  document.addEventListener("keydown", handleKeydown, { passive: true });
+  popupImageSrc.value = src
+  showPopup.value = true
+  window.addEventListener("keydown", handleKeydown)
 }
 
 const closeDialog = () => {
   showPopup.value = false;
-  document.removeEventListener("keydown", handleKeydown);
+  window.removeEventListener("keydown", handleKeydown);
 };
 
 const handleKeydown = (event) => {
@@ -52,70 +42,54 @@ const handleKeydown = (event) => {
   }
 };
 
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
+
 let interval = null;
 
-// Optimized rotation function using index instead of string comparison
+// Fixed: Access items through props and use activeTab.value
 const rotateToNextTab = () => {
-  if (props.items.length === 0) return;
-  activeTabIndex.value = (activeTabIndex.value + 1) % props.items.length;
+  const currentIndex = props.items.findIndex((tab) => tab.title === activeTab.value);
+  const nextIndex = (currentIndex + 1) % props.items.length;
+  activeTab.value = props.items[nextIndex].title;
 };
 
-// Optimized tab setting using index
-const setActiveTab = (index) => {
-  if (index === activeTabIndex.value) return; // Avoid unnecessary updates
-  activeTabIndex.value = index;
+const setActiveTab = (tabValue) => {
+  activeTab.value = tabValue;
   if (autoRotate.value) {
     autoRotate.value = false;
-    clearAutoRotate();
   }
 };
 
-// Separate function for clearing interval
-const clearAutoRotate = () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = null;
-  }
-};
-
-// Throttled interaction handler to prevent excessive calls
-let interactionTimeout = null;
-const handleInteraction = () => {
-  if (!autoRotate.value) return;
-
-  if (interactionTimeout) return; // Throttle rapid interactions
-
-  interactionTimeout = setTimeout(() => {
-    autoRotate.value = false;
-    clearAutoRotate();
-    interactionTimeout = null;
-  }, 100);
-};
-
-onMounted(async () => {
-  // Wait for DOM to be ready
-  await nextTick();
-
-  if (autoRotate.value && props.items.length > 1) {
-    interval = setInterval(rotateToNextTab, 10000);
+onMounted(() => {
+  if (autoRotate.value) {
+    interval = setInterval(() => {
+      rotateToNextTab();
+    }, 10000);
   }
 
   const sectionElement = sectionRef.value;
   if (sectionElement) {
-    // Use passive listeners for better performance
-    sectionElement.addEventListener("click", handleInteraction, { passive: true });
-    sectionElement.addEventListener("touchstart", handleInteraction, { passive: true });
+    sectionElement.addEventListener("click", handleInteraction);
+    sectionElement.addEventListener("touchstart", handleInteraction);
   }
 });
 
-onUnmounted(() => {
-  clearAutoRotate();
-
-  if (interactionTimeout) {
-    clearTimeout(interactionTimeout);
+const handleInteraction = () => {
+  if (autoRotate.value) {
+    autoRotate.value = false;
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
   }
+};
 
-  document.removeEventListener("keydown", handleKeydown);
+onBeforeUnmount(() => {
+  if (interval) {
+    clearInterval(interval);
+  }
 
   const sectionElement = sectionRef.value;
   if (sectionElement) {
@@ -124,85 +98,75 @@ onUnmounted(() => {
   }
 });
 </script>
-
 <template>
-  <div ref="sectionRef" :class="{ 'bg-gray-50': background }">
+  <div ref="sectionRef" :class="background ? 'bg-gray-50' : ''">
     <CustomSection sectionClass="!pb-0">
       <HeadingSection :title="heading?.title" :description="heading?.description" align="CENTER" />
       <div class="w-full">
-        <!-- Optimized tab buttons with index-based keys -->
         <div class="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-0 bg-transparent gap-2">
-          <button v-for="(tab, index) in items" :key="`tab-btn-${index}`" @click="setActiveTab(index)" :class="[
+          <button v-for="tab in items" :key="tab.title" @click="setActiveTab(tab.title)" :class="[
             'py-3 flex flex-col items-center gap-2 font-semibold transition-colors rounded-lg cursor-pointer',
-            activeTabIndex === index
+            activeTab === tab.title
               ? 'bg-primary-purple text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-          ]" :aria-selected="activeTabIndex === index" :tabindex="activeTabIndex === index ? 0 : -1" role="tab">
+          ]">
+            <!-- <img :src="tab.tabImage" :alt="tab.title" class="h-5 w-5" /> -->
             <span>{{ tab.title }}</span>
           </button>
         </div>
-
-        <!-- Single active tab content instead of v-show for all -->
-        <div class="mt-8" :key="tabContentKey">
-          <div v-if="activeTab"
-            class="bg-white rounded-lg shadow px-8 py-16 flex flex-col lg:flex-row items-center justify-between w-full gap-4">
-            <div class="w-full lg:w-1/2">
-              <h2 class="text-2xl font-bold mb-2">{{ activeTab.title }}</h2>
-              <p v-if="activeTab.description" class="text-gray-600 mb-6">
-                {{ activeTab.description }}
-              </p>
-              <div v-if="activeTab.items?.length" class="">
-                <ul class="space-y-2 mb-6">
-                  <li v-for="(feature, index) in activeTab.items" :key="`feature-${index}`"
-                    class="flex flex-col justify-start space-y-2 items-start">
-                    <h3 v-if="feature.title" class="text-lg font-semibold text-gray-800 mb-2">
-                      {{ feature.title }}
-                    </h3>
-                    <p v-if="feature.description" class="text-gray-600 mb-2">
-                      {{ feature.description }}
-                    </p>
-                  </li>
-                </ul>
+          
+        <div class="mt-8">
+          <div v-for="tab in items" :key="'content-' + tab.title" v-show="activeTab === tab.title">
+            <div
+              class="bg-white rounded-lg shadow px-8 py-16 flex flex-col lg:flex-row items-center justify-between w-full gap-4">
+              <div class="w-full lg:w-1/2">
+                <h2 class="text-2xl font-bold mb-2">{{ tab.title }}</h2>
+                <p class="text-gray-600 mb-6" v-if="tab.description">
+                  {{ tab.description }}
+                </p>
+                <div class="">
+                  <ul class="space-y-2 mb-6">
+                    <li v-for="(feature, index) in tab.items" :key="index"
+                      class="flex flex-col justify-start space-y-2 items-start">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-2" v-if="feature.title">
+                        {{ feature.title }}
+                      </h3>
+                      <p class="text-gray-600 mb-2" v-if="feature.description">
+                        {{ feature.description }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
+              <!-- <div class="w-full md:w-1/2">
+                <div
+                  class="w-full rounded-lg"
+                >
+                  <img
+                    :src="tab.card.image"
+                    :alt="tab.card.title"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+              </div> -->
 
-            <!-- Lazy load images and add loading states -->
-            <div class="w-full lg:w-1/2" v-if="activeTab.featureImage?.url">
-              <div
-                class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in"
-                @click="openPopup(activeTab.featureImage.url)" role="button"
-                :aria-label="`View ${activeTab.featureImage.alternativeText || activeTab.title} in popup`">
-                <img :src="activeTab.featureImage.url" :alt="activeTab.featureImage.alternativeText || activeTab.title"
-                  class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async"
-                  style="image-rendering: auto;" />
+              <div class="w-full lg:w-1/2">
+                <div
+                  class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.featureImage?.url)">
+                  <img :src="tab.featureImage?.url" :alt="tab.featureImage?.alternativeText||tab.title" class="w-full h-auto object-cover rounded-lg"
+                    style="image-rendering: auto;" />
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </CustomSection>
   </div>
-
-  <!-- Only render popup when needed -->
-  <Teleport to="body">
-    <ImagePopup v-if="showPopup" :src="popupImageSrc" :visible="showPopup" @close="closeDialog" />
-  </Teleport>
+   <ImagePopup :src="popupImageSrc" :visible="showPopup" @close="showPopup = false" />
 </template>
 
 <style scoped>
-/* Optimized styles with better performance */
-.bg-gray-50 {
-  background-color: #f9fafb;
-}
-
-/* Use transform for better performance on hover effects */
-button:hover {
-  transform: translateY(-1px);
-  transition: transform 0.2s ease;
-}
-
-/* Optimize image rendering */
-img {
-  will-change: transform;
-}
+/* Add any custom styles here if needed */
 </style>
