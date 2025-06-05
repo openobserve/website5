@@ -33,10 +33,11 @@ const canonicalUrl = isCaseStudy
 
 const metaObj = {
   title: SlugData?.title,
-  description: SlugData?.metaDescription || SlugData?.excerpt,
+  description: SlugData?.seoDescription || SlugData?.description,
   canonical: canonicalUrl,
   image: SlugData?.image?.url,
 };
+console.log("Meta Object:", metaObj);
 ---
 
 <Layout metaObj={metaObj}>
@@ -63,7 +64,7 @@ const metaObj = {
     authors={author}
     blogImage={SlugData?.image || SlugData?.image}
   />
-  <div class=" -mt-18 lg:-mt-24">
+  <div class="-mt-18 lg:-mt-24">
     <BlogSection
       data={allBlogs.slice(0, 10)}
       sectionData={BlogResources}
