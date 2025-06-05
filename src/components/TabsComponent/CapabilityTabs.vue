@@ -153,8 +153,8 @@ onBeforeUnmount(() => {
               <div class="w-full lg:w-1/2">
                 <div
                   class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.featureImage?.url)">
-                  <!-- <img :src="tab.featureImage?.url" :alt="tab.featureImage?.alternativeText||tab.title" class="w-full h-auto object-cover rounded-lg"
-                    style="image-rendering: auto;" /> -->
+                  <img :src="tab.featureImage?.url" :alt="tab.featureImage?.alternativeText||tab.title" class="w-full h-auto object-cover rounded-lg"
+                    style="image-rendering: auto;" />
                 </div>
               </div>
 
