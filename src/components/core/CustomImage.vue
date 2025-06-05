@@ -19,7 +19,7 @@ const props = defineProps({
   loading :{
     type: String,
     required: false,
-    default: "",
+    default: "lazy",
   }
 });
 
