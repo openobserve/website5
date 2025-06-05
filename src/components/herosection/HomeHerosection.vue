@@ -141,10 +141,10 @@ onMounted(() => {
         </div>
         <div class="w-full overflow-hidden">
           <div class="flex gap-4 lg:gap-6 items-center animate-scroll">
-            <div v-for="(logo, index) in data.trustedCompanies" :key="index"
+            <div v-for="(logo, index) in [...data.trustedCompanies, ...data.trustedCompanies]" :key="index"
               class="flex-shrink-0 bg-gray-800 rounded-lg p-6 flex items-center justify-center h-12 md:h-16 w-auto">
               <img :src="logo.Image.url" :alt="logo.Image.alternativeText || 'Trusted Company Logo'"
-                class="h-8 w-auto" />
+                class="h-8" loading="lazy" />
             </div>
           </div>
         </div>
