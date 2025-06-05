@@ -30,7 +30,7 @@ const author = await Promise.all(
 const allBlogs = await getAllResourceBlogs();
 const metaObj = {
   title: SlugData?.title,
-  description: SlugData?.description,
+  description: SlugData?.seoDescription || SlugData?.description,
   image: SlugData?.image?.url,
 };
 ---
