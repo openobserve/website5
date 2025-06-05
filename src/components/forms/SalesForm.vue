@@ -13,8 +13,8 @@ const schema = yup.object({
   company: yup.string().required("Company name is required"),
   phone: yup
     .string()
-    .matches(/^\d+$/, "Phone number must be digits only")
-    .required("Phone number is required"),
+    .required("Phone number is required")
+    .matches(/^\d+$/, "Phone number must be digits only"),
   referral: yup.string().required("Please specify how you heard about us"),
 });
 type FormData = yup.InferType<typeof schema>;
@@ -199,7 +199,7 @@ const reset = () => {
           </div>
           <!-- Phone -->
           <div>
-            <label for="phone" class="contact-form-label">Phone Number</label>
+            <label for="phone" class="contact-form-label">Phone Number <span class="text-red-500">*</span></label>
             <Field
               name="phone"
               type="tel"
