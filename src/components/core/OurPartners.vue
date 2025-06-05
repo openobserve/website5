@@ -110,6 +110,7 @@
                   :src="logo.image?.url"
                   :alt="logo.image?.alternativeText"
                   class="h-24 w-24"
+                  fetchPrority="high"
                 />
               </div>
 
