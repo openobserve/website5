@@ -16,6 +16,7 @@ const allowedSlugs = [
   "iis-logging-basics",
 ];
 const blogData = (await getAllBlogs())
+  .filter((blog) => !blog.customerStories)
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 const allCaseStudiesData = await getAllCaseStudies();

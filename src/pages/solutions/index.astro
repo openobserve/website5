@@ -11,6 +11,7 @@ const PageData = await fetchApi({
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
 const blogData = (await getAllBlogs())
+  .filter((blog) => !blog.customerStories)
   .slice(0, 10)
   .map(({ content, ...rest }) => rest);
 ---
