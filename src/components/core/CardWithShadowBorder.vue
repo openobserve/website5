@@ -5,7 +5,7 @@ import { Check } from "lucide-vue-next";
 import { computed } from "vue";
 import { ChevronRight } from "lucide-vue-next";
 import CustomImage from "./CustomImage.vue";
-import {getValidHeadingTag} from "@/utils/getHeadingTag";
+import { getValidHeadingTag } from "@/utils/getHeadingTag";
 const props = defineProps({
   card: {
     type: Object,
@@ -16,33 +16,33 @@ const props = defineProps({
     required: false,
   }
 });
-
 const headingTag = computed(() => getValidHeadingTag(props.headingLevel));
 // Dynamically determine component type based on the presence of a link
 const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));
 </script>
 
 <template>
-  <component :is="dynamicComponent" :href="props?.card?.cardLink" :target="props?.card?.target ? '_blank' : null" :class="[
-    'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', props.card?.cardLink
-      ? 'hover:shadow-xl transition duration-300 ease-in-out'
-      : '',
-    ['LEFT', 'CENTER', 'RIGHT'].includes(props?.card?.align || 'LEFT')
-      ? props?.card?.align === 'CENTER'
-        ? 'items-center text-center'
-        : props?.card?.align === 'RIGHT'
-          ? 'items-end text-right'
-          : 'items-start text-left'
-      : 'items-start text-left', // default if align is not one of the three
-  ]">
+  <component :is="dynamicComponent" :href="props?.card?.cardLink" :target="props?.card?.target ? '_blank' : null"
+    :class="[
+      'relative rounded-xl p-6 flex flex-col border border-gray-300 shadow-md', props.card?.cardLink
+        ? 'hover:shadow-xl transition duration-300 ease-in-out'
+        : '',
+      ['LEFT', 'CENTER', 'RIGHT'].includes(props?.card?.align || 'LEFT')
+        ? props?.card?.align === 'CENTER'
+          ? 'items-center text-center'
+          : props?.card?.align === 'RIGHT'
+            ? 'items-end text-right'
+            : 'items-start text-left'
+        : 'items-start text-left', // default if align is not one of the three
+    ]">
     <!-- Icon -->
     <div :class="[
       'p-2 rounded-full mb-4 flex items-center justify-center w-10 h-10 bg-card',
       props?.card?.theme,
     ]">
       <!-- <span v-html="props?.card?.url" /> -->
-      <CustomImage v-if="props?.card?.image?.url" :src="props?.card?.image?.url"
-        :alt="props?.card?.image?.alternativeText" height="24" width="24" />
+      <img v-if="props?.card?.image" :src="props?.card?.image?.url" :alt="props?.card?.image?.alternativeText"
+        height="24" width="24" />
     </div>
 
     <!-- Title -->

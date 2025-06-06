@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="relative h-64 w-full sm:h-80 md:h-96 lg:h-[28rem] lg:w-1/2 rounded-lg overflow-hidden bg-gray-100">
-          <img v-if="image?.url" :src="image?.url" :alt="image?.alternativeText" class="w-full h-full" loading="lazy" />
+          <CustomImage v-if="image" :image="image" :alt="image?.alternativeText" cssClass="w-full h-full"  />
         </div>
       </div>
 
@@ -37,6 +37,7 @@
 <script setup>
 import FramedTitle from "./FramedTitle.vue";
 import CustomSection from "./CustomSection.vue";
+import CustomImage from "./CustomImage.vue";
 const props = defineProps({
   title: {
     type: String,

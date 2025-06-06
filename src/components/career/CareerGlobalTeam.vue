@@ -38,10 +38,10 @@
           </div>
         </div> -->
       <div class="bg-gray-100 p-3 rounded-lg">
-        <CustomImage
-          :image="image?.url"
-          :altText="image?.alt"
-          cssClass="w-full rounded-lg object-cover"
+        <img
+          :src="image?.url"
+          :alt="image?.alternativeText"
+          class="w-full rounded-lg object-cover"
         />
       </div>
     </CustomSection>
@@ -74,7 +74,7 @@ const props = defineProps<{
   features: GlobalTeamFeature[];
   image: {
     url: string;
-    alt: string;
+    alternativeText: string;
   };
   mapText: string;
   mapDots: MapDot[];

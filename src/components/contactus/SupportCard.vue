@@ -6,7 +6,7 @@
         'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
         data.theme,
       ]">
-        <CustomImage v-if="props?.data?.image?.url" :src="props?.data.image?.url"
+        <img v-if="props?.data?.image?.url" :src="props?.data.image?.url"
           :alt="props?.data?.image?.alternativeText" />
       </div>
     </div>
