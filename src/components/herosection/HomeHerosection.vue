@@ -114,44 +114,57 @@ interface HeroData {
 }
 
 const props = defineProps<{ data: HeroData }>();
-
+const videoId = "C0GH5Ox8NnY";
 const player = ref<any>(null);
 const overlay = ref<HTMLElement | null>(null);
+const isPlayerLoaded = ref(false);
+// function onPlayerStateChange(event: any) {
+//   if (event.data === window.YT?.PlayerState.ENDED) {
+//     if (overlay.value && overlay.value.classList.contains("hidden")) {
+//       overlay.value.classList.remove("hidden");
+//     }
+//   }
+// }
 
-function onPlayerStateChange(event: any) {
-  if (event.data === window.YT?.PlayerState.ENDED) {
-    if (overlay.value && overlay.value.classList.contains("hidden")) {
-      overlay.value.classList.remove("hidden");
-    }
-  }
-}
+// function replayVideo() {
+//   if (overlay.value && !overlay.value.classList.contains("hidden")) {
+//     overlay.value.classList.add("hidden");
+//   }
+//   player.value?.seekTo(0);
+//   player.value?.playVideo();
+// }
 
-function replayVideo() {
-  if (overlay.value && !overlay.value.classList.contains("hidden")) {
-    overlay.value.classList.add("hidden");
-  }
-  player.value?.seekTo(0);
-  player.value?.playVideo();
-}
+// function onYouTubeIframeAPIReady() {
+//   player.value = new window.YT.Player("youtube-player", {
+//     width: "100%",
+//     height: "100%",
+//     videoId: "C0GH5Ox8NnY",
+//     playerVars: {
+//       rel: 0,
+//       modestbranding: 1,
+//       controls: 1,
+//     },
+//     events: {
+//       onStateChange: onPlayerStateChange,
+//     },
+//   });
+// }
 
-function onYouTubeIframeAPIReady() {
-  player.value = new window.YT.Player("youtube-player", {
-    width: "100%",
-    height: "100%",
-    videoId: "C0GH5Ox8NnY",
-    playerVars: {
-      rel: 0,
-      modestbranding: 1,
-      controls: 1,
-    },
-    events: {
-      onStateChange: onPlayerStateChange,
-    },
-  });
-}
+// onMounted(() => {
+//   overlay.value = document.getElementById("custom-overlay");
 
-onMounted(() => {
-  overlay.value = document.getElementById("custom-overlay");
+//   if (!window.YT) {
+//     const tag = document.createElement("script");
+//     tag.src = "https://www.youtube.com/iframe_api";
+//     const firstScriptTag = document.getElementsByTagName("script")[0];
+//     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+//     (window as any).onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+//   } else {
+//     onYouTubeIframeAPIReady();
+//   }
+// });
+function loadVideo() {
+  isPlayerLoaded.value = true;
 
   if (!window.YT) {
     const tag = document.createElement("script");
@@ -162,6 +175,39 @@ onMounted(() => {
   } else {
     onYouTubeIframeAPIReady();
   }
+}
+
+function onPlayerStateChange(event: any) {
+  if (event.data === window.YT?.PlayerState.ENDED) {
+    overlay.value?.classList.remove("hidden");
+  }
+}
+
+function replayVideo() {
+  overlay.value?.classList.add("hidden");
+  player.value?.seekTo(0);
+  player.value?.playVideo();
+}
+
+function onYouTubeIframeAPIReady() {
+  player.value = new window.YT.Player("youtube-player", {
+    width: "100%",
+    height: "100%",
+    videoId,
+    playerVars: {
+      rel: 0,
+      modestbranding: 1,
+      controls: 1,
+      autoplay: 1,
+    },
+    events: {
+      onStateChange: onPlayerStateChange,
+    },
+  });
+}
+
+onMounted(() => {
+  overlay.value = document.getElementById("custom-overlay");
 });
 </script>
 
@@ -203,8 +249,22 @@ onMounted(() => {
           <div
             class="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-lg"
           ></div>
-
           <div
+            class="relative rounded-xl overflow-hidden group cursor-pointer aspect-video w-full"
+            @click="loadVideo"
+            v-if="!isPlayerLoaded"
+          >
+            <picture>
+              <source srcset="/img/video-thumbnail.webp" type="image/webp" />
+              <img
+                src="/img/video-thumbnail.png"
+                alt="YouTube Thumbnail"
+                class="w-full h-full object-cover"
+              />
+            </picture>
+          </div>
+          <div
+            v-show="isPlayerLoaded"
             class="relative rounded-xl overflow-hidden group cursor-pointer aspect-video w-full"
           >
             <div id="youtube-player" class="w-full h-full"></div>
