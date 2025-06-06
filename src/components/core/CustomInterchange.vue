@@ -121,7 +121,7 @@ const cardVariant = computed(() => {
           </div>
           <div class="flex flex-row items-start gap-3">
             <img :src="cardData?.image?.url" class="w-12 h-12 rounded-full shrink-0"
-              :altText="cardData?.image?.alternativeText || 'Author Image'" />
+              :alt="cardData?.image?.alternativeText || 'Author Image'" />
             <div>
               <p class="font-semibold text-base text-gray-900">
                 {{ cardData?.name }}
