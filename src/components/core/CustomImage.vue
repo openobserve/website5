@@ -60,7 +60,30 @@ function getImageUrl(source, size = null) {
 
   return "/img/default_project_image.png";
 }
-function getImageDimensions(source, size = "medium") {
+// function getImageDimensions(source, size = "medium") {
+//   if (!source || typeof source === "string") return { width: null, height: null };
+
+//   if (size && source.formats?.[size]) {
+//     return {
+//       width: source.formats[size].width,
+//       height: source.formats[size].height,
+//     };
+//   }
+
+//   if (source.width && source.height) {
+//     return {
+//       width: source.width,
+//       height: source.height,
+//     };
+//   }
+
+//   return { width: null, height: null };
+// }
+// 🟡 REACTIVE WIDTH & HEIGHT
+const dimensions = computed(() => {
+  const source = props.image;
+  const size = 'medium';
+
   if (!source || typeof source === "string") return { width: null, height: null };
 
   if (size && source.formats?.[size]) {
@@ -78,8 +101,7 @@ function getImageDimensions(source, size = "medium") {
   }
 
   return { width: null, height: null };
-}
-
+});
 </script>
 
 <template>
@@ -110,7 +132,7 @@ function getImageDimensions(source, size = "medium") {
     :alt="altText || 'Image'"
     :loading="loading"
     :class="cssClass"
-    :width="getImageDimensions(image).width"
-    :height="getImageDimensions(image).height"
+    :width="dimensions.width"
+    :height="dimensions.height"
   />
 </template>
