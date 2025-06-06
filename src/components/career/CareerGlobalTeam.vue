@@ -40,7 +40,7 @@
       <div class="bg-gray-100 p-3 rounded-lg">
         <img
           :src="image?.url"
-          :altText="image?.alternativeText"
+          :alt="image?.alternativeText"
           class="w-full rounded-lg object-cover"
         />
       </div>
