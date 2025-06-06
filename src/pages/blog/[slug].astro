@@ -26,15 +26,10 @@ const author = await Promise.all(
   })
 );
 const allBlogs = (await getAllBlogs()).filter((blog) => !blog.customerStories);
-const isCaseStudy = SlugData?.caseStudies === true;
-const canonicalUrl = isCaseStudy
-  ? `https://www.yoursite.com/customer-stories/${slug}`
-  : `https://www.yoursite.com/blog/${slug}`;
 
 const metaObj = {
   title: SlugData?.title,
   description: SlugData?.seoDescription || SlugData?.description,
-  canonical: canonicalUrl,
   image: SlugData?.image?.url,
 };
 ---
