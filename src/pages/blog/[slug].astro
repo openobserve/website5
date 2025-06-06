@@ -25,7 +25,7 @@ const author = await Promise.all(
     return await getAuthorDetails(authorSlug.slug);
   })
 );
-const allBlogs = await getAllBlogs();
+const allBlogs = (await getAllBlogs()).filter((blog) => !blog.customerStories);
 const isCaseStudy = SlugData?.caseStudies === true;
 const canonicalUrl = isCaseStudy
   ? `https://www.yoursite.com/customer-stories/${slug}`
