@@ -16,7 +16,6 @@ const props = defineProps({
     required: false,
   }
 });
-console.log("CardWithShadowBorder props", props.card);
 const headingTag = computed(() => getValidHeadingTag(props.headingLevel));
 // Dynamically determine component type based on the presence of a link
 const dynamicComponent = computed(() => (props?.card?.cardLink ? "a" : "div"));

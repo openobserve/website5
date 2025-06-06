@@ -60,6 +60,26 @@ function getImageUrl(source, size = null) {
 
   return "/img/default_project_image.png";
 }
+function getImageDimensions(source, size = "medium") {
+  if (!source || typeof source === "string") return { width: null, height: null };
+
+  if (size && source.formats?.[size]) {
+    return {
+      width: source.formats[size].width,
+      height: source.formats[size].height,
+    };
+  }
+
+  if (source.width && source.height) {
+    return {
+      width: source.width,
+      height: source.height,
+    };
+  }
+
+  return { width: null, height: null };
+}
+
 </script>
 
 <template>
@@ -90,5 +110,7 @@ function getImageUrl(source, size = null) {
     :alt="altText || 'Image'"
     :loading="loading"
     :class="cssClass"
+    :width="getImageDimensions(image).width"
+    :height="getImageDimensions(image).height"
   />
 </template>
