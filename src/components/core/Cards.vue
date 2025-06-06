@@ -38,7 +38,7 @@ const headingLevel = computed(() => {
       'p-2 rounded-full flex items-center justify-center w-10 h-10 bg-card',
       props.theme
     ]">
-      <CustomImage v-if="props?.icon?.url" :src="props?.icon?.url"
+      <img v-if="props?.icon?.url" :src="props?.icon?.url"
         :alt="props?.icon?.alternativeText" />
     </div>
 
