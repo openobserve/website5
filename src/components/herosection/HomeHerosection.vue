@@ -260,8 +260,6 @@ onMounted(() => {
                 src="/img/video-thumbnail.png"
                 alt="YouTube Thumbnail"
                 class="w-full h-full object-cover"
-                loading="eager"
-                fetchpriority="high"
               />
             </picture>
           </div>
