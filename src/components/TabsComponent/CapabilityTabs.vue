@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
 import HeadingSection from "../core/HeadingSection.vue";
 import CustomSection from "../core/CustomSection.vue";
 import ImagePopup from '@/components/core/ImagePopup.vue'
-
+import CustomImage from "../core/CustomImage.vue";
 const props = defineProps({
   heading: {
     type: Object,
@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
               <div class="w-full lg:w-1/2">
                 <div
                   class="w-full aspect-[16/9] p-3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center cursor-zoom-in" @click="openPopup(tab.featureImage?.url)">
-                  <img :src="tab.featureImage?.url" :alt="tab.featureImage?.alternativeText||tab.title" class="w-full h-auto object-cover rounded-lg"
+                  <CustomImage :image="tab.featureImage" :alt="tab.featureImage?.alternativeText||tab.title" cssClass="w-full h-auto object-cover rounded-lg"
                     style="image-rendering: auto;" />
                 </div>
               </div>

@@ -90,8 +90,8 @@ const activeIndex = ref(0);
               <!-- Right Column: Image -->
               <div class="h-full flex items-center justify-center ">
                 <div class="w-full h-full">
-                  <CustomImage v-if="items?.[activeIndex]?.image?.url" :src="items?.[activeIndex]?.image?.url"
-                    :alt="items?.[activeIndex]?.title" class="object-cover w-full h-full rounded-lg shadow-sm" />
+                  <CustomImage v-if="items?.[activeIndex]?.image?.url" :image="items?.[activeIndex]?.image?.url"
+                    :alt="items?.[activeIndex]?.image?.alternativeText||items?.[activeIndex]?.title" cssClass="object-cover w-full h-full rounded-lg shadow-sm" />
                 </div>
               </div>
             </div>
