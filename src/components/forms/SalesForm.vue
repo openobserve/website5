@@ -59,7 +59,7 @@ const onSubmit = handleSubmit(async (values) => {
       {
         method: "POST",
         body: JSON.stringify({
-          senderName: values.fname,
+          senderFirstName: values.fname,
           senderLastName: values.lname,
           senderEmail: values.email,
           senderCompany: values.company,
