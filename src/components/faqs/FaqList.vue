@@ -2,7 +2,7 @@
 <template>
   <div class="space-y-6">
     <div
-      v-for="(faq, index) in faqList"
+      v-for="(faq, index) in parsedFaqList"
       :key="index"
       class="border-b border-gray-200 pb-6 last:border-0 faq-item"
     >
@@ -23,8 +23,8 @@
 
       <p
         v-if="activeIndex === index"
-        v-html="faq.answer"
-        class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray max-w-none"
+        v-html="faq.htmlAnswer"
+        class="mt-3 text-gray-600 text-base animate-fade-in prose prose-gray max-w-none [--tw-prose-bold:theme(colors.black)] [--tw-prose-lead:theme(colors.black)] [--tw-prose-links:#5056ED] [--tw-prose-counters:theme(colors.black)] [--tw-prose-bullets:theme(colors.black)] [--tw-prose-quotes:theme(colors.black)] [--tw-prose-quote-borders:theme(colors.black)] [--tw-prose-captions:theme(colors.black)] [--tw-prose-code:theme(colors.black)]"
       ></p>
     </div>
   </div>
@@ -34,6 +34,7 @@
 import { ref, computed, nextTick } from "vue";
 import { Minus, Plus } from "lucide-vue-next";
 import { getValidHeadingTag } from "@/utils/getHeadingTag";
+import { marked } from "marked";
 const props = defineProps({
   faqList: Array,
   headingLevel: {
@@ -86,6 +87,14 @@ function toggle(index) {
     });
   });
 }
+
+// Convert markdown to HTML
+const parsedFaqList = computed(() =>
+  props.faqList.map((faq) => ({
+    ...faq,
+    htmlAnswer: marked.parse(faq.answer),
+  }))
+);
 </script>
 <style>
 .animate-fade-in {
