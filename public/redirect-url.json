@@ -274,6 +274,7 @@
         { "key": "/blog/tag/traces", "value": "/blog/tag/tracing/" },
         { "key": "/blog/tag/tracing-tools", "value": "/blog/tag/tracing/" },
         { "key": "/blog/tag/real-user-monitoring-rum", "value": "/blog/tags/frontend-monitoring/" },
-        { "key": "/blog/tag/rum-for-react-apps", "value": "/blog/tags/frontend-monitoring/" }
+        { "key": "/blog/tag/rum-for-react-apps", "value": "/blog/tags/frontend-monitoring/" },
+        { "key": "/company", "value": "/about" }
     ]
 }
