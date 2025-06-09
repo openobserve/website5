@@ -55,11 +55,11 @@ const onSubmit = handleSubmit(async (values) => {
     });
 
     const response = await fetch(
-      "https://1qlewft2ie.execute-api.us-west-2.amazonaws.com/default/triggerEmail",
+      "",
       {
         method: "POST",
         body: JSON.stringify({
-          senderName: values.fname,
+          senderFirstName: values.fname,
           senderLastName: values.lname,
           senderEmail: values.email,
           senderCompany: values.company,
