@@ -60,11 +60,6 @@
           size="small"
           buttonLink="/demo/"
           class="transition-opacity duration-500 ease-in-out"
-          :class="
-            showStickyButton
-              ? 'opacity-100 pointer-events-auto'
-              : 'opacity-0 pointer-events-none'
-          "
         >
           Get Demo
         </CustomButton>
@@ -267,20 +262,6 @@ onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
 
-const showStickyButton = ref(false);
-
-const handleScroll = () => {
-  showStickyButton.value = window.scrollY > 100;
-};
-
-onMounted(() => {
-  handleScroll();
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
 </script>
 <style scoped>
 .gradient-hover {
