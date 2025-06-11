@@ -287,7 +287,7 @@ onMounted(() => {
 <template>
   <CustomSection>
     <div class="flex flex-col lg:flex-row container mx-auto space-x-0 md:space-x-10">
-      <div class="w-full lg:w-[30%] mb-8 order-1 md:order-none">
+      <div class="w-full lg:w-[25%] mb-8 order-1 md:order-none">
         <BlogTableofContent :headings="headings" :activeSection="currentSection" />
       </div>
       <div class="flex flex-col w-full lg:w-[70%] text-left order-2 lg:order-none">

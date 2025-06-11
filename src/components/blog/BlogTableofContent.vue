@@ -2,12 +2,12 @@
   <div
     class="sticky top-20 border border-gray-400 rounded-xl p-4 overflow-y-auto scrollbar h-auto max-h-[calc(100vh-100px)]"
   >
-    <h3 class="text-lg lg:text-xl font-semibold text-black mb-2">Table of Contents</h3>
+    <h3 class="text-lg font-semibold text-black mb-2">Table of Contents</h3>
     <ul class="space-y-2 ml-2">
       <li v-for="(heading, index) in nestedHeadings" :key="index">
         <a
           :href="`#${heading.id}/`"
-          class="block text-sm lg:text-base font-medium hover:text-primary-purple"
+          class="block text-sm font-medium hover:text-primary-purple"
           :class="{
             'text-primary-purple': currentSection === heading.id,
             'text-gray-600': currentSection !== heading.id,

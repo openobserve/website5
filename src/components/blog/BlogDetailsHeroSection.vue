@@ -178,7 +178,7 @@ const socialMedia = ref([
     href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
       shareUrl
     )}`,
-    icon: "/img/icon/linkdin-icon-for-blog.svg",
+    icon: "/img/icon/lkdin-logo.png",
     alt: "LinkedIn",
     ariaLabel: "Share on LinkedIn",
   },
@@ -187,7 +187,7 @@ const socialMedia = ref([
     href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
       shareUrl
     )}`,
-    icon: "/img/icon/facebook-icon.svg",
+    icon: "/img/icon/fb-logo.png",
     alt: "Facebook",
     ariaLabel: "Share on Facebook",
   },
