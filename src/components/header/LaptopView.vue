@@ -62,13 +62,13 @@
           size="small"
           buttonLink="/demo/"
           class="transition-opacity duration-500 ease-in-out"
-          :class="
+          :class="[
             isHomeRoute
               ? showStickyButton
-                ? 'opacity-100 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
-              : 'opacity-100 pointer-events-auto'
-          "
+                ? 'opacity-100 visible pointer-events-auto'
+                : 'opacity-0 invisible pointer-events-none'
+              : 'opacity-100 visible pointer-events-auto',
+          ]"
         >
           Get Demo
         </CustomButton>
@@ -87,7 +87,7 @@
           data-size="large"
           data-show-count="true"
           aria-label="Star openobserve/openobserve on GitHub"
-          class="pt-1.5"
+          class="pt-1.5 w-24"
           >Star</GithubButton
         >
       </div>
@@ -207,7 +207,7 @@ import Logo from "@/components/core/Logo.vue";
 import CustomButton from "@/components/core/CustomButton.vue";
 import CustomHoverHeader from "@/components/header/CustomHoverHeader.vue";
 import CustomHeaderButton from "@/components/header/CustomHeaderButton.vue";
-import { ref, onMounted, onUnmounted,computed } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 import GithubButton from "vue-github-button";
 const props = defineProps({
   items: {
@@ -288,7 +288,7 @@ onUnmounted(() => {
 });
 const showStickyButton = ref(false);
 const pathname = new URL(props.path).pathname;
-const isHomeRoute = computed(() => pathname === '/');
+const isHomeRoute = computed(() => pathname === "/");
 const handleScroll = () => {
   showStickyButton.value = window.scrollY > 40;
 };
