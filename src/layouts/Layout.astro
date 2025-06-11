@@ -29,11 +29,35 @@ const { class: sectionClass } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <SEO
-      title={metaObj?.title}
-      description={metaObj?.description}
-      image={metaObj?.image}
-    />
+    <script type="text/javascript">
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Set default consent to 'denied' as a placeholder
+      // Determine actual values based on your own requirements
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
+    </script>
+    <script type="text/javascript">
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5RDZ55LR");
+    </script>
+    <SEO title={metaObj?.title} description={metaObj?.description} image={metaObj?.image} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,23 +90,6 @@ const { class: sectionClass } = Astro.props;
     ></script>
     <script is:inline>
       window.addEventListener("load", function () {
-        // Initialize default consent state BEFORE GTM loads
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-
-        // Set default denied state
-        gtag("consent", "default", {
-          analytics_storage: "denied",
-          ad_storage: "denied",
-          functionality_storage: "denied",
-          personalization_storage: "denied",
-          security_storage: "granted", // Usually always granted
-          wait_for_update: 500, // Wait 500ms for consent update
-        });
-
-        loadGTM();
 
         window.cookieconsent.initialise({
           palette: {
@@ -183,27 +190,6 @@ const { class: sectionClass } = Astro.props;
           });
         }
 
-        function loadGTM() {
-          if (window.gtmInitialized) return;
-          window.gtmInitialized = true;
-
-          // Inject GTM script
-          const script = document.createElement("script");
-          script.async = true;
-          script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-5RDZ55LR"; // Replace with your GTM ID
-          document.head.appendChild(script);
-
-          // Inject noscript fallback
-          if (!document.getElementById("gtm-noscript")) {
-            const iframe = document.createElement("iframe");
-            iframe.src = "https://www.googletagmanager.com/ns.html?id=GTM-5RDZ55LR"; // Replace with your GTM ID
-            iframe.height = "0";
-            iframe.width = "0";
-            iframe.style = "display:none;visibility:hidden";
-            iframe.id = "gtm-noscript";
-            document.body.prepend(iframe);
-          }
-        }
       });
     </script>
   </body>
