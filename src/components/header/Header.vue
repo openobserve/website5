@@ -11,6 +11,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  path : {
+    type: String,
+    default: '/',
+  }
 });
 </script>
 
@@ -18,7 +22,7 @@ const props = defineProps({
 <template>
   <div class="w-full fixed top-0 z-50 backdrop-blur-md custom-gradient text-black transition-all duration-500">
     <div class="lg:block hidden">
-      <LaptopView :items="navData" />
+      <LaptopView :items="navData" :path="path"/>
     </div>
     <div class="lg:hidden block">
       <MobileView :items="navData" />

@@ -5,7 +5,9 @@
     >
       <Logo />
       <nav>
-        <ul class="flex items-center space-x-0.5 w-full font-semibold text-base">
+        <ul
+          class="flex items-center space-x-0.5 w-full font-semibold text-base"
+        >
           <li
             class="relative"
             @mouseenter="onPlatformMenuHover"
@@ -60,6 +62,13 @@
           size="small"
           buttonLink="/demo/"
           class="transition-opacity duration-500 ease-in-out"
+          :class="
+            isHomeRoute
+              ? showStickyButton
+                ? 'opacity-100 pointer-events-auto'
+                : 'opacity-0 pointer-events-none'
+              : 'opacity-100 pointer-events-auto'
+          "
         >
           Get Demo
         </CustomButton>
@@ -97,10 +106,16 @@
             class="w-full flex justify-between flex-col md:flex-row gap-2 pt-4 font-semibold text-gray-600 text-sm"
           >
             <ul class="grid grid-cols-3 gap-x-6 gap-y-4">
-              <li v-for="(item, index) in items.platformData" :key="index" class="">
-                <a :href="`${item.link}`" class="w-full block hover:text-black">{{
-                  item.text
-                }}</a>
+              <li
+                v-for="(item, index) in items.platformData"
+                :key="index"
+                class=""
+              >
+                <a
+                  :href="`${item.link}`"
+                  class="w-full block hover:text-black"
+                  >{{ item.text }}</a
+                >
               </li>
             </ul>
           </div>
@@ -118,11 +133,15 @@
             <div class="flex flex-col space-y-3">
               <!-- <h4 class="text-xl font-bold">Use Case</h4> -->
               <div class="mt-3">
-                <ul class="grid grid-cols-2 gap-4 font-semibold text-gray-600 text-sm">
+                <ul
+                  class="grid grid-cols-2 gap-4 font-semibold text-gray-600 text-sm"
+                >
                   <li v-for="(item, index) in items.solutionData" :key="index">
-                    <a :href="`${item.link}`" class="w-full block hover:text-black">{{
-                      item.text
-                    }}</a>
+                    <a
+                      :href="`${item.link}`"
+                      class="w-full block hover:text-black"
+                      >{{ item.text }}</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -140,7 +159,9 @@
         <div class="flex flex-col space-y-4">
           <div class="flex flex-row space-x-14">
             <div>
-              <ul class="flex flex-col space-y-4 font-semibold text-gray-600 text-sm">
+              <ul
+                class="flex flex-col space-y-4 font-semibold text-gray-600 text-sm"
+              >
                 <li
                   v-for="(item, index) in items.resoucesData"
                   :key="index"
@@ -186,12 +207,16 @@ import Logo from "@/components/core/Logo.vue";
 import CustomButton from "@/components/core/CustomButton.vue";
 import CustomHoverHeader from "@/components/header/CustomHoverHeader.vue";
 import CustomHeaderButton from "@/components/header/CustomHeaderButton.vue";
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted,computed } from "vue";
 import GithubButton from "vue-github-button";
-defineProps({
+const props = defineProps({
   items: {
     type: Object,
     required: true,
+  },
+  path: {
+    type: String,
+    default: "/",
   },
 });
 const isPlatformMenuOpen = ref(false);
@@ -261,7 +286,27 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
+const showStickyButton = ref(false);
+const pathname = new URL(props.path).pathname;
+const isHomeRoute = computed(() => pathname === '/');
+const handleScroll = () => {
+  showStickyButton.value = window.scrollY > 40;
+};
 
+onMounted(() => {
+  if (isHomeRoute.value) {
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+  } else {
+    showStickyButton.value = true;
+  }
+});
+
+onUnmounted(() => {
+  if (isHomeRoute.value) {
+    window.removeEventListener("scroll", handleScroll);
+  }
+});
 </script>
 <style scoped>
 .gradient-hover {

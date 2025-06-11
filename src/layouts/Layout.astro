@@ -8,7 +8,7 @@ import cachedFetchApi from "@/utils/cacheFetchapi";
 
 // Accept SEO metadata as props
 const { metaObj } = Astro.props;
-
+const url = Astro.url.href;
 const navData = await cachedFetchApi({
   endpoint: "api/navbar",
   query: { pLevel: "4" },
@@ -71,7 +71,7 @@ const { class: sectionClass } = Astro.props;
     />
   </head>
   <body class="">
-    <Header navData={navData?.data} client:load />
+    <Header navData={navData?.data} path={url} client:load />
     <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}>
       <slot />
     </main>
