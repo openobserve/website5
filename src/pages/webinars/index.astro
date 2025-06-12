@@ -139,21 +139,25 @@ const secondaryButton = {
   />
   <UpcommingWebinarSection
     upcomingWebinars={upcomingWebinars}
+    client:load
   />
 
   <PastWebinarSection
     heading={upcomingWebinarHeading}
     pastWebinars={pastWebinars}
     sourceKey="upcoming"
+    client:load
   />
   <PastWebinarSection
     heading={pasWebinarHeading}
     pastWebinars={pastWebinars}
     sourceKey="past"
+    client:load
   />
   <CTA
     heading={heading}
     primaryButton={primaryButton}
     secondaryButton={secondaryButton}
+    client:load
   />
 </Layout>
