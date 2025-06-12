@@ -4,66 +4,40 @@
       <article class="">
         <!-- Tags -->
         <div class="flex flex-wrap gap-2 mb-4">
-          <a
-            v-for="tag in tags"
-            :key="tag.slug"
-            :href="`/${type}/tag/${tag.slug}/`"
-            class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize"
-          >
+          <a v-for="tag in tags" :key="tag.slug" :href="`/${type}/tag/${tag.slug}/`"
+            class="px-3 py-1 rounded-full bg-white/20 text-white text-sm hover:bg-white/30 backdrop-blur-sm capitalize">
             {{ tag.name }}
           </a>
         </div>
 
         <!-- Title -->
-        <h1
-          class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white"
-        >
+        <h1 class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
           {{ title }}
         </h1>
 
+        <div class="flex mb-2" :class="{ 'justify-start': !author?.length, 'md:justify-end': author?.length }">
+          <span class=" text-white text-sm font-semibold">Don't forget to share this!
+          </span>
+        </div>
         <!-- Author Info & Social Sharing -->
-        <div
-          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-        >
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div class="flex items-center flex-wrap gap-3" v-if="author">
             <div class="flex -space-x-3">
-              <div
-                v-for="it in author"
-                :key="it.name"
-                class="relative rounded-full border-2 border-white/80"
-              >
+              <div v-for="it in author" :key="it.name" class="relative rounded-full border-2 border-white/80">
+
                 <div
-                  class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-                >
-                  <img
-                    v-if="it.image?.url"
-                    :src="it.image.url"
-                    :alt="it.name"
-                    class="h-full w-full object-cover"
-                  />
+                  class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold">
+                  <img v-if="it.image?.url" :src="it.image.url" :alt="it.name" class="h-full w-full object-cover" />
                   <span v-else>{{ getInitials(it.name) }}</span>
                 </div>
               </div>
             </div>
 
             <div class="flex flex-col">
-              <address
-                class="not-italic text-white flex flex-wrap items-center gap-1"
-              >
-                <template
-                  v-for="(it, index) in author"
-                  :key="`name-${it.name}`"
-                >
-                  <a
-                    :href="`/${type}/author/${it.slug}/`"
-                    class="font-medium hover:underline"
-                    >{{ it.name }}</a
-                  >
-                  <span
-                    v-if="index < author.length - 1"
-                    class="text-white/70 text-xs"
-                    >,</span
-                  >
+              <address class="not-italic text-white flex flex-wrap items-center gap-1">
+                <template v-for="(it, index) in author" :key="`name-${it.name}`">
+                  <a :href="`/${type}/author/${it.slug}/`" class="font-medium hover:underline">{{ it.name }}</a>
+                  <span v-if="index < author.length - 1" class="text-white/70 text-xs">,</span>
                 </template>
               </address>
               <div class="flex flex-wrap gap-4 text-white/80 text-sm">
@@ -81,35 +55,21 @@
 
           <!-- Social Icons -->
           <div class="flex gap-2 items-center">
-            <a
-              v-for="(item, index) in socialMedia"
-              :key="index"
-              :href="item.href"
-              target="_blank"
-              rel="noopener"
+            <a v-for="(item, index) in socialMedia" :key="index" :href="item.href" target="_blank" rel="noopener"
               class="rounded-full bg-white/10 w-8 h-8 hover:bg-white/20 flex items-center justify-center"
-              :aria-label="item.ariaLabel"
-            >
+              :aria-label="item.ariaLabel">
               <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
             </a>
-            <button
-              @click="copyToClipboard"
-              :class="[
-                'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 cursor-pointer',
-                'bg-white/10 hover:bg-white/20',
-                copied ? 'ring-2 ring-white' : '',
-              ]"
-              :title="copied ? 'Copied!' : 'Copy link'"
-              aria-label="Copy link"
-            >
-              <img
-                src="/img/icon/link-icon-for-blog.svg"
-                alt="Copy"
-                class="h-4 w-4"
-              />
+            <button @click="copyToClipboard" :class="[
+              'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 cursor-pointer',
+              'bg-white/10 hover:bg-white/20',
+              copied ? 'ring-2 ring-white' : '',
+            ]" :title="copied ? 'Copied!' : 'Copy link'" aria-label="Copy link">
+              <img src="/img/icon/link-icon-for-blog.svg" alt="Copy" class="h-4 w-4" />
             </button>
           </div>
         </div>
+
       </article>
     </div>
   </section>
