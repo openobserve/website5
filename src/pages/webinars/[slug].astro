@@ -1,0 +1,69 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import WebinarDetailHeroSection from "@/components/webinars/WebinarDetailHeroSection.vue";
+import WebinarDetail from "@/components/webinars/WebinarDetail.vue";
+export async function getStaticPaths() {
+  return [
+    {
+      params: { slug: "latest" },
+    },
+  ];
+}
+const { slug }: any = Astro.params;
+const webinars = {
+  title: "Getting started with managing your metrics, logs, and traces using OpenObserve",
+  description: "Webinars",
+  tags: [
+    { name: "Webinars", slug: "webinars" },
+    { name: "Videos", slug: "videos" },
+    { name: "Live", slug: "live" },
+  ],
+  author: [
+    {
+      name: "OpenObserve",
+      image: { url: "https://openobserve.ai/logo.svg" },
+      slug: "openobserve",
+    },
+  ],
+  publishDate: new Date().toISOString(),
+  language: "en",
+  availability: "On-demand",
+  objectives: [
+       {
+    description:
+      "Connect disparate data from multiple tools to Openobserve for a unified 'first-pane-of-glass'",
+  },
+  {
+    description: "Create your first Openobserve dashboard",
+  },
+  {
+    description:
+      "Correlate observability data - metrics, logs and traces - so you can resolve incidents faster",
+  },
+  ],
+  summary : {
+    title:"Unify, correlate, and visualize data with dashboards using Openobserve",
+    description:"New to Openobserve? Do you have too many monitoring tools and find yourself moving between different tabs or products when troubleshooting?<br/><br/> In this webinar, we'll introduce you to the LGTM stack, Openobserve Labs' opinionated observability stack which includes: Loki-for logs, Openobserve - for dashboards and visualization, Tempo - for traces, and Mimir - for metrics. We'll also give you a sneak peek at what's new in Openobserve 12, the latest major release of your favorite dashboarding tool.<br/><br/>We will walk you through how to get started with OpenObserve, including building your first Openobserve dashboard, and how you can connect to a wide range of data sources, regardless of where it resides, to get a unified view of your data in a single dashboard.<br/><br/>From there, we will show you how to set up monitoring for a web service that uses the Openobserve Cloud LGTM stack to seamlessly correlate the data for faster troubleshooting.<br/><br/>This webinar requires no previous experience with Openobserve."
+  }
+};
+---
+
+<Layout>
+  <WebinarDetailHeroSection
+    title={webinars.title}
+    description={webinars.description}
+    tags={webinars.tags}
+    author={webinars.author}
+    availability={webinars.availability}
+    language={webinars.language}
+    publishDate={Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(new Date(webinars.publishDate))}
+    shareUrl={`/webinars/${slug}`}
+    client:load
+  />
+  <WebinarDetail client:load objectives={webinars.objectives} summary={webinars.summary} />
+</Layout>
