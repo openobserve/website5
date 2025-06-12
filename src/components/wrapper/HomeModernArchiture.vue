@@ -32,7 +32,7 @@ defineProps<{
       <div class="w-full h-full">
 
        <!-- desktop screen -->
-      <LaptopviewArchitectureSVG class="mx-auto w-full lg:w-2/3 h-auto rounded-lg hidden md:block"/>
+      <LaptopviewArchitectureSVG class="mx-auto w-full lg:w-2/3 h-auto rounded-lg hidden md:block lg:mr-[140px] xl:mr-[190px] 2xl:mr-[230px]"/>
         <!-- <img
           :src="image.url"
           :alt="image.alt"
