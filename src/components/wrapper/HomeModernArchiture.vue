@@ -9,7 +9,7 @@ import MobileviewArchitectureSVG from "../core/MobileviewArchitectureSVG.vue";
 interface Item {
   title: string;
   description: string;
-  
+
   icon: string;
   theme: string;
 }
@@ -26,24 +26,25 @@ defineProps<{
 
 <template>
   <div :class="background ? 'bg-gray-50' : ''">
-  <CustomSection sectionClass="!py-3 lg:!py-12">
-    <HeadingSection :title="heading?.title" :description="heading?.description" class="!mb-2 lg:!mb-2" />
-    <div class="flex flex-col md:flex-row items-center justify-center w-full">
-      <div class="w-full h-full">
+    <CustomSection sectionClass="!py-3 lg:!py-12">
+      <HeadingSection :title="heading?.title" :description="heading?.description" class="!mb-2 lg:!mb-2" />
+      <div class="flex flex-col md:flex-row items-center justify-center w-full">
+        <div class="w-full h-full">
 
-       <!-- desktop screen -->
-      <LaptopviewArchitectureSVG class="mx-auto w-full lg:w-2/3 h-auto rounded-lg hidden md:block lg:mr-[140px] xl:mr-[190px] 2xl:mr-[230px]"/>
-        <!-- <img
+          <!-- desktop screen -->
+          <LaptopviewArchitectureSVG
+            class="mx-auto w-full lg:w-3/4 h-auto rounded-lg hidden md:block lg:mr-[110px] xl:mr-[140px] 2xl:mr-[190px]" />
+          <!-- <img
           :src="image.url"
           :alt="image.alt"
           class="w-full h-full object-cover rounded-lg"
         /> -->
 
-        <!-- Mobile screen -->
-      <MobileviewArchitectureSVG class="w-full h-full rounded-lg block md:hidden" />
+          <!-- Mobile screen -->
+          <MobileviewArchitectureSVG class="w-full h-full rounded-lg block md:hidden" />
+        </div>
       </div>
-    </div>
-    <!-- <div class="grid-container" v-if="items">
+      <!-- <div class="grid-container" v-if="items">
       <CardWithShadowBorder
         v-for="(card, index) in items"
         :key="index"
@@ -55,7 +56,7 @@ defineProps<{
         class="grid-item bg-white"
       />
     </div> -->
-  </CustomSection>
+    </CustomSection>
   </div>
 </template>
 <style scoped>
@@ -97,6 +98,7 @@ defineProps<{
 }
 
 @media (min-width: 1024px) {
+
   /* Optional: Add a counter if you need to display item numbers */
   .grid-item:last-child:nth-child(3n - 1) {
     grid-column-end: -2;
