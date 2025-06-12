@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 const { slug }: any = Astro.params;
 const webinars = {
   title: "Getting started with managing your metrics, logs, and traces using OpenObserve",
-  description: "Webinars",
+  description: "Learn how to implement advanced anomaly detection systems using OpenObserve's powerful observability platform combined with Random Cut Forest algorithms for real-time insights.",
   tags: [
     { name: "Webinars", slug: "webinars" },
     { name: "Videos", slug: "videos" },
@@ -28,6 +28,7 @@ const webinars = {
   publishDate: new Date().toISOString(),
   language: "en",
   availability: "On-demand",
+  duration: "45 min",
   objectives: [
        {
     description:
@@ -63,6 +64,7 @@ const webinars = {
       day: "2-digit",
     }).format(new Date(webinars.publishDate))}
     shareUrl={`/webinars/${slug}`}
+    duration={webinars.duration}
     client:load
   />
   <WebinarDetail client:load objectives={webinars.objectives} summary={webinars.summary} />
