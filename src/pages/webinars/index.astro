@@ -1,8 +1,159 @@
 ---
-import WebinarsWrapper from "@/components/wrapper/WebinarsWrapper.vue";
 import Layout from "@/layouts/Layout.astro";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import UpcommingWebinarSection from "@/components/core/UpcommingWebinarSection.vue";
+import PastWebinarSection from "@/components/core/PastWebinarSection.vue";
+import CTA from "@/components/core/CTA.vue";
+
+const upcomingWebinarHeading = {
+  title: "Upcoming Webinars",
+  description:
+    "Join our live webinars to learn about the latest in observability, log analytics, and more.",
+};
+
+const upcomingWebinars = [
+  {
+    id: 1,
+    title: "Advanced Log Analytics with OpenObserve",
+    description:
+      "Learn how to leverage OpenObserve's powerful log analytics capabilities to gain deeper insights into your applications and infrastructure.",
+    date: "2025-06-12",
+    time: "10:00 AM PST",
+    duration: "60 min",
+    speakers: ["Sarah Chen", "DevOps Engineer at TechCorp"],
+    registrations: 245,
+    gradient: "from-purple-400 to-blue-500",
+    startTime: "2025-06-12T10:00:00-04:00", // Added startTime in ISO format (PST = UTC-8)
+  },
+  {
+    id: 2,
+    title: "Cost Optimization Strategies for Observability",
+    description:
+      "Discover how to reduce your observability costs by up to 140x while maintaining comprehensive monitoring coverage.",
+    date: "2024-02-08",
+    time: "2:00 PM PST",
+    duration: "45 min",
+    speakers: ["Mike Rodriguez", "Solutions Architect"],
+    registrations: 189,
+    gradient: "from-green-400 to-blue-500",
+    startTime: "2024-02-08T14:00:00-08:00", // Added startTime in ISO format (PST = UTC-8)
+  },
+  {
+    id: 3,
+    title: "Live Now: Real-Time Observability Q&A",
+    description:
+      "Join our experts for a live Q&A session on real-time observability. Ask your questions and get instant answers!",
+    date: new Date().toISOString().slice(0, 10),
+    time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+    duration: "30 min",
+    speakers: ["Alex Lee", "Observability Specialist"],
+    registrations: 99,
+    gradient: "from-yellow-400 to-orange-500",
+    startTime: new Date().toISOString(), // This will make it live now
+  },
+];
+
+const pasWebinarHeading = {
+  title: "Past Webinars",
+  description:
+    "Catch up on our previous webinars to stay updated on the latest trends and best practices in observability.",
+};
+
+const pastWebinars = [
+  {
+    id: 1,
+    title: "Getting Started with OpenObserve: A Complete Guide",
+    description:
+      "A comprehensive introduction to OpenObserve's features and capabilities for new users.",
+    date: "2023-12-15",
+    duration: "55 min",
+    views: 1240,
+    speakers: ["John Smith", "Product Manager"],
+    recording: "#",
+    image: "/placeholder.svg?height=200&width=400",
+    gradient: "from-blue-400 to-purple-500",
+  },
+  {
+    id: 2,
+    title: "Migrating from Traditional Observability Tools",
+    description:
+      "Step-by-step guide on migrating from legacy observability solutions to OpenObserve.",
+    date: "2023-11-28",
+    duration: "65 min",
+    views: 892,
+    speakers: ["Lisa Park", "Technical Lead"],
+    recording: "#",
+    image: "/placeholder.svg?height=200&width=400",
+    gradient: "from-green-400 to-teal-500",
+  },
+  {
+    id: 3,
+    title: "Scaling Observability for Enterprise Applications",
+    description:
+      "Learn how Fortune 500 companies use OpenObserve to monitor petabyte-scale applications.",
+    date: "2023-11-10",
+    duration: "70 min",
+    views: 1567,
+    speakers: ["David Kumar", "Enterprise Architect"],
+    recording: "#",
+    image: "/placeholder.svg?height=200&width=400",
+    gradient: "from-pink-400 to-red-500",
+  },
+  {
+    id: 4,
+    title: "OpenObserve vs. Traditional Solutions: Performance Comparison",
+    description:
+      "Deep dive into performance benchmarks and cost comparisons with traditional observability tools.",
+    date: "2023-10-25",
+    duration: "45 min",
+    views: 743,
+    speakers: ["Anna Thompson", "Performance Engineer"],
+    recording: "#",
+    image: "/placeholder.svg?height=200&width=400",
+    gradient: "from-indigo-400 to-blue-500",
+  },
+];
+const heading = {
+  title: "Ready to get started?",
+  description:
+    "Try OpenObserve today for more efficient and performant observability.",
+};
+const primaryButton = {
+  text: "Get Started For Free",
+  link: "https://cloud.openobserve.ai/web/login",
+  target: "_blank",
+  variant: "secondary",
+};
+const secondaryButton = {
+  link: "/demo",
+  variant: "tertiary",
+  text: "Schedule Demo",
+};
 ---
 
 <Layout>
-  <WebinarsWrapper />
+  <CommonHeroSection
+    title="Webinars"
+    description="Join our live webinars to learn about the latest in observability, log analytics, and more."
+    align="CENTER"
+  />
+  <UpcommingWebinarSection
+    upcomingWebinars={upcomingWebinars}
+  />
+
+  <PastWebinarSection
+    heading={upcomingWebinarHeading}
+    pastWebinars={pastWebinars}
+    sourceKey="upcoming"
+  />
+  <PastWebinarSection
+    heading={pasWebinarHeading}
+    pastWebinars={pastWebinars}
+    sourceKey="past"
+  />
+  <CTA
+    heading={heading}
+    primaryButton={primaryButton}
+    secondaryButton={secondaryButton}
+  />
 </Layout>

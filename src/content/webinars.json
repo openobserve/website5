@@ -1,31 +1,192 @@
 {
-  "pageTitle": "OpenObserve Live Webinars and Videos",
-  "intro": "Discover how OpenObserve can help you simplify observability. Watch on-demand videos and explore our featured live webinars to learn more.",
-  "webinar": {
-    "link": "https://openobserve.ai/webinars/zero-to-observability-in-30-minutes/",
-    "image": "https://via.placeholder.com/600x200.png?text=Webinar+Thumbnail",
-    "badgeImage": "https://openobserve.ai/images/logo.svg",
-    "badgeText": "LIVE",
-    "title": "➡ From Zero to Observability in 30 Minutes",
-    "date": "June 20, 2025 at 10:00 AM PT",
-    "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
-    "learnPoints": [
-      "Deploy OpenObserve in minutes",
-      "Ingest logs with Filebeat/FluentBit",
-      "Create dashboards and real-time alerts",
-      "Compare with Elastic, Splunk, and OpenSearch"
-    ]
+  "header": {
+    "brand": "openobserve",
+    "navigation": [
+      { "name": "Platform", "href": "#" },
+      { "name": "Solutions", "href": "#" },
+      { "name": "Resources", "href": "#" },
+      { "name": "Pricing", "href": "#" },
+      { "name": "Webinars", "href": "#" }
+    ],
+    "cta": {
+      "primary": "Get Demo",
+      "secondary": "Log in"
+    }
   },
-  "videos": [
+  "hero": {
+    "title": "Webinars",
+    "subtitle": "Join our expert-led sessions to master observability, reduce costs, and scale your monitoring infrastructure."
+  },
+  "upcomingWebinars": [
     {
-      "iframe": "https://www.youtube.com/embed/NGF9LufqBUg",
-      "link": "https://youtu.be/NGF9LufqBUg",
-      "title": "Watch: How to Build GeoDashboards in OpenObserve"
+      "title": "From Zero to Observability in 30 Minutes",
+      "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
+      "date": "June 20, 2025",
+      "time": "10:00 AM PT",
+      "attendees": "189",
+      "duration": "30 minutes",
+      "isLive": true,
+      "liveLabel": "LIVE",
+      "status": "Live Interactive Demo",
+      "iconBg": "bg-gradient-to-r from-purple-500 to-pink-500",
+      "ctaText": "Join Live Webinar",
+      "presenter": "Mike Rodriguez",
+      "learningPoints": [
+        "Deploy OpenObserve in minutes",
+        "Create dashboards and real-time alerts",
+        "Ingest logs with Filebeat/FluentBit",
+        "Compare with Elastic, Splunk, and OpenSearch"
+      ]
     },
     {
-      "iframe": "https://www.youtube.com/embed/dF1IEEY-R54",
-      "link": "https://youtu.be/dF1IEEY-R54",
-      "title": "Watch: What is a Syslog Server? Ingest Syslog to OpenObserve"
+      "title": "Cost Optimization Strategies for Observability",
+      "description": "Discover how to reduce your observability costs by up to 140x while maintaining comprehensive monitoring coverage.",
+      "date": "Feb 5",
+      "time": "2:00 PM PST",
+      "attendees": "189",
+      "duration": "45 minutes",
+      "isLive": false,
+      "status": "Upcoming",
+      "iconBg": "bg-gradient-to-r from-green-500 to-teal-500",
+      "ctaText": "Register",
+      "presenter": "Mike Rodriguez",
+      "learningPoints": [
+        "Cost analysis techniques",
+        "Storage optimization strategies",
+        "Efficient data retention policies",
+        "ROI measurement frameworks"
+      ]
+    },
+    {
+      "title": "Real-time Metrics and Alerting Best Practices",
+      "description": "Master the art of setting up effective alerts and monitoring real-time metrics for mission-critical applications.",
+      "date": "11:00 PM PST",
+      "time": "Feb 10",
+      "attendees": "156",
+      "duration": "50 minutes",
+      "isLive": false,
+      "status": "Upcoming",
+      "iconBg": "bg-gradient-to-r from-orange-500 to-red-500",
+      "ctaText": "Register",
+      "presenter": "Dr. Emily Watson",
+      "learningPoints": [
+        "Alert fatigue prevention",
+        "SLA/SLO monitoring setup",
+        "Custom metrics creation",
+        "Incident response automation"
+      ]
     }
-  ]
+  ],
+  "pastWebinars": {
+    "title": "Past Webinars",
+    "subtitle": "Catch up on previous sessions and expand your observability knowledge",
+    "webinars": [
+      {
+        "title": "Getting Started with OpenObserve: A Complete Guide",
+        "description": "A comprehensive introduction to OpenObserve's features and capabilities for new users.",
+        "date": "Dec 15, 2023",
+        "duration": "55 min",
+        "views": "1,240",
+        "status": "Recorded",
+        "thumbnailBg": "bg-gradient-to-br from-purple-600 to-blue-600",
+        "presenter": {
+          "name": "John Smith",
+          "title": "Product Manager"
+        }
+      },
+      {
+        "title": "Migrating from Traditional Observability Tools",
+        "description": "Step-by-step guide on migrating from legacy observability solutions to OpenObserve.",
+        "date": "Nov 28, 2023",
+        "duration": "48 min",
+        "views": "892",
+        "status": "Recorded",
+        "thumbnailBg": "bg-gradient-to-br from-green-600 to-teal-600",
+        "presenter": {
+          "name": "Lisa Park",
+          "title": "Solutions Lead"
+        }
+      },
+      {
+        "title": "Scaling Observability for Enterprise Applications",
+        "description": "Learn how Fortune 500 companies use OpenObserve to monitor petabyte-scale applications.",
+        "date": "Nov 10, 2023",
+        "duration": "70 min",
+        "views": "1,067",
+        "status": "Recorded",
+        "thumbnailBg": "bg-gradient-to-br from-red-600 to-pink-600",
+        "presenter": {
+          "name": "David Kumar",
+          "title": "Senior Architect"
+        }
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "subtitle": "Try OpenObserve today for more efficient and performant observability.",
+    "primaryButton": "Get Started For Free",
+    "secondaryButton": "Schedule Demo"
+  },
+  "footer": {
+    "sections": [
+      {
+        "title": "Platform",
+        "links": [
+          { "name": "Logs", "href": "#" },
+          { "name": "Metrics", "href": "#" },
+          { "name": "Traces", "href": "#" },
+          { "name": "Frontend Monitoring", "href": "#" },
+          { "name": "Pipelines", "href": "#" },
+          { "name": "Alerts", "href": "#" },
+          { "name": "Visualizations & Dashboard", "href": "#" },
+          { "name": "Pricing", "href": "#" }
+        ]
+      },
+      {
+        "title": "Solutions",
+        "links": [
+          { "name": "Azure Monitoring", "href": "#" },
+          { "name": "AWS Monitoring", "href": "#" },
+          { "name": "GCP Monitoring", "href": "#" },
+          { "name": "Kubernetes Monitoring", "href": "#" },
+          { "name": "Database Monitoring", "href": "#" },
+          { "name": "OpenTelemetry", "href": "#" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "name": "Documentation", "href": "#" },
+          { "name": "Blog", "href": "#" },
+          { "name": "FAQs", "href": "#" },
+          { "name": "Articles", "href": "#" },
+          { "name": "Customer Stories", "href": "#" },
+          { "name": "Downloads", "href": "#" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "name": "About", "href": "#" },
+          { "name": "Careers", "href": "#" },
+          { "name": "Contact Us", "href": "#" },
+          { "name": "Contact Sales", "href": "#" },
+          { "name": "Enterprise License", "href": "#" }
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest OpenObserve insights",
+      "placeholder": "Enter your email",
+      "buttonText": "Subscribe",
+      "disclaimer": "By subscribing, you agree to receive product release updates."
+    },
+    "copyright": "OpenObserve Inc. © 2025\n3000 Sand Hill Building 4, Suite 250, Menlo Park, CA 94025",
+    "legal": [
+      { "name": "Terms of Service", "href": "#" },
+      { "name": "Privacy Policy", "href": "#" }
+    ]
+  }
 }
