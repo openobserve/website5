@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import WebinarDetailHeroSection from "@/components/webinars/WebinarDetailHeroSection.vue";
 import WebinarDetail from "@/components/webinars/WebinarDetail.vue";
+import WebinarAuthorWrapper from "@/components/webinars/WebinarAuthorWrapper.vue";
 export async function getStaticPaths() {
   return [
     {
@@ -11,8 +12,10 @@ export async function getStaticPaths() {
 }
 const { slug }: any = Astro.params;
 const webinars = {
-  title: "Getting started with managing your metrics, logs, and traces using OpenObserve",
-  description: "Learn how to implement advanced anomaly detection systems using OpenObserve's powerful observability platform combined with Random Cut Forest algorithms for real-time insights.",
+  title:
+    "Getting started with managing your metrics, logs, and traces using OpenObserve",
+  description:
+    "Learn how to implement advanced anomaly detection systems using OpenObserve's powerful observability platform combined with Random Cut Forest algorithms for real-time insights.",
   tags: [
     { name: "Webinars", slug: "webinars" },
     { name: "Videos", slug: "videos" },
@@ -20,9 +23,10 @@ const webinars = {
   ],
   author: [
     {
-      name: "OpenObserve",
-      image: { url: "https://openobserve.ai/logo.svg" },
+      name: "Prabhat Sharma",
+    //   image: { url: "https://openobserve.ai/logo.svg" },
       slug: "openobserve",
+      bio: "Prabhat Sharma is the founder of OpenObserve, bringing extensive expertise in cloud computing, Kubernetes, and observability. His interests also encompass machine learning, liberal arts, economics, and systems architecture. Outside of work, Prabhat enjoys spending quality time playing with his children.",
     },
   ],
   publishDate: new Date().toISOString(),
@@ -30,22 +34,38 @@ const webinars = {
   availability: "On-demand",
   duration: "45 min",
   objectives: [
-       {
-    description:
-      "Connect disparate data from multiple tools to Openobserve for a unified 'first-pane-of-glass'",
-  },
-  {
-    description: "Create your first Openobserve dashboard",
-  },
-  {
-    description:
-      "Correlate observability data - metrics, logs and traces - so you can resolve incidents faster",
-  },
+    {
+      description:
+        "Connect disparate data from multiple tools to Openobserve for a unified 'first-pane-of-glass'",
+    },
+    {
+      description: "Create your first Openobserve dashboard",
+    },
+    {
+      description:
+        "Correlate observability data - metrics, logs and traces - so you can resolve incidents faster",
+    },
   ],
-  summary : {
-    title:"Unify, correlate, and visualize data with dashboards using Openobserve",
-    description:"New to Openobserve? Do you have too many monitoring tools and find yourself moving between different tabs or products when troubleshooting?<br/><br/> In this webinar, we'll introduce you to the LGTM stack, Openobserve Labs' opinionated observability stack which includes: Loki-for logs, Openobserve - for dashboards and visualization, Tempo - for traces, and Mimir - for metrics. We'll also give you a sneak peek at what's new in Openobserve 12, the latest major release of your favorite dashboarding tool.<br/><br/>We will walk you through how to get started with OpenObserve, including building your first Openobserve dashboard, and how you can connect to a wide range of data sources, regardless of where it resides, to get a unified view of your data in a single dashboard.<br/><br/>From there, we will show you how to set up monitoring for a web service that uses the Openobserve Cloud LGTM stack to seamlessly correlate the data for faster troubleshooting.<br/><br/>This webinar requires no previous experience with Openobserve."
-  }
+  summary: {
+    title:
+      "Unify, correlate, and visualize data with dashboards using Openobserve",
+    description:
+      "New to Openobserve? Do you have too many monitoring tools and find yourself moving between different tabs or products when troubleshooting?<br/><br/> In this webinar, we'll introduce you to the LGTM stack, Openobserve Labs' opinionated observability stack which includes: Loki-for logs, Openobserve - for dashboards and visualization, Tempo - for traces, and Mimir - for metrics. We'll also give you a sneak peek at what's new in Openobserve 12, the latest major release of your favorite dashboarding tool.<br/><br/>We will walk you through how to get started with OpenObserve, including building your first Openobserve dashboard, and how you can connect to a wide range of data sources, regardless of where it resides, to get a unified view of your data in a single dashboard.<br/><br/>From there, we will show you how to set up monitoring for a web service that uses the Openobserve Cloud LGTM stack to seamlessly correlate the data for faster troubleshooting.<br/><br/>This webinar requires no previous experience with Openobserve.",
+  },
+  resources: [
+    {
+      title: "Getting started with Openobserve",
+      link: "https://openobserve.ai/docs/quickstart/",
+      target: "_blank",
+      description: "Learn how to get started with Openobserve",
+    },
+    {
+      title: "Openobserve documentation",
+      link: "https://openobserve.ai/docs/",
+      target: "_blank",
+      description: "Learn more about Openobserve",
+    },
+  ],
 };
 ---
 
@@ -54,7 +74,6 @@ const webinars = {
     title={webinars.title}
     description={webinars.description}
     tags={webinars.tags}
-    author={webinars.author}
     availability={webinars.availability}
     language={webinars.language}
     publishDate={Intl.DateTimeFormat("en-US", {
@@ -67,5 +86,12 @@ const webinars = {
     duration={webinars.duration}
     client:load
   />
-  <WebinarDetail client:load objectives={webinars.objectives} summary={webinars.summary} />
+  <WebinarDetail
+    client:load
+    objectives={webinars.objectives}
+    summary={webinars.summary}
+    resources={webinars.resources}
+    authors={webinars.author}
+  />
+  <WebinarAuthorWrapper client:load authors={webinars.author} />
 </Layout>

@@ -1,6 +1,8 @@
 <template>
   <section class="w-full">
-    <h5 class="text-base lg:text-lg font-medium mb-2">{{  author?.length > 1 ? "About the Authors" : "About the Author" }}</h5>
+    <h5 class="text-base lg:text-lg font-medium mb-2">
+      {{ author?.length > 1 ? "About the Authors" : "About the Author" }}
+    </h5>
     <div class="space-y-4 flex flex-col w-full">
       <a
         v-for="(authorItem, index) in author"
@@ -14,6 +16,7 @@
           >
             <div
               class="w-20 lg:w-44 rounded-full overflow-hidden border-2 border-primary-blue"
+              v-if="authorItem.image?.url"
             >
               <img
                 :src="authorItem.image?.url"
@@ -21,9 +24,19 @@
                 class="h-full w-full object-cover"
               />
             </div>
+            <div
+              class="w-20 h-20 shrink-0 rounded-full overflow-hidden hero-gradient flex items-center justify-center text-white font-semibold"
+              v-else
+            >
+              {{ getInitials(authorItem.name) }}
+            </div>
             <div class="flex flex-col gap-2 text-center lg:text-left">
-              <h3 class="text-base md:text-xl font-bold mb-1">{{ authorItem.name }}</h3>
-              <p class="text-sm md:text-base text-muted-foreground">{{ authorItem.bio }}</p>
+              <h3 class="text-base md:text-xl font-bold mb-1">
+                {{ authorItem.name }}
+              </h3>
+              <p class="text-sm md:text-base text-muted-foreground">
+                {{ authorItem.bio }}
+              </p>
             </div>
           </div>
         </div>
@@ -35,7 +48,7 @@
 <script setup lang="ts">
 import type { Author } from "@/types/blog";
 import { generateAuthorLink } from "@/utils/redirection";
-
+import { getInitials } from "@/utils/getInitials";
 defineProps<{
   author: Author[];
   type: string;

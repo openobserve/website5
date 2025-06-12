@@ -23,11 +23,11 @@
           >
             {{ title }}
           </h1>
-          <p class="text-white/90 text-base lg:text-lg mb-6">{{ description }}</p>
+          <p class="text-white/90 text-lg lg:text-xl mb-6">{{ description }}</p>
           <!-- Author Info & Social Sharing -->
           <div class="flex flex-col justify-between items-start gap-4">
-            <div class="flex items-center flex-wrap gap-3" v-if="author">
-              <div class="flex -space-x-3">
+            <div class="flex items-center flex-wrap gap-3">
+              <!-- <div class="flex -space-x-3">
                 <div
                   v-for="it in author"
                   :key="it.name"
@@ -45,10 +45,10 @@
                     <span v-else>{{ getInitials(it.name) }}</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="flex flex-col">
-                <address
+                <!-- <address
                   class="not-italic text-white flex flex-wrap items-center gap-1"
                 >
                   <template
@@ -66,9 +66,9 @@
                       >,</span
                     >
                   </template>
-                </address>
+                </address> -->
                 <div
-                  class="flex flex-wrap gap-4 text-white/80 text-base w-full justify-between"
+                  class="flex flex-wrap gap-4 text-white/80 text-lg w-full justify-between"
                 >
                   <div class="flex items-center gap-1">
                     <Calendar class="h-4 w-4" />
@@ -87,7 +87,7 @@
             </div>
 
             <!-- Social Icons -->
-            <div class="flex gap-2 items-center text-white">
+            <div class="flex gap-2 items-center text-white/90">
               <span>Share:</span>
               <a
                 v-for="(item, index) in socialMedia"
