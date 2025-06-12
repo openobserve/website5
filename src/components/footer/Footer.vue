@@ -53,50 +53,19 @@ const socialIcon = (name) => {
 <template>
   <footer class="relative bg-primary-black w-full">
     <!-- SVG Background -->
-    <svg
-      class="absolute inset-0 w-full h-full"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1221 684"
-      fill="none"
-    >
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1221 684" fill="none">
       <g filter="url(#filter0_f_1434_1855)">
-        <circle
-          cx="610.5"
-          cy="610.5"
-          r="410.5"
-          fill="url(#paint0_radial_1434_1855)"
-        />
+        <circle cx="610.5" cy="610.5" r="410.5" fill="url(#paint0_radial_1434_1855)" />
       </g>
       <defs>
-        <filter
-          id="filter0_f_1434_1855"
-          x="0"
-          y="0"
-          width="1221"
-          height="1221"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
+        <filter id="filter0_f_1434_1855" x="0" y="0" width="1221" height="1221" filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="100"
-            result="effect1_foregroundBlur_1434_1855"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1434_1855" />
         </filter>
-        <radialGradient
-          id="paint0_radial_1434_1855"
-          cx="0"
-          cy="0"
-          r="1"
-          gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(610.5 610.5) rotate(90) scale(410.5)"
-        >
+        <radialGradient id="paint0_radial_1434_1855" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(610.5 610.5) rotate(90) scale(410.5)">
           <stop offset="0.01" stop-color="#23282C" />
           <stop offset="0.885" stop-color="#23282C" stop-opacity="0" />
         </radialGradient>
@@ -107,24 +76,15 @@ const socialIcon = (name) => {
       <!-- Main Grid Layout - 68%/32% split -->
       <div class="flex flex-col lg:flex-row gap-6 mt-8">
         <!-- Left side - responsive columns -->
-        <div
-          class="w-full lg:w-[75%] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
-          <div
-            v-for="(section, index) in firstSections"
-            :key="section.title"
-            class="min-w-0"
-          >
+        <div class="w-full lg:w-[75%] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div v-for="(section, index) in firstSections" :key="section.title" class="min-w-0">
             <h2 class="text-white font-medium text-xl mb-3">
               {{ section.title }}
             </h2>
             <ul class="space-y-2">
               <li v-for="item in section.items" :key="item.text">
-                <a
-                  :href="item.link"
-                  :target="item.target"
-                  class="inline-block text-gray-300 text-base transition duration-300 hover:text-[#7782FF]"
-                >
+                <a :href="item.link" :target="item.target"
+                  class="inline-block text-gray-300 text-base transition duration-300 hover:text-[#7782FF]">
                   {{ item.text }}
                 </a>
               </li>
@@ -142,14 +102,8 @@ const socialIcon = (name) => {
       <div class="flex justify-center lg:justify-end py-4">
         <div class="flex items-center gap-6">
           <div class="w-12 h-12 flex-shrink-0">
-            <img
-              src="/img/soc.webp"
-              class="w-full h-full object-contain grayscale"
-              alt="Official AICPA SOC badge"
-              loading="lazy"
-              width="48"
-              height="48"
-            />
+            <img src="/img/soc.webp" class="w-full h-full object-contain grayscale" alt="Official AICPA SOC badge"
+              loading="lazy" width="48" height="48" />
           </div>
 
           <div class="flex flex-col text-white">
@@ -157,14 +111,17 @@ const socialIcon = (name) => {
             <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
           </div>
 
+          <div class="text-white">
+            <ul>
+              <li>
+                <a href="/webinars">Webinars</a>
+              </li>
+            </ul>
+          </div>
+
           <div class="flex flex-wrap justify-center md:justify-start gap-2">
-            <GithubButton
-              href="https://github.com/openobserve/openobserve"
-              data-color-scheme="light"
-              data-size="large"
-              data-show-count="true"
-              aria-label="Star openobserve/openobserve on GitHub"
-            >
+            <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="light" data-size="large"
+              data-show-count="true" aria-label="Star openobserve/openobserve on GitHub">
               Star
             </GithubButton>
           </div>
@@ -173,8 +130,7 @@ const socialIcon = (name) => {
 
       <!-- Bottom Section -->
       <div
-        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-white"
-      >
+        class="border-t border-gray-700 pt-5 flex flex-col gap-5 lg:flex-row justify-between items-center text-white">
         <!-- Copyright -->
         <div class="flex flex-col items-center lg:items-start gap-1">
           <p class="md:mb-0 font-normal text-xs">
@@ -185,18 +141,12 @@ const socialIcon = (name) => {
           </p>
         </div>
         <div class="flex items-center gap-4">
-          <a
-            :href="termsOfService?.link"
-            :target="termsOfService?.target"
-            class="text-base inline-block transition duration-300 hover:text-[#7782FF]"
-          >
+          <a :href="termsOfService?.link" :target="termsOfService?.target"
+            class="text-base inline-block transition duration-300 hover:text-[#7782FF]">
             {{ termsOfService?.text }}
           </a>
-          <a
-            :href="privacyText?.link"
-            :target="privacyText?.target"
-            class="text-base inline-block transition duration-300 hover:text-[#7782FF]"
-          >
+          <a :href="privacyText?.link" :target="privacyText?.target"
+            class="text-base inline-block transition duration-300 hover:text-[#7782FF]">
             {{ privacyText?.text }}
           </a>
         </div>
@@ -204,18 +154,10 @@ const socialIcon = (name) => {
         <div class="flex items-center space-x-4">
           <!-- Social Links -->
           <div class="flex gap-4">
-            <a
-              v-for="(item, index) in socialMedia"
-              :key="index"
-              :href="item.link"
+            <a v-for="(item, index) in socialMedia" :key="index" :href="item.link"
               class="flex items-center justify-center p-3 rounded-lg transition-all duration-200 hover:bg-white hover:bg-opacity-10"
-              target="_blank"
-            >
-              <img
-                :src="socialIcon(item.name)"
-                class="w-6 h-6"
-                :alt="item.name"
-              />
+              target="_blank">
+              <img :src="socialIcon(item.name)" class="w-6 h-6" :alt="item.name" />
             </a>
           </div>
         </div>

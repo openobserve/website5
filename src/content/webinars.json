@@ -1,0 +1,31 @@
+{
+  "pageTitle": "OpenObserve Live Webinars and Videos",
+  "intro": "Discover how OpenObserve can help you simplify observability. Watch on-demand videos and explore our featured live webinars to learn more.",
+  "webinar": {
+    "link": "https://openobserve.ai/webinars/zero-to-observability-in-30-minutes/",
+    "image": "https://via.placeholder.com/600x200.png?text=Webinar+Thumbnail",
+    "badgeImage": "https://openobserve.ai/images/logo.svg",
+    "badgeText": "LIVE",
+    "title": "➡ From Zero to Observability in 30 Minutes",
+    "date": "June 20, 2025 at 10:00 AM PT",
+    "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
+    "learnPoints": [
+      "Deploy OpenObserve in minutes",
+      "Ingest logs with Filebeat/FluentBit",
+      "Create dashboards and real-time alerts",
+      "Compare with Elastic, Splunk, and OpenSearch"
+    ]
+  },
+  "videos": [
+    {
+      "iframe": "https://www.youtube.com/embed/NGF9LufqBUg",
+      "link": "https://youtu.be/NGF9LufqBUg",
+      "title": "Watch: How to Build GeoDashboards in OpenObserve"
+    },
+    {
+      "iframe": "https://www.youtube.com/embed/dF1IEEY-R54",
+      "link": "https://youtu.be/dF1IEEY-R54",
+      "title": "Watch: What is a Syslog Server? Ingest Syslog to OpenObserve"
+    }
+  ]
+}
