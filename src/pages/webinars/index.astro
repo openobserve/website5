@@ -44,12 +44,21 @@ const upcomingWebinars = [
     description:
       "Join our experts for a live Q&A session on real-time observability. Ask your questions and get instant answers!",
     date: new Date().toISOString().slice(0, 10),
-    time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+    time: new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
     duration: "30 min",
     speakers: ["Alex Lee", "Observability Specialist"],
     registrations: 99,
     gradient: "from-yellow-400 to-orange-500",
     startTime: new Date().toISOString(), // This will make it live now
+    learnings: [
+      "Deploy OpenObserve in minutes",
+      "Ingest logs with Filebeat/FluentBit",
+      "Create dashboards and real-time alerts",
+      "Compare with Elastic, Splunk, and OpenSearch",
+    ],
   },
 ];
 
