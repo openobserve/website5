@@ -15,10 +15,6 @@
           {{ title }}
         </h1>
 
-        <div class="flex mb-2" :class="{ 'justify-start': !author?.length, 'md:justify-end': author?.length }">
-          <span class=" text-white text-sm font-semibold">Don’t forget to share!
-          </span>
-        </div>
         <!-- Author Info & Social Sharing -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div class="flex items-center flex-wrap gap-3" v-if="author">
@@ -53,20 +49,27 @@
             </div>
           </div>
 
+
           <!-- Social Icons -->
-          <div class="flex gap-2 items-center">
-            <a v-for="(item, index) in socialMedia" :key="index" :href="item.href" target="_blank" rel="noopener"
-              class="rounded-full bg-white/10 w-8 h-8 hover:bg-white/20 flex items-center justify-center"
-              :aria-label="item.ariaLabel">
-              <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
-            </a>
-            <button @click="copyToClipboard" :class="[
-              'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 cursor-pointer',
-              'bg-white/10 hover:bg-white/20',
-              copied ? 'ring-2 ring-white' : '',
-            ]" :title="copied ? 'Copied!' : 'Copy link'" aria-label="Copy link">
-              <img src="/img/icon/link-icon-for-blog.svg" alt="Copy" class="h-4 w-4" />
-            </button>
+          <div class="flex flex-col gap-2 items-center">
+            <div class="flex mb-1 justify-center items-center">
+              <span class=" text-white text-sm font-semibold">Don’t forget to share!
+              </span>
+            </div>
+            <div class="flex flex-row gap-2">
+              <a v-for="(item, index) in socialMedia" :key="index" :href="item.href" target="_blank" rel="noopener"
+                class="rounded-full bg-white/10 w-8 h-8 hover:bg-white/20 flex items-center justify-center"
+                :aria-label="item.ariaLabel">
+                <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
+              </a>
+              <button @click="copyToClipboard" :class="[
+                'rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 cursor-pointer',
+                'bg-white/10 hover:bg-white/20',
+                copied ? 'ring-2 ring-white' : '',
+              ]" :title="copied ? 'Copied!' : 'Copy link'" aria-label="Copy link">
+                <img src="/img/icon/link-icon-for-blog.svg" alt="Copy" class="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
 
