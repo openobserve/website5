@@ -16,7 +16,7 @@
         </h1>
 
         <div class="flex mb-2" :class="{ 'justify-start': !author?.length, 'md:justify-end': author?.length }">
-          <span class=" text-white text-sm font-semibold">Don't forget to share this!
+          <span class=" text-white text-sm font-semibold">Don’t forget to share!
           </span>
         </div>
         <!-- Author Info & Social Sharing -->
