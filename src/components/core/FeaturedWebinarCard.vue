@@ -61,17 +61,19 @@ watch(shouldRedirect, (val) => {
   <div class="flex flex-col bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden w-full">
     <a :href="`/webinars/${webinar.slug}`" class="no-underline">
       <div class="hero-gradient p-6 text-white">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center space-x-4">
             <div class="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
               <Play class="w-4 h-4" />
             </div>
-            <div>
+            <a :href="`/webinars/${webinar.slug}`" class="no-underline hover:underline focus:underline outline-none"
+              tabindex="0">
               <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
               <p class="text-white/90">{{ webinar.subtitle }}</p>
-            </div>
+            </a>
           </div>
-          <span :class="isLive ? 'bg-red-600' : 'bg-green-600'" class="text-white px-3 py-1 rounded-full text-sm">
+          <span :class="isLive ? 'bg-red-600' : 'bg-green-600'"
+            class="text-white px-3 py-1 rounded-full text-sm self-start sm:self-auto">
             {{ isLive ? 'LIVE' : 'Upcoming' }}
           </span>
         </div>
