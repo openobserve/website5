@@ -62,6 +62,11 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
 const showPopup = ref(false);
 
 const calendarLinks = {
+  webinarDetail :{
+    eventTitle:"Mastering Real-Time Anomaly Detection",
+    eventDate:"December 15, 2024",
+    eventTime:"10:00 AM PT"
+  },
   google:
     "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Title&dates=20250620T100000Z/20250620T110000Z&details=Join+our+webinar&location=https://your-site.com",
   outlook:
