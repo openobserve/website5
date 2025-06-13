@@ -59,7 +59,7 @@
     class="fixed inset-0 bg-white/10 backdrop-blur-xs flex items-center justify-center z-50 text-gray-700 pointer-events-none no-scroll"
   >
      <div
-      class="flex items-center justify-center w-full h-full pointer-events-auto"
+      class="flex items-center justify-center w-11/12 sm:w-full h-full pointer-events-auto"
     >
     <div class="relative bg-white rounded-xl p-6 max-w-md w-full text-center shadow-xl">
       <!-- Close Icon -->
@@ -115,7 +115,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, watch } from "vue";
+import { defineProps, defineEmits, watch, onMounted, onUnmounted } from "vue";
 import { Calendar, Download,X } from "lucide-vue-next";
 const props = defineProps<{
   visible: boolean;
@@ -140,13 +140,27 @@ function toggleBodyScroll(disable: boolean) {
   }
 }
 
-// Watch for popup visibility
+ // Watch for popup visibility
 watch(
   () => props.visible,
   (visible) => {
     toggleBodyScroll(visible);
   }
 );
+// Escape key closes modal
+function handleKeyDown(e: KeyboardEvent) {
+  if (e.key === "Escape" && props.visible) {
+    emit("close");
+  }
+}
+
+// Setup key listener on mount
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
+});
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeyDown);
+});
 </script>
 <style scoped>
 

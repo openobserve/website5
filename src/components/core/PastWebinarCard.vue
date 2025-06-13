@@ -1,7 +1,7 @@
 <script setup>
 import { Calendar, Play } from "lucide-vue-next";
 import CustomButton from "./CustomButton.vue";
-import { ref } from 'vue'
+import { ref } from "vue";
 import AddToCalenderPopup from "../webinars/AddToCalenderPopup.vue";
 const props = defineProps({
   webinar: {
@@ -13,21 +13,22 @@ const props = defineProps({
     required: true,
   },
 });
-const showPopup = ref(false)
+const showPopup = ref(false);
 
 const calendarLinks = {
-  google: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Title&dates=20250620T100000Z/20250620T110000Z&details=Join+our+webinar&location=https://your-site.com',
-  outlook: 'https://outlook.live.com/owa/?rru=addevent&startdt=2025-06-20T10:00:00Z&enddt=2025-06-20T11:00:00Z&subject=Webinar+Title&location=https://your-site.com&body=Join+our+webinar',
-  ics: '/ics/webinar.ics', // path to your ICS file
-}
+  google:
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Title&dates=20250620T100000Z/20250620T110000Z&details=Join+our+webinar&location=https://your-site.com",
+  outlook:
+    "https://outlook.live.com/owa/?rru=addevent&startdt=2025-06-20T10:00:00Z&enddt=2025-06-20T11:00:00Z&subject=Webinar+Title&location=https://your-site.com&body=Join+our+webinar",
+  ics: "/ics/webinar.ics", // path to your ICS file
+};
 
 function registerForWebinar() {
   // Simulate successful registration
   setTimeout(() => {
-    showPopup.value = true
-  }, 1000)
+    showPopup.value = true;
+  }, 200);
 }
-
 </script>
 
 <template>
@@ -106,12 +107,13 @@ function registerForWebinar() {
       >
         {{ "Register" }}
       </CustomButton>
-
-      <AddToCalenderPopup
-        :visible="showPopup"
-        :calendarLinks="calendarLinks"
-        @close="showPopup = false"
-      />
+      <Teleport to="body">
+        <AddToCalenderPopup
+          :visible="showPopup"
+          :calendarLinks="calendarLinks"
+          @close="showPopup = false"
+        />
+      </Teleport>
     </div>
   </div>
 </template>
