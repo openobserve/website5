@@ -24,12 +24,13 @@ const webinars = {
   author: [
     {
       name: "Prabhat Sharma",
-    //   image: { url: "https://openobserve.ai/logo.svg" },
+      //   image: { url: "https://openobserve.ai/logo.svg" },
       slug: "openobserve",
       bio: "Prabhat Sharma is the founder of OpenObserve, bringing extensive expertise in cloud computing, Kubernetes, and observability. His interests also encompass machine learning, liberal arts, economics, and systems architecture. Outside of work, Prabhat enjoys spending quality time playing with his children.",
     },
   ],
-  publishDate: new Date().toISOString(),
+  // publishDate: new Date().toISOString(),
+  publishDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // Tomorrow
   language: "en",
   availability: "On-demand",
   duration: "45 min",

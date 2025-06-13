@@ -119,9 +119,13 @@
             </div>
           </div>
           <!-- registration From -->
-           <SubscriptionForm />
+          <div v-show="isUpcoming">
+            <SubscriptionForm />
+          </div>
         </article>
-        <div class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10">
+        <div
+          class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10"
+        >
           <iframe
             :class="`w-full h-full`"
             src="https://www.youtube.com/embed/QvgyHU3_wME?si=Ute7fsnMLwkIL9ZS&rel=0"
@@ -141,7 +145,7 @@
 <script setup lang="ts">
 import { getInitials } from "@/utils/getInitials";
 import { Calendar, Clock, Globe } from "lucide-vue-next";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { formatPublishDate } from "@/utils/formatPublishDate";
 import { getLanguageFullName } from "@/utils/getLanguageFullName";
 import SubscriptionForm from "../forms/SubscriptionForm.vue";
@@ -166,6 +170,18 @@ const props = defineProps<{
   language: string;
   shareUrl: string;
 }>();
+// Convert to Date
+const isUpcoming = computed(() => {
+  const now = new Date().toISOString();
+  const Today = Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  }).format(new Date(now));
+  // console.log(props.publishDate > Today, "data>now", props.publishDate , Today);
+  return props.publishDate > Today;
+});
 const copied = ref(false);
 
 const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
