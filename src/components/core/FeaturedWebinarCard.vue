@@ -11,7 +11,9 @@ const props = defineProps({
 
 // Compute if the webinar is live
 import { computed } from 'vue';
+import { formatDateTimeInET } from '@/utils/getFormattedTime';
 
+const {date, time} = formatDateTimeInET(props.webinar.date)
 const isLive = computed(() => {
   const now = new Date();
   let start;
@@ -53,11 +55,11 @@ const isLive = computed(() => {
       <div class="flex items-center space-x-6 mb-4 text-gray-600">
         <div class="flex items-center space-x-2">
           <Calendar class="w-4 h-4" />
-          <span>{{ webinar.date }}</span>
+          <span>{{ date }}</span>
         </div>
         <div class="flex items-center space-x-2">
           <Clock class="w-4 h-4" />
-          <span>{{ webinar.time }}</span>
+          <span>{{ time }}</span>
         </div>
         <div class="flex items-center space-x-2">
           <Clock class="w-4 h-4" />

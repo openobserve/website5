@@ -19,54 +19,17 @@
           <!-- Webinar Info & Social Sharing -->
           <div class="flex flex-col justify-between items-start gap-4">
             <div class="flex items-center flex-wrap gap-3">
-              <!-- <div class="flex -space-x-3">
-                <div
-                  v-for="it in author"
-                  :key="it.name"
-                  class="relative rounded-full border-2 border-white/80"
-                >
-                  <div
-                    class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-                  >
-                    <img
-                      v-if="it.image?.url"
-                      :src="it.image.url"
-                      :alt="it.name"
-                      class="h-full w-full object-cover"
-                    />
-                    <span v-else>{{ getInitials(it.name) }}</span>
-                  </div>
-                </div>
-              </div> -->
-
               <div class="flex flex-col">
-                <!-- <address
-                  class="not-italic text-white flex flex-wrap items-center gap-1"
-                >
-                  <template
-                    v-for="(it, index) in author"
-                    :key="`name-${it.name}`"
-                  >
-                    <a
-                      :href="`/${type}/author/${it.slug}/`"
-                      class="font-medium hover:underline"
-                      >{{ it.name }}</a
-                    >
-                    <span
-                      v-if="index < author.length - 1"
-                      class="text-white/70 text-xs"
-                      >,</span
-                    >
-                  </template>
-</address> -->
                 <div class="flex flex-wrap gap-4 text-white text-lg w-full xl:justify-between">
                   <div class="flex items-center gap-1">
                     <Calendar class="h-4 w-4" />
-                    <span>{{ formatPublishDate(publishDate) }}</span>
+                    <!-- <span>{{ formatPublishDate(publishDate) }}</span> -->
+                     <span>{{ date }}</span>
                   </div>
                   <div class="flex items-center gap-1">
                     <Clock class="h-4 w-4" />
-                    <span>{{ getLocalTimeWithAbbreviation(time) }}</span>
+                    <!-- <span>{{ getLocalTimeWithAbbreviation(time) }}</span> -->
+                    <span>{{ time }}</span>
                   </div>
                   <div class="flex items-center gap-1">
                     <Timer class="h-4 w-4" />
@@ -123,6 +86,7 @@ import { getLanguageFullName } from "@/utils/getLanguageFullName";
 import {
   getTimeInZones,
   getLocalTimeWithAbbreviation,
+  formatDateTimeInET,
 } from "@/utils/getFormattedTime";
 import SubscriptionForm from "../forms/SubscriptionForm.vue";
 const props = defineProps<{
@@ -147,6 +111,7 @@ const props = defineProps<{
   shareUrl: string;
   time: string;
 }>();
+const { date, time } = formatDateTimeInET(props.publishDate);
 const zoneTimes = computed(() => getTimeInZones(props.time));
 // Convert to Date
 const isUpcoming = computed(() => {

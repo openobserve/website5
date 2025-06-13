@@ -4,7 +4,7 @@
       "title": "Mastering Real-Time Anomaly Detection",
       "subtitle": "Detect issues before they escalate",
       "description": "Join us to explore how to implement scalable anomaly detection in real-time systems using OpenObserve.",
-      "date": "2024-12-15",
+      "date": "2024-12-15T10:00:00.000Z",
       "time": "17:00:00Z",
       "duration": "60 minutes",
       "objectives": [
@@ -53,7 +53,7 @@
       "title": "OpenObserve Deep Dive: Dashboards & Visualization",
       "subtitle": "Craft meaningful visual insights",
       "description": "Learn to build custom dashboards in OpenObserve for log and metrics data visualization.",
-      "date": "2024-11-20T16:00:00Z",
+      "date": "2024-11-20T14:00:00.000Z",
       "time": "16:00:00Z",
       "duration": "45 minutes",
       "objectives": [
@@ -102,7 +102,7 @@
       "title": "Getting Started with OpenObserve for DevOps",
       "subtitle": "From install to insights",
       "description": "A practical walkthrough of installing and using OpenObserve in your CI/CD pipelines.",
-      "date": "2025-10-05",
+      "date": "2025-10-05T16:00:00.000Z",
       "time": "14:00:00Z",
       "duration": "40 minutes",
       "objectives": [
@@ -157,7 +157,7 @@
       "title": "Log Enrichment and Custom Parsing in OpenObserve",
       "subtitle": "Make your logs work for you",
       "description": "Discover techniques for transforming raw logs into structured, insightful data.",
-      "date": "2025-01-13",
+     "date": "2025-06-13T07:00:00.000Z"  ,
       "time": "14:30:00Z",
       "duration": "50 minutes",
       "objectives": [

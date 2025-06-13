@@ -13,7 +13,7 @@ import webinarData from "@/content/webinars.json";
 // }
 export async function getStaticPaths() {
   return webinarData.data.map((webinar) => ({
-    params: { slug: webinar.slug }
+    params: { slug: webinar.slug },
   }));
 }
 const { slug }: any = Astro.params;
@@ -82,12 +82,7 @@ const webinars = webinarData.data.find((item) => item.slug === slug);
     title={webinars?.title}
     description={webinars?.description}
     tags={webinars?.tags}
-    publishDate={Intl.DateTimeFormat("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "2-digit",
-    }).format(new Date(webinars?.date))}
+    publishDate={webinars?.date}
     shareUrl={`/webinars/${slug}`}
     duration={webinars?.duration}
     time={webinars?.time}

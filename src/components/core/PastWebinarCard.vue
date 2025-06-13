@@ -3,6 +3,7 @@ import { Calendar, Play } from "lucide-vue-next";
 import CustomButton from "./CustomButton.vue";
 import { ref } from "vue";
 import AddToCalenderPopup from "../webinars/AddToCalenderPopup.vue";
+import { formatDateTimeInET } from "@/utils/getFormattedTime";
 const props = defineProps({
   webinar: {
     type: Object,
@@ -15,18 +16,7 @@ const props = defineProps({
 });
 const showPopup = ref(false);
 
-const calendarLinks = {
-  webinarDetail: {
-    eventTitle: "Mastering Real-Time Anomaly Detection",
-    eventDate: "December 15, 2024",
-    eventTime: "10:00 AM PT",
-  },
-  google:
-    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Title&dates=20250620T100000Z/20250620T110000Z&details=Join+our+webinar&location=https://your-site.com",
-  outlook:
-    "https://outlook.live.com/owa/?rru=addevent&startdt=2025-06-20T10:00:00Z&enddt=2025-06-20T11:00:00Z&subject=Webinar+Title&location=https://your-site.com&body=Join+our+webinar",
-  ics: "/ics/webinar.ics", // path to your ICS file
-};
+const {date, time} = formatDateTimeInET(props.webinar.date)
 
 function registerForWebinar() {
   // Simulate successful registration
@@ -68,11 +58,7 @@ function registerForWebinar() {
         <div class="flex items-center text-sm text-gray-600">
           <Calendar class="w-4 h-4 mr-2" />
           {{
-            new Date(webinar.date).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })
+         date
           }}
         </div>
       </div>

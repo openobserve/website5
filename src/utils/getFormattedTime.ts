@@ -42,3 +42,28 @@ export function getLocalTimeWithAbbreviation(utcTime: string): string {
   });
 }
 
+// This function formats the date and time in the format: "January 13, 2025 | 07:12 AM ET"
+export function formatDateTimeInET(isoString: string) {
+  const dateObj = new Date(isoString);
+
+  // Format date: January 13, 2025
+  const formattedDate = dateObj.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+    timeZone: "America/New_York", // Still use ET for consistent formatting
+  });
+
+  // Format time: 07:12 AM ET
+  const formattedTime = dateObj.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "America/New_York",
+  });
+
+  return {
+    date: formattedDate, // e.g., January 13, 2025
+    time: `${formattedTime} ET`, // e.g., 07:12 AM ET
+  };
+}

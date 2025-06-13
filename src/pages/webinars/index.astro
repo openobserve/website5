@@ -26,11 +26,7 @@ function mapWebinar(item, idx) {
     title: item.title,
     subtitle: item.subtitle,
     description: item.description,
-    date: item.date
-      ? item.date.length > 10
-        ? item.date.slice(0, 10)
-        : item.date
-      : "",
+    date: item.date,
     time: item.time
       ? item.time.length > 8
         ? item.time.slice(0, 5)
