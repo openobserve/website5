@@ -16,7 +16,7 @@ const navData = await cachedFetchApi({
 
 const FooterData = await cachedFetchApi({
   endpoint: "api/footer",
-  query: { pLevel: "4"},
+  query: { pLevel: "4" },
 });
 // Accept class as props
 const { class: sectionClass } = Astro.props;
@@ -57,7 +57,11 @@ const { class: sectionClass } = Astro.props;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-5RDZ55LR");
     </script>
-    <SEO title={metaObj?.title} description={metaObj?.description} image={metaObj?.image} />
+    <SEO
+      title={metaObj?.title}
+      description={metaObj?.description}
+      image={metaObj?.image}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -72,7 +76,9 @@ const { class: sectionClass } = Astro.props;
   </head>
   <body class="">
     <Header navData={navData?.data} path={url} client:load />
-    <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}>
+    <main
+      class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}
+    >
       <slot />
     </main>
     <Footer
@@ -86,11 +92,11 @@ const { class: sectionClass } = Astro.props;
     />
     <!-- CookieConsent Script -->
 
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" defer
-    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+      defer></script>
     <script is:inline>
       window.addEventListener("load", function () {
-
         window.cookieconsent.initialise({
           palette: {
             popup: {
@@ -110,6 +116,11 @@ const { class: sectionClass } = Astro.props;
           theme: "classic",
           position: "bottom-right",
           type: "opt-in",
+          categories: {
+            necessary: { enabled: true, readOnly: true },
+            analytics: { enabled: false },
+            marketing: { enabled: false },
+          },
           content: {
             message:
               "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking 'Accept', you consent to our use of cookies.",
@@ -124,7 +135,7 @@ const { class: sectionClass } = Astro.props;
           // revokeBtn: false,
           showLink: false,
           law: {
-            regionalLaw: false, // Disable regional law
+            regionalLaw: true, // Disable regional law
           },
           onPopupOpen: function () {
             const popup = document.querySelector(".cc-window");
@@ -179,9 +190,9 @@ const { class: sectionClass } = Astro.props;
           gtag("consent", "update", {
             analytics_storage: consent ? "granted" : "denied",
             ad_storage: consent ? "granted" : "denied",
-            functionality_storage: consent ? "granted" : "denied",
+            functionality_storage: "granted",
             personalization_storage: consent ? "granted" : "denied",
-            security_storage: "granted", // Usually always granted
+            security_storage: "granted",
           });
 
           // Manually push the GTM consent update event
@@ -189,7 +200,6 @@ const { class: sectionClass } = Astro.props;
             event: "gtm.consent_update",
           });
         }
-
       });
     </script>
   </body>
