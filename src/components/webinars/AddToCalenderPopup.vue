@@ -85,12 +85,12 @@
               {{ webinarDetail.eventTitle }}
             </h3>
             <div
-              class="flex items-center justify-center gap-1 mt-2 text-muted-foreground"
+              class="flex items-center justify-center gap-1 mt-2 text-muted-foreground text-sm"
             >
               <Calendar class="h-4 w-4" />
               <span>
                 {{ webinarDetail.eventDate }} at
-                {{ webinarDetail.eventTime }}
+                {{ getLocalTimeWithAbbreviation(webinarDetail.eventTime) }}
               </span>
             </div>
           </div>
@@ -138,6 +138,7 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, watch, onMounted, onUnmounted } from "vue";
 import { Calendar, Download, X, CircleCheckBig } from "lucide-vue-next";
+import { getLocalTimeWithAbbreviation } from "@/utils/getFormattedTime";
 const props = defineProps<{
   visible: boolean;
   webinarDetail: {
@@ -147,7 +148,7 @@ const props = defineProps<{
     email: string;
   };
 }>();
-console.log(props.webinarDetail,"details inside popup");
+// console.log(props.webinarDetail,"details inside popup");
 const emit = defineEmits(["close"]);
 
 function closePopup() {

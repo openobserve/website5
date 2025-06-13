@@ -1,192 +1,200 @@
 {
-  "header": {
-    "brand": "openobserve",
-    "navigation": [
-      { "name": "Platform", "href": "#" },
-      { "name": "Solutions", "href": "#" },
-      { "name": "Resources", "href": "#" },
-      { "name": "Pricing", "href": "#" },
-      { "name": "Webinars", "href": "#" }
-    ],
-    "cta": {
-      "primary": "Get Demo",
-      "secondary": "Log in"
-    }
-  },
-  "hero": {
-    "title": "Webinars",
-    "subtitle": "Join our expert-led sessions to master observability, reduce costs, and scale your monitoring infrastructure."
-  },
-  "upcomingWebinars": [
+  "data": [
     {
-      "title": "From Zero to Observability in 30 Minutes",
-      "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
-      "date": "June 20, 2025",
-      "time": "10:00 AM PT",
-      "attendees": "189",
-      "duration": "30 minutes",
-      "isLive": true,
-      "liveLabel": "LIVE",
-      "status": "Live Interactive Demo",
-      "iconBg": "bg-gradient-to-r from-purple-500 to-pink-500",
-      "ctaText": "Join Live Webinar",
-      "presenter": "Mike Rodriguez",
-      "learningPoints": [
-        "Deploy OpenObserve in minutes",
-        "Create dashboards and real-time alerts",
-        "Ingest logs with Filebeat/FluentBit",
-        "Compare with Elastic, Splunk, and OpenSearch"
+      "title": "Mastering Real-Time Anomaly Detection",
+      "subtitle": "Detect issues before they escalate",
+      "description": "Join us to explore how to implement scalable anomaly detection in real-time systems using OpenObserve.",
+      "date": "2024-12-15",
+      "time": "17:00:00Z",
+      "duration": "60 minutes",
+      "objectives": [
+        {
+          "description": "Understand the fundamentals of real-time anomaly detection."
+        },
+        {
+          "description": "Learn how to configure detection rules in OpenObserve."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Anomaly Detection",
+          "slug": "anomaly-detection"
+        },
+        {
+          "name": "Observability",
+          "slug": "observability"
+        }
+      ],
+      "slug": "mastering-real-time-anomaly-detection",
+      "author": [
+        {
+          "name": "Alex Gutierrez",
+          "slug": "alex-gutierrez",
+          "bio": "Senior Dev Advocate at OpenObserve, passionate about real-time analytics.",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/20.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Real-time insights made easy",
+        "description": "This webinar will help you monitor and detect unusual behavior in your systems instantly."
+      },
+      "resources": [
+        {
+          "title": "GitHub Repo",
+          "link": "https://github.com/openobserve/openobserve",
+          "target": "_blank",
+          "description": "Explore the source code and examples."
+        }
       ]
     },
     {
-      "title": "Cost Optimization Strategies for Observability",
-      "description": "Discover how to reduce your observability costs by up to 140x while maintaining comprehensive monitoring coverage.",
-      "date": "Feb 5",
-      "time": "2:00 PM PST",
-      "attendees": "189",
+      "title": "OpenObserve Deep Dive: Dashboards & Visualization",
+      "subtitle": "Craft meaningful visual insights",
+      "description": "Learn to build custom dashboards in OpenObserve for log and metrics data visualization.",
+      "date": "2024-11-20T16:00:00Z",
+      "time": "16:00:00Z",
       "duration": "45 minutes",
-      "isLive": false,
-      "status": "Upcoming",
-      "iconBg": "bg-gradient-to-r from-green-500 to-teal-500",
-      "ctaText": "Register",
-      "presenter": "Mike Rodriguez",
-      "learningPoints": [
-        "Cost analysis techniques",
-        "Storage optimization strategies",
-        "Efficient data retention policies",
-        "ROI measurement frameworks"
+      "objectives": [
+        {
+          "description": "Get familiar with visualization widgets."
+        },
+        {
+          "description": "Understand how to link dashboards with alerting."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Dashboards",
+          "slug": "dashboards"
+        },
+        {
+          "name": "Visualization",
+          "slug": "visualization"
+        }
+      ],
+      "slug": "dashboards-and-visualization",
+      "author": [
+        {
+          "name": "Nisha Rao",
+          "slug": "nisha-rao",
+          "bio": "Product Manager at OpenObserve, focused on user experience and feature design.",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/4.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Visualize your observability data",
+        "description": "Make data understandable with OpenObserve’s powerful dashboard features."
+      },
+      "resources": [
+        {
+          "title": "Dashboard Templates",
+          "link": "https://openobserve.dev/docs/dashboards",
+          "target": "_blank",
+          "description": "Ready-to-use dashboard layouts for different use cases."
+        }
       ]
     },
     {
-      "title": "Real-time Metrics and Alerting Best Practices",
-      "description": "Master the art of setting up effective alerts and monitoring real-time metrics for mission-critical applications.",
-      "date": "11:00 PM PST",
-      "time": "Feb 10",
-      "attendees": "156",
+      "title": "Getting Started with OpenObserve for DevOps",
+      "subtitle": "From install to insights",
+      "description": "A practical walkthrough of installing and using OpenObserve in your CI/CD pipelines.",
+      "date": "2025-10-05",
+      "time": "14:00:00Z",
+      "duration": "40 minutes",
+      "objectives": [
+        {
+          "description": "Install OpenObserve locally or in Kubernetes."
+        },
+        {
+          "description": "Send pipeline logs and visualize them effectively."
+        }
+      ],
+      "tags": [
+        {
+          "name": "DevOps",
+          "slug": "devops"
+        },
+        {
+          "name": "CI/CD",
+          "slug": "ci-cd"
+        }
+      ],
+      "slug": "getting-started-devops",
+      "author": [
+        {
+          "name": "Rahul Mehta",
+          "slug": "rahul-mehta",
+          "bio": "DevOps Engineer who loves automating monitoring workflows.",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/5.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Zero to Hero in OpenObserve for CI/CD",
+        "description": "Get hands-on with integrating observability into your deployment workflows."
+      },
+      "resources": [
+        {
+          "title": "Quick Start Guide",
+          "link": "https://openobserve.dev/docs/quickstart",
+          "target": "_self",
+          "description": "Step-by-step documentation to set up your environment."
+        }
+      ]
+    },
+    {
+      "title": "Log Enrichment and Custom Parsing in OpenObserve",
+      "subtitle": "Make your logs work for you",
+      "description": "Discover techniques for transforming raw logs into structured, insightful data.",
+      "date": "2025-01-13",
+      "time": "14:30:00Z",
       "duration": "50 minutes",
-      "isLive": false,
-      "status": "Upcoming",
-      "iconBg": "bg-gradient-to-r from-orange-500 to-red-500",
-      "ctaText": "Register",
-      "presenter": "Dr. Emily Watson",
-      "learningPoints": [
-        "Alert fatigue prevention",
-        "SLA/SLO monitoring setup",
-        "Custom metrics creation",
-        "Incident response automation"
+      "objectives": [
+        {
+          "description": "Learn about parsers, enrichers, and tags in OpenObserve."
+        },
+        {
+          "description": "Use regex and pipelines for log transformation."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Logs",
+          "slug": "logs"
+        },
+        {
+          "name": "Parsing",
+          "slug": "parsing"
+        }
+      ],
+      "slug": "log-enrichment-custom-parsing",
+      "author": [
+        {
+          "name": "Tina George",
+          "slug": "tina-george",
+          "bio": "Tech Educator focused on log intelligence and observability tools.",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/2.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Smarter logs, better decisions",
+        "description": "Turn noisy logs into structured data for better alerting and insights."
+      },
+      "resources": [
+        {
+          "title": "Parsing Guide",
+          "link": "https://openobserve.dev/docs/parsing",
+          "target": "_blank",
+          "description": "Documentation on creating and applying parsers in OpenObserve."
+        }
       ]
     }
-  ],
-  "pastWebinars": {
-    "title": "Past Webinars",
-    "subtitle": "Catch up on previous sessions and expand your observability knowledge",
-    "webinars": [
-      {
-        "title": "Getting Started with OpenObserve: A Complete Guide",
-        "description": "A comprehensive introduction to OpenObserve's features and capabilities for new users.",
-        "date": "Dec 15, 2023",
-        "duration": "55 min",
-        "views": "1,240",
-        "status": "Recorded",
-        "thumbnailBg": "bg-gradient-to-br from-purple-600 to-blue-600",
-        "presenter": {
-          "name": "John Smith",
-          "title": "Product Manager"
-        }
-      },
-      {
-        "title": "Migrating from Traditional Observability Tools",
-        "description": "Step-by-step guide on migrating from legacy observability solutions to OpenObserve.",
-        "date": "Nov 28, 2023",
-        "duration": "48 min",
-        "views": "892",
-        "status": "Recorded",
-        "thumbnailBg": "bg-gradient-to-br from-green-600 to-teal-600",
-        "presenter": {
-          "name": "Lisa Park",
-          "title": "Solutions Lead"
-        }
-      },
-      {
-        "title": "Scaling Observability for Enterprise Applications",
-        "description": "Learn how Fortune 500 companies use OpenObserve to monitor petabyte-scale applications.",
-        "date": "Nov 10, 2023",
-        "duration": "70 min",
-        "views": "1,067",
-        "status": "Recorded",
-        "thumbnailBg": "bg-gradient-to-br from-red-600 to-pink-600",
-        "presenter": {
-          "name": "David Kumar",
-          "title": "Senior Architect"
-        }
-      }
-    ]
-  },
-  "cta": {
-    "title": "Ready to get started?",
-    "subtitle": "Try OpenObserve today for more efficient and performant observability.",
-    "primaryButton": "Get Started For Free",
-    "secondaryButton": "Schedule Demo"
-  },
-  "footer": {
-    "sections": [
-      {
-        "title": "Platform",
-        "links": [
-          { "name": "Logs", "href": "#" },
-          { "name": "Metrics", "href": "#" },
-          { "name": "Traces", "href": "#" },
-          { "name": "Frontend Monitoring", "href": "#" },
-          { "name": "Pipelines", "href": "#" },
-          { "name": "Alerts", "href": "#" },
-          { "name": "Visualizations & Dashboard", "href": "#" },
-          { "name": "Pricing", "href": "#" }
-        ]
-      },
-      {
-        "title": "Solutions",
-        "links": [
-          { "name": "Azure Monitoring", "href": "#" },
-          { "name": "AWS Monitoring", "href": "#" },
-          { "name": "GCP Monitoring", "href": "#" },
-          { "name": "Kubernetes Monitoring", "href": "#" },
-          { "name": "Database Monitoring", "href": "#" },
-          { "name": "OpenTelemetry", "href": "#" }
-        ]
-      },
-      {
-        "title": "Resources",
-        "links": [
-          { "name": "Documentation", "href": "#" },
-          { "name": "Blog", "href": "#" },
-          { "name": "FAQs", "href": "#" },
-          { "name": "Articles", "href": "#" },
-          { "name": "Customer Stories", "href": "#" },
-          { "name": "Downloads", "href": "#" }
-        ]
-      },
-      {
-        "title": "Company",
-        "links": [
-          { "name": "About", "href": "#" },
-          { "name": "Careers", "href": "#" },
-          { "name": "Contact Us", "href": "#" },
-          { "name": "Contact Sales", "href": "#" },
-          { "name": "Enterprise License", "href": "#" }
-        ]
-      }
-    ],
-    "newsletter": {
-      "title": "Stay Updated",
-      "description": "Get the latest OpenObserve insights",
-      "placeholder": "Enter your email",
-      "buttonText": "Subscribe",
-      "disclaimer": "By subscribing, you agree to receive product release updates."
-    },
-    "copyright": "OpenObserve Inc. © 2025\n3000 Sand Hill Building 4, Suite 250, Menlo Park, CA 94025",
-    "legal": [
-      { "name": "Terms of Service", "href": "#" },
-      { "name": "Privacy Policy", "href": "#" }
-    ]
-  }
+  ]
 }

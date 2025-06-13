@@ -67,9 +67,7 @@
                     >
                   </template>
                 </address> -->
-                <div
-                  class="flex flex-wrap gap-4 text-white/80 text-lg w-full justify-between"
-                >
+                <div class="flex flex-wrap gap-4 text-white/80 text-lg w-full xl:justify-between">
                   <div class="flex items-center gap-1">
                     <Calendar class="h-4 w-4" />
                     <span>{{ formatPublishDate(publishDate) }}</span>
@@ -79,8 +77,12 @@
                     <span>{{ duration }}</span>
                   </div>
                   <div class="flex items-center gap-1">
-                    <Globe class="h-4 w-4" />
-                    <span>{{ getLanguageFullName(language) }}</span>
+                    <Timer class="h-5 w-5" />
+                    <!-- <span>
+                      {{ zoneTimes.PT }} PT, {{ zoneTimes.ET }} ET,
+                      {{ zoneTimes.UTC }} UTC</span
+                    > -->
+                    <span>{{ getLocalTimeWithAbbreviation(time) }}</span>
                   </div>
                 </div>
               </div>
@@ -120,7 +122,7 @@
           </div>
           <!-- registration From -->
           <div v-show="isUpcoming">
-            <SubscriptionForm  :popupDetails="webinarDetails"/>
+            <SubscriptionForm :popupDetails="webinarDetails" />
           </div>
         </article>
         <div
@@ -144,10 +146,11 @@
 
 <script setup lang="ts">
 import { getInitials } from "@/utils/getInitials";
-import { Calendar, Clock, Globe } from "lucide-vue-next";
+import { Calendar, Clock, Globe, Timer } from "lucide-vue-next";
 import { ref, computed } from "vue";
 import { formatPublishDate } from "@/utils/formatPublishDate";
 import { getLanguageFullName } from "@/utils/getLanguageFullName";
+import { getTimeInZones,getLocalTimeWithAbbreviation } from "@/utils/getFormattedTime";
 import SubscriptionForm from "../forms/SubscriptionForm.vue";
 const props = defineProps<{
   type: string;
@@ -169,28 +172,25 @@ const props = defineProps<{
   duration: string;
   language: string;
   shareUrl: string;
+  time: string;
 }>();
+const zoneTimes = computed(() => getTimeInZones(props.time));
 // Convert to Date
 const isUpcoming = computed(() => {
-  const now = new Date().toISOString();
-  const Today = Intl.DateTimeFormat("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  }).format(new Date(now));
-  // console.log(props.publishDate > Today, "data>now", props.publishDate , Today);
-  return props.publishDate > Today;
+  const now = new Date(); // current date object
+  const eventDate = new Date(props.publishDate); // convert to date
+  // console.log(eventDate > now, "eventDate > now", props.publishDate, now);
+  return eventDate > now;
 });
 
 const webinarDetails = computed(() => {
   return {
     eventTitle: props.title,
     eventDate: props.publishDate,
-    eventTime: props.duration,
+    eventTime: props.time,
     email: "",
-  }
-})
+  };
+});
 const copied = ref(false);
 
 const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
