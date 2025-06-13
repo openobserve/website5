@@ -18,8 +18,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="py-16 px-4 bg-gray-50">
-    <div class="container mx-auto">
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <div class="container px-4 sm:px-6 lg:px-8 xl:px-11 mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ props?.heading?.title }} </h2>
         <p class="text-gray-600 text-lg">

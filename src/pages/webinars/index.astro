@@ -1,17 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
-import UpcommingWebinarSection from "@/components/core/UpcommingWebinarSection.vue";
-import PastWebinarSection from "@/components/core/PastWebinarSection.vue";
+import WebinarWrapper from "@/components/wrapper/WebinarWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
 
-const upcomingWebinarHeading = {
-  title: "Upcoming Webinars",
-  description:
-    "Join our live webinars to learn about the latest in observability, log analytics, and more.",
-};
-
-const upcomingWebinars = [
+// Combine all webinars into a single array
+const allWebinars = [
+  // Upcoming webinars
   {
     id: 1,
     title: "Advanced Log Analytics with OpenObserve",
@@ -23,7 +18,7 @@ const upcomingWebinars = [
     speakers: ["Sarah Chen", "DevOps Engineer at TechCorp"],
     registrations: 245,
     gradient: "from-purple-400 to-blue-500",
-    startTime: "2025-06-12T10:00:00-04:00", // Added startTime in ISO format (PST = UTC-8)
+    startTime: "2025-06-12T10:00:00-04:00",
   },
   {
     id: 2,
@@ -36,14 +31,14 @@ const upcomingWebinars = [
     speakers: ["Mike Rodriguez", "Solutions Architect"],
     registrations: 189,
     gradient: "from-green-400 to-blue-500",
-    startTime: "2024-02-08T14:00:00-08:00", // Added startTime in ISO format (PST = UTC-8)
+    startTime: "2024-02-08T14:00:00-08:00",
   },
   {
     id: 3,
     title: "Live Now: Real-Time Observability Q&A",
     description:
       "Join our experts for a live Q&A session on real-time observability. Ask your questions and get instant answers!",
-    date: new Date().toISOString().slice(0, 10),
+    date: new Date().toISOString(),
     time: new Date().toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
@@ -52,7 +47,7 @@ const upcomingWebinars = [
     speakers: ["Alex Lee", "Observability Specialist"],
     registrations: 99,
     gradient: "from-yellow-400 to-orange-500",
-    startTime: new Date().toISOString(), // This will make it live now
+    startTime: new Date().toISOString(),
     learnings: [
       "Deploy OpenObserve in minutes",
       "Ingest logs with Filebeat/FluentBit",
@@ -60,17 +55,9 @@ const upcomingWebinars = [
       "Compare with Elastic, Splunk, and OpenSearch",
     ],
   },
-];
-
-const pasWebinarHeading = {
-  title: "Past Webinars",
-  description:
-    "Catch up on our previous webinars to stay updated on the latest trends and best practices in observability.",
-};
-
-const pastWebinars = [
+  // Past webinars
   {
-    id: 1,
+    id: 4,
     title: "Getting Started with OpenObserve: A Complete Guide",
     description:
       "A comprehensive introduction to OpenObserve's features and capabilities for new users.",
@@ -81,9 +68,10 @@ const pastWebinars = [
     recording: "#",
     image: "/placeholder.svg?height=200&width=400",
     gradient: "from-blue-400 to-purple-500",
+    startTime: "2023-12-15T10:00:00-08:00",
   },
   {
-    id: 2,
+    id: 5,
     title: "Migrating from Traditional Observability Tools",
     description:
       "Step-by-step guide on migrating from legacy observability solutions to OpenObserve.",
@@ -94,9 +82,10 @@ const pastWebinars = [
     recording: "#",
     image: "/placeholder.svg?height=200&width=400",
     gradient: "from-green-400 to-teal-500",
+    startTime: "2023-11-28T10:00:00-08:00",
   },
   {
-    id: 3,
+    id: 6,
     title: "Scaling Observability for Enterprise Applications",
     description:
       "Learn how Fortune 500 companies use OpenObserve to monitor petabyte-scale applications.",
@@ -107,9 +96,10 @@ const pastWebinars = [
     recording: "#",
     image: "/placeholder.svg?height=200&width=400",
     gradient: "from-pink-400 to-red-500",
+    startTime: "2023-11-10T10:00:00-08:00",
   },
   {
-    id: 4,
+    id: 7,
     title: "OpenObserve vs. Traditional Solutions: Performance Comparison",
     description:
       "Deep dive into performance benchmarks and cost comparisons with traditional observability tools.",
@@ -120,8 +110,68 @@ const pastWebinars = [
     recording: "#",
     image: "/placeholder.svg?height=200&width=400",
     gradient: "from-indigo-400 to-blue-500",
+    startTime: "2023-10-25T10:00:00-08:00",
+  },
+
+  // Example: Future webinar (date in the future)
+  {
+    id: 100,
+    title: "Future Webinar Example",
+    description: "This is a test webinar scheduled in the future.",
+    date: "2099-01-01",
+    time: "11:00 AM PST",
+    duration: "45 min",
+    speakers: ["Future Speaker", "Future Role"],
+    learnings: [
+      "Deploy OpenObserve in minutes",
+      "Ingest logs with Filebeat/FluentBit",
+      "Create dashboards and real-time alerts",
+      "Compare with Elastic, Splunk, and OpenSearch",
+    ],
+    registrations: 1,
+    gradient: "from-blue-400 to-green-500",
+    startTime: "2099-01-01T11:00:00-08:00",
+  },
+
+  // Example: Live webinar (startTime is now)
+  {
+    id: 101,
+    title: "Live Webinar Example",
+    description: "This is a test webinar that is live right now.",
+    date: new Date().toISOString(),
+    time: new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
+    duration: "30 min",
+    speakers: ["Live Speaker", "Live Role"],
+    learnings: [
+      "Deploy OpenObserve in minutes",
+      "Ingest logs with Filebeat/FluentBit",
+      "Create dashboards and real-time alerts",
+      "Compare with Elastic, Splunk, and OpenSearch",
+    ],
+    registrations: 2,
+    gradient: "from-yellow-400 to-orange-500",
+    startTime: new Date().toISOString(),
+  },
+
+  // Example: Past webinar (date in the past)
+  {
+    id: 102,
+    title: "Past Webinar Example",
+    description: "This is a test webinar that happened in the past.",
+    date: "2000-01-01",
+    duration: "60 min",
+    views: 10,
+    speakers: ["Past Speaker", "Past Role"],
+    recording: "#",
+    image: "/placeholder.svg?height=200&width=400",
+    gradient: "from-gray-400 to-gray-500",
+    startTime: "2000-01-01T10:00:00-08:00",
   },
 ];
+
 const heading = {
   title: "Ready to get started?",
   description:
@@ -142,27 +192,11 @@ const secondaryButton = {
 
 <Layout>
   <CommonHeroSection
-    title="Webinars"
+    title="Webinars & Videos"
     description="Join our live webinars to learn about the latest in observability, log analytics, and more."
     align="CENTER"
   />
-  <UpcommingWebinarSection
-    upcomingWebinars={upcomingWebinars}
-    client:load
-  />
-
-  <PastWebinarSection
-    heading={upcomingWebinarHeading}
-    pastWebinars={pastWebinars}
-    sourceKey="upcoming"
-    client:load
-  />
-  <PastWebinarSection
-    heading={pasWebinarHeading}
-    pastWebinars={pastWebinars}
-    sourceKey="past"
-    client:load
-  />
+  <WebinarWrapper allWebinars={allWebinars} client:load />
   <CTA
     heading={heading}
     primaryButton={primaryButton}

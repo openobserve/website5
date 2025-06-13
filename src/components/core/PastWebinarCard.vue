@@ -38,17 +38,13 @@ function registerForWebinar() {
 
 <template>
   <div
-    class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden"
-  >
+    class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full">
     <div class="relative">
-      <div
-        :class="`h-48 bg-gradient-to-r ${webinar.gradient} flex items-center justify-center relative`"
-      >
+      <div :class="`h-48 bg-gradient-to-r ${webinar.gradient} flex items-center justify-center relative`">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative z-10 text-center">
           <div
-            class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 hover:bg-white/30 transition-colors cursor-pointer"
-          >
+            class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 hover:bg-white/30 transition-colors cursor-pointer">
             <Play class="w-8 h-8 text-white" />
           </div>
           <div class="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1">
@@ -56,14 +52,12 @@ function registerForWebinar() {
           </div>
         </div>
       </div>
-      <span
-        class="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded-full text-xs"
-      >
+      <span class="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded-full text-xs">
         {{ sourceKey === "past" ? "Recorded" : "Upcoming" }}
       </span>
     </div>
 
-    <div class="p-6">
+    <div class="p-4 flex flex-col flex-1">
       <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
         {{ webinar.title }}
       </h3>
@@ -83,17 +77,15 @@ function registerForWebinar() {
         </div>
       </div>
 
-      <div class="mt-4 mb-4 flex items-center gap-3">
+      <div class="flex-1"></div>
+      <!-- Separator above author -->
+      <div class="border-t border-gray-100 my-3"></div>
+      <!-- Author section always at bottom -->
+      <div class="flex items-center gap-3 pt-1">
         <div class="relative rounded-full border-2 border-white/80">
           <div
-            class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-          >
-            <img
-              src="/img/icon/github-icon.svg"
-              alt="it.name"
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
+            class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold">
+            <img src="/img/icon/github-icon.svg" alt="it.name" class="h-full w-full object-cover" loading="lazy" />
           </div>
         </div>
         <div class="flex flex-col gap-1">
@@ -104,21 +96,11 @@ function registerForWebinar() {
         </div>
       </div>
 
-      <CustomButton
-        v-if="sourceKey === 'upcoming'"
-        class="w-full"
-        variant="primary"
-        @click="registerForWebinar"
-      >
+      <CustomButton v-if="sourceKey === 'upcoming'" class="w-full" variant="primary" @click="registerForWebinar">
         {{ "Register" }}
       </CustomButton>
-      <Teleport to="body">
-        <AddToCalenderPopup
-          :visible="showPopup"
-          :calendarLinks="calendarLinks"
-          @close="showPopup = false"
-        />
-      </Teleport>
+
+      <AddToCalenderPopup :visible="showPopup" :calendarLinks="calendarLinks" @close="showPopup = false" />
     </div>
   </div>
 </template>

@@ -81,12 +81,6 @@ const isLive = computed(() => {
           </div>
         </div>
       </div>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <CustomButton buttonText="Join Live Webinar" variant="primary" />
-        <button class="border border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-md cursor-pointer">
-          Add to Calendar
-        </button>
-      </div>
     </div>
   </div>
 </template>
