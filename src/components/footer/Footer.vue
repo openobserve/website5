@@ -90,6 +90,13 @@ const socialIcon = (name) => {
               </li>
             </ul>
           </div>
+          <div class="text-white">
+            <ul>
+              <li>
+                <a href="/webinars">Webinars</a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- Right side - newsletter -->
@@ -111,13 +118,7 @@ const socialIcon = (name) => {
             <p class="text-xs sm:text-sm whitespace-nowrap">Certified</p>
           </div>
 
-          <div class="text-white">
-            <ul>
-              <li>
-                <a href="/webinars">Webinars</a>
-              </li>
-            </ul>
-          </div>
+
 
           <div class="flex flex-wrap justify-center md:justify-start gap-2">
             <GithubButton href="https://github.com/openobserve/openobserve" data-color-scheme="light" data-size="large"

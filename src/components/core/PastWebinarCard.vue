@@ -27,14 +27,14 @@ function registerForWebinar() {
 </script>
 
 <template>
-  <div
-    class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full">
+  <a :href="`/webinars/${webinar.slug}`"
+    class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full cursor-pointer no-underline">
     <div class="relative">
       <div :class="`h-48 bg-gradient-to-r ${webinar.gradient} flex items-center justify-center relative`">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative z-10 text-center">
           <div
-            class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 hover:bg-white/30 transition-colors cursor-pointer">
+            class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 hover:bg-white/30 transition-colors">
             <Play class="w-8 h-8 text-white" />
           </div>
           <div class="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1">
@@ -64,9 +64,8 @@ function registerForWebinar() {
       </div>
 
       <div class="flex-1"></div>
-      <!-- Separator above author -->
       <div class="border-t border-gray-100 my-3"></div>
-      <!-- Author section always at bottom -->
+
       <div class="flex items-center gap-3 pt-1">
         <div class="relative rounded-full border-2 border-white/80">
           <div
@@ -82,11 +81,12 @@ function registerForWebinar() {
         </div>
       </div>
 
-      <CustomButton v-if="sourceKey === 'upcoming'" class="w-full" variant="primary" @click="registerForWebinar">
-        {{ "Register" }}
+      <CustomButton v-if="sourceKey === 'upcoming'" class="w-full mt-3" variant="primary"
+        @click.stop="registerForWebinar">
+        Register
       </CustomButton>
 
       <AddToCalenderPopup :visible="showPopup" :calendarLinks="calendarLinks" @close="showPopup = false" />
     </div>
-  </div>
+  </a>
 </template>

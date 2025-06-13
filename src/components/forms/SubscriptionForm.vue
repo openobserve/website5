@@ -1,42 +1,22 @@
 <template>
   <div class="">
     <!-- <p>Want to stay in the loop? Get notified of upcoming live webinars and videos.</p> -->
-    <form
-      @submit.prevent="onSubmit"
-      class="grid grid-cols-3 md:grid-cols-5 w-full gap-2 items-center"
-    >
+    <form @submit.prevent="onSubmit" class="grid grid-cols-3 md:grid-cols-5 w-full gap-2 items-center">
       <div class="flex flex-row w-full h-full gap-2 items-center col-span-2">
-        <label for="email" class="contact-form-label sr-only"
-          >Work Email <span class="text-red-500">*</span></label
-        >
+        <label for="email" class="contact-form-label sr-only">Work Email <span class="text-red-500">*</span></label>
         <div class="w-full">
-          <Field
-            name="email"
-            type="email"
-            placeholder="your.name@company.com"
-            as="input"
-            :class="['contact-form-input', errors.email ? 'is-invalid' : '']"
-          />
+          <Field name="email" type="email" placeholder="your.name@company.com" as="input"
+            :class="['contact-form-input', errors.email ? 'is-invalid' : '']" />
           <!-- <ErrorMessage name="email" class="contact-form-error" /> -->
         </div>
       </div>
-      <CustomButton
-        variant="secondary"
-        type="submit"
-        :disabled="isSubmitting"
-        :loading="isSubmitting"
-        class="cursor-pointer mt-1"
-        >Register</CustomButton
-      >
+      <CustomButton :variant="buttonVariant" type="submit" :disabled="isSubmitting" :loading="isSubmitting"
+        class="cursor-pointer mt-1">Register</CustomButton>
       <ErrorMessage name="email" class="contact-form-error col-span-4" />
     </form>
   </div>
   <Teleport to="body">
-    <AddToCalenderPopup
-      :visible="showPopup"
-      :webinarDetail="popupDetails"
-      @close="showPopup = false"
-    />
+    <AddToCalenderPopup :visible="showPopup" :webinarDetail="popupDetailsLocal" @close="showPopup = false" />
   </Teleport>
 </template>
 
@@ -44,7 +24,7 @@
 import CustomButton from "../core/CustomButton.vue";
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import AddToCalenderPopup from "@/components/webinars/AddToCalenderPopup.vue";
 
 interface PopupDetails {
@@ -54,8 +34,10 @@ interface PopupDetails {
   email: string;
 }
 const props = defineProps<{
-  popupDetails : PopupDetails
-}>(); 
+  popupDetails: PopupDetails;
+  buttonVariant?: string;
+  buttonOnClick?: () => void;
+}>();
 // Form validation
 const schema = yup.object({
   email: yup.string().required("Email is required").email("Invalid email"),
@@ -70,13 +52,19 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     },
   });
 const showPopup = ref(false);
+// Create a local copy for popup details
+const popupDetailsLocal = ref<PopupDetails | null>(null);
+
 const onSubmit = handleSubmit(async (values) => {
-  console.log(values, "values");
-    // Inject email into popupDetails
-   props.popupDetails.email = values.email;
-  // Simulate successful registration
+  // Only runs if validation passes
+  // Create a new object for popup details with the submitted email
+  popupDetailsLocal.value = {
+    ...props.popupDetails,
+    email: values.email,
+  };
   setTimeout(() => {
     showPopup.value = true;
+    if (props.buttonOnClick) props.buttonOnClick();
   }, 200);
   resetForm();
 });

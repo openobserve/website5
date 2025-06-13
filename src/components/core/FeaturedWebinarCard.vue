@@ -1,6 +1,8 @@
 <script setup>
 import { Calendar, Clock, Play, Star } from 'lucide-vue-next';
-import CustomButton from './CustomButton.vue';
+import { computed, ref } from 'vue';
+import SubscriptionForm from '../forms/SubscriptionForm.vue';
+import { formatDateTimeInET } from '@/utils/getFormattedTime';
 
 const props = defineProps({
   webinar: {
@@ -9,11 +11,9 @@ const props = defineProps({
   }
 });
 
-// Compute if the webinar is live
-import { computed } from 'vue';
-import { formatDateTimeInET } from '@/utils/getFormattedTime';
+const { date, time } = formatDateTimeInET(props.webinar.date)
 
-const {date, time} = formatDateTimeInET(props.webinar.date)
+// Compute if the webinar is live
 const isLive = computed(() => {
   const now = new Date();
   let start;
@@ -30,6 +30,30 @@ const isLive = computed(() => {
   }
   const end = new Date(start.getTime() + duration * 60000);
   return now >= start && now <= end;
+});
+
+// Add isUpcoming computed
+const isUpcoming = computed(() => {
+  if (props.webinar.startTime) {
+    const now = new Date();
+    const start = new Date(props.webinar.startTime);
+    return start > now;
+  }
+  return false;
+});
+
+// --- Only call redirect after successful registration ---
+const shouldRedirect = ref(false);
+function handleButtonClick() {
+  shouldRedirect.value = true;
+}
+
+// Watch for shouldRedirect and perform redirect if true
+import { watch } from 'vue';
+watch(shouldRedirect, (val) => {
+  if (val && props.webinar.slug) {
+    window.location.href = `/webinars/${props.webinar.slug}`;
+  }
 });
 </script>
 
@@ -82,6 +106,15 @@ const isLive = computed(() => {
             <span class="text-gray-700">{{ item }}</span>
           </div>
         </div>
+      </div>
+      <div>
+        <template v-if="isUpcoming">
+          <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" />
+          <p class="text-xs text-gray-500 mt-2">
+            Note: By registering, you consent to receive emails regarding this event recording and related product
+            updates.
+          </p>
+        </template>
       </div>
     </div>
   </div>
