@@ -1,5 +1,5 @@
 <script setup>
-import { Calendar, Clock, Play, Star } from 'lucide-vue-next';
+import { Calendar, Clock, Play, Star, Timer } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import SubscriptionForm from '../forms/SubscriptionForm.vue';
 import { formatDateTimeInET } from '@/utils/getFormattedTime';
@@ -59,22 +59,24 @@ watch(shouldRedirect, (val) => {
 
 <template>
   <div class="flex flex-col bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden w-full">
-    <div class="hero-gradient p-6 text-white">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-4">
-          <div class="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
-            <Play class="w-4 h-4" />
+    <a :href="`/webinars/${webinar.slug}`" class="no-underline">
+      <div class="hero-gradient p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
+              <Play class="w-4 h-4" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
+              <p class="text-white/90">{{ webinar.subtitle }}</p>
+            </div>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
-            <p class="text-white/90">{{ webinar.subtitle }}</p>
-          </div>
+          <span :class="isLive ? 'bg-red-600' : 'bg-green-600'" class="text-white px-3 py-1 rounded-full text-sm">
+            {{ isLive ? 'LIVE' : 'Upcoming' }}
+          </span>
         </div>
-        <span :class="isLive ? 'bg-red-600' : 'bg-green-600'" class="text-white px-3 py-1 rounded-full text-sm">
-          {{ isLive ? 'LIVE' : 'Upcoming' }}
-        </span>
       </div>
-    </div>
+    </a>
     <div class="p-6">
       <div class="flex items-center space-x-6 mb-4 text-gray-600">
         <div class="flex items-center space-x-2">
@@ -86,7 +88,7 @@ watch(shouldRedirect, (val) => {
           <span>{{ time }}</span>
         </div>
         <div class="flex items-center space-x-2">
-          <Clock class="w-4 h-4" />
+          <Timer class="h-4 w-4" />
           <span>{{ webinar.duration }}</span>
         </div>
       </div>
