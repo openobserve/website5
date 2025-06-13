@@ -64,7 +64,6 @@ if (!liveWebinar && !upcomingWebinar && props.pastWebinars.length > 0) {
   fallbackPast = [...props.pastWebinars]
     .filter(isWebinarPast)
     .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
-
 }
 
 let featuredWebinar = null;
@@ -102,40 +101,45 @@ console.log("Featured Webinar:", featuredWebinar);
         <div class="flex flex-col gap-8 h-full" style="width: 360px; max-width: 40vw;">
           <template v-for="webinar in rightPastWebinars" :key="webinar.id">
             <div v-if="isWebinarPast(webinar)"
-              class="border border-gray-200 bg-transparent rounded-lg p-0 h-full flex flex-col relative"
+              class="border border-gray-200 rounded-lg p-0 h-full flex flex-col relative overflow-hidden"
               style="aspect-ratio: 16/9;">
 
-              <!-- Background image with transparency -->
-              <div class="absolute inset-0 bg-cover bg-center rounded-lg opacity-20 z-0"
+              <!-- Layer 1: YouTube Video Embed (Bottom layer) -->
+              <div class="absolute inset-0 z-10">
+                <iframe class="w-full h-full rounded-lg"
+                  :src="`https://www.youtube.com/embed/4VwuC1tpRP4?si=sQl7Un-qZ4aqUJEg`" title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+              </div>
+
+              <!-- Layer 2: Background overlay image (Middle layer) -->
+              <div class="absolute inset-0 z-20 bg-cover bg-center rounded-lg opacity-20"
                 style="background-image: url('/img/card-bg-color.svg');">
               </div>
 
-              <!-- Content container with higher z-index -->
-              <div class="relative z-10 h-full">
-                <!-- Top part: video/gradient area -->
-                <div class="relative w-full h-full overflow-hidden rounded-lg">
-                  <!-- YouTube Video Embed -->
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/C0GH5Ox8NnY?si=xCZs4tQz3kJ-a9ze"
-                      title="YouTube video player" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-
-                  <!-- Duration Badge -->
-                  <div class="absolute top-2 right-2 text-black text-xs px-2 py-1 rounded-md">
+              <!-- Layer 3: Content overlay (Top layer) -->
+              <div class="absolute inset-0 z-30 flex flex-col justify-between p-2">
+                <!-- Duration Badge (Top right) -->
+                <div class="self-end">
+                  <span class="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-md">
                     {{ webinar.duration }}
-                  </div>
+                  </span>
+                </div>
 
-                  <!-- Title Overlay -->
-                  <div class="absolute bottom-0 left-0 w-full text-white p-2">
-                    <h3 class="text-base font-semibold mb-0 line-clamp-2">
+                <!-- Title Overlay (Bottom) -->
+                <div class="self-start w-full">
+                  <!-- Text background for better readability -->
+                  <div class=" bg-opacity-50 rounded p-2">
+                    <h3 class="text-base font-semibold mb-0 line-clamp-2 text-white">
                       {{ webinar.title }}
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
+
             <PastWebinarCard v-else :webinar="webinar" sourceKey="past" class="h-full flex-1"
               style="aspect-ratio: 16/9; min-width: 0;" />
           </template>
