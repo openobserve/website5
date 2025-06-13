@@ -64,6 +64,7 @@ if (!liveWebinar && !upcomingWebinar && props.pastWebinars.length > 0) {
   fallbackPast = [...props.pastWebinars]
     .filter(isWebinarPast)
     .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
+
 }
 
 let featuredWebinar = null;
@@ -101,26 +102,38 @@ console.log("Featured Webinar:", featuredWebinar);
         <div class="flex flex-col gap-8 h-full" style="width: 360px; max-width: 40vw;">
           <template v-for="webinar in rightPastWebinars" :key="webinar.id">
             <div v-if="isWebinarPast(webinar)"
-              class="bg-white border border-gray-200 rounded-lg p-0 h-full flex flex-col"
-              style="aspect-ratio: 16/9; min-width: 0;">
-              <!-- Top part: video/gradient area -->
-              <div
-                :class="`h-40 w-full bg-gradient-to-r ${webinar.gradient} flex items-center justify-center relative overflow-hidden rounded-t-lg`"
-                style="aspect-ratio: 16/9;">
-                <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
-                  <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">Video Thumbnail</span>
+              class="border border-gray-200 bg-transparent rounded-lg p-0 h-full flex flex-col relative"
+              style="aspect-ratio: 16/9;">
+
+              <!-- Background image with transparency -->
+              <div class="absolute inset-0 bg-cover bg-center rounded-lg opacity-20 z-0"
+                style="background-image: url('/img/card-bg-color.svg');">
+              </div>
+
+              <!-- Content container with higher z-index -->
+              <div class="relative z-10 h-full">
+                <!-- Top part: video/gradient area -->
+                <div class="relative w-full h-full overflow-hidden rounded-lg">
+                  <!-- YouTube Video Embed -->
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/C0GH5Ox8NnY?si=xCZs4tQz3kJ-a9ze"
+                      title="YouTube video player" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+
+                  <!-- Duration Badge -->
+                  <div class="absolute top-2 right-2 text-black text-xs px-2 py-1 rounded-md">
+                    {{ webinar.duration }}
+                  </div>
+
+                  <!-- Title Overlay -->
+                  <div class="absolute bottom-0 left-0 w-full text-white p-2">
+                    <h3 class="text-base font-semibold mb-0 line-clamp-2">
+                      {{ webinar.title }}
+                    </h3>
                   </div>
                 </div>
-                <div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
-                  {{ webinar.duration }}
-                </div>
-              </div>
-              <!-- Title -->
-              <div class="p-6 flex-1 flex flex-col justify-center">
-                <h3 class="text-lg font-bold text-gray-900 mb-0 line-clamp-2">
-                  {{ webinar.title }}
-                </h3>
               </div>
             </div>
             <PastWebinarCard v-else :webinar="webinar" sourceKey="past" class="h-full flex-1"
