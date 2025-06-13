@@ -78,10 +78,6 @@
                   </div>
                   <div class="flex items-center gap-1">
                     <Timer class="h-5 w-5" />
-                    <!-- <span>
-                      {{ zoneTimes.PT }} PT, {{ zoneTimes.ET }} ET,
-                      {{ zoneTimes.UTC }} UTC</span
-                    > -->
                     <span>{{ getLocalTimeWithAbbreviation(time) }}</span>
                   </div>
                 </div>
