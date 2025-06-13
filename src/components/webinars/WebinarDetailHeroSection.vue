@@ -24,7 +24,7 @@
             {{ title }}
           </h1>
           <p class="text-white/90 text-lg lg:text-xl mb-6">{{ description }}</p>
-          <!-- Author Info & Social Sharing -->
+          <!-- Webinar Info & Social Sharing -->
           <div class="flex flex-col justify-between items-start gap-4">
             <div class="flex items-center flex-wrap gap-3">
               <!-- <div class="flex -space-x-3">
@@ -118,6 +118,8 @@
               </button>
             </div>
           </div>
+          <!-- registration From -->
+           <SubscriptionForm />
         </article>
         <div class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10">
           <iframe
@@ -142,6 +144,7 @@ import { Calendar, Clock, Globe } from "lucide-vue-next";
 import { ref } from "vue";
 import { formatPublishDate } from "@/utils/formatPublishDate";
 import { getLanguageFullName } from "@/utils/getLanguageFullName";
+import SubscriptionForm from "../forms/SubscriptionForm.vue";
 const props = defineProps<{
   type: string;
   title: string;
