@@ -6,7 +6,7 @@
       >
         <Logo />
         <div class="flex items-center justify-center space-x-3">
-          <CustomButton
+          <!-- <CustomButton
             variant="secondary"
             size="small"
             buttonLink="https://cloud.openobserve.ai"
@@ -14,7 +14,14 @@
             class="border !border-gray-200 !py-1"
           >
             Log In
-          </CustomButton>
+          </CustomButton> -->
+          <CustomButton
+              class="border !border-gray-200 !py-1"
+              variant="primary"
+              size="small"
+              buttonLink="/demo/"
+            >Get Demo</CustomButton
+          >
           <GithubButton
             href="https://github.com/openobserve/openobserve"
             data-color-scheme="light"
@@ -114,13 +121,13 @@
               href="/pricing/"
               >Pricing</a
             >
-            <CustomButton
+            <!-- <CustomButton
               class="w-full"
               variant="primary"
               size="large"
               buttonLink="/demo/"
               >Get Demo</CustomButton
-            >
+            > -->
           </div>
         </div>
       </div>
