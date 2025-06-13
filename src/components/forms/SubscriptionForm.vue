@@ -34,7 +34,7 @@
   <Teleport to="body">
     <AddToCalenderPopup
       :visible="showPopup"
-      :calendarLinks="calendarLinks"
+      :webinarDetail="popupDetails"
       @close="showPopup = false"
     />
   </Teleport>
@@ -46,6 +46,16 @@ import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { ref } from "vue";
 import AddToCalenderPopup from "@/components/webinars/AddToCalenderPopup.vue";
+
+interface PopupDetails {
+  eventTitle: string;
+  eventDate: string;
+  eventTime: string;
+  email: string;
+}
+const props = defineProps<{
+  popupDetails : PopupDetails
+}>(); 
 // Form validation
 const schema = yup.object({
   email: yup.string().required("Email is required").email("Invalid email"),
@@ -60,21 +70,10 @@ const { handleSubmit, errors, resetForm, isSubmitting, submitCount } =
     },
   });
 const showPopup = ref(false);
-
-const calendarLinks = {
-  webinarDetail :{
-    eventTitle:"Mastering Real-Time Anomaly Detection",
-    eventDate:"December 15, 2024",
-    eventTime:"10:00 AM PT"
-  },
-  google:
-    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Title&dates=20250620T100000Z/20250620T110000Z&details=Join+our+webinar&location=https://your-site.com",
-  outlook:
-    "https://outlook.live.com/owa/?rru=addevent&startdt=2025-06-20T10:00:00Z&enddt=2025-06-20T11:00:00Z&subject=Webinar+Title&location=https://your-site.com&body=Join+our+webinar",
-  ics: "/ics/webinar.ics", // path to your ICS file
-};
 const onSubmit = handleSubmit(async (values) => {
   console.log(values, "values");
+    // Inject email into popupDetails
+   props.popupDetails.email = values.email;
   // Simulate successful registration
   setTimeout(() => {
     showPopup.value = true;

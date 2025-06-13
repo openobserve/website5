@@ -75,20 +75,22 @@
             <CircleCheckBig class="w-24 h-24 text-primary-green" />
           </div>
           <h2 class="text-2xl font-bold mb-4">Thank You for Registering!</h2>
-          <p class="mb-6">Hi Abhishek, you've successfully registered</p>
+          <p class="mb-6">
+            Hi {{ webinarDetail.email }}, you've successfully registered
+          </p>
           <div
             class="rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 p-4 text-center"
           >
             <h3 class="font-semibold text-lg">
-              {{ calendarLinks.webinarDetail.eventTitle }}
+              {{ webinarDetail.eventTitle }}
             </h3>
             <div
               class="flex items-center justify-center gap-1 mt-2 text-muted-foreground"
             >
               <Calendar class="h-4 w-4" />
               <span>
-                {{ calendarLinks.webinarDetail.eventDate }} at
-                {{ calendarLinks.webinarDetail.eventTime }}
+                {{ webinarDetail.eventDate }} at
+                {{ webinarDetail.eventTime }}
               </span>
             </div>
           </div>
@@ -138,18 +140,14 @@ import { defineProps, defineEmits, watch, onMounted, onUnmounted } from "vue";
 import { Calendar, Download, X, CircleCheckBig } from "lucide-vue-next";
 const props = defineProps<{
   visible: boolean;
-  calendarLinks: {
-    google: string;
-    outlook: string;
-    ics: string;
-    webinarDetail: {
-      eventTitle: string;
-      eventDate: string;
-      eventTime: string;
-    };
+  webinarDetail: {
+    eventTitle: string;
+    eventDate: string;
+    eventTime: string;
+    email: string;
   };
 }>();
-
+console.log(props.webinarDetail,"details inside popup");
 const emit = defineEmits(["close"]);
 
 function closePopup() {

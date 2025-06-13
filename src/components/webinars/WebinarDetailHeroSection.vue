@@ -120,7 +120,7 @@
           </div>
           <!-- registration From -->
           <div v-show="isUpcoming">
-            <SubscriptionForm />
+            <SubscriptionForm  :popupDetails="webinarDetails"/>
           </div>
         </article>
         <div
@@ -182,6 +182,15 @@ const isUpcoming = computed(() => {
   // console.log(props.publishDate > Today, "data>now", props.publishDate , Today);
   return props.publishDate > Today;
 });
+
+const webinarDetails = computed(() => {
+  return {
+    eventTitle: props.title,
+    eventDate: props.publishDate,
+    eventTime: props.duration,
+    email: "",
+  }
+})
 const copied = ref(false);
 
 const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
