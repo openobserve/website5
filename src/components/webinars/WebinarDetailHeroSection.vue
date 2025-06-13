@@ -23,7 +23,7 @@
           >
             {{ title }}
           </h1>
-          <p class="text-white/90 text-lg lg:text-xl mb-6">{{ description }}</p>
+          <p class="text-white text-lg mb-6">{{ description }}</p>
           <!-- Webinar Info & Social Sharing -->
           <div class="flex flex-col justify-between items-start gap-4">
             <div class="flex items-center flex-wrap gap-3">
@@ -67,23 +67,28 @@
                     >
                   </template>
                 </address> -->
-                <div class="flex flex-wrap gap-4 text-white/80 text-lg w-full xl:justify-between">
+                <div
+                  class="flex flex-wrap gap-4 text-white text-lg w-full xl:justify-between"
+                >
                   <div class="flex items-center gap-1">
                     <Calendar class="h-4 w-4" />
                     <span>{{ formatPublishDate(publishDate) }}</span>
                   </div>
                   <div class="flex items-center gap-1">
-                    <Clock class="h-4 w-4" />
+                    <Timer class="h-4 w-4" />
                     <span>{{ duration }}</span>
                   </div>
                   <div class="flex items-center gap-1">
-                    <Timer class="h-5 w-5" />
+                    <Clock class="h-4 w-4" />
                     <span>{{ getLocalTimeWithAbbreviation(time) }}</span>
                   </div>
                 </div>
               </div>
             </div>
-
+            <!-- registration From -->
+            <div v-show="isUpcoming" class="w-full mb-2">
+              <SubscriptionForm :popupDetails="webinarDetails" />
+            </div>
             <!-- Social Icons -->
             <div class="flex gap-2 items-center text-white/90">
               <span>Share:</span>
@@ -116,10 +121,6 @@
               </button>
             </div>
           </div>
-          <!-- registration From -->
-          <div v-show="isUpcoming">
-            <SubscriptionForm :popupDetails="webinarDetails" />
-          </div>
         </article>
         <div
           class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10"
@@ -146,7 +147,10 @@ import { Calendar, Clock, Globe, Timer } from "lucide-vue-next";
 import { ref, computed } from "vue";
 import { formatPublishDate } from "@/utils/formatPublishDate";
 import { getLanguageFullName } from "@/utils/getLanguageFullName";
-import { getTimeInZones,getLocalTimeWithAbbreviation } from "@/utils/getFormattedTime";
+import {
+  getTimeInZones,
+  getLocalTimeWithAbbreviation,
+} from "@/utils/getFormattedTime";
 import SubscriptionForm from "../forms/SubscriptionForm.vue";
 const props = defineProps<{
   type: string;

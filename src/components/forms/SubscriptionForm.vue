@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="">
     <!-- <p>Want to stay in the loop? Get notified of upcoming live webinars and videos.</p> -->
     <form
       @submit.prevent="onSubmit"

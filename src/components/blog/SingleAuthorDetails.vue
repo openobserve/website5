@@ -15,7 +15,7 @@
             class="flex flex-col sm:flex-row gap-4 items-center sm:items-start"
           >
             <div
-              class="w-20 lg:w-32 shrink-0 rounded-full overflow-hidden border-2 border-primary-blue"
+              class="w-20  shrink-0 rounded-full overflow-hidden border-2 border-primary-blue"
               v-if="authorItem.image?.url"
             >
               <img

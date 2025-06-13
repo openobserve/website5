@@ -38,7 +38,7 @@
       ],
       "summary": {
         "title": "Real-time insights made easy",
-        "description": "This webinar will help you monitor and detect unusual behavior in your systems instantly."
+         "description": "In this comprehensive webinar, you'll learn how to seamlessly implement real-time monitoring and anomaly detection across your distributed systems using OpenObserve. Whether you're just starting out or looking to enhance your observability stack, this session will walk you through key strategies, tools, and best practices for identifying unusual behavior as it happens—before it impacts your users. Discover how to configure alerts, visualize patterns, and leverage machine learning models like Random Cut Forest for automated anomaly detection, all within a unified dashboard experience."
       },
       "resources": [
         {
@@ -87,7 +87,7 @@
       ],
       "summary": {
         "title": "Visualize your observability data",
-        "description": "Make data understandable with OpenObserve’s powerful dashboard features."
+         "description": "Learn how to turn complex metrics, logs, and traces into intuitive, actionable dashboards using OpenObserve’s powerful visualization capabilities. In this session, we’ll guide you through building custom charts, setting up real-time data streams, and organizing panels that give your teams instant clarity. Whether you're monitoring infrastructure, applications, or distributed systems, you'll discover how OpenObserve helps you transform raw data into clear insights—so you can make faster, data-driven decisions."
       },
       "resources": [
         {
@@ -128,7 +128,7 @@
         {
           "name": "Rahul Mehta",
           "slug": "rahul-mehta",
-          "bio": "DevOps Engineer who loves automating monitoring workflows.",
+            "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
           "image": {
             "url": "https://randomuser.me/api/portraits/men/5.jpg"
           }
@@ -136,7 +136,7 @@
       ],
       "summary": {
         "title": "Zero to Hero in OpenObserve for CI/CD",
-        "description": "Get hands-on with integrating observability into your deployment workflows."
+       "description": "Learn how to seamlessly integrate observability into your deployment workflows using OpenObserve.<br/><br/>This session covers everything from <strong>initial setup</strong> to <strong>advanced monitoring use cases</strong> within CI/CD environments. You'll explore how to:<ul><li>Instrument your pipelines with minimal overhead</li><li>Visualize build and deployment metrics in real-time</li><li>Diagnose failures quickly using log correlations</li><li>Set up proactive alerts for early anomaly detection</li></ul><br/>By the end, you'll be equipped with the skills to implement a robust observability layer tailored for scalable, cloud-native DevOps operations."
       },
       "resources": [
         {
@@ -185,7 +185,7 @@
       ],
       "summary": {
         "title": "Smarter logs, better decisions",
-        "description": "Turn noisy logs into structured data for better alerting and insights."
+        "description": "In this session, discover how to transform your raw, noisy logs into structured, searchable data that drives meaningful insights. You'll learn best practices for parsing logs, applying filters, and correlating log data with system metrics to detect issues faster. With OpenObserve, you'll gain the ability to set up precise alerts, reduce false positives, and extract actionable patterns that empower your team to make informed decisions in real time—ultimately improving system reliability and performance."
       },
       "resources": [
         {

@@ -31,7 +31,7 @@
             <h2 class="text-lg md:text-3xl font-medium mb-4">
               {{ summary.title }}
             </h2>
-            <p v-html="summary.description" class="text-gray-700"></p>
+           <div v-html="summary.description" class="text-gray-700"></div>
           </div>
         </div>
       </div>
