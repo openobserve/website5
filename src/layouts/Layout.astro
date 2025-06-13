@@ -135,7 +135,7 @@ const { class: sectionClass } = Astro.props;
           // revokeBtn: false,
           showLink: false,
           law: {
-            regionalLaw: true, // Disable regional law
+            regionalLaw: false, // Disable regional law
           },
           onPopupOpen: function () {
             const popup = document.querySelector(".cc-window");
@@ -190,9 +190,9 @@ const { class: sectionClass } = Astro.props;
           gtag("consent", "update", {
             analytics_storage: consent ? "granted" : "denied",
             ad_storage: consent ? "granted" : "denied",
-            functionality_storage: "granted",
+            functionality_storage: consent ? "granted" : "denied",
             personalization_storage: consent ? "granted" : "denied",
-            security_storage: "granted",
+            security_storage: consent ? "granted" : "denied",
           });
 
           // Manually push the GTM consent update event
