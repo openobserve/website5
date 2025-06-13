@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import WebinarWrapper from "@/components/wrapper/WebinarWrapper.vue";
+import PastWebinarWrapper from "@/components/wrapper/PastWebinarWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
 
 // Combine all webinars into a single array
@@ -197,6 +198,7 @@ const secondaryButton = {
     align="CENTER"
   />
   <WebinarWrapper allWebinars={allWebinars} client:load />
+  <PastWebinarWrapper allWebinars={allWebinars} client:load />
   <CTA
     heading={heading}
     primaryButton={primaryButton}

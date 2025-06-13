@@ -77,16 +77,6 @@ const pasWebinarHeading = {
 </script>
 
 <template>
-  <UpcommingWebinarSection
-    v-if="webinarsToShow.length > 0"
-    :upcomingWebinars="webinarsToShow"
-    :pastWebinars="pastWebinars"
-    :heading="upcomingWebinarHeading"
-  />
-  <PastWebinarSection
-    v-if="pastWebinars.length > 0"
-    :pastWebinars="pastWebinars"
-    :heading="pasWebinarHeading"
-    sourceKey="past"
-  />
+  <UpcommingWebinarSection v-if="webinarsToShow.length > 0" :upcomingWebinars="webinarsToShow"
+    :pastWebinars="pastWebinars" :heading="upcomingWebinarHeading" />
 </template>
