@@ -95,8 +95,7 @@ const isLive = computed(() => {
           <div class="relative rounded-full border-2 border-white/80 flex-shrink-0">
             <div
               class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold">
-              <img src="/img/icon/github-icon.svg" :alt="webinar.speakers[0]" class="h-full w-full object-cover"
-                loading="lazy" />
+              <img :src="webinar.image" :alt="webinar.speakers[0]" class="h-full w-full object-cover" loading="lazy" />
             </div>
           </div>
           <div class="flex flex-col gap-1 min-w-0">

@@ -85,14 +85,14 @@ function registerForWebinar() {
         <div class="relative rounded-full border-2 border-white/80">
           <div
             class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold">
-            <img src="/img/icon/github-icon.svg" alt="it.name" class="h-full w-full object-cover" loading="lazy" />
+            <img :src="webinar.image" alt="it.name" class="h-full w-full object-cover" loading="lazy" />
           </div>
         </div>
         <div class="flex flex-col gap-1">
           <p class="text-sm font-medium text-gray-900">
-            {{ webinar.speakers[0] }}
+            {{ webinar.author }}
           </p>
-          <p class="text-xs text-gray-500">{{ webinar.speakers[1] }}</p>
+          <p class="text-xs text-gray-500">{{ webinar.authorBio }}</p>
         </div>
       </div>
 

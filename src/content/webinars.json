@@ -110,6 +110,12 @@
           "description": "Install OpenObserve locally or in Kubernetes."
         },
         {
+          "description": "Install OpenObserve locally or in Kubernetes."
+        },
+        {
+          "description": "Install OpenObserve locally or in Kubernetes."
+        },
+        {
           "description": "Send pipeline logs and visualize them effectively."
         }
       ],

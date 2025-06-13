@@ -85,8 +85,6 @@ if (!liveWebinar && !upcomingWebinar && fallbackPast.length > 1) {
     .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
     .slice(0, 2);
 }
-
-console.log("Featured Webinar:", featuredWebinar);
 </script>
 
 <template>
@@ -115,9 +113,11 @@ console.log("Featured Webinar:", featuredWebinar);
               </div>
 
               <!-- Layer 2: Background overlay image (Middle layer) -->
-              <div class="absolute inset-0 z-20 bg-cover bg-center rounded-lg opacity-20"
-                style="background-image: url('/img/card-bg-color.svg');">
+              <!-- Layer 2: Background gradient overlay (Middle layer) -->
+              <div
+                class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#6A76E3] via-blue-900/60 via-blue-800/25 to-transparent z-20 rounded-lg">
               </div>
+
 
               <!-- Layer 3: Content overlay (Top layer) -->
               <div class="absolute inset-0 z-30 flex flex-col justify-between p-2">
@@ -131,7 +131,7 @@ console.log("Featured Webinar:", featuredWebinar);
                 <!-- Title Overlay (Bottom) -->
                 <div class="self-start w-full">
                   <!-- Text background for better readability -->
-                  <div class=" bg-opacity-50 rounded p-2">
+                  <div class=" bg-opacity-50 rounded p-1">
                     <h3 class="text-base font-semibold mb-0 line-clamp-2 text-white">
                       {{ webinar.title }}
                     </h3>

@@ -4,174 +4,54 @@ import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import WebinarWrapper from "@/components/wrapper/WebinarWrapper.vue";
 import PastWebinarWrapper from "@/components/wrapper/PastWebinarWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
+import webinarsJson from "@/content/webinars.json";
 
-// Combine all webinars into a single array
-const allWebinars = [
-  // Upcoming webinars
-  {
-    id: 1,
-    title: "Advanced Log Analytics with OpenObserve",
-    description:
-      "Learn how to leverage OpenObserve's powerful log analytics capabilities to gain deeper insights into your applications and infrastructure.",
-    date: "2025-06-12",
-    time: "10:00 AM PST",
-    duration: "60 min",
-    speakers: ["Sarah Chen", "DevOps Engineer at TechCorp"],
-    registrations: 245,
-    gradient: "from-purple-400 to-blue-500",
-    startTime: "2025-06-12T10:00:00-04:00",
-  },
-  {
-    id: 2,
-    title: "Cost Optimization Strategies for Observability",
-    description:
-      "Discover how to reduce your observability costs by up to 140x while maintaining comprehensive monitoring coverage.",
-    date: "2024-02-08",
-    time: "2:00 PM PST",
-    duration: "45 min",
-    speakers: ["Mike Rodriguez", "Solutions Architect"],
-    registrations: 189,
-    gradient: "from-green-400 to-blue-500",
-    startTime: "2024-02-08T14:00:00-08:00",
-  },
-  {
-    id: 3,
-    title: "Live Now: Real-Time Observability Q&A",
-    description:
-      "Join our experts for a live Q&A session on real-time observability. Ask your questions and get instant answers!",
-    date: new Date().toISOString(),
-    time: new Date().toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    }),
-    duration: "30 min",
-    speakers: ["Alex Lee", "Observability Specialist"],
-    registrations: 99,
-    gradient: "from-yellow-400 to-orange-500",
-    startTime: new Date().toISOString(),
-    learnings: [
-      "Deploy OpenObserve in minutes",
-      "Ingest logs with Filebeat/FluentBit",
-      "Create dashboards and real-time alerts",
-      "Compare with Elastic, Splunk, and OpenSearch",
-    ],
-  },
-  // Past webinars
-  {
-    id: 4,
-    title: "Getting Started with OpenObserve: A Complete Guide",
-    description:
-      "A comprehensive introduction to OpenObserve's features and capabilities for new users.",
-    date: "2023-12-15",
-    duration: "55 min",
-    views: 1240,
-    speakers: ["John Smith", "Product Manager"],
-    recording: "#",
-    image: "/placeholder.svg?height=200&width=400",
-    gradient: "from-blue-400 to-purple-500",
-    startTime: "2023-12-15T10:00:00-08:00",
-  },
-  {
-    id: 5,
-    title: "Migrating from Traditional Observability Tools",
-    description:
-      "Step-by-step guide on migrating from legacy observability solutions to OpenObserve.",
-    date: "2023-11-28",
-    duration: "65 min",
-    views: 892,
-    speakers: ["Lisa Park", "Technical Lead"],
-    recording: "#",
-    image: "/placeholder.svg?height=200&width=400",
-    gradient: "from-green-400 to-teal-500",
-    startTime: "2023-11-28T10:00:00-08:00",
-  },
-  {
-    id: 6,
-    title: "Scaling Observability for Enterprise Applications",
-    description:
-      "Learn how Fortune 500 companies use OpenObserve to monitor petabyte-scale applications.",
-    date: "2023-11-10",
-    duration: "70 min",
-    views: 1567,
-    speakers: ["David Kumar", "Enterprise Architect"],
-    recording: "#",
-    image: "/placeholder.svg?height=200&width=400",
-    gradient: "from-pink-400 to-red-500",
-    startTime: "2023-11-10T10:00:00-08:00",
-  },
-  {
-    id: 7,
-    title: "OpenObserve vs. Traditional Solutions: Performance Comparison",
-    description:
-      "Deep dive into performance benchmarks and cost comparisons with traditional observability tools.",
-    date: "2023-10-25",
-    duration: "45 min",
-    views: 743,
-    speakers: ["Anna Thompson", "Performance Engineer"],
-    recording: "#",
-    image: "/placeholder.svg?height=200&width=400",
-    gradient: "from-indigo-400 to-blue-500",
-    startTime: "2023-10-25T10:00:00-08:00",
-  },
+// Map JSON data to the structure expected by the components
+function mapWebinar(item, idx) {
+  // Parse date/time for startTime
+  let startTime;
+  if (item.date && item.time) {
+    // If date is ISO, use as is, else combine
+    if (item.date.length > 10) {
+      startTime = item.date;
+    } else {
+      startTime = `${item.date}T${item.time.replace("Z", "")}`;
+    }
+  } else {
+    startTime = item.date || "";
+  }
 
-  // Example: Future webinar (date in the future)
-  {
-    id: 100,
-    title: "Future Webinar Example",
-    description: "This is a test webinar scheduled in the future.",
-    date: "2099-01-01",
-    time: "11:00 AM PST",
-    duration: "45 min",
-    speakers: ["Future Speaker", "Future Role"],
-    learnings: [
-      "Deploy OpenObserve in minutes",
-      "Ingest logs with Filebeat/FluentBit",
-      "Create dashboards and real-time alerts",
-      "Compare with Elastic, Splunk, and OpenSearch",
-    ],
-    registrations: 1,
-    gradient: "from-blue-400 to-green-500",
-    startTime: "2099-01-01T11:00:00-08:00",
-  },
+  return {
+    id: idx + 1,
+    title: item.title,
+    subtitle: item.subtitle,
+    description: item.description,
+    date: item.date
+      ? item.date.length > 10
+        ? item.date.slice(0, 10)
+        : item.date
+      : "",
+    time: item.time
+      ? item.time.length > 8
+        ? item.time.slice(0, 5)
+        : item.time
+      : "",
+    duration: item.duration,
+    author: [item.author?.[0]?.name || ""].filter(Boolean).join(", "),
+    authorSlug: item.author?.[0]?.slug || "",
+    authorBio: item.author?.[0]?.bio || "",
+    image: item.author?.[0]?.image?.url || "/img/icon/github-icon.svg",
+    gradient: "from-blue-400 to-purple-500", // fallback, can be improved
+    startTime,
+    learnings: item.objectives?.map((obj) => obj.description) || [],
+    tags: item.tags?.map((t) => t.name) || [],
+    slug: item.slug,
+    resources: item.resources || [],
+    summary: item.summary || {},
+  };
+}
 
-  // Example: Live webinar (startTime is now)
-  {
-    id: 101,
-    title: "Live Webinar Example",
-    description: "This is a test webinar that is live right now.",
-    date: new Date().toISOString(),
-    time: new Date().toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    }),
-    duration: "30 min",
-    speakers: ["Live Speaker", "Live Role"],
-    learnings: [
-      "Deploy OpenObserve in minutes",
-      "Ingest logs with Filebeat/FluentBit",
-      "Create dashboards and real-time alerts",
-      "Compare with Elastic, Splunk, and OpenSearch",
-    ],
-    registrations: 2,
-    gradient: "from-yellow-400 to-orange-500",
-    startTime: new Date().toISOString(),
-  },
-
-  // Example: Past webinar (date in the past)
-  {
-    id: 102,
-    title: "Past Webinar Example",
-    description: "This is a test webinar that happened in the past.",
-    date: "2000-01-01",
-    duration: "60 min",
-    views: 10,
-    speakers: ["Past Speaker", "Past Role"],
-    recording: "#",
-    image: "/placeholder.svg?height=200&width=400",
-    gradient: "from-gray-400 to-gray-500",
-    startTime: "2000-01-01T10:00:00-08:00",
-  },
-];
+const allWebinars = webinarsJson.data.map(mapWebinar);
 
 const heading = {
   title: "Ready to get started?",
@@ -193,8 +73,8 @@ const secondaryButton = {
 
 <Layout>
   <CommonHeroSection
-    title="Webinars & Videos"
-    description="Join our live webinars to learn about the latest in observability, log analytics, and more."
+    title="OpenObserve Live Webinars and Videos"
+    description="Discover how OpenObserve can help you simplify observability. Watch on-demand videos and explore our featured live webinars to learn more."
     align="CENTER"
   />
   <WebinarWrapper allWebinars={allWebinars} client:load />
