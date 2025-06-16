@@ -62,13 +62,9 @@ watch(shouldRedirect, (val) => {
     <div class="hero-gradient p-6 text-white">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex items-center space-x-4">
-          <div class="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
-            <Play class="w-4 h-4" />
-          </div>
           <a :href="`/webinars/${webinar.slug}`" class="no-underline hover:underline focus:underline outline-none"
             tabindex="0">
             <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
-            <p class="text-white/90">{{ webinar.subtitle }}</p>
           </a>
         </div>
         <span :class="isLive ? 'bg-red-600' : 'bg-green-600'"
