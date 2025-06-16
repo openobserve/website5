@@ -64,7 +64,7 @@ const webinarDetails = computed(() => {
   <div class="bg-white rounded-lg shadow-2xl overflow-hidden max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <!-- Left Side: Content -->
-      <div class="p-4 sm:p-6 lg:p-12 flex flex-col justify-between">
+      <div class="p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
         <!-- Header -->
         <div>
           <div class="flex items-center justify-between mb-4 sm:mb-6">
@@ -134,7 +134,7 @@ const webinarDetails = computed(() => {
       </div>
 
       <!-- Right Side: Learning Points & Visual -->
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-12 flex flex-col justify-center">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
         <div class="flex flex-col justify-center items-center h-full">
 
           <!-- Visual Element for Past Webinars -->
