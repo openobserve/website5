@@ -121,7 +121,7 @@ const webinarDetails = computed(() => {
           </template>
 
           <template v-else>
-            <a :href="`https://www.youtube.com/watch?v=4VwuC1tpRP4`" target="_blank"
+            <a :href="`webinars/${webinar.slug}`"
               class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
               <div>
                 <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
