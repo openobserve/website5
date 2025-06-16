@@ -113,7 +113,8 @@ watch(shouldRedirect, (val) => {
         <!-- Action Section -->
         <div>
           <template v-if="isLive || isUpcoming">
-            <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" />
+            <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" :eventTitle="webinar.title"
+              :eventDate="date" :eventTime="time" :email="webinar.email" />
           </template>
 
           <template v-else>
