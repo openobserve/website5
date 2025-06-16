@@ -95,7 +95,6 @@
             "url": "https://randomuser.me/api/portraits/men/20.jpg"
           }
         }
-        
       ],
       "summary": {
         "title": "Visualize your observability data",
@@ -111,24 +110,24 @@
       ]
     },
     {
-      "title": "Getting Started with OpenObserve for DevOps",
+      "title": "From Zero to Observability in 30 Minutes",
       "subtitle": "From install to insights",
-      "description": "A practical walkthrough of installing and using OpenObserve in your CI/CD pipelines.",
-      "date": "2025-10-05T16:00:00.000Z",
-      "time": "14:00:00Z",
+      "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
+      "date": "2025-06-20T16:00:00.000Z",
+      "time": "12:00:00Z",
       "duration": "40 minutes",
       "objectives": [
         {
-          "description": "Install OpenObserve locally or in Kubernetes."
+          "description": "Deploy OpenObserve in minutes."
         },
         {
-          "description": "Install OpenObserve locally or in Kubernetes."
+          "description": "Ingest logs with Filebeat/FluentBit."
         },
         {
-          "description": "Install OpenObserve locally or in Kubernetes."
+          "description": "Create dashboards and real-time alerts."
         },
         {
-          "description": "Send pipeline logs and visualize them effectively."
+          "description": "Compare with Elastic, Splunk and OpenSearch."
         }
       ],
       "tags": [

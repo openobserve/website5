@@ -98,17 +98,16 @@ if (props.pastWebinars.length > 0) {
 <template>
   <section v-if="featuredWebinar">
     <div class="container px-4 sm:px-6 lg:px-8 xl:px-40 py-16 lg:py-20 mx-auto ">
-      <div class="flex flex-row h-full flex-1 gap-8 items-stretch">
+      <div class="flex flex-row h-full flex-1 gap-8 items-stretch justify-between">
         <!-- Featured Webinar (take remaining space) -->
-        <div class="flex flex-col gap-8 flex-1">
+        <div class="flex flex-col gap-8 w-2/1">
           <FeaturedWebinarCard :webinar="featuredWebinar" />
         </div>
         <!-- Past Webinars on the right (fixed 16:9 ratio) -->
-        <div class="hidden lg:flex flex-col gap-8" style="width: 360px; max-width: 40vw;">
+        <div class="hidden lg:flex flex-col gap-8 w-full">
           <template v-for="webinar in rightPastWebinars" :key="webinar.id">
             <div v-if="isWebinarPast(webinar)"
-              class="border border-gray-200 rounded-lg p-0 h-full flex flex-col relative overflow-hidden"
-              style="aspect-ratio: 16/9;">
+              class="border border-gray-200 rounded-lg p-0 h-full flex flex-col relative overflow-hidden">
 
               <!-- Layer 1: YouTube Video Embed (Bottom layer) -->
               <div class="absolute inset-0 z-10 pointer-events-none">
@@ -129,9 +128,6 @@ if (props.pastWebinars.length > 0) {
               <div class="absolute inset-0 z-30 flex flex-col justify-between p-2 pointer-events-none">
                 <!-- Duration Badge (Top right) -->
                 <div class="self-end">
-                  <span class="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-md">
-                    {{ webinar.duration }}
-                  </span>
                 </div>
                 <!-- Title Overlay (Bottom) -->
                 <div class="self-start w-full">

@@ -1,6 +1,6 @@
 <script setup>
-import { Calendar, Clock, Play, Star, Timer } from 'lucide-vue-next';
-import { computed, ref } from 'vue';
+import { Calendar, Clock, Play, Star, Timer, ArrowRight, Users, BookOpen, CheckCircle } from 'lucide-vue-next';
+import { computed, ref, watch } from 'vue';
 import SubscriptionForm from '../forms/SubscriptionForm.vue';
 import { formatDateTimeInET } from '@/utils/getFormattedTime';
 
@@ -13,7 +13,6 @@ const props = defineProps({
 
 const { date, time } = formatDateTimeInET(props.webinar.date)
 
-// Compute if the webinar is live
 const isLive = computed(() => {
   const now = new Date();
   let start;
@@ -22,7 +21,6 @@ const isLive = computed(() => {
   } else {
     start = new Date(`${props.webinar.date} ${props.webinar.time}`);
   }
-  // Extract duration in minutes (handles "60 min" or "45 minutes")
   let duration = 60;
   if (props.webinar.duration) {
     const match = props.webinar.duration.match(/\d+/);
@@ -32,7 +30,6 @@ const isLive = computed(() => {
   return now >= start && now <= end;
 });
 
-// Add isUpcoming computed
 const isUpcoming = computed(() => {
   if (props.webinar.startTime) {
     const now = new Date();
@@ -42,14 +39,11 @@ const isUpcoming = computed(() => {
   return false;
 });
 
-// --- Only call redirect after successful registration ---
 const shouldRedirect = ref(false);
 function handleButtonClick() {
   shouldRedirect.value = true;
 }
 
-// Watch for shouldRedirect and perform redirect if true
-import { watch } from 'vue';
 watch(shouldRedirect, (val) => {
   if (val && props.webinar.slug) {
     window.location.href = `/webinars/${props.webinar.slug}`;
@@ -58,116 +52,166 @@ watch(shouldRedirect, (val) => {
 </script>
 
 <template>
-  <div class="flex flex-col bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden w-full">
-    <div>
-
-    </div>
-    <div class="hero-gradient p-6 text-white">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div class="flex items-center space-x-4">
-          <a :href="`/webinars/${webinar.slug}`" class="no-underline hover:underline focus:underline outline-none"
-            tabindex="0">
-            <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
-          </a>
-        </div>
-        <span :class="isLive ? 'bg-red-600' : (isUpcoming ? 'bg-green-600' : 'bg-gray-600')"
-          class="text-white px-3 py-1 rounded-full text-sm self-start sm:self-auto">
-          {{ isLive ? 'LIVE' : (isUpcoming ? 'Upcoming' : 'Past') }}
-        </span>
-      </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="p-6">
-      <!-- Date, Time, Duration -->
-      <div class="flex flex-col md:flex-row items-start space-y-2 space-x-6 mb-4 text-gray-600">
-        <div class="flex items-center space-x-2">
-          <Calendar class="w-4 h-4" />
-          <span>{{ date }}</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <Clock class="w-4 h-4" />
-          <span>{{ time }}</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <Timer class="h-4 w-4" />
-          <span>{{ webinar.duration }}</span>
-        </div>
-      </div>
-
-      <!-- Description -->
-      <p class="text-gray-700 mb-6">{{ webinar.description }}</p>
-
-      <!-- Learnings -->
-      <div class="mb-6">
-        <div class="flex items-center space-x-2 mb-4">
-          <Star class="w-5 h-5 text-purple-600" />
-          <h3 class="text-lg font-semibold text-gray-900">What You'll Learn</h3>
-        </div>
-        <div class="grid md:grid-cols-1 gap-3">
-          <div v-for="(item, index) in webinar.learnings" :key="index" class="flex items-center space-x-2">
-            <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-              <div class="w-2 h-2 bg-primary-green rounded-full"></div>
+  <div class="bg-white rounded-lg shadow-2xl overflow-hidden max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+      <!-- Left Side: Content -->
+      <div class="p-4 sm:p-6 lg:p-12 flex flex-col justify-between">
+        <!-- Header -->
+        <div>
+          <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full" :class="{
+                'bg-red-500 animate-pulse': isLive,
+                'bg-green-500': isUpcoming,
+                'bg-gray-400': !isLive && !isUpcoming
+              }"></div>
+              <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider" :class="{
+                'text-red-600': isLive,
+                'text-green-600': isUpcoming,
+                'text-gray-600': !isLive && !isUpcoming
+              }">
+                {{ isLive ? 'Live Now' : (isUpcoming ? 'Upcoming' : 'Recorded') }}
+              </span>
             </div>
-            <span class="text-gray-700">{{ item }}</span>
+            <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ webinar.duration }}</div>
+          </div>
+
+          <a :href="`/webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
+            <h1
+              class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+              {{ webinar.title }}
+            </h1>
+          </a>
+
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
+            {{ webinar.description }}
+          </p>
+
+          <!-- Event Details -->
+          <div class="flex flex-col gap-4 mb-6 sm:mb-8">
+            <div class="bg-gray-50 rounded-2xl p-4">
+              <div class="flex items-center gap-3">
+                <Calendar class="w-5 h-5 text-blue-600" />
+                <div>
+                  <div class="text-xs sm:text-sm text-gray-500">Date</div>
+                  <div class="font-semibold text-gray-900">{{ date }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-4">
+              <div class="flex items-center gap-3">
+                <Clock class="w-5 h-5 text-blue-600" />
+                <div>
+                  <div class="text-xs sm:text-sm text-gray-500">Time</div>
+                  <div class="font-semibold text-gray-900">{{ time }}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Action Section -->
+        <div>
+          <template v-if="isLive || isUpcoming">
+            <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" />
+          </template>
+
+          <template v-else>
+            <a :href="`https://www.youtube.com/watch?v=4VwuC1tpRP4`" target="_blank"
+              class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
+                <p class="text-gray-300 text-xs sm:text-sm">Full session available</p>
+              </div>
+              <Play class="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" />
+            </a>
+          </template>
+        </div>
       </div>
 
-      <!-- Conditional Section -->
-      <div>
-        <!-- Show subscription form if LIVE or UPCOMING -->
-        <template v-if="isLive || isUpcoming">
-          <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" />
-          <p class="text-xs text-gray-500 mt-2">
-            Note: By registering, you consent to receive emails regarding this event recording and related product
-            updates.
-          </p>
-        </template>
-
-        <!-- Show Video Thumbnail if PAST -->
-        <template v-else>
-          <div class="max-w-xs">
-            <div class="border border-gray-200 rounded-lg p-0 flex flex-col relative overflow-hidden"
-              style="aspect-ratio: 16/9;">
-              <!-- Layer 1: YouTube Video Embed -->
-              <div class="absolute inset-0 z-10 pointer-events-none">
-                <iframe class="w-full h-full rounded-lg pointer-events-none"
-                  :src="`https://www.youtube.com/embed/4VwuC1tpRP4?si=sQl7Un-qZ4aqUJEg`" title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-              </div>
-
-              <!-- Layer 2: Background gradient overlay -->
-              <div
-                class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#6A76E3] via-blue-900/60 via-blue-800/25 to-transparent z-20 rounded-lg pointer-events-none">
-              </div>
-
-              <!-- Layer 3: Content overlay -->
-              <div class="absolute inset-0 z-30 flex flex-col justify-between p-2 pointer-events-none">
-                <!-- Duration Badge -->
-                <div class="self-end">
+      <!-- Right Side: Learning Points & Visual -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-12 flex flex-col justify-center">
+        <div class="flex flex-col justify-center items-center h-full">
+          <!-- Visual Element for Past Webinars -->
+          <template v-if="!isLive && !isUpcoming">
+            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
+              <div class="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[400px]">
+                <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+                  <iframe class="w-full h-full" :src="`https://www.youtube.com/embed/4VwuC1tpRP4?si=sQl7Un-qZ4aqUJEg`"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                  </iframe>
                 </div>
-                <!-- Title Overlay -->
-                <div class="self-start w-full">
-                  <div class="bg-opacity-50 rounded p-1">
-                    <h3 class="text-base font-semibold mb-0 line-clamp-2 text-white">
-                      {{ webinar.title }}
-                    </h3>
+                <div
+                  class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl flex items-center justify-center">
+                  <div
+                    class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 flex items-center gap-2">
+                    <Play class="w-4 h-4" />
+                    <span class="font-medium text-sm">Open in YouTube</span>
                   </div>
                 </div>
               </div>
+            </div>
+          </template>
 
-              <!-- Layer 4: Clickable overlay -->
-              <a :href="`https://www.youtube.com/watch?v=4VwuC1tpRP4`" target="_blank" rel="noopener noreferrer"
-                class="absolute inset-0 z-40" style="display: block; pointer-events: auto;"
-                aria-label="Watch on YouTube"></a>
+          <!-- Stats for Live/Upcoming -->
+          <template v-else>
+            <div class="flex items-center justify-center mb-6 sm:mb-8">
+              <div class="grid grid-cols-2 gap-4 w-full max-w-xs">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-blue-600">{{ isLive ? 'LIVE' : '60' }}</div>
+                  <div class="text-xs sm:text-sm text-gray-600">{{ isLive ? 'Now' : 'Minutes' }}</div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-green-600">Free</div>
+                  <div class="text-xs sm:text-sm text-gray-600">Access</div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <!-- What You'll Learn -->
+          <div class="mb-6 sm:mb-8 w-full">
+            <div class="flex items-center gap-3 mb-4 sm:mb-6">
+              <Calendar class="w-5 h-5 sm:w-6 sm:h-6" />
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Key Takeaways</h2>
+            </div>
+
+            <div class="space-y-3 sm:space-y-4">
+              <div v-for="(item, index) in webinar.learnings" :key="index"
+                class="flex items-start gap-3 sm:gap-4 group">
+                <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-200 rounded-full flex items-center justify-center">
+                  <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-green rounded-full"></div>
+                </div>
+                <p
+                  class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-200">
+                  {{ item }}
+                </p>
+              </div>
             </div>
           </div>
-        </template>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+</style>
