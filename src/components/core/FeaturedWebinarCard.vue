@@ -49,11 +49,20 @@ watch(shouldRedirect, (val) => {
     window.location.href = `/webinars/${props.webinar.slug}`;
   }
 });
+
+const webinarDetails = computed(() => {
+  return {
+    eventTitle: props.webinar.title,
+    eventDate: date,
+    eventTime: time,
+    email: "",
+  };
+});
 </script>
 
 <template>
   <div class="bg-white rounded-lg shadow-2xl overflow-hidden max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
       <!-- Left Side: Content -->
       <div class="p-4 sm:p-6 lg:p-12 flex flex-col justify-between">
         <!-- Header -->
@@ -73,7 +82,7 @@ watch(shouldRedirect, (val) => {
                 {{ isLive ? 'Live Now' : (isUpcoming ? 'Upcoming' : 'Recorded') }}
               </span>
             </div>
-            <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ webinar.duration }}</div>
+            <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ isLive ? 'LIVE' : webinar.duration }}</div>
           </div>
 
           <a :href="`/webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
@@ -83,29 +92,19 @@ watch(shouldRedirect, (val) => {
             </h1>
           </a>
 
-          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-4">
             {{ webinar.description }}
           </p>
 
           <!-- Event Details -->
-          <div class="flex flex-col gap-4 mb-6 sm:mb-8">
-            <div class="bg-gray-50 rounded-2xl p-4">
-              <div class="flex items-center gap-3">
-                <Calendar class="w-5 h-5 text-blue-600" />
-                <div>
-                  <div class="text-xs sm:text-sm text-gray-500">Date</div>
-                  <div class="font-semibold text-gray-900">{{ date }}</div>
-                </div>
-              </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+              <Calendar class="w-5 h-5 text-blue-600" />
+              <div class="font-semibold text-gray-900">{{ date }}</div>
             </div>
-            <div class="bg-gray-50 rounded-2xl p-4">
-              <div class="flex items-center gap-3">
-                <Clock class="w-5 h-5 text-blue-600" />
-                <div>
-                  <div class="text-xs sm:text-sm text-gray-500">Time</div>
-                  <div class="font-semibold text-gray-900">{{ time }}</div>
-                </div>
-              </div>
+            <div class="flex items-center gap-3">
+              <Clock class="w-5 h-5 text-blue-600" />
+              <div class="font-semibold text-gray-900">{{ time }}</div>
             </div>
           </div>
         </div>
@@ -113,8 +112,12 @@ watch(shouldRedirect, (val) => {
         <!-- Action Section -->
         <div>
           <template v-if="isLive || isUpcoming">
-            <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" :eventTitle="webinar.title"
-              :eventDate="date" :eventTime="time" :email="webinar.email" />
+            <SubscriptionForm buttonVariant="primary" direction="col" :buttonOnClick="handleButtonClick"
+              :popupDetails="webinarDetails" />
+            <p class="text-xs  text-gray-500 mt-2">
+              Note: By registering, you consent to receive emails regarding this event recording and related product
+              updates.
+            </p>
           </template>
 
           <template v-else>
@@ -133,41 +136,30 @@ watch(shouldRedirect, (val) => {
       <!-- Right Side: Learning Points & Visual -->
       <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-12 flex flex-col justify-center">
         <div class="flex flex-col justify-center items-center h-full">
+
           <!-- Visual Element for Past Webinars -->
           <template v-if="!isLive && !isUpcoming">
             <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
               <div class="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[400px]">
                 <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                  <iframe class="w-full h-full" :src="`https://www.youtube.com/embed/4VwuC1tpRP4?si=sQl7Un-qZ4aqUJEg`"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                  </iframe>
-                </div>
-                <div
-                  class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl flex items-center justify-center">
-                  <div
-                    class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 flex items-center gap-2">
-                    <Play class="w-4 h-4" />
-                    <span class="font-medium text-sm">Open in YouTube</span>
-                  </div>
+                  <a :href="`/webinars/${webinar.slug}`" class="cursor-pointer h-full">
+                    <div class="aspect-video bg-gray-200">
+                      <img src="https://img.youtube.com/vi/4VwuC1tpRP4/hqdefault.jpg" alt="Webinar Thumbnail"
+                        class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </template>
 
-          <!-- Stats for Live/Upcoming -->
+          <!-- Visual Element for Live/Upcoming Webinars -->
           <template v-else>
-            <div class="flex items-center justify-center mb-6 sm:mb-8">
-              <div class="grid grid-cols-2 gap-4 w-full max-w-xs">
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 text-center">
-                  <div class="text-xl sm:text-2xl font-bold text-blue-600">{{ isLive ? 'LIVE' : '60' }}</div>
-                  <div class="text-xs sm:text-sm text-gray-600">{{ isLive ? 'Now' : 'Minutes' }}</div>
-                </div>
-                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 text-center">
-                  <div class="text-xl sm:text-2xl font-bold text-green-600">Free</div>
-                  <div class="text-xs sm:text-sm text-gray-600">Access</div>
-                </div>
+            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
+              <div class="relative group w-full max-w-[320px] sm:max-w-[400px] overflow-hidden rounded-2xl shadow-xl">
+                <img
+                  src="https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_frontend_webvitals_4f1ff71825.png"
+                  alt="Webinar Image" class="w-full h-auto object-cover transition-transform" />
               </div>
             </div>
           </template>
@@ -175,8 +167,8 @@ watch(shouldRedirect, (val) => {
           <!-- What You'll Learn -->
           <div class="mb-6 sm:mb-8 w-full">
             <div class="flex items-center gap-3 mb-4 sm:mb-6">
-              <Calendar class="w-5 h-5 sm:w-6 sm:h-6" />
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Key Takeaways</h2>
+              <Star class="w-6 h-6 mb-1 text-purple-600 shrink-0" />
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">What You'll Learn</h2>
             </div>
 
             <div class="space-y-3 sm:space-y-4">
@@ -192,8 +184,10 @@ watch(shouldRedirect, (val) => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
+
 
     </div>
   </div>
