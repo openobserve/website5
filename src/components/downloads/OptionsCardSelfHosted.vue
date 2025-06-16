@@ -3,8 +3,7 @@
     <div class="border rounded-lg p-4 space-y-4">
       <h3 class="text-2xl font-bold">{{ data.title }}</h3>
       <div class="flex-grow">
-        <ul class="space-y-4 mb-4 md:mb-8">
-          <li class="flex gap-3 text-gray-500">
+          <div class="flex gap-3 text-gray-500">
             <span>
               <img
                 src="/img/icon/docker.svg"
@@ -12,10 +11,9 @@
                 class="w-5 md:w-6 h-5 md:h-6"
             /></span>
             <span class="text-lg lex items-center text-black">Docker</span>
-          </li>
-        </ul>
+            </div>
       </div>
-
+      <p class="text-gray-500 v-html-content" v-html="description"></p>
       <!-- Copyable Code Block -->
       <div>
         <DockerCode :command="data.dockerCommand" />
@@ -36,7 +34,7 @@
               <span class="text-lg font-medium text-black">Downloads</span>
             </div>
             <div
-              class="text-md font-normal text-gray-600 mt-2"
+              class="text-md font-normal text-gray-600 mt-2 v-html-content"
               v-html="data.downloadTitle"
             ></div>
           </li>
@@ -98,6 +96,12 @@
 import { Check } from "lucide-vue-next";
 import DockerCode from "./DockerCode.vue";
 defineProps({ data: Object });
+const description = `
+  <p>
+    Docker images are available at
+    <a href="https://gallery.ecr.aws/zinclabs/openobserve" target="_blank">https://gallery.ecr.aws/zinclabs/openobserve</a>
+  </p>
+`;
 </script>
 <style scoped>
 
