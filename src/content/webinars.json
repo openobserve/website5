@@ -95,6 +95,7 @@
             "url": "https://randomuser.me/api/portraits/men/20.jpg"
           }
         }
+        
       ],
       "summary": {
         "title": "Visualize your observability data",
@@ -208,6 +209,15 @@
           "authorBio": "Tech Educator",
           "image": {
             "url": "https://randomuser.me/api/portraits/women/2.jpg"
+          }
+        },
+        {
+          "name": "Rahul Mehta",
+          "slug": "rahul-mehta",
+          "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
+          "authorBio": "DevOps Engineer",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/5.jpg"
           }
         }
       ],

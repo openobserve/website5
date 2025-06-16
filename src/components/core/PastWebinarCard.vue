@@ -69,60 +69,44 @@ function registerForWebinar() {
 
       <div class="flex-1"></div>
       <div class="border-t border-gray-100 my-3"></div>
-
-      <div class="flex -space-x-3">
+      <div class="flex flex-wrap gap-2 w-full items-center">
         <div
-          class="relative rounded-full border-2 border-white/80"
-          v-for="it in webinar.authors"
+          class="flex flex-row gap-2"
+          v-for="(it ,index) in webinar.authors"
           :key="it.slug"
         >
-          <div
-            class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
-          >
-            <img
-              :src="it.image?.url"
-              :alt="it.name"
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
+          <div class="rounded-full border-2 border-white/80">
+            <div
+              class="h-10 w-10 rounded-full overflow-hidden bg-purple-700 flex items-center justify-center text-white text-sm font-semibold"
+            >
+              <img
+                v-if="it.image?.url"
+                :src="it.image?.url"
+                :alt="it.name"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <span v-else class="text-sm font-semibold">{{
+                getInitials(it.name)
+              }}</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col ml-5">
-          <address class="flex flex-wrap items-center not-italic">
-            <template
-              class="flex flex-col"
-              v-for="(it, index) in webinar.authors"
-              :key="it.slug"
-            >
-              <span class="text-sm font-medium text-gray-900">
-                {{ it.name }}
-              </span>
-              <span
-                v-if="index < webinar.authors.length - 1"
-                class="text-black text-xs"
-                >,</span
-              >
-            </template>
-          </address>
-          <address class="flex flex-wrap items-center not-italic">
-            <template
-              class=""
-              v-for="(it, index) in webinar.authors"
-              :key="it.slug"
-            >
-              <span class="text-xs text-gray-500">
-                {{ it.authorBio }}
-              </span>
-              <span
-                v-if="index < webinar.authors.length - 1"
-                class="text-xs text-gray-500"
-                >,</span
-              >
-            </template>
-          </address>
+          <div class="flex flex-col justify-center">
+            <span class="text-sm font-medium text-gray-900">
+              {{ it.name }}
+            </span>
+            <span class="text-xs font-medium text-gray-500">
+              {{ it.authorBio }}
+            </span>
+          </div>
+          <div
+            :class="[
+              'border-gray-200',
+              index !== webinar.authors.length - 1 ? 'border-l' : '',
+            ]"
+          ></div>
         </div>
       </div>
-
       <CustomButton
         v-if="sourceKey === 'upcoming'"
         class="w-full mt-3"
