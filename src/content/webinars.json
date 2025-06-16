@@ -31,6 +31,7 @@
           "name": "Alex Gutierrez",
           "slug": "alex-gutierrez",
           "bio": "Senior Dev Advocate at OpenObserve, passionate about real-time analytics.",
+          "authorBio": "Senior Dev Advocate",
           "image": {
             "url": "https://randomuser.me/api/portraits/men/20.jpg"
           }
@@ -38,7 +39,7 @@
       ],
       "summary": {
         "title": "Real-time insights made easy",
-         "description": "In this comprehensive webinar, you'll learn how to seamlessly implement real-time monitoring and anomaly detection across your distributed systems using OpenObserve. Whether you're just starting out or looking to enhance your observability stack, this session will walk you through key strategies, tools, and best practices for identifying unusual behavior as it happens—before it impacts your users. Discover how to configure alerts, visualize patterns, and leverage machine learning models like Random Cut Forest for automated anomaly detection, all within a unified dashboard experience."
+        "description": "In this comprehensive webinar, you'll learn how to seamlessly implement real-time monitoring and anomaly detection across your distributed systems using OpenObserve. Whether you're just starting out or looking to enhance your observability stack, this session will walk you through key strategies, tools, and best practices for identifying unusual behavior as it happens—before it impacts your users. Discover how to configure alerts, visualize patterns, and leverage machine learning models like Random Cut Forest for automated anomaly detection, all within a unified dashboard experience."
       },
       "resources": [
         {
@@ -80,14 +81,24 @@
           "name": "Nisha Rao",
           "slug": "nisha-rao",
           "bio": "Product Manager at OpenObserve, focused on user experience and feature design.",
+          "authorBio": "Product Manager",
           "image": {
             "url": "https://randomuser.me/api/portraits/women/4.jpg"
+          }
+        },
+        {
+          "name": "Alex Gutierrez",
+          "slug": "alex-gutierrez",
+          "bio": "Senior Dev Advocate at OpenObserve, passionate about real-time analytics.",
+          "authorBio": "Senior Dev Advocate",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/20.jpg"
           }
         }
       ],
       "summary": {
         "title": "Visualize your observability data",
-         "description": "Learn how to turn complex metrics, logs, and traces into intuitive, actionable dashboards using OpenObserve’s powerful visualization capabilities. In this session, we’ll guide you through building custom charts, setting up real-time data streams, and organizing panels that give your teams instant clarity. Whether you're monitoring infrastructure, applications, or distributed systems, you'll discover how OpenObserve helps you transform raw data into clear insights—so you can make faster, data-driven decisions."
+        "description": "Learn how to turn complex metrics, logs, and traces into intuitive, actionable dashboards using OpenObserve’s powerful visualization capabilities. In this session, we’ll guide you through building custom charts, setting up real-time data streams, and organizing panels that give your teams instant clarity. Whether you're monitoring infrastructure, applications, or distributed systems, you'll discover how OpenObserve helps you transform raw data into clear insights—so you can make faster, data-driven decisions."
       },
       "resources": [
         {
@@ -134,15 +145,25 @@
         {
           "name": "Rahul Mehta",
           "slug": "rahul-mehta",
-            "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
+          "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
+          "authorBio": "DevOps Engineer",
           "image": {
             "url": "https://randomuser.me/api/portraits/men/5.jpg"
+          }
+        },
+        {
+          "name": "Tina George",
+          "slug": "tina-george",
+          "bio": "Tech Educator focused on log intelligence and observability tools.",
+          "authorBio": "Tech Educator",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/2.jpg"
           }
         }
       ],
       "summary": {
         "title": "Zero to Hero in OpenObserve for CI/CD",
-       "description": "Learn how to seamlessly integrate observability into your deployment workflows using OpenObserve.<br/><br/>This session covers everything from <strong>initial setup</strong> to <strong>advanced monitoring use cases</strong> within CI/CD environments. You'll explore how to:<ul><li>Instrument your pipelines with minimal overhead</li><li>Visualize build and deployment metrics in real-time</li><li>Diagnose failures quickly using log correlations</li><li>Set up proactive alerts for early anomaly detection</li></ul><br/>By the end, you'll be equipped with the skills to implement a robust observability layer tailored for scalable, cloud-native DevOps operations."
+        "description": "Learn how to seamlessly integrate observability into your deployment workflows using OpenObserve.<br/><br/>This session covers everything from <strong>initial setup</strong> to <strong>advanced monitoring use cases</strong> within CI/CD environments. You'll explore how to:<ul><li>Instrument your pipelines with minimal overhead</li><li>Visualize build and deployment metrics in real-time</li><li>Diagnose failures quickly using log correlations</li><li>Set up proactive alerts for early anomaly detection</li></ul><br/>By the end, you'll be equipped with the skills to implement a robust observability layer tailored for scalable, cloud-native DevOps operations."
       },
       "resources": [
         {
@@ -157,7 +178,7 @@
       "title": "Log Enrichment and Custom Parsing in OpenObserve",
       "subtitle": "Make your logs work for you",
       "description": "Discover techniques for transforming raw logs into structured, insightful data.",
-     "date": "2025-06-13T07:00:00.000Z"  ,
+      "date": "2025-06-13T07:00:00.000Z",
       "time": "14:30:00Z",
       "duration": "50 minutes",
       "objectives": [
@@ -184,6 +205,7 @@
           "name": "Tina George",
           "slug": "tina-george",
           "bio": "Tech Educator focused on log intelligence and observability tools.",
+          "authorBio": "Tech Educator",
           "image": {
             "url": "https://randomuser.me/api/portraits/women/2.jpg"
           }

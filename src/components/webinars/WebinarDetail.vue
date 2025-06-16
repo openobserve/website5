@@ -5,19 +5,19 @@
         <!-- What you'll learn section -->
         <div class="w-full mb-8">
           <div class="sticky top-20 border rounded-xl p-4">
-            <h2 class="text-2xl font-bold mb-4">What you'll learn</h2>
+            <div class="flex flex-row gap-2 w-full items-center h-full mb-4">
+            <Star class="w-5 h-5 mb-1 text-purple-600 shrink-0" />
+            <h2 class="text-2xl font-bold">What you'll learn</h2>
+            </div>
             <div
               class="flex flex-col space-y-4"
               v-for="(objective, index) in objectives"
               :key="index"
             >
               <div class="flex items-center gap-4 text-base mb-2 font-normal">
-                <div
-                  class="text-primary-green rounded-full shrink-0 flex items-center justify-center"
-                >
-                  <!-- {{ index + 1 }} -->
-                  <CircleCheckBig class="h-5 w-5" />
-                </div>
+                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
+              <div class="w-2 h-2 bg-primary-green rounded-full"></div>
+            </div>
                 <p class="text-gray-700">
                   {{ objective.description }}
                 </p>
@@ -32,6 +32,7 @@
               {{ summary.title }}
             </h2>
            <div v-html="summary.description" class="text-gray-700"></div>
+           
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@
 </template>
 <script setup lang="ts">
 import CustomSection from "../core/CustomSection.vue";
-import { Check, CircleCheckBig } from "lucide-vue-next";
+import { Check, CircleCheckBig,Star } from "lucide-vue-next";
 import Summary from "../policies/Summary.vue";
 import SingleAuthorDetails from "../blog/SingleAuthorDetails.vue";
 interface Objective {

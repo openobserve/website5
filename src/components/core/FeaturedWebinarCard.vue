@@ -99,7 +99,7 @@ watch(shouldRedirect, (val) => {
         <div class="grid md:grid-cols-2 gap-3">
           <div v-for="(item, index) in webinar.learnings" :key="index" class="flex items-center space-x-2">
             <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-              <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+              <div class="w-2 h-2 bg-primary-green rounded-full"></div>
             </div>
             <span class="text-gray-700">{{ item }}</span>
           </div>

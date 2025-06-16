@@ -33,10 +33,7 @@ function mapWebinar(item, idx) {
         : item.time
       : "",
     duration: item.duration,
-    author: [item.author?.[0]?.name || ""].filter(Boolean).join(", "),
-    authorSlug: item.author?.[0]?.slug || "",
-    authorBio: item.author?.[0]?.bio || "",
-    image: item.author?.[0]?.image?.url || "/img/icon/github-icon.svg",
+    authors: item.author,
     gradient: "from-blue-400 to-purple-500", // fallback, can be improved
     startTime,
     learnings: item.objectives?.map((obj) => obj.description) || [],
