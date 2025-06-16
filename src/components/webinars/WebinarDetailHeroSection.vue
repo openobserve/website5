@@ -122,8 +122,8 @@ const isUpcoming = computed(() => {
 const webinarDetails = computed(() => {
   return {
     eventTitle: props.title,
-    eventDate: props.publishDate,
-    eventTime: props.time,
+    eventDate: date,
+    eventTime: time,
     email: "",
   };
 });

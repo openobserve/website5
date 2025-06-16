@@ -1,57 +1,4 @@
-<!-- AddToCalendarPopup.vue -->
-<!-- <template>
-  <div
-    v-if="visible"
-    class="fixed inset-0 bg-white/10 backdrop-blur-xs flex items-center justify-center z-50 text-gray-700"
-  >
-    <div class="bg-white rounded-xl p-6 max-w-md w-full text-center shadow-xl">
-      <h2 class="text-2xl font-bold mb-4">Thank You for Registering!</h2>
-      <p class="mb-6">
-        Hi Abhishek, you've successfully registered for Mastering Real-Time
-        Anomaly Detection on December 15, 2024 at 10:00 AM PT.
-      </p>
 
-      <div class="flex flex-col space-y-3 mb-4 max-w-56 mx-auto text-sm">
-        <a
-          :href="calendarLinks.google"
-          target="_blank"
-          class="button-style flex items-center justify-center space-x-2"
-        >
-          <Calendar class="w-4 h-4" />
-          <span>Add to Google Calendar</span>
-        </a>
-
-        <a
-          :href="calendarLinks.outlook"
-          target="_blank"
-          class="button-style flex items-center justify-center space-x-2"
-        >
-          <Download class="w-4 h-4" />
-          <span>Download Outlook .ICS</span>
-        </a>
-
-        <a
-          :href="calendarLinks.ics"
-          download="webinar.ics"
-          class="button-style flex items-center justify-center space-x-2"
-        >
-          <Download class="w-4 h-4" />
-          <span>Download Apple .ICS</span>
-        </a>
-      </div>
-      <p>
-        You'll receive a confirmation email with these details shortly. We look
-        forward to seeing you at the webinar!
-      </p>
-      <button
-        @click="closePopup"
-        class="text-gray-500 hover:text-gray-700 mt-2"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-</template> -->
 <template>
   <Transition name="fade">
     <div
@@ -90,7 +37,7 @@
               <Calendar class="h-4 w-4" />
               <span>
                 {{ webinarDetail.eventDate }} at
-                {{ getLocalTimeWithAbbreviation(webinarDetail.eventTime) }}
+                {{ webinarDetail.eventTime }}
               </span>
             </div>
           </div>
@@ -138,7 +85,6 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, watch, onMounted, onUnmounted } from "vue";
 import { Calendar, Download, X, CircleCheckBig } from "lucide-vue-next";
-import { getLocalTimeWithAbbreviation } from "@/utils/getFormattedTime";
 const props = defineProps<{
   visible: boolean;
   webinarDetail: {
