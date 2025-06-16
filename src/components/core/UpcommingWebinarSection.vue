@@ -100,7 +100,7 @@ if (props.pastWebinars.length > 0) {
     <div class="container px-4 sm:px-6 lg:px-8 xl:px-20 2xl:px-40 py-16 lg:py-20 mx-auto ">
       <div class="flex flex-row h-full flex-1 gap-8 items-stretch justify-between">
         <!-- Featured Webinar (left side - 70%) -->
-        <div class="flex flex-col gap-8 basis-[70%]">
+        <div class="flex flex-col gap-8 lg:basis-[70%]">
           <FeaturedWebinarCard :webinar="featuredWebinar" class="h-full" />
         </div>
 
