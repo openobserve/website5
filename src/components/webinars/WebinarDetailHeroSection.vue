@@ -39,7 +39,7 @@
               </div>
             </div>
             <!-- registration From -->
-            <div v-show="isUpcoming" class="w-full">
+            <div v-show="isUpcoming" class="w-3/4">
               <SubscriptionForm :popupDetails="webinarDetails" button-variant="secondary" />
               <h4 class="text-white/90 text-sm my-2">
                 Note: By registering, you consent to receive emails regarding this event recording and related product
