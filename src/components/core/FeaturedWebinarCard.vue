@@ -59,6 +59,9 @@ watch(shouldRedirect, (val) => {
 
 <template>
   <div class="flex flex-col bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden w-full">
+    <div>
+
+    </div>
     <div class="hero-gradient p-6 text-white">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex items-center space-x-4">
@@ -67,13 +70,16 @@ watch(shouldRedirect, (val) => {
             <h2 class="text-2xl font-bold">{{ webinar.title }}</h2>
           </a>
         </div>
-        <span :class="isLive ? 'bg-red-600' : 'bg-green-600'"
+        <span :class="isLive ? 'bg-red-600' : (isUpcoming ? 'bg-green-600' : 'bg-gray-600')"
           class="text-white px-3 py-1 rounded-full text-sm self-start sm:self-auto">
-          {{ isLive ? 'LIVE' : 'Upcoming' }}
+          {{ isLive ? 'LIVE' : (isUpcoming ? 'Upcoming' : 'Past') }}
         </span>
       </div>
     </div>
+
+    <!-- Main Content -->
     <div class="p-6">
+      <!-- Date, Time, Duration -->
       <div class="flex flex-col md:flex-row items-start space-y-2 space-x-6 mb-4 text-gray-600">
         <div class="flex items-center space-x-2">
           <Calendar class="w-4 h-4" />
@@ -88,15 +94,17 @@ watch(shouldRedirect, (val) => {
           <span>{{ webinar.duration }}</span>
         </div>
       </div>
-      <p class="text-gray-700 mb-6">
-        {{ webinar.description }}
-      </p>
+
+      <!-- Description -->
+      <p class="text-gray-700 mb-6">{{ webinar.description }}</p>
+
+      <!-- Learnings -->
       <div class="mb-6">
         <div class="flex items-center space-x-2 mb-4">
           <Star class="w-5 h-5 text-purple-600" />
           <h3 class="text-lg font-semibold text-gray-900">What You'll Learn</h3>
         </div>
-        <div class="grid md:grid-cols-2 gap-3">
+        <div class="grid md:grid-cols-1 gap-3">
           <div v-for="(item, index) in webinar.learnings" :key="index" class="flex items-center space-x-2">
             <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
               <div class="w-2 h-2 bg-primary-green rounded-full"></div>
@@ -105,13 +113,59 @@ watch(shouldRedirect, (val) => {
           </div>
         </div>
       </div>
+
+      <!-- Conditional Section -->
       <div>
-        <template v-if="isUpcoming">
+        <!-- Show subscription form if LIVE or UPCOMING -->
+        <template v-if="isLive || isUpcoming">
           <SubscriptionForm buttonVariant="primary" :buttonOnClick="handleButtonClick" />
           <p class="text-xs text-gray-500 mt-2">
             Note: By registering, you consent to receive emails regarding this event recording and related product
             updates.
           </p>
+        </template>
+
+        <!-- Show Video Thumbnail if PAST -->
+        <template v-else>
+          <div class="max-w-xs">
+            <div class="border border-gray-200 rounded-lg p-0 flex flex-col relative overflow-hidden"
+              style="aspect-ratio: 16/9;">
+              <!-- Layer 1: YouTube Video Embed -->
+              <div class="absolute inset-0 z-10 pointer-events-none">
+                <iframe class="w-full h-full rounded-lg pointer-events-none"
+                  :src="`https://www.youtube.com/embed/4VwuC1tpRP4?si=sQl7Un-qZ4aqUJEg`" title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+              </div>
+
+              <!-- Layer 2: Background gradient overlay -->
+              <div
+                class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#6A76E3] via-blue-900/60 via-blue-800/25 to-transparent z-20 rounded-lg pointer-events-none">
+              </div>
+
+              <!-- Layer 3: Content overlay -->
+              <div class="absolute inset-0 z-30 flex flex-col justify-between p-2 pointer-events-none">
+                <!-- Duration Badge -->
+                <div class="self-end">
+                </div>
+                <!-- Title Overlay -->
+                <div class="self-start w-full">
+                  <div class="bg-opacity-50 rounded p-1">
+                    <h3 class="text-base font-semibold mb-0 line-clamp-2 text-white">
+                      {{ webinar.title }}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Layer 4: Clickable overlay -->
+              <a :href="`https://www.youtube.com/watch?v=4VwuC1tpRP4`" target="_blank" rel="noopener noreferrer"
+                class="absolute inset-0 z-40" style="display: block; pointer-events: auto;"
+                aria-label="Watch on YouTube"></a>
+            </div>
+          </div>
         </template>
       </div>
     </div>
