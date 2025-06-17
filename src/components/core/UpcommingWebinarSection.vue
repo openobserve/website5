@@ -98,49 +98,7 @@ if (props.pastWebinars.length > 0) {
 <template>
   <section v-if="featuredWebinar">
     <div class="container px-4 sm:px-6 lg:px-8 xl:px-20 2xl:px-40 py-16 lg:py-20 mx-auto ">
-      <div class="flex flex-row h-full flex-1 gap-8 items-stretch justify-between">
-        <!-- Featured Webinar (left side - 70%) -->
-        <div class="flex flex-col gap-8 lg:basis-[70%]">
-          <FeaturedWebinarCard :webinar="featuredWebinar" class="h-full" />
-        </div>
-
-        <!-- Past Webinars (right side - 30%) -->
-        <div class="hidden lg:flex flex-col gap-10 basis-[30%]">
-          <template v-for="webinar in rightPastWebinars" :key="webinar.id">
-            <div v-if="isWebinarPast(webinar)" class="rounded-lg relative overflow-hidden h-full">
-              <a :href="`/webinars/${webinar.slug}`" class="cursor-pointer h-full">
-                <div class="aspect-video bg-gray-200">
-                  <img src="https://img.youtube.com/vi/4VwuC1tpRP4/hqdefault.jpg" alt="Webinar Thumbnail"
-                    class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
-                </div>
-
-                <!-- Background Gradient -->
-                <div
-                  class="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-[#6A76E3] via-blue-900/60 via-blue-800/25 to-transparent z-20 pointer-events-none">
-                </div>
-
-                <!-- Content Overlay -->
-                <div class="absolute inset-0 z-30 flex flex-col justify-between p-2 pointer-events-none">
-                  <div class="self-end"></div>
-                  <div class="self-start w-full">
-                    <div class="bg-opacity-50 rounded p-1">
-                      <h3 class="text-base font-semibold mb-0 line-clamp-2 text-white">
-                        {{ webinar.title }}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-
-            <PastWebinarCard v-else :webinar="webinar" sourceKey="past" class="h-full flex-1 min-h-0"
-              style="min-width: 0;" />
-          </template>
-        </div>
-
-      </div>
-
+      <FeaturedWebinarCard :webinar="featuredWebinar" class="h-full" />
     </div>
   </section>
 </template>

@@ -93,7 +93,7 @@ const socialIcon = (name) => {
           <div class="text-white">
             <ul>
               <li>
-                <a href="/webinars">Webinars</a>
+                <a href="/videos-webinars">Webinars</a>
               </li>
             </ul>
           </div>

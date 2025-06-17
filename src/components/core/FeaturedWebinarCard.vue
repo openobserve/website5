@@ -46,7 +46,7 @@ function handleButtonClick() {
 
 watch(shouldRedirect, (val) => {
   if (val && props.webinar.slug) {
-    window.location.href = `/webinars/${props.webinar.slug}`;
+    window.location.href = `/videos-webinars/${props.webinar.slug}`;
   }
 });
 
@@ -85,7 +85,7 @@ const webinarDetails = computed(() => {
             <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ isLive ? 'LIVE' : webinar.duration }}</div>
           </div>
 
-          <a :href="`/webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
+          <a :href="`/videos-webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
             <h1
               class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
               {{ webinar.title }}
@@ -121,7 +121,7 @@ const webinarDetails = computed(() => {
           </template>
 
           <template v-else>
-            <a :href="`webinars/${webinar.slug}`"
+            <a :href="`videos-webinars/${webinar.slug}`"
               class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
               <div>
                 <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
@@ -142,7 +142,7 @@ const webinarDetails = computed(() => {
             <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
               <div class="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[400px]">
                 <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                  <a :href="`/webinars/${webinar.slug}`" class="cursor-pointer h-full">
+                  <a :href="`/videos-webinars/${webinar.slug}`" class="cursor-pointer h-full">
                     <div class="aspect-video bg-gray-200">
                       <img src="https://img.youtube.com/vi/4VwuC1tpRP4/hqdefault.jpg" alt="Webinar Thumbnail"
                         class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
