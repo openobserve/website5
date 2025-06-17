@@ -1,5 +1,4 @@
-export function isWebinarLive(webinar: any) {
-  const now = new Date();
+export function isWebinarLive(webinar: any, now: Date = new Date()) {
   if (!webinar.date) return false;
   const start = new Date(webinar.date);
   let duration = 60;
@@ -12,16 +11,14 @@ export function isWebinarLive(webinar: any) {
 }
 
 // Helper to check if a webinar is in the future (not started yet)
-export function isWebinarFuture(webinar: any) {
-  const now = new Date();
+export function isWebinarFuture(webinar: any, now: Date = new Date()) {
   if (!webinar.date) return false;
   const start = new Date(webinar.date);
   return start > now;
 }
 
 // Helper to check if a webinar is in the past
-export function isWebinarPast(webinar: any) {
-  const now = new Date();
+export function isWebinarPast(webinar: any, now: Date = new Date()) {
   if (!webinar.date) return true;
   const start = new Date(webinar.date);
   let duration = 60;

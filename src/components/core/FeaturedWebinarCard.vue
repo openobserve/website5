@@ -1,6 +1,6 @@
 <script setup>
-import { Calendar, Clock, Play, Star, Timer, ArrowRight, Users, BookOpen, CheckCircle } from 'lucide-vue-next';
-import { computed, ref, watch } from 'vue';
+import { Calendar, Clock, Play, Star } from 'lucide-vue-next';
+import { computed, ref, watch,onMounted, onBeforeUnmount  } from 'vue';
 import SubscriptionForm from '../forms/SubscriptionForm.vue';
 import { formatDateTimeInET } from '@/utils/getFormattedTime';
 
@@ -11,10 +11,25 @@ const props = defineProps({
   }
 });
 
+// get date and time
 const { date, time } = formatDateTimeInET(props.webinar.date)
 
+// 1. Reactive current time
+const now = ref(new Date());
+
+// 2. Keep time updated every 30 seconds
+let interval;
+onMounted(() => {
+  interval = setInterval(() => {
+    now.value = new Date();
+  }, 30000); // every 30 seconds
+});
+
+onBeforeUnmount(() => {
+  clearInterval(interval);
+});
+
 const isLive = computed(() => {
-  const now = new Date();
   let start;
   if (props.webinar.date) {
     start = new Date(props.webinar.date);
@@ -27,14 +42,13 @@ const isLive = computed(() => {
     if (match) duration = parseInt(match[0]);
   }
   const end = new Date(start.getTime() + duration * 60000);
-  return now >= start && now <= end;
+  return now.value >= start && now.value <= end;
 });
 
 const isUpcoming = computed(() => {
   if (props.webinar.date) {
-    const now = new Date();
     const start = new Date(props.webinar.date);
-    return start > now;
+    return start > now.value;
   }
   return false;
 });
