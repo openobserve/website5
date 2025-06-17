@@ -61,7 +61,7 @@ if (props.pastWebinars.length > 0) {
 
 <template>
   <section v-if="featuredWebinar">
-    <div class="container px-4 sm:px-6 lg:px-8 xl:px-20 2xl:px-40 py-16 lg:py-20 mx-auto ">
+    <div class="container px-4 sm:px-6 lg:px-8 xl:px-20 py-16 lg:py-20 mx-auto ">
       <FeaturedWebinarCard :webinar="featuredWebinar" class="h-full" />
     </div>
   </section>

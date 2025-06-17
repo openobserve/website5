@@ -61,7 +61,7 @@ const webinarDetails = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-2xl overflow-hidden max-w-6xl mx-auto">
+  <div class="bg-white rounded-lg shadow-2xl overflow-hidden mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <!-- Left Side: Content -->
       <div class="p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
@@ -86,10 +86,10 @@ const webinarDetails = computed(() => {
           </div>
 
           <a :href="`/videos-webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
-            <h1
+            <h2
               class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
               {{ webinar.title }}
-            </h1>
+            </h2>
           </a>
 
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-4">
@@ -168,7 +168,7 @@ const webinarDetails = computed(() => {
           <div class="mb-6 sm:mb-8 w-full">
             <div class="flex items-center gap-3 mb-4 sm:mb-6">
               <Star class="w-6 h-6 mb-1 text-purple-600 shrink-0" />
-              <h2 class="text-xl sm:text-2xl font-bold text-gray-900">What You'll Learn</h2>
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-900">What You'll Learn</h3>
             </div>
 
             <div class="space-y-3 sm:space-y-4">
