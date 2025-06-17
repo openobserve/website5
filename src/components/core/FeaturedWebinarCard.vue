@@ -97,7 +97,7 @@ const webinarDetails = computed(() => {
           </p>
 
           <!-- Event Details -->
-          <div class="flex items-center gap-4 mb-3">
+          <div class="flex flex-col sm:flex-row sm:items-center  gap-4 mb-3">
             <div class="flex items-center gap-3">
               <Calendar class="w-5 h-5 text-blue-600" />
               <div class="font-semibold text-gray-900">{{ date }}</div>
