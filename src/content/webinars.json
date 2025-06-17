@@ -113,9 +113,9 @@
       "title": "From Zero to Observability in 30 Minutes",
       "subtitle": "From install to insights",
       "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
-      "date": "2025-06-20T16:00:00.000Z",
+      "date": "2025-06-17T06:59:07.470Z",
       "time": "12:00:00Z",
-      "duration": "40 minutes",
+      "duration": "2 minutes",
       "objectives": [
         {
           "description": "Deploy OpenObserve in minutes."

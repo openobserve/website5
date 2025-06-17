@@ -5,7 +5,6 @@
 
 <script setup>
 import PastWebinarSection from "@/components/core/PastWebinarSection.vue";
-
 const props = defineProps({
   allWebinars: {
     type: Array,
@@ -16,8 +15,8 @@ const props = defineProps({
 const now = new Date();
 
 function isWebinarPast(webinar) {
-  if (!webinar.startTime) return true;
-  const start = new Date(webinar.startTime);
+  if (!webinar.date) return true;
+  const start = new Date(webinar.date);
   let duration = 60;
   if (webinar.duration) {
     const match = webinar.duration.match(/\d+/);
@@ -28,7 +27,6 @@ function isWebinarPast(webinar) {
 }
 
 const pastWebinars = props.allWebinars.filter(isWebinarPast);
-
 const pastWebinarHeading = {
   title: "Past Webinars",
   description: "Catch up on our previous webinars to stay updated on the latest trends and best practices in observability.",

@@ -3,46 +3,13 @@
 <script setup>
 import UpcommingWebinarSection from "@/components/core/UpcommingWebinarSection.vue";
 import CustomSection from "../core/CustomSection.vue";
-
+import { isWebinarLive, isWebinarFuture, isWebinarPast } from '@/utils/webinarHelpers';
 const props = defineProps({
   allWebinars: {
     type: Array,
     required: true
   }
 });
-
-const now = new Date();
-
-function isWebinarLive(webinar) {
-  if (!webinar.startTime) return false;
-  const start = new Date(webinar.startTime);
-  let duration = 60;
-  if (webinar.duration) {
-    const match = webinar.duration.match(/\d+/);
-    if (match) duration = parseInt(match[0]);
-  }
-  const end = new Date(start.getTime() + duration * 60000);
-  return now >= start && now <= end;
-}
-
-function isWebinarFuture(webinar) {
-  if (!webinar.startTime) return false;
-  const start = new Date(webinar.startTime);
-  return start > now;
-}
-
-function isWebinarPast(webinar) {
-  if (!webinar.startTime) return true;
-  const start = new Date(webinar.startTime);
-  let duration = 60;
-  if (webinar.duration) {
-    const match = webinar.duration.match(/\d+/);
-    if (match) duration = parseInt(match[0]);
-  }
-  const end = new Date(start.getTime() + duration * 60000);
-  return now > end;
-}
-
 const liveWebinars = props.allWebinars.filter(isWebinarLive);
 const upcomingWebinars = props.allWebinars.filter(isWebinarFuture);
 const pastWebinars = props.allWebinars.filter(isWebinarPast);

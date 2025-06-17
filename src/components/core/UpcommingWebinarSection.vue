@@ -1,7 +1,7 @@
 <script setup>
 import FeaturedWebinarCard from "@/components/core/FeaturedWebinarCard.vue"
 import PastWebinarCard from "@/components/core/PastWebinarCard.vue"
-
+import { isWebinarLive, isWebinarFuture, isWebinarPast } from '@/utils/webinarHelpers';
 const props = defineProps({
   liveWebinars: {
     type: Array,
@@ -24,45 +24,9 @@ const props = defineProps({
   }
 });
 
-// Helper to check if a webinar is live
-function isWebinarLive(webinar) {
-  if (!webinar.startTime) return false;
-  const now = new Date();
-  const start = new Date(webinar.startTime);
-  let duration = 60;
-  if (webinar.duration) {
-    const match = webinar.duration.match(/\d+/);
-    if (match) duration = parseInt(match[0]);
-  }
-  const end = new Date(start.getTime() + duration * 60000);
-  return now >= start && now <= end;
-}
-
-// Helper to check if a webinar is in the future (not started yet)
-function isWebinarFuture(webinar) {
-  if (!webinar.startTime) return false;
-  const now = new Date();
-  const start = new Date(webinar.startTime);
-  return start > now;
-}
-
-// Helper to check if a webinar is in the past
-function isWebinarPast(webinar) {
-  if (!webinar.startTime) return true;
-  const now = new Date();
-  const start = new Date(webinar.startTime);
-  let duration = 60;
-  if (webinar.duration) {
-    const match = webinar.duration.match(/\d+/);
-    if (match) duration = parseInt(match[0]);
-  }
-  const end = new Date(start.getTime() + duration * 60000);
-  return now > end;
-}
 
 // Find the first live webinar
 const liveWebinar = props.upcomingWebinars.find(isWebinarLive);
-
 // If no live, find the next upcoming webinar (future)
 const upcomingWebinar = !liveWebinar
   ? props.upcomingWebinars.find(isWebinarFuture)
@@ -73,7 +37,7 @@ let fallbackPast = [];
 if (!liveWebinar && !upcomingWebinar && props.pastWebinars.length > 0) {
   fallbackPast = [...props.pastWebinars]
     .filter(isWebinarPast)
-    .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
 }
 
 let featuredWebinar = null;
@@ -90,7 +54,7 @@ let rightPastWebinars = [];
 if (props.pastWebinars.length > 0) {
   rightPastWebinars = props.pastWebinars
     .filter(w => !featuredWebinar || w.id !== featuredWebinar.id)
-    .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 2);
 }
 </script>

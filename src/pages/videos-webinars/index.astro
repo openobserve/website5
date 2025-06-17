@@ -27,17 +27,11 @@ function mapWebinar(item, idx) {
     subtitle: item.subtitle,
     description: item.description,
     date: item.date,
-    time: item.time
-      ? item.time.length > 8
-        ? item.time.slice(0, 5)
-        : item.time
-      : "",
     duration: item.duration,
     authors: item.author,
     gradient: "from-blue-400 to-purple-500", // fallback, can be improved
-    startTime,
-    learnings: item.objectives?.map((obj) => obj.description) || [],
-    tags: item.tags?.map((t) => t.name) || [],
+    objectives: item.objectives || [],
+    tags: item.tags || [],
     slug: item.slug,
     resources: item.resources || [],
     summary: item.summary || {},

@@ -16,10 +16,10 @@ const { date, time } = formatDateTimeInET(props.webinar.date)
 const isLive = computed(() => {
   const now = new Date();
   let start;
-  if (props.webinar.startTime) {
-    start = new Date(props.webinar.startTime);
+  if (props.webinar.date) {
+    start = new Date(props.webinar.date);
   } else {
-    start = new Date(`${props.webinar.date} ${props.webinar.time}`);
+    start = new Date(`${props.webinar.date}`);
   }
   let duration = 60;
   if (props.webinar.duration) {
@@ -31,9 +31,9 @@ const isLive = computed(() => {
 });
 
 const isUpcoming = computed(() => {
-  if (props.webinar.startTime) {
+  if (props.webinar.date) {
     const now = new Date();
-    const start = new Date(props.webinar.startTime);
+    const start = new Date(props.webinar.date);
     return start > now;
   }
   return false;
@@ -172,14 +172,14 @@ const webinarDetails = computed(() => {
             </div>
 
             <div class="space-y-3 sm:space-y-4">
-              <div v-for="(item, index) in webinar.learnings" :key="index"
+              <div v-for="(item, index) in webinar.objectives" :key="index"
                 class="flex items-start gap-3 sm:gap-4 group">
                 <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-200 rounded-full flex items-center justify-center">
                   <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-green rounded-full"></div>
                 </div>
                 <p
                   class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-200">
-                  {{ item }}
+                  {{ item.description }}
                 </p>
               </div>
             </div>
