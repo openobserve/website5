@@ -5,20 +5,16 @@
       props.direction === 'row' ? 'md:flex-row' : 'md:flex-col'
     ]">
       <!-- First Name and Last Name: Always in Row -->
-      <div class="flex flex-col md:flex-row w-full h-full gap-2 items-center col-span-1 md:col-span-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="w-full">
           <Field name="firstName" type="text" placeholder="First Name"
             :class="['contact-form-input', showErrors && errors.firstName ? 'is-invalid' : '']" />
-          <div class="md:h-[1.1rem]">
-            <ErrorMessage v-if="showErrors" name="firstName" class="contact-form-error" />
-          </div>
+          <ErrorMessage v-if="showErrors" name="firstName" class="contact-form-error" />
         </div>
         <div class="w-full">
           <Field name="lastName" type="text" placeholder="Last Name"
             :class="['contact-form-input', showErrors && errors.lastName ? 'is-invalid' : '']" />
-          <div class="md:h-[1.1rem]">
-            <ErrorMessage v-if="showErrors" name="lastName" class="contact-form-error" />
-          </div>
+          <ErrorMessage v-if="showErrors" name="lastName" class="contact-form-error" />
         </div>
       </div>
 
@@ -28,9 +24,7 @@
         <div class="w-full">
           <Field name="email" type="email" placeholder="your.name@company.com"
             :class="['contact-form-input', showErrors && errors.email ? 'is-invalid' : '']" />
-          <div class="md:h-[1.1rem]">
-            <ErrorMessage v-if="showErrors" name="email" class="contact-form-error" />
-          </div>
+          <ErrorMessage v-if="showErrors" name="email" class="contact-form-error" />
         </div>
       </div>
 
