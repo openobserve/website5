@@ -276,8 +276,8 @@
         { "key": "/blog/tag/real-user-monitoring-rum", "value": "/blog/tags/frontend-monitoring/" },
         { "key": "/blog/tag/rum-for-react-apps", "value": "/blog/tags/frontend-monitoring/" },
         { "key": "/company", "value": "/about/" },
-        { "key": "/docs/downloads/", "value": "/downloads/" },
-        { "key": "/docs/user-guide/users/", "value": " /docs/user-guide/identity-and-access-management/role-based-access-control/#users" },
-        { "key": "/docs/screenshots/", "value": "/docs/" }
+        { "key": "/docs/downloads", "value": "/downloads/" },
+        { "key": "/docs/user-guide/users", "value": " /docs/user-guide/identity-and-access-management/role-based-access-control/#users" },
+        { "key": "/docs/screenshots", "value": "/docs/" }
     ]
 }
