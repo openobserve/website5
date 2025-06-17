@@ -1,9 +1,9 @@
 <script setup>
 import { Calendar, Clock, Play, Star } from 'lucide-vue-next';
-import { computed, ref, watch,onMounted, onBeforeUnmount  } from 'vue';
+import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue';
 import SubscriptionForm from '../forms/SubscriptionForm.vue';
 import { formatDateTimeInET } from '@/utils/getFormattedTime';
-
+import CustomButton from './CustomButton.vue';
 const props = defineProps({
   webinar: {
     type: Object,
@@ -125,61 +125,8 @@ const webinarDetails = computed(() => {
 
         <!-- Action Section -->
         <div>
-          <template v-if="isLive || isUpcoming">
-            <SubscriptionForm buttonVariant="primary" direction="col" :buttonOnClick="handleButtonClick"
-              :popupDetails="webinarDetails" />
-            <p class="text-xs  text-gray-500 mt-2">
-              Note: By registering, you consent to receive emails regarding this event recording and related product
-              updates.
-            </p>
-          </template>
-
-          <template v-else>
-            <a :href="`videos-webinars/${webinar.slug}`"
-              class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
-              <div>
-                <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
-                <p class="text-gray-300 text-xs sm:text-sm">Full session available</p>
-              </div>
-              <Play class="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" />
-            </a>
-          </template>
-        </div>
-      </div>
-
-      <!-- Right Side: Learning Points & Visual -->
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
-        <div class="flex flex-col justify-center items-center h-full">
-
-          <!-- Visual Element for Past Webinars -->
-          <template v-if="!isLive && !isUpcoming">
-            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
-              <div class="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[400px]">
-                <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                  <a :href="`/videos-webinars/${webinar.slug}`" class="cursor-pointer h-full">
-                    <div class="aspect-video bg-gray-200">
-                      <img src="https://img.youtube.com/vi/4VwuC1tpRP4/hqdefault.jpg" alt="Webinar Thumbnail"
-                        class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </template>
-
-          <!-- Visual Element for Live/Upcoming Webinars -->
-          <template v-else>
-            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
-              <div class="relative group w-full max-w-[320px] sm:max-w-[400px] overflow-hidden rounded-2xl shadow-xl">
-                <img
-                  src="https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_frontend_webvitals_4f1ff71825.png"
-                  alt="Webinar Image" class="w-full h-auto object-cover transition-transform" />
-              </div>
-            </div>
-          </template>
-
           <!-- What You'll Learn -->
-          <div class="mb-6 sm:mb-8 w-full">
+          <div class="mb-6 sm:mb-8 w-full mt-2">
             <div class="flex items-center gap-3 mb-4 sm:mb-6">
               <Star class="w-6 h-6 mb-1 text-purple-600 shrink-0" />
               <h3 class="text-xl sm:text-2xl font-bold text-gray-900">What You'll Learn</h3>
@@ -199,6 +146,62 @@ const webinarDetails = computed(() => {
             </div>
           </div>
 
+          <!-- <template v-if="!isLive || !isUpcoming">
+            <a :href="`videos-webinars/${webinar.slug}`"
+              class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
+                <p class="text-gray-300 text-xs sm:text-sm">Full session available</p>
+              </div>
+              <Play class="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" />
+            </a>
+          </template> -->
+        </div>
+      </div>
+
+      <!-- Right Side: Learning Points & Visual -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+        <div class="flex flex-col justify-center items-center h-full">
+
+          <!-- Visual Element for Past Webinars -->
+          <template v-if="!isLive && !isUpcoming">
+            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
+              <div class="relative group cursor-pointer w-full max-w-[500px] sm:max-w-[700px]">
+                <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+                  <a :href="`/videos-webinars/${webinar.slug}`" class="cursor-pointer h-full">
+                    <div class="aspect-video bg-gray-200">
+                      <img src="https://img.youtube.com/vi/4VwuC1tpRP4/maxresdefault.jpg" alt="Webinar Thumbnail"
+                        class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <!-- Visual Element for Live/Upcoming Webinars -->
+          <template v-else>
+            <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
+              <div class="relative group w-full max-w-[500px] sm:max-w-[700px] overflow-hidden rounded-2xl shadow-xl">
+                <img
+                  src="https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_frontend_webvitals_4f1ff71825.png"
+                  alt="Webinar Image" class="w-full h-auto object-cover transition-transform" />
+              </div>
+            </div>
+          </template>
+          <template v-if="isLive || isUpcoming">
+            <!-- <SubscriptionForm buttonVariant="primary" direction="col" :buttonOnClick="handleButtonClick"
+              :popupDetails="webinarDetails" />
+            <p class="text-xs  text-gray-500 mt-2">
+              Note: By registering, you consent to receive emails regarding this event recording and related product
+              updates.
+            </p> -->
+            <a :href="`videos-webinars/${webinar.slug}`">
+              <CustomButton variant="primary" type="submit">
+                Register
+              </CustomButton>
+            </a>
+          </template>
         </div>
       </div>
 
