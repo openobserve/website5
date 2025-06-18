@@ -4,15 +4,13 @@ import WebinarDetailHeroSection from "@/components/webinars/WebinarDetailHeroSec
 import WebinarDetail from "@/components/webinars/WebinarDetail.vue";
 import WebinarAuthorWrapper from "@/components/webinars/WebinarAuthorWrapper.vue";
 import fetchApi from "@/utils/strapi";
+import { fetchWebinar } from "@/utils/cache";
 
 export async function getStaticPaths() {
   try {
-    const response = await fetchApi({
-      endpoint: "api/webinar-posts",
-      query: { pLevel: "5", status: "draft" },
-    });
+    const response = (await fetchWebinar()) || {};
 
-    const webinars = response?.data || [];
+    const webinars = response || [];
 
     // Filter out webinars without valid slugs
     return webinars
@@ -47,6 +45,7 @@ const mappedWebinar = {
       name: author.name,
       bio: author.bio,
       slug: author.slug,
+      image: author.image,
     })) || [],
   publishDate: webinar.date,
   summary: {

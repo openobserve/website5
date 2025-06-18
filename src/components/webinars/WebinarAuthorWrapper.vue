@@ -1,10 +1,10 @@
 <template>
-    <CustomSection sectionClass="!pt-0">
+  <CustomSection sectionClass="!pt-0">
     <div class="py-3 grid grid-cols-1 lg:grid-cols-3 w-full max-w-7xl mx-auto" v-if="authors">
-      <SingleAuthorDetails :type="type" :author="authors" client:load class="col-span-2"/>
+      <SingleAuthorDetails :type="type" :author="authors" client:load class="col-span-2" />
       <div class="col-span-1"></div>
     </div>
-    </CustomSection>
+  </CustomSection>
 </template>
 <script setup lang="ts">
 import SingleAuthorDetails from "../blog/SingleAuthorDetails.vue";
@@ -19,5 +19,6 @@ const props = defineProps({
     required: true,
   },
 });
+console.log(props.authors, "authorrrrr")
 </script>
 <style scoped></style>

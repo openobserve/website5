@@ -24,6 +24,7 @@ function registerForWebinar() {
     showPopup.value = true;
   }, 200);
 }
+console.log(props.webinar, "skjfdhcuyweiajdbscg")
 </script>
 
 <template>
@@ -32,7 +33,7 @@ function registerForWebinar() {
     <div class="relative">
       <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
         :style="webinar.image?.url ? `background-image: url(${webinar.image.url})` : ''">
-      <!-- <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
+        <!-- <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
         :style="`background-image: url('https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_pipelines_hero_cd23919099.png')`"> -->
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative z-10 text-center">
@@ -55,7 +56,7 @@ function registerForWebinar() {
         {{ webinar.title }}
       </h3>
       <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-        {{ webinar.description }}
+        {{ webinar.overview }}
       </p>
       <div class="space-y-2 mb-4">
         <div class="flex items-center text-sm text-gray-600">
