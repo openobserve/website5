@@ -19,6 +19,5 @@ const props = defineProps({
     required: true,
   },
 });
-console.log(props.authors, "authorrrrr")
 </script>
 <style scoped></style>
