@@ -99,12 +99,12 @@ const webinarDetails = computed(() => {
             <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ isLive ? 'LIVE' : webinar.duration }}</div>
           </div>
 
-          <a :href="`/webinars-videos/${webinar.slug}`" class="block group mb-4 sm:mb-6">
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-              {{ webinar.title }}
-            </h2>
-          </a>
+
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight transition-colors duration-300">
+            {{ webinar.title }}
+          </h2>
+
 
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-4">
             {{ webinar.description }}
