@@ -23,12 +23,11 @@
         </div>
         <!-- Summary section -->
         <div class="flex flex-col w-full text-left">
-          <div class="">
+          <div>
             <h2 class="text-lg md:text-3xl font-medium mb-4">
               {{ summary.title }}
             </h2>
-            <div v-html="summary.description" class="text-gray-700"></div>
-
+            <div v-html="htmlContent" class="prose max-w-none text-gray-700"></div>
           </div>
         </div>
       </div>
@@ -44,7 +43,6 @@
                 <p class="">
                   {{ resource.title }}
                 </p>
-                <!-- <p class="text-gray-700 text-sm">{{ resource.description }}</p> -->
               </a>
             </li>
           </ul>
@@ -53,11 +51,13 @@
     </div>
   </CustomSection>
 </template>
+
 <script setup lang="ts">
 import CustomSection from "../core/CustomSection.vue";
-import { Check, CircleCheckBig, Star } from "lucide-vue-next";
-import Summary from "../policies/Summary.vue";
-import SingleAuthorDetails from "../blog/SingleAuthorDetails.vue";
+import { Star } from "lucide-vue-next";
+import { marked } from "marked";
+import { ref, watch } from "vue";
+
 interface Objective {
   description: string;
 }
@@ -71,6 +71,7 @@ interface Resources {
   target?: string;
   link: string;
 }
+
 const props = defineProps({
   objectives: {
     type: Array as () => Objective[],
@@ -78,6 +79,10 @@ const props = defineProps({
   },
   summary: {
     type: Object as () => Summary,
+    required: true,
+  },
+  content: {
+    type: String,
     required: true,
   },
   resources: {
@@ -89,5 +94,26 @@ const props = defineProps({
     required: true,
   },
 });
+
+console.log(props.summary, "woeindfdcwi")
+const htmlContent = ref("");
+
+// Convert markdown to HTML
+function processMarkdown(markdownText: string) {
+  if (!markdownText) return;
+  htmlContent.value = marked(markdownText);
+}
+
+// Watch for changes in summary.description
+watch(
+  () => props.content,
+  (newContent) => {
+    processMarkdown(newContent);
+  },
+  { immediate: true }
+);
 </script>
-<style scoped></style>
+
+<style scoped>
+/* Add any custom styles here */
+</style>
