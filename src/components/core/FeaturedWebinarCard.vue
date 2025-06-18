@@ -129,13 +129,13 @@ const webinarDetails = computed(() => {
           <div class="mb-6 sm:mb-8 w-full mt-2">
             <div class="flex items-center gap-3 mb-4 sm:mb-6">
               <Star class="w-6 h-6 mb-1 text-purple-600 shrink-0" />
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900">What You'll Learn</h3>
+              <h3 class="text-xl sm:text-xl font-bold text-gray-900">What You'll Learn</h3>
             </div>
 
-            <div class="space-y-3 sm:space-y-4">
+            <div class="space-y-3 sm:space-y-2">
               <div v-for="(item, index) in webinar.objectives" :key="index"
                 class="flex items-start gap-3 sm:gap-4 group">
-                <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-200 rounded-full flex items-center justify-center">
+                <div class="w-5 h-5 sm:w-5 sm:h-5 bg-green-200 rounded-full flex items-center justify-center">
                   <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-green rounded-full"></div>
                 </div>
                 <p
