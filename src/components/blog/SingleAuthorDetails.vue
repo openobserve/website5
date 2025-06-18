@@ -17,15 +17,15 @@
               v-else>
               {{ getInitials(authorItem.name) }}
             </div>
-            <div class="flex flex-col gap-2 text-center lg:text-left">
-              <div class="flex flex-row justify-between">
+            <div class="flex flex-col gap-2 w-full">
+              <div class="flex flex-row justify-between items-center">
                 <h3 class="text-base md:text-xl font-bold mb-1">
                   {{ authorItem.name }}
                 </h3>
                 <!-- Social Icons -->
-                <div class="flex gap-2 items-center bg-black">
-                  <a v-for="(item, index) in socialMedia" :key="index" :href="item.href" target="_blank" rel="noopener"
-                    class="rounded-full bg-white/10 w-8 h-8 hover:bg-white/20 flex items-center justify-center"
+                <div class="flex gap-2 items-center">
+                  <a v-for="(item, index) in socialMedia" :key="index" href="" target="_blank" rel="noopener"
+                    class="rounded-full bg-gray-800/10 w-8 h-8 hover:bg-gray-800/20 flex items-center justify-center"
                     :aria-label="item.ariaLabel">
                     <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
                   </a>
@@ -51,33 +51,26 @@ const props = defineProps<{
   author: Author[];
   type: string;
 }>();
-const apiUrl = import.meta.env.PUBLIC_APP_BASE_URL;
-const shareUrl = `${apiUrl}${props.shareUrl}/`;
+
 const socialMedia = ref([
   {
     name: "twitter",
-    href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      props.title
-    )}&url=${encodeURIComponent(shareUrl)}`,
-    icon: "/img/icon/twitter-icon-blog-individual.svg",
+    href: `${props.author?.twitterUrl}`,
+    icon: "/img/icon/twitter-icon-webinar-individual.svg",
     alt: "Twitter",
     ariaLabel: "Share on Twitter",
   },
   {
     name: "linkedin",
-    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      shareUrl
-    )}`,
-    icon: "/img/icon/lkdin-logo.png",
+    href: `${props.author?.linkedinUrl}`,
+    icon: "/img/icon/linkdin-icon-for-webinar.svg",
     alt: "LinkedIn",
     ariaLabel: "Share on LinkedIn",
   },
   {
     name: "facebook",
-    href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      shareUrl
-    )}`,
-    icon: "/img/icon/fb-logo.png",
+    href: `${props.author?.instagramUrl}`,
+    icon: "/img/icon/facebook-icon-for-webinar.svg",
     alt: "Facebook",
     ariaLabel: "Share on Facebook",
   },

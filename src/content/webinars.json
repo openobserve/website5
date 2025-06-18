@@ -149,7 +149,9 @@
           "authorBio": "DevOps Engineer",
           "image": {
             "url": "https://randomuser.me/api/portraits/men/5.jpg"
-          }
+          },
+          "twitterUrl": "https://twitter.com/rahulmehta",
+          "linkedInUrl": "https://www.linkedin.com/in/rahulmehta/"
         },
         {
           "name": "Tina George",
