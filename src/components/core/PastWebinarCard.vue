@@ -26,7 +26,7 @@ function registerForWebinar() {
 </script>
 
 <template>
-  <a :href="`/videos-webinars/${webinar.slug}`"
+  <a :href="`/webinars-videos/${webinar.slug}`"
     class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full cursor-pointer no-underline">
     <div class="relative">
       <!-- <div class="h-48 flex items-center justify-center relative bg-cover bg-center"

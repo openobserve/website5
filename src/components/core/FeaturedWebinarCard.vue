@@ -60,7 +60,7 @@ function handleButtonClick() {
 
 watch(shouldRedirect, (val) => {
   if (val && props.webinar.slug) {
-    window.location.href = `/videos-webinars/${props.webinar.slug}`;
+    window.location.href = `/webinars-videos/${props.webinar.slug}`;
   }
 });
 
@@ -99,7 +99,7 @@ const webinarDetails = computed(() => {
             <div class="text-xs sm:text-sm text-gray-500 font-medium">{{ isLive ? 'LIVE' : webinar.duration }}</div>
           </div>
 
-          <a :href="`/videos-webinars/${webinar.slug}`" class="block group mb-4 sm:mb-6">
+          <a :href="`/webinars-videos/${webinar.slug}`" class="block group mb-4 sm:mb-6">
             <h2
               class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
               {{ webinar.title }}
@@ -127,14 +127,14 @@ const webinarDetails = computed(() => {
         <div>
           <!-- What You'll Learn -->
           <div class="mb-6 sm:mb-8 w-full mt-2">
-            <div class="flex items-center gap-3 mb-4 sm:mb-6">
-              <Star class="w-6 h-6 mb-1 text-purple-600 shrink-0" />
-              <h3 class="text-xl sm:text-xl font-bold text-gray-900">What You'll Learn</h3>
+            <div class="flex items-center gap-3 mb-4 sm:mb-4">
+              <Star class="w-5 h-5 mb-1 text-purple-600 shrink-0" />
+              <h3 class="text-xl sm:text-lg font-bold text-gray-900">What You'll Learn</h3>
             </div>
 
-            <div class="space-y-3 sm:space-y-2">
+            <div class="space-y-3 sm:space-y-2  ">
               <div v-for="(item, index) in webinar.objectives" :key="index"
-                class="flex items-start gap-3 sm:gap-4 group">
+                class="flex items-center gap-3 sm:gap-4 group">
                 <div class="w-5 h-5 sm:w-5 sm:h-5 bg-green-200 rounded-full flex items-center justify-center">
                   <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-green rounded-full"></div>
                 </div>
@@ -147,7 +147,7 @@ const webinarDetails = computed(() => {
           </div>
 
           <!-- <template v-if="!isLive || !isUpcoming">
-            <a :href="`videos-webinars/${webinar.slug}`"
+            <a :href="`webinars-videos/${webinar.slug}`"
               class="flex items-center justify-between bg-gray-900 text-white rounded-2xl p-4 sm:p-6 hover:bg-gray-800 transition-colors duration-300 group">
               <div>
                 <h3 class="text-base sm:text-lg font-bold mb-1">Watch Recording</h3>
@@ -168,7 +168,7 @@ const webinarDetails = computed(() => {
             <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
               <div class="relative group cursor-pointer w-full max-w-[500px] sm:max-w-[700px]">
                 <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                  <a :href="`/videos-webinars/${webinar.slug}`" class="cursor-pointer h-full">
+                  <a :href="`/webinars-videos/${webinar.slug}`" class="cursor-pointer h-full">
                     <div class="aspect-video bg-gray-200">
                       <img src="https://img.youtube.com/vi/4VwuC1tpRP4/maxresdefault.jpg" alt="Webinar Thumbnail"
                         class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
@@ -196,7 +196,7 @@ const webinarDetails = computed(() => {
               Note: By registering, you consent to receive emails regarding this event recording and related product
               updates.
             </p> -->
-            <a :href="`videos-webinars/${webinar.slug}`">
+            <a :href="`/webinars-videos/${webinar.slug}`">
               <CustomButton variant="primary" type="submit">
                 Register
               </CustomButton>
