@@ -136,9 +136,10 @@ export async function fetchWebinar() {
           populate: ["image"],
         },
         image: true,
-        video: true,
+        // video: true,
         tags: true,
         objectives: true,
+        resources: true,
       },
       status: "draft",
     },
@@ -148,8 +149,6 @@ export async function fetchWebinar() {
   const data = await fetchAllPages({
     endpoint: `api/webinar-posts?${queryString}`,
   });
-  console.log(queryString, "webinar");
-  console.log(data, "webbb");
   return data;
 }
 

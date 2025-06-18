@@ -6,12 +6,8 @@ import PastWebinarWrapper from "@/components/wrapper/PastWebinarWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
 import fetchApi from "@/utils/strapi";
 import { fetchWebinar } from "@/utils/cache";
-const PageData = await fetchApi({
-  endpoint: "api/webinar-posts",
-  query: { pLevel: "5", status: "draft" },
-});
+
 const data = (await fetchWebinar()) || {};
-const metaData = PageData?.data?.seo || {};
 
 // Map JSON data to the structure expected by the components
 function mapWebinar(item, idx) {

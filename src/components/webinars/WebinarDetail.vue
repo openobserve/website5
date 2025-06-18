@@ -41,7 +41,7 @@
                 class="text-base block font-normal rounded-lg mb-2 hover:text-gray-700 transition duration-300 ease-in-out"
                 :target="resource.target || '_self'">
                 <p class="">
-                  {{ resource.title }}
+                  {{ resource.text }}
                 </p>
               </a>
             </li>
@@ -66,7 +66,7 @@ interface Summary {
   description: string;
 }
 interface Resources {
-  title: string;
+  text: string;
   description?: string;
   target?: string;
   link: string;
@@ -95,7 +95,7 @@ const props = defineProps({
   },
 });
 
-console.log(props.summary, "woeindfdcwi")
+console.log(props.resources, "woeindfdcwi")
 const htmlContent = ref("");
 
 // Convert markdown to HTML

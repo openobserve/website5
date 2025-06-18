@@ -29,7 +29,7 @@ console.log(props.webinar, "skjfdhcuyweiajdbscg")
 
 <template>
   <a :href="`/webinars-videos/${webinar.slug}`"
-    class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full cursor-pointer no-underline">
+    class="bg-white border border-gray-200 hover:border-primary-purple transition-colors rounded-lg transition-shadow overflow-hidden flex flex-col h-full cursor-pointer no-underline">
     <div class="relative">
       <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
         :style="webinar.image?.url ? `background-image: url(${webinar.image.url})` : ''">
@@ -84,7 +84,7 @@ console.log(props.webinar, "skjfdhcuyweiajdbscg")
               {{ it.name }}
             </span>
             <span class="text-xs font-medium text-gray-500">
-              {{ it.authorBio }}
+              {{ it.role }}
             </span>
           </div>
           <div :class="[
