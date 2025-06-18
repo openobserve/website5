@@ -4,41 +4,47 @@ import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
 import WebinarWrapper from "@/components/wrapper/WebinarWrapper.vue";
 import PastWebinarWrapper from "@/components/wrapper/PastWebinarWrapper.vue";
 import CTA from "@/components/core/CTA.vue";
-import webinarsJson from "@/content/webinars.json";
+import fetchApi from "@/utils/strapi";
+const PageData = await fetchApi({
+  endpoint: "api/webinar-posts",
+  query: { pLevel: "5", status: "draft" },
+});
+const data = PageData?.data || {};
+const metaData = PageData?.data?.seo || {};
 
 // Map JSON data to the structure expected by the components
 function mapWebinar(item, idx) {
   // Parse date/time for startTime
-  let startTime;
-  if (item.date && item.time) {
-    // If date is ISO, use as is, else combine
-    if (item.date.length > 10) {
-      startTime = item.date;
-    } else {
-      startTime = `${item.date}T${item.time.replace("Z", "")}`;
-    }
-  } else {
-    startTime = item.date || "";
-  }
+  const startTime = item.date || null;
+
+  // Map authors
+  const authors =
+    item.authors?.map((author) => ({
+      name: author.name,
+      role: author.role,
+      bio: author.bio,
+      twitterUrl: author.twitterUrl,
+      // Add other author properties as needed
+    })) || [];
 
   return {
-    id: idx + 1,
+    id: item.id || idx + 1,
     title: item.title,
-    subtitle: item.subtitle,
     description: item.description,
-    date: item.date,
+    date: startTime,
     duration: item.duration,
-    authors: item.author,
+    authors: authors,
     gradient: "from-blue-400 to-purple-500", // fallback, can be improved
-    objectives: item.objectives || [],
+    objectives: item.objectives?.map((obj) => obj.title) || [],
     tags: item.tags || [],
     slug: item.slug,
     resources: item.resources || [],
-    summary: item.summary || {},
+    type: item.type || "webinar", // default to webinar if not specified
+    // Add any other required fields
   };
 }
 
-const allWebinars = webinarsJson.data.map(mapWebinar);
+const allWebinars = data.map(mapWebinar);
 
 const heading = {
   title: "Ready to get started?",
@@ -65,7 +71,7 @@ const secondaryButton = {
     align="CENTER"
   />
   <WebinarWrapper allWebinars={allWebinars} client:load />
-  <PastWebinarWrapper allWebinars={allWebinars} client:load />
+  <!-- <PastWebinarWrapper allWebinars={allWebinars} client:load /> -->
   <CTA
     heading={heading}
     primaryButton={primaryButton}

@@ -140,7 +140,7 @@ const webinarDetails = computed(() => {
                 </div>
                 <p
                   class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-200">
-                  {{ item.description }}
+                  {{ item }}
                 </p>
               </div>
             </div>
