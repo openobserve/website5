@@ -278,6 +278,12 @@
         { "key": "/company", "value": "/about/" },
         { "key": "/docs/downloads", "value": "/downloads/" },
         { "key": "/docs/user-guide/users", "value": " /docs/user-guide/identity-and-access-management/role-based-access-control/#users" },
-        { "key": "/docs/screenshots", "value": "/docs/" }
+        { "key": "/docs/screenshots", "value": "/docs/" },
+        { "key": "/docs/api/ingestion/bulk", "value": "/docs/api/ingestion/logs/bulk/" },
+        { "key": "/docs/api/ingestion/json", "value": "/docs/api/ingestion/logs/json/" },
+        { "key": "/docs/api/ingestion/multi", "value": "/docs/api/ingestion/logs/multi/" },
+        { "key": "/traces", "value": "/web/traces/" },
+        { "key": "/ingestion/traces", "value": "/web/ingestion/custom/traces/" },
+        { "key": "/traces", "value": "/web/traces/" }
     ]
 }
