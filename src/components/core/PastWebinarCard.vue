@@ -4,6 +4,7 @@ import CustomButton from "./CustomButton.vue";
 import { ref } from "vue";
 import AddToCalenderPopup from "../webinars/AddToCalenderPopup.vue";
 import { formatDateTimeInET } from "@/utils/getFormattedTime";
+import { getInitials } from "@/utils/getInitials";
 const props = defineProps({
   webinar: {
     type: Object,
