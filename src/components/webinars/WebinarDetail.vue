@@ -6,18 +6,14 @@
         <div class="w-full mb-8">
           <div class="sticky top-20 border rounded-xl p-4">
             <div class="flex flex-row gap-2 w-full items-center h-full mb-4">
-            <Star class="w-5 h-5 mb-1 text-purple-600 shrink-0" />
-            <h2 class="text-2xl font-bold">What you'll learn</h2>
+              <Star class="w-5 h-5 mb-1 text-purple-600 shrink-0" />
+              <h2 class="text-xl font-bold">What you'll learn</h2>
             </div>
-            <div
-              class="flex flex-col space-y-4"
-              v-for="(objective, index) in objectives"
-              :key="index"
-            >
+            <div class="flex flex-col space-y-4" v-for="(objective, index) in objectives" :key="index">
               <div class="flex items-center gap-4 text-base mb-2 font-normal">
                 <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-              <div class="w-2 h-2 bg-primary-green rounded-full"></div>
-            </div>
+                  <div class="w-2 h-2 bg-primary-green rounded-full"></div>
+                </div>
                 <p class="text-gray-700">
                   {{ objective.description }}
                 </p>
@@ -31,8 +27,8 @@
             <h2 class="text-lg md:text-3xl font-medium mb-4">
               {{ summary.title }}
             </h2>
-           <div v-html="summary.description" class="text-gray-700"></div>
-           
+            <div v-html="summary.description" class="text-gray-700"></div>
+
           </div>
         </div>
       </div>
@@ -40,17 +36,11 @@
       <div class="w-full mb-8 col-span-1">
         <div class="border rounded-xl p-4">
           <h2 class="text-2xl font-bold mb-4">Resources</h2>
-          <ul
-            class="flex flex-col text-left w-full"
-            v-for="(resource, index) in resources"
-            :key="index"
-          >
+          <ul class="flex flex-col text-left w-full" v-for="(resource, index) in resources" :key="index">
             <li>
-              <a
-                :href="resource.link"
+              <a :href="resource.link"
                 class="text-base block font-normal rounded-lg mb-2 hover:text-gray-700 transition duration-300 ease-in-out"
-                :target="resource.target || '_self'"
-              >
+                :target="resource.target || '_self'">
                 <p class="">
                   {{ resource.title }}
                 </p>
@@ -65,7 +55,7 @@
 </template>
 <script setup lang="ts">
 import CustomSection from "../core/CustomSection.vue";
-import { Check, CircleCheckBig,Star } from "lucide-vue-next";
+import { Check, CircleCheckBig, Star } from "lucide-vue-next";
 import Summary from "../policies/Summary.vue";
 import SingleAuthorDetails from "../blog/SingleAuthorDetails.vue";
 interface Objective {
