@@ -30,10 +30,10 @@ function registerForWebinar() {
   <a :href="`/webinars-videos/${webinar.slug}`"
     class="bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-shadow overflow-hidden flex flex-col h-full cursor-pointer no-underline">
     <div class="relative">
-      <!-- <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
-        :style="webinar.image?.url ? `background-image: url(${webinar.image.url})` : ''"> -->
       <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
-        :style="`background-image: url('https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_pipelines_hero_cd23919099.png')`">
+        :style="webinar.image?.url ? `background-image: url(${webinar.image.url})` : ''">
+      <!-- <div class="h-48 flex items-center justify-center relative bg-cover bg-center"
+        :style="`background-image: url('https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_pipelines_hero_cd23919099.png')`"> -->
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative z-10 text-center">
           <div
@@ -46,7 +46,7 @@ function registerForWebinar() {
         </div>
       </div>
       <span class="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded-full text-xs">
-        {{ sourceKey === "past" ? "Recorded" : "Upcoming" }}
+        {{ sourceKey === "past" ? "Webinar" : "Videos" }}
       </span>
     </div>
 

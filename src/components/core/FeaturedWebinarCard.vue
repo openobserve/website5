@@ -170,7 +170,7 @@ const webinarDetails = computed(() => {
                 <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
                   <a :href="`/webinars-videos/${webinar.slug}`" class="cursor-pointer h-full">
                     <div class="aspect-video bg-gray-200">
-                      <img src="https://img.youtube.com/vi/4VwuC1tpRP4/maxresdefault.jpg" alt="Webinar Thumbnail"
+                      <img :src="webinar?.image?.url" :alt="webinar?.title"
                         class="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity duration-300" />
                     </div>
                   </a>
@@ -183,9 +183,8 @@ const webinarDetails = computed(() => {
           <template v-else>
             <div class="flex items-start justify-center mb-6 sm:mb-8 w-full">
               <div class="relative group w-full max-w-[500px] sm:max-w-[700px] overflow-hidden rounded-2xl shadow-xl">
-                <img
-                  src="https://openobserve-staging-website.s3.us-west-2.amazonaws.com/assets/large_frontend_webvitals_4f1ff71825.png"
-                  alt="Webinar Image" class="w-full h-auto object-cover transition-transform" />
+                <img :src="webinar?.image?.url" :alt="webinar?.title"
+                  class="w-full h-auto object-cover transition-transform" />
               </div>
             </div>
           </template>
