@@ -282,8 +282,7 @@
         { "key": "/docs/api/ingestion/bulk", "value": "/docs/api/ingestion/logs/bulk/" },
         { "key": "/docs/api/ingestion/json", "value": "/docs/api/ingestion/logs/json/" },
         { "key": "/docs/api/ingestion/multi", "value": "/docs/api/ingestion/logs/multi/" },
-        { "key": "/traces", "value": "/web/traces/" },
-        { "key": "/ingestion/traces", "value": "/web/ingestion/custom/traces/" },
-        { "key": "/traces", "value": "/web/traces/" }
+        { "key": "/devops-sre", "value": "/solutions/" },
+        { "key": "/development-teams", "value": "/solutions/" }
     ]
 }
