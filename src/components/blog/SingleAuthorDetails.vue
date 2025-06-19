@@ -4,11 +4,14 @@
       {{ author?.length > 1 ? "About the Authors" : "About the Author" }}
     </h5>
     <div class="space-y-4 flex flex-col w-full">
-      <a v-for="(authorItem, index) in author" :key="index" :href="generateAuthorLink(type, authorItem.slug)"
+      <div v-for="(authorItem, index) in author" :key="index"
         class="rounded-xl border border-primary-blue/20 bg-light-gray/50">
+        <!-- <a v-for=" (authorItem, index) in author" :key="index" :href="generateAuthorLink(type, authorItem.slug)"
+        -->
+        <!-- class="rounded-xl border border-primary-blue/20 bg-light-gray/50"> -->
         <div class="p-2 lg:p-6">
           <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
-            <div class="w-20  shrink-0 rounded-full overflow-hidden border-2 border-primary-blue"
+            <div class="w-20 shrink-0 rounded-full overflow-hidden border-2 border-primary-blue"
               v-if="authorItem.image?.url">
               <img :src="authorItem.image?.url" :alt="authorItem.name" class="h-full w-full object-cover" />
             </div>
@@ -23,8 +26,9 @@
                   {{ authorItem.name }}
                 </h3>
                 <!-- Social Icons -->
-                <div class="flex gap-2 items-center">
-                  <a v-for="(item, index) in socialMedia" :key="index" href="" target="_blank" rel="noopener"
+                <div class="flex gap-2 items-center z-50" v-if="getAuthorSocialLinks(authorItem).length > 0">
+                  <a v-for="(item, index) in getAuthorSocialLinks(authorItem)" :key="index" :href="item.href"
+                    target="_blank" rel="noopener"
                     class="rounded-full bg-gray-800/10 w-8 h-8 hover:bg-gray-800/20 flex items-center justify-center"
                     :aria-label="item.ariaLabel">
                     <img :src="item.icon" :alt="item.alt" class="w-4 h-4" />
@@ -37,7 +41,8 @@
             </div>
           </div>
         </div>
-      </a>
+        <!-- </a> -->
+      </div>
     </div>
   </section>
 </template>
@@ -47,32 +52,42 @@ import type { Author } from "@/types/blog";
 import { ref } from "vue";
 import { generateAuthorLink } from "@/utils/redirection";
 import { getInitials } from "@/utils/getInitials";
+
 const props = defineProps<{
   author: Author[];
   type: string;
 }>();
 
-const socialMedia = ref([
-  {
-    name: "twitter",
-    href: `${props.author?.twitterUrl}`,
+const socialIcons = {
+  twitter: {
     icon: "/img/icon/twitter-icon-webinar-individual.svg",
     alt: "Twitter",
     ariaLabel: "Share on Twitter",
+    propName: "twitterUrl"
   },
-  {
-    name: "linkedin",
-    href: `${props.author?.linkedinUrl}`,
+  linkedin: {
     icon: "/img/icon/linkdin-icon-for-webinar.svg",
     alt: "LinkedIn",
     ariaLabel: "Share on LinkedIn",
+    propName: "linkedInUrl"
   },
-  {
-    name: "facebook",
-    href: `${props.author?.instagramUrl}`,
+  facebook: {
     icon: "/img/icon/facebook-icon-for-webinar.svg",
     alt: "Facebook",
     ariaLabel: "Share on Facebook",
-  },
-]);
+    propName: "instagramUrl" // Note: This seems to be using instagramUrl for facebook icon
+  }
+};
+
+const getAuthorSocialLinks = (author: Author) => {
+  return Object.entries(socialIcons)
+    .filter(([_, social]) => author[social.propName as keyof Author])
+    .map(([name, social]) => ({
+      name,
+      href: author[social.propName as keyof Author] as string,
+      icon: social.icon,
+      alt: social.alt,
+      ariaLabel: social.ariaLabel
+    }));
+};
 </script>

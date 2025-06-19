@@ -24,7 +24,6 @@ function registerForWebinar() {
     showPopup.value = true;
   }, 200);
 }
-console.log(props.webinar, "skjfdhcuyweiajdbscg")
 </script>
 
 <template>

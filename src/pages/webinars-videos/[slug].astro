@@ -46,6 +46,9 @@ const mappedWebinar = {
       bio: author.bio,
       slug: author.slug,
       image: author.image,
+      twitterUrl: author.twitterUrl,
+      facebookUrl: author.facebookUrl,
+      linkedInUrl: author.linkedInUrl,
     })) || [],
   publishDate: webinar.date,
   summary: {
@@ -54,11 +57,14 @@ const mappedWebinar = {
   },
   content: webinar.content,
   resources: webinar.resources || [],
+  image: webinar.image,
+  video: webinar.video,
   objectives:
     webinar.objectives?.map((obj) => ({
       description: obj.title,
     })) || [],
 };
+console.log(mappedWebinar, "mappedWebinar");
 ---
 
 <Layout>
@@ -70,6 +76,8 @@ const mappedWebinar = {
     shareUrl={`/webinars/${slug}`}
     duration={mappedWebinar.duration}
     time={mappedWebinar.time}
+    image={mappedWebinar.image}
+    video={mappedWebinar.video}
     client:load
   />
   <WebinarDetail

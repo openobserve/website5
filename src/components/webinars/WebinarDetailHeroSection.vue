@@ -64,11 +64,13 @@
             </div>
           </div>
         </article>
-        <div class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10">
-          <iframe :class="`w-full h-full`" src="https://www.youtube.com/embed/QvgyHU3_wME?si=Ute7fsnMLwkIL9ZS&rel=0"
-            title="YouTube video player" frameborder="0"
+        <div v-if="props.video" class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10">
+          <iframe :class="`w-full h-full`" :src="props.video" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-xl"></iframe>
+        </div>
+        <div v-else class="aspect-video border border-white/10 rounded-xl backdrop-blur-lg p-4 bg-white/10">
+          <img :src="props.image?.url" :alt="props.title" class="w-full h-full object-cover rounded-xl" />
         </div>
       </div>
     </div>
@@ -108,7 +110,10 @@ const props = defineProps<{
   language: string;
   shareUrl: string;
   time: string;
+  image: string;
+  video: string;
 }>();
+
 const { date, time } = formatDateTimeInET(props.publishDate);
 const zoneTimes = computed(() => getTimeInZones(props.time));
 // Convert to Date
