@@ -11,10 +11,8 @@ const data = (await fetchWebinar()) || {};
 
 // Map JSON data to the structure expected by the components
 function mapWebinar(item, idx) {
-  // Parse date/time for startTime
   const startTime = item.date || null;
 
-  // Map authors
   const authors =
     item.authors?.map((author) => ({
       name: author.name,
@@ -22,7 +20,6 @@ function mapWebinar(item, idx) {
       bio: author.bio,
       twitterUrl: author.twitterUrl,
       image: author.image,
-      // Add other author properties as needed
     })) || [];
 
   return {
@@ -32,19 +29,22 @@ function mapWebinar(item, idx) {
     date: startTime,
     duration: item.duration,
     authors: authors,
-    gradient: "from-blue-400 to-purple-500", // fallback, can be improved
+    gradient: "from-blue-400 to-purple-500",
     objectives: item.objectives?.map((obj) => obj.title) || [],
     tags: item.tags || [],
     slug: item.slug,
     resources: item.resources || [],
-    type: item.type || "webinar", // default to webinar if not specified
+    type: item.type || "webinar",
     image: item.image || null,
     overview: item.overview || null,
-    // Add any other required fields
   };
 }
 
-const allWebinars = data?.map(mapWebinar);
+// Map and sort webinars by date (latest first)
+const allWebinars = data
+  ?.map(mapWebinar)
+  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
+
 const heading = {
   title: "Ready to get started?",
   description:
