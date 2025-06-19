@@ -16,7 +16,7 @@ const navData = await cachedFetchApi({
 
 const FooterData = await cachedFetchApi({
   endpoint: "api/footer",
-  query: { pLevel: "4"},
+  query: { pLevel: "4" },
 });
 // Accept class as props
 const { class: sectionClass } = Astro.props;
@@ -33,7 +33,10 @@ const { class: sectionClass } = Astro.props;
       // Define dataLayer and the gtag function.
       window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments);
+        dataLayer.push({
+          ...arguments,
+          event: "gtm.consent_default",
+        });
       }
 
       // Set default consent to 'denied' as a placeholder
@@ -57,7 +60,11 @@ const { class: sectionClass } = Astro.props;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-5RDZ55LR");
     </script>
-    <SEO title={metaObj?.title} description={metaObj?.description} image={metaObj?.image} />
+    <SEO
+      title={metaObj?.title}
+      description={metaObj?.description}
+      image={metaObj?.image}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -72,7 +79,9 @@ const { class: sectionClass } = Astro.props;
   </head>
   <body class="">
     <Header navData={navData?.data} path={url} client:load />
-    <main class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}>
+    <main
+      class={`pt-[66px] md:pt-[78px] min-h-[calc(100vh-10rem)] ${sectionClass ?? ""}`}
+    >
       <slot />
     </main>
     <Footer
