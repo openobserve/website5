@@ -33,10 +33,7 @@ const { class: sectionClass } = Astro.props;
       // Define dataLayer and the gtag function.
       window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push({
-          ...arguments,
-          event: "gtm.consent_default",
-        });
+        dataLayer.push(arguments);
       }
 
       // Set default consent to 'denied' as a placeholder
@@ -58,7 +55,7 @@ const { class: sectionClass } = Astro.props;
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-5RDZ55LR");
+      })(window, document, "script", "dataLayer", process.env.GTM_ID);
     </script>
     <SEO
       title={metaObj?.title}
