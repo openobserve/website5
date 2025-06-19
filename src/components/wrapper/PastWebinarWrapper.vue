@@ -1,6 +1,5 @@
 <template>
-  <PastWebinarSection v-if="pastWebinars.length > 0" :pastWebinars="pastWebinars" :heading="pastWebinarHeading"
-    :key="allWebinars?.map((t) => t.type)" />
+  <PastWebinarSection v-if="pastWebinars.length > 0" :pastWebinars="pastWebinars" :heading="pastWebinarHeading" />
 </template>
 
 <script setup>

@@ -29,7 +29,7 @@ const props = defineProps({
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <PastWebinarCard v-for="webinar in pastWebinars" :key="webinar.id" :webinar="webinar"
-          :sourceKey="props.sourceKey" />
+          :sourceKey="webinar.type" />
       </div>
     </div>
   </section>
