@@ -310,6 +310,13 @@ export const useSegment = () => {
     await trackFormSubmission("Sales Inquiry", salesData, userId);
   };
 
+  const trackWebinarRegistration = async (
+    webinarData: TrackEventData,
+    userId?: string
+  ): Promise<void> => {
+    await trackFormSubmission("Webinar Registration", webinarData, userId);
+  };
+
   return {
     // State
     isInitialized: computed(() => isInitialized.value),
@@ -323,6 +330,7 @@ export const useSegment = () => {
     trackFormSubmission,
     trackNewsletterSignup,
     trackContactFormSubmission,
+    trackWebinarRegistration,
     trackDemoRequest,
     trackSalesInquiry,
 
