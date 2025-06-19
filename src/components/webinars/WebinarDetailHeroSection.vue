@@ -15,7 +15,7 @@
           <h1 class="text-xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
             {{ title }}
           </h1>
-          <p class="text-white text-lg mb-6">{{ description }}</p>
+          <p class="text-white text-lg mb-6">{{ overview }}</p>
           <!-- Webinar Info & Social Sharing -->
           <div class="flex flex-col justify-between items-start gap-4">
             <div class="flex items-center flex-wrap gap-3">
@@ -90,7 +90,7 @@ import SubscriptionForm from "../forms/SubscriptionForm.vue";
 const props = defineProps<{
   type: string;
   title: string;
-  description: string;
+  overview: string;
   tags: {
     name: string;
     slug: string;
