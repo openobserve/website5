@@ -21,17 +21,15 @@
             <div class="flex items-center flex-wrap gap-3">
               <div class="flex flex-col">
                 <div class="flex flex-wrap gap-4 text-white text-lg w-full xl:justify-between">
-                  <div class="flex items-center gap-1">
+                  <div v-if="date" class="flex items-center gap-1">
                     <Calendar class="h-4 w-4" />
-                    <!-- <span>{{ formatPublishDate(publishDate) }}</span> -->
                     <span>{{ date }}</span>
                   </div>
-                  <div class="flex items-center gap-1">
+                  <div v-if="time" class="flex items-center gap-1">
                     <Clock class="h-4 w-4" />
-                    <!-- <span>{{ getLocalTimeWithAbbreviation(time) }}</span> -->
                     <span>{{ time }}</span>
                   </div>
-                  <div class="flex items-center gap-1">
+                  <div v-if="duration" class="flex items-center gap-1">
                     <Timer class="h-4 w-4" />
                     <span>{{ duration }}</span>
                   </div>

@@ -23,12 +23,7 @@
         </div>
         <!-- Summary section -->
         <div class="flex flex-col w-full text-left">
-          <div>
-            <h2 class="text-lg md:text-3xl font-medium mb-4">
-              {{ summary.title }}
-            </h2>
-            <div v-html="htmlContent" class="prose max-w-none text-gray-700"></div>
-          </div>
+          <div v-html="htmlContent" class="prose max-w-none text-gray-700"></div>
         </div>
       </div>
       <!-- Resources section -->
