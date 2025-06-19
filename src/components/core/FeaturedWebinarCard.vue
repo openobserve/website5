@@ -1,7 +1,7 @@
 <script setup>
 import { Calendar, Clock, Play, Star } from 'lucide-vue-next';
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue';
-import SubscriptionForm from '../forms/SubscriptionForm.vue';
+import ZoomRegisterForm from '../forms/ZoomRegisterForm.vue';
 import { formatDateTimeInET } from '@/utils/getFormattedTime';
 import CustomButton from './CustomButton.vue';
 const props = defineProps({
@@ -189,7 +189,7 @@ const webinarDetails = computed(() => {
             </div>
           </template>
           <template v-if="isLive || isUpcoming">
-            <!-- <SubscriptionForm buttonVariant="primary" direction="col" :buttonOnClick="handleButtonClick"
+            <!-- <ZoomRegisterForm buttonVariant="primary" direction="col" :buttonOnClick="handleButtonClick"
               :popupDetails="webinarDetails" />
             <p class="text-xs  text-gray-500 mt-2">
               Note: By registering, you consent to receive emails regarding this event recording and related product
