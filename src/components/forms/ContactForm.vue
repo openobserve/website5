@@ -160,6 +160,8 @@ import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { useSegment } from "@/composables/useSegment";
 import { restrictedDomains } from "@/utils/restrictedDomains";
+import { toUnicode } from 'punycode';
+
 
 // Form validation
 const schema = yup.object({
@@ -174,11 +176,11 @@ const schema = yup.object({
       "Please enter your official work email address.",
       (value) => {
         if (!value) return true;
-        const domain = value.split("@")[1]?.toLowerCase();
+        const domain = value.split("@")[1]?.toLowerCase().normalize("NFC");
         if (!domain) return false;
+        const unicodeDomain = toUnicode(domain);
         return !restrictedDomains.some(
-          (restricted) =>
-            domain.includes(restricted)
+          (restricted) => unicodeDomain === restricted
         );
       }
     ),
