@@ -1,0 +1,80 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import CommonHeroSection from "@/components/herosection/CommonHeroSection.vue";
+import WebinarWrapper from "@/components/wrapper/WebinarWrapper.vue";
+import PastWebinarWrapper from "@/components/wrapper/PastWebinarWrapper.vue";
+import CTA from "@/components/core/CTA.vue";
+import fetchApi from "@/utils/strapi";
+import { fetchWebinar } from "@/utils/cache";
+
+const data = (await fetchWebinar()) || {};
+
+// Map JSON data to the structure expected by the components
+function mapWebinar(item, idx) {
+  const startTime = item.date || null;
+
+  const authors =
+    item.authors?.map((author) => ({
+      name: author.name,
+      role: author.role,
+      bio: author.bio,
+      twitterUrl: author.twitterUrl,
+      image: author.image,
+    })) || [];
+
+  return {
+    id: item.id || idx + 1,
+    title: item.title,
+    description: item.description,
+    date: startTime,
+    duration: item.duration,
+    authors: authors,
+    gradient: "from-blue-400 to-purple-500",
+    objectives: item.objectives?.map((obj) => obj.title) || [],
+    tags: item.tags || [],
+    slug: item.slug,
+    resources: item.resources || [],
+    type: item.type || "webinar",
+    image: item.image || null,
+    overview: item.overview || null,
+  };
+}
+
+// Map and sort webinars by date (latest first)
+const allWebinars = data
+  ?.map(mapWebinar)
+  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
+
+const heading = {
+  title: "Ready to get started?",
+  description:
+    "Try OpenObserve today for more efficient and performant observability.",
+};
+const primaryButton = {
+  text: "Get Started For Free",
+  link: "https://cloud.openobserve.ai/web/login",
+  target: "_blank",
+  variant: "secondary",
+};
+const secondaryButton = {
+  link: "/demo",
+  variant: "tertiary",
+  text: "Schedule Demo",
+};
+---
+
+<Layout>
+  <CommonHeroSection
+    title="Webinars and Videos"
+    description="Discover how OpenObserve can help you simplify observability. Watch on-demand videos and explore our featured live webinars to learn more."
+    align="CENTER"
+  />
+  <WebinarWrapper allWebinars={allWebinars} client:load />
+  <PastWebinarWrapper allWebinars={allWebinars} client:load />
+  <CTA
+    heading={heading}
+    primaryButton={primaryButton}
+    secondaryButton={secondaryButton}
+    client:load
+  />
+</Layout>

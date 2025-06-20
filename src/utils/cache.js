@@ -125,6 +125,32 @@ export async function fetchBlogs() {
 
   return data;
 }
+export async function fetchWebinar() {
+  // if (cache.blogs) {
+  //   return cache.blogs;
+  // }
+  const queryString = qs.stringify(
+    {
+      populate: {
+        authors: {
+          populate: ["image"],
+        },
+        image: true,
+        // video: true,
+        tags: true,
+        objectives: true,
+        resources: true,
+      },
+      status: "draft",
+    },
+    { encodeValuesOnly: true }
+  );
+
+  const data = await fetchAllPages({
+    endpoint: `api/webinar-posts?${queryString}`,
+  });
+  return data;
+}
 
 export async function fetchResourceCategories() {
   if (cache.resourceCategories) {
