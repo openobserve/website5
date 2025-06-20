@@ -176,12 +176,24 @@ const schema = yup.object({
       "Please enter your official work email address.",
       (value) => {
         if (!value) return true;
-        const domain = value.split("@")[1]?.toLowerCase().normalize("NFC");
-        if (!domain) return false;
-        const unicodeDomain = toUnicode(domain);
-        return !restrictedDomains.some(
-          (restricted) => unicodeDomain === restricted
+        const domainPart = value.split("@")[1]?.toLowerCase();
+        if (!domainPart) return false;
+
+        const unicodeDomain = toUnicode(domainPart).normalize("NFC");
+
+        // Exact match block
+        const isExactBlocked = restrictedDomains.some(
+          (restricted) => unicodeDomain === restricted.normalize("NFC")
         );
+
+        if (isExactBlocked) return false;
+
+        // Contains match block
+        const isContainsBlocked = restrictedDomains.some(
+          (partial) => unicodeDomain.includes(partial)
+        );
+
+        return !isContainsBlocked;
       }
     ),
   phone: yup
