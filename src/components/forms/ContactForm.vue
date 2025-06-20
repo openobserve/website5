@@ -155,15 +155,33 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useForm,Field, ErrorMessage } from "vee-validate";
+import CustomButton from "../core/CustomButton.vue";
+import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { useSegment } from "@/composables/useSegment";
+import { restrictedDomains } from "@/utils/restrictedDomains";
 
 // Form validation
 const schema = yup.object({
   fname: yup.string().required("First Name is required"),
   lname: yup.string().required("Last Name is required"),
-  email: yup.string().required("Email is required").email("Invalid email"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .email("Invalid email")
+    .test(
+      "is-allowed-domain",
+      "Please enter your official work email address.",
+      (value) => {
+        if (!value) return true;
+        const domain = value.split("@")[1]?.toLowerCase();
+        if (!domain) return false;
+        return !restrictedDomains.some(
+          (restricted) =>
+            domain.includes(restricted) || restricted.includes(domain)
+        );
+      }
+    ),
   phone: yup
     .string()
     .matches(/^\d+$/, "Phone number must be digits only")
