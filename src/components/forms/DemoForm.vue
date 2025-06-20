@@ -4,12 +4,43 @@ import CustomButton from "../core/CustomButton.vue";
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 import { useSegment } from "@/composables/useSegment";
+import { restrictedDomains } from "@/utils/restrictedDomains";
+import { toUnicode } from 'punycode';
+
 
 // Form validation
 const schema = yup.object({
   fname: yup.string().required("First Name is required"),
   lname: yup.string().required("Last Name is required"),
-  email: yup.string().required("Email is required").email("Invalid email"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .email("Invalid email")
+    .test(
+      "is-allowed-domain",
+      "Please enter your official work email address.",
+      (value) => {
+        if (!value) return true;
+        const domainPart = value.split("@")[1]?.toLowerCase();
+        if (!domainPart) return false;
+
+        const unicodeDomain = toUnicode(domainPart).normalize("NFC");
+
+        // Exact match block
+        const isExactBlocked = restrictedDomains.some(
+          (restricted) => unicodeDomain === restricted.normalize("NFC")
+        );
+
+        if (isExactBlocked) return false;
+
+        // Contains match block
+        const isContainsBlocked = restrictedDomains.some(
+          (partial) => unicodeDomain.includes(partial)
+        );
+
+        return !isContainsBlocked;
+      }
+    ),
   company: yup.string().required("Company name is required"),
   deployment: yup.string().required("Deployment option is required"),
   volume: yup.string().required("Data volume is required"),
