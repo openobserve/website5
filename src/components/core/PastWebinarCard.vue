@@ -46,7 +46,7 @@ function registerForWebinar() {
         </div>
       </div>
       <span class="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded-full text-xs">
-        {{ sourceKey }}
+        {{ sourceKey === "webinar" ? "Webinar" : "Video" }}
       </span>
     </div>
 

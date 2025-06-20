@@ -32,7 +32,7 @@ const pastWebinars = computed(() => {
 });
 
 const pastWebinarHeading = {
-  title: "Past Webinars",
+  title: "All Webinars And Videos",
   description:
     "Catch up on our previous webinars to stay updated on the latest trends and best practices in observability.",
 };
