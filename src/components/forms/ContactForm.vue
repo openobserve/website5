@@ -178,7 +178,7 @@ const schema = yup.object({
         if (!domain) return false;
         return !restrictedDomains.some(
           (restricted) =>
-            domain.includes(restricted) || restricted.includes(domain)
+            domain.includes(restricted)
         );
       }
     ),
