@@ -283,6 +283,7 @@
         { "key": "/docs/api/ingestion/json", "value": "/docs/api/ingestion/logs/json/" },
         { "key": "/docs/api/ingestion/multi", "value": "/docs/api/ingestion/logs/multi/" },
         { "key": "/devops-sre", "value": "/solutions/" },
-        { "key": "/development-teams", "value": "/solutions/" }
+        { "key": "/development-teams", "value": "/solutions/" },
+        { "key": "/enterprise-support", "value": "/faqs/" }
     ]
 }
