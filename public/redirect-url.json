@@ -286,6 +286,10 @@
         { "key": "/development-teams", "value": "/solutions/" },
         { "key": "/enterprise-support", "value": "/faqs/" },
         { "key": "/privacy-policy", "value": "/policies/privacy-policy" },
-        { "key": "/terms-of-service", "value": "/policies/terms-of-service" }
+        { "key": "/terms-of-service", "value": "/policies/terms-of-service" },
+        { "key": "/blog/avatar-customer-story", "value": "/customer-stories/avatar-customer-story/" },
+        { "key": "/blog/roambee-case-study", "value": "/customer-stories/roambee-case-study/" },
+        { "key": "/blog/jidu-case-study", "value": "/customer-stories/jidu-case-study/" },
+        { "key": "/blog/onengine-case-study", "value": "/customer-stories/onengine-case-study/" }
     ]
 }
