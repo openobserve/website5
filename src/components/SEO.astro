@@ -3,7 +3,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
-  canonicalURL?: string;
+  canonical?: string;
   type?: string;
   publishedTime?: string;
   modifiedTime?: string;
@@ -13,15 +13,21 @@ const {
   title = "OpenObserve: Open Source Observability Platform | Logs, Metrics & Traces",
   description = "Fast, scalable and cost-effective open source observability platform. Monitor logs, metrics & traces with 140x lower storage costs than Elasticsearch. Start in 2 minutes.",
   image,
-  canonicalURL = Astro.url.href,
+  canonical,
   type = "website",
   publishedTime,
   modifiedTime,
 } = Astro.props;
 
 // Fallback logic for image
-const ogImage = typeof image === 'string' && image.trim() !== '' ? image : '/o2-seo-image.png';
+const ogImage =
+  typeof image === "string" && image.trim() !== ""
+    ? image
+    : "/o2-seo-image.png";
 
+const canonicalURL = canonical
+  ? `${process.env.PUBLIC_APP_BASE_URL}${canonical}`
+  : Astro.url.href;
 ---
 
 <!-- General Meta Tags -->
@@ -58,4 +64,3 @@ const ogImage = typeof image === 'string' && image.trim() !== '' ? image : '/o2-
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-
