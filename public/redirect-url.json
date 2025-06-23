@@ -284,6 +284,8 @@
         { "key": "/docs/api/ingestion/multi", "value": "/docs/api/ingestion/logs/multi/" },
         { "key": "/devops-sre", "value": "/solutions/" },
         { "key": "/development-teams", "value": "/solutions/" },
-        { "key": "/enterprise-support", "value": "/faqs/" }
+        { "key": "/enterprise-support", "value": "/faqs/" },
+        { "key": "/privacy-policy", "value": "/policies/privacy-policy" },
+        { "key": "/terms-of-service", "value": "/policies/terms-of-service" }
     ]
 }
