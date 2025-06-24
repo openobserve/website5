@@ -60,63 +60,6 @@ export async function getZoomToken() {
   return data.access_token;
 }
 
-/**
- * Fetch upcoming webinars directly from Zoom API (server-side only)
- */
-export async function fetchUpcomingWebinars(): Promise<ZoomWebinar[]> {
-  try {
-    const accessToken = await getZoomToken();
-    const userId = import.meta.env.ZOOM_USER_ID || "me";
-
-    const response = await fetch(
-      `https://api.zoom.us/v2/users/${userId}/webinars?type=upcoming&page_size=30`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "User-Agent": "OpenObserve-Website/1.0",
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`Zoom API error: ${response.status}`);
-    }
-
-    const result = await response.json();
-
-    // Transform Zoom webinar data to match your website format
-    const transformedWebinars: ZoomWebinar[] =
-      result.webinars?.map((webinar: any) => ({
-        id: webinar.id,
-        title: webinar.topic,
-        description: webinar.agenda || webinar.topic,
-        date: webinar.start_time,
-        duration: `${webinar.duration || 60} minutes`,
-        slug: generateSlug(webinar.topic),
-        type: "webinar",
-        registrationUrl: webinar.registration_url,
-        joinUrl: webinar.join_url,
-        zoomWebinarId: webinar.id,
-        hostId: webinar.host_id,
-        authors: [
-          {
-            name: webinar.host_email?.split("@")[0] || "Host",
-            role: "Host",
-            bio: "Webinar Host",
-            image: { url: "" },
-          },
-        ],
-        tags: [{ name: "Live Webinar", slug: "live-webinar" }],
-        image: { url: "/img/video-thumbnail.png" },
-      })) || [];
-
-    return transformedWebinars;
-  } catch (error) {
-    console.error("Error fetching upcoming webinars:", error);
-    return [];
-  }
-}
-
 // Helper function to generate slugs
 function generateSlug(title: string): string {
   return title

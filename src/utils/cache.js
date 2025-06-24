@@ -148,21 +148,41 @@ export async function fetchWebinar() {
     });
     console.log(`📊 Fetched ${strapiData.length} webinars from Strapi`);
 
-    // Get Zoom webinar data directly (server-side only)
+    // Get Zoom webinar data via secure API function
     let zoomData = [];
     try {
-      console.log("🔄 Fetching Zoom webinars directly...");
+      console.log("🔄 Fetching Zoom webinars via API function...");
 
       // Only fetch Zoom data on server-side
       if (typeof window === "undefined") {
-        const { fetchUpcomingWebinars } = await import("./zoomIntegration.ts");
-        zoomData = await fetchUpcomingWebinars();
-        console.log(
-          `✅ Successfully fetched ${zoomData.length} webinars from Zoom`
+        // Import and call the API function directly (server-side only)
+        const { GET } = await import("../pages/api/webinars-sync.ts");
+
+        // Create a mock request object for the API function
+        const mockRequest = new Request(
+          "http://localhost:4321/api/webinars-sync?type=upcoming"
         );
+
+        // Call the API function directly
+        const response = await GET({ request: mockRequest });
+
+        if (response.ok) {
+          const result = await response.json();
+          zoomData = result.webinars || [];
+          console.log(
+            `✅ Successfully fetched ${zoomData.length} webinars from Zoom API`
+          );
+        } else {
+          console.warn(
+            `Zoom API function returned ${response.status}: ${response.statusText}`
+          );
+        }
       }
     } catch (zoomError) {
-      console.warn("Failed to fetch Zoom webinars:", zoomError);
+      console.warn(
+        "Failed to fetch Zoom webinars via API function:",
+        zoomError
+      );
       // Continue with just Strapi data
     }
 
