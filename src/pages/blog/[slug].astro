@@ -28,8 +28,8 @@ const author = await Promise.all(
 const allBlogs = (await getAllBlogs()).filter((blog) => !blog.customerStories);
 
 const metaObj = {
-  title: SlugData?.seo?.title || SlugData?.seoTitle || SlugData?.title,
-  description: SlugData?.seo?.description || SlugData?.seoDescription || SlugData?.description,
+  title: SlugData?.seo?.title || SlugData?.title,
+  description: SlugData?.seo?.description || SlugData?.description,
   image: SlugData?.seo?.image?.url || SlugData?.image?.url,
   canonical: SlugData?.seo?.canonical,
 };
