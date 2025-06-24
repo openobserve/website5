@@ -7,7 +7,9 @@ import CTA from "@/components/core/CTA.vue";
 import fetchApi from "@/utils/strapi";
 import { fetchWebinar } from "@/utils/cache";
 
-const data = (await fetchWebinar()) || {};
+console.log('📄 Starting to fetch webinar data...');
+const data = (await fetchWebinar()) || [];
+console.log(`📄 Finished fetching webinar data, got: ${Array.isArray(data) ? data.length : 0} webinars`);
 
 // Map JSON data to the structure expected by the components
 function mapWebinar(item, idx) {
@@ -36,7 +38,11 @@ function mapWebinar(item, idx) {
     resources: item.resources || [],
     type: item.type || "webinar",
     image: item.image || null,
-    overview: item.overview || null,
+    overview: item.overview || item.description,
+    // Add Zoom webinar fields
+    webinarId: item.zoomWebinarId || null,
+    joinUrl: item.zoomJoinUrl || null,
+    registrationUrl: item.zoomRegistrationUrl || null,
   };
 }
 
@@ -44,6 +50,8 @@ function mapWebinar(item, idx) {
 const allWebinars = data
   ?.map(mapWebinar)
   .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
+
+console.log(`📄 Final webinar count: ${allWebinars?.length || 0} (after mapping & sorting)`);
 
 const heading = {
   title: "Ready to get started?",

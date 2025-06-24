@@ -1,5 +1,10 @@
 <template>
-  <PastWebinarSection v-if="pastWebinars.length > 0" :pastWebinars="pastWebinars" :heading="pastWebinarHeading" />
+  <PastWebinarSection
+    v-if="pastWebinars.length > 0"
+    :pastWebinars="pastWebinars"
+    :heading="pastWebinarHeading"
+    sourceKey="past"
+  />
 </template>
 
 <script setup>

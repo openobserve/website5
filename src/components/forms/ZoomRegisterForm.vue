@@ -88,7 +88,14 @@
   <Teleport to="body">
     <AddToCalenderPopup
       :visible="showPopup"
-      :webinarDetail="popupDetailsLocal"
+      :webinarDetail="
+        popupDetailsLocal || {
+          eventTitle: '',
+          eventDate: '',
+          eventTime: '',
+          email: '',
+        }
+      "
       @close="showPopup = false"
     />
   </Teleport>
@@ -112,6 +119,8 @@ interface PopupDetails {
   email: string;
   firstName?: string;
   lastName?: string;
+  webinarId?: string;
+  joinUrl?: string;
 }
 
 const props = defineProps<{
@@ -143,7 +152,6 @@ const { handleSubmit, errors, resetForm, isSubmitting, validate, values } =
       email: "",
     },
     validateOnMount: false,
-    validateOnBlur: false,
   });
 
 const onSubmit = async () => {
@@ -157,28 +165,60 @@ const onSubmit = async () => {
     return; // Don't proceed if validation fails
   }
 
-  await trackWebinarRegistration({
-    firstName: values.firstName,
-    lastName: values.lastName,
-    email: values.email,
-    source: "webinar_registration",
-  });
+  try {
+    // Track registration attempt
+    await trackWebinarRegistration({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      source: "webinar_registration",
+    });
 
-  // If validation passed, proceed with form submission
-  popupDetailsLocal.value = {
-    ...props.popupDetails,
-    firstName: values.firstName,
-    lastName: values.lastName,
-    email: values.email,
-  };
+    // register with Zoom
+    const response = await fetch("/api/webinar-register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        webinarId: props.popupDetails.webinarId,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+      }),
+    });
 
-  setTimeout(() => {
-    showPopup.value = true;
-    if (props.buttonOnClick) props.buttonOnClick();
-  }, 200);
+    const result = await response.json();
 
-  resetForm();
-  showErrors.value = false; // Hide errors after successful submission
+    if (!response.ok) {
+      throw new Error(result.error || "Registration failed");
+    }
+
+    // Success - update popup with registration details
+    popupDetailsLocal.value = {
+      ...props.popupDetails,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      joinUrl: result.join_url, // Zoom join URL from API
+    };
+
+    setTimeout(() => {
+      showPopup.value = true;
+      if (props.buttonOnClick) props.buttonOnClick();
+    }, 200);
+
+    resetForm();
+    showErrors.value = false; // Hide errors after successful submission
+  } catch (error) {
+    console.error("Registration error:", error);
+    // You could show an error message to the user here
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Registration failed. Please try again.";
+    alert(errorMessage);
+  }
 };
 </script>
 
