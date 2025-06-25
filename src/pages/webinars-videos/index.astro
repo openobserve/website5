@@ -7,7 +7,7 @@ import CTA from "@/components/core/CTA.vue";
 import fetchApi from "@/utils/strapi";
 import { fetchWebinar } from "@/utils/cache";
 
-const data = (await fetchWebinar()) || {};
+const data = (await fetchWebinar()) || [];
 
 // Map JSON data to the structure expected by the components
 function mapWebinar(item, idx) {
@@ -36,7 +36,11 @@ function mapWebinar(item, idx) {
     resources: item.resources || [],
     type: item.type || "webinar",
     image: item.image || null,
-    overview: item.overview || null,
+    overview: item.overview || item.description,
+    // Add Zoom webinar fields
+    webinarId: item.zoomWebinarId || null,
+    joinUrl: item.zoomJoinUrl || null,
+    registrationUrl: item.zoomRegistrationUrl || null,
   };
 }
 

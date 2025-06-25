@@ -64,29 +64,35 @@ const mappedWebinar = {
       description: obj.title,
     })) || [],
 };
-console.log(mappedWebinar, "mappedWebinar");
 ---
 
 <Layout>
   <WebinarDetailHeroSection
+    type={mappedWebinar.type || "webinar"}
     title={mappedWebinar.title}
-    overview={mappedWebinar.overview}
-    tags={mappedWebinar.tags}
+    overview={mappedWebinar.overview || mappedWebinar.description}
+    tags={mappedWebinar.tags || []}
+    author={mappedWebinar.author}
     publishDate={mappedWebinar.publishDate}
+    availability={mappedWebinar.availability || "On-demand"}
+    duration={mappedWebinar.duration || "60 minutes"}
+    language={mappedWebinar.language || "English"}
     shareUrl={`/webinars/${slug}`}
-    duration={mappedWebinar.duration}
-    time={mappedWebinar.time}
-    image={mappedWebinar.image}
-    video={mappedWebinar.video}
+    time={mappedWebinar.time || ""}
+    image={mappedWebinar.image?.url || "/img/video-thumbnail.webp"}
+    video={mappedWebinar.video || ""}
+    webinarId={webinar.webinarId}
+    zoomWebinarId={webinar.zoomWebinarId}
+    joinUrl={webinar.joinUrl || webinar.zoomJoinUrl}
     client:load
   />
   <WebinarDetail
     client:load
-    objectives={mappedWebinar.objectives}
+    objectives={mappedWebinar.objectives || []}
     summary={mappedWebinar.summary}
-    content={mappedWebinar.content}
-    resources={mappedWebinar.resources}
+    content={mappedWebinar.content || mappedWebinar.description || ""}
+    resources={mappedWebinar.resources || []}
     authors={mappedWebinar.author}
   />
-  <WebinarAuthorWrapper client:load authors={mappedWebinar.author} />
+  <WebinarAuthorWrapper client:load authors={mappedWebinar.author} type={mappedWebinar.type || "webinar"} />
 </Layout>

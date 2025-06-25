@@ -9,9 +9,15 @@
               <Star class="w-5 h-5 mb-1 text-purple-600 shrink-0" />
               <h2 class="text-xl font-bold">What you'll learn</h2>
             </div>
-            <div class="flex flex-col space-y-4" v-for="(objective, index) in objectives" :key="index">
+            <div
+              class="flex flex-col space-y-4"
+              v-for="(objective, index) in objectives"
+              :key="index"
+            >
               <div class="flex items-center gap-4 text-base mb-2 font-normal">
-                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
+                <div
+                  class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center"
+                >
                   <div class="w-2 h-2 bg-primary-green rounded-full"></div>
                 </div>
                 <p class="text-gray-700">
@@ -23,18 +29,27 @@
         </div>
         <!-- Summary section -->
         <div class="flex flex-col w-full text-left">
-          <div v-html="htmlContent" class="prose max-w-none text-gray-700"></div>
+          <div
+            v-html="htmlContent"
+            class="prose max-w-none text-gray-700"
+          ></div>
         </div>
       </div>
       <!-- Resources section -->
       <div class="w-full mb-8 col-span-1">
         <div class="border rounded-xl p-4">
           <h2 class="text-2xl font-bold mb-4">Resources</h2>
-          <ul class="flex flex-col text-left w-full" v-for="(resource, index) in resources" :key="index">
+          <ul
+            class="flex flex-col text-left w-full"
+            v-for="(resource, index) in resources"
+            :key="index"
+          >
             <li>
-              <a :href="resource.link"
+              <a
+                :href="resource.link"
                 class="text-base block font-normal rounded-lg mb-2 hover:text-gray-700 transition duration-300 ease-in-out"
-                :target="resource.target || '_self'">
+                :target="resource.target || '_self'"
+              >
                 <p class="">
                   {{ resource.text }}
                 </p>
@@ -93,12 +108,13 @@ const props = defineProps({
 const htmlContent = ref("");
 
 // Convert markdown to HTML
-function processMarkdown(markdownText: string) {
+async function processMarkdown(markdownText: string) {
   if (!markdownText) return;
-  htmlContent.value = marked(markdownText);
+  const result = await marked(markdownText);
+  htmlContent.value = result;
 }
 
-// Watch for changes in summary.description
+// Watch for changes in props.content
 watch(
   () => props.content,
   (newContent) => {

@@ -126,30 +126,114 @@ export async function fetchBlogs() {
   return data;
 }
 export async function fetchWebinar() {
-  // if (cache.blogs) {
-  //   return cache.blogs;
-  // }
-  const queryString = qs.stringify(
-    {
-      populate: {
-        authors: {
-          populate: ["image"],
+  try {
+    // Get Strapi webinar data
+    const queryString = qs.stringify(
+      {
+        populate: {
+          authors: { populate: ["image"] },
+          image: true,
+          tags: true,
+          objectives: true,
+          resources: true,
         },
-        image: true,
-        // video: true,
-        tags: true,
-        objectives: true,
-        resources: true,
+        status: "draft",
       },
-      status: "draft",
-    },
-    { encodeValuesOnly: true }
-  );
+      { encodeValuesOnly: true }
+    );
 
-  const data = await fetchAllPages({
-    endpoint: `api/webinar-posts?${queryString}`,
-  });
-  return data;
+    const strapiData = await fetchAllPages({
+      endpoint: `api/webinar-posts?${queryString}`,
+    });
+
+    // Get Zoom webinar data via secure API function
+    let zoomData = [];
+    try {
+      // Only fetch Zoom data on server-side
+      if (typeof window === "undefined") {
+        // Import and call the API function directly (server-side only)
+        const { GET } = await import("../pages/api/webinars-sync.ts");
+
+        // Create a mock request object for the API function
+        const mockRequest = new Request(
+          "http://localhost:4321/api/webinars-sync?type=upcoming"
+        );
+
+        // Call the API function directly
+        const response = await GET({ request: mockRequest });
+
+        if (response.ok) {
+          const result = await response.json();
+          zoomData = result.webinars || [];
+        } else {
+          console.warn(
+            `❌ Zoom API function returned ${response.status}: ${response.statusText}`
+          );
+        }
+      }
+    } catch (zoomError) {
+      console.warn(
+        "Failed to fetch Zoom webinars via API function:",
+        zoomError
+      );
+      // Continue with just Strapi data
+    }
+
+    // Merge and prioritize data
+    const mergedData = [...strapiData];
+
+    // Add Zoom webinars that don't exist in Strapi
+    for (const zoomWebinar of zoomData) {
+      // Skip if webinar data is incomplete
+      if (!zoomWebinar || !zoomWebinar.id || !zoomWebinar.title) {
+        console.warn("Skipping incomplete webinar data:", zoomWebinar);
+        continue;
+      }
+
+      const existsInStrapi = strapiData.some(
+        (strapiWebinar) =>
+          strapiWebinar.zoomWebinarId === zoomWebinar.zoomWebinarId
+      );
+
+      if (!existsInStrapi) {
+        // Convert Zoom format to Strapi format
+        const convertedWebinar = {
+          id: `zoom_${zoomWebinar.id}`,
+          title: zoomWebinar.title,
+          description:
+            zoomWebinar.description || "Join us for this informative webinar.",
+          date: zoomWebinar.date,
+          duration: zoomWebinar.duration,
+          slug:
+            zoomWebinar.slug ||
+            (zoomWebinar.title || "").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          type: "webinar",
+          zoomWebinarId: zoomWebinar.zoomWebinarId,
+          zoomJoinUrl: zoomWebinar.joinUrl,
+          zoomRegistrationUrl: zoomWebinar.registrationUrl,
+          authors: [
+            {
+              name: "OpenObserve Team",
+              role: "Product Team",
+              bio: "OpenObserve product and engineering team",
+              image: { url: "/img/logo.svg" },
+            },
+          ],
+          objectives: [],
+          tags: [],
+          resources: [],
+          image: { url: "/img/video-thumbnail.webp" },
+        };
+
+        mergedData.push(convertedWebinar);
+      }
+    }
+
+    return mergedData;
+  } catch (error) {
+    console.error("❌ Error fetching webinar data:", error);
+    return [];
+  }
 }
 
 export async function fetchResourceCategories() {
