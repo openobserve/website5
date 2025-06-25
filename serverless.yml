@@ -1,0 +1,76 @@
+service: openobserve-website
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1 # Change to your preferred region
+  stage: ${opt:stage, 'dev'}
+  environment:
+    ZOOM_CLIENT_ID: ${env:ZOOM_CLIENT_ID}
+    ZOOM_CLIENT_SECRET: ${env:ZOOM_CLIENT_SECRET}
+    ZOOM_ACCOUNT_ID: ${env:ZOOM_ACCOUNT_ID}
+    STRAPI_TOKEN: ${env:STRAPI_TOKEN}
+    PUBLIC_API_BASE_URL: ${env:PUBLIC_API_BASE_URL}
+
+functions:
+  webinarRegister:
+    handler: dist/lambda/webinar-register.handler
+    events:
+      - http:
+          path: api/webinar-register
+          method: post
+          cors: true
+
+  webinarsSync:
+    handler: dist/lambda/webinars-sync.handler
+    events:
+      - http:
+          path: api/webinars-sync
+          method: get
+          cors: true
+
+resources:
+  Resources:
+    # S3 Bucket for static website
+    WebsiteBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-${self:provider.stage}-website
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: 404.html
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: false
+          BlockPublicPolicy: false
+          IgnorePublicAcls: false
+          RestrictPublicBuckets: false
+
+    # S3 Bucket Policy
+    WebsiteBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref WebsiteBucket
+        PolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal: "*"
+              Action: s3:GetObject
+              Resource: !Sub "${WebsiteBucket}/*"
+
+plugins:
+  - serverless-s3-sync
+
+custom:
+  s3Sync:
+    - bucketName: ${self:service}-${self:provider.stage}-website
+      localDir: dist
+      deleteRemoved: true
+      exclude:
+        - lambda/**
+
+package:
+  exclude:
+    - node_modules/**
+    - src/**
+    - .git/**
+    - .env*
