@@ -12,7 +12,8 @@
             <BaseSelect
               v-model="selectedVersion"
               label="Version"
-              :options="versionOptions"
+              :options="downloadsDataForVersion"
+              :latest="downloadsDataForVersion[0]"
             />
 
             <BaseSelect
@@ -119,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import BaseSelect from "@/components/core/SelectOption.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { ExternalLink, FileText, Server } from "lucide-vue-next";
@@ -143,6 +144,10 @@ const props = defineProps<{
     link: string;
     target?: string;
   };
+  downloadsDataForVersion: {
+    label: string;
+    value: string;
+  }[];
 }>();
 
 const selectedVersion = ref("latest");
@@ -150,12 +155,6 @@ const selectedEdition = ref(
   props.editionOptions[0]?.text.toLowerCase() || "oss"
 );
 const selectedMode = ref("single");
-
-const versionOptions = [
-  { value: "latest", label: "Latest (v0.10.9)" },
-  { value: "v0.10.8", label: "v0.10.8" },
-  { value: "v0.10.7", label: "v0.10.7" },
-];
 
 const editionSelectOptions = props.editionOptions.map((e) => ({
   value: e.text.toLowerCase(),

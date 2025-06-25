@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { defineAsyncComponent } from "vue";
+import { computed, defineAsyncComponent } from "vue";
 import { ArticlesResources, BlogResources } from "@/utils/constant";
 
 const props = defineProps({
@@ -20,6 +20,7 @@ const props = defineProps({
   caseStudyData: { type: Array, required: false },
   articlesData: { type: Array, required: false },
   bannerData: { type: Object, required: false },
+  downloadsDataForVersion : { type: Array, required: false }
 });
 
 // Plain object for mapping keys to async components
@@ -250,6 +251,12 @@ function getComponentForKey(key) {
   }
 }
 
+const downloadsDataForVersion = computed(() => {
+  return props?.downloadsDataForVersion?.map((e) => ({
+    value: e.version.toLowerCase(),
+    label: e.version,
+  }));
+});
 const getComponentProps = (it) => {
   switch (it.__component) {
     case "section-cards.blog":
@@ -268,6 +275,8 @@ const getComponentProps = (it) => {
       return { ...it, ...props.bannerData };
     case "section-hero.homepage-hero":
       return { data: it };
+    case "section-downloads.download-form":
+      return { ...it, downloadsDataForVersion: downloadsDataForVersion.value };
     default:
       return it;
   }

@@ -21,8 +21,8 @@
         <option
           v-for="option in options"
           :key="option.value"
-          :value="option.value"
-          :selected="option.value === modelValue"
+          :value="option?.value"
+          :selected="option?.value === modelValue"
         >
           {{ option.label }}
         </option>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   modelValue: string;
   label?: string;
   id?: string;
@@ -47,6 +47,7 @@ defineProps<{
 }>();
 
 defineEmits(["update:modelValue"]);
+
 </script>
 <style scoped>
   select {
