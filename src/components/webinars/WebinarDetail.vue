@@ -90,7 +90,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.resources, "woeindfdcwi")
 const htmlContent = ref("");
 
 // Convert markdown to HTML

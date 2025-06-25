@@ -23,7 +23,7 @@
           </div>
           <h2 class="text-2xl font-bold mb-4">Thank You for Registering!</h2>
           <p class="mb-6">
-            Hi {{ webinarDetail.email }}, you've successfully registered
+            Hi {{ webinarDetail.firstName }}{{ " " + webinarDetail.lastName }}, you've successfully registered
           </p>
           <div
             class="rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 p-4 text-center"
@@ -92,6 +92,8 @@ const props = defineProps<{
     eventDate: string;
     eventTime: string;
     email: string;
+    firstName?: string;
+    lastName?: string;
   };
 }>();
 // console.log(props.webinarDetail,"details inside popup");
