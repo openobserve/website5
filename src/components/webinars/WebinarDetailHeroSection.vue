@@ -183,7 +183,6 @@ const webinarDetails = computed(() => {
     joinUrl: props.joinUrl,
   };
 
-  console.log("🎯 WebinarDetailHeroSection - webinarDetails:", details);
   return details;
 });
 const copied = ref(false);

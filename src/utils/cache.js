@@ -126,7 +126,6 @@ export async function fetchBlogs() {
   return data;
 }
 export async function fetchWebinar() {
-  console.log("🚀 fetchWebinar() function started");
   try {
     // Get Strapi webinar data
     const queryString = qs.stringify(
@@ -146,13 +145,10 @@ export async function fetchWebinar() {
     const strapiData = await fetchAllPages({
       endpoint: `api/webinar-posts?${queryString}`,
     });
-    console.log(`📊 Fetched ${strapiData.length} webinars from Strapi`);
 
     // Get Zoom webinar data via secure API function
     let zoomData = [];
     try {
-      console.log("🔄 Fetching Zoom webinars via API function...");
-
       // Only fetch Zoom data on server-side
       if (typeof window === "undefined") {
         // Import and call the API function directly (server-side only)
@@ -169,12 +165,9 @@ export async function fetchWebinar() {
         if (response.ok) {
           const result = await response.json();
           zoomData = result.webinars || [];
-          console.log(
-            `✅ Successfully fetched ${zoomData.length} webinars from Zoom API`
-          );
         } else {
           console.warn(
-            `Zoom API function returned ${response.status}: ${response.statusText}`
+            `❌ Zoom API function returned ${response.status}: ${response.statusText}`
           );
         }
       }
@@ -236,13 +229,9 @@ export async function fetchWebinar() {
       }
     }
 
-    console.log(
-      `🎉 Returning ${mergedData.length} total webinars (Strapi + Zoom)`
-    );
     return mergedData;
   } catch (error) {
     console.error("❌ Error fetching webinar data:", error);
-    // Return empty array or fallback to JSON data
     return [];
   }
 }
