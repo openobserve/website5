@@ -82,6 +82,9 @@ console.log(`📄 Mapped webinar: "${mappedWebinar.title}" (${mappedWebinar.type
     time={mappedWebinar.time || ""}
     image={mappedWebinar.image?.url || "/img/video-thumbnail.webp"}
     video={mappedWebinar.video || ""}
+    webinarId={webinar.webinarId}
+    zoomWebinarId={webinar.zoomWebinarId}
+    joinUrl={webinar.joinUrl || webinar.zoomJoinUrl}
     client:load
   />
   <WebinarDetail

@@ -121,6 +121,9 @@ interface PopupDetails {
   lastName?: string;
   webinarId?: string;
   joinUrl?: string;
+  registrantId?: string;
+  startTime?: string;
+  topic?: string;
 }
 
 const props = defineProps<{
@@ -174,7 +177,7 @@ const onSubmit = async () => {
       source: "webinar_registration",
     });
 
-    // register with Zoom
+    // Register with Zoom via secure API
     const response = await fetch("/api/webinar-register", {
       method: "POST",
       headers: {
@@ -191,16 +194,32 @@ const onSubmit = async () => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.error || "Registration failed");
+      // Handle specific error cases
+      let errorMessage = "Registration failed. Please try again.";
+
+      if (response.status === 400) {
+        errorMessage =
+          result.error ||
+          "Invalid registration data. Please check your information.";
+      } else if (response.status === 404) {
+        errorMessage = "Webinar not found or registration is closed.";
+      } else if (response.status === 500) {
+        errorMessage = "Server error. Please try again later.";
+      }
+
+      throw new Error(errorMessage);
     }
 
-    // Success - update popup with registration details
+    // Success - update popup with registration details from Zoom
     popupDetailsLocal.value = {
       ...props.popupDetails,
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
       joinUrl: result.join_url, // Zoom join URL from API
+      registrantId: result.registrant_id, // Store registrant ID for future reference
+      startTime: result.start_time, // Webinar start time
+      topic: result.topic, // Webinar topic/title
     };
 
     setTimeout(() => {
