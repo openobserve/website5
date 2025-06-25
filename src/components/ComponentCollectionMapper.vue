@@ -241,6 +241,10 @@ function getComponentForKey(key) {
       return defineAsyncComponent(() =>
         import("@/components/downloads/AdditionalResouces.vue")
       );
+    case "section-downloads.download-form":
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/DownloadOptionsForm.vue")
+      );
     default:
       return undefined;
   }

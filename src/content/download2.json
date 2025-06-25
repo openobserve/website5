@@ -45,13 +45,28 @@
         "id": 3,
         "title": "Configure Your Download",
         "description": "Select your preferred version, edition, and deployment mode.",
-        "releseDate": "Dec 18, 2024",
-        "primaryButton": {
-          "text": "View Changelog",
-          "link": "https://openobserve.ai/downloads",
+        "editionOptions": [
+          {
+            "releseDate": "Dec 18, 2024",
+            "text": "Open Source"
+          },
+          {
+           "releseDate": "Dec 18, 2024",
+          "primaryButton": {
+            "text": "Learn more about Enterprise",
+            "link": "https://openobserve.ai/downloads",
+            "target": "_blank"
+          },
+          "text": "Enterprise"
+          }
+        ],
+        "haDeploymentTitle": "High Availability Deployment",
+        "haDeploymentDescription": "For HA deployments, please refer to our detailed documentation for setup instructions and best practices.",
+        "haDeploymentPrimaryButton": {
+          "text": "View HA Deployment Guide",
+          "link": "https://openobserve.ai/docs/ha/",
           "target": "_blank"
         }
-
       },
       {
         "__component": "section-downloads.deployment-options",

@@ -1,5 +1,5 @@
 <template>
-  <CustomSection>
+  <CustomSection sectionClass="!pt-14 !pb-0">
     <div class="max-w-4xl mx-auto">
       <div
         class="bg-gradient-to-r from-gray-50 to-blue-50 border border-gray-200 rounded-xl p-6 shadow-sm"
