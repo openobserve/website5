@@ -113,7 +113,14 @@ async function addCopyButtons() {
 
     // Handle copy logic
     button.addEventListener("click", () => {
-      const code = pre.querySelector("code")?.innerText.trim();
+        let code = "";
+      const codeElement = pre.querySelector("code");
+        if (codeElement) {
+          code = codeElement.innerText.trim();
+        } else {
+          code = pre.innerText.trim(); // Fallback for <pre class="prettyprint">
+        }
+
       if (code) {
         navigator.clipboard.writeText(code);
         button.innerHTML = `<img src="/img/icon/copied.svg" alt="Copy Icon" class="h-6 w-6 cursor-pointer" />`;
