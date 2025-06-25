@@ -169,14 +169,6 @@ const onSubmit = async () => {
   }
 
   try {
-    // Track registration attempt
-    await trackWebinarRegistration({
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
-      source: "webinar_registration",
-    });
-
     // Register with Zoom via secure API
     const response = await fetch("/api/webinar-register", {
       method: "POST",
@@ -221,6 +213,16 @@ const onSubmit = async () => {
       startTime: result.start_time, // Webinar start time
       topic: result.topic, // Webinar topic/title
     };
+
+    // Track registration attempt
+    await trackWebinarRegistration({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      webinarId: props.popupDetails.webinarId,
+      webinarTitle: props.popupDetails.eventTitle,
+      source: "webinar_registration",
+    });
 
     setTimeout(() => {
       showPopup.value = true;
