@@ -1,13 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ComponentCollectionMapper from "@/components/ComponentCollectionMapper.vue";
-import downloads from "@/content/downloads.json";
+import PageData from "@/content/download2.json";
 import fetchApi from "@/utils/strapi";
 
-const PageData = await fetchApi({
-  endpoint: "api/download",
-  query: { pLevel: "4" },
-});
+// const PageData = await fetchApi({
+//   endpoint: "api/download",
+//   query: { pLevel: "4" },
+// });
+
+
 const data = PageData?.data?.body || {};
 const seoData = PageData?.data?.seo || {};
 ---

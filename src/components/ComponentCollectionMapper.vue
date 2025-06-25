@@ -233,6 +233,14 @@ function getComponentForKey(key) {
       return defineAsyncComponent(() =>
         import("@/components/wrapper/ContactSalesWrapper.vue")
       );
+    case "section-downloads.cta":
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/CloudCTASection.vue")
+      );
+    case "section-dowloads.additional-resources":
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/AdditionalResouces.vue")
+      );
     default:
       return undefined;
   }

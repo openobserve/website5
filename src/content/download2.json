@@ -1,0 +1,115 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "your-document-id",
+    "createdAt": "2025-04-30T00:00:00.000Z",
+    "updatedAt": "2025-04-30T00:00:00.000Z",
+    "publishedAt": null,
+    "body": [
+      {
+        "__component": "section-hero.resource-hero-section",
+        "id": 1,
+        "title": "Downloads",
+        "align": "CENTER"
+      },
+      {
+        "__component": "section-downloads.cta",
+        "id": 2,
+        "title": "Try OpenObserve Cloud",
+        "subtitle": "Fully managed solution",
+        "description": "Avoid installing, maintaining, and scaling your own deployment. Get started in minutes with our cloud platform.",
+        "primaryButton": {
+          "text": "Start Free Trial",
+          "link": "https://cloud.openobserve.ai/web/login",
+          "target": "_blank"
+        },
+        "secondaryButton": {
+          "text": "Learn more about cloud →",
+          "link": "https://openobserve.ai/docs/cloud/",
+          "target": "_blank"
+        },
+        "items": [
+          {
+            "title": "No infrastructure to manage"
+          },
+          {
+            "title": "Automatic updates"
+          },
+          {
+            "title": "24/7 support"
+          }
+        ]
+      },
+      {
+        "__component": "section-downloads.download-form",
+        "id": 3,
+        "title": "Configure Your Download",
+        "description": "Select your preferred version, edition, and deployment mode.",
+        "releseDate": "Dec 18, 2024",
+        "primaryButton": {
+          "text": "View Changelog",
+          "link": "https://openobserve.ai/downloads",
+          "target": "_blank"
+        }
+
+      },
+      {
+        "__component": "section-downloads.deployment-options",
+        "id": 4
+      },
+      {
+        "__component": "section-dowloads.additional-resources",
+        "id": 5,
+        "heading" : {
+          "title": "Additional Resources"
+        },
+        "items": [
+          {
+            "title": "Documentation",
+            "description": "Complete guides and API references",
+            "primaryButton": {
+              "text": "View Docs →",
+              "link": "https://openobserve.ai/docs/",
+              "target": "_blank"
+            },
+            "image": {
+              "url": "/img/icon/documentation.svg",
+              "alternateText": "Documentation Icon"
+            }
+          },
+          {
+            "title": "Cloud Trial",
+            "description": "Try OpenObserve Cloud for free",
+            "primaryButton": {
+              "text": "Start Free Trial",
+              "link": "https://cloud.openobserve.ai/web/login",
+              "target": "_blank"
+            },
+            "image": {
+              "url": "/img/icon/cloud.svg",
+              "alternateText": "Documentation Icon"
+            }
+          },
+          {
+            "title": "GitHub",
+            "description": "Source code and community",
+            "primaryButton": {
+              "text": "Visit GitHub →",
+              "link": "https://github.com/openobserve/openobserve",
+              "target": "_blank"
+            },
+            "image": {
+              "url": "/img/icon/package.svg",
+              "alternateText": "Documentation Icon"
+            }
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "title": "OpenObserve Downloads | Start Free Cloud or Self-Hosted Monitoring Today",
+      "description": "Get started with OpenObserve's generous free tier for cloud and self-hosted installations. Try unlimited features with a 15-day free trial. No credit card required.",
+      "image": "/images/seo-image.jpg"
+    }
+  }
+}
