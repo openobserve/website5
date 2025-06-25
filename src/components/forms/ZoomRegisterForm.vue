@@ -4,153 +4,6 @@
       @submit.prevent="onSubmit"
       :class="[
         'flex flex-col w-full gap-2 h-full',
-        props.direction === 'row' ? 'md:flex-row' : 'md:flex-col'
-      ]"
-      ref="formRef"
-      novalidate
-    >
-      <!-- First Name & Last Name -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-        <div class="w-full">
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            class="contact-form-input"
-            v-model="formValues.firstName"
-            required
-            :title="'First name is required'"
-            maxlength="20"
-            minlength="3"
-          />
-        </div>
-        <div class="w-full">
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            class="contact-form-input"
-            v-model="formValues.lastName"
-            required
-            :title="'Last name is required'"
-            maxlength="20"
-            minlength="3"
-          />
-        </div>
-      </div>
-
-      <!-- Email Field -->
-      <div class="flex flex-row w-full h-full gap-2 items-center col-span-1 md:col-span-2">
-        <label for="email" class="contact-form-label sr-only">
-          Work Email <span class="text-red-500">*</span>
-        </label>
-        <div class="w-full">
-          <input
-            type="email"
-            name="email"
-            placeholder="your.name@company.com"
-            class="contact-form-input"
-            v-model="formValues.email"
-            required
-            :title="'A valid email is required'"
-          />
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <CustomButton
-        :variant="buttonVariant"
-        type="submit"
-        :disabled="isSubmitting"
-        :loading="isSubmitting"
-        :class="[
-          'cursor-pointer mt-1 w-full md:w-auto col-span-1',
-          props.direction === 'row' ? 'md:ml-2' : ''
-        ]"
-      >
-        Register
-      </CustomButton>
-    </form>
-  </div>
-
-  <!-- Calendar Popup -->
-  <Teleport to="body">
-    <AddToCalenderPopup
-        v-if="popupDetailsLocal !== null"
-      :visible="showPopup"
-      :webinarDetail="popupDetailsLocal"
-      @close="showPopup = false"
-    />
-  </Teleport>
-</template>
-<script setup lang="ts">
-import { ref } from 'vue';
-import CustomButton from "../core/CustomButton.vue";
-import AddToCalenderPopup from "@/components/webinars/AddToCalenderPopup.vue";
-
-interface PopupDetails {
-  eventTitle: string;
-  eventDate: string;
-  eventTime: string;
-  email: string;
-  firstName?: string;
-  lastName?: string;
-}
-interface FormValues {
-  [key: string]: string;
-}
-const props = defineProps<{
-  popupDetails: PopupDetails;
-  buttonVariant?: string;
-  buttonOnClick?: () => void;
-  direction?: "row" | "col";
-}>();
-
-const formRef = ref<HTMLFormElement | null>(null);
-const showPopup = ref(false);
-const popupDetailsLocal = ref<PopupDetails | null>(null);
-const isSubmitting = ref(false);
-
-const formValues = ref<FormValues>({
-  firstName: "",
-  lastName: "",
-  email: ""
-})
-
-const onSubmit = async () => {
-  if (!formRef.value?.checkValidity()) {
-    formRef.value?.reportValidity(); // show tooltips
-    return;
-  }
- // Trim all string values in formValues
-  Object.keys(formValues.value).forEach((key) => {
-    const val = formValues.value[key];
-    if (typeof val === "string") {
-      formValues.value[key] = val.trim();
-    }
-  });
-  isSubmitting.value = true;
-
-  popupDetailsLocal.value = {
-    ...props.popupDetails,
-    ...formValues.value
-  };
-
-  setTimeout(() => {
-    showPopup.value = true;
-    if (props.buttonOnClick) props.buttonOnClick();
-    isSubmitting.value = false;
-  }, 200);
-};
-</script>
-
-
-<!-- <template>
-  <div class="">
-    <form
-      @submit.prevent="onSubmit"
-      :class="[
-        'flex flex-col w-full gap-2 h-full',
         props.direction === 'row' ? 'md:flex-row' : 'md:flex-col',
       ]"
     >
@@ -194,9 +47,9 @@ const onSubmit = async () => {
       <div
         class="flex flex-row w-full h-full gap-2 items-center col-span-1 md:col-span-2"
       >
-        <label for="email" class="contact-form-label sr-only"
-          >Work Email <span class="text-red-500">*</span></label
-        >
+        <label for="email" class="contact-form-label sr-only">
+          Work Email <span class="text-red-500">*</span>
+        </label>
         <div class="w-full">
           <Field
             name="email"
@@ -230,7 +83,23 @@ const onSubmit = async () => {
         Register
       </CustomButton>
     </form>
+
+    <!-- Success/Error Messages -->
+    <div v-if="registrationMessage" class="mt-4">
+      <div
+        :class="[
+          'p-4 rounded-md',
+          registrationSuccess
+            ? 'bg-green-50 text-green-800 border border-green-200'
+            : 'bg-red-50 text-red-800 border border-red-200',
+        ]"
+      >
+        {{ registrationMessage }}
+      </div>
+    </div>
   </div>
+
+  <!-- Calendar Popup -->
   <Teleport to="body">
     <AddToCalenderPopup
       :visible="showPopup"
@@ -248,10 +117,10 @@ const onSubmit = async () => {
 </template>
 
 <script setup lang="ts">
-import CustomButton from "../core/CustomButton.vue";
+import { ref } from "vue";
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import { ref } from "vue";
+import CustomButton from "../core/CustomButton.vue";
 import AddToCalenderPopup from "@/components/webinars/AddToCalenderPopup.vue";
 import { useSegment } from "@/composables/useSegment";
 
@@ -281,16 +150,30 @@ const props = defineProps<{
 
 // Validation Schema
 const schema = yup.object({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  email: yup.string().required("Email is required").email("Invalid email"),
+  firstName: yup
+    .string()
+    .required("First name is required")
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name must be less than 50 characters"),
+  lastName: yup
+    .string()
+    .required("Last name is required")
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name must be less than 50 characters"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .email("Please enter a valid email address"),
 });
 
 type FormData = yup.InferType<typeof schema>;
 
+// Form state
 const showErrors = ref(false);
 const showPopup = ref(false);
 const popupDetailsLocal = ref<PopupDetails | null>(null);
+const registrationMessage = ref("");
+const registrationSuccess = ref(false);
 
 const { handleSubmit, errors, resetForm, isSubmitting, validate, values } =
   useForm<FormData>({
@@ -303,16 +186,11 @@ const { handleSubmit, errors, resetForm, isSubmitting, validate, values } =
     validateOnMount: false,
   });
 
-const onSubmit = async () => {
-  // First validate the form
-  const { valid } = await validate();
-
-  // Always show errors after submit button is clicked
+const onSubmit = handleSubmit(async (formData) => {
+  // Clear previous messages
+  registrationMessage.value = "";
+  registrationSuccess.value = false;
   showErrors.value = true;
-
-  if (!valid) {
-    return; // Don't proceed if validation fails
-  }
 
   try {
     // Register with Zoom via secure API
@@ -323,9 +201,9 @@ const onSubmit = async () => {
       },
       body: JSON.stringify({
         webinarId: props.popupDetails.webinarId,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        email: formData.email.trim().toLowerCase(),
       }),
     });
 
@@ -341,6 +219,8 @@ const onSubmit = async () => {
           "Invalid registration data. Please check your information.";
       } else if (response.status === 404) {
         errorMessage = "Webinar not found or registration is closed.";
+      } else if (response.status === 409) {
+        errorMessage = "You are already registered for this webinar.";
       } else if (response.status === 500) {
         errorMessage = "Server error. Please try again later.";
       }
@@ -351,42 +231,55 @@ const onSubmit = async () => {
     // Success - update popup with registration details from Zoom
     popupDetailsLocal.value = {
       ...props.popupDetails,
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
       joinUrl: result.join_url, // Zoom join URL from API
       registrantId: result.registrant_id, // Store registrant ID for future reference
       startTime: result.start_time, // Webinar start time
       topic: result.topic, // Webinar topic/title
     };
 
-    // Track registration attempt
-    await trackWebinarRegistration({
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
-      webinarId: props.popupDetails.webinarId,
-      webinarTitle: props.popupDetails.eventTitle,
-      source: "webinar_registration",
-    });
+    // Track registration success
+    try {
+      await trackWebinarRegistration({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        webinarId: props.popupDetails.webinarId || "",
+        webinarTitle: props.popupDetails.eventTitle,
+        source: "webinar_registration",
+      });
+    } catch (trackingError) {
+      console.warn("⚠️ Tracking failed (non-critical):", trackingError);
+    }
 
+    // Show success message
+    registrationMessage.value =
+      "Registration successful! Check your email for webinar details and join instructions.";
+    registrationSuccess.value = true;
+
+    // Show popup after short delay
     setTimeout(() => {
       showPopup.value = true;
       if (props.buttonOnClick) props.buttonOnClick();
     }, 200);
 
+    // Reset form
     resetForm();
-    showErrors.value = false; // Hide errors after successful submission
+    showErrors.value = false;
   } catch (error) {
-    console.error("Registration error:", error);
-    // You could show an error message to the user here
+    console.error("❌ Registration error:", error);
+
     const errorMessage =
       error instanceof Error
         ? error.message
         : "Registration failed. Please try again.";
-    alert(errorMessage);
+
+    registrationMessage.value = errorMessage;
+    registrationSuccess.value = false;
   }
-};
+});
 </script>
 
 <style scoped></style>
