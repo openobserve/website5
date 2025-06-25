@@ -105,7 +105,6 @@ const props = defineProps({
   },
 });
 
-// Removed verbose logging for cleaner terminal output
 const htmlContent = ref("");
 
 // Convert markdown to HTML

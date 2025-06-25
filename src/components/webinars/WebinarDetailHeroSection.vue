@@ -47,7 +47,7 @@
               </div>
             </div>
             <!-- registration From -->
-            <div v-show="isUpcoming" class="w-3/4">
+            <div v-show="isUpcoming" class="w-fulllg:w-3/4">
               <ZoomRegisterForm
                 :popupDetails="webinarDetails"
                 button-variant="tertiary"
