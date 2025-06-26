@@ -20,7 +20,7 @@ const props = defineProps({
   caseStudyData: { type: Array, required: false },
   articlesData: { type: Array, required: false },
   bannerData: { type: Object, required: false },
-  downloadsDataForVersion : { type: Array, required: false }
+  downloadsDataForVersion: { type: Array, required: false },
 });
 
 // Plain object for mapping keys to async components
@@ -245,6 +245,10 @@ function getComponentForKey(key) {
     case "section-downloads.download-form":
       return defineAsyncComponent(() =>
         import("@/components/downloads/DownloadOptionsForm.vue")
+      );
+    case "section-downloads.deployment-options":
+      return defineAsyncComponent(() =>
+        import("@/components/downloads/OperatingsystemForDownload.vue")
       );
     default:
       return undefined;
