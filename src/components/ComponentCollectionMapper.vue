@@ -23,6 +23,7 @@ const props = defineProps({
   downloadsDataForVersion: { type: Array, required: false },
 });
 
+console.log("props", props?.downloadsDataForVersion);
 // Plain object for mapping keys to async components
 // const componentsMap = {
 //   "section-hero.resource-hero-section": defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue")),
@@ -242,25 +243,24 @@ function getComponentForKey(key) {
       return defineAsyncComponent(() =>
         import("@/components/downloads/AdditionalResouces.vue")
       );
-    case "section-downloads.download-form":
+    // case "section-downloads.download-form":
+    //   return defineAsyncComponent(() =>
+    //     import("@/components/downloads/DownloadOptionsForm.vue")
+    //   );
+    // case "section-downloads.deployment-options":
+    //   return defineAsyncComponent(() =>
+    //     import("@/components/downloads/OperatingsystemForDownload.vue")
+    //   );
+
+    case "section-downloads.openobserve-deployment-options":
       return defineAsyncComponent(() =>
-        import("@/components/downloads/DownloadOptionsForm.vue")
-      );
-    case "section-downloads.deployment-options":
-      return defineAsyncComponent(() =>
-        import("@/components/downloads/OperatingsystemForDownload.vue")
+        import("@/components/downloads/DownloadOpenObserveWrapper.vue")
       );
     default:
       return undefined;
   }
 }
 
-const downloadsDataForVersion = computed(() => {
-  return props?.downloadsDataForVersion?.map((e) => ({
-    value: e.version.toLowerCase(),
-    label: e.version,
-  }));
-});
 const getComponentProps = (it) => {
   switch (it.__component) {
     case "section-cards.blog":
@@ -279,8 +279,12 @@ const getComponentProps = (it) => {
       return { ...it, ...props.bannerData };
     case "section-hero.homepage-hero":
       return { data: it };
-    case "section-downloads.download-form":
-      return { ...it, downloadsDataForVersion: downloadsDataForVersion.value };
+    // case "section-downloads.download-form":
+    //   return { ...it, downloadsDataForVersion: downloadsDataForVersion.value };
+    // case "section-downloads.deployment-options":
+    //   return { ...it, data: props.downloadsDataForVersion };
+    case "section-downloads.openobserve-deployment-options":
+      return { ...it, data: props.downloadsDataForVersion };
     default:
       return it;
   }

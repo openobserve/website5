@@ -146,12 +146,12 @@ const platforms = [
   {
     id: "linux",
     name: "Linux",
-    icon: "/img/icon/linux.svg", // <-- File must be at: public/img/icon/linux.svg
+    icon: "/img/icon/linux2.svg", // <-- File must be at: public/img/icon/linux.svg
   },
   {
     id: "mac",
     name: "macOS",
-    icon: "/img/icon/macos.svg", // <-- File must be at: public/img/icon/macos.svg
+    icon: "/img/icon/apple.svg", // <-- File must be at: public/img/icon/macos.svg
   },
   {
     id: "windows",
@@ -161,12 +161,12 @@ const platforms = [
   {
     id: "docker",
     name: "Docker",
-    icon: "/img/icon/docker.svg", // <-- File must be at: public/img/icon/docker.svg
+    icon: "/img/icon/dockericon.svg", // <-- File must be at: public/img/icon/docker.svg
   },
   {
     id: "kubernetes",
     name: "Kubernetes",
-    icon: "/img/icon/kubernetes.svg", // <-- File must be at: public/img/icon/kubernetes.svg
+    icon: "/img/icon/cluster.svg", // <-- File must be at: public/img/icon/kubernetes.svg
   },
 ];
 

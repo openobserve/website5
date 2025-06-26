@@ -42,7 +42,11 @@
       },
       {
         "__component": "section-downloads.download-form",
-        "id": 3,
+        "id": 3
+      },
+      {
+        "__component": "section-downloads.openobserve-deployment-options",
+        "id": 4,
         "title": "Configure Your Download",
         "description": "Select your preferred version, edition, and deployment mode.",
         "editionOptions": [
@@ -51,13 +55,13 @@
             "text": "Open Source"
           },
           {
-           "releseDate": "Dec 18, 2024",
-          "primaryButton": {
-            "text": "Learn more about Enterprise",
-            "link": "https://openobserve.ai/downloads",
-            "target": "_blank"
-          },
-          "text": "Enterprise"
+            "releseDate": "Dec 18, 2024",
+            "primaryButton": {
+              "text": "Learn more about Enterprise",
+              "link": "https://openobserve.ai/downloads",
+              "target": "_blank"
+            },
+            "text": "Enterprise"
           }
         ],
         "haDeploymentTitle": "High Availability Deployment",
@@ -67,10 +71,6 @@
           "link": "https://openobserve.ai/docs/ha/",
           "target": "_blank"
         }
-      },
-      {
-        "__component": "section-downloads.deployment-options",
-        "id": 4
       },
       {
         "__component": "section-dowloads.additional-resources",
