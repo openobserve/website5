@@ -6,7 +6,8 @@ on:
       - feature/new-website-design
   repository_dispatch:
     types: [strapi-cms]
-
+  workflow_dispatch:
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
