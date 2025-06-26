@@ -25,11 +25,11 @@
           </p>
 
           <!-- Optional Arrow Link -->
-          <div v-if="item.primaryButton?.link" class="mt-auto mx-auto">
+          <div v-if="item.button?.link" class="mt-auto mx-auto">
             <CustomButton
               size="small"
-              :buttonText="item.primaryButton.text"
-              :buttonLink="item.primaryButton.link"
+              :buttonText="item.button.text"
+              :buttonLink="item.button.link"
               :variant="index === 1 ? 'primary' : 'secondary'"
               :btn-class="
                 index === 1
@@ -57,7 +57,7 @@ const props = defineProps<{
   items: Array<{
     title: string;
     description: string;
-    primaryButton: {
+    button: {
       text: string;
       link: string;
       target?: string;

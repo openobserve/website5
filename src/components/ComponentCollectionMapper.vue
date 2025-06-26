@@ -23,7 +23,6 @@ const props = defineProps({
   downloadsDataForVersion: { type: Array, required: false },
 });
 
-console.log("props", props?.downloadsDataForVersion);
 // Plain object for mapping keys to async components
 // const componentsMap = {
 //   "section-hero.resource-hero-section": defineAsyncComponent(() => import("@/components/herosection/CommonHeroSection.vue")),
@@ -235,11 +234,11 @@ function getComponentForKey(key) {
       return defineAsyncComponent(() =>
         import("@/components/wrapper/ContactSalesWrapper.vue")
       );
-    case "section-downloads.cta":
+    case "section-cta.download-cta":
       return defineAsyncComponent(() =>
         import("@/components/downloads/CloudCTASection.vue")
       );
-    case "section-dowloads.additional-resources":
+    case "section-cards.additional-resources":
       return defineAsyncComponent(() =>
         import("@/components/downloads/AdditionalResouces.vue")
       );
@@ -252,7 +251,7 @@ function getComponentForKey(key) {
     //     import("@/components/downloads/OperatingsystemForDownload.vue")
     //   );
 
-    case "section-downloads.openobserve-deployment-options":
+    case "section-features.download-deployment-option":
       return defineAsyncComponent(() =>
         import("@/components/downloads/DownloadOpenObserveWrapper.vue")
       );
@@ -283,7 +282,7 @@ const getComponentProps = (it) => {
     //   return { ...it, downloadsDataForVersion: downloadsDataForVersion.value };
     // case "section-downloads.deployment-options":
     //   return { ...it, data: props.downloadsDataForVersion };
-    case "section-downloads.openobserve-deployment-options":
+    case "section-features.download-deployment-option":
       return { ...it, data: props.downloadsDataForVersion };
     default:
       return it;

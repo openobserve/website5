@@ -19,7 +19,7 @@
             <BaseSelect
               v-model="selectedEdition"
               label="Edition"
-              :options="editionSelectOptions"
+              :options="editionOptions"
             />
 
             <BaseSelect
@@ -105,11 +105,11 @@
               <!-- Enterprise CTA -->
               <a
                 v-if="selectedEdition === 'enterprise'"
-                :href="enterprisePrimaryButton.link"
-                target="_blank"
+                :href="enterpriseButton.link"
+                :target="enterpriseButton.target || '_blank'"
                 class="text-[#6B76E3] hover:text-purple-800 text-sm font-medium"
               >
-                {{ enterprisePrimaryButton.text }}
+                {{ enterpriseButton.text }}
               </a>
             </div>
           </div>
@@ -128,15 +128,11 @@ import { ExternalLink, FileText, Server } from "lucide-vue-next";
 const props = defineProps<{
   title: string;
   description: string;
-  editionOptions: {
+  enterpriseButton: {
     text: string;
-    releseDate: string;
-    primaryButton?: {
-      text: string;
-      link: string;
-      target?: string;
-    };
-  }[];
+    link: string;
+    target?: string;
+  };
   haDeploymentTitle: string;
   haDeploymentDescription: string;
   haDeploymentPrimaryButton: {
@@ -148,20 +144,19 @@ const props = defineProps<{
     label: string;
     value: string;
   }[];
+  editionOptions: {
+    value: string;
+    label: string;
+  }[];
 }>();
 
 const selectedVersion = ref("latest");
 const selectedEdition = ref(
-  props.editionOptions[0]?.text.toLowerCase() || "oss"
+  props.editionOptions[0]?.value
 );
 const selectedMode = ref("single");
 
-const editionSelectOptions = props.editionOptions.map((e) => ({
-  value: e.text.toLowerCase(),
-  label: e.text,
-}));
-
-const enterprisePrimaryButton = props.editionOptions.find(
-  (e) => e.text.toLowerCase() === "enterprise"
-)?.primaryButton || { text: "", link: "#" };
+// const enterprisePrimaryButton = props.editionOptions.find(
+//   (e) => e.text.toLowerCase() === "enterprise"
+// )?.primaryButton || { text: "", link: "#" };
 </script>

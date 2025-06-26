@@ -1,5 +1,5 @@
 <template>
-  <DownloadOptionsForm :title="title" :description="description" :editionOptions="editionOptions" :haDeploymentTitle="haDeploymentTitle" :haDeploymentDescription="haDeploymentDescription" :haDeploymentPrimaryButton="haDeploymentPrimaryButton" :downloadsDataForVersion="downloadsDataForVersion"/>
+  <DownloadOptionsForm :title="title" :description="description" :editionOptions="editionOptions" :haDeploymentTitle="haDeploymentTitle" :haDeploymentDescription="haDeploymentDescription" :haDeploymentPrimaryButton="haDeploymentPrimaryButton" :downloadsDataForVersion="downloadsDataForVersion" :enterprise-button="enterpriseButton"/>
   <OperatingsystemForDownload /> 
 </template>
 <script setup lang="ts">
@@ -9,15 +9,11 @@ import OperatingsystemForDownload from "./OperatingsystemForDownload.vue";
 const props = defineProps<{
   title: string;
   description: string;
-  editionOptions: {
+  enterpriseButton: {
     text: string;
-    releseDate: string;
-    primaryButton?: {
-      text: string;
-      link: string;
-      target?: string;
-    };
-  }[];
+    link: string;
+    target?: string;
+  },
   haDeploymentTitle: string;
   haDeploymentDescription: string;
   haDeploymentPrimaryButton: {
@@ -36,6 +32,10 @@ const versions = [
   { value: "v0.10.7", label: "v0.10.7" },
 ];
 
+const editionOptions = [
+  { value: "oss", label: "Open Source (OSS)" },
+  { value: "enterprise", label: "Enterprise" },
+];
 const downloadsDataForVersion = computed(() => {
   return versions?.map((e) => ({
     value: e.value,
