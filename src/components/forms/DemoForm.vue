@@ -270,8 +270,8 @@ const reset = () => {
               <option value="" disabled selected hidden>
                 Select data volume
               </option>
-              <option value="< 100GB/day">< 100GB/day</option>
-              <option value="100GB - 1TB/day">100GB - 1TB/day</option>
+              <option value="< 200GB/day">< 200GB/day</option>
+              <option value="200GB - 1TB/day">200GB - 1TB/day</option>
               <option value="> 1TB/day">> 1TB/day</option>
             </Field>
             <ErrorMessage name="volume" class="contact-form-error" />
