@@ -7,7 +7,7 @@
             v-for="platform in platforms"
             :key="platform.id"
             @click="selectedPlatform = platform.id"
-            class="flex flex-col items-center p-6 rounded-lg border-2 transition-all min-w-[120px]"
+            class="flex flex-col items-center p-6 rounded-lg border-2 transition-all min-w-[120px] cursor-pointer"
             :class="
               selectedPlatform === platform.id
                 ? 'border-[#45A4F3] bg-blue-50'
@@ -141,34 +141,13 @@ import { ref, computed } from "vue";
 import { Copy, Check, AlertCircle, Download } from "lucide-vue-next";
 import CustomSection from "@/components/core/CustomSection.vue";
 
-// Props or mock data (if not yet dynamic from Strapi)
-const platforms = [
-  {
-    id: "linux",
-    name: "Linux",
-    icon: "/img/icon/linux2.svg", // <-- File must be at: public/img/icon/linux.svg
-  },
-  {
-    id: "mac",
-    name: "macOS",
-    icon: "/img/icon/apple.svg", // <-- File must be at: public/img/icon/macos.svg
-  },
-  {
-    id: "windows",
-    name: "Windows",
-    icon: "/img/icon/windows.svg", // <-- File must be at: public/img/icon/windows.svg
-  },
-  {
-    id: "docker",
-    name: "Docker",
-    icon: "/img/icon/dockericon.svg", // <-- File must be at: public/img/icon/docker.svg
-  },
-  {
-    id: "kubernetes",
-    name: "Kubernetes",
-    icon: "/img/icon/cluster.svg", // <-- File must be at: public/img/icon/kubernetes.svg
-  },
-];
+const props = defineProps<{
+  platforms: Array<{
+    id: string;
+    name: string;
+    icon: string; // Path to the icon image
+  }>;
+}>();
 
 const instructionsMap = {
   linux: {

@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import BaseSelect from "@/components/core/SelectOption.vue";
 import CustomSection from "../core/CustomSection.vue";
 import { ExternalLink, FileText, Server } from "lucide-vue-next";
@@ -156,7 +156,9 @@ const selectedEdition = ref(
 );
 const selectedMode = ref("single");
 
-// const enterprisePrimaryButton = props.editionOptions.find(
-//   (e) => e.text.toLowerCase() === "enterprise"
-// )?.primaryButton || { text: "", link: "#" };
+const emits = defineEmits(["selectedVersion", "selectedEdition", "selectedMode"]);
+
+watch(selectedVersion, (val) => emits('selectedVersion', val));
+watch(selectedEdition, (val) => emits('selectedEdition', val));
+watch(selectedMode, (val) => emits('selectedMode', val));
 </script>
