@@ -5,7 +5,6 @@ import WebinarDetail from "@/components/webinars/WebinarDetail.vue";
 import WebinarAuthorWrapper from "@/components/webinars/WebinarAuthorWrapper.vue";
 import fetchApi from "@/utils/strapi";
 import { fetchWebinar } from "@/utils/cache";
-
 export async function getStaticPaths() {
   try {
     const response = (await fetchWebinar()) || {};
@@ -64,7 +63,7 @@ const mappedWebinar = {
       description: obj.title,
     })) || [],
 };
-console.log(mappedWebinar, "mappedWebinar");
+
 ---
 
 <Layout>
@@ -78,6 +77,7 @@ console.log(mappedWebinar, "mappedWebinar");
     time={mappedWebinar.time}
     image={mappedWebinar.image}
     video={mappedWebinar.video}
+    webinarId={webinar.webinarId}
     client:load
   />
   <WebinarDetail

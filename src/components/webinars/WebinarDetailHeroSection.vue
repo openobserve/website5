@@ -37,8 +37,8 @@
               </div>
             </div>
             <!-- registration From -->
-            <div v-show="isUpcoming" class="w-fulllg:w-3/4">
-              <ZoomRegisterForm :popupDetails="webinarDetails" button-variant="tertiary" direction="col" />
+            <div v-show="isUpcoming" class="w-full lg:w-3/4">
+              <ZoomRegisterForm v-show="webinarId" :popupDetails="webinarDetails" button-variant="tertiary" direction="col"  />
               <h4 class="text-white/90 text-sm my-2">
                 Note: By registering, you consent to receive emails regarding this event recording and related product
                 updates.
@@ -110,6 +110,7 @@ const props = defineProps<{
   time: string;
   image: string;
   video: string;
+  webinarId: string;
 }>();
 
 const { date, time } = formatDateTimeInET(props.publishDate);
@@ -128,6 +129,7 @@ const webinarDetails = computed(() => {
     eventDate: date,
     eventTime: time,
     email: "",
+    webinarId: props.webinarId
   };
 });
 const copied = ref(false);

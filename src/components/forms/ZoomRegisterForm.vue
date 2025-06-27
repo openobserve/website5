@@ -4,7 +4,7 @@
       @submit.prevent="onSubmit"
       :class="[
         'flex flex-col w-full gap-2 h-full',
-        props.direction === 'row' ? 'md:flex-row' : 'md:flex-col'
+        props.direction === 'row' ? 'md:flex-row' : 'md:flex-col',
       ]"
       ref="formRef"
       novalidate
@@ -40,7 +40,9 @@
       </div>
 
       <!-- Email Field -->
-      <div class="flex flex-row w-full h-full gap-2 items-center col-span-1 md:col-span-2">
+      <div
+        class="flex flex-row w-full h-full gap-2 items-center col-span-1 md:col-span-2"
+      >
         <label for="email" class="contact-form-label sr-only">
           Work Email <span class="text-red-500">*</span>
         </label>
@@ -65,7 +67,7 @@
         :loading="isSubmitting"
         :class="[
           'cursor-pointer mt-1 w-full md:w-auto col-span-1',
-          props.direction === 'row' ? 'md:ml-2' : ''
+          props.direction === 'row' ? 'md:ml-2' : '',
         ]"
       >
         Register
@@ -76,7 +78,7 @@
   <!-- Calendar Popup -->
   <Teleport to="body">
     <AddToCalenderPopup
-        v-if="popupDetailsLocal !== null"
+      v-if="popupDetailsLocal !== null"
       :visible="showPopup"
       :webinarDetail="popupDetailsLocal"
       @close="showPopup = false"
@@ -84,7 +86,7 @@
   </Teleport>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 import CustomButton from "../core/CustomButton.vue";
 import AddToCalenderPopup from "@/components/webinars/AddToCalenderPopup.vue";
 
@@ -110,19 +112,19 @@ const formRef = ref<HTMLFormElement | null>(null);
 const showPopup = ref(false);
 const popupDetailsLocal = ref<PopupDetails | null>(null);
 const isSubmitting = ref(false);
-
 const formValues = ref<FormValues>({
   firstName: "",
   lastName: "",
-  email: ""
-})
+  email: "",
+});
+const webinarUrlApi = import.meta.env.PUBLIC_WEBINAR_URL;
 
 const onSubmit = async () => {
   if (!formRef.value?.checkValidity()) {
     formRef.value?.reportValidity(); // show tooltips
     return;
   }
- // Trim all string values in formValues
+  // Trim all string values in formValues
   Object.keys(formValues.value).forEach((key) => {
     const val = formValues.value[key];
     if (typeof val === "string") {
@@ -131,19 +133,47 @@ const onSubmit = async () => {
   });
   isSubmitting.value = true;
 
-  popupDetailsLocal.value = {
-    ...props.popupDetails,
-    ...formValues.value
+  const requestBody = {
+    ...formValues.value,
+    webinarId: (props.popupDetails as any).webinarId,
   };
 
-  setTimeout(() => {
-    showPopup.value = true;
-    if (props.buttonOnClick) props.buttonOnClick();
+  const webinarUrlApi = import.meta.env.PUBLIC_WEBINAR_URL;
+  console.log("Webinar URL API:", webinarUrlApi);
+  try {
+    const response = await fetch(
+      `${webinarUrlApi}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody),
+      }
+    );
+
+    if (!response.ok) {
+      // Handle error (show message, etc.)
+      throw new Error("Registration failed");
+    }
+
+    // Optionally handle response data
+    // const data = await response.json();
+
+    popupDetailsLocal.value = {
+      ...props.popupDetails,
+      ...formValues.value,
+    };
+
+    setTimeout(() => {
+      showPopup.value = true;
+      if (props.buttonOnClick) props.buttonOnClick();
+      isSubmitting.value = false;
+    }, 200);
+  } catch (error) {
+    // Optionally show error to user
     isSubmitting.value = false;
-  }, 200);
+  }
 };
 </script>
-
 
 <!-- <template>
   <div class="">
