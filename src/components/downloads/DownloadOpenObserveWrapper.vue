@@ -8,11 +8,11 @@
     :haDeploymentPrimaryButton="haDeploymentPrimaryButton"
     :downloadsDataForVersion="downloadsDataForVersion"
     :enterprise-button="enterpriseButton"
-    :release-date="data[0]?.version"
     @selectedVersion="handleVersionChange"
     @selectedEdition="handleEditionChange"
     @selectedMode="handleModeChange"
-  />
+    />
+    <!-- :release-date="data[0]?.version" -->
   <OperatingsystemForDownload
     :platforms="filteredPlatforms"
     :selectedVersion="version"
@@ -24,6 +24,11 @@
 import { computed, ref, watch } from "vue";
 import DownloadOptionsForm from "./DownloadOptionsForm.vue";
 import OperatingsystemForDownload from "./OperatingsystemForDownload.vue";
+import Linux from "../assets/Linux.vue";
+import MacOS from "../assets/MacOS.vue";
+import Windows from "../assets/Windows.vue";
+import Docker from "../assets/Docker.vue";
+import Kubernetes from "../assets/Kubernetes.vue";
 
 const props = defineProps<{
   title: string;
@@ -61,27 +66,27 @@ const platforms = [
   {
     id: "linux",
     name: "Linux",
-    icon: "/img/icon/linux.svg", // <-- File must be at: public/img/icon/linux.svg
+    icon: Linux, // <-- File must be at: public/img/icon/linux.svg
   },
   {
     id: "mac",
     name: "macOS",
-    icon: "/img/icon/apple.svg", // <-- File must be at: public/img/icon/macos.svg
+    icon: MacOS, // <-- File must be at: public/img/icon/macos.svg
   },
   {
     id: "windows",
     name: "Windows",
-    icon: "/img/icon/windows.svg", // <-- File must be at: public/img/icon/windows.svg
+    icon: Windows, // <-- File must be at: public/img/icon/windows.svg
   },
   {
     id: "docker",
     name: "Docker",
-    icon: "/img/icon/dockericon.svg", // <-- File must be at: public/img/icon/docker.svg
+    icon: Docker, // <-- File must be at: public/img/icon/docker.svg
   },
   {
     id: "kubernetes",
     name: "Kubernetes",
-    icon: "/img/icon/cluster.svg", // <-- File must be at: public/img/icon/kubernetes.svg
+    icon: Kubernetes, // <-- File must be at: public/img/icon/kubernetes.svg
   },
 ];
 

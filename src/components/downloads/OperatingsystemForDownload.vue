@@ -22,7 +22,7 @@
                   : 'text-gray-600',
               ]"
             >
-              <img :src="platform.icon" :alt="platform.name" class="w-6 h-6" />
+              <component :is="platform.icon" class="h-8 w-8" />
             </div>
             <span
               :class="[
@@ -68,7 +68,7 @@
               <button
                 v-if="instruction.downloadUrl"
                 class="inline-flex items-center bg-[#6B76E3] text-white px-4 py-2 rounded hover:opacity-90 cursor-pointer"
-                >
+              >
                 <!-- @click="() => window.open(instruction.downloadUrl, '_blank')" -->
                 <Download class="h-4 w-4 mr-2" />
                 Download
@@ -97,7 +97,6 @@
                   </button>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -146,7 +145,7 @@ const props = defineProps<{
   platforms: Array<{
     id: string;
     name: string;
-    icon: string; // Path to the icon image
+    icon: any; // Path to the icon image
   }>;
   selectedVersion: string;
   selectedMode: string;
@@ -180,7 +179,9 @@ const getPlatformInstructions = () => {
               }-linux-amd64.tar.gz`,
             ],
             downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
-              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              props.selectedVersion === "latest"
+                ? "v0.10.9"
+                : props.selectedVersion
             }/openobserve${
               isEnterprise ? "-enterprise" : ""
             }-linux-amd64.tar.gz`,
@@ -195,7 +196,9 @@ const getPlatformInstructions = () => {
             name: "Manual Download with curl",
             commands: [
               `curl -L https://github.com/openobserve/openobserve/releases/download/${
-                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+                props.selectedVersion === "latest"
+                  ? "v0.10.9"
+                  : props.selectedVersion
               }/openobserve${
                 isEnterprise ? "-enterprise" : ""
               }-linux-amd64.tar.gz | tar xz`,
@@ -232,14 +235,18 @@ const getPlatformInstructions = () => {
               `openobserve${isEnterprise ? "-enterprise" : ""}-windows-x64.exe`,
             ],
             downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
-              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              props.selectedVersion === "latest"
+                ? "v0.10.9"
+                : props.selectedVersion
             }/openobserve${isEnterprise ? "-enterprise" : ""}-windows-x64.exe`,
           },
           {
             name: "PowerShell Download",
             commands: [
               `Invoke-WebRequest -Uri "https://github.com/openobserve/openobserve/releases/download/${
-                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+                props.selectedVersion === "latest"
+                  ? "v0.10.9"
+                  : props.selectedVersion
               }/openobserve${
                 isEnterprise ? "-enterprise" : ""
               }-windows-x64.exe" -OutFile "openobserve.exe"`,
@@ -273,7 +280,9 @@ const getPlatformInstructions = () => {
               }-darwin-amd64.tar.gz`,
             ],
             downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
-              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              props.selectedVersion === "latest"
+                ? "v0.10.9"
+                : props.selectedVersion
             }/openobserve${
               isEnterprise ? "-enterprise" : ""
             }-darwin-amd64.tar.gz`,
@@ -286,7 +295,9 @@ const getPlatformInstructions = () => {
               }-darwin-arm64.tar.gz`,
             ],
             downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
-              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              props.selectedVersion === "latest"
+                ? "v0.10.9"
+                : props.selectedVersion
             }/openobserve${
               isEnterprise ? "-enterprise" : ""
             }-darwin-arm64.tar.gz`,
@@ -301,7 +312,9 @@ const getPlatformInstructions = () => {
             name: "Manual Download - Intel Macs",
             commands: [
               `curl -L https://github.com/openobserve/openobserve/releases/download/${
-                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+                props.selectedVersion === "latest"
+                  ? "v0.10.9"
+                  : props.selectedVersion
               }/openobserve${
                 isEnterprise ? "-enterprise" : ""
               }-darwin-amd64.tar.gz | tar xz`,
@@ -311,7 +324,9 @@ const getPlatformInstructions = () => {
             name: "Manual Download - Apple Silicon",
             commands: [
               `curl -L https://github.com/openobserve/openobserve/releases/download/${
-                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+                props.selectedVersion === "latest"
+                  ? "v0.10.9"
+                  : props.selectedVersion
               }/openobserve${
                 isEnterprise ? "-enterprise" : ""
               }-darwin-arm64.tar.gz | tar xz`,
@@ -394,4 +409,3 @@ const platformInstructions = computed(() => {
   return getPlatformInstructions();
 });
 </script>
-
