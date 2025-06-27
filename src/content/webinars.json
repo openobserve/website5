@@ -1,0 +1,239 @@
+{
+  "data": [
+    {
+      "title": "Mastering Real-Time Anomaly Detection",
+      "subtitle": "Detect issues before they escalate",
+      "description": "Join us to explore how to implement scalable anomaly detection in real-time systems using OpenObserve.",
+      "date": "2024-12-15T10:00:00.000Z",
+      "time": "17:00:00Z",
+      "duration": "60 minutes",
+      "objectives": [
+        {
+          "description": "Understand the fundamentals of real-time anomaly detection."
+        },
+        {
+          "description": "Learn how to configure detection rules in OpenObserve."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Anomaly Detection",
+          "slug": "anomaly-detection"
+        },
+        {
+          "name": "Observability",
+          "slug": "observability"
+        }
+      ],
+      "slug": "mastering-real-time-anomaly-detection",
+      "author": [
+        {
+          "name": "Alex Gutierrez",
+          "slug": "alex-gutierrez",
+          "bio": "Senior Dev Advocate at OpenObserve, passionate about real-time analytics.",
+          "authorBio": "Senior Dev Advocate",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/20.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Real-time insights made easy",
+        "description": "In this comprehensive webinar, you'll learn how to seamlessly implement real-time monitoring and anomaly detection across your distributed systems using OpenObserve. Whether you're just starting out or looking to enhance your observability stack, this session will walk you through key strategies, tools, and best practices for identifying unusual behavior as it happens—before it impacts your users. Discover how to configure alerts, visualize patterns, and leverage machine learning models like Random Cut Forest for automated anomaly detection, all within a unified dashboard experience."
+      },
+      "resources": [
+        {
+          "title": "GitHub Repo",
+          "link": "https://github.com/openobserve/openobserve",
+          "target": "_blank",
+          "description": "Explore the source code and examples."
+        }
+      ]
+    },
+    {
+      "title": "OpenObserve Deep Dive: Dashboards & Visualization",
+      "subtitle": "Craft meaningful visual insights",
+      "description": "Learn to build custom dashboards in OpenObserve for log and metrics data visualization.",
+      "date": "2024-11-20T14:00:00.000Z",
+      "time": "16:00:00Z",
+      "duration": "45 minutes",
+      "objectives": [
+        {
+          "description": "Get familiar with visualization widgets."
+        },
+        {
+          "description": "Understand how to link dashboards with alerting."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Dashboards",
+          "slug": "dashboards"
+        },
+        {
+          "name": "Visualization",
+          "slug": "visualization"
+        }
+      ],
+      "slug": "dashboards-and-visualization",
+      "author": [
+        {
+          "name": "Nisha Rao",
+          "slug": "nisha-rao",
+          "bio": "Product Manager at OpenObserve, focused on user experience and feature design.",
+          "authorBio": "Product Manager",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/4.jpg"
+          }
+        },
+        {
+          "name": "Alex Gutierrez",
+          "slug": "alex-gutierrez",
+          "bio": "Senior Dev Advocate at OpenObserve, passionate about real-time analytics.",
+          "authorBio": "Senior Dev Advocate",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/20.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Visualize your observability data",
+        "description": "Learn how to turn complex metrics, logs, and traces into intuitive, actionable dashboards using OpenObserve’s powerful visualization capabilities. In this session, we’ll guide you through building custom charts, setting up real-time data streams, and organizing panels that give your teams instant clarity. Whether you're monitoring infrastructure, applications, or distributed systems, you'll discover how OpenObserve helps you transform raw data into clear insights—so you can make faster, data-driven decisions."
+      },
+      "resources": [
+        {
+          "title": "Dashboard Templates",
+          "link": "https://openobserve.dev/docs/dashboards",
+          "target": "_blank",
+          "description": "Ready-to-use dashboard layouts for different use cases."
+        }
+      ]
+    },
+    {
+      "title": "From Zero to Observability in 30 Minutes",
+      "subtitle": "From install to insights",
+      "description": "A live demo for developers, DevOps, and SREs exploring fast, scalable observability without the ELK or Splunk headaches.",
+      "date": "2025-06-20T08:45:07.470Z",
+      "time": "12:00:00Z",
+      "duration": "2 minutes",
+      "objectives": [
+        {
+          "description": "Deploy OpenObserve in minutes."
+        },
+        {
+          "description": "Ingest logs with Filebeat/FluentBit."
+        },
+        {
+          "description": "Create dashboards and real-time alerts."
+        },
+        {
+          "description": "Compare with Elastic, Splunk and OpenSearch."
+        }
+      ],
+      "tags": [
+        {
+          "name": "DevOps",
+          "slug": "devops"
+        },
+        {
+          "name": "CI/CD",
+          "slug": "ci-cd"
+        }
+      ],
+      "slug": "getting-started-devops",
+      "author": [
+        {
+          "name": "Rahul Mehta",
+          "slug": "rahul-mehta",
+          "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
+          "authorBio": "DevOps Engineer",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/5.jpg"
+          },
+          "twitterUrl": "https://twitter.com/rahulmehta",
+          "linkedInUrl": "https://www.linkedin.com/in/rahulmehta/"
+        },
+        {
+          "name": "Tina George",
+          "slug": "tina-george",
+          "bio": "Tech Educator focused on log intelligence and observability tools.",
+          "authorBio": "Tech Educator",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/2.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Zero to Hero in OpenObserve for CI/CD",
+        "description": "Learn how to seamlessly integrate observability into your deployment workflows using OpenObserve.<br/><br/>This session covers everything from <strong>initial setup</strong> to <strong>advanced monitoring use cases</strong> within CI/CD environments. You'll explore how to:<ul><li>Instrument your pipelines with minimal overhead</li><li>Visualize build and deployment metrics in real-time</li><li>Diagnose failures quickly using log correlations</li><li>Set up proactive alerts for early anomaly detection</li></ul><br/>By the end, you'll be equipped with the skills to implement a robust observability layer tailored for scalable, cloud-native DevOps operations."
+      },
+      "resources": [
+        {
+          "title": "Quick Start Guide",
+          "link": "https://openobserve.dev/docs/quickstart",
+          "target": "_self",
+          "description": "Step-by-step documentation to set up your environment."
+        }
+      ]
+    },
+    {
+      "title": "Log Enrichment and Custom Parsing in OpenObserve",
+      "subtitle": "Make your logs work for you",
+      "description": "Discover techniques for transforming raw logs into structured, insightful data.",
+      "date": "2025-06-13T07:00:00.000Z",
+      "time": "14:30:00Z",
+      "duration": "50 minutes",
+      "objectives": [
+        {
+          "description": "Learn about parsers, enrichers, and tags in OpenObserve."
+        },
+        {
+          "description": "Use regex and pipelines for log transformation."
+        }
+      ],
+      "tags": [
+        {
+          "name": "Logs",
+          "slug": "logs"
+        },
+        {
+          "name": "Parsing",
+          "slug": "parsing"
+        }
+      ],
+      "slug": "log-enrichment-custom-parsing",
+      "author": [
+        {
+          "name": "Tina George",
+          "slug": "tina-george",
+          "bio": "Tech Educator focused on log intelligence and observability tools.",
+          "authorBio": "Tech Educator",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/women/2.jpg"
+          }
+        },
+        {
+          "name": "Rahul Mehta",
+          "slug": "rahul-mehta",
+          "bio": "Rahul Mehta is a seasoned DevOps Engineer with over 8 years of experience in building scalable CI/CD pipelines and automating cloud-native monitoring systems. Passionate about observability, he has led multiple enterprise-level deployments of tools like Prometheus, Grafana, and OpenObserve. In his free time, Rahul enjoys mentoring aspiring DevOps engineers and contributing to open-source projects.",
+          "authorBio": "DevOps Engineer",
+          "image": {
+            "url": "https://randomuser.me/api/portraits/men/5.jpg"
+          }
+        }
+      ],
+      "summary": {
+        "title": "Smarter logs, better decisions",
+        "description": "In this session, discover how to transform your raw, noisy logs into structured, searchable data that drives meaningful insights. You'll learn best practices for parsing logs, applying filters, and correlating log data with system metrics to detect issues faster. With OpenObserve, you'll gain the ability to set up precise alerts, reduce false positives, and extract actionable patterns that empower your team to make informed decisions in real time—ultimately improving system reliability and performance."
+      },
+      "resources": [
+        {
+          "title": "Parsing Guide",
+          "link": "https://openobserve.dev/docs/parsing",
+          "target": "_blank",
+          "description": "Documentation on creating and applying parsers in OpenObserve."
+        }
+      ]
+    }
+  ]
+}

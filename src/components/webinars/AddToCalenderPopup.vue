@@ -1,0 +1,156 @@
+
+<template>
+  <Transition name="fade">
+    <div
+      v-if="visible"
+      class="fixed inset-0 bg-white/10 backdrop-blur-xs flex items-center justify-center z-50 text-gray-700 pointer-events-none no-scroll"
+    >
+      <div
+        class="flex items-center justify-center w-11/12 sm:w-full h-full pointer-events-auto"
+      >
+        <div
+          class="relative bg-white rounded-xl p-6 max-w-md w-full text-center shadow-xl"
+        >
+          <!-- Close Icon -->
+          <button
+            @click="closePopup"
+            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 cursor-pointer"
+          >
+            <X class="w-5 h-5" />
+          </button>
+          <div class="flex items-center justify-center mb-4">
+            <CircleCheckBig class="w-24 h-24 text-primary-green" />
+          </div>
+          <h2 class="text-2xl font-bold mb-4">Thank You for Registering!</h2>
+          <p class="mb-6">
+            Hi {{ webinarDetail.firstName }}{{ " " + webinarDetail.lastName }}, you've successfully registered
+          </p>
+          <div
+            class="rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 p-4 text-center"
+          >
+            <h3 class="font-semibold text-lg">
+              {{ webinarDetail.eventTitle }}
+            </h3>
+            <div
+              class="flex items-center justify-center gap-1 mt-2 text-muted-foreground text-sm"
+            >
+              <Calendar class="h-4 w-4" />
+              <span>
+                {{ webinarDetail.eventDate }} at
+                {{ webinarDetail.eventTime }}
+              </span>
+            </div>
+          </div>
+          <div
+            class="flex flex-col space-y-3 mb-4 w-full items-center mx-auto text-sm"
+          >
+            <!-- <a
+          :href="calendarLinks.google"
+          target="_blank"
+          class="button-style flex items-center justify-center space-x-2"
+        >
+          <Calendar class="w-4 h-4" />
+          <span>Add to Google Calendar</span>
+        </a>
+
+        <a
+          :href="calendarLinks.outlook"
+          target="_blank"
+          class="button-style flex items-center justify-center space-x-2"
+        >
+          <Download class="w-4 h-4" />
+          <span>Download Outlook .ICS</span>
+        </a>
+
+        <a
+          :href="calendarLinks.ics"
+          download="webinar.ics"
+          class="button-style flex items-center justify-center space-x-2"
+        >
+          <Download class="w-4 h-4" />
+          <span>Download Apple .ICS</span>
+        </a> -->
+          </div>
+
+          <p>
+            You'll receive a confirmation email with these details shortly. We
+            look forward to seeing you at the webinar!
+          </p>
+        </div>
+      </div>
+    </div>
+  </Transition>
+</template>
+
+<script setup lang="ts">
+import { defineProps, defineEmits, watch, onMounted, onUnmounted } from "vue";
+import { Calendar, Download, X, CircleCheckBig } from "lucide-vue-next";
+const props = defineProps<{
+  visible: boolean;
+  webinarDetail: {
+    eventTitle: string;
+    eventDate: string;
+    eventTime: string;
+    email: string;
+    firstName?: string;
+    lastName?: string;
+  };
+}>();
+// console.log(props.webinarDetail,"details inside popup");
+const emit = defineEmits(["close"]);
+
+function closePopup() {
+  emit("close");
+}
+// Utility function
+function toggleBodyScroll(disable: boolean) {
+  if (disable) {
+    document.body.classList.add("no-scroll");
+  } else {
+    document.body.classList.remove("no-scroll");
+  }
+}
+
+// Watch for popup visibility
+watch(
+  () => props.visible,
+  (visible) => {
+    toggleBodyScroll(visible);
+  }
+);
+// Escape key closes modal
+function handleKeyDown(e: KeyboardEvent) {
+  if (e.key === "Escape" && props.visible) {
+    emit("close");
+  }
+}
+
+// Setup key listener on mount
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
+});
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeyDown);
+});
+</script>
+<style scoped>
+.button-style {
+  background-color: #155dfc;
+  color: white;
+  transition: all 0.3s ease;
+  padding: 6px;
+  border-radius: 6px;
+}
+.button-style:hover {
+  background-color: #155dfc;
+  opacity: 0.9;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

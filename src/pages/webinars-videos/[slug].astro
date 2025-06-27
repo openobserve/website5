@@ -1,0 +1,92 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import WebinarDetailHeroSection from "@/components/webinars/WebinarDetailHeroSection.vue";
+import WebinarDetail from "@/components/webinars/WebinarDetail.vue";
+import WebinarAuthorWrapper from "@/components/webinars/WebinarAuthorWrapper.vue";
+import fetchApi from "@/utils/strapi";
+import { fetchWebinar } from "@/utils/cache";
+export async function getStaticPaths() {
+  try {
+    const response = (await fetchWebinar()) || {};
+
+    const webinars = response || [];
+
+    // Filter out webinars without valid slugs
+    return webinars
+      .filter((webinar) => webinar.slug) // Only include webinars with slugs
+      .map((webinar) => ({
+        params: {
+          slug: webinar.slug.toString(), // Ensure slug is a string
+        },
+        props: { webinar },
+      }));
+  } catch (error) {
+    console.error("Error fetching webinars:", error);
+    return []; // Return empty array if there's an error
+  }
+}
+
+const { webinar } = Astro.props;
+const { slug } = Astro.params;
+
+// Handle case where webinar is not found
+if (!webinar) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const mappedWebinar = {
+  ...webinar,
+  author:
+    webinar.authors?.map((author) => ({
+      name: author.name,
+      bio: author.bio,
+      slug: author.slug,
+      image: author.image,
+      twitterUrl: author.twitterUrl,
+      facebookUrl: author.facebookUrl,
+      linkedInUrl: author.linkedInUrl,
+    })) || [],
+  publishDate: webinar.date,
+  summary: {
+    title: webinar.title,
+    description: webinar.description,
+  },
+  content: webinar.content,
+  resources: webinar.resources || [],
+  image: webinar.image,
+  video: webinar.video,
+  objectives:
+    webinar.objectives?.map((obj) => ({
+      description: obj.title,
+    })) || [],
+};
+
+---
+
+<Layout>
+  <WebinarDetailHeroSection
+    title={mappedWebinar.title}
+    overview={mappedWebinar.overview}
+    tags={mappedWebinar.tags}
+    publishDate={mappedWebinar.publishDate}
+    shareUrl={`/webinars/${slug}`}
+    duration={mappedWebinar.duration}
+    time={mappedWebinar.time}
+    image={mappedWebinar.image}
+    video={mappedWebinar.video}
+    webinarId={webinar.webinarId}
+    client:load
+  />
+  <WebinarDetail
+    client:load
+    objectives={mappedWebinar.objectives}
+    summary={mappedWebinar.summary}
+    content={mappedWebinar.content}
+    resources={mappedWebinar.resources}
+    authors={mappedWebinar.author}
+  />
+  <WebinarAuthorWrapper client:load authors={mappedWebinar.author} />
+</Layout>

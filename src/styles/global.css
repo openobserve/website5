@@ -553,3 +553,7 @@
 .cc-revoke {
   display: none !important;
 }
+
+body.no-scroll {
+  overflow: hidden !important;
+}
