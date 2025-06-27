@@ -50,7 +50,7 @@
             </p>
             <p
               v-if="platformInstructions.sha"
-              class="text-sm text-gray-600 font-mono bg-gray-50 p-2 rounded"
+              class="text-sm text-gray-600 font-mono bg-gray-50 p-2 rounded overflow-x-auto"
             >
               {{ platformInstructions.sha }}
             </p>
@@ -67,9 +67,9 @@
 
               <button
                 v-if="instruction.downloadUrl"
-                class="inline-flex items-center bg-[#6B76E3] text-white px-4 py-2 rounded hover:opacity-90"
-                @click="() => window.open(instruction.downloadUrl, '_blank')"
-              >
+                class="inline-flex items-center bg-[#6B76E3] text-white px-4 py-2 rounded hover:opacity-90 cursor-pointer"
+                >
+                <!-- @click="() => window.open(instruction.downloadUrl, '_blank')" -->
                 <Download class="h-4 w-4 mr-2" />
                 Download
               </button>
@@ -78,7 +78,7 @@
                 v-else
                 class="bg-gray-50 rounded-lg p-4 border border-gray-200"
               >
-                <div class="flex items-start justify-between">
+                <div class="flex items-center justify-between">
                   <pre
                     class="text-sm text-gray-800 font-mono overflow-x-auto flex-1 whitespace-pre-wrap"
                     >{{ instruction.commands.join("\n") }}</pre
@@ -97,6 +97,7 @@
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -137,7 +138,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { Copy, Check, AlertCircle, Download } from "lucide-vue-next";
 import CustomSection from "@/components/core/CustomSection.vue";
 
@@ -147,61 +148,250 @@ const props = defineProps<{
     name: string;
     icon: string; // Path to the icon image
   }>;
+  selectedVersion: string;
+  selectedMode: string;
+  selectedEdition: string;
 }>();
-
-const instructionsMap = {
-  linux: {
-    title: "Install on Linux",
-    description: "Follow the steps below to install on Linux.",
-    sha: "sha256:123abc...",
-    instructions: [
-      {
-        name: "Install via CLI",
-        commands: [
-          "wget https://example.com/linux.tar.gz",
-          "tar -xzf linux.tar.gz",
-        ],
-      },
-    ],
-    additionalInfo: "Make sure to give execution permissions to the binary.",
-    troubleshooting: {
-      title: "Permission Error",
-      description: "Permission denied when running the binary.",
-      solution: "Run `chmod +x binary` and try again.",
-    },
-  },
-  mac: {
-    title: "Install on macOS",
-    description: "Drag the app to Applications folder.",
-    instructions: [
-      {
-        name: "Download .dmg",
-        downloadUrl: "https://example.com/macos.dmg",
-      },
-    ],
-  },
-  windows: {
-    title: "Install on Windows",
-    instructions: [
-      {
-        name: "Download Installer",
-        downloadUrl: "https://example.com/windows.exe",
-      },
-    ],
-  },
-};
 
 const selectedPlatform = ref("linux");
 const copiedCommand = ref<number | null>(null);
-
-const platformInstructions = computed(
-  () => instructionsMap[selectedPlatform.value]
-);
-
 function copyToClipboard(text: string, index: number) {
   navigator.clipboard.writeText(text).then(() => {
     copiedCommand.value = index;
     setTimeout(() => (copiedCommand.value = null), 2000);
   });
 }
+
+const getPlatformInstructions = () => {
+  const isEnterprise = props.selectedEdition === "enterprise";
+  switch (selectedPlatform.value) {
+    case "linux":
+      return {
+        title: "Linux (64 Bit)",
+        description:
+          "Download the binary or use our installation script for the latest version.",
+        sha: "SHA256: 0eedc92b1d48bbb34dac8a6afbba39c7ea9b849f194186146fa6f756cb84093",
+        instructions: [
+          {
+            name: "Download Binary",
+            commands: [
+              `openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-linux-amd64.tar.gz`,
+            ],
+            downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
+              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+            }/openobserve${
+              isEnterprise ? "-enterprise" : ""
+            }-linux-amd64.tar.gz`,
+          },
+          {
+            name: "Quick Install Script",
+            commands: [
+              "curl -L https://raw.githubusercontent.com/openobserve/openobserve/main/download.sh | sh",
+            ],
+          },
+          {
+            name: "Manual Download with curl",
+            commands: [
+              `curl -L https://github.com/openobserve/openobserve/releases/download/${
+                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              }/openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-linux-amd64.tar.gz | tar xz`,
+            ],
+          },
+          {
+            name: "Run OpenObserve",
+            commands: [
+              'ZO_ROOT_USER_EMAIL="root@example.com" ZO_ROOT_USER_PASSWORD="Complexpass#123" ./openobserve',
+            ],
+          },
+        ],
+        additionalInfo:
+          "Now point your browser to http://localhost:5080 and login",
+        troubleshooting: {
+          title: "Getting glibc error running binary?",
+          description:
+            "./openobserve: `/lib/libm.so.6`: version `GLIBC_2.27` not found (required by ./openobserve)",
+          solution:
+            "Download the musl binary instead of regular binary from releases page that has no external dependencies. This binary is not as performant as other binaries though. We recommend running the containerized version if performance is a concern for you and are unable to make the dependencies work.",
+        },
+      };
+
+    case "windows":
+      return {
+        title: "Windows (64 Bit)",
+        description:
+          "Download the Windows executable for your selected version.",
+        sha: "SHA256: c39a4c5762aefed8aec78ab52b0aa52a6da8ce0c644d63d4d2cdcf374059763",
+        instructions: [
+          {
+            name: "Download Windows Executable",
+            commands: [
+              `openobserve${isEnterprise ? "-enterprise" : ""}-windows-x64.exe`,
+            ],
+            downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
+              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+            }/openobserve${isEnterprise ? "-enterprise" : ""}-windows-x64.exe`,
+          },
+          {
+            name: "PowerShell Download",
+            commands: [
+              `Invoke-WebRequest -Uri "https://github.com/openobserve/openobserve/releases/download/${
+                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              }/openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-windows-x64.exe" -OutFile "openobserve.exe"`,
+            ],
+          },
+          {
+            name: "Run OpenObserve",
+            commands: [
+              "set ZO_ROOT_USER_EMAIL=root@example.com",
+              "set ZO_ROOT_USER_PASSWORD=Complexpass#123",
+              "openobserve.exe",
+            ],
+          },
+        ],
+        additionalInfo:
+          "Now point your browser to http://localhost:5080 and login",
+      };
+
+    case "mac":
+      return {
+        title: "macOS (Intel and Apple Silicon)",
+        description:
+          "Download the appropriate binary for your Mac architecture or use our installation script.",
+        sha: "SHA256: e149e7ec3c2eac0c9e7af13ceba861d4b09ed14c7d330317c0de49e5313b580d",
+        instructions: [
+          {
+            name: "Download Intel Mac Binary",
+            commands: [
+              `openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-darwin-amd64.tar.gz`,
+            ],
+            downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
+              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+            }/openobserve${
+              isEnterprise ? "-enterprise" : ""
+            }-darwin-amd64.tar.gz`,
+          },
+          {
+            name: "Download Apple Silicon Binary",
+            commands: [
+              `openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-darwin-arm64.tar.gz`,
+            ],
+            downloadUrl: `https://github.com/openobserve/openobserve/releases/download/${
+              props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+            }/openobserve${
+              isEnterprise ? "-enterprise" : ""
+            }-darwin-arm64.tar.gz`,
+          },
+          {
+            name: "Quick Install Script",
+            commands: [
+              "curl -L https://raw.githubusercontent.com/openobserve/openobserve/main/download.sh | sh",
+            ],
+          },
+          {
+            name: "Manual Download - Intel Macs",
+            commands: [
+              `curl -L https://github.com/openobserve/openobserve/releases/download/${
+                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              }/openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-darwin-amd64.tar.gz | tar xz`,
+            ],
+          },
+          {
+            name: "Manual Download - Apple Silicon",
+            commands: [
+              `curl -L https://github.com/openobserve/openobserve/releases/download/${
+                props.selectedVersion === "latest" ? "v0.10.9" : props.selectedVersion
+              }/openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }-darwin-arm64.tar.gz | tar xz`,
+            ],
+          },
+          {
+            name: "Run OpenObserve",
+            commands: [
+              'ZO_ROOT_USER_EMAIL="root@example.com" ZO_ROOT_USER_PASSWORD="Complexpass#123" ./openobserve',
+            ],
+          },
+        ],
+        additionalInfo:
+          "Now point your browser to http://localhost:5080 and login",
+      };
+
+    case "docker":
+      return {
+        title: "Docker",
+        description: `Docker images are available at https://gallery.ecr.aws/zinclabs/openobserve${
+          isEnterprise ? "-enterprise" : ""
+        }`,
+        sha: "",
+        instructions: [
+          {
+            name: "Docker Run",
+            commands: [
+              `docker run -v $PWD/data:/data -e ZO_DATA_DIR="/data" -p 5080:5080 \\`,
+              `    -e ZO_ROOT_USER_EMAIL="root@example.com" -e ZO_ROOT_USER_PASSWORD="Complexpass#123" \\`,
+              `    public.ecr.aws/zinclabs/openobserve${
+                isEnterprise ? "-enterprise" : ""
+              }:latest`,
+            ],
+          },
+        ],
+        additionalInfo:
+          "Now point your browser to http://localhost:5080 and login",
+        troubleshooting: {
+          title: "Error pulling image if you have AWS CLI installed?",
+          description:
+            "If you have AWS CLI installed and get login error then run below command:",
+          solution:
+            "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws",
+        },
+      };
+
+    case "kubernetes":
+      return {
+        title: "Kubernetes - Manifest",
+        description: "",
+        sha: "",
+        instructions: [
+          {
+            name: "Create Namespace",
+            commands: ["kubectl create ns openobserve"],
+          },
+          {
+            name: "Create Deployment",
+            commands: [
+              "kubectl apply -f https://raw.githubusercontent.com/zinclabs/openobserve/main/deploy/k8s/statefulset.yaml",
+            ],
+          },
+          {
+            name: "Port Forward",
+            commands: [
+              "kubectl -n openobserve port-forward svc/openobserve 5080:5080",
+            ],
+          },
+        ],
+        additionalInfo:
+          "Now point your browser to http://localhost:5080 and login",
+      };
+
+    default:
+      return null;
+  }
+};
+
+const platformInstructions = computed(() => {
+  return getPlatformInstructions();
+});
 </script>
+

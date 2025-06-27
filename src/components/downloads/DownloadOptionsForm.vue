@@ -82,9 +82,7 @@
                     Released:
                     {{
                       selectedVersion === "latest"
-                        ? editionOptions[0].releseDate
-                        : selectedVersion === "v0.10.8"
-                        ? "Nov 25, 2024"
+                        ? releaseDate
                         : "Nov 10, 2024"
                     }}
                   </span>
@@ -140,6 +138,7 @@ const props = defineProps<{
     link: string;
     target?: string;
   };
+  releaseDate: string;
   downloadsDataForVersion: {
     label: string;
     value: string;
@@ -159,6 +158,8 @@ const selectedMode = ref("single");
 const emits = defineEmits(["selectedVersion", "selectedEdition", "selectedMode"]);
 
 watch(selectedVersion, (val) => emits('selectedVersion', val));
-watch(selectedEdition, (val) => emits('selectedEdition', val));
+watch(selectedEdition, (val) => {
+  emits('selectedEdition', val);
+});
 watch(selectedMode, (val) => emits('selectedMode', val));
 </script>

@@ -8,14 +8,20 @@
     :haDeploymentPrimaryButton="haDeploymentPrimaryButton"
     :downloadsDataForVersion="downloadsDataForVersion"
     :enterprise-button="enterpriseButton"
+    :release-date="data[0]?.version"
     @selectedVersion="handleVersionChange"
     @selectedEdition="handleEditionChange"
     @selectedMode="handleModeChange"
   />
-  <OperatingsystemForDownload :platforms="filteredPlatforms"/>
+  <OperatingsystemForDownload
+    :platforms="filteredPlatforms"
+    :selectedVersion="version"
+    :selectedMode="mode"
+    :selectedEdition="edition"
+  />
 </template>
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import DownloadOptionsForm from "./DownloadOptionsForm.vue";
 import OperatingsystemForDownload from "./OperatingsystemForDownload.vue";
 
@@ -79,7 +85,6 @@ const platforms = [
   },
 ];
 
-
 const downloadsDataForVersion = computed(() => {
   return versions?.map((e) => ({
     value: e.value,
@@ -106,6 +111,7 @@ const filteredPlatforms = computed(() => {
     ? platforms.filter((p) => p.id === "kubernetes")
     : platforms;
 });
+
 // const downloadsDataForVersion = computed(() => {
 //   return versions?.map((e) => ({
 //     value: e.version.toLowerCase(),
